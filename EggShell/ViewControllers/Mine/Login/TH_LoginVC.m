@@ -52,11 +52,11 @@
     //    UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 0)];
     //    bgView.backgroundColor = color(243, 243, 241);
     //    [self.view addSubview:bgView];
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(-72, 15, 72, 90)];
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(-72, 15, 80, 90)];
     imageView.image = [UIImage imageNamed:@"logo"];
     [self.scro addSubview:imageView];
     [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:20 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        imageView.frame = CGRectMake((WIDETH-72)/2.0, 10, 72,90);
+        imageView.frame = CGRectMake((WIDETH-80)/2.0, 10, 80,90);
     } completion:nil];
     
     UIView * loginView = [[UIView alloc] initWithFrame:CGRectMake(0, 110, WIDETH, 90)];
@@ -69,7 +69,7 @@
     loginSencondView.backgroundColor =color(221, 221, 221);
     [loginView addSubview:loginSencondView];
     
-    UIView * loginThreeView = [[UIView alloc] initWithFrame:CGRectMake(0, 89.5, WIDETH, 0.5)];
+    UIView * loginThreeView = [[UIView alloc] initWithFrame:CGRectMake(0, 89.6, WIDETH, 0.4)];
     loginThreeView.backgroundColor = color(221, 221, 221);
     [loginView addSubview:loginThreeView];
     

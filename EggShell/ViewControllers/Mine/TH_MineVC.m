@@ -191,10 +191,11 @@
     UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    
     picker.delegate = self;
     picker.allowsEditing = YES;
-    picker.sourceType = sourceType;
-    [self presentViewController:picker animated:YES completion:nil];
+        picker.sourceType = sourceType;
+   [self presentViewController:picker animated:YES completion:nil];
 }
 #pragma mark -打开图库
 - (void)openPicture
@@ -205,7 +206,10 @@
     TH_ImagePickerVC *picVC = [[TH_ImagePickerVC alloc] init];
     picVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     picVC.delegate = self;
+    
+//    UINavigationController * picNav = [[UINavigationController alloc] initWithRootViewController:picVC];
     [self presentViewController:picVC animated:YES completion:nil];
+//    [self.navigationController pushViewController:picVC animated:YES];
 }
 #pragma mark
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
