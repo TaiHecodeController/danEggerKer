@@ -8,7 +8,7 @@
 
 #import "TH_ForgotPasswordVC.h"
 #import "TH_getCodeNextVC.h"
-@interface TH_ForgotPasswordVC ()
+@interface TH_ForgotPasswordVC ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UIButton * securityCodeBtn;
 @property(nonatomic,assign)int * count;
@@ -52,6 +52,8 @@
     UITextField * phoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(80, 0, WIDETH - 30-80, 45)];
     phoneTextField.placeholder = @"请输入手机号";
     phoneTextField.textColor = color(200, 200, 200);
+    phoneTextField.textColor  = [UIColor blackColor];
+    phoneTextField.keyboardType = UIKeyboardTypeNumberPad;
     phoneTextField.font = [UIFont systemFontOfSize:13];
     [phoneBgView addSubview:phoneTextField];
     [self.scro addSubview:phoneBgView];
@@ -73,6 +75,8 @@
     
     UITextField * securiedTextField = [[UITextField alloc] initWithFrame:CGRectMake(80, 0, WIDETH- 30 - 80-10, 45)];
     securiedTextField.placeholder = @"请输入验证码";
+    securiedTextField.keyboardType = UIKeyboardTypeNumberPad;
+    securiedTextField.textColor = [UIColor blackColor];
     securiedTextField.font =[UIFont systemFontOfSize:13];
     securiedTextField.textColor  = color(200, 200, 200);
     [securityCodeBgView addSubview:securiedTextField];

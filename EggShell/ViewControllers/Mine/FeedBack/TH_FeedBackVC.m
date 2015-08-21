@@ -13,6 +13,11 @@
 @property(nonatomic,strong)UILabel * placeHoderLable;
 @property(nonatomic,strong)UITextField * textqqField;
 @property(nonatomic,strong)UITextField * emailTextFiled ;
+@property(nonatomic,strong)UIView * titleView;
+@property(nonatomic,strong)UILabel * ContactTextLable;
+@property(nonatomic,strong)UIView *bgqqView;
+@property(nonatomic,strong)UIView *emailBgview;
+@property(nonatomic,strong)UIButton * subMitBtn;
 @end
 
 @implementation TH_FeedBackVC
@@ -24,7 +29,7 @@
     UIScrollView * sco =[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     [self.view addSubview:sco];
     self.scro = sco;
-    [self createTextView];
+   [self createTextView];
     /*隐藏键盘**/
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
     tapGestureRecognizer.cancelsTouchesInView = NO;
@@ -33,26 +38,27 @@
     /*显示键盘**/
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
     
-    /*收回键盘**/
+//    /*收回键盘**/
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
     }
 
 -(void)createTextView{
 
     
-    UIView * View =[[UIView alloc] initWithFrame:CGRectMake(30, 30, WIDETH-60, 160)];
-    View.backgroundColor = [UIColor whiteColor];
-    View.layer.cornerRadius = 3;
-    View.layer.masksToBounds = YES;
-    View.layer.borderWidth = 0.5;
-    View.layer.borderColor = UIColorFromRGB(0xDDDDDD).CGColor;
-    [self.scro addSubview:View];
-    UITextView * textView =[[UITextView alloc] initWithFrame:CGRectMake(5, 5, View.width-10, 150)];
+    UIView * titleView =[[UIView alloc] initWithFrame:CGRectMake(30, 30, WIDETH-60, 160)];
+    titleView.backgroundColor = [UIColor whiteColor];
+    titleView.layer.cornerRadius = 3;
+    titleView.layer.masksToBounds = YES;
+    titleView.layer.borderWidth = 0.5;
+    titleView.layer.borderColor = UIColorFromRGB(0xDDDDDD).CGColor;
+    [self.scro addSubview:titleView];
+    self.titleView = titleView;
+    UITextView * textView =[[UITextView alloc] initWithFrame:CGRectMake(5, 5, titleView.width-10, 150)];
 //    textView.text = @"请留下你的宝贵意见，我们会尽快处理...";
     textView.font =[UIFont systemFontOfSize:12];
     textView.delegate = self;
     textView.textColor  = UIColorFromRGB(0xC8C8C8);
-    [View addSubview:textView];
+    [titleView addSubview:textView];
     
     UILabel * placeHoderLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, textView.width, 12)];
     placeHoderLable.text = @"请留下你的宝贵意见，我们会尽快处理...";
@@ -66,6 +72,7 @@
     ContactTextLable.text = @"留下你的联络方式，方便我们与你取得联系";
     ContactTextLable.textColor = UIColorFromRGB(0x323232);
     ContactTextLable.font =[UIFont systemFontOfSize:12];
+    self.ContactTextLable = ContactTextLable;
     [self.scro addSubview:ContactTextLable];
     /*可选项**/
     UIButton * optionalBtn = [[UIButton alloc] initWithFrame:CGRectMake(263, 211, 40, 20)];
@@ -83,12 +90,15 @@
     bgqqView.layer.cornerRadius = 3;
     bgqqView.layer.masksToBounds = YES;
     bgqqView.layer.borderColor = UIColorFromRGB(0xDDDDDD).CGColor;
+    self.bgqqView = bgqqView;
     [self.scro addSubview:bgqqView];
     
     UITextField * textqqField = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, WIDETH-70, 35)];
     textqqField.placeholder = @"QQ号码";
     textqqField.textColor = UIColorFromRGB(0xC8C8C8);
     textqqField.font = [UIFont systemFontOfSize:12];
+    textqqField.textColor = [UIColor blackColor];
+    textqqField.keyboardType = UIKeyboardTypeNumberPad;
     self.textqqField = textqqField;
     [bgqqView addSubview:textqqField];
     
@@ -99,11 +109,13 @@
     emailBgview.layer.masksToBounds = YES;
     emailBgview.layer.borderColor = bgqqView.layer.borderColor = UIColorFromRGB(0xDDDDDD).CGColor;
     emailBgview.layer.borderWidth = 0.5;
+    self.emailBgview = emailBgview;
     [self.scro addSubview:emailBgview];
     UITextField * emailTextFiled =[[UITextField alloc] initWithFrame:CGRectMake(10, 0, WIDETH-70, 35)];
     emailTextFiled.placeholder = @"邮箱地址";
     emailTextFiled.font =[UIFont systemFontOfSize:12];
     emailTextFiled.textColor = UIColorFromRGB(0xC8C8C8);
+    emailTextFiled.textColor = [UIColor blackColor];
     self.emailTextFiled = emailTextFiled;
     [emailBgview addSubview:emailTextFiled];
     /*提交**/
@@ -112,6 +124,7 @@
     [subMitBtn setTitle:@"提交" forState:UIControlStateNormal];
     subMitBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [subMitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.subMitBtn = subMitBtn;
     [self.scro addSubview:subMitBtn];
     
     
@@ -135,17 +148,17 @@
     CGRect keyboardRect = [aValue CGRectValue];
     int height = keyboardRect.size.height;
     NSLog(@"%d",height);
+    self.scro.contentSize = CGSizeMake(WIDETH, 450+height);
+    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+height) animated:YES];
     
-    [UIView animateWithDuration:0.2 animations:^{
-           self.scro.frame = CGRectMake(0, -height, WIDETH, HEIGHT);
-        self.scro.contentSize = CGSizeMake(WIDETH, 450);
-        }];
+    
+
 
 }
 -(void)hideKeyBoard:(NSNotification*)notification
 {
-    
-    
+    self.scro.contentSize = CGSizeMake(WIDETH, 450);
+    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

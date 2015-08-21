@@ -13,6 +13,9 @@
 #import "playFanModel.h"
 #import "AFAppRequest.h"
 @interface TH_PlayFanVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
+{
+    MBProgressHUD * _mbPro;
+}
 @property(nonatomic,strong)UITableView * tableView;
 @property (nonatomic, strong) HYSegmentedControl *segmentedControl;
 @property (nonatomic, assign) int currentIndex;
@@ -39,6 +42,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.dataArray =[NSMutableArray arrayWithCapacity:0];
         self.view.backgroundColor =[UIColor whiteColor];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
         self.navigationController.navigationBar.translucent = NO;
@@ -48,8 +52,8 @@
     [self createView];
     [self createTbleView];
     [self hySegmentedControlSelectAtIndex:0];
-    [self loadData:_header page:0];
-
+    MBProgressHUD * mub = [MBProgressHUD mbHubShow];
+    [self loadData:mub page:0];
     // Do any additional setup after loading the view.
 }
 
@@ -114,6 +118,7 @@
     tableView.delegate = self;
     self.tableView = tableView;
     self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:tableView];
     //下拉刷新
       _header = [MJRefreshHeaderView header];
@@ -161,14 +166,13 @@
     if( refreshView == _header ){
         _page = 0;
         THLog(@"");
-        self.dataArray = [NSMutableArray arrayWithCapacity:0];
+        
         [self loadData:refreshView page:_page];
     }
     else{
         self.page++;
         THLog(@"上拉加载更多");
-        [self.dataArray removeAllObjects];
-        [self loadData:refreshView page:_page];
+                [self loadData:refreshView page:_page];
         
         
     }

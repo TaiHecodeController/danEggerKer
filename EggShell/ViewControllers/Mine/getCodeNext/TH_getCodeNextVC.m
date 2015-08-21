@@ -41,6 +41,8 @@
     
     UITextField * newPasswordTextFied = [[UITextField alloc] initWithFrame:CGRectMake(95, 0, WIDETH - 95, 45)];
     newPasswordTextFied.placeholder = @"请输入新密码";
+    newPasswordTextFied.textColor = [UIColor blackColor];
+    newPasswordTextFied.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     newPasswordTextFied.textColor = color(200, 200, 200);
     newPasswordTextFied.font = [UIFont systemFontOfSize:13];
     [newPassworBgView addSubview:newPasswordTextFied];
@@ -63,6 +65,8 @@
     UITextField  * confirmPasswordTextField =[[UITextField alloc] initWithFrame:CGRectMake(95, 0, WIDETH - 95, 45)];
     confirmPasswordTextField.placeholder = @"请输入确认密码";
     confirmPasswordTextField.textColor = color(200, 200, 200);
+    confirmPasswordTextField.textColor =[UIColor blackColor];
+    confirmPasswordTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     confirmPasswordTextField.font = [UIFont systemFontOfSize:13];
     [confirmPassWordBgView addSubview:confirmPasswordTextField];
     

@@ -10,4 +10,6 @@
 #import "ComPanyProfileView.h"
 @interface TH_JobDetailVC : TH_BaseVC
 @property(nonatomic,strong)ComPanyProfileView *  CMview;
+@property(nonatomic,strong)MJRefreshHeaderView * header;
+@property(nonatomic,strong)MJRefreshFooterView * footer;
 @end

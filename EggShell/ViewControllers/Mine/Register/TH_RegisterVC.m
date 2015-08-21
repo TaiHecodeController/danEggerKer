@@ -22,8 +22,17 @@
     self.count = 60;
     self.view.backgroundColor = color(243, 243, 241);
     [self createScro];
-    // Do any additional setup after loading the view.
-}
+    /*隐藏键盘**/
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+    
+    /*显示键盘**/
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
+    
+    //    /*收回键盘**/
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
+    }
 -(void)createScro{
 
     UIScrollView * scro= [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
@@ -52,6 +61,9 @@
     phoneTextField.placeholder = @"请输入手机号";
     phoneTextField.textColor = color(200, 200, 200);
     phoneTextField.font = [UIFont systemFontOfSize:13];
+    phoneTextField.textColor =[UIColor blackColor];
+    phoneTextField.keyboardType = UIKeyboardTypeNumberPad;
+    phoneTextField.returnKeyType = UIReturnKeyNext;
     [phoneBgView addSubview:phoneTextField];
     [self.scro addSubview:phoneBgView];
     //密码
@@ -75,6 +87,8 @@
     passwordTextField.placeholder  = @"请输入密码";
     passwordTextField.textColor = color(200, 200, 200);
     passwordTextField.font = [UIFont systemFontOfSize:13];
+    passwordTextField.textColor = [UIColor blackColor];
+    passwordTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     [passwordBgView addSubview:passwordTextField];
     
     
@@ -100,6 +114,8 @@
     securiedTextField.placeholder = @"请输入验证码";
     securiedTextField.font =[UIFont systemFontOfSize:13];
     securiedTextField.textColor  = color(200, 200, 200);
+    securiedTextField.textColor = [UIColor blackColor];
+    securiedTextField.keyboardType = UIKeyboardTypeNumberPad;
     [securityCodeBgView addSubview:securiedTextField];
     
     [self.scro addSubview:securityCodeBgView];
@@ -129,6 +145,7 @@
     registerBtn.layer.cornerRadius = 3;
     registerBtn.layer.masksToBounds = YES;
     [self.scro addSubview:registerBtn];
+    self.scro.contentSize = CGSizeMake(WIDETH, HEIGHT);
     
     
 }
@@ -155,6 +172,35 @@
         self.count = 60;
     }
 }
+
+-(void)keyboardHide:(UITapGestureRecognizer*)tap
+{
+    [self.view endEditing:YES];
+}
+
+-(void)showKeyBoard:(NSNotification*)notification
+{
+    
+    /*获取键盘的高度**/
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    int height = keyboardRect.size.height;
+    NSLog(@"%d",height);
+    self.scro.contentSize = CGSizeMake(WIDETH, 450+height);
+    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+height) animated:YES];
+    
+    
+    
+    
+}
+-(void)hideKeyBoard:(NSNotification*)notification
+{
+    self.scro.contentSize = CGSizeMake(WIDETH, 450);
+    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

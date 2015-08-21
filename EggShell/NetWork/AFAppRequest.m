@@ -43,7 +43,7 @@
 {
     if( [notify isKindOfClass:[MJRefreshBaseView class]]){
         if( _running ){
-            [(MJRefreshBaseView *)notify beginRefreshing];
+           
         }
         else{
             [(MJRefreshBaseView *)notify endRefreshing];

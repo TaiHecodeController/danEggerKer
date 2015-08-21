@@ -16,6 +16,7 @@
 @property (strong,nonatomic)UIButton * loginBtn;
 @property(nonatomic,strong)UITextField * phonetextField;
 @property(nonatomic,strong)UITextField * passwordTextFiled;
+@property(nonatomic,strong)UIScrollView * scro;
 @end
 
 @implementation TH_LoginVC
@@ -24,8 +25,27 @@
     [super viewDidLoad];
     self.title = @"登录";
     self.view.backgroundColor = color(243, 243, 241);
+    [self createScro];
     [self loginView];
+    /*隐藏键盘**/
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+    
+    /*显示键盘**/
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
+    
+    //    /*收回键盘**/
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
     // Do any additional setup after loading the view.
+}
+-(void)createScro
+{
+
+    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
+    [self.view addSubview:scro];
+    self.scro = scro;
+    
 }
 -(void)loginView
 {
@@ -34,14 +54,14 @@
     //    [self.view addSubview:bgView];
     UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(-72, 15, 72, 90)];
     imageView.image = [UIImage imageNamed:@"logo"];
-    [self.view addSubview:imageView];
+    [self.scro addSubview:imageView];
     [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:20 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         imageView.frame = CGRectMake((WIDETH-72)/2.0, 10, 72,90);
     } completion:nil];
     
     UIView * loginView = [[UIView alloc] initWithFrame:CGRectMake(0, 110, WIDETH, 90)];
     loginView.backgroundColor = color(255, 255, 255);
-    [self.view addSubview:loginView];
+    [self.scro addSubview:loginView];
     UIView * linefirstView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 0.5)];
     linefirstView.backgroundColor = color(221, 221, 221);
     [loginView addSubview:linefirstView];
@@ -130,7 +150,7 @@
     loginBtn.titleLabel.textColor = color(255, 255, 255);
     [loginBtn addTarget:self action:@selector(loginBtbClick) forControlEvents:UIControlEventTouchUpInside];
     loginBtn.alpha = 0;
-    [self.view addSubview:loginBtn];
+    [self.scro addSubview:loginBtn];
     
     [UIView animateWithDuration:3 delay:0.85 usingSpringWithDamping:0.1 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         loginBtn.frame = CGRectMake(15, 215, WIDETH - 30, 45);
@@ -141,13 +161,13 @@
     UILabel * registerLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 275, 70, 12)];
     registerLable.text = @"还没有账号?";
     registerLable.font = [UIFont systemFontOfSize:12];
-    [self.view addSubview:registerLable];
+    [self.scro addSubview:registerLable];
     UIButton * registBtn = [[UIButton alloc] initWithFrame:CGRectMake(80, 275, 60, 12)];
     [registBtn addTarget:self action:@selector(registClick) forControlEvents:UIControlEventTouchUpInside];
     [registBtn setTitle:@"立即注册!" forState:UIControlStateNormal];
     [registBtn setTitleColor:color(244, 67, 54) forState:UIControlStateNormal];
     registBtn.titleLabel.font = [UIFont systemFontOfSize:12];
-    [self.view addSubview:registBtn];
+    [self.scro addSubview:registBtn];
     
     //忘记密码
     UIButton * forgetBtn =[[UIButton alloc] initWithFrame:CGRectMake(WIDETH-70, 275, 55, 12)];
@@ -155,7 +175,8 @@
     [forgetBtn setTitleColor:color(244, 67, 54) forState:UIControlStateNormal];
     forgetBtn.titleLabel.font =[UIFont systemFontOfSize:12];
     [forgetBtn addTarget:self action:@selector(ForgotPasswordClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:forgetBtn];
+    [self.scro addSubview:forgetBtn];
+    self.scro.contentSize = CGSizeMake(WIDETH, HEIGHT+10);
     
     
     
@@ -197,6 +218,33 @@
     regist.title = @"注册";
     [self.navigationController pushViewController:regist animated:YES];
 }
+-(void)keyboardHide:(UITapGestureRecognizer*)tap
+{
+    [self.view endEditing:YES];
+}
+
+-(void)showKeyBoard:(NSNotification*)notification
+{
+    
+    /*获取键盘的高度**/
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    int height = keyboardRect.size.height;
+    NSLog(@"%d",height);
+    self.scro.contentSize = CGSizeMake(WIDETH, 450+height);
+    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+height) animated:YES];
+    
+    
+    
+    
+}
+-(void)hideKeyBoard:(NSNotification*)notification
+{
+    self.scro.contentSize = CGSizeMake(WIDETH, 450+10);
+    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

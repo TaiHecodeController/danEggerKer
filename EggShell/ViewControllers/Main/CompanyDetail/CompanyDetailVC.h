@@ -11,4 +11,6 @@
 
 @interface CompanyDetailVC : UIViewController
 @property (strong,nonatomic)CompanyMessageView * CMview;
+@property (strong,nonatomic)MJRefreshHeaderView * header;
+@property (strong,nonatomic)MJRefreshFooterView * footer;
 @end

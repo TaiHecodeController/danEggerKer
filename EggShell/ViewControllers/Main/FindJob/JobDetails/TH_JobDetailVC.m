@@ -11,23 +11,30 @@
 #import "moreJobTableViewCell.h"
 #import "CompanyProfil.h"
 #import "ComPanyProfileView.h"
-@interface TH_JobDetailVC ()<UITableViewDataSource,UITableViewDelegate,companyProfileViewDelegate>
+#import "MoreJobTitleCell.h"
+#import "AFAppRequest.h"
+#import "playFanModel.h"
+#import "TH_AFRequestState.h"
+@interface TH_JobDetailVC ()<UITableViewDataSource,UITableViewDelegate,companyProfileViewDelegate,MJRefreshBaseViewDelegate>
 {
     //纪录展开之前的frame
     CGRect lab_recordFrame;
     CGRect btn_recordFrame;
-    CGRect tableView_recordFrame;
+    CGRect header_recordFrame;
     CGRect company_recordFrame;
 //    CGRect record_Message;
 //    CGRect record_SelfView;
 //    CGRect record_ShowAll;
 //    CGRect record_tabView;
+    int _page;
 
 }
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UIButton * button;
 @property(assign)CGSize textSize;
+@property(strong,nonatomic)UIView * headerView;
+@property(strong,nonatomic)AFRequestState * state;
 @end
 
 @implementation TH_JobDetailVC
@@ -37,11 +44,14 @@
         self.title = @"职位详情";
 //    self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);
     [self setStatus];
-    [self createscro];
+    [self createsheader];
     [self createTableView];
     [self createDetailView];
     [self searchBtn];
 }
+
+
+
 -(void)searchBtn
 {
     UIView * bgView =[[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT-119, WIDETH, 106)];
@@ -62,19 +72,17 @@
     NSLog(@"申请职位");
 }
 
--(void)createscro
+-(void)createsheader
 {
-    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-25-49)];
-    self.scro = scro;
-//    self.scro.backgroundColor =[UIColor redColor];
-    self.scro.showsVerticalScrollIndicator = YES;
-    [self.view addSubview:scro];
+    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 510)];
+    self.headerView.backgroundColor = UIColorFromRGB(0xF3F3F1);
+    [self.view addSubview:self.headerView];
 }
 -(void)createDetailView
 {
     JobDescriptionlView * jobDescription = [JobDescriptionlView setJobDescriptionView];
        jobDescription.frame = CGRectMake(0, 0, WIDETH, 350);
-   [self.scro addSubview:jobDescription];
+   [self.headerView addSubview:jobDescription];
 //        CompanyProfil * company =  [[[NSBundle mainBundle] loadNibNamed:@"CompanyProfile" owner:self options:nil]lastObject];
 //    [company companyProfilSelcet];
 //    company.frame = CGRectMake(0, 350, WIDETH, 160);
@@ -84,14 +92,11 @@
     companyprofileView.delegate = self;
     NSString * str = @"根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发的速度不可比拟是你是你.根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发的速度不可比拟是你是你.根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发根据项目需求，项目经理要求完成相关应用的就与开发用的就与开发保证IFA质量";
     [companyprofileView config:str];
-    [self.scro addSubview:companyprofileView];
+    [self.headerView addSubview:companyprofileView];
 
 }
 -(void)CompanyProfilView:(ComPanyProfileView *)companyView
 {
-    
-    NSLog(@"hdhcdkj");
-    
     if (!companyView.selectBtn.isSelected) {
         NSString * description = companyView.detailLable.text;
          CGSize textSize = [description sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(WIDETH-30, 2000)];
@@ -111,10 +116,10 @@
                         //按钮的frame
                 btn_recordFrame = companyView.selectBtn.frame;
                 companyView.selectBtn.frame = CGRectMake(companyView.selectBtn.frame.origin.x, companyView.detailLable.frame.origin.y + companyView.detailLable.frame.size.height + 10, companyView.selectBtn.frame.size.width, companyView.selectBtn.frame.size.height);
-                        tableView_recordFrame = self.tableView.frame;
-                        //tableView的frame
-                        self.tableView.frame = CGRectMake(0, companyView.frame.size.height + companyView.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height);
-                    }];
+                header_recordFrame = self.headerView.frame;
+                self.headerView.frame = CGRectMake(0, self.headerView.origin.y, WIDETH, self.headerView.origin.y + self.headerView.frame.size.height + textSize.height - 60);
+            self.tableView.tableHeaderView = self.headerView;
+            }];
         
     }else
     {
@@ -126,7 +131,8 @@
             
                         companyView.selectBtn.frame = btn_recordFrame;
                         companyView.frame = company_recordFrame;
-                        self.tableView.frame = tableView_recordFrame;
+                        self.headerView.frame = header_recordFrame;
+                        self.tableView.tableHeaderView = self.headerView;
                     }];
 
     }
@@ -135,15 +141,56 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
 }
 -(void)createTableView
 {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 510, WIDETH, HEIGHT-50) style:UITableViewStylePlain];
-    tableView.delegate = self;
-    tableView.dataSource = self;
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT - 119) style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
-    self.tableView = tableView;
     self.tableView.showsVerticalScrollIndicator = NO;
-    [self.scro addSubview:tableView];
-    self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-10+56 );
+    [self.view addSubview:self.tableView];
+    self.tableView.tableHeaderView = self.headerView;
+    
+    _header = [MJRefreshHeaderView header];
+    _header.delegate = self;
+    _header.scrollView = self.tableView;
+    
+    _footer = [MJRefreshFooterView footer];
+    _footer.delegate = self;
+    _footer.scrollView = self.tableView;
 }
+
+-(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    if(refreshView == _header)
+    {
+        _page = 1;
+        [self loadData:_header Page:_page];
+    }else
+    {
+        _page ++;
+        [self loadData:_footer Page:_page];
+    }
+}
+
+-(void)loadData:(id)notify Page:(int)page
+{
+    if(_state.running)
+    {
+        return;
+    }else
+    {
+        [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
+            
+        } resp:[playFanModel class] withPage:[NSString stringWithFormat:@"%d",page]] addNotifaction:notify];
+    }
+    
+}
+
+-(void)dealloc
+{
+    [_header free];
+    [_footer free];
+}
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -151,6 +198,15 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.row == 0)
+    {
+        MoreJobTitleCell * cell = [tableView dequeueReusableCellWithIdentifier:@"moreJob"];
+        if(!cell)
+        {
+            cell = [[MoreJobTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"moreJob"];
+        }
+        return cell;
+    }
     NSString * identifier = @"identifier";
     moreJobTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
@@ -162,34 +218,14 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
+    if(indexPath.row == 0)
+    {
+        return 53;
+    }
     return 78;
 }
--(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView  * heatView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 53)];
-   
-    UIView * lineVew = [[UIView alloc] initWithFrame:CGRectMake(15, 25, 2, 15)];
-    lineVew.backgroundColor = color(244, 67, 54);
-    [heatView addSubview:lineVew];
-    
-    UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 10)];
-    bgView.backgroundColor = color(243, 243, 241);
-    [heatView addSubview:bgView];
-    UILabel * RelatedLable = [[UILabel alloc] initWithFrame:CGRectMake(21, 25, 100, 13)];
-    RelatedLable.text = @"该公司更多职位";
-    RelatedLable.textColor = color(100, 100, 100);
-    RelatedLable.font =[UIFont systemFontOfSize:13];
-    [heatView addSubview:RelatedLable];
-    UIView * linebgViw = [[UIView alloc] initWithFrame:CGRectMake(15, 50, WIDETH-15, 0.5)];
-    linebgViw.backgroundColor = color(200, 200, 200);
-    [heatView addSubview:linebgViw];
-    heatView.backgroundColor = [UIColor whiteColor];
-    return heatView;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 53;
-}
+
+
 -(void)setStatus
 {
     UIButton * rightCollectBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDETH - 10, 12, 20, 20)];
