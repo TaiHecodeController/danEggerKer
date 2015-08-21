@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="JobScreeningCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="行业类别" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cml-Tl-IHI">
+                        <rect key="frame" x="15" y="15" width="52" height="13"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xiayiye" translatesAutoresizingMaskIntoConstraints="NO" id="MT4-Y9-2h6">
+                        <rect key="frame" x="300" y="15" width="6" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="11" id="IpO-CI-XPV"/>
+                            <constraint firstAttribute="width" constant="6" id="hor-i7-2T4"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="计算机/互联网" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSZ-v2-RS3">
+                        <rect key="frame" x="138" y="15" width="117" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="6iS-vM-rV2"/>
+                            <constraint firstAttribute="width" constant="117" id="IWC-7N-bnO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="MT4-Y9-2h6" secondAttribute="trailing" constant="6" id="BGC-YC-H2S"/>
+                    <constraint firstItem="MT4-Y9-2h6" firstAttribute="leading" secondItem="eSZ-v2-RS3" secondAttribute="trailing" constant="45" id="SyH-u6-2nU"/>
+                    <constraint firstItem="eSZ-v2-RS3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="aCn-wa-xu9"/>
+                    <constraint firstItem="MT4-Y9-2h6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="oLQ-DX-t66"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contenLable" destination="eSZ-v2-RS3" id="Iia-xy-PGD"/>
+                <outlet property="logoImage" destination="MT4-Y9-2h6" id="4OC-5L-IIt"/>
+                <outlet property="titleLable" destination="cml-Tl-IHI" id="HZG-LV-Epg"/>
+            </connections>
+            <point key="canvasLocation" x="197" y="152"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="xiayiye" width="6" height="11"/>
+    </resources>
+</document>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="NameAndSexCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓      名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goo-Ln-4Pj">
+                        <rect key="frame" x="15" y="12" width="57" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="5ON-Ow-q1r"/>
+                            <constraint firstAttribute="width" constant="57" id="veM-K4-teu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQH-tl-PfJ">
+                        <rect key="frame" x="81" y="14" width="1" height="16"/>
+                        <color key="backgroundColor" red="0.79607843137254897" green="0.79607843137254897" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="Eyz-Dl-e6f"/>
+                            <constraint firstAttribute="height" constant="21" id="OnV-3e-D9J"/>
+                            <constraint firstAttribute="height" constant="16" id="qm9-Fg-y3n"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OnV-3e-D9J"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请填写您的真实姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1jC-yi-0pM">
+                        <rect key="frame" x="92" y="13" width="118" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="118" id="MxD-Ps-weA"/>
+                            <constraint firstAttribute="height" constant="18" id="eux-47-txY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcJ-B8-sz1">
+                        <rect key="frame" x="220" y="15" width="16" height="12.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="BsM-Of-XBK"/>
+                            <constraint firstAttribute="height" constant="12.5" id="FM3-Qc-GQ0"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" image="weixuanzhong">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" image="xuanzhong"/>
+                        <connections>
+                            <action selector="selectSex:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PaA-Kd-dk3"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b08-Hh-RVa">
+                        <rect key="frame" x="236" y="11" width="17" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Tbv-on-Cdw"/>
+                            <constraint firstAttribute="width" constant="17" id="fe3-vj-Cia"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUo-hI-Nw5">
+                        <rect key="frame" x="261" y="15" width="16" height="12.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="drr-ep-89K"/>
+                            <constraint firstAttribute="height" constant="12.5" id="ohM-ut-hyA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" image="weixuanzhong">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" image="xuanzhong"/>
+                        <connections>
+                            <action selector="selectSex:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jWq-1Z-Nr4"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkp-FK-uM5">
+                        <rect key="frame" x="277" y="11" width="17" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="17" id="YHu-Hh-SDU"/>
+                            <constraint firstAttribute="height" constant="21" id="ueR-sY-m1D"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wUo-hI-Nw5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="1MQ-j7-TVx"/>
+                    <constraint firstItem="Fkp-FK-uM5" firstAttribute="leading" secondItem="wUo-hI-Nw5" secondAttribute="trailing" id="7tI-0k-P4S"/>
+                    <constraint firstItem="Fkp-FK-uM5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="NWy-QF-vjn"/>
+                    <constraint firstItem="zcJ-B8-sz1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="QzB-yl-6zt"/>
+                    <constraint firstItem="fQH-tl-PfJ" firstAttribute="leading" secondItem="goo-Ln-4Pj" secondAttribute="trailing" constant="9" id="Umk-zz-fyE"/>
+                    <constraint firstItem="fQH-tl-PfJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="Uuh-l3-YDF"/>
+                    <constraint firstItem="b08-Hh-RVa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="YdS-in-oe2"/>
+                    <constraint firstItem="fQH-tl-PfJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="Zc7-t9-24G"/>
+                    <constraint firstItem="goo-Ln-4Pj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="c53-dL-5bL"/>
+                    <constraint firstItem="wUo-hI-Nw5" firstAttribute="leading" secondItem="b08-Hh-RVa" secondAttribute="trailing" constant="8" id="hi1-K0-yOT"/>
+                    <constraint firstItem="zcJ-B8-sz1" firstAttribute="leading" secondItem="1jC-yi-0pM" secondAttribute="trailing" constant="10" id="iqE-t3-Tzg"/>
+                    <constraint firstItem="goo-Ln-4Pj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="lOc-Gz-Y30"/>
+                    <constraint firstItem="goo-Ln-4Pj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="r0V-wv-GW2"/>
+                    <constraint firstItem="1jC-yi-0pM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="r6c-jb-gO3"/>
+                    <constraint firstItem="b08-Hh-RVa" firstAttribute="leading" secondItem="zcJ-B8-sz1" secondAttribute="trailing" id="rwM-3x-Ybt"/>
+                    <constraint firstItem="1jC-yi-0pM" firstAttribute="leading" secondItem="fQH-tl-PfJ" secondAttribute="trailing" constant="10" id="vge-bQ-Ibc"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="c53-dL-5bL"/>
+                        <exclude reference="Zc7-t9-24G"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentTextField" destination="1jC-yi-0pM" id="daf-Ck-AX4"/>
+                <outlet property="manBtn" destination="zcJ-B8-sz1" id="BC6-Xr-7CE"/>
+                <outlet property="nameLab" destination="goo-Ln-4Pj" id="CQJ-Rg-Y4Y"/>
+                <outlet property="womenBtn" destination="wUo-hI-Nw5" id="eSW-s8-0uj"/>
+            </connections>
+            <point key="canvasLocation" x="305" y="292"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="weixuanzhong" width="13" height="12"/>
+        <image name="xuanzhong" width="13" height="12"/>
+    </resources>
+</document>

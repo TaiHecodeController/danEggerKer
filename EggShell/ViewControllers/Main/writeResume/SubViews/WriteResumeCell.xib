@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="8" id="KGk-i7-Jjw" customClass="WriteResumeCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="简历名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5G-eu-0tD">
+                        <rect key="frame" x="15" y="10" width="57" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="9Yr-b9-nC4"/>
+                            <constraint firstAttribute="height" constant="21" id="Hv2-lY-hsp"/>
+                            <constraint firstAttribute="width" constant="57" id="MdA-Hl-VUs"/>
+                            <constraint firstAttribute="width" constant="57" id="W9v-sC-z2p"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Hv2-lY-hsp"/>
+                                <exclude reference="MdA-Hl-VUs"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7U-xX-iCq">
+                        <rect key="frame" x="81" y="13" width="1" height="16"/>
+                        <color key="backgroundColor" red="0.79607843137254897" green="0.79607843137254897" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="GEx-rl-oyg"/>
+                            <constraint firstAttribute="width" constant="1" id="UHu-qs-ouA"/>
+                            <constraint firstAttribute="height" constant="16" id="bEf-yV-BGy"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="k4G-K7-9N7"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="GEx-rl-oyg"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-BD-8uI">
+                        <rect key="frame" x="295" y="18" width="11" height="6"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="6" id="0IS-No-KuA"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="11" id="8k2-lc-D7X"/>
+                            <constraint firstAttribute="width" constant="11" id="E8c-hq-ons"/>
+                            <constraint firstAttribute="height" constant="6" id="IlI-Nk-l8Q"/>
+                            <constraint firstAttribute="width" constant="11" id="Kyx-Gd-mPr"/>
+                            <constraint firstAttribute="height" constant="6" id="wVb-8N-3bl"/>
+                        </constraints>
+                        <state key="normal" image="xiala-拷贝">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="E8c-hq-ons"/>
+                                <exclude reference="wVb-8N-3bl"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <action selector="whowAllClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uEK-rc-NQZ"/>
+                        </connections>
+                    </button>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请填写简历名称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MqF-Kg-zpn">
+                        <rect key="frame" x="92" y="12" width="138" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="138" id="WVC-y2-Gqi"/>
+                            <constraint firstAttribute="height" constant="18" id="eDO-jD-8eQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="MqF-Kg-zpn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="4XB-Cs-Qa8"/>
+                    <constraint firstItem="0rn-BD-8uI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="7ro-MI-jPG"/>
+                    <constraint firstItem="Y7U-xX-iCq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="C78-B2-b6N"/>
+                    <constraint firstItem="MqF-Kg-zpn" firstAttribute="leading" secondItem="Y7U-xX-iCq" secondAttribute="trailing" constant="10" id="MAj-Eb-PMv"/>
+                    <constraint firstItem="0rn-BD-8uI" firstAttribute="leading" secondItem="MqF-Kg-zpn" secondAttribute="trailing" constant="65" id="UBJ-Cf-9vt"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="0rn-BD-8uI" secondAttribute="bottom" constant="9.5" id="X4u-pz-6MP"/>
+                    <constraint firstItem="R5G-eu-0tD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="Xeg-Ot-N7n"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="MqF-Kg-zpn" secondAttribute="bottom" constant="3.5" id="dmL-aD-7Sh"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="0rn-BD-8uI" secondAttribute="trailing" constant="6" id="fJE-yW-oy8"/>
+                    <constraint firstItem="R5G-eu-0tD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="lW7-Zi-9TL"/>
+                    <constraint firstItem="Y7U-xX-iCq" firstAttribute="leading" secondItem="R5G-eu-0tD" secondAttribute="trailing" constant="9" id="ydZ-vM-Tqc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentTextField" destination="MqF-Kg-zpn" id="Oml-ZT-Vqj"/>
+                <outlet property="resumeName" destination="R5G-eu-0tD" id="whq-9N-ia4"/>
+                <outlet property="showMessageBtn" destination="0rn-BD-8uI" id="Fpt-3z-70l"/>
+            </connections>
+            <point key="canvasLocation" x="182" y="214"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="xiala-拷贝" width="11" height="6"/>
+    </resources>
+</document>

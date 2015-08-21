@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Qbj-ZQ-8Ct" customClass="SearchView">
+            <rect key="frame" x="0.0" y="0.0" width="381" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" background="soushuokuang1-1" translatesAutoresizingMaskIntoConstraints="NO" id="A4a-2v-uoy">
+                    <rect key="frame" x="65" y="28" width="278" height="30"/>
+                    <rect key="contentStretch" x="0.10000000000000002" y="0.0" width="1" height="1"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="北京" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxu-Pt-tDj">
+                    <rect key="frame" x="8" y="30" width="35" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="jiantousousuo" translatesAutoresizingMaskIntoConstraints="NO" id="aX9-y0-Uwf">
+                    <rect key="frame" x="45" y="33" width="12" height="18"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DrO-FD-hIe">
+                    <rect key="frame" x="11" y="26" width="46" height="30"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="citylistClick:" destination="Qbj-ZQ-8Ct" eventType="touchUpInside" id="9Jg-1S-PI4"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXN-u5-I3Q">
+                    <rect key="frame" x="315" y="32" width="16" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="9a5-lM-YKT"/>
+                        <constraint firstAttribute="width" constant="16" id="GqL-NV-2fg"/>
+                    </constraints>
+                    <state key="normal" image="soushuoicon">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="scarchIconClick:" destination="Qbj-ZQ-8Ct" eventType="touchUpInside" id="Ofz-yW-PjS"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="搜职位" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGP-wr-7Eg">
+                    <rect key="frame" x="77" y="33" width="50" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="DrO-FD-hIe" firstAttribute="leading" secondItem="Qbj-ZQ-8Ct" secondAttribute="leading" constant="11" id="0bf-lI-APN"/>
+                <constraint firstItem="DrO-FD-hIe" firstAttribute="top" secondItem="Qbj-ZQ-8Ct" secondAttribute="top" constant="26" id="10W-YD-vRI"/>
+                <constraint firstAttribute="trailing" secondItem="A4a-2v-uoy" secondAttribute="trailing" constant="38" id="4ac-kx-t2u"/>
+                <constraint firstAttribute="bottom" secondItem="DrO-FD-hIe" secondAttribute="bottom" constant="9" id="5gK-E5-deh"/>
+                <constraint firstItem="Yxu-Pt-tDj" firstAttribute="leading" secondItem="Qbj-ZQ-8Ct" secondAttribute="leading" constant="8" id="6Rq-eT-FAs"/>
+                <constraint firstItem="A4a-2v-uoy" firstAttribute="top" secondItem="Qbj-ZQ-8Ct" secondAttribute="top" constant="28" id="70i-sY-Cz6"/>
+                <constraint firstItem="A4a-2v-uoy" firstAttribute="leading" secondItem="DrO-FD-hIe" secondAttribute="trailing" constant="8" id="AgR-5a-v2i"/>
+                <constraint firstItem="fXN-u5-I3Q" firstAttribute="leading" secondItem="A4a-2v-uoy" secondAttribute="trailing" constant="-28" id="D9I-Bv-D7t"/>
+                <constraint firstItem="aX9-y0-Uwf" firstAttribute="top" secondItem="Qbj-ZQ-8Ct" secondAttribute="top" constant="33" id="HPy-8D-Jei"/>
+                <constraint firstAttribute="bottom" secondItem="A4a-2v-uoy" secondAttribute="bottom" constant="7" id="Lpl-Qr-D04"/>
+                <constraint firstItem="aX9-y0-Uwf" firstAttribute="leading" secondItem="Yxu-Pt-tDj" secondAttribute="trailing" constant="2" id="dfK-Aj-aTi"/>
+                <constraint firstItem="fXN-u5-I3Q" firstAttribute="top" secondItem="A4a-2v-uoy" secondAttribute="bottom" constant="-26" id="iSw-bk-DR3"/>
+                <constraint firstItem="A4a-2v-uoy" firstAttribute="leading" secondItem="aX9-y0-Uwf" secondAttribute="trailing" constant="8" id="ign-uS-uye"/>
+                <constraint firstAttribute="bottom" secondItem="aX9-y0-Uwf" secondAttribute="bottom" constant="14" id="kPo-dZ-mIT"/>
+                <constraint firstAttribute="bottom" secondItem="Yxu-Pt-tDj" secondAttribute="bottom" constant="14" id="uFa-tX-FXY"/>
+                <constraint firstItem="Yxu-Pt-tDj" firstAttribute="top" secondItem="Qbj-ZQ-8Ct" secondAttribute="top" constant="30" id="vPC-dQ-CaF"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cityName" destination="Yxu-Pt-tDj" id="jN4-Yj-LvL"/>
+                <outlet property="placeholderLab" destination="LGP-wr-7Eg" id="ygP-lX-hIp"/>
+                <outlet property="searchTextField" destination="A4a-2v-uoy" id="jm1-XW-9zW"/>
+            </connections>
+            <point key="canvasLocation" x="406.5" y="-521.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="jiantousousuo" width="11" height="6"/>
+        <image name="soushuoicon" width="16" height="17"/>
+        <image name="soushuokuang1-1" width="280" height="31"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

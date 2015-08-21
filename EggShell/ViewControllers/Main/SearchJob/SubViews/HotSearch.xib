@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HotSearch">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="热门搜索" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzY-d3-RJh">
+                    <rect key="frame" x="13" y="8" width="61" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Zzo-QE-Qcs"/>
+                        <constraint firstAttribute="width" constant="61" id="zlF-Ud-9mh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG8-BH-OS0">
+                    <rect key="frame" x="13" y="37" width="77" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="美术设计" backgroundImage="remenkuang">
+                        <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="EjE-A4-Aww"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56q-G0-OWK">
+                    <rect key="frame" x="103" y="37" width="77" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="英语" backgroundImage="remenkuang">
+                        <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="40j-2S-Hkb"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqv-Vo-ATe">
+                    <rect key="frame" x="194" y="37" width="77" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="动漫制作" backgroundImage="remenkuang">
+                        <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="goU-NG-AWO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onA-pi-30B">
+                    <rect key="frame" x="284" y="37" width="77" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="老师" backgroundImage="remenkuang">
+                        <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="77b-Bj-xYT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lk-pO-Vw8">
+                    <rect key="frame" x="13" y="83" width="77" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="天通苑租房" backgroundImage="remenkuang">
+                        <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="wBR-Ah-erU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxZ-s7-H0t">
+                    <rect key="frame" x="103" y="83" width="77" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="日结" backgroundImage="remenkuang">
+                        <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="2T4-qd-veI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzp-SB-NeL">
+                    <rect key="frame" x="194" y="83" width="77" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="学徒工" backgroundImage="remenkuang">
+                        <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bZC-IA-vIk"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqn-nm-aMS">
+                    <rect key="frame" x="284" y="83" width="77" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="单身公寓" backgroundImage="remenkuang">
+                        <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="e3G-Tm-otF"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Pzp-SB-NeL" firstAttribute="width" secondItem="NxZ-s7-H0t" secondAttribute="width" id="21Z-ke-exh"/>
+                <constraint firstItem="onA-pi-30B" firstAttribute="leading" secondItem="sqv-Vo-ATe" secondAttribute="trailing" constant="13" id="53h-yL-yg6"/>
+                <constraint firstItem="Pzp-SB-NeL" firstAttribute="width" secondItem="pqn-nm-aMS" secondAttribute="width" id="CJH-MA-iu0"/>
+                <constraint firstItem="9lk-pO-Vw8" firstAttribute="width" secondItem="NxZ-s7-H0t" secondAttribute="width" id="CtM-Ex-k96"/>
+                <constraint firstItem="Pzp-SB-NeL" firstAttribute="centerY" secondItem="pqn-nm-aMS" secondAttribute="centerY" id="Isc-4B-qbC"/>
+                <constraint firstItem="sqv-Vo-ATe" firstAttribute="leading" secondItem="56q-G0-OWK" secondAttribute="trailing" constant="14" id="Knw-va-T3F"/>
+                <constraint firstItem="9lk-pO-Vw8" firstAttribute="top" secondItem="BG8-BH-OS0" secondAttribute="bottom" constant="8" id="OZQ-HP-WMg"/>
+                <constraint firstItem="9lk-pO-Vw8" firstAttribute="centerY" secondItem="NxZ-s7-H0t" secondAttribute="centerY" id="PgG-Gi-qoD"/>
+                <constraint firstItem="Pzp-SB-NeL" firstAttribute="leading" secondItem="NxZ-s7-H0t" secondAttribute="trailing" constant="14" id="StW-dW-D9k"/>
+                <constraint firstItem="yzY-d3-RJh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="TfZ-P1-rie"/>
+                <constraint firstItem="56q-G0-OWK" firstAttribute="leading" secondItem="BG8-BH-OS0" secondAttribute="trailing" constant="13" id="W6n-EV-DGx"/>
+                <constraint firstItem="BG8-BH-OS0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="aSb-43-GEk"/>
+                <constraint firstItem="sqv-Vo-ATe" firstAttribute="centerY" secondItem="onA-pi-30B" secondAttribute="centerY" id="aUD-01-qQU"/>
+                <constraint firstAttribute="trailing" secondItem="pqn-nm-aMS" secondAttribute="trailing" constant="14" id="blJ-Xt-dG8"/>
+                <constraint firstItem="sqv-Vo-ATe" firstAttribute="width" secondItem="onA-pi-30B" secondAttribute="width" id="by3-E5-r7n"/>
+                <constraint firstItem="9lk-pO-Vw8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="ceo-Li-Edj"/>
+                <constraint firstAttribute="trailing" secondItem="onA-pi-30B" secondAttribute="trailing" constant="14" id="fCQ-fR-5jV"/>
+                <constraint firstItem="pqn-nm-aMS" firstAttribute="leading" secondItem="Pzp-SB-NeL" secondAttribute="trailing" constant="13" id="iky-xS-cQp"/>
+                <constraint firstItem="NxZ-s7-H0t" firstAttribute="leading" secondItem="9lk-pO-Vw8" secondAttribute="trailing" constant="13" id="jlu-XG-92o"/>
+                <constraint firstItem="56q-G0-OWK" firstAttribute="centerY" secondItem="BG8-BH-OS0" secondAttribute="centerY" id="kON-KC-q1k"/>
+                <constraint firstItem="yzY-d3-RJh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="ocp-e9-Mmw"/>
+                <constraint firstItem="56q-G0-OWK" firstAttribute="width" secondItem="BG8-BH-OS0" secondAttribute="width" id="pEE-sa-BFc"/>
+                <constraint firstItem="56q-G0-OWK" firstAttribute="centerY" secondItem="sqv-Vo-ATe" secondAttribute="centerY" id="rL5-Or-mJ0"/>
+                <constraint firstItem="BG8-BH-OS0" firstAttribute="top" secondItem="yzY-d3-RJh" secondAttribute="bottom" constant="8" id="tqK-Ja-srE"/>
+                <constraint firstItem="Pzp-SB-NeL" firstAttribute="centerY" secondItem="NxZ-s7-H0t" secondAttribute="centerY" id="v7M-Dg-cla"/>
+                <constraint firstItem="56q-G0-OWK" firstAttribute="width" secondItem="sqv-Vo-ATe" secondAttribute="width" id="yGu-YN-nSN"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="68.5" y="181.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="remenkuang" width="80" height="35"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

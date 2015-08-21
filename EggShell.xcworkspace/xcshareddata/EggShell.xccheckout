@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>64A659B3-1801-4873-8C51-B79015754FD4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>EggShell</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>01c173fd-d485-584e-8bb0-687424e3b869++1750</key>
+
+		<string>http://10.30.61.30/svn/wly-ios/trunk/WLY_18/WeiLuYan-%25252525252525252525252525E5%2525252525252525252525252590%2525252525252525252525252588%25252525252525252525252525E6%2525252525252525252525252588%2525252525252525252525252590/Extra/MJRefresh</string>
+
+		<string>http://10.30.61.30/svn/wly-ios/trunk/WLY_18/WeiLuYan-%25252525252525252525E5%2525252525252525252590%2525252525252525252588%25252525252525252525E6%2525252525252525252588%2525252525252525252590/Extra/MJRefresh</string>
+
+		<key>657804B81A0472C048FE77E00527BC883A3712F0</key>
+		<string>https://github.com/TaiHecodeController/taiye_ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>EggShell.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>01c173fd-d485-584e-8bb0-687424e3b869++1750</key>
+		<string>..EggShell/3rd/MJRefresh</string>
+		<key>657804B81A0472C048FE77E00527BC883A3712F0</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>01c173fd-d485-584e-8bb0-687424e3b869++1750</key>
+		<string>http://10.30.61.30/svn/wly-ios</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/TaiHecodeController/taiye_ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>657804B81A0472C048FE77E00527BC883A3712F0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>01c173fd-d485-584e-8bb0-687424e3b869++1750</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MJRefresh</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>657804B81A0472C048FE77E00527BC883A3712F0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>taiye_ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>

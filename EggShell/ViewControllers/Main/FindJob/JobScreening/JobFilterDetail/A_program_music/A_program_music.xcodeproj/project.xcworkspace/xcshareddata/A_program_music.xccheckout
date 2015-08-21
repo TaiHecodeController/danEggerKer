@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F3263F3E-6B23-4B93-AD03-8C5CFE3417A3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>A_program_music</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>263EA32ADE59F597DAD373E0DFB4FC2A75095923</key>
+		<string>http://git.oschina.net/ytc19930125/haoMusic</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>A_program_music/A_program_music.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>263EA32ADE59F597DAD373E0DFB4FC2A75095923</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://git.oschina.net/ytc19930125/haoMusic</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>263EA32ADE59F597DAD373E0DFB4FC2A75095923</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>263EA32ADE59F597DAD373E0DFB4FC2A75095923</string>
+			<key>IDESourceControlWCCName</key>
+			<string>haoMusic</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking
+END
+AFHTTPSessionManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFHTTPSessionManager.m
+END
+AFURLResponseSerialization.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFURLResponseSerialization.m
+END
+AFSecurityPolicy.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFSecurityPolicy.h
+END
+AFNetworking.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFNetworking.h
+END
+AFSecurityPolicy.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFSecurityPolicy.m
+END
+AFURLSessionManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFURLSessionManager.h
+END
+AFURLConnectionOperation.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFURLConnectionOperation.h
+END
+AFHTTPRequestOperationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFHTTPRequestOperationManager.h
+END
+AFNetworkReachabilityManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFNetworkReachabilityManager.h
+END
+AFURLSessionManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFURLSessionManager.m
+END
+AFURLConnectionOperation.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFURLConnectionOperation.m
+END
+AFURLRequestSerialization.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFURLRequestSerialization.h
+END
+AFHTTPRequestOperationManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFHTTPRequestOperationManager.m
+END
+AFHTTPRequestOperation.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFHTTPRequestOperation.h
+END
+AFNetworkReachabilityManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFNetworkReachabilityManager.m
+END
+AFURLRequestSerialization.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFURLRequestSerialization.m
+END
+AFHTTPSessionManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFHTTPSessionManager.h
+END
+AFHTTPRequestOperation.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFHTTPRequestOperation.m
+END
+AFURLResponseSerialization.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/wly-ios/!svn/ver/3/trunk/WLY_18/WeiLuYan-%E5%90%88%E6%88%90/Extra/AFNetworking/AFURLResponseSerialization.h
+END
