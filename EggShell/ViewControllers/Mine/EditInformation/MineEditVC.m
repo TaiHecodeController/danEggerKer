@@ -18,7 +18,7 @@
 }
 @property (strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
-@property (strong,nonatomic)NSMutableArray * jobCellArray;
+
 
 @property (strong,nonatomic)NSArray * nameArray2;
 @property (strong,nonatomic)NSArray * holderArray2;
@@ -72,7 +72,7 @@
     backView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     backView.contentSize = CGSizeMake(WIDETH / 2, HEIGHT + 60);
     backView.backgroundColor = [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:241 / 255.0 alpha:1];
-    [backView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
+//    [backView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
     [self.view addSubview:backView];
     
     //上方tableView
@@ -109,7 +109,7 @@
     
 }
 
--(void)tap
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [recordTextField resignFirstResponder];
 }
@@ -152,22 +152,33 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"MineEditInfoCell" owner:self options:nil] firstObject];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.contentTextField.delegate = self;
+            cell.contentTextField.userInteractionEnabled = YES;
+            cell.contentBtn.hidden = YES;
         }
         
         cell.nextBtn.hidden = YES;
         cell.showAllBtn.hidden = YES;
         cell.moreLab.hidden = YES;
         cell.Controller = self;
+        if(indexPath.row == 0)
+        {
+            cell.contentTextField.enabled = NO;
+        }
         if(indexPath.row == 2)
         {
             cell.showAllBtn.hidden = NO;
-            cell.showAllBtn.tag = 200 + 2;
+            cell.contentBtn.tag = 200 + 2;
+            cell.contentTextField.enabled = NO;
+            cell.contentBtn.hidden = NO;
         }
         if(indexPath.row == 3)
         {
             cell.nextBtn.hidden = NO;
+            cell.contentBtn.hidden = NO;
+            cell.contentBtn.tag = 200 + 5;
+            cell.contentTextField.enabled = NO;
         }
-        if(indexPath.row == 5)
+        if(indexPath.row == 4)
         {
             cell.moreLab.hidden = NO;
         }
@@ -196,7 +207,9 @@
         if(indexPath.row == 0)
         {
             cell.showAllBtn.hidden = NO;
-            cell.showAllBtn.tag = 200;
+            cell.contentBtn.tag = 200;
+            cell.contentTextField.enabled = NO;
+            cell.contentBtn.hidden = NO;
         }
         [self.jobCellArray addObject:cell];
         return cell;
@@ -254,6 +267,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

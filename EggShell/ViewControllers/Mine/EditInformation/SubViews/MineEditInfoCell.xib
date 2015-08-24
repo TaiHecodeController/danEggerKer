@@ -79,6 +79,15 @@
                             <action selector="nextClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="K6I-yQ-cZx"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJD-41-LYZ">
+                        <rect key="frame" x="69" y="0.0" width="251" height="42"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="contentClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BXo-ae-cFd"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="9YB-m4-g9Q" firstAttribute="leading" secondItem="VzB-ud-51R" secondAttribute="trailing" constant="25" id="08r-1o-W6h"/>
@@ -103,6 +112,7 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="contentBtn" destination="oJD-41-LYZ" id="OFO-Je-MFy"/>
                 <outlet property="contentTextField" destination="9YB-m4-g9Q" id="NLS-vd-aPl"/>
                 <outlet property="moreLab" destination="K93-qd-eJs" id="xJz-5j-hFb"/>
                 <outlet property="nameLab" destination="VzB-ud-51R" id="SN5-kQ-A9c"/>

@@ -33,14 +33,23 @@
 }
 
 - (IBAction)showAllClick:(UIButton *)sender {
+    
+}
+
+- (IBAction)contentClick:(UIButton *)sender {
     if(sender.tag == 200)
     {
         [self createDataPickView];
-    }else
+    }
+    if(sender.tag == 202)
     {
         [self createPickView];
     }
-    
+    if(sender.tag == 205)
+    {
+        [self.Controller.navigationController pushViewController:[[EditAddressVC alloc] init] animated:YES];
+    }
+
 }
 
 -(void)createPickView
@@ -53,16 +62,23 @@
     backView.alpha = 0.3;
     [self.Controller.navigationController.view addSubview:backView];
     
-    self.pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, HEIGHT / 2 + 80, WIDETH, HEIGHT / 2 - 80)];
+    self.pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDETH, HEIGHT / 2 - 80)];
     [self.Controller.navigationController.view addSubview:self.pickerView];
     self.pickerView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
     
-    sexOk = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 40, HEIGHT - 80, 40, 30) ImageName:@"" Target:self Action:@selector(sexOkClick) Title:@"确定"];
+    sexOk = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 40, HEIGHT, 40, 30) ImageName:@"" Target:self Action:@selector(sexOkClick) Title:@"确定"];
 
     [sexOk setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.Controller.navigationController.view addSubview:sexOk];
+    
+    [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        self.pickerView.frame = CGRectMake(0, HEIGHT / 2 + 80, WIDETH, HEIGHT / 2 - 80);
+        sexOk.frame = CGRectMake(WIDETH - 40, HEIGHT - 80, 40, 30);
+    } completion:^(BOOL finished) {
+        
+    }];
     
 }
 
@@ -85,7 +101,7 @@
     backView.alpha = 0.3;
     [self.Controller.navigationController.view addSubview:backView];
     //创建picker
-    self.dataPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, HEIGHT / 2 + 80, WIDETH, HEIGHT / 2 - 80)];
+    self.dataPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDETH, HEIGHT / 2 - 80)];
     self.dataPicker.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.Controller.navigationController.view addSubview:self.dataPicker];
     [self.dataPicker addTarget:self action:@selector(dataChanged:) forControlEvents:UIControlEventValueChanged];
@@ -103,10 +119,17 @@
     self.dataPicker.maximumDate = localDate;
     self.dataPicker.minimumDate = minDate;
     
-    ok = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 40, HEIGHT - 80, 40, 30) ImageName:@"" Target:self Action:@selector(okClick) Title:@"确定"];
+    ok = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 40, HEIGHT, 40, 30) ImageName:@"" Target:self Action:@selector(okClick) Title:@"确定"];
     self.dataPicker.userInteractionEnabled = YES;
     [ok setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.Controller.navigationController.view addSubview:ok];
+    
+    [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        self.dataPicker.frame = CGRectMake(0, HEIGHT / 2 + 80, WIDETH, HEIGHT / 2 - 80);
+        ok.frame = CGRectMake(WIDETH - 40, HEIGHT - 80, 40, 30);
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 
@@ -131,7 +154,7 @@
 
 - (IBAction)nextClick:(UIButton *)sender {
 
-    [self.Controller.navigationController pushViewController:[[EditAddressVC alloc] init] animated:YES];
+    
 }
 
 //pickView代理
