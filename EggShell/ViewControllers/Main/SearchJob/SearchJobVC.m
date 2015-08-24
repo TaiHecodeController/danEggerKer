@@ -22,12 +22,11 @@
 @end
 
 @implementation SearchJobVC
-
 - (void)viewDidLoad {
-//    self.navigationController.navigationBarHidden = NO;
+
     self.view.backgroundColor =[UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.translucent = NO;
     self.title = @"职位搜索";
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -51,7 +50,7 @@
 -(void)crateUI
 {
     headView = [[[NSBundle mainBundle] loadNibNamed:@"HeadView" owner:self options:nil] firstObject];
-    headView.frame = CGRectMake(0, 64, WIDETH, 70);
+    headView.frame = CGRectMake(0, 0, WIDETH, 70);
     headView.searchClick = ^(NSString * text)
     {
         [self.db insertDB:text];
@@ -61,7 +60,7 @@
     [self.view addSubview:headView];
     
     hotSearch = [[[NSBundle mainBundle] loadNibNamed:@"HotSearch" owner:self options:nil] firstObject];
-    hotSearch.frame = CGRectMake(0, 64 + headView.height, WIDETH, 149);
+    hotSearch.frame = CGRectMake(0,  headView.height, WIDETH, 149);
     [self.view addSubview:hotSearch];
     
     [self createTableView];

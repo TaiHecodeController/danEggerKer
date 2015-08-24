@@ -78,10 +78,10 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    JobScreenDetailCell *cell = (JobScreenDetailCell*)[tableView cellForRowAtIndexPath:indexPath];
+//    JobScreenDetailCell *cell = (JobScreenDetailCell*)[tableView cellForRowAtIndexPath:indexPath];
     NSLog(@"%@",indexPath);
-//    self.myBlock(cell.textLabel.text);
-    
+   self.myBlock(self.DataArray[indexPath.row]);
+
     
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -108,7 +108,7 @@
     UILabel * contenLable =[[UILabel alloc] initWithFrame:CGRectMake(100, 15, WIDETH-165, 13)];
     contenLable.text = @"数据分析员";
     contenLable.font =[UIFont systemFontOfSize:13];
-    contenLable.textAlignment = UITextAlignmentRight;
+    contenLable.textAlignment = NSTextAlignmentRight;
     UIView * lineView =[[UIView alloc] initWithFrame:CGRectMake(15, 41.5, WIDETH-15, 0.5)];
     lineView.backgroundColor = UIColorFromRGB(0xDDDDDD);
     [bgView addSubview:lineView];
