@@ -25,17 +25,25 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="鑫" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9YB-m4-g9Q">
-                        <rect key="frame" x="92" y="15" width="97" height="13"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="鑫" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="9YB-m4-g9Q">
+                        <rect key="frame" x="92" y="15" width="147" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="ECe-ko-pVe"/>
                             <constraint firstAttribute="width" constant="97" id="K8S-dv-pCr"/>
+                            <constraint firstAttribute="height" constant="15" id="aLI-ax-0AG"/>
+                            <constraint firstAttribute="width" constant="147" id="nlb-92-MCj"/>
                         </constraints>
                         <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <textInputTraits key="textInputTraits"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ECe-ko-pVe"/>
+                                <exclude reference="K8S-dv-pCr"/>
+                            </mask>
+                        </variation>
                     </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(15个字以内)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K93-qd-eJs">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(15个字以内)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K93-qd-eJs">
                         <rect key="frame" x="242" y="16" width="65" height="11"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="11" id="Qbx-DU-B00"/>
@@ -95,6 +103,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="l3u-wo-0hG" secondAttribute="trailing" constant="5" id="39r-EN-9J4"/>
                     <constraint firstItem="VzB-ud-51R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="6nf-0a-jYm"/>
                     <constraint firstItem="K93-qd-eJs" firstAttribute="centerY" secondItem="9YB-m4-g9Q" secondAttribute="centerY" id="FGx-ct-Kxd"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="9YB-m4-g9Q" secondAttribute="bottom" constant="3.5" id="IOB-Js-OSg"/>
                     <constraint firstAttribute="trailingMargin" secondItem="915-BI-5Ja" secondAttribute="trailing" constant="8" id="LYo-Fn-1Yg"/>
                     <constraint firstItem="VzB-ud-51R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="SKk-If-iOL"/>
                     <constraint firstItem="l3u-wo-0hG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="Tw8-Cm-awf"/>
@@ -106,6 +115,7 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="siQ-WB-Sn6"/>
                         <exclude reference="LYo-Fn-1Yg"/>
                         <exclude reference="eI2-Vj-dKi"/>
                     </mask>

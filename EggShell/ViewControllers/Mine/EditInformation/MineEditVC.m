@@ -15,6 +15,8 @@
 {
     UIScrollView * backView;
     UITextField * recordTextField;
+    //是否是编辑资料
+    BOOL isEdit;
 }
 @property (strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
@@ -181,6 +183,7 @@
         if(indexPath.row == 4)
         {
             cell.moreLab.hidden = NO;
+            isEdit = YES;
         }
         cell.nameLab.text = self.nameArray[indexPath.row];
         cell.contentTextField.text = self.holderArray[indexPath.row];
@@ -241,7 +244,7 @@
     
     return nil;
 }
-
+//开始编辑，向上滚动
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     if(textField.tag >= 400)
@@ -258,6 +261,37 @@
         
     }
     recordTextField = textField;
+}
+//结束编辑，恢复原位
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField.tag >= 400)
+    {
+        if(HEIGHT == 480)
+        {
+            backView.contentSize = CGSizeMake(WIDETH / 2, HEIGHT + 60);
+            [backView scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
+        }else
+        {
+            backView.contentSize = CGSizeMake(WIDETH / 2, HEIGHT + 60);
+            [backView scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
+        }
+        
+    }
+}
+//限定输入字数
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+//    if(isEdit)
+//    {
+//        if((string.length - range.length + textField.text.length) > 30)
+//        {
+//            
+//            return NO;
+//        }
+//
+//    }
+    return YES;
 }
 
 -(void)rightClick:(UIButton *)sender

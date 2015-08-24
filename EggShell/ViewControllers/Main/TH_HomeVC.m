@@ -74,15 +74,16 @@
     [self quereData];
     //注册XIB
     [self createHomeView];
-    NSUserDefaults * versionId = [NSUserDefaults standardUserDefaults];
-    NSString * str = [versionId objectForKey:@"ver"];
-    if ([str isEqualToString:@""]) {
-        [self versionNew];
-        [versionId setObject:@"dd" forKey:@"ver"];
-        
-        
-        [versionId synchronize];
-    }
+    
+//    NSUserDefaults * versionId = [NSUserDefaults standardUserDefaults];
+//    NSString * str = [versionId objectForKey:@"ver"];
+//    if ([str isEqualToString:@""]) {
+//        [self versionNew];
+//        [versionId setObject:@"dd" forKey:@"ver"];
+//        
+//        
+//        [versionId synchronize];
+//    }
 
      
 }
