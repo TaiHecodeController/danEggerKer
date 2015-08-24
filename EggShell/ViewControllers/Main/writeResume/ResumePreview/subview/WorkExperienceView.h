@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WorkExperienceView : UIView
-
++(WorkExperienceView*)setWorkExperienceView;
 @end

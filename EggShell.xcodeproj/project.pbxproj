@@ -160,6 +160,14 @@
 		94E2C9D91B8AF9E8001E3FDD /* trainingExperienceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2C9D81B8AF9E8001E3FDD /* trainingExperienceView.m */; };
 		94E2C9DC1B8AFA0D001E3FDD /* SelfEvaluationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2C9DB1B8AFA0D001E3FDD /* SelfEvaluationView.m */; };
 		94E2C9DE1B8AFCF0001E3FDD /* BasicInformation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C9DD1B8AFCF0001E3FDD /* BasicInformation.xib */; };
+		94E2C9E01B8B03F1001E3FDD /* intentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C9DF1B8B03F1001E3FDD /* intentView.xib */; };
+		94E2C9E21B8B0876001E3FDD /* workExperecie.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C9E11B8B0876001E3FDD /* workExperecie.xib */; };
+		94E2C9E41B8B0BEE001E3FDD /* education.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C9E31B8B0BEE001E3FDD /* education.xib */; };
+		94E2C9E61B8B1120001E3FDD /* professional.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C9E51B8B1120001E3FDD /* professional.xib */; };
+		94E2C9E81B8B1416001E3FDD /* project.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C9E71B8B1416001E3FDD /* project.xib */; };
+		94E2C9EA1B8B1740001E3FDD /* Certificate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C9E91B8B1740001E3FDD /* Certificate.xib */; };
+		94E2C9EC1B8B1A5E001E3FDD /* train.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C9EB1B8B1A5E001E3FDD /* train.xib */; };
+		94E2C9EE1B8B1CCA001E3FDD /* myself.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C9ED1B8B1CCA001E3FDD /* myself.xib */; };
 		94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF11B841D510093C39B /* CourePlayTitle.m */; };
 		94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E7DCF21B841D510093C39B /* CourePlaytitle.xib */; };
 		94E7DCFA1B841D510093C39B /* Course PlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF41B841D510093C39B /* Course PlayCell.m */; };
@@ -491,6 +499,14 @@
 		94E2C9DA1B8AFA0D001E3FDD /* SelfEvaluationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfEvaluationView.h; sourceTree = "<group>"; };
 		94E2C9DB1B8AFA0D001E3FDD /* SelfEvaluationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfEvaluationView.m; sourceTree = "<group>"; };
 		94E2C9DD1B8AFCF0001E3FDD /* BasicInformation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicInformation.xib; sourceTree = "<group>"; };
+		94E2C9DF1B8B03F1001E3FDD /* intentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = intentView.xib; sourceTree = "<group>"; };
+		94E2C9E11B8B0876001E3FDD /* workExperecie.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = workExperecie.xib; sourceTree = "<group>"; };
+		94E2C9E31B8B0BEE001E3FDD /* education.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = education.xib; sourceTree = "<group>"; };
+		94E2C9E51B8B1120001E3FDD /* professional.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = professional.xib; sourceTree = "<group>"; };
+		94E2C9E71B8B1416001E3FDD /* project.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = project.xib; sourceTree = "<group>"; };
+		94E2C9E91B8B1740001E3FDD /* Certificate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Certificate.xib; sourceTree = "<group>"; };
+		94E2C9EB1B8B1A5E001E3FDD /* train.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = train.xib; sourceTree = "<group>"; };
+		94E2C9ED1B8B1CCA001E3FDD /* myself.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myself.xib; sourceTree = "<group>"; };
 		94E7DCF01B841D510093C39B /* CourePlayTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourePlayTitle.h; sourceTree = "<group>"; };
 		94E7DCF11B841D510093C39B /* CourePlayTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourePlayTitle.m; sourceTree = "<group>"; };
 		94E7DCF21B841D510093C39B /* CourePlaytitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourePlaytitle.xib; sourceTree = "<group>"; };
@@ -1548,20 +1564,28 @@
 				94E2C9DD1B8AFCF0001E3FDD /* BasicInformation.xib */,
 				94E2C9C51B8AF85E001E3FDD /* intentView.h */,
 				94E2C9C61B8AF85E001E3FDD /* intentView.m */,
+				94E2C9DF1B8B03F1001E3FDD /* intentView.xib */,
 				94E2C9C81B8AF884001E3FDD /* WorkExperienceView.h */,
 				94E2C9C91B8AF884001E3FDD /* WorkExperienceView.m */,
+				94E2C9E11B8B0876001E3FDD /* workExperecie.xib */,
 				94E2C9CB1B8AF8AD001E3FDD /* EducationExperienceView.h */,
 				94E2C9CC1B8AF8AD001E3FDD /* EducationExperienceView.m */,
+				94E2C9E31B8B0BEE001E3FDD /* education.xib */,
 				94E2C9CE1B8AF92F001E3FDD /* professionalSkillView.h */,
 				94E2C9CF1B8AF92F001E3FDD /* professionalSkillView.m */,
+				94E2C9E51B8B1120001E3FDD /* professional.xib */,
 				94E2C9D11B8AF98A001E3FDD /* ProjectExperienceView.h */,
 				94E2C9D21B8AF98A001E3FDD /* ProjectExperienceView.m */,
+				94E2C9E71B8B1416001E3FDD /* project.xib */,
 				94E2C9D41B8AF9B8001E3FDD /* CertificateView.h */,
 				94E2C9D51B8AF9B8001E3FDD /* CertificateView.m */,
+				94E2C9E91B8B1740001E3FDD /* Certificate.xib */,
 				94E2C9D71B8AF9E8001E3FDD /* trainingExperienceView.h */,
 				94E2C9D81B8AF9E8001E3FDD /* trainingExperienceView.m */,
+				94E2C9EB1B8B1A5E001E3FDD /* train.xib */,
 				94E2C9DA1B8AFA0D001E3FDD /* SelfEvaluationView.h */,
 				94E2C9DB1B8AFA0D001E3FDD /* SelfEvaluationView.m */,
+				94E2C9ED1B8B1CCA001E3FDD /* myself.xib */,
 			);
 			path = subview;
 			sourceTree = "<group>";
@@ -1804,6 +1828,7 @@
 				9400329A1B840736001EB666 /* VersionUpdate.xib in Resources */,
 				9470069B1B85CA6000DEC289 /* MineEditInfoCell.xib in Resources */,
 				940032D11B840CC3001EB666 /* projectTableViewCell.xib in Resources */,
+				94E2C9EE1B8B1CCA001E3FDD /* myself.xib in Resources */,
 				041650451B4D7142008C78BE /* LaunchScreen.xib in Resources */,
 				940032CB1B840CC3001EB666 /* EducationTimeCell.xib in Resources */,
 				04EC1F101B78F5510009292E /* SearchView.xib in Resources */,
@@ -1813,17 +1838,23 @@
 				941F10171B7B3BCC00719F5B /* JobWishlistCell.xib in Resources */,
 				94CB5B891B74CC0600B23B9D /* LICENSE in Resources */,
 				94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */,
+				94E2C9E21B8B0876001E3FDD /* workExperecie.xib in Resources */,
 				94E8F4F51B85797900088658 /* WriteResumeCell.xib in Resources */,
 				F05440B91B788DAB00127A9B /* findjobtest.plist in Resources */,
 				947006991B85CA6000DEC289 /* EditSexCell.xib in Resources */,
 				940032EF1B840DCD001EB666 /* JobScreenDetailCell.xib in Resources */,
+				94E2C9EA1B8B1740001E3FDD /* Certificate.xib in Resources */,
+				94E2C9E01B8B03F1001E3FDD /* intentView.xib in Resources */,
 				940032D71B840CC3001EB666 /* WorkingTimeCell.xib in Resources */,
 				941F10151B7B3BCC00719F5B /* JobWishList.xib in Resources */,
 				94E8F4F11B85797900088658 /* ExceptCityCell.xib in Resources */,
 				041650421B4D7142008C78BE /* Images.xcassets in Resources */,
+				94E2C9E41B8B0BEE001E3FDD /* education.xib in Resources */,
+				94E2C9E81B8B1416001E3FDD /* project.xib in Resources */,
 				94313DC21B7CAAED005D0A9A /* InformationDeskCell.xib in Resources */,
 				94313DBF1B7CAAED005D0A9A /* infDestDetailView.xib in Resources */,
 				94E2C9861B870F29001E3FDD /* JobDescription.xib in Resources */,
+				94E2C9EC1B8B1A5E001E3FDD /* train.xib in Resources */,
 				041650EB1B4D7C4E008C78BE /* MJRefresh.bundle in Resources */,
 				940032951B83969B001EB666 /* HomeViews.xib in Resources */,
 				04A0CD451B7A110B00EBCF01 /* HeadView.xib in Resources */,
@@ -1831,6 +1862,7 @@
 				940032CE1B840CC3001EB666 /* ProfessionalCell.xib in Resources */,
 				940032D51B840CC3001EB666 /* EducationWriteCell.xib in Resources */,
 				940032F21B840DCD001EB666 /* JobScreeningCell.xib in Resources */,
+				94E2C9E61B8B1120001E3FDD /* professional.xib in Resources */,
 				947006961B85CA6000DEC289 /* MineEditInfoView.xib in Resources */,
 				048F30AA1B7A1577004AA9B2 /* HotSearch.xib in Resources */,
 				94E2C9841B870F29001E3FDD /* CompanyProfile.xib in Resources */,

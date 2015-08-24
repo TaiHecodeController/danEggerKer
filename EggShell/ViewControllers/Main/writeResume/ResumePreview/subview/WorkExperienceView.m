@@ -10,12 +10,9 @@
 
 @implementation WorkExperienceView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
++(WorkExperienceView*)setWorkExperienceView
+{
+    return [[[NSBundle mainBundle] loadNibNamed:@"workExperecie" owner:self options:nil] lastObject];
 }
-*/
 
 @end

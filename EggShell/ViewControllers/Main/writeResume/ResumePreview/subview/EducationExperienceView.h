@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EducationExperienceView : UIView
-
++(EducationExperienceView*)setEducationExperienceView;
 @end

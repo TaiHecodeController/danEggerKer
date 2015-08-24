@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface intentView : UIView
-
++(intentView*)setIntentView;
 @end

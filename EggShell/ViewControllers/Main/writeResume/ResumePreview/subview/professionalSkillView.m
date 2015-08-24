@@ -11,12 +11,8 @@
 
 @implementation professionalSkillView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
++(professionalSkillView*)setprofessionalSkillView
+{
+    return [[[NSBundle mainBundle] loadNibNamed:@"professional" owner:self options:nil] lastObject];
 }
-*/
-
 @end

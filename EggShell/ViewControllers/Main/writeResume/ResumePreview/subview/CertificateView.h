@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CertificateView : UIView
-
++(CertificateView*)setCertificateView;
 @end

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface professionalSkillView : UIView
-
++(professionalSkillView*)setprofessionalSkillView;
 @end

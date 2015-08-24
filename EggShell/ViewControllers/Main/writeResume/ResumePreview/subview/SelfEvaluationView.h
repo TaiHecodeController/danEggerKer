@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SelfEvaluationView : UIView
-
++(SelfEvaluationView*)setSelfEvaluationView;
 @end

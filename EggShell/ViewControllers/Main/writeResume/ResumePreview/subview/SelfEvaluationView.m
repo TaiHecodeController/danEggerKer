@@ -9,13 +9,8 @@
 #import "SelfEvaluationView.h"
 
 @implementation SelfEvaluationView
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
++(SelfEvaluationView*)setSelfEvaluationView
+{
+    return [[[NSBundle mainBundle] loadNibNamed:@"myself" owner:self options:nil] lastObject];
 }
-*/
-
 @end

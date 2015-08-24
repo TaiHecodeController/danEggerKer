@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ProjectExperienceView : UIView
-
++(ProjectExperienceView*)setProjectExperienceView;
 @end
