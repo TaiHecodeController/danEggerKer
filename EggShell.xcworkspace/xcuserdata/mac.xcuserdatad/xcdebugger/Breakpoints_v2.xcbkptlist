@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Mine/EditInformation/MineEditVC.m"
-            timestampString = "462103774.587249"
+            timestampString = "462128576.370703"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-keyBoardHide"
             landmarkType = "5">
          </BreakpointContent>
