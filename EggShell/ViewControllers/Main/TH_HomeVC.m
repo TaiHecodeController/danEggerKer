@@ -138,7 +138,7 @@
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     self.scro           = scro;
     
-    self.scro.showsVerticalScrollIndicator  = YES;
+    self.scro.showsVerticalScrollIndicator  = NO;
     self.scro.delegate  = self;
     [self.view addSubview:scro];
 }

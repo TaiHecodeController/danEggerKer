@@ -27,10 +27,21 @@
 {
     [super viewDidLoad];
     
-    UIView *statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 20)];
+    UIView *statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 64)];
     statusBarView.backgroundColor =
-    color(235, 67, 67);
+    color(253, 253, 253);
     [self.view addSubview:statusBarView];
+    UIButton *  button = [[UIButton alloc] initWithFrame:CGRectMake(WIDETH-60, 24, 40, 40)];
+    [button setTitle:@"取消" forState:UIControlStateNormal];
+    button.titleLabel.font =[UIFont systemFontOfSize:16];
+    [button setTitleColor:UIColorFromRGB(0xF34336) forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(leftBtn) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+   }
+-(void)leftBtn
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
