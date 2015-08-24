@@ -9,5 +9,5 @@
 #import "TH_BaseVC.h"
 
 @interface TH_InformationDeskDetailVC : TH_BaseVC
-
+@property(nonatomic,strong)NSArray * detailArray;
 @end

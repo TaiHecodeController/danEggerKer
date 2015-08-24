@@ -16,10 +16,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *AboutEggshellBtn;
 @property (weak, nonatomic) IBOutlet UIButton *ChannelsCooperation;
 
-@property (weak, nonatomic) IBOutlet UIButton *signOut;
+
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *Feedback;
 @property (weak, nonatomic) IBOutlet UIButton *chatNewVersion;
+@property (weak, nonatomic) IBOutlet UIButton *signOut;
 
 @end
 @implementation MineVeiw
@@ -53,6 +54,7 @@
 - (IBAction)mineViewBtnClick:(UIButton*)sender {
     if ([self.mineDelegate respondsToSelector:@selector(homeView:DidClickButton:)]) {
     [self.mineDelegate homeView:self DidClickButton:(THMineViewButtonType)sender.tag];
+        NSLog(@"sjdhfbg");
         
         }
 }
