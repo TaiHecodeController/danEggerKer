@@ -182,6 +182,8 @@
 		F05440B71B7885F500127A9B /* UIBarButtonItem+DC.m in Sources */ = {isa = PBXBuildFile; fileRef = F05440B61B7885F500127A9B /* UIBarButtonItem+DC.m */; };
 		F05440B91B788DAB00127A9B /* findjobtest.plist in Resources */ = {isa = PBXBuildFile; fileRef = F05440B81B788DAB00127A9B /* findjobtest.plist */; };
 		F05440BC1B788FE000127A9B /* jobModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F05440BB1B788FE000127A9B /* jobModel.m */; };
+		F05B7FFE1B8AACA600DC0A1D /* WriteJLChooseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B7FFD1B8AACA600DC0A1D /* WriteJLChooseVC.m */; };
+		F05B80031B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B80021B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m */; };
 		F0D7C02B1B7994DB00836DD2 /* OpenClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */; };
 		F0D7C0551B79C7B400836DD2 /* libpolyvSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C04C1B79C7B400836DD2 /* libpolyvSDK.a */; };
 		F0D7C0571B79CC4800836DD2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C0561B79CC4800836DD2 /* MobileCoreServices.framework */; };
@@ -533,6 +535,10 @@
 		F05440B81B788DAB00127A9B /* findjobtest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = findjobtest.plist; sourceTree = "<group>"; };
 		F05440BA1B788FE000127A9B /* jobModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobModel.h; sourceTree = "<group>"; };
 		F05440BB1B788FE000127A9B /* jobModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobModel.m; sourceTree = "<group>"; };
+		F05B7FFC1B8AACA600DC0A1D /* WriteJLChooseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteJLChooseVC.h; sourceTree = "<group>"; };
+		F05B7FFD1B8AACA600DC0A1D /* WriteJLChooseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteJLChooseVC.m; sourceTree = "<group>"; };
+		F05B80011B8AAD5E00DC0A1D /* UIScrollView+touchBegan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+touchBegan.h"; sourceTree = "<group>"; };
+		F05B80021B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+touchBegan.m"; sourceTree = "<group>"; };
 		F0D7C0291B7994DB00836DD2 /* OpenClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenClassCell.h; sourceTree = "<group>"; };
 		F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenClassCell.m; sourceTree = "<group>"; };
 		F0D7C04B1B79C7B400836DD2 /* DownloadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadDelegate.h; sourceTree = "<group>"; };
@@ -1298,6 +1304,8 @@
 		94313DD31B7CB5C9005D0A9A /* writeResume */ = {
 			isa = PBXGroup;
 			children = (
+				F05B7FFC1B8AACA600DC0A1D /* WriteJLChooseVC.h */,
+				F05B7FFD1B8AACA600DC0A1D /* WriteJLChooseVC.m */,
 				94E8F4E61B85797900088658 /* SubViews */,
 				9400329C1B840B47001EB666 /* ResumePreview */,
 				94313DD41B7CB5C9005D0A9A /* ManagerResumeVC.h */,
@@ -1613,6 +1621,8 @@
 		94EDD4E01B78310900A00A78 /* CustomController */ = {
 			isa = PBXGroup;
 			children = (
+				F05B80011B8AAD5E00DC0A1D /* UIScrollView+touchBegan.h */,
+				F05B80021B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m */,
 				94EDD4EB1B7831BB00A00A78 /* CustomView */,
 				94EDD4E11B78319A00A00A78 /* Extension */,
 			);
@@ -1979,6 +1989,7 @@
 				940032CA1B840CC3001EB666 /* EducationTimeCell.m in Sources */,
 				94E2C9691B870EED001E3FDD /* CompanyMessageView.m in Sources */,
 				048F30B81B7A4537004AA9B2 /* FMDatabaseAdditions.m in Sources */,
+				F05B80031B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m in Sources */,
 				0416503A1B4D7141008C78BE /* AppDelegate.m in Sources */,
 				041650371B4D7141008C78BE /* main.m in Sources */,
 				940032F01B840DCD001EB666 /* TH_JobScreenDetailVC.m in Sources */,
@@ -2023,6 +2034,7 @@
 				041650EC1B4D7C4E008C78BE /* MJRefreshBaseView.m in Sources */,
 				F05440B71B7885F500127A9B /* UIBarButtonItem+DC.m in Sources */,
 				F0D7C06D1B79F92300836DD2 /* OpenClassModel.m in Sources */,
+				F05B7FFE1B8AACA600DC0A1D /* WriteJLChooseVC.m in Sources */,
 				94CB5B871B74CC0600B23B9D /* SGFocusImageFrame.m in Sources */,
 				041650EF1B4D7C4E008C78BE /* MJRefreshHeaderView.m in Sources */,
 				9400329F1B840B47001EB666 /* TH_ResumePreviewVC.m in Sources */,

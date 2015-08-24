@@ -11,8 +11,9 @@
 #import "ExceptCityCell.h"
 #import "NameAndSexCell.h"
 #import "WriteResumeVC2.h"
+#import "WriteJLChooseVC.h"
 
-@interface WriteResumeViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface WriteResumeViewController ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate>
 {
     UITableView * jobTableView;
     UITableView * userTableView;
@@ -25,6 +26,8 @@
 @property (strong,nonatomic)NSArray * nameArray2;
 @property (strong,nonatomic)NSArray * holderArray2;
 @property (strong,nonatomic)NSMutableArray * jobCellArray2;
+@property (nonatomic, strong)WriteJLChooseVC *writeJLChooseVC;
+@property (nonatomic, strong)UIDatePicker *datePick;
 
 
 @end
@@ -33,12 +36,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    WriteJLChooseVC *vc = [[WriteJLChooseVC alloc]init];
+    vc.delegete = self;
+    _writeJLChooseVC = vc;
+    
     self.title = @"写简历";
     self.jobCellArray = [NSMutableArray arrayWithCapacity:0];
     self.jobCellArray2 = [NSMutableArray arrayWithCapacity:0];
     [self createData];
     [self createUI];
-
+    
     // Do any additional setup after loading the view.
 }
 
@@ -58,7 +66,6 @@
     back_sv.contentSize = CGSizeMake(WIDETH, 754 + 64);
     back_sv.backgroundColor = [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:241 / 255.0 alpha:1];
     [self.view addSubview:back_sv];
-    [back_sv addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
     
     UILabel * startLab = [ZCControl createLabelWithFrame:CGRectMake(15, 10, WIDETH / 1.5, 20) Font:12 Text:@"好的简历能帮助你更快的找到好工作!"];
     [back_sv addSubview:startLab];
@@ -89,7 +96,7 @@
     [back_sv addSubview:userTableView];
     
     //保存按钮
-   UIButton * nextBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 - 75, 709, 150, 30) ImageName:@"lanniu2" Target:self Action:@selector(nextClick) Title:@"保存"];
+    UIButton * nextBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 - 75, 709, 150, 30) ImageName:@"lanniu2" Target:self Action:@selector(nextClick) Title:@"保存"];
     [nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     nextBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [back_sv addSubview:nextBtn];
@@ -98,35 +105,35 @@
 
 -(void)nextClick
 {
-//    for(int i = 0;i < self.jobCellArray.count;i++)
-//    {
-//        if(i==4)
-//        {
-//            continue;
-//        }else
-//        {
-//            WriteResumeCell * cell = self.jobCellArray[i];
-//            NSLog(@"%@",cell.contentTextField.text);
-//        }
-//        
-//    }
-//    
-//    for(int i = 0;i < self.jobCellArray2.count;i++)
-//    {
-//        if(i==0)
-//        {
-//            continue;
-//        }else
-//        {
-//            WriteResumeCell * cell = self.jobCellArray[i];
-//            NSLog(@"%@",cell.contentTextField.text);
-//        }
-//        
-//    }
+    //    for(int i = 0;i < self.jobCellArray.count;i++)
+    //    {
+    //        if(i==4)
+    //        {
+    //            continue;
+    //        }else
+    //        {
+    //            WriteResumeCell * cell = self.jobCellArray[i];
+    //            NSLog(@"%@",cell.contentTextField.text);
+    //        }
+    //
+    //    }
+    //
+    //    for(int i = 0;i < self.jobCellArray2.count;i++)
+    //    {
+    //        if(i==0)
+    //        {
+    //            continue;
+    //        }else
+    //        {
+    //            WriteResumeCell * cell = self.jobCellArray[i];
+    //            NSLog(@"%@",cell.contentTextField.text);
+    //        }
+    //
+    //    }
     WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
     [self.navigationController pushViewController:wrvc2 animated:YES];
     
-
+    
 }
 
 
@@ -137,8 +144,6 @@
         return 8;
     }
     return 7;
-    UILabel * lable =[[UILabel alloc] initWithFrame:CGRectMake(0, WIDETH, HEIGHT, 100)];
-
     
 }
 
@@ -146,6 +151,7 @@
 {
     if(tableView.tag == 1555)
     {
+        
         if(indexPath.row != 4)
         {
             WriteResumeCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ID"];
@@ -154,6 +160,10 @@
                 
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"WriteResumeCell" owner:self options:nil] firstObject];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                if (indexPath.row != 0)
+                {
+                    cell.contentTextField.enabled = NO;
+                }
             }
             cell.resumeName.text = self.nameArray[indexPath.row];
             cell.contentTextField.placeholder = self.holderArray[indexPath.row];
@@ -171,11 +181,12 @@
             if(!cell)
             {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"ExceptCityCell" owner:self options:nil] firstObject];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             [self.jobCellArray addObject:cell];
             return cell;
         }
-
+        
     }else
     {
         if(indexPath.row == 0)
@@ -184,6 +195,8 @@
             if(!cell)
             {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NameAndSexCell" owner:self options:nil] firstObject];
+                //                cell.contentTextField.enabled = NO;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             [self.jobCellArray2 addObject:cell];
             return cell;
@@ -193,6 +206,19 @@
             if(!cell)
             {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"WriteResumeCell" owner:self options:nil] firstObject];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            if (indexPath.row == 5 || indexPath.row == 6 || indexPath.row == 4)
+            {
+                cell.showMessageBtn.hidden = YES;
+                
+                if (indexPath.row != 4) {
+                    cell.contentTextField.enabled = YES;
+                }
+            }
+            else
+            {
+                cell.contentTextField.enabled = NO;
             }
             cell.resumeName.text = self.nameArray2[indexPath.row];
             cell.contentTextField.placeholder = self.holderArray2[indexPath.row];
@@ -200,9 +226,6 @@
             return cell;
         }
     }
-    
-    
-
     
     return nil;
 }
@@ -212,8 +235,162 @@
     return 42;
 }
 
+//点击事件，在此写跳转页面，注意判断tableview的tag
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    //    WriteJLChooseVC *vc = [[WriteJLChooseVC alloc]init];
+    
+    if (tableView.tag == 1555)
+    {
+        THLog(@"工作选项列表");
+        if (indexPath.row == 1)
+        {
+            THLog(@"从事行业");
+            _writeJLChooseVC.titleText = @"从事行业";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+        }
+        else if (indexPath.row == 2)
+        {
+            THLog(@"期望职位");
+            _writeJLChooseVC.titleText = @"期望职位";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+        }
+        else if (indexPath.row == 3)
+        {
+            THLog(@"期望薪资");
+            _writeJLChooseVC.titleText = @"期望薪资";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+            
+        }
+        else if (indexPath.row == 5)
+        {
+            THLog(@"工作性质");
+            _writeJLChooseVC.titleText = @"工作性质";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+            
+        }
+        else if (indexPath.row == 6)
+        {
+            THLog(@"到岗时间");
+            _writeJLChooseVC.titleText = @"到岗时间";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+            
+        }
+        else if (indexPath.row == 7)
+        {
+            THLog(@"求职状态");
+            _writeJLChooseVC.titleText = @"求职状态";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+            
+        }
+        else
+        {
+            return;
+        }
+        
+        [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+    }
+    else
+    {
+        THLog(@"个人信息选项列表");
+        if (indexPath.row == 1)
+        {
+            THLog(@"出生年月");
+            [self createDatePicker];
+            
+            return;
+            
+        }
+        else if (indexPath.row == 2)
+        {
+            THLog(@"最高学历");
+            _writeJLChooseVC.titleText = @"最高学历";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1999;
+            
+        }
+        else if (indexPath.row == 3)
+        {
+            THLog(@"工作经验");
+            _writeJLChooseVC.titleText = @"最高学历";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1999;
+            
+        }
+        //        else if (indexPath.row == 4)
+        //        {
+        //            THLog(@"手机号码");
+        //        }
+        else
+        {
+            return;
+        }
+        
+        [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+    }
+    
+}
+
+- (void)createDatePicker
+{
+    UIDatePicker *datePicker = [[UIDatePicker alloc]initWithFrame:CGRectMake(0, HEIGHT - 200, WIDETH, 200)];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [self.view addSubview:datePicker];
+    [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
+    _datePick = datePicker;
+}
+
+-(void)dateChanged:(id)sender
+{
+    UIDatePicker *control = (UIDatePicker*)sender;
+    NSDate* mydate = control.date;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy年MM月"];
+    NSString *timeStr = [dateFormatter stringFromDate:mydate];
+    //    NSLog(@"mydate%@",mydate);
+    NSIndexPath *cellIndex = [NSIndexPath indexPathForRow:1 inSection:0];
+    WriteResumeCell *cell = (WriteResumeCell *)[userTableView cellForRowAtIndexPath:cellIndex];
+    cell.contentTextField.text = timeStr;
+}
+
 -(void)mustClick
 {
+    
+}
+
+- (void)chooseWord:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex
+{
+    if (tableViewTagIndex == 1555)
+    {
+        WriteResumeCell *cell = (WriteResumeCell *)[jobTableView cellForRowAtIndexPath:cellIndex];
+        cell.contentTextField.text = keyWord;
+    }
+    else
+    {
+        WriteResumeCell *cell = (WriteResumeCell *)[userTableView cellForRowAtIndexPath:cellIndex];
+        cell.contentTextField.text = keyWord;
+    }
+    
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (_datePick)
+    {
+        [_datePick resignFirstResponder];
+        [_datePick removeFromSuperview];
+        _datePick = nil;
+    }
+    
+    //    [((WriteResumeCell *)[jobTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).contentTextField resignFirstResponder];
+    //
     
 }
 
@@ -224,13 +401,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
