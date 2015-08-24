@@ -197,6 +197,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.contentTextField.delegate = self;
             cell.contentTextField.tag = 400 + indexPath.row;
+            cell.contentBtn.hidden = YES;
         }
         cell.Controller = self;
         cell.nextBtn.hidden = YES;
@@ -225,6 +226,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.contentTextField.delegate = self;
             cell.contentTextField.tag = 500 + indexPath.row;
+            cell.contentBtn.hidden = YES;
         }
         cell.Controller = self;
         cell.nextBtn.hidden = YES;
