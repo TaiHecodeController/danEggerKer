@@ -10,7 +10,8 @@
 
 @interface JobScreeningCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLable;
-@property (weak, nonatomic) IBOutlet UILabel *contenLable;
+
 @property (weak, nonatomic) IBOutlet UIImageView *logoImage;
+@property (weak, nonatomic) IBOutlet UITextField *contentTextFiled;
 
 @end

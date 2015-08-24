@@ -46,6 +46,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="contentTextFiled" destination="xGh-bp-dpb" id="9qH-16-2fo"/>
                 <outlet property="logoImage" destination="MT4-Y9-2h6" id="4OC-5L-IIt"/>
                 <outlet property="titleLable" destination="cml-Tl-IHI" id="HZG-LV-Epg"/>
             </connections>

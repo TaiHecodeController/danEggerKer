@@ -91,7 +91,8 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"JobScreeningCell" owner:self options:nil]lastObject];
     }
     cell.titleLable.text = self.nameArray[indexPath.row];
-    cell.contenLable.text  = self.conrentArray[indexPath.row];
+    cell.contentTextFiled.text  = self.conrentArray[indexPath.row];
+    cell.contentTextFiled.userInteractionEnabled = NO;
     
     return cell;
 }
