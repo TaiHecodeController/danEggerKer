@@ -27,6 +27,7 @@
 @property (strong,nonatomic)NSArray * nameArray3;
 @property (strong,nonatomic)NSArray * holderArray3;
 @property (strong,nonatomic)NSMutableArray * jobCellArray3;
+
 @end
 
 @implementation MineEditVC
