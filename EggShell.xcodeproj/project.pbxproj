@@ -27,6 +27,7 @@
 		041650EF1B4D7C4E008C78BE /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041650EA1B4D7C4E008C78BE /* MJRefreshHeaderView.m */; };
 		04237D901B66456F00768FAD /* LoginAndRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04237D8F1B66456F00768FAD /* LoginAndRegisterRequest.m */; };
 		04718DA71B7CDA26008214CB /* ZCControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 04718DA61B7CDA26008214CB /* ZCControl.m */; };
+		048426F51B8B1E6D009C597A /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048426F41B8B1E6D009C597A /* VPImageCropperViewController.m */; };
 		048F30A81B7A1562004AA9B2 /* HotSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F30A71B7A1562004AA9B2 /* HotSearch.m */; };
 		048F30AA1B7A1577004AA9B2 /* HotSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048F30A91B7A1577004AA9B2 /* HotSearch.xib */; };
 		048F30B71B7A4537004AA9B2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F30AD1B7A4537004AA9B2 /* FMDatabase.m */; };
@@ -152,7 +153,6 @@
 		94E2C9891B870F29001E3FDD /* moreJobTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C97B1B870F29001E3FDD /* moreJobTableViewCell.xib */; };
 		94E2C98A1B870F29001E3FDD /* MoreJobTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2C97E1B870F29001E3FDD /* MoreJobTitleCell.m */; };
 		94E2C98B1B870F29001E3FDD /* TH_JobDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2C9801B870F29001E3FDD /* TH_JobDetailVC.m */; };
-		94E2C9911B872B44001E3FDD /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2C9901B872B44001E3FDD /* VPImageCropperViewController.m */; };
 		94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF11B841D510093C39B /* CourePlayTitle.m */; };
 		94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E7DCF21B841D510093C39B /* CourePlaytitle.xib */; };
 		94E7DCFA1B841D510093C39B /* Course PlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF41B841D510093C39B /* Course PlayCell.m */; };
@@ -260,6 +260,8 @@
 		04237D8F1B66456F00768FAD /* LoginAndRegisterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginAndRegisterRequest.m; sourceTree = "<group>"; };
 		04718DA51B7CDA26008214CB /* ZCControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCControl.h; sourceTree = "<group>"; };
 		04718DA61B7CDA26008214CB /* ZCControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCControl.m; sourceTree = "<group>"; };
+		048426F31B8B1E6D009C597A /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
+		048426F41B8B1E6D009C597A /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
 		048F30A61B7A1562004AA9B2 /* HotSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotSearch.h; sourceTree = "<group>"; };
 		048F30A71B7A1562004AA9B2 /* HotSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotSearch.m; sourceTree = "<group>"; };
 		048F30A91B7A1577004AA9B2 /* HotSearch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotSearch.xib; sourceTree = "<group>"; };
@@ -482,8 +484,6 @@
 		94E2C97E1B870F29001E3FDD /* MoreJobTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreJobTitleCell.m; sourceTree = "<group>"; };
 		94E2C97F1B870F29001E3FDD /* TH_JobDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_JobDetailVC.h; sourceTree = "<group>"; };
 		94E2C9801B870F29001E3FDD /* TH_JobDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_JobDetailVC.m; sourceTree = "<group>"; };
-		94E2C98F1B872B44001E3FDD /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
-		94E2C9901B872B44001E3FDD /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
 		94E7DCF01B841D510093C39B /* CourePlayTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourePlayTitle.h; sourceTree = "<group>"; };
 		94E7DCF11B841D510093C39B /* CourePlayTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourePlayTitle.m; sourceTree = "<group>"; };
 		94E7DCF21B841D510093C39B /* CourePlaytitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourePlaytitle.xib; sourceTree = "<group>"; };
@@ -664,7 +664,7 @@
 		0416505A1B4D71D4008C78BE /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
-				94E2C98E1B872B44001E3FDD /* VPImageCropper */,
+				048426F21B8B1E6D009C597A /* VPImageCropper */,
 				04718DA41B7CDA26008214CB /* UI类 */,
 				048F30AB1B7A4537004AA9B2 /* fmdb */,
 				F05440AE1B7848B000127A9B /* HYSegmentedControl */,
@@ -745,6 +745,15 @@
 				04718DA61B7CDA26008214CB /* ZCControl.m */,
 			);
 			path = "UI类";
+			sourceTree = "<group>";
+		};
+		048426F21B8B1E6D009C597A /* VPImageCropper */ = {
+			isa = PBXGroup;
+			children = (
+				048426F31B8B1E6D009C597A /* VPImageCropperViewController.h */,
+				048426F41B8B1E6D009C597A /* VPImageCropperViewController.m */,
+			);
+			path = VPImageCropper;
 			sourceTree = "<group>";
 		};
 		048F30AB1B7A4537004AA9B2 /* fmdb */ = {
@@ -1561,15 +1570,6 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
-		94E2C98E1B872B44001E3FDD /* VPImageCropper */ = {
-			isa = PBXGroup;
-			children = (
-				94E2C98F1B872B44001E3FDD /* VPImageCropperViewController.h */,
-				94E2C9901B872B44001E3FDD /* VPImageCropperViewController.m */,
-			);
-			path = VPImageCropper;
-			sourceTree = "<group>";
-		};
 		94E7DCEE1B841D510093C39B /* CoursePlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -2041,7 +2041,7 @@
 				94313DBE1B7CAAED005D0A9A /* infDestDetailView.m in Sources */,
 				04A483B41B74FD1B006FDB9D /* TH_MainTabBarController.m in Sources */,
 				F0D7C0611B79EB3300836DD2 /* OpenClassVideoListRequest.m in Sources */,
-				94E2C9911B872B44001E3FDD /* VPImageCropperViewController.m in Sources */,
+				048426F51B8B1E6D009C597A /* VPImageCropperViewController.m in Sources */,
 				940032CD1B840CC3001EB666 /* ProfessionalCell.m in Sources */,
 				94CB5B9B1B7632E800B23B9D /* TH_BaseVC.m in Sources */,
 				940032F31B840DCD001EB666 /* TH_JobScreeningVC.m in Sources */,
