@@ -11,4 +11,5 @@
 @interface TH_JobScreenDetailVC : TH_BaseVC
 @property(nonatomic,strong)NSArray * DataArray;
 @property(nonatomic,copy)NSString * titleText;
+@property(nonatomic,strong)void(^myBlock)(NSString * str);
 @end

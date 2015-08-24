@@ -67,7 +67,6 @@
 		940032D71B840CC3001EB666 /* WorkingTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940032C21B840CC3001EB666 /* WorkingTimeCell.xib */; };
 		940032D81B840CC3001EB666 /* TH_TrainExperienceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032C51B840CC3001EB666 /* TH_TrainExperienceVC.m */; };
 		940032D91B840CC3001EB666 /* WorkingExperienceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032C81B840CC3001EB666 /* WorkingExperienceVC.m */; };
-		940032ED1B840DCD001EB666 /* A_program_music.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 940032E01B840DCC001EB666 /* A_program_music.xcworkspace */; };
 		940032EE1B840DCD001EB666 /* JobScreenDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032E41B840DCC001EB666 /* JobScreenDetailCell.m */; };
 		940032EF1B840DCD001EB666 /* JobScreenDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940032E51B840DCC001EB666 /* JobScreenDetailCell.xib */; };
 		940032F01B840DCD001EB666 /* TH_JobScreenDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032E71B840DCC001EB666 /* TH_JobScreenDetailVC.m */; };
@@ -201,20 +200,6 @@
 			remoteGlobalIDString = 041650301B4D7141008C78BE;
 			remoteInfo = EggShell;
 		};
-		940032F61B840DCD001EB666 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 940032DD1B840DCC001EB666 /* A_program_music.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA113B8C1B3428EA00C7918B;
-			remoteInfo = A_program_music;
-		};
-		940032F81B840DCD001EB666 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 940032DD1B840DCC001EB666 /* A_program_music.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA113BA11B3428EA00C7918B;
-			remoteInfo = A_program_musicTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -332,8 +317,6 @@
 		940032C51B840CC3001EB666 /* TH_TrainExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_TrainExperienceVC.m; sourceTree = "<group>"; };
 		940032C71B840CC3001EB666 /* WorkingExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingExperienceVC.h; sourceTree = "<group>"; };
 		940032C81B840CC3001EB666 /* WorkingExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingExperienceVC.m; sourceTree = "<group>"; };
-		940032DD1B840DCC001EB666 /* A_program_music.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = A_program_music.xcodeproj; sourceTree = "<group>"; };
-		940032E01B840DCC001EB666 /* A_program_music.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = A_program_music.xcworkspace; sourceTree = "<group>"; };
 		940032E31B840DCC001EB666 /* JobScreenDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobScreenDetailCell.h; sourceTree = "<group>"; };
 		940032E41B840DCC001EB666 /* JobScreenDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobScreenDetailCell.m; sourceTree = "<group>"; };
 		940032E51B840DCC001EB666 /* JobScreenDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobScreenDetailCell.xib; sourceTree = "<group>"; };
@@ -1070,7 +1053,6 @@
 		940032DA1B840DCC001EB666 /* JobScreening */ = {
 			isa = PBXGroup;
 			children = (
-				940032DB1B840DCC001EB666 /* JobFilterDetail */,
 				940032E11B840DCC001EB666 /* JobScreenDetail */,
 				940032E81B840DCC001EB666 /* JobScreeningCell.h */,
 				940032E91B840DCC001EB666 /* JobScreeningCell.m */,
@@ -1079,32 +1061,6 @@
 				940032EC1B840DCD001EB666 /* TH_JobScreeningVC.m */,
 			);
 			path = JobScreening;
-			sourceTree = "<group>";
-		};
-		940032DB1B840DCC001EB666 /* JobFilterDetail */ = {
-			isa = PBXGroup;
-			children = (
-				940032DC1B840DCC001EB666 /* A_program_music */,
-			);
-			path = JobFilterDetail;
-			sourceTree = "<group>";
-		};
-		940032DC1B840DCC001EB666 /* A_program_music */ = {
-			isa = PBXGroup;
-			children = (
-				940032DD1B840DCC001EB666 /* A_program_music.xcodeproj */,
-				940032E01B840DCC001EB666 /* A_program_music.xcworkspace */,
-			);
-			path = A_program_music;
-			sourceTree = "<group>";
-		};
-		940032DE1B840DCC001EB666 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				940032F71B840DCD001EB666 /* A_program_music.app */,
-				940032F91B840DCD001EB666 /* A_program_musicTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		940032E11B840DCC001EB666 /* JobScreenDetail */ = {
@@ -1788,12 +1744,6 @@
 			mainGroup = 041650281B4D7141008C78BE;
 			productRefGroup = 041650321B4D7141008C78BE /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 940032DE1B840DCC001EB666 /* Products */;
-					ProjectRef = 940032DD1B840DCC001EB666 /* A_program_music.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				041650301B4D7141008C78BE /* EggShell */,
@@ -1801,23 +1751,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		940032F71B840DCD001EB666 /* A_program_music.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = A_program_music.app;
-			remoteRef = 940032F61B840DCD001EB666 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		940032F91B840DCD001EB666 /* A_program_musicTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = A_program_musicTests.xctest;
-			remoteRef = 940032F81B840DCD001EB666 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0416502F1B4D7141008C78BE /* Resources */ = {
@@ -1836,7 +1769,6 @@
 				04EC1F101B78F5510009292E /* SearchView.xib in Resources */,
 				940033021B840FC6001EB666 /* MineView.xib in Resources */,
 				94E8F4F31B85797900088658 /* NameAndSexCell.xib in Resources */,
-				940032ED1B840DCD001EB666 /* A_program_music.xcworkspace in Resources */,
 				94E7DCFB1B841D510093C39B /* Course PlayCell.xib in Resources */,
 				941F10171B7B3BCC00719F5B /* JobWishlistCell.xib in Resources */,
 				94CB5B891B74CC0600B23B9D /* LICENSE in Resources */,

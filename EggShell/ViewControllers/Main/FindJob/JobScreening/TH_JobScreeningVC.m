@@ -135,10 +135,15 @@
     switch (indexPath.row) {
         case 0:
         {
-            
+             TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
                 JobDetail.title = @"行业类别";
                 JobDetail.titleText = @"请选择行业类别";
                 JobDetail.DataArray = self.industryArray;
+            JobDetail.myBlock = ^(NSString * text)
+            {
+//                JobDetail.title = text;
+                NSLog(@"%@",text);
+            } ;
                 [self.navigationController pushViewController:JobDetail animated:YES];
         }
             break;
