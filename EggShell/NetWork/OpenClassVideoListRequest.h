@@ -10,5 +10,5 @@
 
 @interface OpenClassVideoListRequest : AFAppRequest
 
-+(AFRequestState *)requestWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp;
++(AFRequestState *)requestWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp paramPage:(NSString *)page Pagesize:(NSString *)pageSie;
 @end

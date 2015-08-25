@@ -57,6 +57,8 @@
 #pragma mark -返回
 - (void)pop
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"videoClose" object:nil];
+    
     [self popViewControllerAnimated:YES];
 }
 - (UIStatusBarStyle)preferredStatusBarStyle

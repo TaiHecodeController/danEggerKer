@@ -20,31 +20,41 @@
 #import "OpenClassModel.h"
 #import "UIImageView+WebCache.h"
 //#import "MJRefresh.h"
-
-
-
+#import "MTSpecailtyListPointItem.h"
+#import "NSIndexPath+RK_row_col.h"
 
 #define bottomH 107
 
+@interface TH_ClassVC ()<MJRefreshBaseViewDelegate>
+{
+    int                 gap;
+}
 
-@interface TH_ClassVC ()<UICollectionViewDataSource,UICollectionViewDelegate>
-
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) HYSegmentedControl *segmentedControl;
 @property (nonatomic, assign) int currentIndex;
-@property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong)NSMutableArray *openClassList;
-@property (nonatomic, assign)CGFloat headViewMaxY;
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIView *collectionHeadView;
+@property (nonatomic, strong) NSMutableArray *openClassList;
+@property (nonatomic, assign) CGFloat headViewMaxY;
 @property (nonatomic, strong) UIView *headView;
 
-//@property (nonatomic, strong)MJRefreshHeaderView *header;
-//@property (nonatomic, strong)MJRefreshFooterView *footer;
+@property (nonatomic, strong) MTGridView *_gridView;
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
+@property(nonatomic,strong)MJRefreshFooterView *  footer;
+@property(nonatomic,strong)MJRefreshHeaderView * header;
+@property (nonatomic,strong)AFRequestState * state;
+@property(nonatomic,assign)int page;
 
 @end
 
 @implementation TH_ClassVC
+
+-(void)dealloc
+{
+    
+    [_header free];
+    [_footer free];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
@@ -60,6 +70,10 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
 
+    self.dataArray =[[NSMutableArray alloc]init];
+    self.page = 1;
+    MBProgressHUD * mub = [MBProgressHUD mbHubShow];
+    [self loadData:mub page:self.page];
     // Do any additional setup after loading the view.
 //    self.view.backgroundColor = color(243, 243, 241);
    
@@ -68,11 +82,9 @@
 //    
 //    [self addRightBtn2_NormalImageName:@"sousuo001" hightImageName:nil action:@selector(rightClick2) target:self];
     
+    [self initSegView];
     
-    
-    [self initView];
-    
-    [self configCourseConllectionView];
+    [self initTableView];
     
     [self querData];
     
@@ -80,57 +92,59 @@
     
 }
 
-- (void)initView
+-(void)loadData:(id)notify page:(int)num
+{
+    if(_state.running)
+    {
+        return;
+    }
+    
+    NSString * page = [NSString stringWithFormat:@"%d",num];
+
+    __weak typeof (self) weakSelf = self;
+    
+    _state = [[OpenClassVideoListRequest requestWithSucc:^(NSArray *DataDic) {
+        
+                [weakSelf.dataArray addObjectsFromArray:[weakSelf getArray:DataDic length:2]];
+//                weakSelf.dataArray = ;
+                [weakSelf._gridView reloadData];
+
+    } resp:[OpenClassModel class] paramPage:page Pagesize:@"2"] addNotifaction:notify];
+
+}
+
+
+- (void)initSegView
 {
     
     CGFloat y = 0;
-    CGFloat margin = 10;
+//    CGFloat margin = 10;
     
     NSArray *iconArr = @[@[@"shipin2",@"shipin"],@[@"yuyin2",@"yuyin"]];
     
     _segmentedControl = [[HYSegmentedControl alloc] initWithOriginY:y Titles:@[@"视频课程", @"语音课程"]  IconNames:iconArr delegate:self] ;
     [self.view addSubview:_segmentedControl];
     
-    _scrollView = [[UIScrollView alloc]init];
-    //40为视频课程，语音课程高度，44为标签bar高度，66为navigationBar高度
-    _scrollView.frame = CGRectMake(0, 40, WIDETH, self.view.frame.size.height - 40 - 44 - 66);
-//    _scrollView.backgroundColor = [UIColor blueColor];
-    _scrollView.contentSize = CGSizeMake(WIDETH, self.view.frame.size.height - 40 - 44 - 66);
-    _scrollView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:_scrollView];
-    
 }
 
 - (void)querData
 {
     
-    [OpenClassVideoListRequest requestWithSucc:^(NSArray *DataDic) {
-        
-        _openClassList = [NSMutableArray arrayWithArray:DataDic];
-        
-        [_collectionView reloadData];
-        
-        CGFloat height = (_openClassList.count / 2) * 120;
-        CGRect frame = _collectionView.frame;
-        frame.size = CGSizeMake(WIDETH - 2 * 20, height + 50);
-        _collectionView.frame = frame;
-        //66为导航条高度
-        CGFloat contentheight = _headView.frame.size.height + _collectionView.frame.size.height + 66;
-        _scrollView.contentSize = CGSizeMake(WIDETH, contentheight );
-        
-//     OpenClassModel *model = DataDic[0];
-//     THLog(@"vimage:%@",model.vimage);
-//        OpenClassModel.vimage
-        
-//        OpenClassModel *model = [[OpenClassModel alloc] initWithDictionary:DataDic];
+    __weak typeof (self) weakSelf = self;
+    
+//    [OpenClassVideoListRequest requestWithSucc:^(NSArray *DataDic) {
 //        
-//        THLog(@"DataDic:%@",model);
-        
-    } resp:[OpenClassModel class]];
+////        _openClassList = [NSMutableArray arrayWithArray:DataDic];
+//        
+//        [weakSelf.dataArray addObjectsFromArray:DataDic];
+//        weakSelf.dataArray = [weakSelf getArray:DataDic length:2];
+//        [weakSelf._gridView reloadData];
+//        
+//    } resp:[OpenClassModel class]];
 }
 
 #pragma mark -- configConllectionView
-- (void)configCourseConllectionView
+- (void)initTableView
 {
     CGFloat margin = 20;
     CGFloat minimargin = 10;
@@ -141,7 +155,6 @@
     headView.frame = CGRectMake(0, y, WIDETH, 154);
     headView.backgroundColor = [UIColor whiteColor];
 //    [self.view addSubview:headView];
-    [_scrollView addSubview:headView];
     
     CGSize msfcSize = [@"名师风采" sizeWithFont:[UIFont systemFontOfSize:15]];
     UILabel *msfcLab = [[UILabel alloc]initWithFrame:CGRectMake(margin, minimargin, msfcSize.width, msfcSize.height)];
@@ -154,7 +167,6 @@
     lineView.backgroundColor = UIColorFromRGB(0xdddddd);
     lineView.frame = CGRectMake(0, CGRectGetMaxY(msfcLab.frame) + minimargin, WIDETH, 0.5);
     [headView addSubview:lineView];
-    
     
     int count = 3;
     //边距
@@ -181,50 +193,46 @@
     
     headView.frame = CGRectMake(0, y, WIDETH, _headViewMaxY + 15);
     
-    UIView *marginView = [[UIView alloc]init];
-    marginView.backgroundColor = color(243, 243, 241);
-    marginView.frame = CGRectMake(0, CGRectGetMaxY(headView.frame), WIDETH, 10);
-//    [self.view addSubview:marginView];
-    [_scrollView addSubview:marginView];
+    UIView *marginView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(headView.frame), WIDETH, 10)];
+    marginView.backgroundColor = UIColorFromRGB(0xf3f3f1);
+    [headView addSubview:marginView];
     
-    UIView *collectionHeadView = [[UIView alloc]init];
-    _collectionHeadView = collectionHeadView;
-    collectionHeadView.frame = CGRectMake(0, CGRectGetMaxY(marginView.frame), WIDETH, 40);
-//    collectionHeadView.backgroundColor = [UIColor redColor];
-//    [self.view addSubview:collectionHeadView];
-    [_scrollView addSubview:collectionHeadView];
+    UIView *hotView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(marginView.frame), WIDETH, 34)];
+    [headView addSubview:hotView];
     
-    UILabel *rmkcLab = [[UILabel alloc]init];
-    rmkcLab.text = @"热门课程";
-    rmkcLab.font = [UIFont systemFontOfSize:15];
-    CGSize rmkcSize = [rmkcLab.text sizeWithFont:rmkcLab.font];
-    rmkcLab.frame = CGRectMake(margin, minimargin, rmkcSize.width, rmkcSize.height);
-    [collectionHeadView addSubview:rmkcLab];
+    UILabel *hotLab = [[UILabel alloc]init];
+    hotLab.text = @"热门课程";
+    hotLab.font = [UIFont systemFontOfSize:15];
+    CGSize msfcSize1 = [@"热门课程" sizeWithFont:[UIFont systemFontOfSize:15]];
+    hotLab.frame = CGRectMake(10, 10, msfcSize1.width, msfcSize1.height);
+    hotLab.textColor = UIColorFromRGB(000000);
+    [hotView addSubview:hotLab];
     
-    UIView *lineView1 = [[UIView alloc]init];
-    lineView1.backgroundColor = UIColorFromRGB(0xdddddd);
-    lineView1.frame = CGRectMake(0, CGRectGetHeight(collectionHeadView.frame) - 0.5, WIDETH, 0.5);
-    [collectionHeadView addSubview:lineView1];
-
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
-//    flowLayout.itemSize = CGSizeMake(155, 120);
-    flowLayout.itemSize = CGSizeMake(0.413 * WIDETH, 120);
-    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(margin, CGRectGetMaxY(collectionHeadView.frame), WIDETH - 2 * margin, HEIGHT - CGRectGetMaxY(collectionHeadView.frame) - 44 - 66) collectionViewLayout:flowLayout];
-    _collectionView.delegate = self;
-    _collectionView.dataSource = self;
-    _collectionView.scrollEnabled = NO;
-    _collectionView.backgroundColor = [UIColor clearColor];
-//    [self.view addSubview:_collectionView];
-    [_scrollView addSubview:_collectionView];
+    UIView *hotLine = [[UIView alloc]init];
+    hotLine.frame = CGRectMake(0, CGRectGetHeight(hotView.frame) - 0.5, WIDETH, 0.5);
+    hotLine.backgroundColor = UIColorFromRGB(0xdddddd);
+    [hotView addSubview:hotLine];
     
-    //注册cell 头视图
-    [_collectionView registerClass:[OpenClassCell class] forCellWithReuseIdentifier:@"RK_collectionViewCell"];
-    [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"RK_headView"];
+    headView.frame = CGRectMake(0, y, WIDETH, _headViewMaxY + 15 + marginView.frame.size.height + hotView.frame.size.height + 15);
+    
+    gap = 5;
+    self._gridView = [[MTGridView alloc]initWithFrame:CGRectMake(0, 44, WIDETH, HEIGHT - 44  - 90)];
+    self._gridView.delegate = self;
+    self._gridView.dataSource = self;
+    self._gridView.columnSpace = 20;
+    self._gridView.rowSpace = 15;
+    self._gridView.paddingEdge = UIEdgeInsetsMake(0, 20, 0, 20);
+    [self.view addSubview:self._gridView];
+    self._gridView.headerView = headView;
     
     //下拉刷新
-//    _footer = [MJRefreshFooterView footer];
-//    _footer.scrollView = self.collectionView;
-//    _footer.delegate = self;
+    _header = [MJRefreshHeaderView header];
+    _header.scrollView = [self._gridView gridTabelView];
+    _header.delegate = self;
+    
+    _footer = [MJRefreshFooterView footer];
+    _footer.scrollView = [self._gridView gridTabelView];
+    _footer.delegate = self;
 }
 
 #pragma mark -- MJRefresh
@@ -240,37 +248,27 @@
 //    }
 //}
 
-
-#pragma mark -UICollectionViewDataSource
-//指定组的个数 ，一个大组！！不是一排，是N多排组成的一个大组(与下面区分)
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+#pragma  mark -- gridViewDelegate
+- (MTGridViewItem *)gridView:(MTGridView *)gridView itemForColumnAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 1;
-}
-
-//指定单元格的个数 ，这个是一个组里面有多少单元格，e.g : 一个单元格就是一张图片
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return _openClassList.count;
-//    return 10;
-}
-
-//构建单元格
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-   
-    OpenClassCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RK_collectionViewCell" forIndexPath:indexPath];
     
-   
+    static NSString *identifier = @"identifier";
+    
+    MTSpecailtyListPointItem *cell =(MTSpecailtyListPointItem *)[gridView dequeueReusableItemWithIdentifier:identifier  atColIndex:0];
+    
+    if (cell == nil)
+    {
+        cell = [[MTSpecailtyListPointItem alloc]initWithStyle:MTGridViewItemStyleDefault identifier:identifier];
+    }
     
     if (_currentIndex == 0)
     {
-        OpenClassModel *model = _openClassList[indexPath.row];
+        OpenClassModel *model = self.dataArray[indexPath.rowIndex][indexPath.columnIndex];
         
         [cell.coverView sd_setImageWithURL:[NSURL URLWithString:model.vimage] placeholderImage:[UIImage imageNamed:@"remen"]];
         cell.nameLab.text = model.video_teacher;
-//        cell.coverView.image = [UIImage imageNamed:@"remen"];
-//        cell.nameLab.text = @"王老师";
+        //        cell.coverView.image = [UIImage imageNamed:@"remen"];
+        //        cell.nameLab.text = @"王老师";
         [cell.redXinBtn setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
         [cell.redXinBtn setTitle:@"300" forState:UIControlStateNormal];
         [cell.priceBtn setImage:[UIImage imageNamed:@"qian"] forState:UIControlStateNormal];
@@ -279,52 +277,76 @@
     }
     else
     {
-         OpenClassModel *model = _openClassList[indexPath.row];
+        OpenClassModel *model = _openClassList[indexPath.row];
         
         [cell.coverView sd_setImageWithURL:[NSURL URLWithString:model.vimage] placeholderImage:[UIImage imageNamed:@"remen"]];
         cell.nameLab.text = model.video_teacher;
-//        cell.coverView.image = [UIImage imageNamed:@"remen"];
-//        cell.nameLab.text = @"王老师";
+        //        cell.coverView.image = [UIImage imageNamed:@"remen"];
+        //        cell.nameLab.text = @"王老师";
         [cell.redXinBtn setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
         [cell.redXinBtn setTitle:@"300" forState:UIControlStateNormal];
         [cell.priceBtn setImage:[UIImage imageNamed:@"qian"] forState:UIControlStateNormal];
         [cell.priceBtn setTitle:@"9元" forState:UIControlStateNormal];
         cell.companyLab.text = @"中国惠普";
     }
+
+    
+//    MTSpecialtyListModel *model = self.dataArray[indexPath.rowIndex][indexPath.columnIndex];
+//    [item.iconView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:mImageByName(@"placeholder")];
+//    item.specialtyName.text = model.name;
     
     return cell;
+    
 }
-
-//组的头视图创建
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+- (int)numberOfRowAtGridView:(MTGridView *)gridView
 {
-    UICollectionReusableView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"RK_headView" forIndexPath:indexPath];
-    headView.backgroundColor = [UIColor blueColor];
-    return headView;
+    return self.dataArray.count;
 }
-
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+- (int)gridView:(MTGridView *)gridView numberOfColumnInRow:(int)row
 {
-    //    CGFloat margin = ([UIScreen mainScreen].bounds.size.width - 3 * 80) / 4;
-    return UIEdgeInsetsMake(5, 0, 10, 0);
+    return [self.dataArray[row] count];
 }
-
-//UICollectionView被选中时调用的方法
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+- (float)gridView:(MTGridView *)gridView heightOfItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    OpenClassModel *model = _openClassList[indexPath.row];
-//    播放视频
-//    NSURL *Url = [NSURL URLWithString:@"00018093b103eb7fe795cf4cebab8871_0"];
-     NSURL *Url = [NSURL URLWithString:model.video_id];
+//    return  (gridView.frame.size.width - 2 * 15 ) / 2;
+    return 140;
+}
+- (float)gridView:(MTGridView *)gridView widthOfItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return ((gridView.frame.size.width - 2 * 20 ) - 25) / 2;
+    
+}
+- (void)gridView:(MTGridView *)gridView didSelectedItemAtIndexPath:(NSIndexPath *)indexPath
+{
+     OpenClassModel *model = self.dataArray[indexPath.rowIndex][indexPath.columnIndex];
+    //    播放视频
+    //    NSURL *Url = [NSURL URLWithString:@"00018093b103eb7fe795cf4cebab8871_0"];
+    NSURL *Url = [NSURL URLWithString:model.video_id];
     if (!Url) {
         return;
     }
     THCoursePlayVC *moviePlayer =    [[THCoursePlayVC alloc] initNetworkMoviePlayerViewControllerWithURL:Url movieTitle:model.video_name];
     
-//    [self.navigationController presentViewController:moviePlayer animated:YES completion:nil];
+    //    [self.navigationController presentViewController:moviePlayer animated:YES completion:nil];
     [self.navigationController pushViewController:moviePlayer animated:YES];
 }
 
+#pragma mark -- MJRefresh
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    if( refreshView == _header ){
+        _page = 0;
+        THLog(@"下拉刷新");
+//        [self.dataArray removeAllObjects];
+        [self loadData:refreshView page:_page];
+    }
+    else{
+        self.page++;
+        THLog(@"上拉加载更多");
+        [self loadData:refreshView page:_page];
+        
+    }
+}
 
 - (void)hySegmentedControlSelectAtIndex:(NSInteger)index
 {
@@ -332,30 +354,14 @@
     {
         
         _currentIndex = 0;
-        //        [dataArray removeAllObjects];
-        //        [dataArray addObject:@"1"];
-        //        [dataArray addObject:@"2"];
-        //        [dataArray addObject:@"3"];
-        //        [dataArray addObject:@"4"];
-        //        [dataArray addObject:@"5"];
         
-        [_collectionView reloadData];
-//                _tableView.hidden = YES;
-        //        _gridView.hidden = NO;
+        [self._gridView reloadData];
     }
     else
     {
         _currentIndex = 1;
-        //        [dataArray removeAllObjects];
-        //        [dataArray addObject:@"11"];
-        //        [dataArray addObject:@"22"];
-        //        [dataArray addObject:@"33"];
-        //        [dataArray addObject:@"44"];
-        //        [dataArray addObject:@"55"];
-        
-        [_collectionView reloadData];
-        //        _gridView.hidden = YES;
-        //        _tableView.hidden = NO;
+        //        [self._gridView reloadData];
+
     }
 }
 
@@ -393,6 +399,62 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma  mark -- 一位数组转二维数组
+- (NSMutableArray *)getArray:(NSArray *)array length:(int)length
+{
+    if (array == nil)
+    {
+        return nil;
+    }
+    
+    int count = (int)[array count];
+    NSMutableArray *getArray = [[NSMutableArray alloc]init];
+    
+    if (length > count)
+    {
+        [getArray addObject:[array mutableCopy]];
+        
+        return getArray ;
+    }
+    
+    int tempLenth = count / length * length;
+    
+    NSArray *tempArray = [array mutableCopy];
+    
+    NSMutableArray *tempNsArray = [[NSMutableArray alloc]init];
+    
+    //数组里包含数组就是二位数组
+    for (int i = 0; i < tempLenth; i+= length)
+    {
+        for (int j = i; j < i + length; j++)
+        {
+            [tempNsArray addObject:[tempArray objectAtIndex:j]];
+        }
+        
+        [getArray addObject:[tempNsArray mutableCopy]];
+        [tempNsArray removeAllObjects];
+    }
+    
+    int remainder = count % length;
+    
+    if (remainder != 0)
+    {
+        for (int i = tempLenth; i < count; i += remainder)
+        {
+            for (int j = i; j < i + remainder; j++)
+            {
+                [tempNsArray addObject:[tempArray objectAtIndex:j]];
+            }
+            
+            [getArray addObject:[tempNsArray mutableCopy]];
+            [tempNsArray removeAllObjects];
+        }
+    }
+    return getArray;
+}
+
+
 
 /*
 #pragma mark - Navigation

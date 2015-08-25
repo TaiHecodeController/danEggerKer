@@ -7,7 +7,8 @@
 //
 
 #import "TH_BaseVC.h"
+#import "MTGridView.h"
 
-@interface TH_ClassVC : TH_BaseVC
+@interface TH_ClassVC : TH_BaseVC<MTGridViewDataSource,MTGridViewDelegate>
 
 @end

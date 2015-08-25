@@ -122,8 +122,8 @@
     [self.view addSubview:tableView];
     //下拉刷新
       _header = [MJRefreshHeaderView header];
-        _header.scrollView = self.tableView;
-        _header.delegate = self;
+    _header.scrollView = self.tableView;
+    _header.delegate = self;
     
         _footer = [MJRefreshFooterView footer];
         _footer.scrollView = self.tableView;
@@ -177,7 +177,6 @@
         
     }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

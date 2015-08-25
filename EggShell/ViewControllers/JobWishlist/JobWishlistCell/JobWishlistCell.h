@@ -11,6 +11,7 @@ typedef enum
 {
     JobButtontype
 }typeBtn;
+
 @class JobWishlistCell;
 @protocol JobWishlistCellDeleDate <NSObject>
 
