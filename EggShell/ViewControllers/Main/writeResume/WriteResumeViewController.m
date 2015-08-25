@@ -13,10 +13,12 @@
 #import "WriteResumeVC2.h"
 #import "WriteJLChooseVC.h"
 
-@interface WriteResumeViewController ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate>
+@interface WriteResumeViewController ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate,UITextFieldDelegate>
 {
     UITableView * jobTableView;
     UITableView * userTableView;
+    UIScrollView * back_sv;
+    UITextField * recordTextField;
     
 }
 @property (strong,nonatomic)NSArray * nameArray;
@@ -62,7 +64,7 @@
 -(void)createUI
 {
     //最底层ScrollView
-    UIScrollView *back_sv = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    back_sv = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     back_sv.contentSize = CGSizeMake(WIDETH, 754 + 64);
     back_sv.backgroundColor = [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:241 / 255.0 alpha:1];
     [self.view addSubview:back_sv];
@@ -211,9 +213,11 @@
             if (indexPath.row == 5 || indexPath.row == 6 || indexPath.row == 4)
             {
                 cell.showMessageBtn.hidden = YES;
-                
+                cell.contentTextField.tag = 600 + indexPath.row;
+                cell.contentTextField.delegate = self;
                 if (indexPath.row != 4) {
                     cell.contentTextField.enabled = YES;
+                    
                 }
             }
             else
@@ -388,11 +392,48 @@
         [_datePick removeFromSuperview];
         _datePick = nil;
     }
-    
+    [recordTextField resignFirstResponder];
     //    [((WriteResumeCell *)[jobTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).contentTextField resignFirstResponder];
     //
     
 }
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if(textField.tag >= 600)
+    {
+        if(HEIGHT == 480)
+        {
+            back_sv.contentSize = CGSizeMake(WIDETH, 754 + 64 + 220);
+            [back_sv scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        }else
+        {
+            back_sv.contentSize = CGSizeMake(WIDETH, 754 + 64 + 240);
+            [back_sv scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        }
+        
+    }
+    recordTextField = textField;
+}
+
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField.tag >= 600)
+    {
+        if(HEIGHT == 480)
+        {
+            back_sv.contentSize = CGSizeMake(WIDETH / 2, 754 + 64);
+            [back_sv scrollRectToVisible:CGRectMake(0, 220, WIDETH, HEIGHT) animated:YES];
+        }else
+        {
+            back_sv.contentSize = CGSizeMake(WIDETH / 2, 754 + 64);
+            [back_sv scrollRectToVisible:CGRectMake(0, 200, WIDETH, HEIGHT) animated:YES];
+        }
+        
+    }
+}
+
 
 
 - (void)didReceiveMemoryWarning {

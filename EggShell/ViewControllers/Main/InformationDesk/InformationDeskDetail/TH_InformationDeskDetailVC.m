@@ -8,6 +8,7 @@
 
 #import "TH_InformationDeskDetailVC.h"
 #import "infDestDetailView.h"
+#import "playFanModel.h"
 @interface TH_InformationDeskDetailVC ()
 @property(nonatomic,strong)UIScrollView * scro;
 @end
@@ -29,6 +30,8 @@
 -(void)registerView
 { infDestDetailView * detail = [[[NSBundle mainBundle] loadNibNamed:@"infDestDetailView" owner:self options:nil] lastObject];
     detail.frame = CGRectMake(0, 0, WIDETH, HEIGHT);
+    playFanModel * model =self.detailArray;
+    [detail  setValue:model];
     [self.scro addSubview:detail];
     self.scro.contentSize = CGSizeMake(WIDETH, 568);
 }

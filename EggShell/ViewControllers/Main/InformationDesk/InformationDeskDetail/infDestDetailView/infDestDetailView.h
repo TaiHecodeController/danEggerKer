@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "playFanModel.h"
 @interface infDestDetailView : UIView
-
+@property (weak, nonatomic) IBOutlet UILabel *holdLable;
+@property (weak, nonatomic) IBOutlet UILabel *timelLable;
+@property (weak, nonatomic) IBOutlet UILabel *contactLable;
+@property (weak, nonatomic) IBOutlet UILabel *contactPesonLable;
+@property (weak, nonatomic) IBOutlet UILabel *RouteLable;
+-(void)setValue:(playFanModel*)model;
 @end

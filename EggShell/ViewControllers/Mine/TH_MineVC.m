@@ -58,15 +58,15 @@
     [minVew mineViewSetButtonTag];
     minVew.mineDelegate = self;
     minVew.frame = CGRectMake(-WIDETH, 0, WIDETH
-                              , 450);
+                              , 490);
     minVew.backgroundColor = color(243, 243, 243);
     self.mineView = minVew;
     [self.scro addSubview:minVew];
     [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5
           initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-              minVew.frame = CGRectMake(0, 0, WIDETH, 450);
+              minVew.frame = CGRectMake(0, 0, WIDETH, 490);
           } completion:nil];
-    self.scro.contentSize = CGSizeMake(WIDETH,450+100);
+    self.scro.contentSize = CGSizeMake(WIDETH,450+110);
 
     
 }

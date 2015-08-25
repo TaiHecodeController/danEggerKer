@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -136,6 +137,13 @@
                 <constraint firstItem="RdM-oj-3tS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="zo5-rc-s90"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="RouteLable" destination="kFv-gu-fS3" id="bHj-mV-ngP"/>
+                <outlet property="contactLable" destination="UIT-I1-C0d" id="hcX-0e-55T"/>
+                <outlet property="contactPesonLable" destination="IlN-f9-X3U" id="m1v-pH-AWy"/>
+                <outlet property="holdLable" destination="dT7-qI-dgf" id="siu-Fi-0c6"/>
+                <outlet property="timelLable" destination="GZY-TZ-5L7" id="DJm-Cx-mqG"/>
+            </connections>
             <point key="canvasLocation" x="199" y="278"/>
         </view>
     </objects>

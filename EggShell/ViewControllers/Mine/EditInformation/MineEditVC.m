@@ -15,10 +15,12 @@
 {
     UIScrollView * backView;
     UITextField * recordTextField;
+    //是否是编辑资料
+    BOOL isEdit;
 }
 @property (strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
-@property (strong,nonatomic)NSMutableArray * jobCellArray;
+
 
 @property (strong,nonatomic)NSArray * nameArray2;
 @property (strong,nonatomic)NSArray * holderArray2;
@@ -27,6 +29,7 @@
 @property (strong,nonatomic)NSArray * nameArray3;
 @property (strong,nonatomic)NSArray * holderArray3;
 @property (strong,nonatomic)NSMutableArray * jobCellArray3;
+
 @end
 
 @implementation MineEditVC
@@ -71,7 +74,7 @@
     backView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     backView.contentSize = CGSizeMake(WIDETH / 2, HEIGHT + 60);
     backView.backgroundColor = [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:241 / 255.0 alpha:1];
-    [backView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
+//    [backView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
     [self.view addSubview:backView];
     
     //上方tableView
@@ -108,7 +111,7 @@
     
 }
 
--(void)tap
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [recordTextField resignFirstResponder];
 }
@@ -151,24 +154,36 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"MineEditInfoCell" owner:self options:nil] firstObject];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.contentTextField.delegate = self;
+            cell.contentTextField.userInteractionEnabled = YES;
+            cell.contentBtn.hidden = YES;
         }
         
         cell.nextBtn.hidden = YES;
         cell.showAllBtn.hidden = YES;
         cell.moreLab.hidden = YES;
         cell.Controller = self;
+        if(indexPath.row == 0)
+        {
+            cell.contentTextField.enabled = NO;
+        }
         if(indexPath.row == 2)
         {
             cell.showAllBtn.hidden = NO;
-            cell.showAllBtn.tag = 200 + 2;
+            cell.contentBtn.tag = 200 + 2;
+            cell.contentTextField.enabled = NO;
+            cell.contentBtn.hidden = NO;
         }
         if(indexPath.row == 3)
         {
             cell.nextBtn.hidden = NO;
+            cell.contentBtn.hidden = NO;
+            cell.contentBtn.tag = 200 + 5;
+            cell.contentTextField.enabled = NO;
         }
-        if(indexPath.row == 5)
+        if(indexPath.row == 4)
         {
             cell.moreLab.hidden = NO;
+            isEdit = YES;
         }
         cell.nameLab.text = self.nameArray[indexPath.row];
         cell.contentTextField.text = self.holderArray[indexPath.row];
@@ -185,6 +200,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.contentTextField.delegate = self;
             cell.contentTextField.tag = 400 + indexPath.row;
+            cell.contentBtn.hidden = YES;
         }
         cell.Controller = self;
         cell.nextBtn.hidden = YES;
@@ -195,7 +211,9 @@
         if(indexPath.row == 0)
         {
             cell.showAllBtn.hidden = NO;
-            cell.showAllBtn.tag = 200;
+            cell.contentBtn.tag = 200;
+            cell.contentTextField.enabled = NO;
+            cell.contentBtn.hidden = NO;
         }
         [self.jobCellArray addObject:cell];
         return cell;
@@ -211,6 +229,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.contentTextField.delegate = self;
             cell.contentTextField.tag = 500 + indexPath.row;
+            cell.contentBtn.hidden = YES;
         }
         cell.Controller = self;
         cell.nextBtn.hidden = YES;
@@ -225,7 +244,7 @@
     
     return nil;
 }
-
+//开始编辑，向上滚动
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     if(textField.tag >= 400)
@@ -243,6 +262,37 @@
     }
     recordTextField = textField;
 }
+//结束编辑，恢复原位
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField.tag >= 400)
+    {
+        if(HEIGHT == 480)
+        {
+            backView.contentSize = CGSizeMake(WIDETH / 2, HEIGHT + 60);
+            [backView scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
+        }else
+        {
+            backView.contentSize = CGSizeMake(WIDETH / 2, HEIGHT + 60);
+            [backView scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
+        }
+        
+    }
+}
+//限定输入字数
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+//    if(isEdit)
+//    {
+//        if((string.length - range.length + textField.text.length) > 30)
+//        {
+//            
+//            return NO;
+//        }
+//
+//    }
+    return YES;
+}
 
 -(void)rightClick:(UIButton *)sender
 {
@@ -253,6 +303,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

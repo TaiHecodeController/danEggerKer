@@ -14,7 +14,7 @@
 #import "TH_JobDetailVC.h"
 #import "TH_JobScreeningVC.h"
 #import "SearchJobVC.h"
-#import "TH_SearchVC.h"
+
 #define bottomH 107
 
 
@@ -38,7 +38,7 @@
 {
     
     [super viewWillAppear:NO];
-//    self.navigationController.navigationBarHidden = NO;
+  
     
     UIButton *searchBtn = [[UIButton alloc] init];
     [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
@@ -51,7 +51,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:NO];
+   [super viewWillDisappear:NO];
     
     [_searchBtn removeFromSuperview];
         
@@ -61,7 +61,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor =[UIColor whiteColor];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
   
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barBtnItemWithNormalImageName:@"liebiao" hightImageName:nil action:@selector(rightClick) target:self];
     
@@ -127,7 +127,7 @@
     _allSelected.titleLabel.font = [UIFont systemFontOfSize:13];
     _allSelected.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
     [_allSelected setImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
-    [_allSelected setImage:[UIImage imageNamed:@"douyouduihao"] forState:UIControlStateSelected];
+    [_allSelected setImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
     [_allSelected addTarget:self action:@selector(allClick:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomView addSubview:_allSelected];
     
@@ -382,6 +382,7 @@
     
     TH_JobScreeningVC * job = [[TH_JobScreeningVC alloc] init];
     job.title = @"职位搜索";
+    
     [self.navigationController pushViewController:job animated:YES];
 }
 

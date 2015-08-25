@@ -52,8 +52,8 @@
     [self createView];
     [self createTbleView];
     [self hySegmentedControlSelectAtIndex:0];
-    MBProgressHUD * mub = [MBProgressHUD mbHubShow];
-    [self loadData:mub page:0];
+    _mbPro = [MBProgressHUD mbHubShow];
+    [self loadData:_mbPro page:0];
     // Do any additional setup after loading the view.
 }
 
@@ -106,7 +106,7 @@
         _currentIndex = 1;
         NSLog(@"蛋壳儿送福利");
         
-        
+        [ self loadData:_mbPro page:1];
         [self.tableView reloadData];
         
     }
@@ -137,7 +137,18 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+//    if(indexPath.row == 0)
+//
+//    { UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ID"];
+//        if (!cell) {
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ID"];
+//        }
+//        return cell;
+//        
+//        }
     InformationDeskCell* InforCell = [tableView dequeueReusableCellWithIdentifier:@"ID"];
+    
     if (!InforCell) {
         InforCell = [[[NSBundle mainBundle] loadNibNamed:@"InformationDeskCell" owner:self options:nil] lastObject];
     }
@@ -151,6 +162,10 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+//    if(indexPath.row == 0)
+//{
+//    return 30;
+//}
     return 100;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,6 +173,8 @@
 
     TH_InformationDeskDetailVC * detail = [[TH_InformationDeskDetailVC alloc] init];
     detail.title = @"详情";
+    detail.detailArray = self.dataArray[indexPath.row];
+    
     [self.navigationController pushViewController:detail animated:YES];
 }
 #pragma mark -- MJRefresh

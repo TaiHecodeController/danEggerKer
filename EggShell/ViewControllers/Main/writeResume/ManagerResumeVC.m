@@ -18,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =  @"简历管理";
-    self.view.backgroundColor =[UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
     // Do any additional setup after loading the view from its nib.

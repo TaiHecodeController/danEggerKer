@@ -18,5 +18,9 @@
 - (IBAction)showAllClick:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 - (IBAction)nextClick:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *contentBtn;
+- (IBAction)contentClick:(UIButton *)sender;
 
+-(void)createPickView;
+-(void)createDataPickView;
 @end

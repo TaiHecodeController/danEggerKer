@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -27,26 +28,25 @@
                             <constraint firstAttribute="width" constant="6" id="hor-i7-2T4"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="计算机/互联网" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSZ-v2-RS3">
-                        <rect key="frame" x="138" y="15" width="117" height="13"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="计算机/互联网" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xGh-bp-dpb">
+                        <rect key="frame" x="88" y="15" width="167" height="13"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="13" id="6iS-vM-rV2"/>
-                            <constraint firstAttribute="width" constant="117" id="IWC-7N-bnO"/>
+                            <constraint firstAttribute="height" constant="13" id="ZIw-SS-ldA"/>
+                            <constraint firstAttribute="width" constant="167" id="kDE-kZ-YIQ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="MT4-Y9-2h6" firstAttribute="leading" secondItem="xGh-bp-dpb" secondAttribute="trailing" constant="45" id="5HK-uw-131"/>
                     <constraint firstAttribute="trailingMargin" secondItem="MT4-Y9-2h6" secondAttribute="trailing" constant="6" id="BGC-YC-H2S"/>
-                    <constraint firstItem="MT4-Y9-2h6" firstAttribute="leading" secondItem="eSZ-v2-RS3" secondAttribute="trailing" constant="45" id="SyH-u6-2nU"/>
-                    <constraint firstItem="eSZ-v2-RS3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="aCn-wa-xu9"/>
+                    <constraint firstItem="xGh-bp-dpb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="TaB-uP-HMh"/>
                     <constraint firstItem="MT4-Y9-2h6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="oLQ-DX-t66"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="contenLable" destination="eSZ-v2-RS3" id="Iia-xy-PGD"/>
+                <outlet property="contentTextFiled" destination="xGh-bp-dpb" id="9qH-16-2fo"/>
                 <outlet property="logoImage" destination="MT4-Y9-2h6" id="4OC-5L-IIt"/>
                 <outlet property="titleLable" destination="cml-Tl-IHI" id="HZG-LV-Epg"/>
             </connections>
