@@ -159,6 +159,9 @@
     HomeView * homeView   = [HomeView homeViewFinJob] ;
     homeView.frame  = CGRectMake(0*WIDETH, MyHeight * 326, WIDETH, 456);
     homeView.famousDelegate = self;
+    [homeView setHomeViewAdBtn];
+    [homeView setHomeViewFcBtn];
+    [homeView setHomeViewItBtn];
     [self.scro addSubview:homeView];
     
     self.scro.contentSize = CGSizeMake(WIDETH, MyHeight * 326+456+40);
@@ -170,6 +173,231 @@
     CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
     [self.navigationController pushViewController:detail animated:YES];
 }
+-(void)myselfView:(HomeView*)selfView didClickInterneButton:(THHomeViewButtonItType)buttonType
+{self.navigationController.navigationBarHidden = NO;
+    switch (buttonType) {
+        case THHomeViewButtonTypeInternet:
+        {
+            NSLog(@"1..1");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+            break;
+        }
+        case THHomeViewButtonTypeSitePlanning:
+        {
+            NSLog(@"1..2");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+
+        case THHomeViewButtonTypeWebsiteEditor:
+        {NSLog(@"1..3");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+            
+        case THHomeViewButtonTypeOperationsCommissioner:
+        {NSLog(@"1..4");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+
+        case THHomeViewButtonTypeSEO:
+        {NSLog(@"1..5");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+
+        case THHomeViewButtonTypeUIDesigner:
+        {NSLog(@"1..6");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+
+        case THHomeViewButtonTypenice:
+        {NSLog(@"1..7");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+
+        
+
+        default:
+            break;
+    }
+    NSLog(@"111");
+}
+-(void)myselfView:(HomeView*)selfView didClickFinancialButton:(THHomeViewButtonFcType)buttonType
+{self.navigationController.navigationBarHidden = NO;
+    switch (buttonType) {
+        case THHomeViewButtonTypeFinancial:
+        {NSLog(@"2..1");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+        case THHomeViewButtonTypeBank:
+        {NSLog(@"2..2");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+            
+        case THHomeViewButtonTypeObligation:
+        {NSLog(@"2..3");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+            
+        case THHomeViewButtonTypeClear:
+        {NSLog(@"2..4");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+            
+        case THHomeViewButtonTypeTrader:
+        {NSLog(@"2..5");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+            
+        case THHomeViewButtonTypeAccounting:
+        {NSLog(@"2..6");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+            
+        case THHomeViewButtonTyCashier:
+        {NSLog(@"2..7");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+            
+       
+            
+        default:
+            break;
+    }
+
+    NSLog(@"222");
+}
+-(void)myselfView:(HomeView*)selfView didClickAdvertisinButton:(THHomeViewButtonAdType)buttonType
+{self.navigationController.navigationBarHidden = NO;
+    switch (buttonType) {
+        case THHomeViewButtonTypeAdvertising:
+        {NSLog(@"3..1");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+        case THHomeViewButtonTypeClient:
+        {NSLog(@"3..2");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+            
+        case THHomeViewButtonTypeCreative:
+        {NSLog(@"3..3");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+            //    THHomeViewButtonTypeAdvertising,
+            //    THHomeViewButtonTypeClient,
+            //    THHomeViewButtonTypeCreative,
+            //    THHomeViewButtonTypeBusiness,
+            //    THHomeViewButtonTypePlan,
+            //    THHomeViewButtonTypeEstate,
+            //    THHomeViewButtonTyMap,
+
+        case THHomeViewButtonTypeBusiness:
+        {NSLog(@"3..\4");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+            
+        case THHomeViewButtonTypePlan:
+        {NSLog(@"3..5");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+            
+        case THHomeViewButtonTypeEstate:
+        {NSLog(@"3..6");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+
+            break;
+        }
+            
+        case THHomeViewButtonTyMap:
+        {NSLog(@"3..7");
+                    TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"找全职";
+            [self.navigationController pushViewController:home animated:YES];
+            break;
+        }
+            
+                   
+        default:
+            break;
+    }
+
+    NSLog(@"3333");
+}
+
 -(void)findViewFindJob:(FindjobView *)homeView DidClickButton:(THHomeViewButtonType)button
 
 {
