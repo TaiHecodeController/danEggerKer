@@ -10,6 +10,7 @@
 #import "HeadView.h"
 #import "HotSearch.h"
 #import "DataBase.h"
+#import "TH_FindJobVC.h"
 
 @interface SearchJobVC ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -26,10 +27,9 @@
 
     self.view.backgroundColor =[UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    self.navigationController.navigationBar.translucent = NO;
+    
     self.title = @"职位搜索";
     self.view.backgroundColor = [UIColor whiteColor];
-    
     [super viewDidLoad];
     self.dataArray = [NSMutableArray arrayWithCapacity:0];
     [self loadData];
@@ -50,17 +50,23 @@
 -(void)crateUI
 {
     headView = [[[NSBundle mainBundle] loadNibNamed:@"HeadView" owner:self options:nil] firstObject];
-    headView.frame = CGRectMake(0, 0, WIDETH, 70);
+    headView.frame = CGRectMake(0, 64, WIDETH, 58);
+    __weak typeof(self) weakSelf = self;
     headView.searchClick = ^(NSString * text)
     {
-        [self.db insertDB:text];
-        [self loadData];
-        [_tableView reloadData];
+        if(![text isEqualToString:@""])
+        {
+            [weakSelf.db insertDB:text];
+            [weakSelf loadData];
+            [_tableView reloadData];
+        }
+        
+        [weakSelf.navigationController pushViewController:[[TH_FindJobVC alloc] init] animated:YES];
     };
     [self.view addSubview:headView];
     
     hotSearch = [[[NSBundle mainBundle] loadNibNamed:@"HotSearch" owner:self options:nil] firstObject];
-    hotSearch.frame = CGRectMake(0,  headView.height, WIDETH, 149);
+    hotSearch.frame = CGRectMake(0,  headView.height + 64, WIDETH, 149);
     [self.view addSubview:hotSearch];
     
     [self createTableView];
@@ -69,17 +75,19 @@
 
 -(void)createTableView
 {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, hotSearch.frame.origin.y + hotSearch.frame.size.height, WIDETH, HEIGHT / 3)];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, hotSearch.frame.origin.y + hotSearch.frame.size.height , WIDETH, HEIGHT / 3)];
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [headView.seachText endEditing:YES];
-}
+
+
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    [headView.seachText endEditing:YES];
+//}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -110,6 +118,11 @@
         cell.textLabel.textColor = [UIColor colorWithRed:57 / 255.0 green:57 / 255.0 blue:57 / 255.0 alpha:1];
     }
     return cell;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.translucent = YES;
 }
 
 - (void)didReceiveMemoryWarning {

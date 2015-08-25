@@ -17,9 +17,11 @@
     // Drawing code
 }
 */
-
-- (IBAction)selectCityCilck:(UIButton *)sender {
+-(void)awakeFromNib
+{
+    self.seachText.enabled = YES;
 }
+
 - (IBAction)searchClick:(UIButton *)sender {
     self.searchClick(self.seachText.text);
 }
