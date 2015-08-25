@@ -14,6 +14,8 @@
 @property(nonatomic,strong)NSArray * conrentArray;
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)UIScrollView * scro;
+@property(nonatomic,strong)JobScreeningCell *cell;
+@property(nonatomic,strong)NSMutableArray * cellArray;
 /*类别的选择**/
 @property(nonatomic,strong)NSArray * industryArray;
 @end
@@ -22,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.cellArray = [NSMutableArray arrayWithCapacity:0];
     [self createSco];
     [self setData];
     [self creatableView];
@@ -91,9 +94,10 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"JobScreeningCell" owner:self options:nil]lastObject];
     }
     cell.titleLable.text = self.nameArray[indexPath.row];
-    cell.contentTextFiled.text  = self.conrentArray[indexPath.row];
+    cell.contentTextFiled.placeholder  = self.conrentArray[indexPath.row];
     cell.contentTextFiled.userInteractionEnabled = NO;
-    
+    [self.cellArray addObject:cell];
+    self.cell = cell;
     return cell;
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -132,7 +136,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
+    
     switch (indexPath.row) {
         case 0:
         {
@@ -142,72 +146,132 @@
                 JobDetail.DataArray = self.industryArray;
             JobDetail.myBlock = ^(NSString * text)
             {
-//                JobDetail.title = text;
+                self.cell = (JobScreeningCell*)self.cellArray[0];
+                self.cell.contentTextFiled.text = text;
                 NSLog(@"%@",text);
+                
             } ;
                 [self.navigationController pushViewController:JobDetail animated:YES];
         }
             break;
             case 1:
         {
+            TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
             JobDetail.title = @"职位大类";
             JobDetail.titleText = @"请选择职位大类";
             JobDetail.DataArray = self.industryArray;
+            JobDetail.myBlock = ^(NSString * text)
+            {
+               self.cell = (JobScreeningCell*)self.cellArray[1];
+                self.cell.contentTextFiled.text = text;
+                NSLog(@"%@",text);
+                
+            } ;
+            
             [self.navigationController pushViewController:JobDetail animated:YES];
 
             break;
         }
         case 2:
         {
+            TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
             JobDetail.title = @"工作城市";
             JobDetail.titleText = @"请选择工作城市";
+            
             JobDetail.DataArray = self.industryArray;
-            [self.navigationController pushViewController:JobDetail animated:YES];
+            JobDetail.myBlock = ^(NSString * text)
+            {
+                self.cell = (JobScreeningCell*)self.cellArray[2];
+                self.cell.contentTextFiled.text = text;
+                NSLog(@"%@",text);
+                
+            } ;            [self.navigationController pushViewController:JobDetail animated:YES];
 
             break;
         }
 
         case 3:
-        {JobDetail.title = @"薪资待遇";
+        {
+            TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
+            JobDetail.title = @"薪资待遇";
             JobDetail.titleText = @"请选择你期望的薪资待遇";
-            JobDetail.DataArray = self.industryArray;
-            [self.navigationController pushViewController:JobDetail animated:YES];
+             JobDetail.DataArray = self.industryArray;
+            JobDetail.myBlock = ^(NSString * text)
+            {
+                self.cell = (JobScreeningCell*)self.cellArray[3];
+                self.cell.contentTextFiled.text = text;
+                NSLog(@"%@",text);
+                
+            } ;            [self.navigationController pushViewController:JobDetail animated:YES];
 
             break;
         }
 
         case 4:
         {
+            TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
+            JobDetail.DataArray = self.industryArray;
             JobDetail.title = @"学历要求";
             JobDetail.titleText = @"请选择职位要求的学历";
-            JobDetail.DataArray = self.industryArray;
+            
+            JobDetail.myBlock = ^(NSString * text)
+            {
+                self.cell = (JobScreeningCell*)self.cellArray[4];
+                self.cell.contentTextFiled.text = text;
+                NSLog(@"%@",text);
+                
+            } ;
             [self.navigationController pushViewController:JobDetail animated:YES];
 
             break;
         }
 
         case 5:
-        {JobDetail.title = @"工作经验";
+        {
+            TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
+            JobDetail.title = @"工作经验";
             JobDetail.titleText = @"请选择职位要求的工作经验";
             JobDetail.DataArray = self.industryArray;
+            JobDetail.myBlock = ^(NSString * text)
+            {
+                self.cell = (JobScreeningCell*)self.cellArray[5];
+                self.cell.contentTextFiled.text = text;
+                NSLog(@"%@",text);
+                
+            } ;
             [self.navigationController pushViewController:JobDetail animated:YES];
 
             break;
         }
         case 6:
         {
+            TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
             JobDetail.title = @"工作类型";
             JobDetail.titleText = @"请选择你期望的工作类型";
             JobDetail.DataArray = self.industryArray;
+            JobDetail.myBlock = ^(NSString * text)
+            {
+                self.cell = (JobScreeningCell*)self.cellArray[6];
+                self.cell.contentTextFiled.text = text;
+                NSLog(@"%@",text);
+                
+            } ;
             [self.navigationController pushViewController:JobDetail animated:YES];
 
             break;
         }
         case 7:
-        {
+        {TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
             JobDetail.title = @"发布时间";
             JobDetail.titleText = @"请选择职位发布时间";
             JobDetail.DataArray = self.industryArray;
+            JobDetail.myBlock = ^(NSString * text)
+            {
+                self.cell = (JobScreeningCell*)self.cellArray[7];
+                self.cell.contentTextFiled.text = text;
+                NSLog(@"%@",text);
+                
+            } ;
             [self.navigationController pushViewController:JobDetail animated:YES];
 
             break;

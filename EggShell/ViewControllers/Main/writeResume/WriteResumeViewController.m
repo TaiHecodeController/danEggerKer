@@ -408,8 +408,8 @@
             [back_sv scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
         }else
         {
-            back_sv.contentSize = CGSizeMake(WIDETH, 754 + 64 + 200);
-            [back_sv scrollRectToVisible:CGRectMake(0, 460, WIDETH, HEIGHT) animated:YES];
+            back_sv.contentSize = CGSizeMake(WIDETH, 754 + 64 + 240);
+            [back_sv scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
         }
         
     }
