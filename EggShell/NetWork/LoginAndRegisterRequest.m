@@ -7,17 +7,21 @@
 //
 
 #import "LoginAndRegisterRequest.h"
+#import "MyMD5.h"
 
 @implementation LoginAndRegisterRequest
 +(AFRequestState *)loginWithSucc:(void(^)(NSDictionary * DataDic))succ WithUserName:(NSString *)userName WithPassword:(NSString *)password
 {
-    NSDictionary * param = @{@"username":userName,@"pw":password};
+    //密码加密
+    NSString * md5_passWord = [MyMD5 md5:password];
+    NSDictionary * param = @{@"username":userName,@"pw":md5_passWord};
     return [self postRequestWithUrl:@"http://195.198.1.195/index.php?m=api" param:param succ:succ];
 }
     
 +(AFRequestState *)registerWithSucc:(void (^)(NSDictionary *))succ WithUserName:(NSString *)userName WithPassword:(NSString *)password WithUserType:(int)userType WithSource:(int)source WithPhoneNum:(NSString *)phoneNum WithEmail:(NSString *)email
 {
-    NSDictionary * param = @{@"username":userName,@"password":password,@"usertype":@(userType),@"source":@(source),@"moblie":phoneNum,@"email":email};
+    NSString * md5_passWord = [MyMD5 md5:password];
+    NSDictionary * param = @{@"username":userName,@"password":md5_passWord,@"usertype":@(userType),@"source":@(source),@"moblie":phoneNum,@"email":email};
     return [self postRequestWithUrl:@"http://195.198.1.195/index.php?m=api&c=res" param:param succ:succ];
 }
 

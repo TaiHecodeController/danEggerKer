@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -43,6 +44,9 @@
                                     <state key="normal" image="hulianwang">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="InternetBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="JCm-O0-CHe"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="互联网" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98M-36-CsF">
                                     <rect key="frame" x="18" y="48" width="60" height="12"/>
@@ -81,6 +85,9 @@
                                                 <color key="titleColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="InternetBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZfJ-me-gZ5"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNb-BF-JAi">
                                             <rect key="frame" x="186" y="0.0" width="94" height="40"/>
@@ -92,6 +99,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="InternetBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="v6J-I6-UeG"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igs-iA-10g">
                                             <rect key="frame" x="92.5" y="0.0" width="0.5" height="40"/>
@@ -119,6 +129,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="InternetBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="HOg-cC-zsK"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -160,6 +173,9 @@
                                                 <color key="titleColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="InternetBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="0Hf-VU-tab"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bu0-qZ-TfT">
                                             <rect key="frame" x="93" y="0.0" width="92" height="39"/>
@@ -171,6 +187,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="InternetBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="2QC-ef-XhU"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXs-0j-7pv">
                                             <rect key="frame" x="92.5" y="0.0" width="0.5" height="39"/>
@@ -198,6 +217,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="InternetBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ekJ-NH-bZw"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -394,6 +416,9 @@
                                     <state key="normal" image="jinrongxinhang">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="FinancialBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="1F8-eB-7gl"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -408,17 +433,6 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4pp-xV-dPM" userLabel="UpContaierView">
                                     <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaZ-Tj-7Dl">
-                                            <rect key="frame" x="0.0" y="0.0" width="92" height="39"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="39" id="KH5-oW-eyZ"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="银行柜员">
-                                                <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEd-tF-sm8">
                                             <rect key="frame" x="93" y="0.0" width="92" height="39"/>
                                             <constraints>
@@ -429,6 +443,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="FinancialBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="aRw-kw-j6z"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBo-BB-5lI">
                                             <rect key="frame" x="186" y="0.0" width="94" height="39"/>
@@ -440,6 +457,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="FinancialBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="4Oi-Oa-pnC"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6I-6a-9Uz">
                                             <rect key="frame" x="92.5" y="0.0" width="0.5" height="39"/>
@@ -464,6 +484,20 @@
                                                 <constraint firstAttribute="height" constant="0.5" id="d1h-WT-uC5"/>
                                             </constraints>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaZ-Tj-7Dl">
+                                            <rect key="frame" x="0.0" y="0.0" width="92" height="39"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="39" id="KH5-oW-eyZ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <state key="normal" title="银行柜员">
+                                                <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="FinancialBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="gvF-nG-OU7"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -500,6 +534,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="FinancialBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ozM-rM-TOY"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUj-Tb-Tc9">
                                             <rect key="frame" x="186" y="0.0" width="94" height="40"/>
@@ -511,6 +548,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="FinancialBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="4hf-QV-wPv"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGl-AK-DYc">
                                             <rect key="frame" x="92.5" y="0.0" width="0.5" height="40"/>
@@ -538,6 +578,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="FinancialBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="z9p-Dk-6kP"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -610,6 +653,9 @@
                                     <state key="normal" image="guanggaomeiti">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="AdvertisingBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="2Zd-Nz-Rey"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -633,6 +679,9 @@
                                             <state key="normal" title="客户专员">
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="AdvertisingBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="6Hh-hr-ggs"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yl6-Wa-aAD">
                                             <rect key="frame" x="93" y="0.0" width="92" height="39"/>
@@ -644,6 +693,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="AdvertisingBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="lbv-RE-j01"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXF-Tt-tsq">
                                             <rect key="frame" x="186" y="0.0" width="94" height="39"/>
@@ -655,6 +707,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="AdvertisingBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="f2s-e1-Jpr"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7sG-Fq-XqL">
                                             <rect key="frame" x="92.5" y="0.0" width="0.5" height="39"/>
@@ -715,6 +770,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="AdvertisingBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ygt-7V-iRV"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAr-9t-Hwc">
                                             <rect key="frame" x="93" y="0.0" width="93" height="40"/>
@@ -726,6 +784,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="AdvertisingBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="NDP-CZ-41Y"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKu-Mc-QKp">
                                             <rect key="frame" x="186" y="0.0" width="94" height="40"/>
@@ -737,6 +798,9 @@
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="AdvertisingBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="NQc-o4-4Xi"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GIT-Ex-Y2c">
                                             <rect key="frame" x="92.5" y="0.0" width="0.5" height="39"/>
@@ -836,6 +900,29 @@
                 <constraint firstAttribute="trailing" secondItem="8Zi-j0-1ca" secondAttribute="trailing" id="sJX-8j-4Go"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="AccountingBtn" destination="xb1-Mr-vVc" id="dep-Xg-EQ2"/>
+                <outlet property="AdvertisingBtn" destination="Y7S-jz-D5U" id="Vqw-8E-J1y"/>
+                <outlet property="BankBtn" destination="XaZ-Tj-7Dl" id="az0-OL-dTh"/>
+                <outlet property="BusinessBtn" destination="LXF-Tt-tsq" id="Bb0-zv-hR4"/>
+                <outlet property="CashierBtn" destination="GUj-Tb-Tc9" id="Rrx-3o-Phq"/>
+                <outlet property="ClearBtn" destination="rBo-BB-5lI" id="Sm5-Os-BeW"/>
+                <outlet property="ClienBtn" destination="2jL-RJ-YLp" id="Oa0-Gd-pjD"/>
+                <outlet property="CreativeBtn" destination="yl6-Wa-aAD" id="ECd-au-X2m"/>
+                <outlet property="EstatBtn" destination="TAr-9t-Hwc" id="N0V-Gf-rxO"/>
+                <outlet property="FinancialBtn" destination="aku-og-Ike" id="Qn8-d1-F09"/>
+                <outlet property="InternetBtn" destination="SXC-Id-fEK" id="JCl-4L-DCA"/>
+                <outlet property="MapBtn" destination="DKu-Mc-QKp" id="72G-si-oMS"/>
+                <outlet property="ObligatioBtn" destination="mEd-tF-sm8" id="cGw-R6-KDy"/>
+                <outlet property="OperationsCommissionerBtn" destination="6qS-mD-NiC" id="Xgb-7p-fAK"/>
+                <outlet property="PlanBtn" destination="7Yl-pt-Zqr" id="b4u-ok-X97"/>
+                <outlet property="PlanningBtn" destination="xjF-o4-Zu0" id="Ftr-MI-wiO"/>
+                <outlet property="SEOBtn" destination="f7L-J0-86m" id="LhI-23-a8k"/>
+                <outlet property="TraderBtn" destination="0AW-v2-Pil" id="MfR-gF-5q6"/>
+                <outlet property="UIDesignerBtn" destination="0fe-0M-jI4" id="2dm-gx-U92"/>
+                <outlet property="WebsiteEditorBtn" destination="bu0-qZ-TfT" id="dfK-C2-Uiu"/>
+                <outlet property="niceBtn" destination="kNb-BF-JAi" id="aM2-8Z-bpO"/>
+            </connections>
             <point key="canvasLocation" x="-105.5" y="140"/>
         </view>
     </objects>

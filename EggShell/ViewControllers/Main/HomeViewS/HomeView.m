@@ -8,15 +8,6 @@
 
 #import "HomeView.h"
 @interface HomeView()
-//@property (weak, nonatomic) IBOutlet UIButton *FindJobBtn;
-//@property (weak, nonatomic) IBOutlet UIButton *FindPartTimeBtn;
-//
-//@property (weak, nonatomic) IBOutlet UIButton *InternshipSearch;
-//@property (weak, nonatomic) IBOutlet UIButton *InformationDesk;
-//@property (weak, nonatomic) IBOutlet UIButton *ResumeWritingBtn;
-//@property (weak, nonatomic) IBOutlet UIButton *PlayFan;
-//@property (weak, nonatomic) IBOutlet UIButton *MicroSocialBtn;
-//@property (weak, nonatomic) IBOutlet UIButton *OpenClassBtn;
 
 @end
 @implementation HomeView
@@ -25,27 +16,85 @@
     return [[[NSBundle mainBundle] loadNibNamed:@"HomeViews" owner:self options:nil] lastObject];
 
 }
-//-(void)setHomeViewBtn
-//{
-//    self.FindJobBtn.tag       =      THHomeViewButtonTypeFindJob;
-//    self.FindPartTimeBtn.tag  = THHomeViewButtonTypeFindPartTime;
-//    self.InternshipSearch.tag = THHomeViewButtonTypeInternshipSearch;
-//    self.InformationDesk.tag  = THHomeViewButtonTypeInformationDesk;
-//    self.ResumeWritingBtn.tag = THHomeViewButtonTypeResumeWriting;
-//    self.PlayFan.tag          = THHomeViewButtonTypePlayFan;
-//    self.MicroSocialBtn.tag   = THHomeViewButtonTypeMicroSocial;
-//    self.OpenClassBtn.tag     = THHomeViewButtonTypeOpenClass;
-//       
-//    
-//    
-//}
-//- (IBAction)FindJobBtnClick:(UIButton *)sender {
-//    if ([self.homeViewDelegate respondsToSelector:@selector(homeViewFindJob:DidClickButton:)]) {
-//        [self.homeViewDelegate homeViewFindJob:self DidClickButton:(THHomeViewButtonType)sender.tag];
-//    }
-//}
+-(void)setHomeViewItBtn
+{
+
+    self.InternetBtn.tag = THHomeViewButtonTypeInternet;
+    self.PlanningBtn.tag = THHomeViewButtonTypeSitePlanning;
+    self.WebsiteEditorBtn.tag = THHomeViewButtonTypeWebsiteEditor;
+    self.OperationsCommissionerBtn.tag =THHomeViewButtonTypeOperationsCommissioner;
+    self.SEOBtn
+    .tag = THHomeViewButtonTypeSEO;
+    self.UIDesignerBtn.tag = THHomeViewButtonTypeUIDesigner;
+    self.niceBtn.tag = THHomeViewButtonTypenice;
+
+}
+-(void)setHomeViewFcBtn
+{
+//    THHomeViewButtonTypeFinancial,
+//    THHomeViewButtonTypeBank,
+//    THHomeViewButtonTypeObligation,
+//    THHomeViewButtonTypeClear,
+//    THHomeViewButtonTypeTrader,
+//    THHomeViewButtonTypeAccounting,
+//    THHomeViewButtonTyCashier,
+    self.FinancialBtn.tag = THHomeViewButtonTypeFinancial;
+    self.BankBtn.tag = THHomeViewButtonTypeBank;
+    self.ObligatioBtn.tag = THHomeViewButtonTypeObligation;
+    self.ClearBtn.tag = THHomeViewButtonTypeClear;
+    self.TraderBtn.tag = THHomeViewButtonTypeTrader;
+    self.AccountingBtn.tag = THHomeViewButtonTypeAccounting;
+    self.CashierBtn.tag = THHomeViewButtonTyCashier;
+    
+    
+}
+-(void)setHomeViewAdBtn
+{
+//    THHomeViewButtonTypeAdvertising,
+//    THHomeViewButtonTypeClient,
+//    THHomeViewButtonTypeCreative,
+//    THHomeViewButtonTypeBusiness,
+//    THHomeViewButtonTypePlan,
+//    THHomeViewButtonTypeEstate,
+//    THHomeViewButtonTyMap,
+    self.AdvertisingBtn.tag = THHomeViewButtonTypeAdvertising;
+    self.ClienBtn.tag = THHomeViewButtonTypeClient;
+    self.CreativeBtn.tag = THHomeViewButtonTypeCreative;
+    self.BusinessBtn.tag = THHomeViewButtonTypeBusiness;
+    self.PlanBtn.tag = THHomeViewButtonTypePlan;
+    self
+    .EstatBtn.tag = THHomeViewButtonTypeEstate;
+    self.MapBtn.tag = THHomeViewButtonTyMap;
+    
+    
+}
+#pragma mark - - 企业
 - (IBAction)btnClick:(UIButton *)sender {
     [self.famousDelegate homeViewFindJob:self];
+}
+#pragma mark -- 互联网
+
+- (IBAction)InternetBtnClick:(UIButton *)sender {
+    
+    if ([self.famousDelegate respondsToSelector:@selector(myselfView:didClickInterneButton:)]) {
+        [self.famousDelegate myselfView:self didClickInterneButton:(THHomeViewButtonItType)sender.tag];
+    }
+}
+
+#pragma mark -- 金融
+
+- (IBAction)FinancialBtnClick:(UIButton *)sender {
+    if ([self.famousDelegate respondsToSelector:@selector(myselfView:didClickFinancialButton:)]) {
+        [self.famousDelegate myselfView:self didClickFinancialButton:(THHomeViewButtonFcType)sender.tag];
+    }
+}
+
+#pragma mark -- 广告
+
+- (IBAction)AdvertisingBtnClick:(UIButton *)sender {
+    if ([self.famousDelegate respondsToSelector:@selector(myselfView:didClickAdvertisinButton:)]) {
+        [self.famousDelegate myselfView:self didClickAdvertisinButton:(THHomeViewButtonAdType)sender.tag];
+    }
 }
 
 @end

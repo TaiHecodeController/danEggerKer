@@ -224,19 +224,28 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     }
     return 78;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   
+    [self.navigationController pushViewController:[[TH_JobDetailVC alloc] init] animated:YES];
+}
 
 -(void)setStatus
 {
     UIButton * rightCollectBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDETH - 10, 12, 20, 20)];
     [rightCollectBtn setImage:[UIImage imageNamed:@"shoucang"] forState:UIControlStateNormal];
-    [rightCollectBtn addTarget:self action:@selector(rightBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [rightCollectBtn setImage:[UIImage imageNamed:@"shoucang2"] forState:UIControlStateSelected];
+    [rightCollectBtn addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightCollectBtn];
 
 }
 #pragma mark- - 收藏
--(void)rightBtnClick
+-(void)rightBtnClick:(UIButton *)sender
 {
+    sender.selected = !sender.selected;
+    
+//    UIAlertView * alert  = [[UIAlertView alloc] initWithTitle:@"提示" message:@"收藏" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+//    [alert show];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
