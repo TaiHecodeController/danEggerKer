@@ -2094,7 +2094,6 @@
 				94E2C98B1B870F29001E3FDD /* TH_JobDetailVC.m in Sources */,
 				041650681B4D7240008C78BE /* GArrayAdapter.m in Sources */,
 				941F10181B7B3BCC00719F5B /* JobWishlistHeadView.m in Sources */,
-				946EBAC81B84779100CD6AC9 /* TH_SearchVC.m in Sources */,
 				F05B80071B8ABE2200DC0A1D /* MTGridView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
