@@ -171,7 +171,6 @@
     [self.navigationController pushViewController:detail animated:YES];
 }
 -(void)findViewFindJob:(FindjobView *)homeView DidClickButton:(THHomeViewButtonType)button
-
 {
     self.navigationController.navigationBarHidden = NO;
     TH_FindJobVC * home =[[TH_FindJobVC alloc] init];

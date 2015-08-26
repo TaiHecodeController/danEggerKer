@@ -26,7 +26,7 @@
         _positionSecBtn = [[UIButton alloc]init];
         [_positionSecBtn setImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
         [_positionSecBtn setImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
-        [_positionSecBtn addTarget:self action:@selector(positionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//        [_positionSecBtn addTarget:self action:@selector(positionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_positionSecBtn];
         
         _positionLab = [[UILabel alloc]init];
@@ -75,7 +75,7 @@
     CGFloat y = 10;
     CGFloat x = margin;
     
-    _positionSecBtn.frame = CGRectMake(margin, 27, 17.5, 17.5);
+    _positionSecBtn.frame = CGRectMake(margin, 27, 20, 20);
     
     if ([_jobSelected isEqualToString:@"0"])
     {
@@ -113,18 +113,18 @@
     _cellHeight = CGRectGetMaxY(_cityLab.frame) + 10;
 }
 
-- (void)positionBtnClick:(UIButton *)sender
-{
-    if (sender.selected == NO)
-    {
-        sender.selected = YES;
-        
-    }
-    else
-    {
-        sender.selected = NO;
-    }
-}
+//- (void)positionBtnClick:(UIButton *)sender
+//{
+//    if (sender.selected == NO)
+//    {
+//        sender.selected = YES;
+//        
+//    }
+//    else
+//    {
+//        sender.selected = NO;
+//    }
+//}
 
 - (void)awakeFromNib {
     // Initialization code

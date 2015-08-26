@@ -180,7 +180,7 @@
     [alertView addSubview:closeBtn];
     
     UIButton *jianliBtn = [[UIButton alloc]init];
-    [jianliBtn setTitle:@"个人简历20150703" forState:UIControlStateNormal];
+    [jianliBtn setTitle:@"您投递10个职位，2个职位已经投递，一周内不能重复投递职位。" forState:UIControlStateNormal];
     [jianliBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     jianliBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [jianliBtn setImage:[UIImage imageNamed:@"duihaolan"] forState:UIControlStateNormal];

@@ -30,6 +30,7 @@
 @property (nonatomic, strong) UIView *corverView;
 @property (nonatomic, strong) UIView *alertView;
 @property (nonatomic, strong) UIButton *searchBtn;
+@property (nonatomic, assign) int mailingNumBer;
 
 @end
 
@@ -43,7 +44,7 @@
     UIButton *searchBtn = [[UIButton alloc] init];
     [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
       [searchBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
-    searchBtn.frame = CGRectMake(WIDETH - 10 - 50 - 20,0, 44, 44);
+    searchBtn.frame = CGRectMake(WIDETH - 10 - 50 - 20 - 10,0, 44, 44);
     [searchBtn addTarget:self action:@selector(searchBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.navigationBar addSubview:searchBtn];
     _searchBtn = searchBtn;
@@ -59,6 +60,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _mailingNumBer = 0;
     
     self.view.backgroundColor =[UIColor whiteColor];
 //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
@@ -166,13 +169,21 @@
     [closeBtn addTarget:self action:@selector(closeBtn) forControlEvents:UIControlEventTouchUpInside];
     [alertView addSubview:closeBtn];
     
-    UIButton *jianliBtn = [[UIButton alloc]init];
-    [jianliBtn setTitle:@"个人简历20150703" forState:UIControlStateNormal];
-    [jianliBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    jianliBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-    [jianliBtn setImage:[UIImage imageNamed:@"duihaolan"] forState:UIControlStateNormal];
-    jianliBtn.frame = CGRectMake(margin, 40, 125, 50);
-    [alertView addSubview:jianliBtn];
+//    UIButton *jianliBtn = [[UIButton alloc]init];
+//    [jianliBtn setTitle:@"您投递10个职位，2个职位已经投递，一周内不能重复投递职位。" forState:UIControlStateNormal];
+//    [jianliBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    jianliBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+////    [jianliBtn setImage:[UIImage imageNamed:@"duihaolan"] forState:UIControlStateNormal];
+//    jianliBtn.frame = CGRectMake(margin, 40, 400, 50);
+//    [alertView addSubview:jianliBtn];
+    NSString *str = @"12";
+    NSString *str2 = @"3";
+    
+        UITextView *jianliBtn = [[UITextView alloc]init];
+        jianliBtn.text = [NSString stringWithFormat:@"您投递%d个职位，%@个职位已经投递，一周内不能重复投递职位。",_mailingNumBer,str2];
+        jianliBtn.font = [UIFont systemFontOfSize:13];
+        jianliBtn.frame = CGRectMake(margin, 40, 300, 50);
+        [alertView addSubview:jianliBtn];
     
     UIButton *okBtn = [[UIButton alloc]init];
     [okBtn setTitle:@"确定" forState:UIControlStateNormal];
@@ -268,30 +279,20 @@
 {
     jobTableViewCell *cell = (jobTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
     return cell.cellHeight;
-//        return 50;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"identifier";
     
-//    RKRankCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     jobTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    
-    if (cell == nil)
+        if (cell == nil)
     {
         cell = [[jobTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     
     if (_currentIndex == 0)
     {
-//        cell.numLab.text = [NSString stringWithFormat:@"%ld.",indexPath.row + 1];
-//        cell.headIcon.image = [UIImage imageNamed:@"rankilau"];
-//        cell.name = @"USER1";
-//        cell.price = @"100";
-//        cell.lab.commonLab.text = @"共送出了";
-//        [cell adjustFrame];
-        
         cell.positionLab.text = _jobArr[indexPath.row][@"positionName"];
         cell.companyLab.text = @"苏宁消费金融有限公司";
         cell.cityLab.text = @"北京";
@@ -299,16 +300,11 @@
         cell.timeLab.text = @"7-30";
         cell.salaryLab.text = @"5k-7k";
         cell.jobSelected = _jobArr[indexPath.row][@"selected"];
+        [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell layoutSubviews];
     }
     else
     {
-//        cell.numLab.text = [NSString stringWithFormat:@"%ld.",indexPath.row + 1];
-//        [cell.headIcon sd_setImageWithURL:[NSURL URLWithString:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"] placeholderImage:nil];
-//        cell.name = @"USER1";
-//        cell.price = @"200";
-//        cell.lab.commonLab.text = @"共收到了";
-//        [cell adjustFrame];
      
         cell.positionLab.text = _jobArr[indexPath.row][@"positionName"];
         cell.companyLab.text = @"苏宁消费金融有限公司";
@@ -317,10 +313,12 @@
         cell.timeLab.text = @"7-30";
         cell.salaryLab.text = @"5k-7k";
         cell.jobSelected = _jobArr[indexPath.row][@"selected"];
-        
+        [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell layoutSubviews];
 
     }
+    
+    
     
     return cell;
 }
@@ -365,7 +363,6 @@
     else
     {
         sender.selected = NO;
-        
         //失选所有
         for (int i = 0; i<_jobArr.count; i++) {
             NSLog(@"_jobarr[%d]=%@", i, _jobArr[i]);
@@ -374,6 +371,32 @@
         [_tableView reloadData];
     }
 }
+
+- (void)singleClick:(UIButton *)sender
+{
+    if (sender.selected == NO)
+    {
+        sender.selected = YES;
+        
+        jobTableViewCell *cell = (jobTableViewCell *)[sender superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        THLog(@"_cellIndexSet增加%ld",(long)indexPath.row);
+        _jobArr[indexPath.row][@"selected"] = @"1";
+//        [_cellIndeSet addIndex:indexPath.row];
+        
+    }
+    else
+    {
+        sender.selected = NO;
+        jobTableViewCell *cell = (jobTableViewCell *)[sender superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        THLog(@"_cellIndexSet减少%ld",(long)indexPath.row);
+        _jobArr[indexPath.row][@"selected"] = @"0";
+//        [_cellIndeSet removeIndex:indexPath.row];
+    }
+
+}
+
 
 - (void)rightClick
 {
@@ -396,20 +419,40 @@
 {
     THLog(@"职位申请被点击");
     
+    _mailingNumBer = 0;
+    for (int i = 0; i < _jobArr.count; i++)
+    {
+        
+        if ([_jobArr[i][@"selected"]  isEqual: @"1"])
+        {
+            _mailingNumBer++;
+        }
+    }
+    
     [self addCoverView];
     
     [self addAlertView];
+
 }
 
 - (void)closeBtn
 {
     THLog(@"close被点击");
+    for (int i ; i< _jobArr.count; i++)
+    {
+        _jobArr[i][@"selected"] = @"0";
+    }
     [self removeCoverAndAlert];
 }
 
 - (void)okBtn
 {
      THLog(@"确定被点击");
+//    for (int i ; i< _jobArr.count; i++)
+//    {
+//        _jobArr[i][@"selected"] = @"0";
+//    }
+    
     [self removeCoverAndAlert];
 }
 

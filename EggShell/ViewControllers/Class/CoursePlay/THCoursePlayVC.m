@@ -301,7 +301,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 {
     [super viewWillDisappear:animated];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
 
 }
 
