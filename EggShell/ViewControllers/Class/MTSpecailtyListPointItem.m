@@ -61,7 +61,10 @@
     
     _redXinBtn.frame = CGRectMake(CGRectGetMaxX(_nameLab.frame) + 0.067 * WIDETH,y + 3, 0.093 * WIDETH, 0.032 * WIDETH);
     
-    _priceBtn.frame = CGRectMake(CGRectGetMaxX(_redXinBtn.frame) + 0.01 * WIDETH, y + 3, 0.093 * WIDETH, 0.032 * WIDETH);
+    
+//    _priceBtn.frame = CGRectMake(CGRectGetMaxX(_redXinBtn.frame) + 0.01 * WIDETH, y + 3, 0.093 * WIDETH, 0.032 * WIDETH);
+    
+    _priceBtn.frame = CGRectMake(self.frame.size.width - 0.093 * WIDETH, y + 3, 0.093 * WIDETH, 0.032 * WIDETH);
     
     CGSize comSize = [_companyLab.text sizeWithFont:_companyLab.font];
     _companyLab.frame = CGRectMake(0, CGRectGetMaxY(_nameLab.frame) + 5, comSize.width, comSize.height);

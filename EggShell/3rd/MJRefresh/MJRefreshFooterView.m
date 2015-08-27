@@ -187,6 +187,7 @@
     } else {
         return -_scrollViewInitInset.top;
     }
+
 }
 
 // view的类型

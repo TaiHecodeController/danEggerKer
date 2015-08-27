@@ -294,14 +294,13 @@ typedef NS_ENUM(NSInteger, GestureType){
     [super viewWillDisappear:animated];
     
     //    [MobClick endLogPageView:@"视频播放"];
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 
 }
 
