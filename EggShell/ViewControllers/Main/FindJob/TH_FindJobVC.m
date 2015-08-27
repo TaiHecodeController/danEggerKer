@@ -152,11 +152,11 @@ BMKLocationService * _locService;
     
     _allSelected = [[UIButton alloc]init];
     CGFloat allSelectedW =  90;
-    CGFloat allSelectedH =  20;
+    CGFloat allSelectedH =  27.5;
     _allSelected.frame = CGRectMake(0, 15, allSelectedW, allSelectedH);
     [_allSelected setTitle:@"全选" forState:UIControlStateNormal];
     [_allSelected setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _allSelected.titleLabel.font = [UIFont systemFontOfSize:13];
+    _allSelected.titleLabel.font = [UIFont systemFontOfSize:15];
     _allSelected.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
     [_allSelected setImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
     [_allSelected setImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
@@ -194,7 +194,8 @@ BMKLocationService * _locService;
     
     UIButton *closeBtn = [[UIButton alloc]init];
     [closeBtn setBackgroundImage:[UIImage imageNamed:@"cha"] forState:UIControlStateNormal];
-    closeBtn.frame = CGRectMake(alertView.frame.size.width - margin - 20, margin, 20, 20);
+    CGFloat closeWith = 10;
+    closeBtn.frame = CGRectMake(alertView.frame.size.width - margin - closeWith, margin, closeWith, closeWith);
     [closeBtn addTarget:self action:@selector(closeBtn) forControlEvents:UIControlEventTouchUpInside];
     [alertView addSubview:closeBtn];
     
@@ -216,7 +217,7 @@ BMKLocationService * _locService;
     
     UIButton *okBtn = [[UIButton alloc]init];
     [okBtn setTitle:@"确定" forState:UIControlStateNormal];
-    [okBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [okBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     okBtn.backgroundColor = color(63, 172, 241);
     CGFloat okBtnW =( 1- 0.34 * 2) * alertView.frame.size.width;
     okBtn.frame = CGRectMake(0.34 * alertView.frame.size.width, 100 , okBtnW, 30);

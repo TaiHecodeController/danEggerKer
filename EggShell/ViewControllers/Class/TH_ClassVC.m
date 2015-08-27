@@ -120,10 +120,11 @@
     CGFloat y = 0;
 //    CGFloat margin = 10;
     
-    NSArray *iconArr = @[@[@"shipin2",@"shipin"],@[@"yuyin2",@"yuyin"]];
+//    NSArray *iconArr = @[@[@"shipin2",@"shipin"],@[@"yuyin2",@"yuyin"]];
+     NSArray *iconArr = @[@[@"shipin2",@"shipin"]];
     
-    _segmentedControl = [[HYSegmentedControl alloc] initWithOriginY:y Titles:@[@"视频课程", @"语音课程"]  IconNames:iconArr delegate:self] ;
-    [self.view addSubview:_segmentedControl];
+    _segmentedControl = [[HYSegmentedControl alloc] initWithOriginY:y Titles:@[@"视频课程"]  IconNames:iconArr delegate:self] ;
+//    [self.view addSubview:_segmentedControl];
     
 }
 
@@ -146,9 +147,10 @@
 #pragma mark -- configConllectionView
 - (void)initTableView
 {
+    CGFloat segHeight = 40;
     CGFloat margin = 20;
     CGFloat minimargin = 10;
-    CGFloat y = 0;
+    CGFloat y = 0 ;
     
     UIView *headView = [[UIView alloc]init];
     _headView = headView;
@@ -216,7 +218,7 @@
     headView.frame = CGRectMake(0, y, WIDETH, _headViewMaxY + 15 + marginView.frame.size.height + hotView.frame.size.height + 15);
     
     gap = 5;
-    self._gridView = [[MTGridView alloc]initWithFrame:CGRectMake(0, 44, WIDETH, HEIGHT - 44  - 90)];
+    self._gridView = [[MTGridView alloc]initWithFrame:CGRectMake(0, 44 - segHeight, WIDETH, HEIGHT - 44  - 90)];
     self._gridView.delegate = self;
     self._gridView.dataSource = self;
     self._gridView.columnSpace = 20;
@@ -361,6 +363,7 @@
     {
         _currentIndex = 1;
         //        [self._gridView reloadData];
+        
 
     }
 }
