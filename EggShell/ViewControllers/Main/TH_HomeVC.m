@@ -149,9 +149,9 @@
 #pragma mark - - scorView
 -(void)createScro
 {
-    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
+    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT )];
     self.scro           = scro;
-    
+    self.scro.bounces = NO;
     self.scro.showsVerticalScrollIndicator  = NO;
     self.scro.delegate  = self;
     [self.view addSubview:scro];
