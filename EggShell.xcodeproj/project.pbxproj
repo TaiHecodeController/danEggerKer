@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		041650371B4D7141008C78BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 041650361B4D7141008C78BE /* main.m */; };
-		0416503A1B4D7141008C78BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 041650391B4D7141008C78BE /* AppDelegate.m */; };
+		0416503A1B4D7141008C78BE /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 041650391B4D7141008C78BE /* AppDelegate.mm */; };
 		041650421B4D7142008C78BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041650411B4D7142008C78BE /* Images.xcassets */; };
 		041650451B4D7142008C78BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041650431B4D7142008C78BE /* LaunchScreen.xib */; };
 		041650511B4D7142008C78BE /* EggShellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 041650501B4D7142008C78BE /* EggShellTests.m */; };
@@ -169,6 +169,16 @@
 		94E2C9EA1B8B1740001E3FDD /* Certificate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C9E91B8B1740001E3FDD /* Certificate.xib */; };
 		94E2C9EC1B8B1A5E001E3FDD /* train.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C9EB1B8B1A5E001E3FDD /* train.xib */; };
 		94E2C9EE1B8B1CCA001E3FDD /* myself.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C9ED1B8B1CCA001E3FDD /* myself.xib */; };
+		94E3EA7A1B8E971C007A699E /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E3EA791B8E971C007A699E /* BaiduMapAPI.framework */; };
+		94E3EA7C1B8E97E4007A699E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E3EA7B1B8E97E4007A699E /* CoreLocation.framework */; };
+		94E3EA7E1B8E97F3007A699E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E3EA7D1B8E97F3007A699E /* QuartzCore.framework */; };
+		94E3EA801B8E97FF007A699E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E3EA7F1B8E97FF007A699E /* OpenGLES.framework */; };
+		94E3EA821B8E981F007A699E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E3EA811B8E981F007A699E /* CoreGraphics.framework */; };
+		94E3EA841B8E982F007A699E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E3EA831B8E982F007A699E /* Security.framework */; };
+		94E3EA861B8E98B6007A699E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E3EA851B8E98B6007A699E /* UIKit.framework */; };
+		94E3EA881B8E98CC007A699E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E3EA871B8E98CC007A699E /* MessageUI.framework */; };
+		94E3EA8A1B8E98ED007A699E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E3EA891B8E98ED007A699E /* Foundation.framework */; };
+		94E3EA8D1B8E9AAD007A699E /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94E3EA8C1B8E9AAD007A699E /* mapapi.bundle */; };
 		94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF11B841D510093C39B /* CourePlayTitle.m */; };
 		94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E7DCF21B841D510093C39B /* CourePlaytitle.xib */; };
 		94E7DCFA1B841D510093C39B /* Course PlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF41B841D510093C39B /* Course PlayCell.m */; };
@@ -228,7 +238,7 @@
 		041650351B4D7141008C78BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		041650361B4D7141008C78BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		041650381B4D7141008C78BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		041650391B4D7141008C78BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		041650391B4D7141008C78BE /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		041650411B4D7142008C78BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		041650441B4D7142008C78BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0416504A1B4D7142008C78BE /* EggShellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EggShellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -514,6 +524,16 @@
 		94E2C9E91B8B1740001E3FDD /* Certificate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Certificate.xib; sourceTree = "<group>"; };
 		94E2C9EB1B8B1A5E001E3FDD /* train.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = train.xib; sourceTree = "<group>"; };
 		94E2C9ED1B8B1CCA001E3FDD /* myself.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myself.xib; sourceTree = "<group>"; };
+		94E3EA791B8E971C007A699E /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI.framework; sourceTree = "<group>"; };
+		94E3EA7B1B8E97E4007A699E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		94E3EA7D1B8E97F3007A699E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		94E3EA7F1B8E97FF007A699E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		94E3EA811B8E981F007A699E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		94E3EA831B8E982F007A699E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		94E3EA851B8E98B6007A699E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		94E3EA871B8E98CC007A699E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		94E3EA891B8E98ED007A699E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		94E3EA8C1B8E9AAD007A699E /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
 		94E7DCF01B841D510093C39B /* CourePlayTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourePlayTitle.h; sourceTree = "<group>"; };
 		94E7DCF11B841D510093C39B /* CourePlayTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourePlayTitle.m; sourceTree = "<group>"; };
 		94E7DCF21B841D510093C39B /* CourePlaytitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourePlaytitle.xib; sourceTree = "<group>"; };
@@ -604,9 +624,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94E3EA8A1B8E98ED007A699E /* Foundation.framework in Frameworks */,
+				94E3EA881B8E98CC007A699E /* MessageUI.framework in Frameworks */,
+				94E3EA861B8E98B6007A699E /* UIKit.framework in Frameworks */,
+				94E3EA841B8E982F007A699E /* Security.framework in Frameworks */,
+				94E3EA821B8E981F007A699E /* CoreGraphics.framework in Frameworks */,
+				F0D7C0591B79CC5700836DD2 /* SystemConfiguration.framework in Frameworks */,
+				94E3EA801B8E97FF007A699E /* OpenGLES.framework in Frameworks */,
+				94E3EA7E1B8E97F3007A699E /* QuartzCore.framework in Frameworks */,
+				94E3EA7C1B8E97E4007A699E /* CoreLocation.framework in Frameworks */,
+				94E3EA7A1B8E971C007A699E /* BaiduMapAPI.framework in Frameworks */,
 				048F30C31B7A542B004AA9B2 /* libsqlite3.dylib in Frameworks */,
 				F0D7C05B1B79CC6400836DD2 /* libz.dylib in Frameworks */,
-				F0D7C0591B79CC5700836DD2 /* SystemConfiguration.framework in Frameworks */,
 				F0D7C0571B79CC4800836DD2 /* MobileCoreServices.framework in Frameworks */,
 				CA3D16A93CCBDD012A68A6C9 /* libPods.a in Frameworks */,
 				F0D7C0551B79C7B400836DD2 /* libpolyvSDK.a in Frameworks */,
@@ -626,6 +655,14 @@
 		0237599393BF78A52DFB0C38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94E3EA891B8E98ED007A699E /* Foundation.framework */,
+				94E3EA871B8E98CC007A699E /* MessageUI.framework */,
+				94E3EA851B8E98B6007A699E /* UIKit.framework */,
+				94E3EA831B8E982F007A699E /* Security.framework */,
+				94E3EA811B8E981F007A699E /* CoreGraphics.framework */,
+				94E3EA7F1B8E97FF007A699E /* OpenGLES.framework */,
+				94E3EA7D1B8E97F3007A699E /* QuartzCore.framework */,
+				94E3EA7B1B8E97E4007A699E /* CoreLocation.framework */,
 				F0D7C06E1B7A009A00836DD2 /* libPods-SDWebImage.a */,
 				048F30C21B7A542B004AA9B2 /* libsqlite3.dylib */,
 				F0D7C05A1B79CC6400836DD2 /* libz.dylib */,
@@ -663,7 +700,7 @@
 				041650DC1B4D7718008C78BE /* NetWork */,
 				04A483B11B74FCE2006FDB9D /* ViewControllers */,
 				041650381B4D7141008C78BE /* AppDelegate.h */,
-				041650391B4D7141008C78BE /* AppDelegate.m */,
+				041650391B4D7141008C78BE /* AppDelegate.mm */,
 				94CB5B921B758F0700B23B9D /* Mian */,
 				041650411B4D7142008C78BE /* Images.xcassets */,
 				041650431B4D7142008C78BE /* LaunchScreen.xib */,
@@ -702,6 +739,8 @@
 		0416505A1B4D71D4008C78BE /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				94E3EA8B1B8E9AAD007A699E /* Resources */,
+				94E3EA781B8E971C007A699E /* Release-iphoneos */,
 				045DEC4E1B8E14EB00E37C4D /* MD5 */,
 				048426F21B8B1E6D009C597A /* VPImageCropper */,
 				04718DA41B7CDA26008214CB /* UI类 */,
@@ -1618,6 +1657,22 @@
 			path = subview;
 			sourceTree = "<group>";
 		};
+		94E3EA781B8E971C007A699E /* Release-iphoneos */ = {
+			isa = PBXGroup;
+			children = (
+				94E3EA791B8E971C007A699E /* BaiduMapAPI.framework */,
+			);
+			path = "Release-iphoneos";
+			sourceTree = "<group>";
+		};
+		94E3EA8B1B8E9AAD007A699E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				94E3EA8C1B8E9AAD007A699E /* mapapi.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		94E7DCEE1B841D510093C39B /* CoursePlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -1907,6 +1962,7 @@
 				947006961B85CA6000DEC289 /* MineEditInfoView.xib in Resources */,
 				048F30AA1B7A1577004AA9B2 /* HotSearch.xib in Resources */,
 				94E2C9841B870F29001E3FDD /* CompanyProfile.xib in Resources */,
+				94E3EA8D1B8E9AAD007A699E /* mapapi.bundle in Resources */,
 				94313DEA1B7CB5C9005D0A9A /* ManagerResumeVC.xib in Resources */,
 				947006941B85CA6000DEC289 /* EditAddressVC.xib in Resources */,
 			);
@@ -2046,7 +2102,7 @@
 				048F30B81B7A4537004AA9B2 /* FMDatabaseAdditions.m in Sources */,
 				F05B80031B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m in Sources */,
 				94E2C9C41B8AF827001E3FDD /* Basicnformation.m in Sources */,
-				0416503A1B4D7141008C78BE /* AppDelegate.m in Sources */,
+				0416503A1B4D7141008C78BE /* AppDelegate.mm in Sources */,
 				041650371B4D7141008C78BE /* main.m in Sources */,
 				940032F01B840DCD001EB666 /* TH_JobScreenDetailVC.m in Sources */,
 				048F30A81B7A1562004AA9B2 /* HotSearch.m in Sources */,
@@ -2180,6 +2236,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2215,6 +2272,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2228,6 +2286,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EggShell/3rd/Release-iphoneos",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EggShell/PrefixHeader.pch";
 				INFOPLIST_FILE = EggShell/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -2252,6 +2314,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EggShell/3rd/Release-iphoneos",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EggShell/PrefixHeader.pch";
 				INFOPLIST_FILE = EggShell/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
