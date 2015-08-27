@@ -162,6 +162,7 @@
                 
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"WriteResumeCell" owner:self options:nil] firstObject];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.contentTextField.delegate = self;
                 if (indexPath.row != 0)
                 {
                     cell.contentTextField.enabled = NO;
@@ -199,6 +200,7 @@
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NameAndSexCell" owner:self options:nil] firstObject];
                 //                cell.contentTextField.enabled = NO;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.contentTextField.delegate = self;
             }
             [self.jobCellArray2 addObject:cell];
             return cell;
@@ -209,12 +211,13 @@
             {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"WriteResumeCell" owner:self options:nil] firstObject];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.contentTextField.delegate = self;
             }
             if (indexPath.row == 5 || indexPath.row == 6 || indexPath.row == 4)
             {
                 cell.showMessageBtn.hidden = YES;
                 cell.contentTextField.tag = 600 + indexPath.row;
-                cell.contentTextField.delegate = self;
+                
                 if (indexPath.row != 4) {
                     cell.contentTextField.enabled = YES;
                     
