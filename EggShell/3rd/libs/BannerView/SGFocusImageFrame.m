@@ -287,8 +287,6 @@ static NSString *SG_FOCUS_ITEM_ASS_KEY = @"loopScrollview";
         }
         
         objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, itemArray, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
-        
         [self setupViews];
     }
 }

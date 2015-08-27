@@ -34,7 +34,7 @@
 #import "ManagerResumeVC.h"
 
 
-@interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate>
+@interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate>
 {
     UIView * _navBackView;
     SearchView * _searchView;
@@ -154,6 +154,22 @@
     self.scro.showsVerticalScrollIndicator  = NO;
     self.scro.delegate  = self;
     [self.view addSubview:scro];
+    
+    //创建上下拉刷新
+    _header = [MJRefreshHeaderView header];
+    _header.delegate = self;
+    _header.scrollView = self.scro;
+    _header.frame = CGRectMake(0, -84, WIDETH, 64);
+    
+    _footer = [MJRefreshFooterView footer];
+    _footer.delegate = self;
+    _footer.scrollView = self.scro;
+    _footer.frame = CGRectMake(0, MyHeight * 326+400, WIDETH, 64);
+}
+
+-(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    [refreshView endRefreshing];
 }
 #pragma mark - - 创建HomeView
 -(void)createHomeView
@@ -176,7 +192,7 @@
     [homeView setHomeViewItBtn];
     [self.scro addSubview:homeView];
     
-    self.scro.contentSize = CGSizeMake(WIDETH, MyHeight * 326+456+40);
+    self.scro.contentSize = CGSizeMake(WIDETH, MyHeight * 326+456+20);
 }
 
 -(void)homeViewFindJob:(HomeView *)homeView
