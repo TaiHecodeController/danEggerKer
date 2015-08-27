@@ -179,6 +179,8 @@
 		94E3EA881B8E98CC007A699E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E3EA871B8E98CC007A699E /* MessageUI.framework */; };
 		94E3EA8A1B8E98ED007A699E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E3EA891B8E98ED007A699E /* Foundation.framework */; };
 		94E3EA8D1B8E9AAD007A699E /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94E3EA8C1B8E9AAD007A699E /* mapapi.bundle */; };
+		94E3EA911B8EB520007A699E /* MMNetWorkType.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EA901B8EB520007A699E /* MMNetWorkType.m */; };
+		94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EA991B8EB758007A699E /* Reachability.m */; };
 		94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF11B841D510093C39B /* CourePlayTitle.m */; };
 		94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E7DCF21B841D510093C39B /* CourePlaytitle.xib */; };
 		94E7DCFA1B841D510093C39B /* Course PlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF41B841D510093C39B /* Course PlayCell.m */; };
@@ -534,6 +536,10 @@
 		94E3EA871B8E98CC007A699E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		94E3EA891B8E98ED007A699E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94E3EA8C1B8E9AAD007A699E /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
+		94E3EA8F1B8EB520007A699E /* MMNetWorkType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNetWorkType.h; sourceTree = "<group>"; };
+		94E3EA901B8EB520007A699E /* MMNetWorkType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNetWorkType.m; sourceTree = "<group>"; };
+		94E3EA981B8EB758007A699E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		94E3EA991B8EB758007A699E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		94E7DCF01B841D510093C39B /* CourePlayTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourePlayTitle.h; sourceTree = "<group>"; };
 		94E7DCF11B841D510093C39B /* CourePlayTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourePlayTitle.m; sourceTree = "<group>"; };
 		94E7DCF21B841D510093C39B /* CourePlaytitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourePlaytitle.xib; sourceTree = "<group>"; };
@@ -739,6 +745,7 @@
 		0416505A1B4D71D4008C78BE /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				94E3EA8E1B8EB520007A699E /* internet */,
 				94E3EA8B1B8E9AAD007A699E /* Resources */,
 				94E3EA781B8E971C007A699E /* Release-iphoneos */,
 				045DEC4E1B8E14EB00E37C4D /* MD5 */,
@@ -1673,6 +1680,17 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		94E3EA8E1B8EB520007A699E /* internet */ = {
+			isa = PBXGroup;
+			children = (
+				94E3EA8F1B8EB520007A699E /* MMNetWorkType.h */,
+				94E3EA981B8EB758007A699E /* Reachability.h */,
+				94E3EA991B8EB758007A699E /* Reachability.m */,
+				94E3EA901B8EB520007A699E /* MMNetWorkType.m */,
+			);
+			path = internet;
+			sourceTree = "<group>";
+		};
 		94E7DCEE1B841D510093C39B /* CoursePlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -2025,6 +2043,7 @@
 				041650EE1B4D7C4E008C78BE /* MJRefreshFooterView.m in Sources */,
 				94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */,
 				04A483D71B751E77006FDB9D /* Utils.m in Sources */,
+				94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */,
 				94CB5B8B1B74CC0600B23B9D /* SMPageControl.m in Sources */,
 				94EFC1C11B7D046F00833068 /* TH_featureVC.m in Sources */,
 				940032CC1B840CC3001EB666 /* TH_EducationExperienceVC.m in Sources */,
@@ -2108,6 +2127,7 @@
 				048F30A81B7A1562004AA9B2 /* HotSearch.m in Sources */,
 				94CB5B7F1B74CC0600B23B9D /* MJIvar.m in Sources */,
 				940033011B840FC6001EB666 /* MineVeiw.m in Sources */,
+				94E3EA911B8EB520007A699E /* MMNetWorkType.m in Sources */,
 				041650ED1B4D7C4E008C78BE /* MJRefreshConst.m in Sources */,
 				04237D901B66456F00768FAD /* LoginAndRegisterRequest.m in Sources */,
 				94313DAF1B7CAAB5005D0A9A /* TH_PlayFanVC.m in Sources */,

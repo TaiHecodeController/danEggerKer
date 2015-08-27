@@ -64,7 +64,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //网络判断
+    if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
+        [MBProgressHUD creatembHub:@"当前处于无网络"];
+        
+        
+    }else if([MMNetWorkType getNetWorkType] ==WWAN)
+    {
+     [MBProgressHUD creatembHub:@"您当前处于3G状态"];
+    }
+    {
+        NSLog(@"当前是3G或wifi状态");
+         [MBProgressHUD creatembHub:@"您当前处于wifi状态"];
+        
+    }
     //状态栏
     [self setStatus];
     //ScroView
@@ -449,8 +462,14 @@
         }
         case THHomeViewButtonTypeMicroSocial:
         {NSLog(@"微社交");
-            CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-            [self.navigationController pushViewController:detail animated:YES];
+            
+            self.navigationController.navigationBarHidden = YES;
+//            CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
+//            [self.navigationController pushViewController:detail animated:YES];
+            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"正在建设中,敬请期待" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            [alertView show];
+            
+            
             break;
         }
           case THHomeViewButtonTypeOpenClass:
