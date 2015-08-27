@@ -20,7 +20,8 @@
 
 @interface TH_FindJobVC ()<UITableViewDataSource,UITableViewDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate>
 {
-BMKLocationService * _locService;
+    BMKLocationService * _locService;
+    NSIndexPath  * record_index;
 }
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -34,6 +35,7 @@ BMKLocationService * _locService;
 @property (nonatomic, strong) UIView *alertView;
 @property (nonatomic, strong) UIButton *searchBtn;
 @property (nonatomic, assign) int mailingNumBer;
+@property (nonatomic, strong) NSMutableArray * cellArray;
 
 @end
 
@@ -42,7 +44,8 @@ BMKLocationService * _locService;
 {
     
     [super viewWillAppear:NO];
-  
+    
+   
     
     UIButton *searchBtn = [[UIButton alloc] init];
     [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
@@ -51,6 +54,13 @@ BMKLocationService * _locService;
     [searchBtn addTarget:self action:@selector(searchBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.navigationBar addSubview:searchBtn];
     _searchBtn = searchBtn;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    jobTableViewCell * cell = self.cellArray[record_index.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [self.tableView reloadData];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -63,7 +73,7 @@ BMKLocationService * _locService;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.cellArray = [NSMutableArray arrayWithCapacity:0];
     _mailingNumBer = 0;
     
     self.view.backgroundColor =[UIColor whiteColor];
@@ -347,9 +357,7 @@ BMKLocationService * _locService;
         [cell layoutSubviews];
 
     }
-    
-    
-    
+    [self.cellArray addObject:cell];
     return cell;
 }
 
@@ -371,8 +379,9 @@ BMKLocationService * _locService;
     }
     else
     {
-    TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
-    [self.navigationController pushViewController:detail animated:YES];
+        record_index = indexPath;
+        TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
+        [self.navigationController pushViewController:detail animated:YES];
     }
 }
 
