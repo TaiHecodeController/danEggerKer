@@ -153,6 +153,7 @@
     self.scro           = scro;
     self.scro.showsVerticalScrollIndicator  = NO;
     self.scro.delegate  = self;
+    self.scro.backgroundColor = color(243, 243, 241);
     [self.view addSubview:scro];
     
     //创建上下拉刷新
@@ -178,7 +179,7 @@
     
     self.findView = [[FindjobView alloc] initWithFrame:CGRectMake(0, 160*MyHeight, WIDETH,166*MyHeight)];
     self.findView.frame = CGRectMake(0, 160*MyHeight, WIDETH, MyHeight * 166);
-    
+    self.findView.backgroundColor = [UIColor whiteColor];
     NSLog(@"%f",self.findView.frame.size.height);
     
     self.findView.homeViewDelegate = self;
