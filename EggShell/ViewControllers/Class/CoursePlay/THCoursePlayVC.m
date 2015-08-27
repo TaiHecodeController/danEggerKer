@@ -279,7 +279,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 
 #pragma mark -- ========================================
 - (void)viewWillAppear:(BOOL)animated{
-//    [AppDelegate instance].ori_flag = 1;
+  [AppDelegate instance].ori_flag = 1;
     _systemBrightness = [UIScreen mainScreen].brightness;
     
     
@@ -452,7 +452,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 -(void)startFullScreen
 {
     THLog(@"进入全屏状态");
-    
+    [AppDelegate instance].ori_flag = 1;
 //    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
 //        [[UIDevice currentDevice] performSelector:@selector(setOrientation:) withObject:(id)UIInterfaceOrientationPortrait];
 //    }
@@ -470,6 +470,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 - (void)exitFullScreen
 {
     THLog(@"退出全屏状态");
+    [AppDelegate instance].ori_flag = 0;
     if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
         SEL selector = NSSelectorFromString(@"setOrientation:");
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
