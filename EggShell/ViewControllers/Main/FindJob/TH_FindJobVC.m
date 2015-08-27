@@ -21,6 +21,7 @@
 @interface TH_FindJobVC ()<UITableViewDataSource,UITableViewDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate>
 {
 BMKLocationService * _locService;
+    jobTableViewCell *_cell;
 }
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -41,8 +42,7 @@ BMKLocationService * _locService;
 -(void)viewWillAppear:(BOOL)animated
 {
     
-    [super viewWillAppear:NO];
-  
+//    [super viewWillAppear:NO];
     
     UIButton *searchBtn = [[UIButton alloc] init];
     [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
@@ -55,7 +55,7 @@ BMKLocationService * _locService;
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-   [super viewWillDisappear:NO];
+//   [super viewWillDisappear:NO];
     
     [_searchBtn removeFromSuperview];
         
@@ -314,7 +314,7 @@ BMKLocationService * _locService;
 {
     static NSString *identifier = @"identifier";
     
-    jobTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+   jobTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         if (cell == nil)
     {
         cell = [[jobTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
@@ -347,8 +347,10 @@ BMKLocationService * _locService;
 
     }
     
-    
-    
+//    _cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    _cell.highlighted =  YES;
+
+    _cell  = cell;
     return cell;
 }
 
@@ -371,10 +373,19 @@ BMKLocationService * _locService;
     else
     {
     TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
+      
     [self.navigationController pushViewController:detail animated:YES];
     }
+     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+-(void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 42, Wifi)];
+    view.backgroundColor = [UIColor redColor];
+    [_cell addSubview:view];
+    _cell.selectedBackgroundView = view;
 
+}
 #pragma mark -- respondEvent
 - (void)allClick:(UIButton *)sender
 {

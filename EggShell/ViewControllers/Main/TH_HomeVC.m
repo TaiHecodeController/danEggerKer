@@ -502,7 +502,10 @@
 //        NSString *str2 = @"http://s6.mogujie.cn/b7/bao/130928/c7k0_kqyw6vckkfbgeq3wgfjeg5sckzsew_500x750.jpg_200x999.jpg";
 //        NSString *str3 = @"http://s6.mogujie.cn/b7/bao/131008/q2o17_kqyvcz3ckfbewv3wgfjeg5sckzsew_330x445.jpg_200x999.jpg";
     //包含字典的数组，每个字典key为photo,value为string
-    NSArray *imageArr = [NSArray arrayWithObjects:@{@"photo":@"lunbotu"},@{@"photo":@"lunbotu"},@{@"photo":@"appbanner"}, nil];
+//     NSArray * imsgeArray = @[@"lunbotu0",@"lunbo2",@"lunbo3"];
+        NSArray * imsgeArray = @[@"lunbo2",@"lunbo3",@"lunbotu0"];
+
+    NSArray *imageArr = [NSArray arrayWithObjects:@{@"photo":imsgeArray[0]},@{@"photo":imsgeArray[1]},@{@"photo":imsgeArray[2]}, nil];
     
     //加载数据
     [_bannerView setImageURLs:imageArr];
