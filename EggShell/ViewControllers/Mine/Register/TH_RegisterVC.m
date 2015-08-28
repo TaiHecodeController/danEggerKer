@@ -7,10 +7,12 @@
 //
 
 #import "TH_RegisterVC.h"
-
-@interface TH_RegisterVC ()
+#import "LoginAndRegisterRequest.h"
+@interface TH_RegisterVC ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UIButton * securityCodeBtn;
+@property(nonatomic,strong)UITextField * phoneTextField;
+@property(nonatomic,strong)UITextField * passwordTextField;
 @property(nonatomic,assign)int count;
 @property (nonatomic, strong) NSTimer *paintingTimer;
 @end
@@ -19,7 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.count = 60;
+    
+       self.count = 60;
     self.view.backgroundColor = color(243, 243, 241);
     [self createScro];
     /*隐藏键盘**/
@@ -65,6 +68,8 @@
     phoneTextField.keyboardType = UIKeyboardTypeNumberPad;
     phoneTextField.returnKeyType = UIReturnKeyNext;
     [phoneBgView addSubview:phoneTextField];
+    self.phoneTextField = phoneTextField;
+
     [self.scro addSubview:phoneBgView];
     //密码
     UIView * passwordBgView = [[UIView alloc] initWithFrame:CGRectMake(15, 70, WIDETH- 30, 45)];
@@ -87,10 +92,11 @@
     passwordTextField.placeholder  = @"请输入密码";
     passwordTextField.textColor = color(200, 200, 200);
     passwordTextField.font = [UIFont systemFontOfSize:13];
+    passwordTextField.secureTextEntry = YES;
     passwordTextField.textColor = [UIColor blackColor];
     passwordTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    self.passwordTextField  = passwordTextField;
     [passwordBgView addSubview:passwordTextField];
-    
     
     [self.scro addSubview:passwordBgView];
     
@@ -116,6 +122,7 @@
     securiedTextField.textColor  = color(200, 200, 200);
     securiedTextField.textColor = [UIColor blackColor];
     securiedTextField.keyboardType = UIKeyboardTypeNumberPad;
+
     [securityCodeBgView addSubview:securiedTextField];
     
     [self.scro addSubview:securityCodeBgView];
@@ -152,8 +159,19 @@
 #pragma mark -- 获取验证码
 -(void)securityCodeBtnClick:(UIButton *)sender
 {
-    [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后可重发",(long)self.count] forState:UIControlStateNormal];
     
+//    NSLog(@"%@",self.phoneTextField.text);
+//    NSLog(@"%@",self.passwordTextField.text);
+//    NSString * phoneNumber = [NSString stringWithFormat:@"%ld",13521320307];
+//    NSString * password = [NSString stringWithFormat:@"%d",123456];
+    
+    [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
+        
+    } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCode:@""];
+    
+
+    
+    [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后重发",(long)self.count] forState:UIControlStateNormal];
     self.securityCodeBtn.userInteractionEnabled = NO;
     self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
 
@@ -161,7 +179,7 @@
 - (void)reduceTime
 {
     self.count--;
-    [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后可重发",(long)self.count] forState:UIControlStateNormal];
+    [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后重发",(long)self.count] forState:UIControlStateNormal];
     if (self.count == 0)
     {
         [self.paintingTimer invalidate];
@@ -188,7 +206,7 @@
     int height = keyboardRect.size.height;
     NSLog(@"%d",height);
     self.scro.contentSize = CGSizeMake(WIDETH, 450+height);
-    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+height) animated:YES];
+    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+40) animated:YES];
     
     
     

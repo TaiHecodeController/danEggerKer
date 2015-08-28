@@ -26,6 +26,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSUserDefaults * versionId = [NSUserDefaults standardUserDefaults];
     [versionId setObject:@"" forKey:@"ver"];
+    [versionId setObject:@"unLogin" forKey:@"UserName"];
     [versionId synchronize];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];

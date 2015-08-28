@@ -18,7 +18,10 @@
 
 @interface TH_JobWishlistVC ()<UITableViewDataSource,UITableViewDelegate>
 
+{
+    NSIndexPath  * record_index;
 
+}
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) HYSegmentedControl *segmentedControl;
@@ -32,11 +35,16 @@
 @property (nonatomic, strong) UIView *alertView;
 @property (nonatomic, strong) UILabel *numLab;
 @property (nonatomic, strong) NSMutableIndexSet *cellIndeSet;
-
+@property (nonatomic, strong) NSMutableArray * cellArray;
 @end
 
 @implementation TH_JobWishlistVC
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    jobListCell * cell = self.cellArray[record_index.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [self.tableView reloadData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -302,6 +310,7 @@
     else
     {
         TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
+        record_index = indexPath;
         [self.navigationController pushViewController:detail animated:YES];
     }
 }

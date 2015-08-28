@@ -37,6 +37,8 @@
     
     //    /*收回键盘**/
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
+    /*登录通知**/
+    
     // Do any additional setup after loading the view.
 }
 -(void)createScro
@@ -198,13 +200,23 @@
 }
 -(void)loginBtbClick
 {
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginNotice" object:self];
     NSLog(@"登录");
-    self.navigationController.navigationBarHidden = YES;
-    AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
+    NSUserDefaults *  loginDefaut =[NSUserDefaults standardUserDefaults];
+    if ([[loginDefaut objectForKey:@"UserName"] isEqualToString:@"unLogin"]) {
+        self.navigationController.navigationBarHidden = YES;
+        AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
+        
+        appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
+        
+        [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
+        [loginDefaut setObject:@"login" forKey:@"UserName"];
+        [loginDefaut synchronize];
+
+
+    }
     
-    appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
-    [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
 }
 -(void)ForgotPasswordClick
 {

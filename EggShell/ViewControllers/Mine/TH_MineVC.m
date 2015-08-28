@@ -18,7 +18,7 @@
 #import "VersionUpdateView.h"
 #import "TH_ImagePickerVC.h"
 #import "VPImageCropperViewController.h"
-@interface TH_MineVC ()<THMineViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,VPImageCropperDelegate>
+@interface TH_MineVC ()<THMineViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,VPImageCropperDelegate,UIAlertViewDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)MineVeiw * mineView;
@@ -39,15 +39,20 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
 
-    self.view.backgroundColor = color(243, 243, 243);
+    self.view.backgroundColor = color(243, 243, 241);
     self.title = @"我的";
     [self createScro];
     [self createView];
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginNotice:) name:@"loginNotice" object:nil];
     }
+
 -(void)createScro
 {
     UIScrollView * sro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-49)];
     [self.view addSubview:sro];
+    self.scro
+    .backgroundColor =color(243, 243, 241);
     self.scro = sro;
     self.scro.showsVerticalScrollIndicator = NO;
 }
@@ -57,17 +62,37 @@
     
     [minVew mineViewSetButtonTag];
     minVew.mineDelegate = self;
+    
     minVew.frame = CGRectMake(-WIDETH, 0, WIDETH
                               , 490);
-    minVew.backgroundColor = color(243, 243, 243);
+    minVew.backgroundColor = color(243, 243, 241);
     self.mineView = minVew;
     [self.scro addSubview:minVew];
+    NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+    if ([[userDefault objectForKey:@"UserName"] isEqualToString:@"unLogin"]) {
+        
+        [minVew.loginBgview removeFromSuperview];
+       
+        [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5
+              initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+                  minVew.frame = CGRectMake(0, 0, WIDETH, 440);
+              } completion:nil];
+        self.scro.contentSize = CGSizeMake(WIDETH,450+60);
+
+    }
+    if ([[userDefault objectForKey:@"ligin"] isEqualToString:@"userName"]) {
+      
+        
+       
+        
+    }
+    
     [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5
           initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
               minVew.frame = CGRectMake(0, 0, WIDETH, 490);
           } completion:nil];
     self.scro.contentSize = CGSizeMake(WIDETH,450+110);
-
+   
     
 }
 -(void)homeView:(MineVeiw *)mineView DidClickButton:(THMineViewButtonType)button
@@ -120,12 +145,9 @@
         case THMineViewButtonTypesignOut:
         {
             NSLog(@"退出登录");
-            self.navigationController.navigationBarHidden = YES;
-            AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-            appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
-            
-            appDelegate.mainTabBar.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
+            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认退出登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            alertView.delegate = self;
+            [alertView show];
             break;
         }
         case THMineViewButtonTypeLogin:
@@ -166,8 +188,24 @@
         default:
             break;
     }
-    
-    
+}
+- (void)loginNotice:(NSNotification *)notification
+{
+//    [self.mineView addSubview:self.mineView.loginBgview];
+    [self.mineView.loginBgview removeFromSuperview];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+    if (buttonIndex ==1) {
+        self.navigationController.navigationBarHidden = YES;
+        AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
+        
+        appDelegate.mainTabBar.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [userDefault setObject:@"unLogin" forKey:@"UserName"];
+        [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
+    }
 }
 #pragma mark ActionSheet delegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

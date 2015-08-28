@@ -69,7 +69,7 @@
 {
     jobTableViewCell * cell = self.cellArray[record_index.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    [self.tableView reloadData];
+  [self.tableView reloadData];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

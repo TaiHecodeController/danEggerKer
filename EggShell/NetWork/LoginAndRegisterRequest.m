@@ -24,6 +24,13 @@
     NSDictionary * param = @{@"username":userName,@"password":md5_passWord,@"usertype":@(userType),@"source":@(source),@"moblie":phoneNum,@"email":email};
     return [self postRequestWithUrl:@"http://195.198.1.195/index.php?m=api&c=res" param:param succ:succ];
 }
++(AFRequestState *)registerWithSucc:(void(^)(NSDictionary * DataDic))succ Withphonenumber:(NSString *)phonenumber WithPassword:(NSString *)password withSecurityCode:(NSString *)SecurityCode
+{
+    
+    NSDictionary * para = @{@"phonenumber":phonenumber,@"password":password,@"smscode":SecurityCode};
+    return [self postRequestWithUrl:@"http://195.198.1.122:8066/eggker/interface/register" param:para succ:succ];
+
+}
 
 
 
