@@ -69,7 +69,7 @@
 {
     jobTableViewCell * cell = self.cellArray[record_index.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -396,23 +396,15 @@
 
     TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
       
-    [self.navigationController pushViewController:detail animated:YES];
-
+    
         record_index = indexPath;
         
         [self.navigationController pushViewController:detail animated:YES];
 
     }
-     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+     
 }
--(void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 42, Wifi)];
-    view.backgroundColor = [UIColor redColor];
-    [_cell addSubview:view];
-    _cell.selectedBackgroundView = view;
 
-}
 #pragma mark -- respondEvent
 - (void)allClick:(UIButton *)sender
 {

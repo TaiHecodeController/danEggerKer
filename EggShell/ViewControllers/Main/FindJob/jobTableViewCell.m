@@ -96,11 +96,11 @@
     CGSize compSize = [_companyLab.text sizeWithFont:_companyLab.font];
     _companyLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + margin, y, compSize.width, compSize.height);
     
-    _positionSecBtn.frame = CGRectMake(margin, CGRectGetMinY(_companyLab.frame), 27.5, 27.5);
+    _positionSecBtn.frame = CGRectMake(margin, CGRectGetMinY(_companyLab.frame), 22.5, 22.5);
     
     y += _companyLab.frame.size.height + 5;
     CGSize cityLabSize = [_cityLab.text sizeWithFont:_cityLab.font];
-    _cityLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + 10,  y, cityLabSize.width, cityLabSize.height);
+    _cityLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + 10 + 5,  y, cityLabSize.width, cityLabSize.height);
     
     _lineView.frame = CGRectMake(CGRectGetMaxX(_cityLab.frame) + 7, y, 1, cityLabSize.height);
     

@@ -149,7 +149,7 @@
 #pragma mark - - scorView
 -(void)createScro
 {
-    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT )];
+    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT -49)];
     self.scro           = scro;
     self.scro.showsVerticalScrollIndicator  = NO;
     self.scro.delegate  = self;
@@ -186,14 +186,14 @@
     [self.scro addSubview:self.findView];
     //注册HomeViews
     HomeView * homeView   = [HomeView homeViewFinJob] ;
-    homeView.frame  = CGRectMake(0*WIDETH, MyHeight * 326, WIDETH, 456);
+    homeView.frame  = CGRectMake(0*WIDETH, MyHeight * 326, WIDETH, 436);
     homeView.famousDelegate = self;
     [homeView setHomeViewAdBtn];
     [homeView setHomeViewFcBtn];
     [homeView setHomeViewItBtn];
     [self.scro addSubview:homeView];
     
-    self.scro.contentSize = CGSizeMake(WIDETH, MyHeight * 326+456+20);
+    self.scro.contentSize = CGSizeMake(WIDETH, MyHeight * 326+416+25);
 }
 
 -(void)homeViewFindJob:(HomeView *)homeView
@@ -545,10 +545,7 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-//    if(scrollView.contentOffset.y / 250 >= 0.7)
-//    {
-//        return;
-//    }
+
     _searChBgView.alpha = scrollView.contentOffset.y / 250;
 }
 
