@@ -65,7 +65,7 @@
     
     minVew.frame = CGRectMake(-WIDETH, 0, WIDETH
                               , 490);
-    minVew.backgroundColor = color(243, 243, 241);
+    minVew.backgroundColor =    color(243, 243, 241);
     self.mineView = minVew;
     [self.scro addSubview:minVew];
     NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
