@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *contentTextField;
 @property (weak, nonatomic) IBOutlet UILabel *moreLab;
 @property (weak, nonatomic) IBOutlet UIButton *showAllBtn;
+@property (strong,nonatomic) void(^keyBordHideBlock)(void);
 - (IBAction)showAllClick:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 - (IBAction)nextClick:(UIButton *)sender;

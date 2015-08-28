@@ -37,6 +37,7 @@
 }
 
 - (IBAction)contentClick:(UIButton *)sender {
+    self.keyBordHideBlock();
     if(sender.tag == 200)
     {
         [self createDataPickView];

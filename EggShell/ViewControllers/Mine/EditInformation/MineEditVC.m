@@ -156,6 +156,10 @@
             cell.contentTextField.delegate = self;
             cell.contentTextField.userInteractionEnabled = YES;
             cell.contentBtn.hidden = YES;
+            cell.keyBordHideBlock = ^
+            {
+                [recordTextField resignFirstResponder];
+            };
         }
         
         cell.nextBtn.hidden = YES;
@@ -201,6 +205,10 @@
             cell.contentTextField.delegate = self;
             cell.contentTextField.tag = 400 + indexPath.row;
             cell.contentBtn.hidden = YES;
+            cell.keyBordHideBlock = ^
+            {
+                [recordTextField resignFirstResponder];
+            };
         }
         cell.Controller = self;
         cell.nextBtn.hidden = YES;
@@ -227,8 +235,7 @@
         {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"MineEditInfoCell" owner:self options:nil] firstObject];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.contentTextField.delegate = self;
-            cell.contentTextField.tag = 500 + indexPath.row;
+            cell.contentTextField.enabled = NO;
             cell.contentBtn.hidden = YES;
         }
         cell.Controller = self;
