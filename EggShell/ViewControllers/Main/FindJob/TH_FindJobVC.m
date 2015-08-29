@@ -47,9 +47,6 @@
 @implementation TH_FindJobVC
 -(void)viewWillAppear:(BOOL)animated
 {
-    
-
-
 
     [super viewWillAppear:NO];
     

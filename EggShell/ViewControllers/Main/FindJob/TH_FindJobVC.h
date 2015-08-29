@@ -8,6 +8,8 @@
 
 #import "TH_BaseVC.h"
 
+//static NSString const *  staticVar;
+
 @interface TH_FindJobVC : TH_BaseVC
 
 @end

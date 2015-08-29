@@ -9,6 +9,7 @@
 #import "TH_BaseVC.h"
 #import "MJRefresh.h"
 
+
 @interface TH_HomeVC : TH_BaseVC
 @property (strong,nonatomic)MJRefreshFooterView * footer;
 @property (strong,nonatomic)MJRefreshHeaderView * header;

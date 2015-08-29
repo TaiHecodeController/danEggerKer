@@ -53,6 +53,7 @@
 
 @implementation TH_HomeVC
 
+
 - (NSMutableArray *)arr
 {
     if (_arr == nil)
@@ -64,6 +65,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //网络判断
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
         [MBProgressHUD creatembHub:@"当前处于无网络"];
@@ -573,6 +575,7 @@
 //删除搜索视图
 -(void)viewWillDisappear:(BOOL)animated
 {
+    NSLog(@"_searChBgView%p",_searChBgView);
     [_searChBgView removeFromSuperview];
     [_searchView removeFromSuperview];
 
