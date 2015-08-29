@@ -8,6 +8,7 @@
 
 #import "TH_RegisterVC.h"
 #import "LoginAndRegisterRequest.h"
+#import "TH_LoginVC.h"
 @interface TH_RegisterVC ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UIButton * securityCodeBtn;
@@ -16,6 +17,7 @@
 @property(nonatomic,strong)UITextField * securiedTextField;
 @property(nonatomic,assign)int count;
 @property (nonatomic, strong) NSTimer *paintingTimer;
+@property(nonatomic,strong)NSMutableDictionary * registDic;
 @end
 
 @implementation TH_RegisterVC
@@ -178,14 +180,23 @@
 #pragma mark - 注册
 -(void)registerClick
 {
-//    [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
-//        
-//    } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCode:self.securiedTextField];
+    self.registDic =[NSMutableDictionary dictionaryWithCapacity:0];
     [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
         
+        [self.registDic setDictionary:DataDic];
     } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCodee:self.securiedTextField.text];
-
-}
+    
+    
+    
+    
+    NSString * num = [NSString stringWithFormat:@"%d",0];
+    if ([self.registDic[@"code"] isEqualToString:num]) {
+        
+        [MBProgressHUD creatembHub:self.registDic[@"message"]];
+        [self.navigationController popViewControllerAnimated:YES];
+    
+    }
+    }
 - (void)reduceTime
 {
     self.count--;

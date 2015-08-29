@@ -367,7 +367,7 @@
                                     <rect key="frame" x="15" y="41.5" width="305" height="0.5"/>
                                     <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="0.5" id="HkZ-EJ-bpx"/>
+                                        <constraint firstAttribute="height" constant="0.40000000000000002" id="fhw-CQ-SHz"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于蛋壳儿" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycl-5I-vSa">
@@ -402,19 +402,19 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="k2A-cg-RUC" firstAttribute="leading" secondItem="EfZ-Ed-Vue" secondAttribute="leading" constant="15" id="5KC-oo-ep8"/>
+                                <constraint firstItem="k2A-cg-RUC" firstAttribute="leading" secondItem="EfZ-Ed-Vue" secondAttribute="leading" constant="15" id="6Ce-85-6No"/>
                                 <constraint firstAttribute="trailing" secondItem="Aqo-yo-MrC" secondAttribute="trailing" id="6Q3-eX-OTl"/>
                                 <constraint firstItem="ycl-5I-vSa" firstAttribute="leading" secondItem="EfZ-Ed-Vue" secondAttribute="leading" constant="15" id="DEG-Pr-LQI"/>
                                 <constraint firstAttribute="height" constant="42" id="I0r-5Q-vin"/>
                                 <constraint firstItem="Aqo-yo-MrC" firstAttribute="leading" secondItem="EfZ-Ed-Vue" secondAttribute="leading" id="Jbi-nd-F6f"/>
                                 <constraint firstItem="gS8-3S-F3f" firstAttribute="top" secondItem="Aqo-yo-MrC" secondAttribute="bottom" constant="15.5" id="O9I-sD-F4W"/>
+                                <constraint firstAttribute="trailing" secondItem="k2A-cg-RUC" secondAttribute="trailing" id="Sdr-Gc-SWA"/>
+                                <constraint firstItem="k2A-cg-RUC" firstAttribute="top" secondItem="gS8-3S-F3f" secondAttribute="bottom" constant="13.5" id="XXP-Ni-O5o"/>
                                 <constraint firstAttribute="trailing" secondItem="Q3b-B8-yGA" secondAttribute="trailing" id="au0-dF-yOq"/>
                                 <constraint firstItem="ycl-5I-vSa" firstAttribute="top" secondItem="Aqo-yo-MrC" secondAttribute="bottom" constant="14.5" id="bZc-SD-r7x"/>
                                 <constraint firstItem="Aqo-yo-MrC" firstAttribute="top" secondItem="EfZ-Ed-Vue" secondAttribute="top" id="jvx-pg-GAR"/>
                                 <constraint firstItem="Q3b-B8-yGA" firstAttribute="leading" secondItem="EfZ-Ed-Vue" secondAttribute="leading" id="xEJ-jh-M3G"/>
-                                <constraint firstItem="k2A-cg-RUC" firstAttribute="top" secondItem="gS8-3S-F3f" secondAttribute="bottom" constant="13.5" id="z0o-06-cAv"/>
                                 <constraint firstItem="Q3b-B8-yGA" firstAttribute="top" secondItem="EfZ-Ed-Vue" secondAttribute="top" id="z1P-LR-vak"/>
-                                <constraint firstAttribute="trailing" secondItem="k2A-cg-RUC" secondAttribute="trailing" id="z6C-zs-2FA"/>
                                 <constraint firstAttribute="trailing" secondItem="gS8-3S-F3f" secondAttribute="trailing" constant="16" id="z9K-jM-gu0"/>
                             </constraints>
                         </view>
