@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *AboutEggshellBtn;
 @property (weak, nonatomic) IBOutlet UIButton *ChannelsCooperation;
 
-
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *Feedback;
 @property (weak, nonatomic) IBOutlet UIButton *chatNewVersion;

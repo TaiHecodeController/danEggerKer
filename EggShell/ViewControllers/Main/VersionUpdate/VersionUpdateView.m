@@ -37,8 +37,6 @@
     NSLog(@"111");
 }
 
-
-
 -(void)showVersonView
 {
     AppDelegate * dele = (AppDelegate*)[UIApplication sharedApplication].delegate;

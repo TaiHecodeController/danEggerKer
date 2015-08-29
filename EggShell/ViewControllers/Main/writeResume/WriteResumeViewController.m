@@ -12,6 +12,7 @@
 #import "NameAndSexCell.h"
 #import "WriteResumeVC2.h"
 #import "WriteJLChooseVC.h"
+#import "ZCControl.h"
 
 @interface WriteResumeViewController ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate,UITextFieldDelegate>
 {
@@ -30,6 +31,10 @@
 @property (strong,nonatomic)NSMutableArray * jobCellArray2;
 @property (nonatomic, strong)WriteJLChooseVC *writeJLChooseVC;
 @property (nonatomic, strong)UIDatePicker *datePick;
+
+@property (nonatomic, strong) UIView *backView;
+@property (nonatomic, strong) UIButton *ok;
+@property (nonatomic, copy) NSString *dateString;
 
 
 @end
@@ -50,6 +55,17 @@
     [self createUI];
     
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    
+    [_backView removeFromSuperview];
+    
+    [self.datePick removeFromSuperview];
+    
+    [_ok removeFromSuperview];
 }
 
 -(void)createData
@@ -310,7 +326,9 @@
         if (indexPath.row == 1)
         {
             THLog(@"出生年月");
-            [self createDatePicker];
+            [self createDataPickView];
+            
+            
             
             return;
             
@@ -345,27 +363,93 @@
     
 }
 
-- (void)createDatePicker
+//- (void)createDatePicker
+//{
+////    UIDatePicker *datePicker = [[UIDatePicker alloc]initWithFrame:CGRectMake(0, HEIGHT - 200, WIDETH, 200)];
+////    datePicker.datePickerMode = UIDatePickerModeDate;
+////    [self.view addSubview:datePicker];
+////    [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
+////    _datePick = datePicker;
+//}
+
+#pragma mark -- creatDatePickView
+-(void)createDataPickView
 {
-    UIDatePicker *datePicker = [[UIDatePicker alloc]initWithFrame:CGRectMake(0, HEIGHT - 200, WIDETH, 200)];
-    datePicker.datePickerMode = UIDatePickerModeDate;
-    [self.view addSubview:datePicker];
-    [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
-    _datePick = datePicker;
+    _backView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _backView.backgroundColor = [UIColor blackColor];
+    _backView.alpha = 0.3;
+    [self.navigationController.view addSubview:_backView];
+    //创建picker
+    self.datePick = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDETH, HEIGHT / 2 - 80)];
+    self.datePick.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self
+     .navigationController.view addSubview:self.datePick];
+    [self.datePick addTarget:self action:@selector(dataChanged:) forControlEvents:UIControlEventValueChanged];
+    NSLocale * locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];//设置显示为中文
+    self.datePick.locale = locale;
+    self.datePick.datePickerMode = UIDatePickerModeDate;
+    //当前时间创建NSDate
+    NSDate * localDate = [NSDate date];
+    //设置时间
+    NSDateFormatter * dateFormatt = [[NSDateFormatter alloc] init];
+    [dateFormatt setDateFormat:@"yy-MM-dd"];
+    NSDate * minDate = [dateFormatt dateFromString:@"1910-1-1"];
+    
+    //设置属性
+    self.datePick.maximumDate = localDate;
+    self.datePick.minimumDate = minDate;
+    
+    _ok = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 40, HEIGHT, 40, 30) ImageName:@"" Target:self Action:@selector(okClick) Title:@"确定"];
+    self.datePick.userInteractionEnabled = YES;
+    [_ok setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.navigationController.view addSubview:_ok];
+    
+    [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        self.datePick.frame = CGRectMake(0, HEIGHT / 2 + 80 + 40, WIDETH, HEIGHT / 2 - 80);
+        _ok.frame = CGRectMake(WIDETH - 40, HEIGHT - 80, 40, 30);
+        [back_sv scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+    
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
--(void)dateChanged:(id)sender
+-(void)okClick
 {
-    UIDatePicker *control = (UIDatePicker*)sender;
-    NSDate* mydate = control.date;
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"yyyy年MM月"];
-    NSString *timeStr = [dateFormatter stringFromDate:mydate];
-    //    NSLog(@"mydate%@",mydate);
+    [_backView removeFromSuperview];
+    
+    [self.datePick removeFromSuperview];
+    
+    [_ok removeFromSuperview];
+    
     NSIndexPath *cellIndex = [NSIndexPath indexPathForRow:1 inSection:0];
     WriteResumeCell *cell = (WriteResumeCell *)[userTableView cellForRowAtIndexPath:cellIndex];
-    cell.contentTextField.text = timeStr;
+    cell.contentTextField.text = _dateString;
+    
+    [back_sv scrollRectToVisible:CGRectMake(0, 220, WIDETH, HEIGHT) animated:YES];
+
 }
+
+-(void)dataChanged:(UIDatePicker *)sender
+{
+    NSDateFormatter * dateFormatt = [[NSDateFormatter alloc] init];
+    [dateFormatt setDateFormat:@"yyyy-MM-dd"];
+    _dateString = [dateFormatt stringFromDate:sender.date];
+}
+
+
+//-(void)dateChanged:(id)sender
+//{
+//    UIDatePicker *control = (UIDatePicker*)sender;
+//    NSDate* mydate = control.date;
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+//    [dateFormatter setDateFormat:@"yyyy年MM月"];
+//    NSString *timeStr = [dateFormatter stringFromDate:mydate];
+//    //    NSLog(@"mydate%@",mydate);
+//    NSIndexPath *cellIndex = [NSIndexPath indexPathForRow:1 inSection:0];
+//    WriteResumeCell *cell = (WriteResumeCell *)[userTableView cellForRowAtIndexPath:cellIndex];
+//    cell.contentTextField.text = timeStr;
+//}
 
 -(void)mustClick
 {
@@ -417,6 +501,7 @@
         
     }
     recordTextField = textField;
+    NSLog(@"%ld",(long)textField.tag);
 }
 
 
@@ -428,7 +513,8 @@
         {
             back_sv.contentSize = CGSizeMake(WIDETH / 2, 754 + 64);
             [back_sv scrollRectToVisible:CGRectMake(0, 220, WIDETH, HEIGHT) animated:YES];
-        }else
+        }
+        else
         {
             back_sv.contentSize = CGSizeMake(WIDETH / 2, 754 + 64);
             [back_sv scrollRectToVisible:CGRectMake(0, 200, WIDETH, HEIGHT) animated:YES];

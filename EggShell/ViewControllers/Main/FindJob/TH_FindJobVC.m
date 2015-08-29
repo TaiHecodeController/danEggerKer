@@ -233,6 +233,7 @@
         jianliBtn.font = [UIFont systemFontOfSize:13];
         jianliBtn.frame = CGRectMake(margin, 40, 300, 50);
         [alertView addSubview:jianliBtn];
+    jianliBtn.editable = NO;
     
     UIButton *okBtn = [[UIButton alloc]init];
     [okBtn setTitle:@"确定" forState:UIControlStateNormal];

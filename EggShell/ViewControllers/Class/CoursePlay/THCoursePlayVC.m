@@ -163,6 +163,20 @@ typedef NS_ENUM(NSInteger, GestureType){
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //网络判断
+    if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
+        [MBProgressHUD creatembHub:@"当前处于无网络"];
+        
+        
+    }else if([MMNetWorkType getNetWorkType] ==WWAN)
+    {
+        [MBProgressHUD creatembHub:@"您当前处于3G状态"];
+    }
+    {
+        NSLog(@"当前是3G或wifi状态");
+        [MBProgressHUD creatembHub:@"您当前处于wifi状态"];
+        
+    }
 
     // Do any additional setup after loading the view.
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
