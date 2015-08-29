@@ -27,11 +27,15 @@
 +(AFRequestState *)registerWithSucc:(void(^)(NSDictionary * DataDic))succ Withphonenumber:(NSString *)phonenumber WithPassword:(NSString *)password withSecurityCode:(NSString *)SecurityCode
 {
     
-    NSDictionary * para = @{@"phonenumber":phonenumber,@"password":password,@"smscode":SecurityCode};
-    return [self postRequestWithUrl:@"http://195.198.1.122:8066/eggker/interface/register" param:para succ:succ];
+    NSDictionary * para = @{@"telphone":phonenumber,@"password":password,@"smscode":SecurityCode};
+    return [self postRequestWithUrl:@"http://195.198.1.197/eggker/interface/register/chTelphone" param:para succ:succ];
 
 }
 
-
++(AFRequestState *)registerWithSucc:(void(^)(NSDictionary * DataDic))succ Withphonenumber:(NSString *)userName WithPassword:(NSString *)password withSecurityCodee:(NSString *)SecurityCodee
+{
+    NSDictionary * para = @{@"telphone":userName,@"password":password,@"smscode":SecurityCodee};
+    return [self postRequestWithUrl:@"http://195.198.1.197/eggker/interface/register" param:para succ:succ];
+}
 
 @end

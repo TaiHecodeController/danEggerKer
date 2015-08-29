@@ -13,6 +13,7 @@
 @property(nonatomic,strong)UIButton * securityCodeBtn;
 @property(nonatomic,strong)UITextField * phoneTextField;
 @property(nonatomic,strong)UITextField * passwordTextField;
+@property(nonatomic,strong)UITextField * securiedTextField;
 @property(nonatomic,assign)int count;
 @property (nonatomic, strong) NSTimer *paintingTimer;
 @end
@@ -121,6 +122,7 @@
     securiedTextField.font =[UIFont systemFontOfSize:13];
     securiedTextField.textColor  = color(200, 200, 200);
     securiedTextField.textColor = [UIColor blackColor];
+    self.securiedTextField = securiedTextField;
     securiedTextField.keyboardType = UIKeyboardTypeNumberPad;
 
     [securityCodeBgView addSubview:securiedTextField];
@@ -151,6 +153,7 @@
     registerBtn.titleLabel.font = [UIFont systemFontOfSize:19];
     registerBtn.layer.cornerRadius = 3;
     registerBtn.layer.masksToBounds = YES;
+    [registerBtn addTarget:self action:@selector(registerClick) forControlEvents:UIControlEventTouchUpInside];
     [self.scro addSubview:registerBtn];
     self.scro.contentSize = CGSizeMake(WIDETH, HEIGHT);
     
@@ -160,20 +163,27 @@
 -(void)securityCodeBtnClick:(UIButton *)sender
 {
     
-//    NSLog(@"%@",self.phoneTextField.text);
-//    NSLog(@"%@",self.passwordTextField.text);
-//    NSString * phoneNumber = [NSString stringWithFormat:@"%ld",13521320307];
-//    NSString * password = [NSString stringWithFormat:@"%d",123456];
+    
     
     [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
         
     } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCode:@""];
-    
 
     
     [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后重发",(long)self.count] forState:UIControlStateNormal];
     self.securityCodeBtn.userInteractionEnabled = NO;
     self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
+
+}
+#pragma mark - 注册
+-(void)registerClick
+{
+//    [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
+//        
+//    } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCode:self.securiedTextField];
+    [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
+        
+    } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCodee:self.securiedTextField.text];
 
 }
 - (void)reduceTime
