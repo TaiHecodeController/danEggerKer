@@ -16,13 +16,11 @@
 #import "TH_FindPartTimeVC.h"
 #import "TH_FindPracticeVC.h"
 
-
 #import "TH_ClassVC.h"
 
 #import "SearchJobVC.h"
 #import "DataBase.h"
 #import "CompanyDetailVC.h"
-
 
 #import "WriteResumeViewController.h"
 
@@ -32,7 +30,6 @@
 #import "HomeView.h"
 #import "VersionUpdateView.h"
 #import "ManagerResumeVC.h"
-
 
 @interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate>
 {

@@ -50,9 +50,6 @@
 
     [super viewWillAppear:NO];
     
-   
-
-    
     UIButton *searchBtn = [[UIButton alloc] init];
     [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
       [searchBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
