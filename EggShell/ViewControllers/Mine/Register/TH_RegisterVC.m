@@ -9,6 +9,7 @@
 #import "TH_RegisterVC.h"
 #import "LoginAndRegisterRequest.h"
 #import "TH_LoginVC.h"
+#import "AccountRequest.h"
 @interface TH_RegisterVC ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UIButton * securityCodeBtn;
@@ -165,7 +166,7 @@
 -(void)securityCodeBtnClick:(UIButton *)sender
 {
     
-    
+   
     
     [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
         
@@ -180,22 +181,36 @@
 #pragma mark - 注册
 -(void)registerClick
 {
-    self.registDic =[NSMutableDictionary dictionaryWithCapacity:0];
-    [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
+////    self.registDic =[NSMutableDictionary dictionaryWithCapacity:0];
+//    //        [self.registDic setDictionary:DataDic];
+//    [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
+//        
+//        NSString * num = [NSString stringWithFormat:@"%d",0];
+//        if ([self.registDic[@"code"] isEqualToString:num]) {
+//            
+//            [MBProgressHUD creatembHub:self.registDic[@"message"]];
+//            [self.navigationController popViewControllerAnimated:YES];
+//            
+//        }
+//
+//    } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCodee:self.securiedTextField.text];
+    
+//
+    
+    
+    
+    [AccountRequest RegisterRequestWithUserName:self.phoneTextField.text PassWord:self.passwordTextField.text withAccountName:self.securiedTextField.text succ:^(NSDictionary * dic) {
+        if ([dic[@"code"] integerValue]==0) {
+            [MBProgressHUD creatembHub:dic[@"message"]];
+                   [self.navigationController popViewControllerAnimated:YES];
+            NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+            [userInfo setValue:self.phoneTextField.text forKey:@"phoneText"];
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"registerSuccesNotification" object:self userInfo:userInfo];
+ 
+        }
         
-        [self.registDic setDictionary:DataDic];
-    } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCodee:self.securiedTextField.text];
+    }];
     
-    
-    
-    
-    NSString * num = [NSString stringWithFormat:@"%d",0];
-    if ([self.registDic[@"code"] isEqualToString:num]) {
-        
-        [MBProgressHUD creatembHub:self.registDic[@"message"]];
-        [self.navigationController popViewControllerAnimated:YES];
-    
-    }
     }
 - (void)reduceTime
 {

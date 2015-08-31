@@ -9,5 +9,5 @@
 #import "TH_BaseVC.h"
 
 @interface TH_getCodeNextVC : TH_BaseVC
-
+@property(nonatomic,assign)NSString * phoneNum;
 @end

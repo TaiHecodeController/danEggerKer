@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/NetWork/AFAppRequest.m"
-            timestampString = "462507278.585419"
+            timestampString = "462632695.435717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "+postRequestWithUrl:param:succ:fail:resp:"
             landmarkType = "5">
          </BreakpointContent>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Mine/Register/TH_RegisterVC.m"
-            timestampString = "462520374.218605"
+            filePath = "EggShell/ViewControllers/Mine/getCodeNext/TH_getCodeNextVC.m"
+            timestampString = "462535781.018667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "-registerClick"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-resetpasswordClick"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

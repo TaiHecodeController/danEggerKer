@@ -181,6 +181,7 @@
 		94E3EA8D1B8E9AAD007A699E /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94E3EA8C1B8E9AAD007A699E /* mapapi.bundle */; };
 		94E3EA911B8EB520007A699E /* MMNetWorkType.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EA901B8EB520007A699E /* MMNetWorkType.m */; };
 		94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EA991B8EB758007A699E /* Reachability.m */; };
+		94E3EAE01B918CBE007A699E /* AccountRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EADF1B918CBE007A699E /* AccountRequest.m */; };
 		94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF11B841D510093C39B /* CourePlayTitle.m */; };
 		94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E7DCF21B841D510093C39B /* CourePlaytitle.xib */; };
 		94E7DCFA1B841D510093C39B /* Course PlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF41B841D510093C39B /* Course PlayCell.m */; };
@@ -540,6 +541,8 @@
 		94E3EA901B8EB520007A699E /* MMNetWorkType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNetWorkType.m; sourceTree = "<group>"; };
 		94E3EA981B8EB758007A699E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		94E3EA991B8EB758007A699E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		94E3EADE1B918CBE007A699E /* AccountRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountRequest.h; sourceTree = "<group>"; };
+		94E3EADF1B918CBE007A699E /* AccountRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRequest.m; sourceTree = "<group>"; };
 		94E7DCF01B841D510093C39B /* CourePlayTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourePlayTitle.h; sourceTree = "<group>"; };
 		94E7DCF11B841D510093C39B /* CourePlayTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourePlayTitle.m; sourceTree = "<group>"; };
 		94E7DCF21B841D510093C39B /* CourePlaytitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourePlaytitle.xib; sourceTree = "<group>"; };
@@ -1294,6 +1297,8 @@
 			children = (
 				94313D371B7B5731005D0A9A /* TH_RegisterVC.h */,
 				94313D381B7B5731005D0A9A /* TH_RegisterVC.m */,
+				94E3EADE1B918CBE007A699E /* AccountRequest.h */,
+				94E3EADF1B918CBE007A699E /* AccountRequest.m */,
 			);
 			name = Register;
 			path = ../Register;
@@ -2101,6 +2106,7 @@
 				94313DE91B7CB5C9005D0A9A /* ManagerResumeVC.m in Sources */,
 				94EFC1C81B7DC65200833068 /* playFanModel.m in Sources */,
 				94CB5BA71B76345D00B23B9D /* TH_MineVC.m in Sources */,
+				94E3EAE01B918CBE007A699E /* AccountRequest.m in Sources */,
 				94EDD4F01B7831BB00A00A78 /* ZXButton.m in Sources */,
 				940032931B83969B001EB666 /* FindjobView.m in Sources */,
 				940032D81B840CC3001EB666 /* TH_TrainExperienceVC.m in Sources */,

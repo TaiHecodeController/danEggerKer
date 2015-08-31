@@ -12,6 +12,7 @@
 #import "TH_ForgotPasswordVC.h"
 #import "AppDelegate.h"
 #import "TH_HomeVC.h"
+#import "AccountRequest.h"
 @interface TH_LoginVC ()<UITextFieldDelegate>
 @property (strong,nonatomic)UIButton * loginBtn;
 @property(nonatomic,strong)UITextField * phonetextField;
@@ -37,9 +38,15 @@
     
     //    /*收回键盘**/
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
-    /*登录通知**/
+    /*注册成功通知**/
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerSucces:) name:@"registerSuccesNotification" object:nil];
+    
     
     // Do any additional setup after loading the view.
+}
+-(void)registerSucces:(NSNotification*)notification
+{
+    self.phonetextField.text = notification.userInfo[@"phoneText"];
 }
 -(void)createScro
 {
@@ -198,24 +205,46 @@
 {
     [self.view resignFirstResponder];
 }
+
+#pragma mark-- 登录
 -(void)loginBtbClick
 {
 //        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginNotice" object:self];
     NSLog(@"登录");
-    NSUserDefaults *  loginDefaut =[NSUserDefaults standardUserDefaults];
-    if ([[loginDefaut objectForKey:@"UserName"] isEqualToString:@"unLogin"]) {
-        self.navigationController.navigationBarHidden = YES;
-        AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-        appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
+    [AccountRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text withSucc:^(NSDictionary * dic) {
         
-        appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
-        
-        [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
-        [loginDefaut setObject:@"login" forKey:@"UserName"];
-        [loginDefaut synchronize];
+        if ([dic[@"code"] integerValue]==0) {
+            [MBProgressHUD creatembHub:dic[@"message"]];
+           
+            NSUserDefaults *  loginDefaut =[NSUserDefaults standardUserDefaults];
+            if ([[loginDefaut objectForKey:@"UserName"] isEqualToString:@"unLogin"]) {
+                self.navigationController.navigationBarHidden = YES;
+                AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
+                
+                appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
+                
+                [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
+                [loginDefaut setObject:@"login" forKey:@"UserName"];
+                [loginDefaut synchronize];
+            }
+        }
+    }];
+//    NSLog(@"登录");
+//    NSUserDefaults *  loginDefaut =[NSUserDefaults standardUserDefaults];
+//    if ([[loginDefaut objectForKey:@"UserName"] isEqualToString:@"unLogin"]) {
+//        self.navigationController.navigationBarHidden = YES;
+//        AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+//        appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
+//        
+//        appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
+//        
+//        [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
+//        [loginDefaut setObject:@"login" forKey:@"UserName"];
+//        [loginDefaut synchronize];
 
 
-    }
+//    }
     
 }
 -(void)ForgotPasswordClick

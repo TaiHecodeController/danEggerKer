@@ -8,9 +8,12 @@
 
 #import "TH_ForgotPasswordVC.h"
 #import "TH_getCodeNextVC.h"
+#import "AccountRequest.h"
 @interface TH_ForgotPasswordVC ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UIButton * securityCodeBtn;
+@property(nonatomic,strong)UITextField * phoneTextField;
+@property(nonatomic,strong)UITextField * securiedTextField;
 @property(nonatomic,assign)int * count;
 @property (nonatomic, strong) NSTimer *paintingTimer;
 
@@ -51,10 +54,10 @@
     
     UITextField * phoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(80, 0, WIDETH - 30-80, 45)];
     phoneTextField.placeholder = @"请输入手机号";
-    phoneTextField.textColor = color(200, 200, 200);
     phoneTextField.textColor  = [UIColor blackColor];
     phoneTextField.keyboardType = UIKeyboardTypeNumberPad;
     phoneTextField.font = [UIFont systemFontOfSize:13];
+    self.phoneTextField = phoneTextField;
     [phoneBgView addSubview:phoneTextField];
     [self.scro addSubview:phoneBgView];
     //验证码
@@ -78,7 +81,7 @@
     securiedTextField.keyboardType = UIKeyboardTypeNumberPad;
     securiedTextField.textColor = [UIColor blackColor];
     securiedTextField.font =[UIFont systemFontOfSize:13];
-    securiedTextField.textColor  = color(200, 200, 200);
+    self.securiedTextField = securiedTextField;
     [securityCodeBgView addSubview:securiedTextField];
     
     [self.scro addSubview:securityCodeBgView];
@@ -115,6 +118,13 @@
 #pragma mark -- 获取验证码
 -(void)securityCodeBtnClick:(UIButton *)sender
 {
+    
+    
+    
+    [AccountRequest forgitRequestWithPhoneNum:self.phoneTextField.text withSucc:^(NSDictionary * dic) {
+        
+        NSLog(@"获取验证码成功");
+    }];
     [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后可重发",(long)self.count] forState:UIControlStateNormal];
    
     self.securityCodeBtn.userInteractionEnabled = NO;
@@ -138,11 +148,18 @@
 
 -(void)getCodeNextClick
 {
+    [AccountRequest forgitNextRequestWithPhoneNum:self.phoneTextField.text withSecurityCode:self.securiedTextField.text withSucc:^(NSDictionary * dic) {
+        
+        if ([dic[@"code"] integerValue]==0) {
+            TH_getCodeNextVC * getNext = [[TH_getCodeNextVC alloc] init];
+            getNext.title = @"找回密码";
+            getNext.phoneNum = self.phoneTextField.text;
+            [self.navigationController pushViewController:getNext animated:YES];
+        }
 
-    TH_getCodeNextVC * getNext = [[TH_getCodeNextVC alloc] init];
-    getNext.title = @"找回密码";
-    [self.navigationController pushViewController:getNext animated:YES];
-}
+    }];
+
+    }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -9,8 +9,11 @@
 #import "TH_getCodeNextVC.h"
 #import "TH_MainTabBarController.h"
 #import "AppDelegate.h"
+#import "AccountRequest.h"
 @interface TH_getCodeNextVC ()
 @property(nonatomic,strong)UIScrollView * scro;
+@property(nonatomic,strong)UITextField  * confirmPasswordTextField;
+@property(nonatomic,strong)UITextField * newsPasswordTextFied;
 @end
 
 @implementation TH_getCodeNextVC
@@ -43,8 +46,8 @@
     newPasswordTextFied.placeholder = @"请输入新密码";
     newPasswordTextFied.textColor = [UIColor blackColor];
     newPasswordTextFied.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-    newPasswordTextFied.textColor = color(200, 200, 200);
     newPasswordTextFied.font = [UIFont systemFontOfSize:13];
+    self.newsPasswordTextFied = newPasswordTextFied;
     [newPassworBgView addSubview:newPasswordTextFied];
     
     //确认密码
@@ -64,10 +67,11 @@
     [confirmPassWordBgView addSubview:confirmPasswordLineView];
     UITextField  * confirmPasswordTextField =[[UITextField alloc] initWithFrame:CGRectMake(95, 0, WIDETH - 95, 45)];
     confirmPasswordTextField.placeholder = @"请输入确认密码";
-    confirmPasswordTextField.textColor = color(200, 200, 200);
+
     confirmPasswordTextField.textColor =[UIColor blackColor];
     confirmPasswordTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     confirmPasswordTextField.font = [UIFont systemFontOfSize:13];
+    self.confirmPasswordTextField = confirmPasswordTextField;
     [confirmPassWordBgView addSubview:confirmPasswordTextField];
     
     UIButton *  resetpassword = [[UIButton alloc] initWithFrame:CGRectMake(15, 125, WIDETH - 30, 45)];
@@ -83,13 +87,22 @@
     
     
 }
+#pragma mark--重置密码
 -(void)resetpasswordClick
 {
-    self.navigationController.navigationBarHidden =  YES ;
-    TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
-   
-    home.modalTransitionStyle = UIModalPresentationPageSheet;
-    [self presentViewController:home animated:YES completion:nil];
+    if([self.newsPasswordTextFied.text isEqualToString:self.confirmPasswordTextField.text])
+    {
+        
+    [AccountRequest resetPasswordRequestWithPhoneNum:self.phoneNum withNewCode:self.newsPasswordTextFied.text  withSucc:^(NSDictionary * dic) {
+        if ([dic[@"code"] integerValue]==0) {
+            self.navigationController.navigationBarHidden =  YES ;
+            TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
+            home.modalTransitionStyle = UIModalPresentationPageSheet;
+            [self presentViewController:home animated:YES completion:nil];
+        }
+    }];
+    }
+    
 }
 
 -(void)createScro
