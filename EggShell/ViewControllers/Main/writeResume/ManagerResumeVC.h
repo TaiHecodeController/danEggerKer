@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *resumeName;
 @property (weak, nonatomic) IBOutlet UILabel *createTime;
 @property (weak, nonatomic) IBOutlet UIButton *lookResume;
+@property (weak, nonatomic) IBOutlet UITableView *ResumeList;
+
 @property (weak, nonatomic) IBOutlet UIButton *edit;
 - (IBAction)editClick:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *useResume;

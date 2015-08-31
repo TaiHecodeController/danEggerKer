@@ -15,9 +15,11 @@
 #import "TH_ProfessionalSkillVC.h"
 #import "TH_TrainExperienceVC.h"
 #import "TH_ProjectExperienceVC.h"
+#import "ResumeModel.h"
 @interface WriteResumeVC2 ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView * writeTabView;
+    ResumeModel * _model;
 }
 @property (strong,nonatomic)NSArray * nameArray;
 @end
@@ -41,7 +43,7 @@
 
 -(void)createUI
 {
-    self.resumeNameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 10, 120, 20) Font:14 Text:@"个人简历001"];
+    self.resumeNameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 10, 120, 20) Font:14 Text:_model.resumeName];
     [self.view addSubview:self.resumeNameLab];
     
     writeTabView = [[UITableView alloc] initWithFrame:CGRectMake(-15, 42, WIDETH + 15, 294)];

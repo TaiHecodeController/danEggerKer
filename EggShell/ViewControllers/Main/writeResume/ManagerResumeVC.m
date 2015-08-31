@@ -7,13 +7,17 @@
 //
 
 #import "ManagerResumeVC.h"
-#import "TH_ResumePreviewVC.h"
+
 #import "WriteResumeViewController.h"
-@interface ManagerResumeVC ()
+#import "ResumeCell.h"
+@interface ManagerResumeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     UIView * _alertView;
     UIView * bgView;
+    
 }
+@property (strong,nonatomic)NSMutableArray * dataArray;
+@property (strong,nonatomic)NSMutableArray * cellArray;
 
 @end
 
@@ -22,20 +26,48 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =  @"简历管理";
+    self.ResumeList.tableFooterView = [[UIView alloc] init];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    self.dataArray = [NSMutableArray arrayWithArray:@[@""]];
+    self.cellArray = [NSMutableArray arrayWithCapacity:0];
     
-    // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)createNewResume:(UIButton *)sender {
     
     WriteResumeViewController * write = [[WriteResumeViewController alloc] init];
     [self.navigationController pushViewController:write animated:YES];
 }
-- (IBAction)previewresume:(id)sender {
-    TH_ResumePreviewVC  * presum = [[TH_ResumePreviewVC alloc] init];
-    presum.title = @"简历预览";
-    [self.navigationController pushViewController:presum animated:YES];
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 48;
 }
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArray.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ResumeCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ID"];
+    if(!cell)
+    {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ResumeCell" owner:self options:nil] firstObject];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    cell.Controller = self;
+    cell.cellIndex = indexPath;
+    if(indexPath.row == 0)
+    {
+        cell.iSSelect.selected = YES;
+    }
+    [self.cellArray addObject:cell];
+    return cell;
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -98,7 +130,7 @@
     jianliBtn.frame = CGRectMake(margin, 40, 300, 50);
     [alertView addSubview:jianliBtn];
     
-    UILabel * lab3 = [ZCControl createLabelWithFrame:CGRectMake(31, 1, 120, 30) Font:13 Text:@"简历001"];
+    UILabel * lab3 = [ZCControl createLabelWithFrame:CGRectMake(31, 1, 120, 30) Font:13 Text:@"个人简历001"];
     lab3.textColor = [UIColor redColor];
     [jianliBtn addSubview:lab3];
     
@@ -148,6 +180,14 @@
 
 
 - (IBAction)delete:(id)sender {
-    
+    for(int i = 0;i < self.dataArray.count;i++)
+    {
+        ResumeCell * cell = self.cellArray[i];
+        if(cell.iSSelect.selected == YES)
+        {
+            [self.dataArray removeObjectAtIndex:cell.cellIndex.row];
+        }
+    }
+    [self.ResumeList reloadData];
 }
 @end

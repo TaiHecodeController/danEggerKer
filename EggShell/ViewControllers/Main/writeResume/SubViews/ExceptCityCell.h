@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WriteResumeViewController.h"
 
 @interface ExceptCityCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (weak, nonatomic) IBOutlet UIButton *proviceBtn;
 @property (weak, nonatomic) IBOutlet UIButton *cityBtn;
 @property (weak, nonatomic) IBOutlet UIButton *countyBtn;
+@property (strong,nonatomic) WriteResumeViewController * Controller;
 - (IBAction)exceptClick:(UIButton *)sender;
 - (IBAction)cityClick:(UIButton *)sender;
 - (IBAction)countyBtn:(UIButton *)sender;

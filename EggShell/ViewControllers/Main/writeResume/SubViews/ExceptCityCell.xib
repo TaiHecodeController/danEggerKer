@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -49,6 +49,9 @@
                         <state key="normal" title="省份">
                             <color key="titleColor" red="0.79607843137254897" green="0.79607843137254897" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <state key="selected">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
                         <connections>
                             <action selector="exceptClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MZK-QC-y0T"/>
                         </connections>
@@ -70,6 +73,9 @@
                         <state key="normal" title="城市">
                             <color key="titleColor" red="0.79607843140000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <state key="selected">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
                         <connections>
                             <action selector="cityClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NtT-9f-1oZ"/>
                         </connections>
@@ -82,10 +88,12 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="xiala" translatesAutoresizingMaskIntoConstraints="NO" id="d3g-Si-lez">
-                        <rect key="frame" x="243" y="19" width="12" height="7"/>
+                        <rect key="frame" x="269" y="19" width="12" height="7"/>
                         <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="7" id="BZ6-Op-paw"/>
                             <constraint firstAttribute="height" constant="7" id="BaQ-yM-Fqv"/>
                             <constraint firstAttribute="width" constant="12" id="TIb-j8-YaN"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="12" id="Vnq-4l-Qyf"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5go-HA-On5">
@@ -117,9 +125,11 @@
                         </variation>
                     </view>
                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vse-CQ-9EF">
-                        <rect key="frame" x="265" y="15" width="1" height="16"/>
+                        <rect key="frame" x="292" y="15" width="1" height="16"/>
                         <color key="backgroundColor" red="0.79607843140000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="E4S-bc-guY"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="W3Y-Ob-SoU"/>
                             <constraint firstAttribute="height" constant="16" id="l8Z-aY-GbS"/>
                             <constraint firstAttribute="width" constant="1" id="n4m-90-LAI"/>
                             <constraint firstAttribute="height" constant="22" id="piw-FH-oA1"/>
@@ -131,15 +141,24 @@
                         </variation>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5A-qo-L2d">
-                        <rect key="frame" x="214" y="11" width="42" height="22"/>
+                        <rect key="frame" x="214" y="11" width="53" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="jMF-Rw-vz1"/>
                             <constraint firstAttribute="width" constant="42" id="lIW-ra-lcp"/>
+                            <constraint firstAttribute="width" constant="53" id="yHd-DJ-M1l"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="区县">
+                        <state key="normal" title="区或县">
                             <color key="titleColor" red="0.79607843140000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <state key="selected">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lIW-ra-lcp"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <action selector="countyBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Set-x0-aQm"/>
                         </connections>
@@ -148,6 +167,8 @@
                 <constraints>
                     <constraint firstItem="E3C-zx-qVP" firstAttribute="leading" secondItem="UyR-wy-eE1" secondAttribute="trailing" constant="9" id="0AR-sR-Um9"/>
                     <constraint firstItem="E3C-zx-qVP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="1hi-yG-NKJ"/>
+                    <constraint firstItem="d3g-Si-lez" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="11" id="7EL-MI-xbZ"/>
+                    <constraint firstItem="Vse-CQ-9EF" firstAttribute="leading" secondItem="d3g-Si-lez" secondAttribute="trailing" constant="11" id="B8Z-pG-SlN"/>
                     <constraint firstItem="b84-Ah-icD" firstAttribute="leading" secondItem="5go-HA-On5" secondAttribute="trailing" constant="37" id="BUA-lO-X6s"/>
                     <constraint firstItem="U5A-qo-L2d" firstAttribute="leading" secondItem="jL4-o9-evC" secondAttribute="trailing" constant="10" id="CdA-Cu-TpC"/>
                     <constraint firstItem="jL4-o9-evC" firstAttribute="leading" secondItem="ozC-IU-Iee" secondAttribute="trailing" constant="10" id="Dr5-O2-tTC"/>
@@ -170,6 +191,8 @@
                     <constraint firstItem="O2V-2e-qyX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="enO-Yp-awN"/>
                     <constraint firstItem="PUN-mf-CH1" firstAttribute="leading" secondItem="E3C-zx-qVP" secondAttribute="trailing" constant="39" id="fuX-iu-not"/>
                     <constraint firstItem="b84-Ah-icD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="11" id="kpa-bX-MAu"/>
+                    <constraint firstItem="d3g-Si-lez" firstAttribute="leading" secondItem="U5A-qo-L2d" secondAttribute="trailing" constant="2" id="mhO-Nw-2Rf"/>
+                    <constraint firstItem="Vse-CQ-9EF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="nSC-Yo-NY6"/>
                     <constraint firstItem="d3g-Si-lez" firstAttribute="leading" secondItem="jL4-o9-evC" secondAttribute="trailing" constant="39" id="tzj-Kn-3XK"/>
                     <constraint firstItem="5go-HA-On5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="uEJ-dh-dkR"/>
                     <constraint firstItem="ozC-IU-Iee" firstAttribute="leading" secondItem="5go-HA-On5" secondAttribute="trailing" constant="8" id="wca-46-1z0"/>
@@ -182,7 +205,9 @@
                         <exclude reference="Gqp-hA-xuK"/>
                         <exclude reference="NLC-i5-wpt"/>
                         <exclude reference="UDu-fn-qJT"/>
+                        <exclude reference="tzj-Kn-3XK"/>
                         <exclude reference="N91-6C-xjT"/>
+                        <exclude reference="UZb-d1-sJZ"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

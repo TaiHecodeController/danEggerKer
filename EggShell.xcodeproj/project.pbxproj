@@ -26,6 +26,9 @@
 		041650EE1B4D7C4E008C78BE /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041650E81B4D7C4E008C78BE /* MJRefreshFooterView.m */; };
 		041650EF1B4D7C4E008C78BE /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041650EA1B4D7C4E008C78BE /* MJRefreshHeaderView.m */; };
 		04237D901B66456F00768FAD /* LoginAndRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04237D8F1B66456F00768FAD /* LoginAndRegisterRequest.m */; };
+		0454ACEC1B945F20004A70ED /* ResumeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454ACEA1B945F20004A70ED /* ResumeCell.m */; };
+		0454ACED1B945F20004A70ED /* ResumeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0454ACEB1B945F20004A70ED /* ResumeCell.xib */; };
+		0454ACF11B94A257004A70ED /* ResumeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454ACF01B94A257004A70ED /* ResumeModel.m */; };
 		045DEC511B8E14EB00E37C4D /* MyMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 045DEC501B8E14EB00E37C4D /* MyMD5.m */; };
 		04718DA71B7CDA26008214CB /* ZCControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 04718DA61B7CDA26008214CB /* ZCControl.m */; };
 		048426F51B8B1E6D009C597A /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048426F41B8B1E6D009C597A /* VPImageCropperViewController.m */; };
@@ -277,6 +280,11 @@
 		041650F01B4D7F19008C78BE /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		04237D8E1B66456F00768FAD /* LoginAndRegisterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginAndRegisterRequest.h; sourceTree = "<group>"; };
 		04237D8F1B66456F00768FAD /* LoginAndRegisterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginAndRegisterRequest.m; sourceTree = "<group>"; };
+		0454ACE91B945F20004A70ED /* ResumeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeCell.h; sourceTree = "<group>"; };
+		0454ACEA1B945F20004A70ED /* ResumeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeCell.m; sourceTree = "<group>"; };
+		0454ACEB1B945F20004A70ED /* ResumeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResumeCell.xib; sourceTree = "<group>"; };
+		0454ACEF1B94A257004A70ED /* ResumeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeModel.h; sourceTree = "<group>"; };
+		0454ACF01B94A257004A70ED /* ResumeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeModel.m; sourceTree = "<group>"; };
 		045DEC4F1B8E14EB00E37C4D /* MyMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMD5.h; sourceTree = "<group>"; };
 		045DEC501B8E14EB00E37C4D /* MyMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMD5.m; sourceTree = "<group>"; };
 		04718DA51B7CDA26008214CB /* ZCControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCControl.h; sourceTree = "<group>"; };
@@ -824,6 +832,15 @@
 				041650EA1B4D7C4E008C78BE /* MJRefreshHeaderView.m */,
 			);
 			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		0454ACEE1B94A20E004A70ED /* ResumeModel */ = {
+			isa = PBXGroup;
+			children = (
+				0454ACEF1B94A257004A70ED /* ResumeModel.h */,
+				0454ACF01B94A257004A70ED /* ResumeModel.m */,
+			);
+			path = ResumeModel;
 			sourceTree = "<group>";
 		};
 		045DEC4E1B8E14EB00E37C4D /* MD5 */ = {
@@ -1378,6 +1395,7 @@
 		94313DD31B7CB5C9005D0A9A /* writeResume */ = {
 			isa = PBXGroup;
 			children = (
+				0454ACEE1B94A20E004A70ED /* ResumeModel */,
 				F05B7FFC1B8AACA600DC0A1D /* WriteJLChooseVC.h */,
 				F05B7FFD1B8AACA600DC0A1D /* WriteJLChooseVC.m */,
 				94E8F4E61B85797900088658 /* SubViews */,
@@ -1731,6 +1749,9 @@
 				94E8F4ED1B85797900088658 /* WriteResumeCell.h */,
 				94E8F4EE1B85797900088658 /* WriteResumeCell.m */,
 				94E8F4EF1B85797900088658 /* WriteResumeCell.xib */,
+				0454ACE91B945F20004A70ED /* ResumeCell.h */,
+				0454ACEA1B945F20004A70ED /* ResumeCell.m */,
+				0454ACEB1B945F20004A70ED /* ResumeCell.xib */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -1944,6 +1965,7 @@
 				94E2C95D1B86C112001E3FDD /* 蛋壳儿.doc in Resources */,
 				94E2C9891B870F29001E3FDD /* moreJobTableViewCell.xib in Resources */,
 				94E2C9DE1B8AFCF0001E3FDD /* BasicInformation.xib in Resources */,
+				0454ACED1B945F20004A70ED /* ResumeCell.xib in Resources */,
 				94313DF21B7CB5C9005D0A9A /* WriteResumeCell2.xib in Resources */,
 				9400329A1B840736001EB666 /* VersionUpdate.xib in Resources */,
 				9470069B1B85CA6000DEC289 /* MineEditInfoCell.xib in Resources */,
@@ -2137,6 +2159,7 @@
 				94E3EA911B8EB520007A699E /* MMNetWorkType.m in Sources */,
 				041650ED1B4D7C4E008C78BE /* MJRefreshConst.m in Sources */,
 				04237D901B66456F00768FAD /* LoginAndRegisterRequest.m in Sources */,
+				0454ACEC1B945F20004A70ED /* ResumeCell.m in Sources */,
 				94313DAF1B7CAAB5005D0A9A /* TH_PlayFanVC.m in Sources */,
 				0416506A1B4D7240008C78BE /* Gson.m in Sources */,
 				9400329B1B840736001EB666 /* VersionUpdateView.m in Sources */,
@@ -2186,6 +2209,7 @@
 				940032CD1B840CC3001EB666 /* ProfessionalCell.m in Sources */,
 				94CB5B9B1B7632E800B23B9D /* TH_BaseVC.m in Sources */,
 				940032F31B840DCD001EB666 /* TH_JobScreeningVC.m in Sources */,
+				0454ACF11B94A257004A70ED /* ResumeModel.m in Sources */,
 				94CB5B7A1B74CC0600B23B9D /* BaseModel.m in Sources */,
 				941F10161B7B3BCC00719F5B /* JobWishlistCell.m in Sources */,
 				94E2C98B1B870F29001E3FDD /* TH_JobDetailVC.m in Sources */,

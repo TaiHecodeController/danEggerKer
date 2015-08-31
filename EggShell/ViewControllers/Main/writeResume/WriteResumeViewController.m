@@ -13,6 +13,7 @@
 #import "WriteResumeVC2.h"
 #import "WriteJLChooseVC.h"
 #import "ZCControl.h"
+#import "ResumeModel.h"
 
 @interface WriteResumeViewController ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate,UITextFieldDelegate>
 {
@@ -20,7 +21,7 @@
     UITableView * userTableView;
     UIScrollView * back_sv;
     UITextField * recordTextField;
-    
+    ResumeModel * _model;
 }
 @property (strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
@@ -44,6 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _model = [ResumeModel sharedResume];
     WriteJLChooseVC *vc = [[WriteJLChooseVC alloc]init];
     vc.delegete = self;
     _writeJLChooseVC = vc;
@@ -123,35 +125,99 @@
 
 -(void)nextClick
 {
-    //    for(int i = 0;i < self.jobCellArray.count;i++)
-    //    {
-    //        if(i==4)
-    //        {
-    //            continue;
-    //        }else
-    //        {
-    //            WriteResumeCell * cell = self.jobCellArray[i];
-    //            NSLog(@"%@",cell.contentTextField.text);
-    //        }
-    //
-    //    }
-    //
-    //    for(int i = 0;i < self.jobCellArray2.count;i++)
-    //    {
-    //        if(i==0)
-    //        {
-    //            continue;
-    //        }else
-    //        {
-    //            WriteResumeCell * cell = self.jobCellArray[i];
-    //            NSLog(@"%@",cell.contentTextField.text);
-    //        }
-    //
-    //    }
+    NSMutableArray * modelNameArr = [self propertyKeys];
+    for(int i = 0;i < self.jobCellArray.count;i++)
+    {
+        if(i != 4)
+        {
+            WriteResumeCell * cell = self.jobCellArray[i];
+            if([cell.contentTextField.text isEqualToString:@""])
+            {
+                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
+                return;
+            }else
+            {
+                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i]];
+            }
+        }else
+        {
+            ExceptCityCell * cell = self.jobCellArray[i];
+            if(!cell.proviceBtn.selected)
+            {
+                [MBProgressHUD creatembHub:@"请填写省份"];
+                return;
+            }
+            if (!cell.cityBtn.selected)
+            {
+                [MBProgressHUD creatembHub:@"请填写城市"];
+                return;
+            }
+            if(!cell.countyBtn.selected)
+            {
+                [MBProgressHUD creatembHub:@"请填写县区"];
+                return;
+            }
+            NSString * cityStr = [NSString stringWithFormat:@"%@%@",cell.proviceBtn.titleLabel.text,cell.countyBtn.titleLabel.text];
+            [_model setValue:cityStr forKey:modelNameArr[i]];
+        }
+        
+    }
+    
+    for(int i = 0;i < self.jobCellArray2.count;i++)
+    {
+        if(i == 0)
+        {
+            NameAndSexCell * cell = self.jobCellArray2[i];
+            if([cell.contentTextField.text isEqualToString:@""])
+            {
+                [MBProgressHUD creatembHub:@"请填写您的姓名"];
+                return;
+            }else
+            {
+                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i + 8]];
+                //性别
+                if(cell.womenBtn.selected)
+                {
+                    [_model setValue:@"女" forKey:modelNameArr[i + 9]];
+                }else
+                {
+                    [_model setValue:@"男" forKey:modelNameArr[i + 9]];
+                }
+                
+            }
+        }else
+        {
+            WriteResumeCell * cell = self.jobCellArray2[i];
+            if([cell.contentTextField.text isEqualToString:@""])
+            {
+                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
+                return;
+            }else
+            {
+                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i + 9]];
+            }
+        }
+        
+    }
+    
     WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
     [self.navigationController pushViewController:wrvc2 animated:YES];
-    
-    
+}
+
+//反射
+-(NSMutableArray *)propertyKeys
+{
+    unsigned int outCount,i;
+    objc_property_t * properties = class_copyPropertyList([ResumeModel class], &outCount);
+    NSMutableArray * keys = [[NSMutableArray alloc] initWithCapacity:outCount];
+    for(i = 0;i < outCount;i++)
+    {
+        objc_property_t propery = properties[i];
+        NSString * properyName = [[NSString alloc] initWithCString:property_getName(propery) encoding:NSUTF8StringEncoding];
+        [keys addObject:properyName];
+    }
+    free(properties);
+    return keys;
 }
 
 
@@ -202,6 +268,7 @@
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"ExceptCityCell" owner:self options:nil] firstObject];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+            cell.Controller = self;
             [self.jobCellArray addObject:cell];
             return cell;
         }
