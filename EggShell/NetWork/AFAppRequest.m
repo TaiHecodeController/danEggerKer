@@ -140,29 +140,49 @@
     
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation * operation, id responseObject)
      {
+      
          [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
-         NSLog(responseObject[@"msg"]);
-         
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {
          NSNumber * errcode = [NSNumber numberWithInteger:error.code];
          fail([errcode intValue],error);
+         
          [State setEnd];
      }];
-    
     [State start];
     return State;
     
 }
-
 //统一错误处理
 +(void)error_hanlde:(int)errCode Witherr:(NSError *)err {
     
     
-    if(errCode == 1)
+    if(errCode ==1000 )
     {
-        [MBProgressHUD creatembHub:@"用户名不存在"];
+        [MBProgressHUD creatembHub:@"您的手机号为空"];
+    }if (errCode ==1001) {
+        [MBProgressHUD creatembHub:@"验证码错误"];
+    }if (errCode ==1002) {
+        [MBProgressHUD creatembHub:@"该手机号已经注册了"];
+    }if (errCode ==1003) {
+        [MBProgressHUD creatembHub:@"修改的密码与当前密码相同"];
+    }if (errCode ==1004) {
+        [MBProgressHUD creatembHub:@"密码修改失败"];
+    }if (errCode ==1005) {
+        [MBProgressHUD creatembHub:@"用户名为空"];
+    }if (errCode ==1006) {
+        [MBProgressHUD creatembHub:@"密码不正确"];
+    }if (errCode ==1007) {
+        [MBProgressHUD creatembHub:@"用户不存在"];
+    }if (errCode ==1008) {
+        [MBProgressHUD creatembHub:@"验证码不正确"];
+    }
+    if (errCode ==1009) {
+        [MBProgressHUD creatembHub:@"你的手机号没有注册"];
+    }
+    if (errCode ==1010) {
+        [MBProgressHUD creatembHub:@"密码为空"];
     }
     
     
@@ -186,11 +206,17 @@
             return;
         }
         
-        int error_code = [[responseObject objectForKey:@"error_code"] intValue];
+        int error_code = [[responseObject objectForKey:@"code"] intValue];
         
         if( error_code != 0)
         {
             fail(error_code, nil);
+            return;
+        }
+        
+        if(!resp)
+        {
+            succ(responseObject);
             return;
         }
         

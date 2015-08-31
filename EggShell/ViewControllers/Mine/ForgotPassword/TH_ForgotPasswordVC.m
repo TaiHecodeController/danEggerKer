@@ -9,6 +9,7 @@
 #import "TH_ForgotPasswordVC.h"
 #import "TH_getCodeNextVC.h"
 #import "AccountRequest.h"
+#import "LoginAndRegisterRequest.h"
 @interface TH_ForgotPasswordVC ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UIButton * securityCodeBtn;
@@ -58,6 +59,7 @@
     phoneTextField.keyboardType = UIKeyboardTypeNumberPad;
     phoneTextField.font = [UIFont systemFontOfSize:13];
     self.phoneTextField = phoneTextField;
+    phoneTextField.delegate = self;
     [phoneBgView addSubview:phoneTextField];
     [self.scro addSubview:phoneBgView];
     //验证码
@@ -81,7 +83,9 @@
     securiedTextField.keyboardType = UIKeyboardTypeNumberPad;
     securiedTextField.textColor = [UIColor blackColor];
     securiedTextField.font =[UIFont systemFontOfSize:13];
+    securiedTextField.delegate = self;
     self.securiedTextField = securiedTextField;
+
     [securityCodeBgView addSubview:securiedTextField];
     
     [self.scro addSubview:securityCodeBgView];
@@ -115,15 +119,40 @@
     [self.scro addSubview:nextButton];
    
 }
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.phoneTextField) {
+        [self.securiedTextField becomeFirstResponder];
+    }
+    
+    [self loginRequest];
+    return YES;
+}
+-(void)loginRequest{
+    
+
+}
 #pragma mark -- 获取验证码
 -(void)securityCodeBtnClick:(UIButton *)sender
 {
+    if ([self.phoneTextField.text length]==0) {
+        [MBProgressHUD creatembHub:@"电话号码为空"];
+        return;
+    }else if([self.securiedTextField.text length]==0)
+    {
+        [MBProgressHUD creatembHub:@"验证码不能够为空"];
+        return;
+    }
+    [self loginRequest];
     
     
+//    [AccountRequest forgitRequestWithPhoneNum:self.phoneTextField.text withSucc:^(NSDictionary * dic) {
+//        
+//        NSLog(@"获取验证码成功");
+//    }];
     
-    [AccountRequest forgitRequestWithPhoneNum:self.phoneTextField.text withSucc:^(NSDictionary * dic) {
-        
-        NSLog(@"获取验证码成功");
+    [LoginAndRegisterRequest forgitRequestWithPhoneNum:self.phoneTextField.text withSucc:^(NSDictionary * dic) {
+         NSLog(@"获取验证码成功");
     }];
     [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后可重发",(long)self.count] forState:UIControlStateNormal];
    
@@ -148,8 +177,18 @@
 
 -(void)getCodeNextClick
 {
-    [AccountRequest forgitNextRequestWithPhoneNum:self.phoneTextField.text withSecurityCode:self.securiedTextField.text withSucc:^(NSDictionary * dic) {
-        
+//    [AccountRequest forgitNextRequestWithPhoneNum:self.phoneTextField.text withSecurityCode:self.securiedTextField.text withSucc:^(NSDictionary * dic) {
+//        
+//        if ([dic[@"code"] integerValue]==0) {
+//            TH_getCodeNextVC * getNext = [[TH_getCodeNextVC alloc] init];
+//            getNext.title = @"找回密码";
+//            getNext.phoneNum = self.phoneTextField.text;
+//            [self.navigationController pushViewController:getNext animated:YES];
+//        }
+//
+//    }];
+    
+    [LoginAndRegisterRequest forgitNextRequestWithPhoneNum:self.phoneTextField.text withSecurityCode:self.securiedTextField.text withSucc:^(NSDictionary * dic) {
         if ([dic[@"code"] integerValue]==0) {
             TH_getCodeNextVC * getNext = [[TH_getCodeNextVC alloc] init];
             getNext.title = @"找回密码";

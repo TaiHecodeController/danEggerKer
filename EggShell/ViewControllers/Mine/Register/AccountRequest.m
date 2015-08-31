@@ -34,8 +34,6 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
-
-
 }
 
 //登录
@@ -56,7 +54,6 @@
     NSDictionary * param = @{@"telphone":phone};
     [[AccountRequest sharedManager]POST:@"http://195.198.1.197/eggker/interface/login/send_code" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         succ(responseObject);
-        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

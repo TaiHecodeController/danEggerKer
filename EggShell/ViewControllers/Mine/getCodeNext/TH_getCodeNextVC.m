@@ -10,7 +10,8 @@
 #import "TH_MainTabBarController.h"
 #import "AppDelegate.h"
 #import "AccountRequest.h"
-@interface TH_getCodeNextVC ()
+#import "LoginAndRegisterRequest.h"
+@interface TH_getCodeNextVC ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UITextField  * confirmPasswordTextField;
 @property(nonatomic,strong)UITextField * newsPasswordTextFied;
@@ -47,6 +48,7 @@
     newPasswordTextFied.textColor = [UIColor blackColor];
     newPasswordTextFied.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     newPasswordTextFied.font = [UIFont systemFontOfSize:13];
+    newPasswordTextFied.delegate = self;
     self.newsPasswordTextFied = newPasswordTextFied;
     [newPassworBgView addSubview:newPasswordTextFied];
     
@@ -71,6 +73,7 @@
     confirmPasswordTextField.textColor =[UIColor blackColor];
     confirmPasswordTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     confirmPasswordTextField.font = [UIFont systemFontOfSize:13];
+    confirmPasswordTextField.delegate = self;
     self.confirmPasswordTextField = confirmPasswordTextField;
     [confirmPassWordBgView addSubview:confirmPasswordTextField];
     
@@ -87,20 +90,43 @@
     
     
 }
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.newsPasswordTextFied) {
+        [self.confirmPasswordTextField becomeFirstResponder];
+    
+    }
+    
+    [self loginRequest];
+    return YES;
+}
+-(void)loginRequest
+{
+
+}
 #pragma mark--重置密码
 -(void)resetpasswordClick
 {
     if([self.newsPasswordTextFied.text isEqualToString:self.confirmPasswordTextField.text])
     {
         
-    [AccountRequest resetPasswordRequestWithPhoneNum:self.phoneNum withNewCode:self.newsPasswordTextFied.text  withSucc:^(NSDictionary * dic) {
-        if ([dic[@"code"] integerValue]==0) {
-            self.navigationController.navigationBarHidden =  YES ;
-            TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
-            home.modalTransitionStyle = UIModalPresentationPageSheet;
-            [self presentViewController:home animated:YES completion:nil];
-        }
-    }];
+        [LoginAndRegisterRequest resetPasswordRequestWithPhoneNum:self.phoneNum withNewCode:self.newsPasswordTextFied.text withSucc:^(NSDictionary * dic) {
+            if ([dic[@"code"] integerValue]==0) {
+                self.navigationController.navigationBarHidden =  YES ;
+                TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
+                home.modalTransitionStyle = UIModalPresentationPageSheet;
+                [self presentViewController:home animated:YES completion:nil];
+            }
+        }];
+//        
+//    [AccountRequest resetPasswordRequestWithPhoneNum:self.phoneNum withNewCode:self.newsPasswordTextFied.text  withSucc:^(NSDictionary * dic) {
+//        if ([dic[@"code"] integerValue]==0) {
+//            self.navigationController.navigationBarHidden =  YES ;
+//            TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
+//            home.modalTransitionStyle = UIModalPresentationPageSheet;
+//            [self presentViewController:home animated:YES completion:nil];
+//        }
+//    }];
     }
     
 }

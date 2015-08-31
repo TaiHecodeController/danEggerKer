@@ -31,11 +31,40 @@
     return [self postRequestWithUrl:@"http://195.198.1.197/eggker/interface/register/chTelphone" param:para succ:succ];
 
 }
-
+/*注册**/
 +(AFRequestState *)registerWithSucc:(void(^)(NSDictionary * DataDic))succ Withphonenumber:(NSString *)userName WithPassword:(NSString *)password withSecurityCodee:(NSString *)SecurityCodee
 {
     NSDictionary * para = @{@"telphone":userName,@"password":password,@"code":SecurityCodee};
     return [self postRequestWithUrl:@"http://195.198.1.197/eggker/interface/register" param:para succ:succ];
+}
+
+//登录
++(AFRequestState *)loginRequestWithusername:(NSString * )username WithPassword:(NSString *)password withSucc:(void(^)(NSDictionary*))succ fail:(void (^)(int errCode, NSError * err))fail
+{
+    NSDictionary * param = @{@"username":username,@"password":password};
+
+    return [self postRequestWithUrl:@"http://195.198.1.197/eggker/interface/login" param:param succ:succ fail:fail];
+    
+
+}
+/*忘记密码**/
++(AFRequestState *)forgitRequestWithPhoneNum:(NSString *)phone withSucc:(void(^)(NSDictionary*))succ
+{
+NSDictionary * param = @{@"telphone":phone};
+    return [self postRequestWithUrl:@"http://195.198.1.197/eggker/interface/login/send_code" param:param succ:succ];
+    
+}
+/*忘记密码下一步**/
++(AFRequestState *)forgitNextRequestWithPhoneNum:(NSString*)phone withSecurityCode:(NSString*)SecurityCode withSucc:(void(^)(NSDictionary*))succ
+{
+NSDictionary * param = @{@"telphone":phone,@"code":SecurityCode};
+    return [self postRequestWithUrl:@"http://195.198.1.197/eggker/interface/login/next" param:param succ:succ];
+}
+/*重置密码**/
++(AFRequestState *)resetPasswordRequestWithPhoneNum:(NSString*)phone withNewCode:(NSString*)newCode  withSucc:(void(^)(NSDictionary*))succ
+{
+NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
+    return [self postRequestWithUrl:@"http://195.198.1.197/eggker/interface/login/update_pwd" param:param succ:succ];
 }
 
 @end

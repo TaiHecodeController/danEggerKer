@@ -13,15 +13,22 @@
 #import "AppDelegate.h"
 #import "TH_HomeVC.h"
 #import "AccountRequest.h"
+#import "LoginAndRegisterRequest.h"
 @interface TH_LoginVC ()<UITextFieldDelegate>
 @property (strong,nonatomic)UIButton * loginBtn;
 @property(nonatomic,strong)UITextField * phonetextField;
 @property(nonatomic,strong)UITextField * passwordTextFiled;
 @property(nonatomic,strong)UIScrollView * scro;
+@property(nonatomic,strong)NSString * phoneNum;
 @end
 
 @implementation TH_LoginVC
 @synthesize loginBtn;
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSUserDefaults * userId = [NSUserDefaults standardUserDefaults];
+    self.phonetextField.text = [userId objectForKey:@"moblie"];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"登录";
@@ -41,7 +48,7 @@
     /*注册成功通知**/
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerSucces:) name:@"registerSuccesNotification" object:nil];
     
-    
+   
     // Do any additional setup after loading the view.
 }
 -(void)registerSucces:(NSNotification*)notification
@@ -53,6 +60,7 @@
 
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     [self.view addSubview:scro];
+    self.scro.showsVerticalScrollIndicator = NO;
     self.scro = scro;
     
 }
@@ -192,12 +200,13 @@
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (textField == _passwordTextFiled) {
-        [self loginBtbClick];
-    }
-    else if (textField == _phonetextField)
+    
+   
+    if (textField == _phonetextField)
     {
         [_passwordTextFiled becomeFirstResponder];
+    }else if (textField == _passwordTextFiled) {
+        [self loginRequest];
     }
     return YES;
 }
@@ -208,28 +217,37 @@
 
 #pragma mark-- 登录
 -(void)loginBtbClick
-{
+{NSLog(@"登录");
+
 //        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginNotice" object:self];
-    NSLog(@"登录");
-    [AccountRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text withSucc:^(NSDictionary * dic) {
-        
-        if ([dic[@"code"] integerValue]==0) {
-            [MBProgressHUD creatembHub:dic[@"message"]];
-           
-            NSUserDefaults *  loginDefaut =[NSUserDefaults standardUserDefaults];
-            if ([[loginDefaut objectForKey:@"UserName"] isEqualToString:@"unLogin"]) {
-                self.navigationController.navigationBarHidden = YES;
-                AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-                appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
-                
-                appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
-                
-                [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
-                [loginDefaut setObject:@"login" forKey:@"UserName"];
-                [loginDefaut synchronize];
-            }
-        }
-    }];
+    if ([self.phonetextField.text length]==0) {
+        [MBProgressHUD creatembHub:@"电话号码为空"];
+        return;
+    }else if([self.passwordTextFiled.text length]==0)
+    {
+        [MBProgressHUD creatembHub:@"密码不能够为空"];
+        return;
+    }
+    [self loginRequest];
+         //    [AccountRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text withSucc:^(NSDictionary * dic) {
+//        
+//        if ([dic[@"code"] integerValue]==0) {
+//            [MBProgressHUD creatembHub:dic[@"message"]];
+//           
+//            NSUserDefaults *  loginDefaut =[NSUserDefaults standardUserDefaults];
+//            if ([[loginDefaut objectForKey:@"UserName"] isEqualToString:@"unLogin"]) {
+//                self.navigationController.navigationBarHidden = YES;
+//                AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+//                appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
+//                
+//                appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
+//                
+//                [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
+//                [loginDefaut setObject:@"login" forKey:@"UserName"];
+//                [loginDefaut synchronize];
+//            }
+//        }
+//    }];
 //    NSLog(@"登录");
 //    NSUserDefaults *  loginDefaut =[NSUserDefaults standardUserDefaults];
 //    if ([[loginDefaut objectForKey:@"UserName"] isEqualToString:@"unLogin"]) {
@@ -246,6 +264,28 @@
 
 //    }
     
+}
+-(void)loginRequest
+{
+    [LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text withSucc:^(NSDictionary * dic) {
+        if ([dic[@"code"] integerValue]==0) {
+            [MBProgressHUD creatembHub:dic[@"message"]];
+            self.navigationController.navigationBarHidden = YES;
+            AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+            appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
+            
+            appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
+            
+            [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
+        }
+        
+    } fail:^(int errCode, NSError *err) {
+        if (errCode==1007) {
+          [MBProgressHUD creatembHub:@"登录失败"];
+        }
+        
+    }];
+
 }
 -(void)ForgotPasswordClick
 {

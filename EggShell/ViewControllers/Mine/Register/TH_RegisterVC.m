@@ -40,8 +40,8 @@
     //    /*收回键盘**/
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
     }
+#pragma mark -- 创建UI
 -(void)createScro{
-
     UIScrollView * scro= [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     [self.view addSubview:scro];
     self.scro.backgroundColor = color(243, 241, 241);
@@ -71,6 +71,7 @@
     phoneTextField.textColor =[UIColor blackColor];
     phoneTextField.keyboardType = UIKeyboardTypeNumberPad;
     phoneTextField.returnKeyType = UIReturnKeyNext;
+    phoneTextField.delegate = self;
     [phoneBgView addSubview:phoneTextField];
     self.phoneTextField = phoneTextField;
 
@@ -82,7 +83,6 @@
     passwordBgView.layer.borderColor = color(221, 221, 221).CGColor;
     passwordBgView.layer.cornerRadius = 3;
     passwordBgView.layer.masksToBounds = YES;
-    
     UILabel * passeordLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, 45, 15)];
     passeordLable.text = @"密码";
     passeordLable.font = [UIFont systemFontOfSize:15];
@@ -97,6 +97,7 @@
     passwordTextField.textColor = color(200, 200, 200);
     passwordTextField.font = [UIFont systemFontOfSize:13];
     passwordTextField.secureTextEntry = YES;
+    passwordTextField.delegate = self;
     passwordTextField.textColor = [UIColor blackColor];
     passwordTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     self.passwordTextField  = passwordTextField;
@@ -104,7 +105,7 @@
     
     [self.scro addSubview:passwordBgView];
     
-    //验证码
+    /*验证码**/
     UIView *securityCodeBgView = [[UIView alloc] initWithFrame:CGRectMake(15, 125, (WIDETH - 40)/4.0*3-10, 45)];
     securityCodeBgView.backgroundColor = color(255, 255, 255);
     securityCodeBgView.layer.borderColor = color(221, 221, 221).CGColor;
@@ -125,9 +126,10 @@
     securiedTextField.font =[UIFont systemFontOfSize:13];
     securiedTextField.textColor  = color(200, 200, 200);
     securiedTextField.textColor = [UIColor blackColor];
+    securiedTextField.delegate = self;
+   securiedTextField.keyboardType = UIKeyboardTypeNumberPad;
+    securiedTextField.returnKeyType  = UIReturnKeyGo;
     self.securiedTextField = securiedTextField;
-    securiedTextField.keyboardType = UIKeyboardTypeNumberPad;
-
     [securityCodeBgView addSubview:securiedTextField];
     
     [self.scro addSubview:securityCodeBgView];
@@ -159,59 +161,97 @@
     [registerBtn addTarget:self action:@selector(registerClick) forControlEvents:UIControlEventTouchUpInside];
     [self.scro addSubview:registerBtn];
     self.scro.contentSize = CGSizeMake(WIDETH, HEIGHT);
-    
-    
 }
 #pragma mark -- 获取验证码
 -(void)securityCodeBtnClick:(UIButton *)sender
 {
-    
-   
-    
     [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
         
+        NSLog(@"获取验证码");
     } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCode:@""];
-
-    
     [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后重发",(long)self.count] forState:UIControlStateNormal];
     self.securityCodeBtn.userInteractionEnabled = NO;
+    self.securityCodeBtn.alpha = 0.5;
     self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
-
+    
 }
 #pragma mark - 注册
 -(void)registerClick
 {
-////    self.registDic =[NSMutableDictionary dictionaryWithCapacity:0];
-//    //        [self.registDic setDictionary:DataDic];
-//    [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
-//        
-//        NSString * num = [NSString stringWithFormat:@"%d",0];
-//        if ([self.registDic[@"code"] isEqualToString:num]) {
+    if ([self.phoneTextField.text length]==0) {
+        [MBProgressHUD creatembHub:@"电话号码为空"];
+        return;
+    }else if([self.passwordTextField.text length]==0)
+    {
+        [MBProgressHUD creatembHub:@"密码不能够为空"];
+        return;
+    }else if ([self.securiedTextField.text length]==0)
+    {
+        [MBProgressHUD creatembHub:@"验证码不能为空"];
+        return;
+    }
+    [self loginRequest];
+    
+
+    
+//
+//    [AccountRequest RegisterRequestWithUserName:self.phoneTextField.text PassWord:self.passwordTextField.text withAccountName:self.securiedTextField.text succ:^(NSDictionary * dic) {
+//        if ([dic[@"code"] integerValue]==0) {
 //            
-//            [MBProgressHUD creatembHub:self.registDic[@"message"]];
-//            [self.navigationController popViewControllerAnimated:YES];
-//            
+//            NSUserDefaults * userId =[NSUserDefaults standardUserDefaults];
+//            [userId setObject:@"ligin" forKey:@"UserName"];
+//                  [MBProgressHUD creatembHub:dic[@"message"]];
+//                   [self.navigationController popViewControllerAnimated:YES];
+////            NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+////            [userInfo setValue:self.phoneTextField.text forKey:@"phoneText"];
+////            [[NSNotificationCenter defaultCenter]postNotificationName:@"registerSuccesNotification" object:self userInfo:userInfo];
+// 
 //        }
-//
-//    } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCodee:self.securiedTextField.text];
-    
-//
-    
-    
-    
-    [AccountRequest RegisterRequestWithUserName:self.phoneTextField.text PassWord:self.passwordTextField.text withAccountName:self.securiedTextField.text succ:^(NSDictionary * dic) {
-        if ([dic[@"code"] integerValue]==0) {
-            [MBProgressHUD creatembHub:dic[@"message"]];
-                   [self.navigationController popViewControllerAnimated:YES];
-            NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-            [userInfo setValue:self.phoneTextField.text forKey:@"phoneText"];
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"registerSuccesNotification" object:self userInfo:userInfo];
- 
-        }
-        
-    }];
+//        
+//    }];
     
     }
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.phoneTextField) {
+        [self.passwordTextField becomeFirstResponder];
+    }
+    else if (textField == self.passwordTextField)
+    {
+        [self.securiedTextField becomeFirstResponder];
+    }
+    [self loginRequest];
+    return YES;
+}
+-(void)loginRequest
+{
+    self.registDic =[NSMutableDictionary dictionaryWithCapacity:0];
+    
+    if ([self.phoneTextField.text length]!=0&&[self.securiedTextField.text length]!=0&&[self.passwordTextField.text length]!=0) {
+        [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
+            [self.registDic setDictionary:DataDic];
+            NSLog(@"%@",DataDic);
+            NSString * num = [NSString stringWithFormat:@"%d",0];
+            if ([self.registDic[@"code"] isEqualToString:num]) {
+                NSLog(@"%@",self.registDic);
+                [MBProgressHUD creatembHub:self.registDic[@"message"]];
+                NSUserDefaults * userId =[NSUserDefaults standardUserDefaults];
+                [userId setObject:@"ligin" forKey:@"UserName"];
+                [userId setObject:self.registDic[@"data"][@"moblie"] forKey:@"moblie"];
+                [userId synchronize];
+                NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+                [userInfo setValue:self.phoneTextField.text forKey:@"phoneText"];
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"registerSuccesNotification" object:self userInfo:userInfo];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            
+        } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCodee:self.securiedTextField.text];
+        
+        
+        
+    }
+
+}
 - (void)reduceTime
 {
     self.count--;
@@ -221,7 +261,7 @@
         [self.paintingTimer invalidate];
         self.count = nil;
         [self.securityCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-        
+        self.securityCodeBtn.alpha = 1;
         self.securityCodeBtn.userInteractionEnabled = YES;
         self.count = 60;
     }
