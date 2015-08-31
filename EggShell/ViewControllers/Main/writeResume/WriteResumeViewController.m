@@ -125,80 +125,80 @@
 
 -(void)nextClick
 {
-    NSMutableArray * modelNameArr = [self propertyKeys];
-    for(int i = 0;i < self.jobCellArray.count;i++)
-    {
-        if(i != 4)
-        {
-            WriteResumeCell * cell = self.jobCellArray[i];
-            if([cell.contentTextField.text isEqualToString:@""])
-            {
-                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
-                return;
-            }else
-            {
-                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i]];
-            }
-        }else
-        {
-            ExceptCityCell * cell = self.jobCellArray[i];
-            if(!cell.proviceBtn.selected)
-            {
-                [MBProgressHUD creatembHub:@"请填写省份"];
-                return;
-            }
-            if (!cell.cityBtn.selected)
-            {
-                [MBProgressHUD creatembHub:@"请填写城市"];
-                return;
-            }
-            if(!cell.countyBtn.selected)
-            {
-                [MBProgressHUD creatembHub:@"请填写县区"];
-                return;
-            }
-            NSString * cityStr = [NSString stringWithFormat:@"%@%@",cell.proviceBtn.titleLabel.text,cell.countyBtn.titleLabel.text];
-            [_model setValue:cityStr forKey:modelNameArr[i]];
-        }
-        
-    }
-    
-    for(int i = 0;i < self.jobCellArray2.count;i++)
-    {
-        if(i == 0)
-        {
-            NameAndSexCell * cell = self.jobCellArray2[i];
-            if([cell.contentTextField.text isEqualToString:@""])
-            {
-                [MBProgressHUD creatembHub:@"请填写您的姓名"];
-                return;
-            }else
-            {
-                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i + 8]];
-                //性别
-                if(cell.womenBtn.selected)
-                {
-                    [_model setValue:@"女" forKey:modelNameArr[i + 9]];
-                }else
-                {
-                    [_model setValue:@"男" forKey:modelNameArr[i + 9]];
-                }
-                
-            }
-        }else
-        {
-            WriteResumeCell * cell = self.jobCellArray2[i];
-            if([cell.contentTextField.text isEqualToString:@""])
-            {
-                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
-                return;
-            }else
-            {
-                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i + 9]];
-            }
-        }
-        
-    }
+//    NSMutableArray * modelNameArr = [self propertyKeys];
+//    for(int i = 0;i < self.jobCellArray.count;i++)
+//    {
+//        if(i != 4)
+//        {
+//            WriteResumeCell * cell = self.jobCellArray[i];
+//            if([cell.contentTextField.text isEqualToString:@""])
+//            {
+//                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
+//                return;
+//            }else
+//            {
+//                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i]];
+//            }
+//        }else
+//        {
+//            ExceptCityCell * cell = self.jobCellArray[i];
+//            if(!cell.proviceBtn.selected)
+//            {
+//                [MBProgressHUD creatembHub:@"请填写省份"];
+//                return;
+//            }
+//            if (!cell.cityBtn.selected)
+//            {
+//                [MBProgressHUD creatembHub:@"请填写城市"];
+//                return;
+//            }
+//            if(!cell.countyBtn.selected)
+//            {
+//                [MBProgressHUD creatembHub:@"请填写县区"];
+//                return;
+//            }
+//            NSString * cityStr = [NSString stringWithFormat:@"%@%@",cell.proviceBtn.titleLabel.text,cell.countyBtn.titleLabel.text];
+//            [_model setValue:cityStr forKey:modelNameArr[i]];
+//        }
+//        
+//    }
+//    
+//    for(int i = 0;i < self.jobCellArray2.count;i++)
+//    {
+//        if(i == 0)
+//        {
+//            NameAndSexCell * cell = self.jobCellArray2[i];
+//            if([cell.contentTextField.text isEqualToString:@""])
+//            {
+//                [MBProgressHUD creatembHub:@"请填写您的姓名"];
+//                return;
+//            }else
+//            {
+//                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i + 8]];
+//                //性别
+//                if(cell.womenBtn.selected)
+//                {
+//                    [_model setValue:@"女" forKey:modelNameArr[i + 9]];
+//                }else
+//                {
+//                    [_model setValue:@"男" forKey:modelNameArr[i + 9]];
+//                }
+//                
+//            }
+//        }else
+//        {
+//            WriteResumeCell * cell = self.jobCellArray2[i];
+//            if([cell.contentTextField.text isEqualToString:@""])
+//            {
+//                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
+//                return;
+//            }else
+//            {
+//                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i + 9]];
+//            }
+//        }
+//        
+//    }
     
     WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
     [self.navigationController pushViewController:wrvc2 animated:YES];

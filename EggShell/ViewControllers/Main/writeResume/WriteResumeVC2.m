@@ -77,10 +77,10 @@
     cell.nameLab.text = self.nameArray[indexPath.row];
     if(indexPath.row >1)
     {
-        cell.stateBtn.selected = NO;
+        cell.stateBtn.selected = YES;
     }else
     {
-        cell.stateBtn.selected = YES;
+        cell.stateBtn.selected = NO;
     }
     return cell;
 }

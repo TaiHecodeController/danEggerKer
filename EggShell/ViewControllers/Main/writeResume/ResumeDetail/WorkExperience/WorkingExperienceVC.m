@@ -93,7 +93,33 @@
 
 -(void)saveClick
 {
-    
+    for(int i = 0;i < self.jobArray.count;i++)
+    {
+        if(i == 1)
+        {
+            WorkingTimeCell * cell = self.jobArray[i];
+            if(!cell.StartTime.selected)
+            {
+                [MBProgressHUD creatembHub:@"请输入开始时间"];
+                return;
+            }
+            
+            if(cell.StartTime.selected)
+            {
+                if(!cell.endTime.selected)
+                {
+                    [MBProgressHUD creatembHub:@"请输入结束时间"];
+                    return;
+                }
+            }
+        }
+        WriteResumeCell * cell = self.jobArray[i];
+        if(!cell.contentTextField.text)
+        {
+            [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请输入%@",cell.resumeName.text]];
+            return;
+        }
+    }
 }
 
 -(void)replaceClick
@@ -121,6 +147,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"WorkingTimeCell" owner:self options:nil] firstObject];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+        cell.controller = self;
         return cell;
     }
     WriteResumeCell * cell = [tableView dequeueReusableCellWithIdentifier:@"WriteCell"];
