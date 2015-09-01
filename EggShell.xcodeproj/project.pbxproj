@@ -185,6 +185,7 @@
 		94E3EA911B8EB520007A699E /* MMNetWorkType.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EA901B8EB520007A699E /* MMNetWorkType.m */; };
 		94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EA991B8EB758007A699E /* Reachability.m */; };
 		94E3EAE01B918CBE007A699E /* AccountRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EADF1B918CBE007A699E /* AccountRequest.m */; };
+		94E3EAE71B954947007A699E /* findJobModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EAE61B954947007A699E /* findJobModel.m */; };
 		94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF11B841D510093C39B /* CourePlayTitle.m */; };
 		94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E7DCF21B841D510093C39B /* CourePlaytitle.xib */; };
 		94E7DCFA1B841D510093C39B /* Course PlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF41B841D510093C39B /* Course PlayCell.m */; };
@@ -551,6 +552,8 @@
 		94E3EA991B8EB758007A699E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		94E3EADE1B918CBE007A699E /* AccountRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountRequest.h; sourceTree = "<group>"; };
 		94E3EADF1B918CBE007A699E /* AccountRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRequest.m; sourceTree = "<group>"; };
+		94E3EAE51B954947007A699E /* findJobModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findJobModel.h; sourceTree = "<group>"; };
+		94E3EAE61B954947007A699E /* findJobModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = findJobModel.m; sourceTree = "<group>"; };
 		94E7DCF01B841D510093C39B /* CourePlayTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourePlayTitle.h; sourceTree = "<group>"; };
 		94E7DCF11B841D510093C39B /* CourePlayTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourePlayTitle.m; sourceTree = "<group>"; };
 		94E7DCF21B841D510093C39B /* CourePlaytitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourePlaytitle.xib; sourceTree = "<group>"; };
@@ -1567,6 +1570,7 @@
 		94CB5BA81B763A8100B23B9D /* FindJob */ = {
 			isa = PBXGroup;
 			children = (
+				94E3EAE41B95489A007A699E /* FindJobModel */,
 				94E2C96A1B870F29001E3FDD /* JobDetails */,
 				940032DA1B840DCC001EB666 /* JobScreening */,
 				94CB5BAA1B763AAC00B23B9D /* TH_FindJobVC.m */,
@@ -1712,6 +1716,15 @@
 				94E3EA901B8EB520007A699E /* MMNetWorkType.m */,
 			);
 			path = internet;
+			sourceTree = "<group>";
+		};
+		94E3EAE41B95489A007A699E /* FindJobModel */ = {
+			isa = PBXGroup;
+			children = (
+				94E3EAE51B954947007A699E /* findJobModel.h */,
+				94E3EAE61B954947007A699E /* findJobModel.m */,
+			);
+			path = FindJobModel;
 			sourceTree = "<group>";
 		};
 		94E7DCEE1B841D510093C39B /* CoursePlay */ = {
@@ -2135,6 +2148,7 @@
 				94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */,
 				94CB5B7D1B74CC0600B23B9D /* MJConst.m in Sources */,
 				9470069A1B85CA6000DEC289 /* MineEditInfoCell.m in Sources */,
+				94E3EAE71B954947007A699E /* findJobModel.m in Sources */,
 				940032D61B840CC3001EB666 /* WorkingTimeCell.m in Sources */,
 				048F30C11B7A462C004AA9B2 /* DataBase.m in Sources */,
 				94E2C9D31B8AF98A001E3FDD /* ProjectExperienceView.m in Sources */,

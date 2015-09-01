@@ -52,7 +52,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVr-Bn-E9l">
-                                    <rect key="frame" x="15" y="41.5" width="305" height="0.5"/>
+                                    <rect key="frame" x="15" y="41" width="305" height="0.5"/>
                                     <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="CrO-ZU-7cl"/>
@@ -108,7 +108,7 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCs-ry-gE3">
-                                    <rect key="frame" x="15" y="41.5" width="305" height="0.5"/>
+                                    <rect key="frame" x="15" y="41" width="305" height="0.5"/>
                                     <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="kMC-VJ-HxG"/>
@@ -171,7 +171,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9T-P2-lkW">
-                                    <rect key="frame" x="15" y="41.5" width="305" height="0.5"/>
+                                    <rect key="frame" x="15" y="41" width="305" height="0.5"/>
                                     <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="8S4-EZ-IXd"/>
@@ -217,7 +217,7 @@
                             <rect key="frame" x="0.0" y="126" width="320" height="42"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrV-7D-r94">
-                                    <rect key="frame" x="0.0" y="41.5" width="320" height="0.5"/>
+                                    <rect key="frame" x="0.0" y="41" width="320" height="0.5"/>
                                     <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="G0a-Jy-k2I"/>
@@ -303,7 +303,7 @@
                             <rect key="frame" x="0.0" y="84" width="320" height="42"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cM0-N2-kDj">
-                                    <rect key="frame" x="15" y="41.5" width="305" height="0.5"/>
+                                    <rect key="frame" x="15" y="41" width="305" height="0.5"/>
                                     <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="a6S-n4-LvW"/>
@@ -364,7 +364,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2A-cg-RUC">
-                                    <rect key="frame" x="15" y="41.5" width="305" height="0.5"/>
+                                    <rect key="frame" x="15" y="41" width="305" height="0.5"/>
                                     <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.40000000000000002" id="fhw-CQ-SHz"/>
@@ -422,7 +422,7 @@
                             <rect key="frame" x="0.0" y="42" width="320" height="42"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6G-9o-4Sb">
-                                    <rect key="frame" x="15" y="41.5" width="305" height="0.5"/>
+                                    <rect key="frame" x="15" y="41" width="305" height="0.5"/>
                                     <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="sRd-xs-kPU"/>
@@ -477,7 +477,7 @@
                             <rect key="frame" x="0.0" y="126" width="320" height="42"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNf-5m-NRF">
-                                    <rect key="frame" x="0.0" y="41.5" width="320" height="0.5"/>
+                                    <rect key="frame" x="0.0" y="41" width="320" height="0.5"/>
                                     <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="Kx1-V8-NRO"/>
@@ -569,7 +569,7 @@
                     <rect key="frame" x="0.0" y="446" width="320" height="42"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8i-si-QHa">
-                            <rect key="frame" x="0.0" y="41.5" width="320" height="0.5"/>
+                            <rect key="frame" x="0.0" y="41" width="320" height="0.5"/>
                             <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="ECM-oa-LVN"/>
@@ -628,6 +628,12 @@
                         <action selector="mineViewBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="47f-3n-q8q"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="学习是一种信仰" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atj-Aa-Jyl">
+                    <rect key="frame" x="68" y="49" width="85" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <constraints>
                 <constraint firstItem="Mgx-3U-4Co" firstAttribute="top" secondItem="Wyt-eJ-KOw" secondAttribute="bottom" id="1y5-Zb-I6J"/>
@@ -660,9 +666,11 @@
                 <outlet property="HeadPortraitBtn" destination="6Mw-TM-SZe" id="dPa-aO-s9d"/>
                 <outlet property="Resume" destination="Z3F-97-uwL" id="Xmn-LB-ZWV"/>
                 <outlet property="chatNewVersion" destination="YID-GA-ViR" id="5LN-z8-UcC"/>
+                <outlet property="lginBtn" destination="jsv-SR-wx6" id="ji6-i6-erZ"/>
                 <outlet property="loginBgview" destination="d0F-7p-Hfz" id="Vru-8I-JeA"/>
                 <outlet property="loginBtn" destination="jsv-SR-wx6" id="PiV-Zz-AQN"/>
                 <outlet property="signOut" destination="Ltt-z5-6v9" id="RGc-u6-h2S"/>
+                <outlet property="userLable" destination="atj-Aa-Jyl" id="9iI-vx-4FN"/>
             </connections>
             <point key="canvasLocation" x="-545" y="19"/>
         </view>

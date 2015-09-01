@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "findJobModel.h"
 @interface jobTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UIButton *positionSecBtn;
@@ -20,5 +20,5 @@
 @property (nonatomic, copy) NSString *jobSelected;
 
 @property (nonatomic, assign) CGFloat cellHeight;
-
+-(void)setValueText:(findJobModel*)FindModel;
 @end

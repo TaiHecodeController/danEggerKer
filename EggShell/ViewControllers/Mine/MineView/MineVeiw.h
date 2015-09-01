@@ -30,6 +30,8 @@ typedef enum
 @interface MineVeiw : UIView
 
 @property (weak, nonatomic) IBOutlet UIView *loginBgview;
+@property (weak, nonatomic) IBOutlet UIButton *lginBtn;
+@property (weak, nonatomic) IBOutlet UILabel *userLable;
 
 +(MineVeiw*)RegisterMineView;
 -(void)mineViewSetButtonTag;
