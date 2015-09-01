@@ -14,6 +14,7 @@
 #import "TH_JobDetailVC.h"
 #import "TH_JobScreeningVC.h"
 #import "SearchJobVC.h"
+#import "MJRefresh.h"
 
 #define bottomH 107
 
