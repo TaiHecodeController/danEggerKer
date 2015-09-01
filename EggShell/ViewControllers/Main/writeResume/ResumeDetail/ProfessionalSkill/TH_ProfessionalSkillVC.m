@@ -15,12 +15,14 @@
 @property(strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
 @property(strong,nonatomic)NSArray * imageArray;
+@property(strong,nonatomic)NSMutableArray * jobCellArr;
 @end
 
 @implementation TH_ProfessionalSkillVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.jobCellArr = [NSMutableArray arrayWithCapacity:0];
     [self createScro];
     [self createView];
     [self setData];
@@ -76,12 +78,31 @@
 /*保存**/
 -(void)saveBtnClick
 {
+    for(int i = 0;i < self.jobCellArr.count;i++)
+    {
+        ProfessionalCell * cell = self.jobCellArr[i];
+        
+        if([cell.profisionTextField.text isEqualToString:@""])
+            {
+                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请输入%@",cell.profesionNameLable.text]];
+                return;
+            }
+        
+    }
     
+
 }
 /*重置**/
 -(void)replaceBtnClick
 {
-    
+    for(int i = 0;i < self.jobCellArr.count;i++)
+    {
+        ProfessionalCell * cell = self.jobCellArr[i];
+        cell.profisionTextField.text = @"";
+        
+    }
+    [_tableView reloadData];
+
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -102,6 +123,7 @@
     cell.profesionNameLable.text = self.nameArray[indexPath.row];
     cell.profisionTextField.placeholder= self.holderArray[indexPath.row];
     cell.logoImage.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
+    [self.jobCellArr addObject:cell];
     return cell;
 }
 

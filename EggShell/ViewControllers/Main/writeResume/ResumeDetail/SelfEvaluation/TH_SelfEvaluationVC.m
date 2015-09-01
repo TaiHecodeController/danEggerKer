@@ -23,7 +23,8 @@
 
 }
 -(void)createScro
-{self.view.backgroundColor = color(243, 243, 241);
+{
+    self.view.backgroundColor = color(243, 243, 241);
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     self.scro = scro;
     self.scro.backgroundColor = color(243, 243, 243);
@@ -45,7 +46,7 @@
     bgView.layer.borderColor = color(221, 221, 221).CGColor;
     [self.scro addSubview:bgView];
     
-    self.nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 50, 52, 21) Font:13 Text:@"工作内容"];
+    self.nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 50, 52, 21) Font:13 Text:@"自我评价"];
     [bgView addSubview:self.nameLab];
     
     UIView * line = [ZCControl viewWithFrame:CGRectMake(77, 46, 1, 26)];
@@ -57,7 +58,7 @@
     
     self.contentTextField.textAlignment = NSTextAlignmentNatural;
     self.contentTextField.textColor = color(203, 203, 203);
-    self.contentTextField.text = @"请填写工作内容";
+    self.contentTextField.text = @"请填写自我评价";
     [bgView addSubview:self.contentTextField];
     /*按钮选项**/
     UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 217, (WIDETH-150-18)/2.0, 30) ImageName:@"hongniu2" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
@@ -77,12 +78,15 @@
 /*保存**/
 -(void)saveBtnClick
 {
-    
+    if(self.contentTextField.text.length<30)
+    {
+        [MBProgressHUD creatembHub:@"请输入至少15个字符"];
+    }
 }
 /*重置**/
 -(void)replaceBtnClick
 {
-    
+    self.contentTextField.text = @"请填写自我评价";
 }
 
 - (void)didReceiveMemoryWarning {

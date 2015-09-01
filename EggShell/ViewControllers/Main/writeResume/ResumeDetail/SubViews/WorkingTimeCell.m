@@ -101,7 +101,14 @@
     [self.dataPicker removeFromSuperview];
     
     [ok removeFromSuperview];
-    
+    if(dateStr == nil)
+    {
+        NSDate * localDate = [NSDate date];
+        //设置时间
+        NSDateFormatter * dateFormatt = [[NSDateFormatter alloc] init];
+        [dateFormatt setDateFormat:@"yyyy-MM-dd"];
+        dateStr = [dateFormatt stringFromDate:localDate];
+    }
     [record_btn setTitle:dateStr forState:UIControlStateSelected];
     record_btn.selected = YES;
 }

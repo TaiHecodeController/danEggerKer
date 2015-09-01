@@ -459,7 +459,7 @@
     NSDate * localDate = [NSDate date];
     //设置时间
     NSDateFormatter * dateFormatt = [[NSDateFormatter alloc] init];
-    [dateFormatt setDateFormat:@"yy-MM-dd"];
+    [dateFormatt setDateFormat:@"yyyy-MM-dd"];
     NSDate * minDate = [dateFormatt dateFromString:@"1910-1-1"];
     
     //设置属性
@@ -491,6 +491,15 @@
     
     NSIndexPath *cellIndex = [NSIndexPath indexPathForRow:1 inSection:0];
     WriteResumeCell *cell = (WriteResumeCell *)[userTableView cellForRowAtIndexPath:cellIndex];
+    if(_dateString == nil)
+    {
+        NSDate * localDate = [NSDate date];
+        //设置时间
+        NSDateFormatter * dateFormatt = [[NSDateFormatter alloc] init];
+        [dateFormatt setDateFormat:@"yyyy-MM-dd"];
+        _dateString = [dateFormatt stringFromDate:localDate];
+    }
+    
     cell.contentTextField.text = _dateString;
     
     [back_sv scrollRectToVisible:CGRectMake(0, 220, WIDETH, HEIGHT) animated:YES];

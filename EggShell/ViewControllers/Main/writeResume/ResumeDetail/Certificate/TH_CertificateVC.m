@@ -15,13 +15,14 @@
 @property(nonatomic,strong)UITableView * tableView;
 @property(strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
-
+@property (strong,nonatomic)NSMutableArray * jobCellArr;
 @end
 
 @implementation TH_CertificateVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.jobCellArr = [NSMutableArray arrayWithCapacity:0];
     [self createScro];
     [self createView];
     [self setData];
@@ -40,7 +41,8 @@
 }
 
 -(void)createView
-{   UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 135, 13) Font:13 Text:@"个人简历001-证书"];
+{
+    UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 135, 13) Font:13 Text:@"个人简历001-证书"];
     [self.scro addSubview:nameLab];
     
     UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(160, 9.5, 53, 23) ImageName:@"lanniu2" Target:self Action:nil Title:@"可选填"];
@@ -99,12 +101,33 @@
 /*保存**/
 -(void)saveBtnClick
 {
+    for(int i = 0;i < self.jobCellArr.count;i++)
+    {
+        projectTableViewCell * cell = self.jobCellArr[i];
+        if([cell.placehoderTextfield.text isEqualToString:@""])
+        {
+            [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请输入%@",cell.nameLable.text]];
+            return;
+        }
+    }
+    
+    if(self.contentTextField.text.length < 30)
+    {
+        [MBProgressHUD creatembHub:@"请输入至少15个字符"];
+        return;
+    }
     
 }
 /*重置**/
 -(void)replaceBtnClick
 {
-    
+    for(int i = 0;i < self.jobCellArr.count;i++)
+    {
+        projectTableViewCell * cell = self.jobCellArr[i];
+        cell.placehoderTextfield.text = @"";
+        [_tableView reloadData];
+    }
+    self.contentTextField.text = @"请输入工作内容";
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -124,7 +147,7 @@
     }
     cell.nameLable.text = self.nameArray[indexPath.row];
     cell.placehoderTextfield.placeholder= self.holderArray[indexPath.row];
-    
+    [self.jobCellArr addObject:cell];
     return cell;
 }
 
