@@ -14,11 +14,13 @@
 #import "TH_JobDetailVC.h"
 #import "TH_JobScreeningVC.h"
 #import "SearchJobVC.h"
-
+/*数据请求**/
+#import "AFAppRequest.h"
+#import "findJobModel.h"
 #define bottomH 107
 
 
-@interface TH_FindJobVC ()<UITableViewDataSource,UITableViewDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate>
+@interface TH_FindJobVC ()<UITableViewDataSource,UITableViewDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,MJRefreshBaseViewDelegate>
 {
 
 
@@ -26,7 +28,9 @@
 
     BMKLocationService * _locService;
     NSIndexPath  * record_index;
-
+   
+        MBProgressHUD * _mbPro;
+    
 }
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -41,15 +45,25 @@
 @property (nonatomic, strong) UIButton *searchBtn;
 @property (nonatomic, assign) int mailingNumBer;
 @property (nonatomic, strong) NSMutableArray * cellArray;
-
+@property(nonatomic,strong)NSMutableArray * dataArray;
+@property(nonatomic,strong)MJRefreshFooterView *  footer;
+@property(nonatomic,strong)MJRefreshHeaderView * header;
+@property(nonatomic,assign)int page;
+@property (nonatomic,strong)AFRequestState * state;
 @end
 
 @implementation TH_FindJobVC
+-(void)dealloc
+{
+    
+    [_header free];
+    [_footer free];
+}
 -(void)viewWillAppear:(BOOL)animated
 {
 
     [super viewWillAppear:NO];
-    
+   
     UIButton *searchBtn = [[UIButton alloc] init];
     [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
       [searchBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
@@ -57,18 +71,19 @@
     [searchBtn addTarget:self action:@selector(searchBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.navigationBar addSubview:searchBtn];
     _searchBtn = searchBtn;
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
-{
-    jobTableViewCell * cell = self.cellArray[record_index.row];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-  [self.tableView reloadData];
+{ self.cellArray = [NSMutableArray arrayWithCapacity:0];
+//    jobTableViewCell * cell = self.cellArray[record_index.row];
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//  [self.tableView reloadData];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-//   [super viewWillDisappear:NO];
+  [super viewWillDisappear:NO];
     
     [_searchBtn removeFromSuperview];
         
@@ -76,21 +91,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.cellArray = [NSMutableArray arrayWithCapacity:0];
+   
+//     self.dataArray =[NSMutableArray arrayWithCapacity:0];
     _mailingNumBer = 0;
-    
+    self.page = 0;
     self.view.backgroundColor =[UIColor whiteColor];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-  
+ 
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barBtnItemWithNormalImageName:@"liebiao" hightImageName:nil action:@selector(rightClick) target:self];
-    
-    
-    
-//    [self addRightBtn2_NormalImageName:@"sousuo001" hightImageName:nil action:@selector(rightClick2) target:self];
     
     [self initView];
     
-    [self querData];
+//  [self querData];
+    /*数据请求**/
+    _mbPro = [MBProgressHUD mbHubShow];
+    [self loadData:_mbPro page:0];
+
     
     [self hySegmentedControlSelectAtIndex:0];
     
@@ -104,8 +119,35 @@
     _locService.delegate = self;
     //启动LocationService
     [_locService startUserLocationService];
-
+    
 }
+-(void)loadData:(id)notify page:(int)num
+{
+    if(_state.running)
+    {
+        return;
+    }
+    
+//    NSString * pageNumber = [NSString stringWithFormat:@"%d",num];
+    //    _state = [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
+    //        self.dataArray = [NSMutableArray arrayWithArray:DataDic];
+    //
+    //        [self.tableView reloadData];
+    //
+    //    } resp:[playFanModel class] withPage:pageNumber] addNotifaction:notify];
+    self.state =[[TH_AFRequestState jobListReRequestWithSucc:^(NSArray *DataDic) {
+       
+        
+        self.dataArray = [NSMutableArray arrayWithArray:DataDic];
+        NSLog(@"%@",self.dataArray);
+        
+    } withfail:^(int errCode, NSError *err) {
+       
+        
+        
+    } withPageNumber:num resp:[findJobModel class]] addNotifaction:notify];
+}
+
 #pragma mark -
 #pragma mark -- 定位代理
 //实现相关delegate 处理位置信息更新
@@ -139,6 +181,14 @@
     [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     _tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_tableView];
+    //下拉刷新
+    _header = [MJRefreshHeaderView header];
+    _header.scrollView = self.tableView;
+    _header.delegate = self;
+    //上拉刷新
+    _footer = [MJRefreshFooterView footer];
+    _footer.scrollView = self.tableView;
+    _footer.delegate = self;
     
     _bottomView = [[UIView alloc]init];
     _bottomView.frame = CGRectMake(0, HEIGHT - bottomH - 66, WIDETH, bottomH);
@@ -262,27 +312,27 @@
 #pragma mark - http
 - (void)startHttpRequest
 {
-    //    __weak typeof(self) weakSelf = self;
-    //
-    //    //模糊查询景点
-    //    MTSearchScenicRequest *request = [MTSearchScenicRequest requestWithKeyword:_keyword cityCode:_cityCode limit:20 offset:0];
-    //
-    //    [MTConnection startRequest:request onTarget:weakSelf withBlock:^(BOOL success, MTRespDataSourceType sourceType, MTURLResponse *response)
-    //     {
-    //
-    //         MTSearchScenicResponse *rp = (MTSearchScenicResponse *)response;
-    //
-    //         if (rp.scenicList && rp.scenicList.count > 0)
-    //         {
-    //             dataArray = [weakSelf getArray:rp.scenicList length:2];
-    //             [_gridView reloadData];
-    //         }
-    //         else
-    //         {
-    //             //无符合信息
-    //             [weakSelf showHttpErrorInfo:nil info:nil];
-    //         }
-    //     }];
+//        __weak typeof(self) weakSelf = self;
+//    
+//        //模糊查询景点
+//        MTSearchScenicRequest *request = [MTSearchScenicRequest requestWithKeyword:_keyword cityCode:_cityCode limit:20 offset:0];
+//    
+//        [MTConnection startRequest:request onTarget:weakSelf withBlock:^(BOOL success, MTRespDataSourceType sourceType, MTURLResponse *response)
+//         {
+//    
+//             MTSearchScenicResponse *rp = (MTSearchScenicResponse *)response;
+//    
+//             if (rp.scenicList && rp.scenicList.count > 0)
+//             {
+//                 dataArray = [weakSelf getArray:rp.scenicList length:2];
+//                 [_gridView reloadData];
+//             }
+//             else
+//             {
+//                 //无符合信息
+//                 [weakSelf showHttpErrorInfo:nil info:nil];
+//             }
+//         }];
 }
 
 - (void)hySegmentedControlSelectAtIndex:(NSInteger)index
@@ -337,12 +387,14 @@
     
     if (_currentIndex == 0)
     {
-        cell.positionLab.text = _jobArr[indexPath.row][@"positionName"];
-        cell.companyLab.text = @"苏宁消费金融有限公司";
-        cell.cityLab.text = @"北京";
-        cell.knowledgeLab.text = @"大专";
-        cell.timeLab.text = @"7-30";
-        cell.salaryLab.text = @"5k-7k";
+//        cell.positionLab.text = _jobArr[indexPath.row][@"positionName"];
+//        cell.companyLab.text = @"苏宁消费金融有限公司";
+//        cell.cityLab.text = @"北京";
+//        cell.knowledgeLab.text = @"大专";
+//        cell.timeLab.text = @"7-30";
+//        cell.salaryLab.text = @"5k-7k";
+        findJobModel * model = self.dataArray [indexPath.row];
+        [cell setValueText:model];
         cell.jobSelected = _jobArr[indexPath.row][@"selected"];
         [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell layoutSubviews];
@@ -350,13 +402,15 @@
     else
     {
      
-        cell.positionLab.text = _jobArr[indexPath.row][@"positionName"];
-        cell.companyLab.text = @"苏宁消费金融有限公司";
-        cell.cityLab.text = @"北京";
-        cell.knowledgeLab.text = @"大专";
-        cell.timeLab.text = @"7-30";
-        cell.salaryLab.text = @"5k-7k";
-        cell.jobSelected = _jobArr[indexPath.row][@"selected"];
+//        cell.positionLab.text = _jobArr[indexPath.row][@"positionName"];
+//        cell.companyLab.text = @"苏宁消费金融有限公司";
+//        cell.cityLab.text = @"北京";
+//        cell.knowledgeLab.text = @"大专";
+//        cell.timeLab.text = @"7-30";
+//        cell.salaryLab.text = @"5k-7k";
+//        cell.jobSelected = _jobArr[indexPath.row][@"selected"];
+        findJobModel * model = self.dataArray [indexPath.row];
+        [cell setValueText:model];
         [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell layoutSubviews];
 
@@ -365,10 +419,28 @@
 
     _cell  = cell;
 
-    [self.cellArray addObject:cell];
+   [self.cellArray addObject:cell];
 
     return cell;
 }
+#pragma mark -- MJRefresh
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    if( refreshView == _header ){
+        _page = 0;
+        THLog(@"");
+        
+        [self loadData:refreshView page:_page];
+    }
+    else{
+        self.page++;
+        THLog(@"上拉加载更多");
+        [self loadData:refreshView page:_page];
+        
+        
+    }
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -377,8 +449,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //    return dataArray.count;
-    return _jobArr.count;
+      return self.dataArray.count;
+    
+//  return _jobArr.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -389,9 +462,8 @@
     else
     {
 
+        
     TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
-      
-    
         record_index = indexPath;
         
         [self.navigationController pushViewController:detail animated:YES];

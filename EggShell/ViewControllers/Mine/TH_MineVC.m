@@ -30,7 +30,16 @@
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
-    
+     NSUserDefaults * userId = [NSUserDefaults standardUserDefaults];
+    if (![userId objectForKey:@"moblie"]) {
+        self.mineView.lginBtn.userInteractionEnabled = NO;
+        self.mineView.lginBtn.titleLabel.text = [userId objectForKey:@"moblie"];
+        self.mineView.userLable.text = @"学习是一种信仰";
+        
+    }
+    self.mineView.lginBtn.userInteractionEnabled = YES;
+    self.mineView.lginBtn.titleLabel.text = @"点击登录";
+    self.mineView.userLable.text = @"";
 
 }
 - (void)viewDidLoad {
@@ -43,7 +52,7 @@
     self.title = @"我的";
     [self createScro];
     [self createView];
-    
+    /*处理是否登录问题**/
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginNotice:) name:@"loginNotice" object:nil];
     }
 

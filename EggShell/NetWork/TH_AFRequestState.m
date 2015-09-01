@@ -16,6 +16,16 @@
     return [self postRequestWithUrl:@"http://195.198.1.122:8066/eggker/phpyun/api/admin/index.php?m=act&c=list" param:param succ:succ resp:resp];
     
 }
+/*职位列表**/
++(AFRequestState* )jobListReRequestWithSucc:(void(^)(NSArray * DataDic))succ withfail:(void (^)(int errCode, NSError * err))fail withPageNumber:(int)pageNumber resp:(Class)resp
+{NSNumber * numPager = [NSNumber numberWithInt:pageNumber];
+    NSDictionary * param = @{@"page":numPager};
+//    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Position/loadMore/" param:param succ:succ fail:false ];
+    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Position/loadMore/" param:param succ:succ fail:fail resp:resp];
+    
 
+
+
+}
 
 @end

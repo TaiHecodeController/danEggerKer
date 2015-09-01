@@ -28,6 +28,7 @@
 {
     NSUserDefaults * userId = [NSUserDefaults standardUserDefaults];
     self.phonetextField.text = [userId objectForKey:@"moblie"];
+   
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -219,7 +220,7 @@
 -(void)loginBtbClick
 {NSLog(@"登录");
 
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginNotice" object:self];
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"loginNotice" object:self];
     if ([self.phonetextField.text length]==0) {
         [MBProgressHUD creatembHub:@"电话号码为空"];
         return;

@@ -138,24 +138,14 @@
     if ([self.phoneTextField.text length]==0) {
         [MBProgressHUD creatembHub:@"电话号码为空"];
         return;
-    }else if([self.securiedTextField.text length]==0)
-    {
-        [MBProgressHUD creatembHub:@"验证码不能够为空"];
-        return;
     }
     [self loginRequest];
-    
-    
-//    [AccountRequest forgitRequestWithPhoneNum:self.phoneTextField.text withSucc:^(NSDictionary * dic) {
-//        
-//        NSLog(@"获取验证码成功");
-//    }];
-    
     [LoginAndRegisterRequest forgitRequestWithPhoneNum:self.phoneTextField.text withSucc:^(NSDictionary * dic) {
          NSLog(@"获取验证码成功");
+        
+        
     }];
     [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后可重发",(long)self.count] forState:UIControlStateNormal];
-   
     self.securityCodeBtn.userInteractionEnabled = NO;
     self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
     
