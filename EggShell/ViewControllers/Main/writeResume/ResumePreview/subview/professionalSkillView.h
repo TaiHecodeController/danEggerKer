@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface professionalSkillView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *professionalSkill;
+@property (weak, nonatomic) IBOutlet UILabel *graspTime;
+@property (weak, nonatomic) IBOutlet UILabel *skilledDegree;
+@property (weak, nonatomic) IBOutlet UILabel *skillName;
 +(professionalSkillView*)setprofessionalSkillView;
 @end

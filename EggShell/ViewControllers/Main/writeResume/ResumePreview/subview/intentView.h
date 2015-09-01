@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface intentView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *exceptJob;
+@property (weak, nonatomic) IBOutlet UILabel *exceptIndustry;
+@property (weak, nonatomic) IBOutlet UILabel *exceptSalary;
+@property (weak, nonatomic) IBOutlet UILabel *workAddress;
+@property (weak, nonatomic) IBOutlet UILabel *arriveTime;
+@property (weak, nonatomic) IBOutlet UILabel *workState;
+@property (weak, nonatomic) IBOutlet UILabel *workNature;
+
 +(intentView*)setIntentView;
 @end
