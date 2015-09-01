@@ -114,7 +114,7 @@
     NSDate * localDate = [NSDate date];
     //设置时间
     NSDateFormatter * dateFormatt = [[NSDateFormatter alloc] init];
-    [dateFormatt setDateFormat:@"yy-MM-dd"];
+    [dateFormatt setDateFormat:@"yyyy-MM-dd"];
     NSDate * minDate = [dateFormatt dateFromString:@"1910-1-1"];
     
     //设置属性

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -79,6 +79,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="adademic" destination="UMg-oC-Cpm" id="2aQ-Hs-2b0"/>
+                <outlet property="address" destination="8ge-1P-bD9" id="n8l-aJ-JW3"/>
+                <outlet property="email" destination="cXu-65-XC6" id="QLZ-W0-1x6"/>
+                <outlet property="experience" destination="fAn-bL-fHW" id="FZa-5N-MmN"/>
+                <outlet property="nameSexAge" destination="tXj-8X-g83" id="0sx-YZ-6ka"/>
+                <outlet property="phoneNum" destination="wxL-xX-Vaz" id="UFB-dh-Ouy"/>
+            </connections>
             <point key="canvasLocation" x="341" y="76"/>
         </view>
     </objects>

@@ -15,6 +15,8 @@
 @property(nonatomic,strong)UITableView * tableView;
 @property(strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
+@property(strong,nonatomic)NSMutableArray * jobCellArr;
+
 
 @end
 
@@ -22,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.jobCellArr = [NSMutableArray arrayWithCapacity:0];
     [self createScro];
     [self createView];
     [self setData];
@@ -99,13 +102,30 @@
 /*保存**/
 -(void)saveBtnClick
 {
-    
+    for(int i = 0;i < self.jobCellArr.count;i++)
+    {
+        projectTableViewCell * cell = self.jobCellArr[i];
+        
+        if([cell.placehoderTextfield.text isEqualToString:@""])
+        {
+            [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请输入%@",cell.nameLable.text]];
+            return;
+        }
+    }
+
 }
-/*重置**/
+//重置
 -(void)replaceBtnClick
 {
-    
+    for(int i = 0;i < self.jobCellArr.count;i++)
+    {
+        projectTableViewCell * cell = self.jobCellArr[i];
+        
+        cell.placehoderTextfield.text = @"";
+    }
+    [_tableView reloadData];
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 4;
@@ -124,8 +144,18 @@
     }
     cell.nameLable.text = self.nameArray[indexPath.row];
     cell.placehoderTextfield.placeholder= self.holderArray[indexPath.row];
-    
+    [self.jobCellArr addObject:cell];
     return cell;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    for(int i = 0;i < self.jobCellArr.count;i++)
+    {
+        projectTableViewCell * cell = self.jobCellArr[i];
+        [cell.placehoderTextfield resignFirstResponder];
+    }
+    [self.contentTextField resignFirstResponder];
 }
 
 

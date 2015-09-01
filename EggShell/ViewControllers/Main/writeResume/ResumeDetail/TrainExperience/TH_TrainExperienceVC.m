@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.jobArray = [NSMutableArray arrayWithCapacity:0];
     [self createScro];
     [self createView];
     [self setData];
@@ -100,7 +101,37 @@
 /*保存**/
 -(void)saveBtnClick
 {
-    
+    for(int i = 0;i < self.jobArray.count;i++)
+    {
+        if(i == 1)
+        {
+            EducationTimeCell * cell = self.jobArray[i];
+            if(!cell.startTime.selected)
+            {
+                [MBProgressHUD creatembHub:@"请输入开始时间"];
+                return;
+            }
+            
+            if(cell.startTime.selected)
+            {
+                if(!cell.endTime.selected)
+                {
+                    [MBProgressHUD creatembHub:@"请输入结束时间"];
+                    return;
+                }
+            }
+        }else
+        {
+            EducationWriteCell * cell = self.jobArray[i];
+            if([cell.educationContentTextFile.text isEqualToString:@""])
+            {
+                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请输入%@",cell.educationTitleLable.text]];
+                return;
+            }
+        }
+        
+    }
+
 }
 /*重置**/
 -(void)replaceBtnClick
@@ -127,6 +158,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"EducationTimeCell" owner:self options:nil] firstObject];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+        [self.jobArray addObject:cell];
         cell.timeLable.text= @"培训时间";
    return cell;
     }

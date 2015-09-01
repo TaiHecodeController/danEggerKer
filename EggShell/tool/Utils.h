@@ -28,5 +28,8 @@ return obj; \
 #define APPID @""
 
 @interface Utils : NSObject
-
+//手机号检测
++(BOOL)checkTel:(NSString *)str;
+//邮箱检测
++ (BOOL) validateEmail:(NSString *)email;
 @end

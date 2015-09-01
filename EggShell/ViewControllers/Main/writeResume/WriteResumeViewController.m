@@ -125,80 +125,102 @@
 
 -(void)nextClick
 {
-//    NSMutableArray * modelNameArr = [self propertyKeys];
-//    for(int i = 0;i < self.jobCellArray.count;i++)
-//    {
-//        if(i != 4)
-//        {
-//            WriteResumeCell * cell = self.jobCellArray[i];
-//            if([cell.contentTextField.text isEqualToString:@""])
-//            {
-//                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
-//                return;
-//            }else
-//            {
-//                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i]];
-//            }
-//        }else
-//        {
-//            ExceptCityCell * cell = self.jobCellArray[i];
-//            if(!cell.proviceBtn.selected)
-//            {
-//                [MBProgressHUD creatembHub:@"请填写省份"];
-//                return;
-//            }
-//            if (!cell.cityBtn.selected)
-//            {
-//                [MBProgressHUD creatembHub:@"请填写城市"];
-//                return;
-//            }
-//            if(!cell.countyBtn.selected)
-//            {
-//                [MBProgressHUD creatembHub:@"请填写县区"];
-//                return;
-//            }
-//            NSString * cityStr = [NSString stringWithFormat:@"%@%@",cell.proviceBtn.titleLabel.text,cell.countyBtn.titleLabel.text];
-//            [_model setValue:cityStr forKey:modelNameArr[i]];
-//        }
-//        
-//    }
-//    
-//    for(int i = 0;i < self.jobCellArray2.count;i++)
-//    {
-//        if(i == 0)
-//        {
-//            NameAndSexCell * cell = self.jobCellArray2[i];
-//            if([cell.contentTextField.text isEqualToString:@""])
-//            {
-//                [MBProgressHUD creatembHub:@"请填写您的姓名"];
-//                return;
-//            }else
-//            {
-//                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i + 8]];
-//                //性别
-//                if(cell.womenBtn.selected)
-//                {
-//                    [_model setValue:@"女" forKey:modelNameArr[i + 9]];
-//                }else
-//                {
-//                    [_model setValue:@"男" forKey:modelNameArr[i + 9]];
-//                }
-//                
-//            }
-//        }else
-//        {
-//            WriteResumeCell * cell = self.jobCellArray2[i];
-//            if([cell.contentTextField.text isEqualToString:@""])
-//            {
-//                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
-//                return;
-//            }else
-//            {
-//                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i + 9]];
-//            }
-//        }
-//        
-//    }
+    NSMutableArray * modelNameArr = [self propertyKeys];
+    for(int i = 0;i < self.jobCellArray.count;i++)
+    {
+        if(i != 4)
+        {
+            WriteResumeCell * cell = self.jobCellArray[i];
+            
+            if([cell.contentTextField.text isEqualToString:@""])
+            {
+                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
+                return;
+            }else
+            {
+                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i]];
+            }
+        }else
+        {
+            ExceptCityCell * cell = self.jobCellArray[i];
+            if(!cell.proviceBtn.selected)
+            {
+                [MBProgressHUD creatembHub:@"请填写省份"];
+                return;
+            }
+            if (!cell.cityBtn.selected)
+            {
+                [MBProgressHUD creatembHub:@"请填写城市"];
+                return;
+            }
+            if(!cell.countyBtn.selected)
+            {
+                [MBProgressHUD creatembHub:@"请填写县区"];
+                return;
+            }
+            NSString * cityStr = [NSString stringWithFormat:@"%@%@",cell.proviceBtn.titleLabel.text,cell.countyBtn.titleLabel.text];
+            [_model setValue:cityStr forKey:modelNameArr[i]];
+        }
+        
+    }
+    
+    for(int i = 0;i < self.jobCellArray2.count;i++)
+    {
+        if(i == 0)
+        {
+            NameAndSexCell * cell = self.jobCellArray2[i];
+            if([cell.contentTextField.text isEqualToString:@""])
+            {
+                [MBProgressHUD creatembHub:@"请填写您的姓名"];
+                return;
+            }else
+            {
+                
+                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i + 8]];
+                //性别
+                if(cell.womenBtn.selected)
+                {
+                    [_model setValue:@"女" forKey:modelNameArr[i + 9]];
+                }else
+                {
+                    [_model setValue:@"男" forKey:modelNameArr[i + 9]];
+                }
+                
+            }
+        }else
+        {
+            WriteResumeCell * cell = self.jobCellArray2[i];
+            if([cell.contentTextField.text isEqualToString:@""])
+            {
+                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
+                return;
+            }else
+            {
+                if(i == 4)
+                {
+                    if(![Utils checkTel:cell.contentTextField.text])
+                    {
+                        [MBProgressHUD creatembHub:@"请输入正确的手机号"];
+                        return;
+                    }
+                }
+                
+                if(i == 5)
+                {
+                    if(![Utils validateEmail:cell.contentTextField.text])
+                    {
+                        [MBProgressHUD creatembHub:@"邮箱格式不正确"];
+                        return;
+                    }
+                }
+
+                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i + 9]];
+            }
+        }
+        
+    }
+    NSDictionary * param = @{@"uid":@"uid",@"name":_model.resumeName,@"hy":_model.industry,@"job_classid":_model.exceptJob,@"salary":_model.exceptSalary,@"provinceid":_model.exceptCity,@"type":_model.jobNature,@"report":_model.arriveTime,@"jobstatus":_model.findState,@"uname":_model.userName,@"birthday":_model.userBirthday,@"edu":_model.academic,@"exp":_model.workExperience,@"telphone":_model.phoneNum,@"email":_model.email,@"address":_model.address};
+    
     
     WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
     [self.navigationController pushViewController:wrvc2 animated:YES];
@@ -298,12 +320,20 @@
             }
             if (indexPath.row == 5 || indexPath.row == 6 || indexPath.row == 4)
             {
+                if(indexPath.row == 4)
+                {
+                    cell.contentTextField.keyboardType = UIKeyboardTypeNumberPad;
+                }
+                if(indexPath.row == 5)
+                {
+                    cell.contentTextField.keyboardType = UIKeyboardTypeEmailAddress;
+                }
+                
                 cell.showMessageBtn.hidden = YES;
                 cell.contentTextField.tag = 600 + indexPath.row;
                 
                 if (indexPath.row != 4) {
                     cell.contentTextField.enabled = YES;
-                    
                 }
             }
             else
@@ -459,7 +489,7 @@
     NSDate * localDate = [NSDate date];
     //设置时间
     NSDateFormatter * dateFormatt = [[NSDateFormatter alloc] init];
-    [dateFormatt setDateFormat:@"yy-MM-dd"];
+    [dateFormatt setDateFormat:@"yyyy-MM-dd"];
     NSDate * minDate = [dateFormatt dateFromString:@"1910-1-1"];
     
     //设置属性
@@ -491,6 +521,15 @@
     
     NSIndexPath *cellIndex = [NSIndexPath indexPathForRow:1 inSection:0];
     WriteResumeCell *cell = (WriteResumeCell *)[userTableView cellForRowAtIndexPath:cellIndex];
+    if(_dateString == nil)
+    {
+        NSDate * localDate = [NSDate date];
+        //设置时间
+        NSDateFormatter * dateFormatt = [[NSDateFormatter alloc] init];
+        [dateFormatt setDateFormat:@"yyyy-MM-dd"];
+        _dateString = [dateFormatt stringFromDate:localDate];
+    }
+    
     cell.contentTextField.text = _dateString;
     
     [back_sv scrollRectToVisible:CGRectMake(0, 220, WIDETH, HEIGHT) animated:YES];

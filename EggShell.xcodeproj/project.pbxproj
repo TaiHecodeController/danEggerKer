@@ -29,6 +29,7 @@
 		0454ACEC1B945F20004A70ED /* ResumeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454ACEA1B945F20004A70ED /* ResumeCell.m */; };
 		0454ACED1B945F20004A70ED /* ResumeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0454ACEB1B945F20004A70ED /* ResumeCell.xib */; };
 		0454ACF11B94A257004A70ED /* ResumeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454ACF01B94A257004A70ED /* ResumeModel.m */; };
+		0454ACF41B962C7D004A70ED /* WriteResumeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454ACF31B962C7D004A70ED /* WriteResumeRequest.m */; };
 		045DEC511B8E14EB00E37C4D /* MyMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 045DEC501B8E14EB00E37C4D /* MyMD5.m */; };
 		04718DA71B7CDA26008214CB /* ZCControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 04718DA61B7CDA26008214CB /* ZCControl.m */; };
 		048426F51B8B1E6D009C597A /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048426F41B8B1E6D009C597A /* VPImageCropperViewController.m */; };
@@ -286,6 +287,8 @@
 		0454ACEB1B945F20004A70ED /* ResumeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResumeCell.xib; sourceTree = "<group>"; };
 		0454ACEF1B94A257004A70ED /* ResumeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeModel.h; sourceTree = "<group>"; };
 		0454ACF01B94A257004A70ED /* ResumeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeModel.m; sourceTree = "<group>"; };
+		0454ACF21B962C7D004A70ED /* WriteResumeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteResumeRequest.h; sourceTree = "<group>"; };
+		0454ACF31B962C7D004A70ED /* WriteResumeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeRequest.m; sourceTree = "<group>"; };
 		045DEC4F1B8E14EB00E37C4D /* MyMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMD5.h; sourceTree = "<group>"; };
 		045DEC501B8E14EB00E37C4D /* MyMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMD5.m; sourceTree = "<group>"; };
 		04718DA51B7CDA26008214CB /* ZCControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCControl.h; sourceTree = "<group>"; };
@@ -816,6 +819,8 @@
 				F0D7C0601B79EB3300836DD2 /* OpenClassVideoListRequest.m */,
 				94EFC1C21B7D8F6900833068 /* TH_AFRequestState.h */,
 				94EFC1C31B7D8F6900833068 /* TH_AFRequestState.m */,
+				0454ACF21B962C7D004A70ED /* WriteResumeRequest.h */,
+				0454ACF31B962C7D004A70ED /* WriteResumeRequest.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -2223,6 +2228,7 @@
 				940032CD1B840CC3001EB666 /* ProfessionalCell.m in Sources */,
 				94CB5B9B1B7632E800B23B9D /* TH_BaseVC.m in Sources */,
 				940032F31B840DCD001EB666 /* TH_JobScreeningVC.m in Sources */,
+				0454ACF41B962C7D004A70ED /* WriteResumeRequest.m in Sources */,
 				0454ACF11B94A257004A70ED /* ResumeModel.m in Sources */,
 				94CB5B7A1B74CC0600B23B9D /* BaseModel.m in Sources */,
 				941F10161B7B3BCC00719F5B /* JobWishlistCell.m in Sources */,

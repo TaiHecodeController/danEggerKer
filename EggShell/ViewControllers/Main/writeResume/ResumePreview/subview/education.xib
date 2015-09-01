@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -72,6 +72,13 @@
                 <constraint firstAttribute="trailing" secondItem="c7M-kK-638" secondAttribute="trailing" constant="15" id="jOA-pP-1bx"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="department" destination="MQa-ax-gf0" id="7Nu-xH-lkL"/>
+                <outlet property="departmentIntroduce" destination="c7M-kK-638" id="t55-Io-1vS"/>
+                <outlet property="educationTime" destination="a2D-w3-tzI" id="TXb-d4-HH0"/>
+                <outlet property="position" destination="RHG-MO-X1q" id="t7B-0P-rv6"/>
+                <outlet property="schoolName" destination="8dg-0u-qTg" id="Kyg-rh-Zfd"/>
+            </connections>
             <point key="canvasLocation" x="294" y="90"/>
         </view>
     </objects>

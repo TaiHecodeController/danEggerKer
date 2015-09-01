@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface EducationExperienceView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *educationTime;
+@property (weak, nonatomic) IBOutlet UILabel *department;
+@property (weak, nonatomic) IBOutlet UILabel *schoolName;
+@property (weak, nonatomic) IBOutlet UILabel *position;
+@property (weak, nonatomic) IBOutlet UILabel *departmentIntroduce;
 +(EducationExperienceView*)setEducationExperienceView;
 @end

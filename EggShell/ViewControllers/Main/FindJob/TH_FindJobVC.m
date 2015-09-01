@@ -14,6 +14,8 @@
 #import "TH_JobDetailVC.h"
 #import "TH_JobScreeningVC.h"
 #import "SearchJobVC.h"
+#import "MJRefresh.h"
+
 /*数据请求**/
 #import "AFAppRequest.h"
 #import "findJobModel.h"

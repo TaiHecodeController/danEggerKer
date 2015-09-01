@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface CertificateView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *awardTime;
+@property (weak, nonatomic) IBOutlet UILabel *certificateName;
+@property (weak, nonatomic) IBOutlet UILabel *awardCompany;
+@property (weak, nonatomic) IBOutlet UILabel *certificateIntroduce;
 +(CertificateView*)setCertificateView;
 @end

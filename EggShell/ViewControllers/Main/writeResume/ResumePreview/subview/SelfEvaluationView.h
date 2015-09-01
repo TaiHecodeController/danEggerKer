@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SelfEvaluationView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *selfEvaluation;
 +(SelfEvaluationView*)setSelfEvaluationView;
 @end

@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ProjectExperienceView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *projectTime;
+@property (weak, nonatomic) IBOutlet UILabel *position;
+@property (weak, nonatomic) IBOutlet UILabel *proName;
+@property (weak, nonatomic) IBOutlet UILabel *proIntroduce;
 +(ProjectExperienceView*)setProjectExperienceView;
 @end
