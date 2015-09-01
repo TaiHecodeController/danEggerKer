@@ -148,6 +148,16 @@
     return cell;
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    for(int i = 0;i < self.jobCellArr.count;i++)
+    {
+        projectTableViewCell * cell = self.jobCellArr[i];
+        [cell.placehoderTextfield resignFirstResponder];
+    }
+    [self.contentTextField resignFirstResponder];
+}
+
 
 
 - (void)didReceiveMemoryWarning {

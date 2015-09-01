@@ -127,6 +127,15 @@
     return cell;
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    for(int i = 0;i < self.jobCellArr.count;i++)
+    {
+        ProfessionalCell * cell = self.jobCellArr[i];
+        [cell.profisionTextField resignFirstResponder];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

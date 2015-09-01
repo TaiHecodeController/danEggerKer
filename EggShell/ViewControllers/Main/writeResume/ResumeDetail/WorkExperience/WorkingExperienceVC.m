@@ -183,6 +183,21 @@
     return cell;
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    for(int i = 0;i < self.jobArray.count;i++)
+    {
+        if(i == 1)
+        {
+            continue;
+        }
+        WriteResumeCell * cell = self.jobArray[i];
+        [cell.contentTextField resignFirstResponder];
+    }
+    [self.contentTextField resignFirstResponder];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

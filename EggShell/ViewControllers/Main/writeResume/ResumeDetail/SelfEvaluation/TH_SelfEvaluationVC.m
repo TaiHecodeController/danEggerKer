@@ -72,8 +72,6 @@
     [replaceBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
     [self.scro addSubview:replaceBtn];
-    
-    
 }
 /*保存**/
 -(void)saveBtnClick
@@ -87,6 +85,11 @@
 -(void)replaceBtnClick
 {
     self.contentTextField.text = @"请填写自我评价";
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.contentTextField resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
