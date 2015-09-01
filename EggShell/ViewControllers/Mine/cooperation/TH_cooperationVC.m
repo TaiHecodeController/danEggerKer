@@ -20,7 +20,7 @@
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     [self.view addSubview:scro];
     scro.showsVerticalScrollIndicator = NO;
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 20, WIDETH-30, 390)];
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 30, WIDETH-30, 390)];
     imageView.image = [UIImage  imageNamed:@"logotu"];
     [scro addSubview:imageView];
     UILabel * lable = [[UILabel alloc] initWithFrame:CGRectMake((WIDETH-187)/2.0,480, 187, 11)];

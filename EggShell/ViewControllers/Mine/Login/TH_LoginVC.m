@@ -67,9 +67,7 @@
 }
 -(void)loginView
 {
-    //    UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 0)];
-    //    bgView.backgroundColor = color(243, 243, 241);
-    //    [self.view addSubview:bgView];
+   
     UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(-72, 15, 80, 90)];
     imageView.image = [UIImage imageNamed:@"logo"];
     [self.scro addSubview:imageView];
@@ -230,47 +228,19 @@
         return;
     }
     [self loginRequest];
-         //    [AccountRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text withSucc:^(NSDictionary * dic) {
-//        
-//        if ([dic[@"code"] integerValue]==0) {
-//            [MBProgressHUD creatembHub:dic[@"message"]];
-//           
-//            NSUserDefaults *  loginDefaut =[NSUserDefaults standardUserDefaults];
-//            if ([[loginDefaut objectForKey:@"UserName"] isEqualToString:@"unLogin"]) {
-//                self.navigationController.navigationBarHidden = YES;
-//                AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-//                appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
-//                
-//                appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
-//                
-//                [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
-//                [loginDefaut setObject:@"login" forKey:@"UserName"];
-//                [loginDefaut synchronize];
-//            }
-//        }
-//    }];
-//    NSLog(@"登录");
-//    NSUserDefaults *  loginDefaut =[NSUserDefaults standardUserDefaults];
-//    if ([[loginDefaut objectForKey:@"UserName"] isEqualToString:@"unLogin"]) {
-//        self.navigationController.navigationBarHidden = YES;
-//        AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-//        appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
-//        
-//        appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
-//        
-//        [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
-//        [loginDefaut setObject:@"login" forKey:@"UserName"];
-//        [loginDefaut synchronize];
-
-
-//    }
-    
+          
 }
 -(void)loginRequest
 {
     [LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text withSucc:^(NSDictionary * dic) {
         if ([dic[@"code"] integerValue]==0) {
             [MBProgressHUD creatembHub:dic[@"message"]];
+            
+            NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+
+            [user setObject:dic[@"data"][@"telphone"] forKey:@"login"];
+            [user setObject:dic[@"data"][@"uid"] forKey:@"uid"];
+            [user synchronize];
             self.navigationController.navigationBarHidden = YES;
             AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
             appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];

@@ -144,15 +144,15 @@
 
 -(void)loadData:(id)notify Page:(int)page
 {
-    if(_state.running)
-    {
-        return;
-    }else
-    {
-        [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
-            
-        } resp:[playFanModel class] withPage:[NSString stringWithFormat:@"%d",page]] addNotifaction:notify];
-    }
+//    if(_state.running)
+//    {
+//        return;
+//    }else
+//    {
+//        [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
+//            
+//        } resp:[playFanModel class] withPage:[NSString stringWithFormat:@"%d",page]] addNotifaction:notify];
+//    }
     
 }
 

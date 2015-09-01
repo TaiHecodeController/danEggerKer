@@ -10,10 +10,12 @@
 
 @implementation TH_AFRequestState
 //玩出范
-+(AFRequestState *)playClassrRequestWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp withPage:(NSString *)pageNumber;
++(AFRequestState *)playClassrRequestWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp withPage:(int)pageNumber withLimit:(int)limit
 {
-    NSDictionary * param = @{@"page":pageNumber};
-    return [self postRequestWithUrl:@"http://195.198.1.122:8066/eggker/phpyun/api/admin/index.php?m=act&c=list" param:param succ:succ resp:resp];
+    NSNumber * pagenumber = [NSNumber numberWithInt:pageNumber];
+    NSNumber * limitNum = [NSNumber numberWithInt:limit];
+    NSDictionary * param = @{@"page":pagenumber,@"limit":limitNum};
+    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Activity/index?type=1" param:param succ:succ resp:resp];
     
 }
 /*职位列表**/

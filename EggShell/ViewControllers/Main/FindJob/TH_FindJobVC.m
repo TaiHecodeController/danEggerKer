@@ -334,7 +334,6 @@
 //             }
 //         }];
 }
-
 - (void)hySegmentedControlSelectAtIndex:(NSInteger)index
 {
     if (index == 0)

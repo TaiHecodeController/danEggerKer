@@ -30,16 +30,19 @@
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
-     NSUserDefaults * userId = [NSUserDefaults standardUserDefaults];
-    if (![userId objectForKey:@"moblie"]) {
-        self.mineView.lginBtn.userInteractionEnabled = NO;
-        self.mineView.lginBtn.titleLabel.text = [userId objectForKey:@"moblie"];
-        self.mineView.userLable.text = @"学习是一种信仰";
-        
-    }
-    self.mineView.lginBtn.userInteractionEnabled = YES;
-    self.mineView.lginBtn.titleLabel.text = @"点击登录";
-    self.mineView.userLable.text = @"";
+//     NSUserDefaults * userId = [NSUserDefaults standardUserDefaults];
+//    if (![[userId objectForKey:@"login"] isEqualToString:@""]) {
+//        self.mineView.lginBtn.userInteractionEnabled = NO;
+////        self.mineView.lginBtn.titleLabel.text = [userId objectForKey:@"login"];
+//        
+//        self.mineView.userLable.text = @"学习是一种信仰";
+//        
+//    }else if([[userId objectForKey:@"login"] isEqualToString:@""])
+//    {
+//    self.mineView.lginBtn.userInteractionEnabled = YES;
+////    self.mineView.lginBtn.titleLabel.text = @"点击登录";
+//    self.mineView.userLable.text = @"";
+//    }
 
 }
 - (void)viewDidLoad {
@@ -52,8 +55,8 @@
     self.title = @"我的";
     [self createScro];
     [self createView];
-    /*处理是否登录问题**/
-     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginNotice:) name:@"loginNotice" object:nil];
+//    /*处理是否登录问题**/
+//     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginNotice:) name:@"loginNotice" object:nil];
     }
 
 -(void)createScro
@@ -77,22 +80,26 @@
     minVew.backgroundColor =    color(243, 243, 241);
     self.mineView = minVew;
     [self.scro addSubview:minVew];
+    /*是否登录相关处理**/
     NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
-    if ([[userDefault objectForKey:@"UserName"] isEqualToString:@"unLogin"]) {
+    if (![[userDefault objectForKey:@"login"] isEqualToString:@""]) {
         
-        [minVew.loginBgview removeFromSuperview];
-       
         [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5
               initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
                   minVew.frame = CGRectMake(0, 0, WIDETH, 440);
               } completion:nil];
         self.scro.contentSize = CGSizeMake(WIDETH,450+60);
-
+        self.mineView.lginBtn.userInteractionEnabled = NO;
+        [self.mineView.lginBtn setTitle:[userDefault objectForKey:@"login"] forState:UIControlStateNormal];
+        self.mineView.userLable.text = @"学习是一种信仰";
     }
-    if ([[userDefault objectForKey:@"ligin"] isEqualToString:@"userName"]) {
+    if ([[userDefault objectForKey:@"login"] isEqualToString:@""]) {
       
         
-       
+        self.mineView.lginBtn.userInteractionEnabled = YES;
+        [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
+        self.mineView.userLable.text = @"";
+        [minVew.loginBgview removeFromSuperview];
         
     }
     
@@ -104,6 +111,7 @@
    
     
 }
+#pragma mark-- homeView delegate
 -(void)homeView:(MineVeiw *)mineView DidClickButton:(THMineViewButtonType)button
 {
     switch (button) {
@@ -198,21 +206,22 @@
             break;
     }
 }
-- (void)loginNotice:(NSNotification *)notification
-{
-//    [self.mineView addSubview:self.mineView.loginBgview];
-    [self.mineView.loginBgview removeFromSuperview];
-}
+//- (void)loginNotice:(NSNotification *)notification
+//{
+////    [self.mineView addSubview:self.mineView.loginBgview];
+//    [self.mineView.loginBgview removeFromSuperview];
+//}
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+  NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
     if (buttonIndex ==1) {
         self.navigationController.navigationBarHidden = YES;
         AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
         appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
         
         appDelegate.mainTabBar.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [userDefault setObject:@"unLogin" forKey:@"UserName"];
+        [userDefault setObject:@"" forKey:@"login"];
+        [userDefault synchronize];
         [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
     }
 }

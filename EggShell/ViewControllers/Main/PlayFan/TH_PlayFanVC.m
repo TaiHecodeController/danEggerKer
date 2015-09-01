@@ -23,6 +23,7 @@
 @property(nonatomic,strong)MJRefreshFooterView *  footer;
 @property(nonatomic,strong)MJRefreshHeaderView * header;
 @property(nonatomic,assign)int page;
+@property(nonatomic,assign)int limitNum;
 @property (nonatomic,strong)AFRequestState * state;
 @end
 
@@ -42,12 +43,13 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataArray =[NSMutableArray arrayWithCapacity:0];
+   self.dataArray =[NSMutableArray arrayWithCapacity:0];
         self.view.backgroundColor =[UIColor whiteColor];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
         self.navigationController.navigationBar.translucent = NO;
     
     self.page = 0;
+    self.limitNum = 10;
     self.title = @"玩出范";
     [self createView];
     [self createTbleView];
@@ -65,14 +67,16 @@
     {
         return;
     }
+//    int a = num;
     
-    NSString * pageNumber = [NSString stringWithFormat:@"%d",num];
+//    NSString * pageNumber = [NSString stringWithFormat:@"%d",num];
+    
     _state = [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
-        self.dataArray = [NSMutableArray arrayWithArray:DataDic];
+        [self.dataArray addObjectsFromArray:DataDic];
         
         [self.tableView reloadData];
 
-    } resp:[playFanModel class] withPage:pageNumber] addNotifaction:notify];
+    } resp:[playFanModel class] withPage:num withLimit:self.limitNum] addNotifaction:notify];
 }
 
 -(void)createView
@@ -156,7 +160,7 @@
     playFanModel * model = self.dataArray[indexPath.row];
     [InforCell setValue:model];
     
-    NSLog(@"%@",model.endtime);
+//    NSLog(@"%@",model.endtime);
     
    return InforCell;
 }
@@ -182,14 +186,13 @@
 {
     if( refreshView == _header ){
         _page = 0;
-        THLog(@"");
-        
+        self.dataArray = [NSMutableArray arrayWithCapacity:0];
         [self loadData:refreshView page:_page];
     }
     else{
         self.page++;
         THLog(@"上拉加载更多");
-                [self loadData:refreshView page:_page];
+        [self loadData:refreshView page:_page];
         
         
     }
