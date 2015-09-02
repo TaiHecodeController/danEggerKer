@@ -120,6 +120,7 @@
                     return;
                 }
             }
+            
         }else
         {
             EducationWriteCell * cell = self.jobArray[i];

@@ -12,4 +12,5 @@
 @interface ManagerResumeModel : NSObject<Expose>
 @property(strong,nonatomic)NSString * name;
 @property(strong,nonatomic)NSString * ctime;
+@property(strong,nonatomic)NSString * rid;
 @end

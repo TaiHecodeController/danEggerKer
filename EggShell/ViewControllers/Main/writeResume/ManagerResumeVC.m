@@ -43,6 +43,11 @@
         if(self.dataArray.count == 0)
         {
             [MBProgressHUD creatembHub:@"暂时还没有简历,快来创建你的第一份简历吧😄😄"];
+        }else
+        {
+            ManagerResumeModel * model = self.dataArray[0];
+            [AppDelegate instance].resumeId = model.rid;
+            [self.ResumeList reloadData];
         }
     } WithUserId:[AppDelegate instance].userId resp:[ManagerResumeModel class]];
 }
@@ -72,6 +77,11 @@
     }
     cell.Controller = self;
     cell.cellIndex = indexPath;
+    ManagerResumeModel * model = self.dataArray[indexPath.row];
+    cell.ResumeName.text = model.name;
+    cell.createDate.text = model.ctime;
+    cell.ResumeName.font = [UIFont systemFontOfSize:13];
+    cell.resumeId = model.rid;
     if(indexPath.row == 0)
     {
         cell.iSSelect.selected = YES;
@@ -99,7 +109,13 @@
 */
 
 - (IBAction)createNewResumeClick:(UIButton *)sender {
+    if(self.dataArray.count > 0)
+    {
+        [MBProgressHUD creatembHub:@"当前只能创建一份简历"];
+        return;
+    }
 }
+
 - (IBAction)editClick:(UIButton *)sender {
 }
 - (IBAction)userResume:(UIButton *)sender {

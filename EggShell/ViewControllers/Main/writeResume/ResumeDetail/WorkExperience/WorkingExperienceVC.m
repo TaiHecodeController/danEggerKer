@@ -9,10 +9,15 @@
 #import "WorkingExperienceVC.h"
 #import "WriteResumeCell.h"
 #import "WorkingTimeCell.h"
+#import "WorkingExperienceVC.h"
+#import "WorkExperienceModel.h"
+#import "WriteResumeRequest.h"
+#import "AppDelegate.h"
 
 @interface WorkingExperienceVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;
+    WorkExperienceModel * _model;
 }
 @property(strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
@@ -26,6 +31,7 @@
     [super viewDidLoad];
     self.title = @"工作经历";
     self.jobArray = [NSMutableArray arrayWithCapacity:0];
+    _model = [[WorkExperienceModel alloc] init];
     [self createUI];
     [self createData];
     // Do any additional setup after loading the view.
@@ -106,7 +112,7 @@
                 [MBProgressHUD creatembHub:@"请输入开始时间"];
                 return;
             }
-            
+        
             if(cell.StartTime.selected)
             {
                 if(!cell.endTime.selected)
@@ -115,6 +121,9 @@
                     return;
                 }
             }
+            _model.sdate = cell.StartTime.titleLabel.text;
+            _model.edate = cell.endTime.titleLabel.text;
+            
             
         }else
         {
@@ -123,10 +132,37 @@
             {
                 [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请输入%@",cell.resumeName.text]];
                 return;
+            }else
+            {
+                if(i == 0)
+                {
+                    _model.name = [cell.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                }
+                if(i == 2)
+                {
+                    _model.department = [cell.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                }
+                if(i == 3)
+                {
+                    _model.title = [cell.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                }
             }
         }
         
     }
+    if(self.contentTextField.text.length > 30)
+    {
+        _model.content = [self.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }else
+    {
+        [MBProgressHUD creatembHub:@"请输入至少15个字符"];
+        return;
+    }
+    NSDictionary * param = @{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"department":_model.department,@"title":_model.title,@"content":_model.content};
+    
+    [WriteResumeRequest uploadWorkExperienceWithSucc:^(NSArray *dataArray) {
+        
+    } WithResumeParam:param resp:[WorkExperienceModel class]];
 }
 
 -(void)replaceClick

@@ -18,5 +18,6 @@
 - (IBAction)lookResumeClick:(UIButton *)sender;
 @property (strong,nonatomic) ManagerResumeVC * Controller;
 @property (strong,nonatomic)NSIndexPath * cellIndex;
+@property (strong,nonatomic)NSString * resumeId;
 
 @end
