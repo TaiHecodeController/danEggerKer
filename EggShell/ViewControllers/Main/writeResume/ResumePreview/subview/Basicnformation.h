@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface Basicnformation : UIView
+
 +(Basicnformation*)setBaseView;
+@property (weak, nonatomic) IBOutlet UILabel *nameSexAge;
+@property (weak, nonatomic) IBOutlet UILabel *adademic;
+@property (weak, nonatomic) IBOutlet UILabel *experience;
+@property (weak, nonatomic) IBOutlet UILabel *address;
+@property (weak, nonatomic) IBOutlet UILabel *phoneNum;
+@property (weak, nonatomic) IBOutlet UILabel *email;
+
 @end

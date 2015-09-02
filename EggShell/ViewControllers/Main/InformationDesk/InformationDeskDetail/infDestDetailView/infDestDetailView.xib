@@ -73,12 +73,6 @@
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="010-5383938998" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIT-I1-C0d">
-                            <rect key="frame" x="90" y="84" width="230" height="13"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="奇奇老师" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlN-f9-X3U">
                             <rect key="frame" x="90" y="107" width="230" height="13"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -95,6 +89,12 @@
                             <rect key="frame" x="15" y="152.5" width="320" height="0.5"/>
                             <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="010-5383938998" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIT-I1-C0d">
+                            <rect key="frame" x="90" y="84" width="230" height="13"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -110,7 +110,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RdM-oj-3tS">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RdM-oj-3tS">
                     <rect key="frame" x="15" y="283" width="290" height="163"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="163" id="LyZ-YO-Tqp"/>
@@ -138,9 +138,11 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="MeetingPlaceLable" destination="VWr-gN-Xna" id="kKD-m6-96r"/>
                 <outlet property="RouteLable" destination="kFv-gu-fS3" id="bHj-mV-ngP"/>
                 <outlet property="contactLable" destination="UIT-I1-C0d" id="hcX-0e-55T"/>
                 <outlet property="contactPesonLable" destination="IlN-f9-X3U" id="m1v-pH-AWy"/>
+                <outlet property="contentLable" destination="RdM-oj-3tS" id="ZBS-KF-W3j"/>
                 <outlet property="holdLable" destination="dT7-qI-dgf" id="siu-Fi-0c6"/>
                 <outlet property="timelLable" destination="GZY-TZ-5L7" id="DJm-Cx-mqG"/>
             </connections>

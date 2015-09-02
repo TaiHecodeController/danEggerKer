@@ -10,11 +10,24 @@
 
 @implementation TH_AFRequestState
 //玩出范
-+(AFRequestState *)playClassrRequestWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp withPage:(NSString *)pageNumber;
++(AFRequestState *)playClassrRequestWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp withPage:(int)pageNumber withLimit:(int)limit withType:(int)type
 {
-    NSDictionary * param = @{@"page":pageNumber};
-    return [self postRequestWithUrl:@"http://195.198.1.122:8066/eggker/phpyun/api/admin/index.php?m=act&c=list" param:param succ:succ resp:resp];
+    NSNumber * pagenumber = [NSNumber numberWithInt:pageNumber];
+    NSNumber * limitNum = [NSNumber numberWithInt:limit];
+    NSNumber * typeNum = [NSNumber numberWithInt:type];
     
+    NSDictionary * param = @{@"page":pagenumber,@"limit":limitNum,@"type":typeNum};
+    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Activity/index" param:param succ:succ resp:resp];
+    
+}
+/*玩出范详情**/
++(AFRequestState *)playClassDetailRequestWithSucc:(void(^)(NSArray * dataDic))succ withType:(int)type withId:(int) classId
+{
+
+    NSNumber * typeNum =[NSNumber numberWithBool:type];
+    NSNumber  * classID = [NSNumber numberWithInt:classId];
+    NSDictionary * param = @{@"type":typeNum,@"id":classID};
+    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Activity/details" param:param succ:succ];
 }
 
 /*职位列表**/

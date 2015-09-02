@@ -11,6 +11,9 @@
 #import "WorkingTimeCell.h"
 
 @interface WorkingExperienceVC ()<UITableViewDelegate,UITableViewDataSource>
+{
+    UITableView * _tableView;
+}
 @property(strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
 @property(strong,nonatomic)NSMutableArray * jobArray;
@@ -22,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"工作经历";
+    self.jobArray = [NSMutableArray arrayWithCapacity:0];
     [self createUI];
     [self createData];
     // Do any additional setup after loading the view.
@@ -31,7 +35,6 @@
 {
     self.nameArray = @[@"单位名称",@"工作时间",@"所在部门",@"担任职位"];
     self.holderArray = @[@"请填写单位名称",@"",@"请填写所在部门",@"请填写担任职位"];
-    
 }
 
 -(void)createUI
@@ -46,14 +49,14 @@
     [self.view addSubview:stateBtn];
     
     //中间tableView
-    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(-1, 45, WIDETH + 1, 168)];
-    tableView.delegate = self;
-    tableView.dataSource = self;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(-1, 45, WIDETH + 1, 168)];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
     
-    tableView.layer.borderWidth = 0.5;
-    tableView.layer.borderColor = [UIColor colorWithRed:221 / 255.0 green:221 / 255.0 blue:221 / 255.0 alpha:1].CGColor;
-     tableView.separatorColor = color(221, 221, 221);
-    [self.view addSubview:tableView];
+    _tableView.layer.borderWidth = 0.5;
+    _tableView.layer.borderColor = [UIColor colorWithRed:221 / 255.0 green:221 / 255.0 blue:221 / 255.0 alpha:1].CGColor;
+     _tableView.separatorColor = color(221, 221, 221);
+    [self.view addSubview:_tableView];
     
     //下方View
     UIView * backView = [[UIView alloc] initWithFrame:CGRectMake(-1, 233, WIDETH, 120)];
@@ -112,19 +115,36 @@
                     return;
                 }
             }
-        }
-        WriteResumeCell * cell = self.jobArray[i];
-        if(!cell.contentTextField.text)
+            
+        }else
         {
-            [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请输入%@",cell.resumeName.text]];
-            return;
+            WriteResumeCell * cell = self.jobArray[i];
+            if([cell.contentTextField.text isEqualToString:@""])
+            {
+                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请输入%@",cell.resumeName.text]];
+                return;
+            }
         }
+        
     }
 }
 
 -(void)replaceClick
 {
-    
+    for(int i = 0;i < self.jobArray.count;i++)
+    {
+        if(i == 1)
+        {
+            WorkingTimeCell * cell = self.jobArray[i];
+            cell.StartTime.selected = NO;
+            cell.endTime.selected = NO;
+            cell.todaySelect.selected = NO;
+        }
+        WriteResumeCell * cell = self.jobArray[i];
+        cell.contentTextField.text = @"";
+    }
+    [_tableView reloadData];
+
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -148,6 +168,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         cell.controller = self;
+        [self.jobArray addObject:cell];
         return cell;
     }
     WriteResumeCell * cell = [tableView dequeueReusableCellWithIdentifier:@"WriteCell"];
@@ -161,6 +182,21 @@
     [self.jobArray addObject:cell];
     return cell;
 }
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    for(int i = 0;i < self.jobArray.count;i++)
+    {
+        if(i == 1)
+        {
+            continue;
+        }
+        WriteResumeCell * cell = self.jobArray[i];
+        [cell.contentTextField resignFirstResponder];
+    }
+    [self.contentTextField resignFirstResponder];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

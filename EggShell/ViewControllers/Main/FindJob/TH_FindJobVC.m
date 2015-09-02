@@ -299,7 +299,31 @@
     THLog(@"jobarr:%@",_jobArr);
 }
 
-
+#pragma mark - http
+- (void)startHttpRequest
+{
+//        __weak typeof(self) weakSelf = self;
+//    
+//        //模糊查询景点
+//        MTSearchScenicRequest *request = [MTSearchScenicRequest requestWithKeyword:_keyword cityCode:_cityCode limit:20 offset:0];
+//    
+//        [MTConnection startRequest:request onTarget:weakSelf withBlock:^(BOOL success, MTRespDataSourceType sourceType, MTURLResponse *response)
+//         {
+//    
+//             MTSearchScenicResponse *rp = (MTSearchScenicResponse *)response;
+//    
+//             if (rp.scenicList && rp.scenicList.count > 0)
+//             {
+//                 dataArray = [weakSelf getArray:rp.scenicList length:2];
+//                 [_gridView reloadData];
+//             }
+//             else
+//             {
+//                 //无符合信息
+//                 [weakSelf showHttpErrorInfo:nil info:nil];
+//             }
+//         }];
+}
 - (void)hySegmentedControlSelectAtIndex:(NSInteger)index
 {
     if (index == 0)

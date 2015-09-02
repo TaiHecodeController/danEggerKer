@@ -155,6 +155,7 @@
     return State;
     
 }
+
 //统一错误处理
 +(void)error_hanlde:(int)errCode Witherr:(NSError *)err {
     

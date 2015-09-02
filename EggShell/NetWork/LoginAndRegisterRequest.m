@@ -61,8 +61,9 @@ NSDictionary * param = @{@"telphone":phone,@"code":SecurityCode};
     return [self postRequestWithUrl:@"http://195.198.1.197/eggker/interface/login/next" param:param succ:succ];
 }
 /*重置密码**/
-+(AFRequestState *)resetPasswordRequestWithPhoneNum:(NSString*)phone withNewCode:(NSString*)newCode  withSucc:(void(^)(NSDictionary*))succ
++(AFRequestState *)resetPasswordRequestWithPhoneNum:(NSString *)phone withNewCode:(NSString *)newCode  withSucc:(void(^)(NSDictionary*))succ
 {
+    
 NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
     return [self postRequestWithUrl:@"http://195.198.1.197/eggker/interface/login/update_pwd" param:param succ:succ];
 }

@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface trainingExperienceView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *trainTime;
+@property (weak, nonatomic) IBOutlet UILabel *trainDirection;
+@property (weak, nonatomic) IBOutlet UILabel *trainCompany;
+@property (weak, nonatomic) IBOutlet UILabel *trainIntroduce;
 +(trainingExperienceView*)settrainingExperienceView;
 @end

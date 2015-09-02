@@ -12,7 +12,7 @@
 @interface WriteJLChooseVC ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong)UITableView * tableView ;
-@property(nonatomic,strong)NSArray * DataArray;
+
 
 
 @end
@@ -23,17 +23,11 @@
     [super viewDidLoad];
     self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);
     
-    [self qureData];
-    
     [self createTableView];
     
     [self createjobBtn];
 }
 
-- (void)qureData
-{
-    self.DataArray = @[@"计算机/互联网",@"技术人员/助理",@"北京",@"3000-10000",@"本科",@"3年",@"全职",@"一天内"];
-}
 -(void)createjobBtn
 {
     UIView * jobView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT-60-64, WIDETH, 60)];
@@ -64,7 +58,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"JobScreenDetailCell" owner:self
                                             options:nil] lastObject];
     }
-    cell.textLable.text = self.DataArray[indexPath.row];
+    cell.textLable.text = self.DataArray[indexPath.row][@"name"];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,9 +87,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     JobScreenDetailCell *cell = (JobScreenDetailCell *)[tableView cellForRowAtIndexPath:indexPath];
-    if ([self.delegete respondsToSelector:@selector(chooseWord:cellIndex:tableViewTagIndex:)])
+    if ([self.delegete respondsToSelector:@selector(chooseWord:cellIndex:tableViewTagIndex:withId:)])
     {
-        [self.delegete chooseWord:cell.textLable.text cellIndex:self.cellIndex tableViewTagIndex:self.tableViewTagIndex];
+        [self.delegete chooseWord:cell.textLable.text cellIndex:self.cellIndex tableViewTagIndex:self.tableViewTagIndex withId:self.DataArray[indexPath.row][@"id"]];
     }
     [self.navigationController popViewControllerAnimated:YES];
 }

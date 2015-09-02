@@ -26,7 +26,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSUserDefaults * versionId = [NSUserDefaults standardUserDefaults];
     [versionId setObject:@"" forKey:@"ver"];
-    [versionId setObject:@"unLogin" forKey:@"UserName"];
     [versionId synchronize];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -66,8 +65,11 @@
         [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    
-    
+    self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+    if(self.userId)
+    {
+        NSLog(@"已登陆");
+    }
     return YES;
    
 }

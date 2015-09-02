@@ -10,13 +10,15 @@
 
 @implementation infDestDetailView
 
--(void)setValue:(playFanModel*)model
+-(void)setValues:(playFanModel*)model
 {
     self.holdLable.text = model.organizers;
     self.timelLable.text = model.endtime;
-    self.contactLable.text = model.telphone;
+    self.contactLable.text = model.every_time;
     self.contactPesonLable.text = model.user;
     self.RouteLable.text = model.address;
+    self.MeetingPlaceLable.text = model.address;
+    self.contentLable.text = model.content;
 
 }
 @end

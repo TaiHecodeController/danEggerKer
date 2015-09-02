@@ -13,5 +13,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *contentTextField;
 @property (weak, nonatomic) IBOutlet UIButton *showMessageBtn;
 - (IBAction)whowAllClick:(UIButton *)sender;
-
+@property (strong,nonatomic) NSString * userId;
 @end

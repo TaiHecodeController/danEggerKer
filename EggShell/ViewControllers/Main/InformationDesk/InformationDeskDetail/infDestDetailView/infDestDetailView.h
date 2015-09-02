@@ -14,5 +14,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *contactLable;
 @property (weak, nonatomic) IBOutlet UILabel *contactPesonLable;
 @property (weak, nonatomic) IBOutlet UILabel *RouteLable;
--(void)setValue:(playFanModel*)model;
+@property (weak, nonatomic) IBOutlet UILabel *MeetingPlaceLable;
+
+@property (weak, nonatomic) IBOutlet UILabel *contentLable;
+
+
+-(void)setValues:(playFanModel*)model;
 @end

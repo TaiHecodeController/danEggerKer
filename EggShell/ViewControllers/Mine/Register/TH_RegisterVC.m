@@ -135,13 +135,13 @@
     [self.scro addSubview:securityCodeBgView];
     
     UIView * securityCodeRightBgView = [[UIView alloc] initWithFrame:CGRectMake(WIDETH-((WIDETH - 40)/4.0+25), 125, (WIDETH - 40)/4.0*1+10, 45)];
-    securityCodeRightBgView.backgroundColor = [UIColor greenColor];
+    securityCodeRightBgView.backgroundColor = UIColorFromRGB(0xf44336);
     securityCodeRightBgView.layer.cornerRadius = 3;
     securityCodeRightBgView.layer.masksToBounds = YES;
     UIButton * securityCodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, (WIDETH - 40)/4.0*1+10, 45)];
      [securityCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
    
-    [securityCodeBtn setBackgroundImage:[UIImage imageNamed:@"lvs"] forState:UIControlStateNormal];
+    [securityCodeBtn setBackgroundImage:[UIImage imageNamed:@"hongniu"] forState:UIControlStateNormal];
 
     securityCodeBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     securityCodeBtn.titleLabel.textColor = color(255, 255, 255);
@@ -236,8 +236,7 @@
                 NSLog(@"%@",self.registDic);
                 [MBProgressHUD creatembHub:self.registDic[@"message"]];
                 NSUserDefaults * userId =[NSUserDefaults standardUserDefaults];
-                [userId setObject:@"ligin" forKey:@"UserName"];
-                [userId setObject:self.registDic[@"data"][@"moblie"] forKey:@"moblie"];
+                [userId setObject:self.registDic[@"data"][@"telphone"] forKey:@"moblie"];
                 [userId synchronize];
                 NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
                 [userInfo setValue:self.phoneTextField.text forKey:@"phoneText"];

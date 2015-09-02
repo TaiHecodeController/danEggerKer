@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface WorkExperienceView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *workTime;
+@property (weak, nonatomic) IBOutlet UILabel *position;
+@property (weak, nonatomic) IBOutlet UILabel *workContent;
 +(WorkExperienceView*)setWorkExperienceView;
 @end

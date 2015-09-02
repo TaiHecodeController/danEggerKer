@@ -23,8 +23,7 @@
 {
 
     self.name.text = model.title;
-    [self.logoImage setImageWithURL:[NSURL URLWithString:model.logo] placeholderImage:[UIImage imageNamed:@"tu"]];
-    
+    [self.logoImage sd_setImageWithURL:[NSURL URLWithString:model.logo]placeholderImage:[UIImage imageNamed:@"tu"]];
     self.addressLable.text = model.address;
     self.homeLable.text = model.organizers;
     self.timeLable.text = model.starttime;

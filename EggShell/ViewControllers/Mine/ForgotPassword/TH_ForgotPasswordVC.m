@@ -21,7 +21,11 @@
 @end
 
 @implementation TH_ForgotPasswordVC
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+    self.phoneTextField.text = [user objectForKey:@"moblie"];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = color(243, 243, 241);
@@ -91,14 +95,13 @@
     [self.scro addSubview:securityCodeBgView];
     //获取验证码
     UIView * getCodeRightBgView = [[UIView alloc] initWithFrame:CGRectMake(WIDETH-((WIDETH - 40)/4.0+25), 70, (WIDETH - 40)/4.0*1+10, 45)];
-    getCodeRightBgView.backgroundColor = color(255, 255, 255);
-    getCodeRightBgView.backgroundColor = [UIColor greenColor];
+    getCodeRightBgView.backgroundColor = UIColorFromRGB(0xf44336);
     getCodeRightBgView.layer.cornerRadius = 3;
     getCodeRightBgView.layer.masksToBounds = YES;
     UIButton * securityCodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, (WIDETH - 40)/4.0*1+10, 45)];
     [securityCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
     
-    [securityCodeBtn setBackgroundImage:[UIImage imageNamed:@"lvs"] forState:UIControlStateNormal];
+    [securityCodeBtn setBackgroundImage:[UIImage imageNamed:@"hongniu"] forState:UIControlStateNormal];
     
     securityCodeBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     securityCodeBtn.titleLabel.textColor = color(255, 255, 255);

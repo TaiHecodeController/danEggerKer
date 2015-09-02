@@ -107,10 +107,13 @@
 #pragma mark--重置密码
 -(void)resetpasswordClick
 {
-    if([self.newsPasswordTextFied.text isEqualToString:self.confirmPasswordTextField.text])
+    NSUserDefaults * phone = [NSUserDefaults standardUserDefaults];
+    NSString * str =[NSString stringWithFormat:@"%@",[phone objectForKey:@"moblie"]];
+    
+    if([self.newsPasswordTextFied .text isEqualToString:self.confirmPasswordTextField.text])
     {
-        
-        [LoginAndRegisterRequest resetPasswordRequestWithPhoneNum:self.phoneNum withNewCode:self.newsPasswordTextFied.text withSucc:^(NSDictionary * dic) {
+    
+        [LoginAndRegisterRequest resetPasswordRequestWithPhoneNum:str withNewCode:self.newsPasswordTextFied.text withSucc:^(NSDictionary * dic) {
             if ([dic[@"code"] integerValue]==0) {
                 self.navigationController.navigationBarHidden =  YES ;
                 TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
@@ -127,6 +130,11 @@
 //            [self presentViewController:home animated:YES completion:nil];
 //        }
 //    }];
+    }
+    else
+    {
+    
+    [MBProgressHUD creatembHub:@"密码不一致"];
     }
     
 }

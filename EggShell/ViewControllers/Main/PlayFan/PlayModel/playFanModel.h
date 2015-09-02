@@ -19,8 +19,8 @@
 @property(nonatomic,copy)NSString * starttime;
 @property(nonatomic,copy)NSString * telphone;
 @property(nonatomic,copy)NSString * title;
-@property(nonatomic,copy)NSString * traffic_route;
 @property(nonatomic,copy)NSString * user;
+@property(nonatomic,copy)NSString * traffic_route;
 
 
 @end
