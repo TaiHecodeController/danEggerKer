@@ -14,6 +14,7 @@
 #import "WriteJLChooseVC.h"
 #import "ZCControl.h"
 #import "ResumeModel.h"
+#import "WriteResumeRequest.h"
 
 @interface WriteResumeViewController ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate,UITextFieldDelegate>
 {
@@ -30,13 +31,12 @@
 @property (strong,nonatomic)NSArray * nameArray2;
 @property (strong,nonatomic)NSArray * holderArray2;
 @property (strong,nonatomic)NSMutableArray * jobCellArray2;
-@property (nonatomic, strong)WriteJLChooseVC *writeJLChooseVC;
 @property (nonatomic, strong)UIDatePicker *datePick;
 
 @property (nonatomic, strong) UIView *backView;
 @property (nonatomic, strong) UIButton *ok;
 @property (nonatomic, copy) NSString *dateString;
-
+@property (nonatomic,strong)NSDictionary * dataDic;
 
 @end
 
@@ -46,16 +46,13 @@
     [super viewDidLoad];
     
     _model = [ResumeModel sharedResume];
-    WriteJLChooseVC *vc = [[WriteJLChooseVC alloc]init];
-    vc.delegete = self;
-    _writeJLChooseVC = vc;
     
     self.title = @"写简历";
     self.jobCellArray = [NSMutableArray arrayWithCapacity:0];
     self.jobCellArray2 = [NSMutableArray arrayWithCapacity:0];
     [self createData];
     [self createUI];
-    
+    [self loadData];
     // Do any additional setup after loading the view.
 }
 
@@ -68,6 +65,13 @@
     [self.datePick removeFromSuperview];
     
     [_ok removeFromSuperview];
+}
+
+-(void)loadData
+{
+    [WriteResumeRequest getResumeMessageListWithSucc:^(NSDictionary *DataDic) {
+        self.dataDic = DataDic[@"data"];
+    }];
 }
 
 -(void)createData
@@ -138,7 +142,7 @@
                 return;
             }else
             {
-                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i]];
+                [_model setValue:cell.userId forKey:modelNameArr[i]];
             }
         }else
         {
@@ -213,8 +217,16 @@
                         return;
                     }
                 }
+                
+                if(i == 1||i == 2||i == 3)
+                {
+                    [_model setValue:cell.userId forKey:modelNameArr[i + 9]];
+                }else
+                {
+                    [_model setValue:cell.contentTextField.text forKey:modelNameArr[i + 9]];
+                }
 
-                [_model setValue:cell.contentTextField.text forKey:modelNameArr[i + 9]];
+                
             }
         }
         
@@ -367,55 +379,76 @@
         if (indexPath.row == 1)
         {
             THLog(@"从事行业");
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
             _writeJLChooseVC.titleText = @"从事行业";
             _writeJLChooseVC.cellIndex = indexPath;
             _writeJLChooseVC.tableViewTagIndex = 1555;
+             _writeJLChooseVC.DataArray = self.dataDic[@"hy"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+            
         }
         else if (indexPath.row == 2)
         {
             THLog(@"期望职位");
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
             _writeJLChooseVC.titleText = @"期望职位";
             _writeJLChooseVC.cellIndex = indexPath;
             _writeJLChooseVC.tableViewTagIndex = 1555;
+            _writeJLChooseVC.DataArray = self.dataDic[@"hy"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+            
         }
         else if (indexPath.row == 3)
         {
             THLog(@"期望薪资");
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
             _writeJLChooseVC.titleText = @"期望薪资";
             _writeJLChooseVC.cellIndex = indexPath;
             _writeJLChooseVC.tableViewTagIndex = 1555;
-            
+            _writeJLChooseVC.DataArray = self.dataDic[@"pay"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
         }
         else if (indexPath.row == 5)
         {
             THLog(@"工作性质");
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
             _writeJLChooseVC.titleText = @"工作性质";
             _writeJLChooseVC.cellIndex = indexPath;
             _writeJLChooseVC.tableViewTagIndex = 1555;
-            
+            _writeJLChooseVC.DataArray = self.dataDic[@"type"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
         }
         else if (indexPath.row == 6)
         {
             THLog(@"到岗时间");
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
             _writeJLChooseVC.titleText = @"到岗时间";
             _writeJLChooseVC.cellIndex = indexPath;
             _writeJLChooseVC.tableViewTagIndex = 1555;
-            
+            _writeJLChooseVC.DataArray = self.dataDic[@"dgtime"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
         }
         else if (indexPath.row == 7)
         {
             THLog(@"求职状态");
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
             _writeJLChooseVC.titleText = @"求职状态";
             _writeJLChooseVC.cellIndex = indexPath;
             _writeJLChooseVC.tableViewTagIndex = 1555;
-            
+            _writeJLChooseVC.DataArray = self.dataDic[@"jobstatus"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
         }
         else
         {
             return;
         }
         
-        [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
     }
     else
     {
@@ -433,18 +466,24 @@
         else if (indexPath.row == 2)
         {
             THLog(@"最高学历");
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
             _writeJLChooseVC.titleText = @"最高学历";
             _writeJLChooseVC.cellIndex = indexPath;
             _writeJLChooseVC.tableViewTagIndex = 1999;
-            
+            _writeJLChooseVC.DataArray = self.dataDic[@"education"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
         }
         else if (indexPath.row == 3)
         {
             THLog(@"工作经验");
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
             _writeJLChooseVC.titleText = @"最高学历";
             _writeJLChooseVC.cellIndex = indexPath;
             _writeJLChooseVC.tableViewTagIndex = 1999;
-            
+            _writeJLChooseVC.DataArray = self.dataDic[@"experience"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
         }
         //        else if (indexPath.row == 4)
         //        {
@@ -455,7 +494,7 @@
             return;
         }
         
-        [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+        
     }
     
 }
@@ -562,17 +601,19 @@
     
 }
 
-- (void)chooseWord:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex
+- (void)chooseWord:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
 {
     if (tableViewTagIndex == 1555)
     {
         WriteResumeCell *cell = (WriteResumeCell *)[jobTableView cellForRowAtIndexPath:cellIndex];
         cell.contentTextField.text = keyWord;
+        cell.userId = Id;
     }
     else
     {
         WriteResumeCell *cell = (WriteResumeCell *)[userTableView cellForRowAtIndexPath:cellIndex];
         cell.contentTextField.text = keyWord;
+        cell.userId = Id;
     }
     
 }

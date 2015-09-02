@@ -10,7 +10,7 @@
 
 @protocol writeJLChooseVCDelegate <NSObject>
 
-- (void)chooseWord:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex;
+- (void)chooseWord:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id;
 
 @end
 
@@ -21,5 +21,6 @@
 @property (nonatomic, strong) NSIndexPath *cellIndex;
 @property (nonatomic, assign) NSInteger tableViewTagIndex;
 @property (nonatomic, weak) id<writeJLChooseVCDelegate>delegete;
+@property(nonatomic,strong)NSArray * DataArray;
 
 @end

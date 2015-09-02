@@ -17,6 +17,11 @@
 
 +(AFRequestState *)uploadResumeMessageAboutUserMessageWithSucc:(void(^)(NSDictionary * DataDic))succ WithResumeParam:(NSDictionary *)param
 {
-    return [self postRequestWithUrl:@"http://localhost/interface/Except/except" param:param succ:succ];
+    return [self postRequestWithUrl:@"http://localhost/eggker/interface/Except/except" param:param succ:succ];
+}
+
++(AFRequestState *)getResumeMessageListWithSucc:(void(^)(NSDictionary * DataDic))succ
+{
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/except_select" param:nil succ:succ];
 }
 @end

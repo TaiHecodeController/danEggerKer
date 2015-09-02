@@ -9,5 +9,7 @@
 #import "AFAppRequest.h"
 
 @interface WriteResumeRequest : AFAppRequest
+//简历选择信息列表
++(AFRequestState *)getResumeMessageListWithSucc:(void(^)(NSDictionary * DataDic))succ;
 
 @end
