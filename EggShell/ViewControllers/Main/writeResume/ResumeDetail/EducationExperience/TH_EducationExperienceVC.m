@@ -9,7 +9,11 @@
 #import "TH_EducationExperienceVC.h"
 #import "EducationTimeCell.h"
 #import "EducationWriteCell.h"
+#import "WriteRusumeModel2.h"
 @interface TH_EducationExperienceVC ()<UITableViewDataSource,UITableViewDelegate>
+{
+    WriteRusumeModel2 * _model;
+}
 @property(nonatomic,strong)UITableView * tableView ;
 @property (strong,nonatomic)UILabel * nameLab;
 @property (strong,nonatomic)UITextView * contentTextField;
@@ -120,6 +124,8 @@
                     return;
                 }
             }
+            _model.sdate = cell.startTime.titleLabel.text;
+            _model.edate = cell.endTime.titleLabel.text;
         }else
         {
             EducationWriteCell * cell = self.jobArray[i];
@@ -128,9 +134,31 @@
                 [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请输入%@",cell.educationTitleLable.text]];
                 return;
             }
+            if(i == 0)
+            {
+                _model.name = [cell.educationTitleLable.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            }
+            if(i == 2)
+            {
+                _model.department = [cell.educationTitleLable.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            }
+            if(i == 3)
+            {
+                _model.position = [cell.educationTitleLable.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            }
         }
         
     }
+    
+    if(self.contentTextField.text.length < 30)
+    {
+        [MBProgressHUD creatembHub:@"请输入至少15个字"];
+        return;
+    }else
+    {
+        _model.content = [self.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+    
 }
 /*重置**/
 -(void)replaceBtnClick

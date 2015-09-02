@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 wsd. All rights reserved.
 //
 
-#import "WorkExperienceModel.h"
+#import "WriteRusumeModel2.h"
 
-@implementation WorkExperienceModel
+@implementation WriteRusumeModel2
 
 @end
