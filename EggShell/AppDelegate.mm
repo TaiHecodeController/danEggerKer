@@ -65,8 +65,11 @@
         [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    
-    
+    self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+    if(self.userId)
+    {
+        NSLog(@"已登陆");
+    }
     return YES;
    
 }

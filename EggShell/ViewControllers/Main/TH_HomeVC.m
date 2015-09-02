@@ -30,8 +30,9 @@
 #import "HomeView.h"
 #import "VersionUpdateView.h"
 #import "ManagerResumeVC.h"
+#import "TH_LoginVC.h"
 
-@interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate>
+@interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate>
 {
     UIView * _navBackView;
     SearchView * _searchView;
@@ -464,8 +465,17 @@
         }
         case THHomeViewButtonTypeResumeWriting:
         {NSLog(@"写简历");
-            ManagerResumeVC * manaVC = [[ManagerResumeVC alloc] init];
-            [self.navigationController pushViewController:manaVC animated:YES];
+            if([AppDelegate instance].userId)
+            {
+                ManagerResumeVC * manaVC = [[ManagerResumeVC alloc] init];
+                [self.navigationController pushViewController:manaVC animated:YES];
+            }else
+            {
+                self.navigationController.navigationBarHidden = YES;
+                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登陆" delegate:self cancelButtonTitle:@"暂不登陆" otherButtonTitles:@"登陆", nil];
+                [alertView show];
+            }
+           
             break;
         }
         case THHomeViewButtonTypePlayFan:
@@ -478,7 +488,7 @@
         case THHomeViewButtonTypeMicroSocial:
         {NSLog(@"微社交");
             
-            self.navigationController.navigationBarHidden = YES;
+            
 //            CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
 //            [self.navigationController pushViewController:detail animated:YES];
             UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"正在建设中,敬请期待" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
@@ -498,6 +508,17 @@
             break;
     }
 
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {
+        self.navigationController.navigationBarHidden = NO;
+        TH_LoginVC * lvc = [[TH_LoginVC alloc] init];
+        [self.navigationController pushViewController:lvc animated:YES];
+        
+    }
 }
 
 #pragma mark - - 轮播图
