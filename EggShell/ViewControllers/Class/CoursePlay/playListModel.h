@@ -1,15 +1,15 @@
 //
-//  OpenClassModel.h
+//  playListModel.h
 //  EggShell
 //
-//  Created by 太和 on 15/8/11.
+//  Created by 太和 on 15/9/2.
 //  Copyright (c) 2015年 wsd. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "Gson.h"
 
-@interface OpenClassModel : NSObject<Expose>
+@interface playListModel : NSObject<Expose>
 
 @property (nonatomic, copy) NSString *c_id;
 @property (nonatomic, copy) NSString *id;
@@ -21,6 +21,5 @@
 @property (nonatomic, copy) NSString *video_obvious;
 @property (nonatomic, copy) NSString *video_teacher;
 @property (nonatomic, copy) NSString *vimage;
-@property (nonatomic, copy) NSString *plist;
 
 @end

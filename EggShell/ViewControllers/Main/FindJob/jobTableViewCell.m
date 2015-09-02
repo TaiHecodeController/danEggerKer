@@ -76,7 +76,7 @@
     
     CGFloat margin = 20;
     CGFloat y = 10;
-    CGFloat x = margin;
+//    CGFloat x = margin;
     
     _positionSecBtn.frame = CGRectMake(margin, 27, 17.5, 17.5);
     
@@ -131,16 +131,6 @@
 
 - (void)awakeFromNib {
     // Initialization code
-}
--(void)setValueText:(findJobModel*)FindModel
-{
-   self.positionLab.text = FindModel.provinceid;
-    self.companyLab.text = FindModel.com_name;
-    self.cityLab.text = FindModel.provinceid;
-    self.knowledgeLab.text = FindModel.edu;
-    self.timeLab.text = FindModel.lastupdate;
-    self.salaryLab.text = FindModel.salary;
-
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

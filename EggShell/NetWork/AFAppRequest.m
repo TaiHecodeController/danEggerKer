@@ -148,6 +148,7 @@
          NSNumber * errcode = [NSNumber numberWithInteger:error.code];
          fail([errcode intValue],error);
          
+         //查原始数据 responseObject
          [State setEnd];
      }];
     [State start];

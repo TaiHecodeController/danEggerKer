@@ -9,5 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @interface JobDescriptionlView : UIView
+
+@property (weak, nonatomic) IBOutlet UILabel *postionName;
+@property (weak, nonatomic) IBOutlet UILabel *companyName;
+@property (weak, nonatomic) IBOutlet UILabel *publicTime;
+@property (weak, nonatomic) IBOutlet UILabel *availTime;
+@property (weak, nonatomic) IBOutlet UILabel *exprienceTime;
+@property (weak, nonatomic) IBOutlet UILabel *RecruitmentNum;
+@property (weak, nonatomic) IBOutlet UILabel *workNature;
+@property (weak, nonatomic) IBOutlet UILabel *workPlace;
+@property (weak, nonatomic) IBOutlet UILabel *knowledge;
+@property (weak, nonatomic) IBOutlet UILabel *salary;
+
 +(JobDescriptionlView*)setJobDescriptionView;
 @end

@@ -210,6 +210,10 @@
 		94EFC1C41B7D8F6900833068 /* TH_AFRequestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EFC1C31B7D8F6900833068 /* TH_AFRequestState.m */; };
 		94EFC1C81B7DC65200833068 /* playFanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EFC1C71B7DC65200833068 /* playFanModel.m */; };
 		CA3D16A93CCBDD012A68A6C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37454D869BE49FA62A71A04C /* libPods.a */; };
+		F01787A61B958C15005FF9C4 /* JobDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F01787A51B958C15005FF9C4 /* JobDetailModel.m */; };
+		F01787A91B9592A0005FF9C4 /* companyInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F01787A81B9592A0005FF9C4 /* companyInformationModel.m */; };
+		F01787AC1B95938A005FF9C4 /* jobDetailModel_Arr3.m in Sources */ = {isa = PBXBuildFile; fileRef = F01787AB1B95938A005FF9C4 /* jobDetailModel_Arr3.m */; };
+		F01787AF1B959456005FF9C4 /* JobDetailModel_Arr4.m in Sources */ = {isa = PBXBuildFile; fileRef = F01787AE1B959456005FF9C4 /* JobDetailModel_Arr4.m */; };
 		F05440B11B7848B000127A9B /* HYSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F05440B01B7848B000127A9B /* HYSegmentedControl.m */; };
 		F05440B41B7870B800127A9B /* jobTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F05440B31B7870B800127A9B /* jobTableViewCell.m */; };
 		F05440B71B7885F500127A9B /* UIBarButtonItem+DC.m in Sources */ = {isa = PBXBuildFile; fileRef = F05440B61B7885F500127A9B /* UIBarButtonItem+DC.m */; };
@@ -221,6 +225,7 @@
 		F05B800A1B8ABFC400DC0A1D /* MTSpecailtyListPointItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B80091B8ABFC400DC0A1D /* MTSpecailtyListPointItem.m */; };
 		F05B80101B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B800F1B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.m */; };
 		F05B80131B8AC34400DC0A1D /* UIColor+RK_Color.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B80121B8AC34400DC0A1D /* UIColor+RK_Color.m */; };
+		F06F72EF1B9694D200989489 /* playListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F06F72EE1B9694D200989489 /* playListModel.m */; };
 		F0D7C02B1B7994DB00836DD2 /* OpenClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */; };
 		F0D7C0551B79C7B400836DD2 /* libpolyvSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C04C1B79C7B400836DD2 /* libpolyvSDK.a */; };
 		F0D7C0571B79CC4800836DD2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C0561B79CC4800836DD2 /* MobileCoreServices.framework */; };
@@ -596,6 +601,14 @@
 		94EFC1C61B7DC65200833068 /* playFanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playFanModel.h; sourceTree = "<group>"; };
 		94EFC1C71B7DC65200833068 /* playFanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playFanModel.m; sourceTree = "<group>"; };
 		A209E6A9E258BA344FA95EF1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F01787A41B958C15005FF9C4 /* JobDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobDetailModel.h; sourceTree = "<group>"; };
+		F01787A51B958C15005FF9C4 /* JobDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailModel.m; sourceTree = "<group>"; };
+		F01787A71B9592A0005FF9C4 /* companyInformationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = companyInformationModel.h; path = ../../FindJobModel/companyInformationModel.h; sourceTree = "<group>"; };
+		F01787A81B9592A0005FF9C4 /* companyInformationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = companyInformationModel.m; path = ../../FindJobModel/companyInformationModel.m; sourceTree = "<group>"; };
+		F01787AA1B95938A005FF9C4 /* jobDetailModel_Arr3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobDetailModel_Arr3.h; sourceTree = "<group>"; };
+		F01787AB1B95938A005FF9C4 /* jobDetailModel_Arr3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobDetailModel_Arr3.m; sourceTree = "<group>"; };
+		F01787AD1B959456005FF9C4 /* JobDetailModel_Arr4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobDetailModel_Arr4.h; sourceTree = "<group>"; };
+		F01787AE1B959456005FF9C4 /* JobDetailModel_Arr4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailModel_Arr4.m; sourceTree = "<group>"; };
 		F05440AF1B7848B000127A9B /* HYSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYSegmentedControl.h; sourceTree = "<group>"; };
 		F05440B01B7848B000127A9B /* HYSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYSegmentedControl.m; sourceTree = "<group>"; };
 		F05440B21B7870B800127A9B /* jobTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobTableViewCell.h; sourceTree = "<group>"; };
@@ -617,6 +630,8 @@
 		F05B800F1B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+RK_row_col.m"; sourceTree = "<group>"; };
 		F05B80111B8AC34400DC0A1D /* UIColor+RK_Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RK_Color.h"; sourceTree = "<group>"; };
 		F05B80121B8AC34400DC0A1D /* UIColor+RK_Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RK_Color.m"; sourceTree = "<group>"; };
+		F06F72ED1B9694D200989489 /* playListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playListModel.h; sourceTree = "<group>"; };
+		F06F72EE1B9694D200989489 /* playListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playListModel.m; sourceTree = "<group>"; };
 		F0D7C0291B7994DB00836DD2 /* OpenClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenClassCell.h; sourceTree = "<group>"; };
 		F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenClassCell.m; sourceTree = "<group>"; };
 		F0D7C04B1B79C7B400836DD2 /* DownloadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadDelegate.h; sourceTree = "<group>"; };
@@ -1606,6 +1621,7 @@
 		94E2C96A1B870F29001E3FDD /* JobDetails */ = {
 			isa = PBXGroup;
 			children = (
+				F01787A31B958C01005FF9C4 /* JobDetailModel */,
 				94E2C96E1B870F29001E3FDD /* JobDetailView */,
 				94E2C9781B870F29001E3FDD /* moreJobCell */,
 				94E2C97C1B870F29001E3FDD /* SubViews */,
@@ -1733,6 +1749,8 @@
 				94E7DCEF1B841D510093C39B /* CoursePlayview */,
 				94E7DCF61B841D510093C39B /* THCoursePlayVC.h */,
 				94E7DCF71B841D510093C39B /* THCoursePlayVC.m */,
+				F06F72ED1B9694D200989489 /* playListModel.h */,
+				F06F72EE1B9694D200989489 /* playListModel.m */,
 			);
 			path = CoursePlay;
 			sourceTree = "<group>";
@@ -1850,6 +1868,21 @@
 				52C8CB3344C41F9F3DBAC076 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F01787A31B958C01005FF9C4 /* JobDetailModel */ = {
+			isa = PBXGroup;
+			children = (
+				F01787A71B9592A0005FF9C4 /* companyInformationModel.h */,
+				F01787A81B9592A0005FF9C4 /* companyInformationModel.m */,
+				F01787A41B958C15005FF9C4 /* JobDetailModel.h */,
+				F01787A51B958C15005FF9C4 /* JobDetailModel.m */,
+				F01787AA1B95938A005FF9C4 /* jobDetailModel_Arr3.h */,
+				F01787AB1B95938A005FF9C4 /* jobDetailModel_Arr3.m */,
+				F01787AD1B959456005FF9C4 /* JobDetailModel_Arr4.h */,
+				F01787AE1B959456005FF9C4 /* JobDetailModel_Arr4.m */,
+			);
+			path = JobDetailModel;
 			sourceTree = "<group>";
 		};
 		F05440AE1B7848B000127A9B /* HYSegmentedControl */ = {
@@ -2126,6 +2159,7 @@
 				940033221B841C2D001EB666 /* TH_ClassVC.m in Sources */,
 				041650691B4D7240008C78BE /* GObjAdapter.m in Sources */,
 				940032F11B840DCD001EB666 /* JobScreeningCell.m in Sources */,
+				F06F72EF1B9694D200989489 /* playListModel.m in Sources */,
 				94E7DCFC1B841D510093C39B /* THCoursePlayVC.m in Sources */,
 				041650CB1B4D730F008C78BE /* MBProgressHUD.m in Sources */,
 				04A0CD481B7A111D00EBCF01 /* HeadView.m in Sources */,
@@ -2171,7 +2205,9 @@
 				94CB5B7F1B74CC0600B23B9D /* MJIvar.m in Sources */,
 				940033011B840FC6001EB666 /* MineVeiw.m in Sources */,
 				94E3EA911B8EB520007A699E /* MMNetWorkType.m in Sources */,
+				F01787AC1B95938A005FF9C4 /* jobDetailModel_Arr3.m in Sources */,
 				041650ED1B4D7C4E008C78BE /* MJRefreshConst.m in Sources */,
+				F01787A91B9592A0005FF9C4 /* companyInformationModel.m in Sources */,
 				04237D901B66456F00768FAD /* LoginAndRegisterRequest.m in Sources */,
 				0454ACEC1B945F20004A70ED /* ResumeCell.m in Sources */,
 				94313DAF1B7CAAB5005D0A9A /* TH_PlayFanVC.m in Sources */,
@@ -2195,6 +2231,7 @@
 				94CB5B861B74CC0600B23B9D /* NSObject+MJMember.m in Sources */,
 				94EDD4F81B783FA700A00A78 /* TH_FindPartTimeVC.m in Sources */,
 				94EDD4DF1B78302E00A00A78 /* THCustomNavigationController.m in Sources */,
+				F01787A61B958C15005FF9C4 /* JobDetailModel.m in Sources */,
 				94CB5B811B74CC0600B23B9D /* MJMethod.m in Sources */,
 				940032D41B840CC3001EB666 /* EducationWriteCell.m in Sources */,
 				94313DF31B7CB5C9005D0A9A /* WriteResumeVC2.m in Sources */,
@@ -2206,6 +2243,7 @@
 				9400330F1B8415B4001EB666 /* TH_AboutEggshellVC.m in Sources */,
 				94E2C9871B870F29001E3FDD /* JobDescriptionlView.m in Sources */,
 				940032D01B840CC3001EB666 /* projectTableViewCell.m in Sources */,
+				F01787AF1B959456005FF9C4 /* JobDetailModel_Arr4.m in Sources */,
 				048F30BA1B7A4537004AA9B2 /* FMDatabaseQueue.m in Sources */,
 				94313DF41B7CB5C9005D0A9A /* WriteResumeViewController.m in Sources */,
 				041650EC1B4D7C4E008C78BE /* MJRefreshBaseView.m in Sources */,

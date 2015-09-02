@@ -25,7 +25,6 @@
 @interface TH_FindJobVC ()<UITableViewDataSource,UITableViewDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,MJRefreshBaseViewDelegate>
 {
 
-
     jobTableViewCell *_cell;
 
     BMKLocationService * _locService;
@@ -74,6 +73,7 @@
     [self.navigationController.navigationBar addSubview:searchBtn];
     _searchBtn = searchBtn;
     
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -94,21 +94,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-//     self.dataArray =[NSMutableArray arrayWithCapacity:0];
-    _mailingNumBer = 0;
-    self.page = 0;
+    self.jobArr = [[NSMutableArray alloc]init];
+       _mailingNumBer = 0;
+    self.page = 1;
     self.view.backgroundColor =[UIColor whiteColor];
  
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barBtnItemWithNormalImageName:@"liebiao" hightImageName:nil action:@selector(rightClick) target:self];
     
     [self initView];
     
-//  [self querData];
-    /*数据请求**/
-    _mbPro = [MBProgressHUD mbHubShow];
-    [self loadData:_mbPro page:0];
-
-    
+    //在此方法里请求数据
     [self hySegmentedControlSelectAtIndex:0];
     
     //    //设置定位精确度，默认：kCLLocationAccuracyBest
@@ -130,18 +125,11 @@
         return;
     }
     
-//    NSString * pageNumber = [NSString stringWithFormat:@"%d",num];
-    //    _state = [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
-    //        self.dataArray = [NSMutableArray arrayWithArray:DataDic];
-    //
-    //        [self.tableView reloadData];
-    //
-    //    } resp:[playFanModel class] withPage:pageNumber] addNotifaction:notify];
     self.state =[[TH_AFRequestState jobListReRequestWithSucc:^(NSArray *DataDic) {
        
+         [self.jobArr addObjectsFromArray:DataDic];
         
-        self.dataArray = [NSMutableArray arrayWithArray:DataDic];
-        NSLog(@"%@",self.dataArray);
+        [self.tableView reloadData];
         
     } withfail:^(int errCode, NSError *err) {
        
@@ -311,31 +299,6 @@
     THLog(@"jobarr:%@",_jobArr);
 }
 
-#pragma mark - http
-- (void)startHttpRequest
-{
-//        __weak typeof(self) weakSelf = self;
-//    
-//        //模糊查询景点
-//        MTSearchScenicRequest *request = [MTSearchScenicRequest requestWithKeyword:_keyword cityCode:_cityCode limit:20 offset:0];
-//    
-//        [MTConnection startRequest:request onTarget:weakSelf withBlock:^(BOOL success, MTRespDataSourceType sourceType, MTURLResponse *response)
-//         {
-//    
-//             MTSearchScenicResponse *rp = (MTSearchScenicResponse *)response;
-//    
-//             if (rp.scenicList && rp.scenicList.count > 0)
-//             {
-//                 dataArray = [weakSelf getArray:rp.scenicList length:2];
-//                 [_gridView reloadData];
-//             }
-//             else
-//             {
-//                 //无符合信息
-//                 [weakSelf showHttpErrorInfo:nil info:nil];
-//             }
-//         }];
-}
 
 - (void)hySegmentedControlSelectAtIndex:(NSInteger)index
 {
@@ -343,30 +306,20 @@
     {
         
         _currentIndex = 0;
-        //        [dataArray removeAllObjects];
-        //        [dataArray addObject:@"1"];
-        //        [dataArray addObject:@"2"];
-        //        [dataArray addObject:@"3"];
-        //        [dataArray addObject:@"4"];
-        //        [dataArray addObject:@"5"];
+       
+        /*数据请求**/
+        _mbPro = [MBProgressHUD mbHubShow];
+        [self loadData:_mbPro page:self.page];
         
-        [_tableView reloadData];
-        //        _tableView.hidden = YES;
-        //        _gridView.hidden = NO;
+       
     }
     else
     {
         _currentIndex = 1;
-        //        [dataArray removeAllObjects];
-        //        [dataArray addObject:@"11"];
-        //        [dataArray addObject:@"22"];
-        //        [dataArray addObject:@"33"];
-        //        [dataArray addObject:@"44"];
-        //        [dataArray addObject:@"55"];
+        /*数据请求**/
+        _mbPro = [MBProgressHUD mbHubShow];
+        [self loadData:_mbPro page:self.page];
         
-        [_tableView reloadData];
-        //        _gridView.hidden = YES;
-        //        _tableView.hidden = NO;
     }
 }
 
@@ -389,39 +342,30 @@
     
     if (_currentIndex == 0)
     {
-//        cell.positionLab.text = _jobArr[indexPath.row][@"positionName"];
-//        cell.companyLab.text = @"苏宁消费金融有限公司";
-//        cell.cityLab.text = @"北京";
-//        cell.knowledgeLab.text = @"大专";
-//        cell.timeLab.text = @"7-30";
-//        cell.salaryLab.text = @"5k-7k";
-        findJobModel * model = self.dataArray [indexPath.row];
-        [cell setValueText:model];
-        cell.jobSelected = _jobArr[indexPath.row][@"selected"];
+        findJobModel * model = self.jobArr[indexPath.row];
+        cell.positionLab.text = model.provinceid;
+        cell.companyLab.text = model.com_name;
+        cell.cityLab.text =  model.provinceid;
+        cell.knowledgeLab.text = model.edu;
+        cell.timeLab.text = model.lastupdate;
+        cell.salaryLab.text = model.salary;
+        cell.jobSelected = (model.cellselected.length > 0) ? (@"0") : (model.cellselected);
         [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell layoutSubviews];
     }
     else
     {
-     
-//        cell.positionLab.text = _jobArr[indexPath.row][@"positionName"];
-//        cell.companyLab.text = @"苏宁消费金融有限公司";
-//        cell.cityLab.text = @"北京";
-//        cell.knowledgeLab.text = @"大专";
-//        cell.timeLab.text = @"7-30";
-//        cell.salaryLab.text = @"5k-7k";
-//        cell.jobSelected = _jobArr[indexPath.row][@"selected"];
-        findJobModel * model = self.dataArray [indexPath.row];
-        [cell setValueText:model];
+        findJobModel * model = self.jobArr[indexPath.row];
+        cell.positionLab.text = model.provinceid;
+        cell.companyLab.text = model.com_name;
+        cell.cityLab.text =  model.provinceid;
+        cell.knowledgeLab.text = model.edu;
+        cell.timeLab.text = model.lastupdate;
+        cell.salaryLab.text = model.salary;
+        cell.jobSelected = model.cellselected;
         [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell layoutSubviews];
-
     }
-
-
-    _cell  = cell;
-
-   [self.cellArray addObject:cell];
 
     return cell;
 }
@@ -451,9 +395,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-      return self.dataArray.count;
-    
-//  return _jobArr.count;
+  return _jobArr.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -464,9 +406,12 @@
     else
     {
 
+       findJobModel *fjModel = _jobArr[indexPath.row];
         
-    TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
+        TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
         record_index = indexPath;
+        detail.uid = [fjModel.uid intValue];
+        detail.pid = [fjModel.id intValue];
         
         [self.navigationController pushViewController:detail animated:YES];
 
@@ -482,9 +427,12 @@
         sender.selected = YES;
         //选中所有
         for (int i = 0; i<_jobArr.count; i++) {
-            NSLog(@"_jobarr[%d]=%@", i, _jobArr[i]);
-            _jobArr[i][@"selected"] = @"1";
+//            NSLog(@"_jobarr[%d]=%@", i, _jobArr[i]);
+           findJobModel *model = self.jobArr[i];
+//            _jobArr[i][@"selected"] = @"1";
+            model.cellselected = @"1";
         }
+        
         [_tableView reloadData];
 
     }
@@ -492,9 +440,12 @@
     {
         sender.selected = NO;
         //失选所有
-        for (int i = 0; i<_jobArr.count; i++) {
-            NSLog(@"_jobarr[%d]=%@", i, _jobArr[i]);
-            _jobArr[i][@"selected"] = @"0";
+        for (int i = 0; i<_jobArr.count; i++)
+        {
+            //            NSLog(@"_jobarr[%d]=%@", i, _jobArr[i]);
+            findJobModel *model = self.jobArr[i];
+            //            _jobArr[i][@"selected"] = @"1";
+            model.cellselected = @"0";
         }
         [_tableView reloadData];
     }
@@ -506,20 +457,20 @@
     {
         sender.selected = YES;
         
-        jobTableViewCell *cell = (jobTableViewCell *)[sender superview];
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        THLog(@"_cellIndexSet增加%ld",(long)indexPath.row);
-        _jobArr[indexPath.row][@"selected"] = @"1";
+//        jobTableViewCell *cell = (jobTableViewCell *)[sender superview];
+//        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+//        THLog(@"_cellIndexSet增加%ld",(long)indexPath.row);
+//        _jobArr[indexPath.row][@"selected"] = @"1";
 //        [_cellIndeSet addIndex:indexPath.row];
         
     }
     else
     {
         sender.selected = NO;
-        jobTableViewCell *cell = (jobTableViewCell *)[sender superview];
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        THLog(@"_cellIndexSet减少%ld",(long)indexPath.row);
-        _jobArr[indexPath.row][@"selected"] = @"0";
+//        jobTableViewCell *cell = (jobTableViewCell *)[sender superview];
+//        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+//        THLog(@"_cellIndexSet减少%ld",(long)indexPath.row);
+//        _jobArr[indexPath.row][@"selected"] = @"0";
 //        [_cellIndeSet removeIndex:indexPath.row];
     }
 
@@ -547,15 +498,15 @@
 {
     THLog(@"职位申请被点击");
     
-    _mailingNumBer = 0;
-    for (int i = 0; i < _jobArr.count; i++)
-    {
-        
-        if ([_jobArr[i][@"selected"]  isEqual: @"1"])
-        {
-            _mailingNumBer++;
-        }
-    }
+//    _mailingNumBer = 0;
+//    for (int i = 0; i < _jobArr.count; i++)
+//    {
+//        
+//        if ([_jobArr[i][@"selected"]  isEqual: @"1"])
+//        {
+//            _mailingNumBer++;
+//        }
+//    }
     
     [self addCoverView];
     
@@ -566,10 +517,10 @@
 - (void)closeBtn
 {
     THLog(@"close被点击");
-    for (int i ; i< _jobArr.count; i++)
-    {
-        _jobArr[i][@"selected"] = @"0";
-    }
+//    for (int i ; i< _jobArr.count; i++)
+//    {
+//        _jobArr[i][@"selected"] = @"0";
+//    }
     [self removeCoverAndAlert];
 }
 

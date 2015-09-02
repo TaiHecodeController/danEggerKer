@@ -13,7 +13,6 @@
 
 @end
 
-
 @interface Gson : NSObject
 
 +(id)fromJson:(NSString*)json Cls:(Class)cls;

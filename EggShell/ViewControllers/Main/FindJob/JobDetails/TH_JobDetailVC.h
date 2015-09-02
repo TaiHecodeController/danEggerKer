@@ -12,4 +12,7 @@
 @property(nonatomic,strong)ComPanyProfileView *  CMview;
 @property(nonatomic,strong)MJRefreshHeaderView * header;
 @property(nonatomic,strong)MJRefreshFooterView * footer;
+
+@property (nonatomic, assign) int uid;
+@property (nonatomic, assign) int pid;
 @end
