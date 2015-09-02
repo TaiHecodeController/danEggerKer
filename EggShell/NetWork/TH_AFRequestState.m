@@ -29,19 +29,32 @@
     NSDictionary * param = @{@"type":typeNum,@"id":classID};
     return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Activity/details" param:param succ:succ];
 }
-/*职位列表**/
-+(AFRequestState* )jobListReRequestWithSucc:(void(^)(NSArray * DataDic))succ withfail:(void (^)(int errCode, NSError * err))fail withPageNumber:(int)pageNumber resp:(Class)resp
-{NSNumber * numPager = [NSNumber numberWithInt:pageNumber];
-    NSDictionary * param = @{@"page":numPager};
-//    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Position/loadMore/" param:param succ:succ fail:false ];
-    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Position/loadMore/" param:param succ:succ fail:fail resp:resp];
- }
+
 /*意见反馈**/
 +(AFRequestState*)feedbackReRequestWithSucc:(void(^)(NSArray * DataDic))succ withUserId:(NSString * )userId withContent:(NSDictionary*)contenDic withfail:(void (^)(int errCode, NSError * err))fail
 {
     NSDictionary * param = @{@"uid":userId,@"descriptionContent":contenDic};
     return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/feedback" param:param succ:succ fail:fail];
+}
 
+/*职位列表**/
++(AFRequestState* )jobListReRequestWithSucc:(void(^)(NSArray * DataDic))succ withfail:(void (^)(int errCode, NSError * err))fail withPageNumber:(int)pageNumber resp:(Class)resp
+{
+    NSNumber * numPager = [NSNumber numberWithInt:pageNumber];
+    NSNumber * limit = [NSNumber numberWithInt:3];
+    NSDictionary * param = @{@"page":numPager,@"limit":limit};
+    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Position/loadMore" param:param succ:succ fail:fail resp:resp];
+    
+}
+
+/*职位详情**/
++(AFRequestState* )jobDetailsRequestWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode, NSError *err))fail withId:(int)id pid:(int)pid resp:(Class)resp
+{
+    NSNumber *numid = [NSNumber numberWithInt:id];
+    NSNumber *numpid = [NSNumber numberWithInt:pid];
+    NSDictionary *param = @{@"id":numid,@"pid":numpid};
+    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Position/details" param:param succ:succ fail:fail resp:resp];
+    
 }
 
 @end

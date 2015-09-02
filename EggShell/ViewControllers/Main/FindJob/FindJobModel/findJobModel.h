@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "Gson.h"
 @interface findJobModel : NSObject<Expose>
-@property(nonatomic,assign)NSString *com_name;
-@property(nonatomic,assign)NSString *edu;
-@property(nonatomic,assign)NSString *id;
-@property(nonatomic,assign)NSString *lastupdate;
-@property(nonatomic,assign)NSString *name;
-@property(nonatomic,assign)NSString *provinceid;
-@property(nonatomic,assign)NSString *salary;
-@property(nonatomic,assign)NSString *uid;
+@property(nonatomic,copy)NSString *com_name;
+@property(nonatomic,copy)NSString *edu;
+@property(nonatomic,copy)NSString *id;
+@property(nonatomic,copy)NSString *lastupdate;
+@property(nonatomic,copy)NSString *name;
+@property(nonatomic,copy)NSString *provinceid;
+@property(nonatomic,copy)NSString *salary;
+@property(nonatomic,copy)NSString *uid;
+@property(nonatomic,copy)NSString *cellselected;
 @end

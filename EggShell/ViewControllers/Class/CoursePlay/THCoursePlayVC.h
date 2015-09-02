@@ -39,6 +39,7 @@ typedef enum {
 @property (nonatomic,strong,readonly)NSArray *movieURLList;
 @property (readonly,nonatomic,copy)NSString *movieTitle;
 @property (nonatomic,copy)NSString *mStrlastPlayTime;
+@property (nonatomic, copy) NSString *classId;
 
 @property (nonatomic, assign) id<MoviePlayerViewControllerDelegate> delegate;
 @property (nonatomic, assign) id<MoviePlayerViewControllerDataSource> datasource;

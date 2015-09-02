@@ -11,4 +11,7 @@
 @interface Course_PlayCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *orderBtn;
 -(void)setOrderValue:(int)number;
+@property (weak, nonatomic) IBOutlet UILabel *videoName;
+@property (weak, nonatomic) IBOutlet UILabel *videoTime;
+
 @end

@@ -19,6 +19,8 @@
 #import "CourePlayTitle.h"
 #import "UIBarButtonItem+DC.h"
 #import "AppDelegate.h"
+#import "OpenClassVideoListRequest.h"
+#import "playListModel.h"
 
 #define TopViewHeight 44
 //#define BottomViewHeight 72
@@ -94,6 +96,8 @@ typedef NS_ENUM(NSInteger, GestureType){
 @property (nonatomic, strong) PLVMoviePlayerController *PLvideoPlayer;
 
 @property(nonatomic,strong)UITableView * tableView;
+@property (nonatomic, strong) AFRequestState *state;
+@property (nonatomic, strong) NSMutableArray *videoListArr;
 
 @end
 
@@ -177,6 +181,9 @@ typedef NS_ENUM(NSInteger, GestureType){
         [MBProgressHUD creatembHub:@"您当前处于wifi状态"];
         
     }
+    
+     MBProgressHUD *mb = [MBProgressHUD mbHubShow];
+    [self loadDataWithMB:mb classid:_classId];
 
     // Do any additional setup after loading the view.
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
@@ -243,6 +250,25 @@ typedef NS_ENUM(NSInteger, GestureType){
     self.title = @"课程播放";
     [self createCourePlay];
     [self createTableView];
+    
+}
+
+- (void)loadDataWithMB:(id)mb classid:(NSString *)classid
+{
+ 
+    
+    if(self.state.running)
+    {
+        return;
+    }
+    
+    self.state = [[OpenClassVideoListRequest requestWithSucc:^(NSArray *DataDic) {
+      
+      self.videoListArr = [NSMutableArray arrayWithArray:DataDic];
+      
+      [self.tableView reloadData];
+    } resp:[playListModel class] paramWithId:classid] addNotifaction:mb];
+    
 }
 
 #pragma mark -- 添加课程标题列表
@@ -265,7 +291,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.videoListArr.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -273,6 +299,10 @@ typedef NS_ENUM(NSInteger, GestureType){
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"Course PlayCell" owner:self options:nil] firstObject];
     }
+    
+   playListModel *plModel = self.videoListArr[indexPath.row];
+    cell.videoName.text = plModel.video_name;
+    cell.videoTime.text = plModel.video_hour;
     
     [cell setOrderValue:(int)indexPath.row];
     return cell;

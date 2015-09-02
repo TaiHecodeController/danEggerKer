@@ -246,7 +246,7 @@
             appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
             
             appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
-            
+            appDelegate.userId = dic[@"data"][@"uid"];
             [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
         }
         

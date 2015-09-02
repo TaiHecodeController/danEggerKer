@@ -106,7 +106,6 @@
     _state = [[OpenClassVideoListRequest requestWithSucc:^(NSArray *DataDic) {
         
                 [weakSelf.dataArray addObjectsFromArray:[weakSelf getArray:DataDic length:2]];
-//                weakSelf.dataArray = ;
                 [weakSelf._gridView reloadData];
 
     } resp:[OpenClassModel class] paramPage:page Pagesize:@"2"] addNotifaction:notify];
@@ -328,7 +327,7 @@
         return;
     }
     THCoursePlayVC *moviePlayer =    [[THCoursePlayVC alloc] initNetworkMoviePlayerViewControllerWithURL:Url movieTitle:model.video_name];
-    
+    moviePlayer.classId = model.plist;
     //    [self.navigationController presentViewController:moviePlayer animated:YES completion:nil];
     [self.navigationController pushViewController:moviePlayer animated:YES];
 }

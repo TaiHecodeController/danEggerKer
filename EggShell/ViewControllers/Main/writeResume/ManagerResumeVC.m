@@ -10,6 +10,9 @@
 
 #import "WriteResumeViewController.h"
 #import "ResumeCell.h"
+#import "WriteResumeRequest.h"
+#import "AppDelegate.h"
+#import "ManagerResumeModel.h"
 @interface ManagerResumeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     UIView * _alertView;
@@ -27,10 +30,26 @@
     [super viewDidLoad];
     self.title =  @"简历管理";
     self.ResumeList.tableFooterView = [[UIView alloc] init];
+    [self loadData];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    self.dataArray = [NSMutableArray arrayWithArray:@[@""]];
     self.cellArray = [NSMutableArray arrayWithCapacity:0];
     
+}
+
+-(void)loadData
+{
+    [WriteResumeRequest getResumeListWithSucc:^(NSArray * DataArray) {
+        self.dataArray = [NSMutableArray arrayWithArray:DataArray];
+        if(self.dataArray.count == 0)
+        {
+            [MBProgressHUD creatembHub:@"暂时还没有简历,快来创建你的第一份简历吧😄😄"];
+        }else
+        {
+            ManagerResumeModel * model = self.dataArray[0];
+            [AppDelegate instance].resumeId = model.rid;
+            [self.ResumeList reloadData];
+        }
+    } WithUserId:[AppDelegate instance].userId resp:[ManagerResumeModel class]];
 }
 - (IBAction)createNewResume:(UIButton *)sender {
     
@@ -58,6 +77,11 @@
     }
     cell.Controller = self;
     cell.cellIndex = indexPath;
+    ManagerResumeModel * model = self.dataArray[indexPath.row];
+    cell.ResumeName.text = model.name;
+    cell.createDate.text = model.ctime;
+    cell.ResumeName.font = [UIFont systemFontOfSize:13];
+    cell.resumeId = model.rid;
     if(indexPath.row == 0)
     {
         cell.iSSelect.selected = YES;
@@ -85,7 +109,13 @@
 */
 
 - (IBAction)createNewResumeClick:(UIButton *)sender {
+    if(self.dataArray.count > 0)
+    {
+        [MBProgressHUD creatembHub:@"当前只能创建一份简历"];
+        return;
+    }
 }
+
 - (IBAction)editClick:(UIButton *)sender {
 }
 - (IBAction)userResume:(UIButton *)sender {

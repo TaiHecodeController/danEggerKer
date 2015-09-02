@@ -35,19 +35,27 @@
                             <constraint firstAttribute="height" constant="21" id="U7x-Gj-bfl"/>
                             <constraint firstAttribute="width" constant="81" id="WHA-WE-hRH"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-08-13" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylw-Cd-aN9">
-                        <rect key="frame" x="169" y="13" width="77" height="21"/>
+                        <rect key="frame" x="171" y="13" width="75" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="77" id="T8V-S4-y7q"/>
+                            <constraint firstAttribute="width" constant="88" id="WT3-91-xZu"/>
+                            <constraint firstAttribute="width" constant="75" id="cJf-OA-wds"/>
                             <constraint firstAttribute="height" constant="21" id="l7u-1p-vrM"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="T8V-S4-y7q"/>
+                                <exclude reference="WT3-91-xZu"/>
+                            </mask>
+                        </variation>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFg-4Q-ETw">
                         <rect key="frame" x="259" y="12" width="53" height="23"/>

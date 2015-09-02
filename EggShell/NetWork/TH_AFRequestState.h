@@ -17,7 +17,12 @@
 +(AFRequestState *)playClassDetailRequestWithSucc:(void(^)(NSArray * dataDic))succ withType:(int)type withId:(int) classId;
 /*职位列表**/
 +(AFRequestState* )jobListReRequestWithSucc:(void(^)(NSArray * DataDic))succ withfail:(void (^)(int errCode, NSError * err))fail withPageNumber:(int)Page resp:(Class)resp;
+
 /*意见反馈**/
 +(AFRequestState*)feedbackReRequestWithSucc:(void(^)(NSArray * DataDic))succ withUserId:(NSString * )userId withContent:(NSDictionary*)contenDic withfail:(void (^)(int errCode, NSError * err))fail;
+
+/*职位详情**/
++(AFRequestState* )jobDetailsRequestWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode, NSError *err))fail withId:(int)id pid:(int)pid resp:(Class)resp;
+
 
 @end

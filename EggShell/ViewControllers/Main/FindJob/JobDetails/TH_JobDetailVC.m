@@ -15,6 +15,7 @@
 #import "AFAppRequest.h"
 #import "playFanModel.h"
 #import "TH_AFRequestState.h"
+#import "JobDetailModel.h"
 @interface TH_JobDetailVC ()<UITableViewDataSource,UITableViewDelegate,companyProfileViewDelegate,MJRefreshBaseViewDelegate>
 {
     //纪录展开之前的frame
@@ -35,6 +36,10 @@
 @property(assign)CGSize textSize;
 @property(strong,nonatomic)UIView * headerView;
 @property(strong,nonatomic)AFRequestState * state;
+@property (nonatomic, strong) MBProgressHUD *mbPro;
+@property (nonatomic, strong)JobDescriptionlView *jobDescription;
+@property (nonatomic, strong)ComPanyProfileView *companyprofileView;
+
 @end
 
 @implementation TH_JobDetailVC
@@ -48,9 +53,32 @@
     [self createTableView];
     [self createDetailView];
     [self searchBtn];
+    
+    /*数据请求**/
+    _mbPro = [MBProgressHUD mbHubShow];
+    [self loadData:_mbPro page:0];
+    
+//    [self querData];
 }
 
-
+-(void)loadData:(id)notify page:(int)num
+{
+    if(_state.running)
+    {
+        return;
+    }
+    
+//    int _id = 23;
+//    int pid = 7;
+    
+    self.state = [[TH_AFRequestState jobDetailsRequestWithSucc:^(NSDictionary *DataArr) {
+        JobDetailModel * model = (JobDetailModel *)DataArr;
+        [self setHeaderModel:model];
+        
+    } withfail:^(int errCode, NSError *err) {
+        
+    } withId:_uid pid:_pid resp:[JobDetailModel class]] addNotifaction:notify];
+}
 
 -(void)searchBtn
 {
@@ -83,6 +111,7 @@
     JobDescriptionlView * jobDescription = [JobDescriptionlView setJobDescriptionView];
        jobDescription.frame = CGRectMake(0, 0, WIDETH, 350);
    [self.headerView addSubview:jobDescription];
+    _jobDescription = jobDescription;
 //        CompanyProfil * company =  [[[NSBundle mainBundle] loadNibNamed:@"CompanyProfile" owner:self options:nil]lastObject];
 //    [company companyProfilSelcet];
 //    company.frame = CGRectMake(0, 350, WIDETH, 160);
@@ -92,6 +121,7 @@
     companyprofileView.delegate = self;
     NSString * str = @"根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发的速度不可比拟是你是你.根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发的速度不可比拟是你是你.根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发根据项目需求，项目经理要求完成相关应用的就与开发用的就与开发保证IFA质量";
     [companyprofileView config:str];
+    _companyprofileView = companyprofileView;
     [self.headerView addSubview:companyprofileView];
 
 }
@@ -156,6 +186,11 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     _footer = [MJRefreshFooterView footer];
     _footer.delegate = self;
     _footer.scrollView = self.tableView;
+}
+
+- (void)querData
+{
+    
 }
 
 -(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
@@ -239,6 +274,37 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightCollectBtn];
 
 }
+
+#pragma set方法
+- (void)setHeaderModel:(JobDetailModel *)model
+{
+//    _jobDescription.postionName.text = model.;
+    _jobDescription.companyName.text = model.com_name;
+    _jobDescription.publicTime.text = model.lastupdate;
+    _jobDescription.availTime.text = model.lastupdate;
+    _jobDescription.exprienceTime.text = model.exp;
+    _jobDescription.RecruitmentNum.text = model.hy;
+    
+    if ([model.type isEqualToString:@"54"])
+    {
+        _jobDescription.workNature.text = @"不限";
+    }
+    else if ([model.type isEqualToString:@"55"])
+    {
+        _jobDescription.workNature.text = @"全职";
+    }
+    else
+    {
+        _jobDescription.workNature.text = @"兼职";
+    }
+    
+    _jobDescription.workPlace.text = model.address;
+    _jobDescription.knowledge.text = model.edu;
+    _jobDescription.salary.text = model.salary;
+    
+    [_companyprofileView config:model.content];
+}
+
 #pragma mark- - 收藏
 -(void)rightBtnClick:(UIButton *)sender
 {

@@ -89,7 +89,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3年" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcM-Hm-0MS">
-                                    <rect key="frame" x="75" y="0.0" width="30" height="13"/>
+                                    <rect key="frame" x="75" y="0.0" width="75" height="13"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
@@ -130,7 +130,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="北京" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dw9-ad-eQl">
-                                    <rect key="frame" x="233" y="-4" width="28" height="21"/>
+                                    <rect key="frame" x="233" y="-4" width="79" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -259,6 +259,18 @@
                 <constraint firstItem="QRS-2L-Xqk" firstAttribute="top" secondItem="iac-gn-Wg7" secondAttribute="bottom" id="zwn-1h-kYp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="RecruitmentNum" destination="uqd-XS-tjI" id="x6Q-CD-gG4"/>
+                <outlet property="availTime" destination="7Kc-b4-aV8" id="nLE-dx-M1X"/>
+                <outlet property="companyName" destination="BxQ-8c-JgL" id="yDI-bV-A4p"/>
+                <outlet property="exprienceTime" destination="rcM-Hm-0MS" id="N4x-uN-g5s"/>
+                <outlet property="knowledge" destination="VHJ-Ov-2cE" id="To6-FM-nvi"/>
+                <outlet property="postionName" destination="nFp-JO-EE3" id="Fff-d2-YIe"/>
+                <outlet property="publicTime" destination="c3j-C0-wSa" id="UVG-hG-g0F"/>
+                <outlet property="salary" destination="xmR-dw-9ST" id="ees-Ln-q3Y"/>
+                <outlet property="workNature" destination="Z7F-gG-WH0" id="W1R-9V-btB"/>
+                <outlet property="workPlace" destination="dw9-ad-eQl" id="uoB-99-jNe"/>
+            </connections>
             <point key="canvasLocation" x="9" y="151"/>
         </view>
     </objects>
