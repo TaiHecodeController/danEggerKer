@@ -7,7 +7,9 @@
 //
 
 #import "TH_BaseVC.h"
-
+#import "playFanModel.h"
 @interface TH_InformationDeskDetailVC : TH_BaseVC
-@property(nonatomic,strong)NSArray * detailArray;
+@property(nonatomic,strong)playFanModel * detaildic;
+@property(nonatomic,assign) int typeNum;
+@property(nonatomic,assign) NSString * classId;
 @end

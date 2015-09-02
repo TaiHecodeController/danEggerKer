@@ -9,8 +9,10 @@
 #import "TH_InformationDeskDetailVC.h"
 #import "infDestDetailView.h"
 #import "playFanModel.h"
+#import "AFAppRequest.h"
 @interface TH_InformationDeskDetailVC ()
 @property(nonatomic,strong)UIScrollView * scro;
+@property (nonatomic,strong)AFRequestState * state;
 @end
 
 @implementation TH_InformationDeskDetailVC
@@ -18,6 +20,20 @@
 - (void)viewDidLoad {
     [self createSco];
     [self registerView];
+    
+    
+    [self loadData];
+    
+    
+}
+-(void)loadData
+{
+
+    _state = [TH_AFRequestState playClassDetailRequestWithSucc:^(NSArray *dataDic) {
+    
+        
+    } withType:self.typeNum withId:[self.classId intValue]];
+              
 }
 -(void)createSco
 {
@@ -30,8 +46,7 @@
 -(void)registerView
 { infDestDetailView * detail = [[[NSBundle mainBundle] loadNibNamed:@"infDestDetailView" owner:self options:nil] lastObject];
     detail.frame = CGRectMake(0, 0, WIDETH, HEIGHT);
-    playFanModel * model =self.detailArray;
-    [detail  setValue:model];
+    [detail setValues:self.detaildic];
     [self.scro addSubview:detail];
     self.scro.contentSize = CGSizeMake(WIDETH, 568);
 }

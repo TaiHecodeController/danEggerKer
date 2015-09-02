@@ -18,6 +18,7 @@
 @property(nonatomic,strong)UIView *bgqqView;
 @property(nonatomic,strong)UIView *emailBgview;
 @property(nonatomic,strong)UIButton * subMitBtn;
+@property(nonatomic,strong)UITextView * textView;
 @end
 
 @implementation TH_FeedBackVC
@@ -40,7 +41,17 @@
     
 //    /*收回键盘**/
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
+    
+    [self LodDatarequest];
     }
+-(void)LodDatarequest
+{
+
+   
+    
+    
+
+}
 
 -(void)createTextView{
 
@@ -58,6 +69,7 @@
     textView.font =[UIFont systemFontOfSize:12];
     textView.delegate = self;
     textView.textColor  = UIColorFromRGB(0xC8C8C8);
+    self.textView = textView;
     [titleView addSubview:textView];
     
     UILabel * placeHoderLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, textView.width, 12)];
@@ -124,8 +136,17 @@
     [subMitBtn setTitle:@"提交" forState:UIControlStateNormal];
     subMitBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [subMitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [subMitBtn addTarget:self action:@selector(subClick) forControlEvents:UIControlEventTouchUpInside];
     self.subMitBtn = subMitBtn;
     [self.scro addSubview:subMitBtn];
+    
+    
+}
+-(void)subClick
+{
+    NSString * textView       = self.textView.text;
+    NSString  * qqtext        = self.textqqField.text;
+    NSString  *emailTextFiled = self.emailTextFiled.text;
     
     
 }

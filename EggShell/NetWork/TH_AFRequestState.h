@@ -12,7 +12,9 @@
 //公开课
 
 //玩出范
-+(AFRequestState *)playClassrRequestWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit;
++(AFRequestState *)playClassrRequestWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type;
+/*玩出范详情**/
++(AFRequestState *)playClassDetailRequestWithSucc:(void(^)(NSArray * dataDic))succ withType:(int)type withId:(int) classId;
 /*职位列表**/
 +(AFRequestState* )jobListReRequestWithSucc:(void(^)(NSArray * DataDic))succ withfail:(void (^)(int errCode, NSError * err))fail withPageNumber:(int)Page resp:(Class)resp;
 
