@@ -30,6 +30,13 @@
     return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Activity/details" param:param succ:succ];
 }
 
+/*意见反馈**/
++(AFRequestState*)feedbackReRequestWithSucc:(void(^)(NSArray * DataDic))succ withUserId:(NSString * )userId withContent:(NSDictionary*)contenDic withfail:(void (^)(int errCode, NSError * err))fail
+{
+    NSDictionary * param = @{@"uid":userId,@"descriptionContent":contenDic};
+    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/feedback" param:param succ:succ fail:fail];
+}
+
 /*职位列表**/
 +(AFRequestState* )jobListReRequestWithSucc:(void(^)(NSArray * DataDic))succ withfail:(void (^)(int errCode, NSError * err))fail withPageNumber:(int)pageNumber resp:(Class)resp
 {

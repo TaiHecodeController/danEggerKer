@@ -45,10 +45,15 @@
 }
 -(void)registerView
 { infDestDetailView * detail = [[[NSBundle mainBundle] loadNibNamed:@"infDestDetailView" owner:self options:nil] lastObject];
+//    detail.contentLable.backgroundColor = [UIColor redColor];
+   
     detail.frame = CGRectMake(0, 0, WIDETH, HEIGHT);
+    detail.contentLable.userInteractionEnabled = NO;
     [detail setValues:self.detaildic];
     [self.scro addSubview:detail];
     self.scro.contentSize = CGSizeMake(WIDETH, 568);
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

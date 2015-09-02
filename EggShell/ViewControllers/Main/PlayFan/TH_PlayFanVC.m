@@ -15,8 +15,10 @@
 @interface TH_PlayFanVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
     MBProgressHUD * _mbPro;
+     NSIndexPath  * record_index;
 }
 @property(nonatomic,strong)UITableView * tableView;
+@property(nonatomic,strong)NSMutableArray * cellArray;
 @property (nonatomic, strong) HYSegmentedControl *segmentedControl;
 @property (nonatomic, assign) int currentIndex;
 @property(nonatomic,strong)NSMutableArray * dataArray;
@@ -40,6 +42,14 @@
     
     
     
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+//    self.cellArray = [NSMutableArray arrayWithCapacity:0];
+//        InformationDeskCell * cell = self.cellArray[record_index.row];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//      [self.tableView reloadData];
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -146,7 +156,7 @@
     [InforCell setValue:model];
     
     //    NSLog(@"%@",model.endtime);
-    
+//    [self.cellArray addObject:InforCell];
     return InforCell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -155,16 +165,14 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (_currentIndex == 0) {
         TH_InformationDeskDetailVC * detail = [[TH_InformationDeskDetailVC alloc] init];
         detail.title = @"详情";
         playFanModel  * model = self.dataArray[indexPath.row];
         detail.detaildic = model;
-//        [NSMutableArray arrayWithObject:model];
-//        detail.detailArray = self.dataArray[indexPath.row];
-//        detail.typeNum = 1;
-//        detail.classId = model.id;
+        record_index = indexPath;
+
         [self.navigationController pushViewController:detail animated:YES];
 
         
@@ -173,10 +181,8 @@
         detail.title = @"详情";
         playFanModel  * model = self.dataArray[indexPath.row];
         detail.detaildic = model;
-//        detail.detaildic = model;
-//        detail.detailArray = self.dataArray[indexPath.row];
-//        detail.typeNum = 2;
-//        detail.classId = model.id;
+        record_index = indexPath;
+
         [self.navigationController pushViewController:detail animated:YES];
     
     }
