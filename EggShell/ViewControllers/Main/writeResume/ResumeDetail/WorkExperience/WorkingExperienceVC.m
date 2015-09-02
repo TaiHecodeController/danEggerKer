@@ -160,9 +160,9 @@
     }
     NSDictionary * param = @{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"department":_model.department,@"title":_model.title,@"content":_model.content};
     
-    [WriteResumeRequest uploadWorkExperienceWithSucc:^(NSArray *dataArray) {
+    [WriteResumeRequest uploadWorkExperienceWithSucc:^(NSDictionary * dataDic) {
         
-    } WithResumeParam:param resp:[WorkExperienceModel class]];
+    } WithResumeParam:param];
 }
 
 -(void)replaceClick

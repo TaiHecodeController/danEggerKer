@@ -25,9 +25,9 @@
     return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/except_select" param:nil succ:succ];
 }
 
-+(AFRequestState *)uploadWorkExperienceWithSucc:(void(^)(NSArray * dataArray))succ WithResumeParam:(NSDictionary *)param resp:(Class)resp
++(AFRequestState *)uploadWorkExperienceWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
-    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/resume_work" param:param succ:succ resp:resp];
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/resume_work" param:param succ:succ];
 }
 
 

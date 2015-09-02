@@ -16,5 +16,5 @@
 //上传用户所填信息
 +(AFRequestState *)uploadResumeMessageAboutUserMessageWithSucc:(void(^)(NSDictionary * DataDic))succ WithResumeParam:(NSDictionary *)param;
 
-+(AFRequestState *)uploadWorkExperienceWithSucc:(void(^)(NSArray * dataArray))succ WithResumeParam:(NSDictionary *)param resp:(Class)resp;
++(AFRequestState *)uploadWorkExperienceWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param;
 @end
