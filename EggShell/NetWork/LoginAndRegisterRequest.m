@@ -35,7 +35,7 @@
 +(AFRequestState *)registerWithSucc:(void(^)(NSDictionary * DataDic))succ Withphonenumber:(NSString *)userName WithPassword:(NSString *)password withSecurityCodee:(NSString *)SecurityCodee
 {
     NSDictionary * para = @{@"telphone":userName,@"password":password,@"code":SecurityCodee};
-    return [self postRequestWithUrl:@"http://195.198.1.197/eggker/interface/register" param:para succ:succ];
+    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/register" param:para succ:succ];
 }
 
 //登录
@@ -43,7 +43,7 @@
 {
     NSDictionary * param = @{@"username":username,@"password":password};
 
-    return [self postRequestWithUrl:@"http://195.198.1.197/eggker/interface/login" param:param succ:succ fail:fail];
+    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/login" param:param succ:succ fail:fail];
     
 
 }

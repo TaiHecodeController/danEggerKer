@@ -15,6 +15,7 @@
 #import "ZCControl.h"
 #import "ResumeModel.h"
 #import "WriteResumeRequest.h"
+#import "AppDelegate.h"
 
 @interface WriteResumeViewController ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate,UITextFieldDelegate>
 {
@@ -142,7 +143,14 @@
                 return;
             }else
             {
-                [_model setValue:cell.userId forKey:modelNameArr[i]];
+                if(i == 0)
+                {
+                    [_model setValue:cell.contentTextField.text forKey:modelNameArr[i]];
+                }else
+                {
+                    [_model setValue:cell.userId forKey:modelNameArr[i]];
+                }
+                
             }
         }else
         {
@@ -218,7 +226,7 @@
                     }
                 }
                 
-                if(i == 1||i == 2||i == 3)
+                if(i == 2||i == 3)
                 {
                     [_model setValue:cell.userId forKey:modelNameArr[i + 9]];
                 }else
@@ -231,11 +239,14 @@
         }
         
     }
-    NSDictionary * param = @{@"uid":@"uid",@"name":_model.resumeName,@"hy":_model.industry,@"job_classid":_model.exceptJob,@"salary":_model.exceptSalary,@"provinceid":_model.exceptCity,@"type":_model.jobNature,@"report":_model.arriveTime,@"jobstatus":_model.findState,@"uname":_model.userName,@"birthday":_model.userBirthday,@"edu":_model.academic,@"exp":_model.workExperience,@"telphone":_model.phoneNum,@"email":_model.email,@"address":_model.address};
+    NSDictionary * param = @{@"uid":[AppDelegate instance].userId,@"name":_model.resumeName,@"hy":_model.industry,@"job_classid":_model.exceptJob,@"salary":_model.exceptSalary,@"provinceid":_model.exceptCity,@"type":_model.jobNature,@"report":_model.arriveTime,@"jobstatus":_model.findState,@"uname":_model.userName,@"birthday":_model.userBirthday,@"edu":_model.academic,@"exp":_model.workExperience,@"telphone":_model.phoneNum,@"email":_model.email,@"address":_model.address};
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    [[WriteResumeRequest uploadResumeMessageAboutUserMessageWithSucc:^(NSDictionary *DataDic) {
+        WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
+        [self.navigationController pushViewController:wrvc2 animated:YES];
+    } WithResumeParam:param] addNotifaction:hub];
     
     
-    WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
-    [self.navigationController pushViewController:wrvc2 animated:YES];
 }
 
 //反射

@@ -9,19 +9,21 @@
 #import "WriteResumeRequest.h"
 
 @implementation WriteResumeRequest
-+(AFRequestState *)getWriteResumeStaticDataWithSucc:(void(^)(NSDictionary * DataDic))succ
++(AFRequestState *)getResumeListWithSucc:(void(^)(NSArray * DataArray))succ WithUserId:(NSString *)userId resp:(Class)resp;
 {
-    return [self postRequestWithUrl:@"http://localhost/interface/Except/except" param:nil succ:succ];
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/resume_manager" param:@{@"uid":userId} succ:succ resp:resp];
     
 }
 
 +(AFRequestState *)uploadResumeMessageAboutUserMessageWithSucc:(void(^)(NSDictionary * DataDic))succ WithResumeParam:(NSDictionary *)param
 {
-    return [self postRequestWithUrl:@"http://localhost/eggker/interface/Except/except" param:param succ:succ];
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/except" param:param succ:succ];
 }
 
 +(AFRequestState *)getResumeMessageListWithSucc:(void(^)(NSDictionary * DataDic))succ
 {
     return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/except_select" param:nil succ:succ];
 }
+
+
 @end

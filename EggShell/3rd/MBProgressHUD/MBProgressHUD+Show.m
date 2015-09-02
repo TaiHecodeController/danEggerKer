@@ -33,6 +33,7 @@
     AppDelegate * app = [AppDelegate instance];
     UIWindow * window = app.window;
     MBProgressHUD * mbHud = [[MBProgressHUD alloc]initWithWindow:window];
+    mbHud.labelText = @"正在加载";
     [window addSubview:mbHud];
     mbHud.dimBackground = YES;
     [mbHud show:YES];

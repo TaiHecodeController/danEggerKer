@@ -10,6 +10,9 @@
 
 #import "WriteResumeViewController.h"
 #import "ResumeCell.h"
+#import "WriteResumeRequest.h"
+#import "AppDelegate.h"
+#import "ManagerResumeModel.h"
 @interface ManagerResumeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     UIView * _alertView;
@@ -27,10 +30,21 @@
     [super viewDidLoad];
     self.title =  @"简历管理";
     self.ResumeList.tableFooterView = [[UIView alloc] init];
+    [self loadData];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    self.dataArray = [NSMutableArray arrayWithArray:@[@""]];
     self.cellArray = [NSMutableArray arrayWithCapacity:0];
     
+}
+
+-(void)loadData
+{
+    [WriteResumeRequest getResumeListWithSucc:^(NSArray * DataArray) {
+        self.dataArray = [NSMutableArray arrayWithArray:DataArray];
+        if(self.dataArray.count == 0)
+        {
+            [MBProgressHUD creatembHub:@"暂时还没有简历,快来创建你的第一份简历吧😄😄"];
+        }
+    } WithUserId:[AppDelegate instance].userId resp:[ManagerResumeModel class]];
 }
 - (IBAction)createNewResume:(UIButton *)sender {
     
