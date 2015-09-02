@@ -97,9 +97,10 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
     TH_InformationDeskDetailVC * inforMation = [[TH_InformationDeskDetailVC alloc]init];
     inforMation.title = @"详情";
+    
     [self.navigationController pushViewController:inforMation animated:YES];
 }
 - (void)didReceiveMemoryWarning {

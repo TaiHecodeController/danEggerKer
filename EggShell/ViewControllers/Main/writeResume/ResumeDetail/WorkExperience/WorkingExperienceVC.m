@@ -9,7 +9,7 @@
 #import "WorkingExperienceVC.h"
 #import "WriteResumeCell.h"
 #import "WorkingTimeCell.h"
-
+#import "WorkExReadingVC.h"
 @interface WorkingExperienceVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;
@@ -85,6 +85,7 @@
     
     [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
+    [saveBtn addTarget:self action:@selector(savaBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:saveBtn];
     
     UIButton * replaceBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 + 10, 368, 90, 29) ImageName:@"lanniu2" Target:self Action:@selector(replaceClick) Title:@"重置"];
@@ -93,7 +94,12 @@
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
     [self.view addSubview:replaceBtn];
 }
-
+#pragma mark - 保存简历阅览
+-(void)savaBtnClick
+{
+    WorkExReadingVC * workreading = [[WorkExReadingVC alloc] init];
+    [self.navigationController pushViewController:workreading animated:YES];
+}
 -(void)saveClick
 {
     for(int i = 0;i < self.jobArray.count;i++)

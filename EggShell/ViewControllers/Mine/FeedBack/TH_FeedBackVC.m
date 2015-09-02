@@ -7,7 +7,7 @@
 //
 
 #import "TH_FeedBackVC.h"
-
+#import "AFAppRequest.h"
 @interface TH_FeedBackVC ()<UITextViewDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UILabel * placeHoderLable;
@@ -30,7 +30,7 @@
     UIScrollView * sco =[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     [self.view addSubview:sco];
     self.scro = sco;
-   [self createTextView];
+    [self createTextView];
     /*隐藏键盘**/
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
     tapGestureRecognizer.cancelsTouchesInView = NO;
@@ -39,22 +39,22 @@
     /*显示键盘**/
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
     
-//    /*收回键盘**/
+    //    /*收回键盘**/
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
     
     [self LodDatarequest];
-    }
+}
 -(void)LodDatarequest
 {
-
-   
     
     
-
+    
+    
+    
 }
 
 -(void)createTextView{
-
+    
     
     UIView * titleView =[[UIView alloc] initWithFrame:CGRectMake(30, 30, WIDETH-60, 160)];
     titleView.backgroundColor = [UIColor whiteColor];
@@ -65,10 +65,11 @@
     [self.scro addSubview:titleView];
     self.titleView = titleView;
     UITextView * textView =[[UITextView alloc] initWithFrame:CGRectMake(5, 5, titleView.width-10, 150)];
-//    textView.text = @"请留下你的宝贵意见，我们会尽快处理...";
+    //    textView.text = @"请留下你的宝贵意见，我们会尽快处理...";
     textView.font =[UIFont systemFontOfSize:12];
     textView.delegate = self;
-    textView.textColor  = UIColorFromRGB(0xC8C8C8);
+    textView.textColor  = [UIColor blackColor];
+    //    UIColorFromRGB(0xC8C8C8);
     self.textView = textView;
     [titleView addSubview:textView];
     
@@ -144,10 +145,33 @@
 }
 -(void)subClick
 {
-    NSString * textView       = self.textView.text;
-    NSString  * qqtext        = self.textqqField.text;
-    NSString  *emailTextFiled = self.emailTextFiled.text;
+    NSUserDefaults * userID= [NSUserDefaults standardUserDefaults];
+    NSString * userId =  [userID objectForKey:@"uid"];
     
+    NSString * textView       = [self.textView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString  * qqtext ;
+    NSString  *emailText ;
+    if ([self.textqqField.text length] ==0) {
+        qqtext = @"";
+    }
+    else
+    {
+        qqtext        = self.textqqField.text;
+        
+    }
+    if([self.emailTextFiled.text length]== 0) {
+        emailText = @"";
+    }else
+    {
+        emailText =self.emailTextFiled.text;
+    }
+    
+    NSDictionary * contentDic = @{@"opinion":textView, @"qq":qqtext,@"email":emailText};
+    [TH_AFRequestState feedbackReRequestWithSucc:^(NSArray *DataDic) {
+        
+    } withUserId:userId withContent:contentDic withfail:^(int errCode, NSError *err) {
+        
+    }];
     
 }
 -(void)keyboardHide:(UITapGestureRecognizer*)tap
@@ -156,7 +180,7 @@
 }
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
-
+    
     [self.placeHoderLable removeFromSuperview];
 }
 
@@ -173,8 +197,8 @@
     [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+height) animated:YES];
     
     
-
-
+    
+    
 }
 -(void)hideKeyBoard:(NSNotification*)notification
 {
@@ -187,13 +211,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

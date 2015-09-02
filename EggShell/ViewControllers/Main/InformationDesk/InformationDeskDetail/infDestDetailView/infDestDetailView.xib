@@ -110,20 +110,17 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RdM-oj-3tS">
-                    <rect key="frame" x="15" y="283" width="290" height="163"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="163" id="LyZ-YO-Tqp"/>
-                    </constraints>
-                    <string key="text">    太和文化产业集团专注于教育文化产业的扛鼎之作，太和书院汇集了全国顶尖教育专家与团队，依托集团深厚的教育资源背景，逐步成长为中国最具特色的教育文化机构。我们致力于教育产业咨询管理及人才运营两大领域，拥有各类院校、科研机构、政府部门、信息机构、培训教育机构等各类用户和合作伙伴3万余家；建立并完善了包括CCTV-中学生校长联合会、名师汇、校园创就业服务中心等众多的平台，为广大教育产业群体提供最为精准的专有服务。</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="koX-2M-YR8">
+                    <rect key="frame" x="15" y="277" width="290" height="207"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">太和文化产业集团专注于教育文化产业的扛鼎之作，太和书院汇集了全国顶尖教育专家与团队，依托集团深厚的教育资源背景，逐步成长为中国最具特色的教育文化机构。我们致力于教育产业咨询管理及人才运营两大领域，拥有各类院校、科研机构、政府部门、信息机构、培训教育机构等各类用户和合作伙伴3万余家；建立并完善了包括CCTV-中学生校长联合会、名师汇、校园创就业服务中心等众多的平台，为广大教育产业群体提供最为精准的专有服务。</string>
+                    <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="RdM-oj-3tS" firstAttribute="top" secondItem="jkX-pn-uGb" secondAttribute="bottom" constant="7" id="2F1-tk-yPq"/>
                 <constraint firstItem="iBA-x6-vZo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6RB-P0-AN6"/>
                 <constraint firstAttribute="trailing" secondItem="iBA-x6-vZo" secondAttribute="trailing" id="9N0-8W-1fa"/>
                 <constraint firstItem="8hW-ey-laz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Fw3-2O-9qk"/>
@@ -132,9 +129,7 @@
                 <constraint firstItem="jkX-pn-uGb" firstAttribute="top" secondItem="iBA-x6-vZo" secondAttribute="bottom" constant="10" id="XQN-74-e7M"/>
                 <constraint firstItem="8hW-ey-laz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="p1Q-zf-IKH"/>
                 <constraint firstAttribute="trailing" secondItem="jkX-pn-uGb" secondAttribute="trailing" constant="205" id="sli-9u-2CO"/>
-                <constraint firstAttribute="trailing" secondItem="RdM-oj-3tS" secondAttribute="trailing" constant="15" id="ttc-uc-5Qu"/>
                 <constraint firstItem="jkX-pn-uGb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="yKR-S9-9ZI"/>
-                <constraint firstItem="RdM-oj-3tS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="zo5-rc-s90"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -142,7 +137,7 @@
                 <outlet property="RouteLable" destination="kFv-gu-fS3" id="bHj-mV-ngP"/>
                 <outlet property="contactLable" destination="UIT-I1-C0d" id="hcX-0e-55T"/>
                 <outlet property="contactPesonLable" destination="IlN-f9-X3U" id="m1v-pH-AWy"/>
-                <outlet property="contentLable" destination="RdM-oj-3tS" id="ZBS-KF-W3j"/>
+                <outlet property="contentLable" destination="koX-2M-YR8" id="FCS-QU-GEY"/>
                 <outlet property="holdLable" destination="dT7-qI-dgf" id="siu-Fi-0c6"/>
                 <outlet property="timelLable" destination="GZY-TZ-5L7" id="DJm-Cx-mqG"/>
             </connections>
@@ -150,7 +145,7 @@
         </view>
     </objects>
     <resources>
-        <image name="tu001" width="375" height="100"/>
+        <image name="tu001" width="375" height="201"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

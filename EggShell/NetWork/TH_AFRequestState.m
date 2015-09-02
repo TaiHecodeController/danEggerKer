@@ -35,9 +35,12 @@
     NSDictionary * param = @{@"page":numPager};
 //    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Position/loadMore/" param:param succ:succ fail:false ];
     return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Position/loadMore/" param:param succ:succ fail:fail resp:resp];
-    
-
-
+ }
+/*意见反馈**/
++(AFRequestState*)feedbackReRequestWithSucc:(void(^)(NSArray * DataDic))succ withUserId:(NSString * )userId withContent:(NSDictionary*)contenDic withfail:(void (^)(int errCode, NSError * err))fail
+{
+    NSDictionary * param = @{@"uid":userId,@"descriptionContent":contenDic};
+    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/feedback" param:param succ:succ fail:fail];
 
 }
 
