@@ -15,4 +15,12 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"professional" owner:self options:nil] lastObject];
 }
+-(void)conFigValue:(NSString*)model
+{  self.professionalSkill.text = model;
+    self.graspTime.text = model;
+    self.skilledDegree.text = model;
+    self.skillName.text = model;
+   
+
+}
 @end

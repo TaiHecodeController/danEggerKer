@@ -12,6 +12,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *awardTime;
 @property (weak, nonatomic) IBOutlet UILabel *certificateName;
 @property (weak, nonatomic) IBOutlet UILabel *awardCompany;
-@property (weak, nonatomic) IBOutlet UILabel *certificateIntroduce;
+@property (weak, nonatomic) IBOutlet UITextView *certificateIntroduce;
+
 +(CertificateView*)setCertificateView;
+-(void)configValue:(NSString*)model;
 @end

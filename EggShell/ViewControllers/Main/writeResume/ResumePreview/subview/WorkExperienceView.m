@@ -14,5 +14,11 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"workExperecie" owner:self options:nil] lastObject];
 }
+-(void)configVulue:(NSString *)model
+{
 
+    self.workTime.text = model;
+    self.position.text = model;
+    self.workContent.text = model;
+}
 @end

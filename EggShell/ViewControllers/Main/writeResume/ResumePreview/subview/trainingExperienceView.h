@@ -12,6 +12,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *trainTime;
 @property (weak, nonatomic) IBOutlet UILabel *trainDirection;
 @property (weak, nonatomic) IBOutlet UILabel *trainCompany;
-@property (weak, nonatomic) IBOutlet UILabel *trainIntroduce;
+@property (weak, nonatomic) IBOutlet UITextView *trainIntroduce;
+
 +(trainingExperienceView*)settrainingExperienceView;
+-(void)configValue:(NSString*)model;
 @end

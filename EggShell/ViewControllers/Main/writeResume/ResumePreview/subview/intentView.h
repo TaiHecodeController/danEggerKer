@@ -18,4 +18,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *workNature;
 
 +(intentView*)setIntentView;
+-(void)configValue:(NSString*)model;
 @end

@@ -44,9 +44,9 @@
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UIView * searChBgView;
 @property(nonatomic,strong)FindjobView * findView;
-
-
-
+@property (nonatomic,strong)AFRequestState * state;
+@property(nonatomic,strong)NSDictionary * dataDic;
+@property(nonatomic,strong)NSArray *imageArr;
 @end
 
 @implementation TH_HomeVC
@@ -534,17 +534,31 @@
 
 - (void)quereData
 {
-//        NSString *str1 = @"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg";
-//        NSString *str2 = @"http://s6.mogujie.cn/b7/bao/130928/c7k0_kqyw6vckkfbgeq3wgfjeg5sckzsew_500x750.jpg_200x999.jpg";
-//        NSString *str3 = @"http://s6.mogujie.cn/b7/bao/131008/q2o17_kqyvcz3ckfbewv3wgfjeg5sckzsew_330x445.jpg_200x999.jpg";
-    //包含字典的数组，每个字典key为photo,value为string
-//     NSArray * imsgeArray = @[@"lunbotu0",@"lunbo2",@"lunbo3"];
-        NSArray * imsgeArray = @[@"lunbo2",@"lunbo3",@"lunbotu0"];
+    self.dataDic = [NSMutableDictionary dictionaryWithCapacity:0 ];
 
-    NSArray *imageArr = [NSArray arrayWithObjects:@{@"photo":imsgeArray[0]},@{@"photo":imsgeArray[1]},@{@"photo":imsgeArray[2]}, nil];
-    
-    //加载数据
-    [_bannerView setImageURLs:imageArr];
+      _state = [TH_AFRequestState CarouselFigureRequestWithSucc:^(NSDictionary * arr) {
+        
+          self.dataDic = arr[@"data"];
+          NSString *str1 = self.dataDic[@"lunbo1"];
+          NSString *str2 =self.dataDic[@"lunbo2"];
+          NSString *str3 = self.dataDic[@"lunbo3"];
+          self.imageArr = [NSArray arrayWithObjects:@{@"photo":str1},@{@"photo":str2},@{@"photo":str3}, nil];
+         [_bannerView setImageURLs:self.imageArr];
+    } withfail:^(int errCode, NSError *err) {
+        
+    }];
+//   ////    @"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg";
+//   NSString *str2 =self.dataDic[@"lunbo2"];
+//////    @"http://s6.mogujie.cn/b7/bao/130928/c7k0_kqyw6vckkfbgeq3wgfjeg5sckzsew_500x750.jpg_200x999.jpg";
+//    NSString *str3 = self.dataDic[@"lunbo3"];
+////    @"http://s6.mogujie.cn/b7/bao/131008/q2o17_kqyvcz3ckfbewv3wgfjeg5sckzsew_330x445.jpg_200x999.jpg";
+    //包含字典的数组，每个字典key为photo,value为string
+//   NSArray *imageArr = [NSArray arrayWithObjects:@{@"photo":str1},@{@"photo":str2},@{@"photo":str3}, nil];
+//        NSArray * imsgeArray = @[@"lunbo2",@"lunbo3",@"lunbotu0"];
+//
+//    NSArray *imageArr = [NSArray arrayWithObjects:@{@"photo":imsgeArray[0]},@{@"photo":imsgeArray[1]},@{@"photo":imsgeArray[2]}, nil];
+//       //加载数据
+   
     
 }
 

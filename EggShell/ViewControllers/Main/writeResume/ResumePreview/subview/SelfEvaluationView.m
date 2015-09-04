@@ -13,4 +13,8 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"myself" owner:self options:nil] lastObject];
 }
+-(void)configValue:(NSString*)model
+{
+    self.selfEvaluation.text =  model;
+}
 @end

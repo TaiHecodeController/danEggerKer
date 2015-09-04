@@ -13,5 +13,13 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"train" owner:self options:nil] lastObject];
 }
+-(void)configValue:(NSString*)model
 
+{
+    self.trainTime.text = model;
+    self.trainDirection.text = model;
+    self.trainCompany.text = model;
+    self.trainIntroduce.text = model;
+
+}
 @end

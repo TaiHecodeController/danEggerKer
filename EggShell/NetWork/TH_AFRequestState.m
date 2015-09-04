@@ -31,10 +31,14 @@
 }
 
 /*意见反馈**/
-+(AFRequestState*)feedbackReRequestWithSucc:(void(^)(NSArray * DataDic))succ withUserId:(NSString * )userId withContent:(NSDictionary*)contenDic withfail:(void (^)(int errCode, NSError * err))fail
++(AFRequestState*)feedbackReRequestWithSucc:(void(^)(NSArray * DataDic))succ   withSource:(int)source withOpinion:(NSString*)opinion withqq:(NSString*)qq withEmail:(NSString*)email withfail:(void (^)(int errCode, NSError * err))fail
 {
-    NSDictionary * param = @{@"uid":userId,@"descriptionContent":contenDic};
+    NSNumber * num = [NSNumber numberWithInt:source];
+    
+  NSDictionary * param = @{@"source":num ,@"opinion":opinion,@"qq":qq,@"email":email};
     return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/feedback" param:param succ:succ fail:fail];
+   
+
 }
 
 /*职位列表**/
@@ -55,6 +59,12 @@
     NSDictionary *param = @{@"id":numid,@"pid":numpid};
     return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Position/details" param:param succ:succ fail:fail resp:resp];
     
+}
+/*轮播图**/
++(AFRequestState*)CarouselFigureRequestWithSucc:(void(^)(NSDictionary *arr))succ withfail:(void(^)(int errCode, NSError *err))fail
+{
+
+    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/lunbo" param:nil succ:succ fail:fail];
 }
 
 @end

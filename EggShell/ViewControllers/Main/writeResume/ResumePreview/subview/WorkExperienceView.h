@@ -11,6 +11,8 @@
 @interface WorkExperienceView : UIView
 @property (weak, nonatomic) IBOutlet UILabel *workTime;
 @property (weak, nonatomic) IBOutlet UILabel *position;
-@property (weak, nonatomic) IBOutlet UILabel *workContent;
+@property (weak, nonatomic) IBOutlet UITextView *workContent;
+
 +(WorkExperienceView*)setWorkExperienceView;
+-(void)configVulue:(NSString *)model;
 @end

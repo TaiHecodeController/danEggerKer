@@ -14,5 +14,14 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"intentView" owner:self options:nil] lastObject];
 }
-
+-(void)configValue:(NSString*)model
+{
+    self.exceptJob.text = model;
+    self.exceptIndustry.text = model;
+    self.exceptSalary.text = model;
+    self.workAddress.text = model;
+    self.arriveTime.text = model;
+    self.workNature.text = model;
+    self.workState.text = model;
+}
 @end
