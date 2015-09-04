@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *department;
 @property (weak, nonatomic) IBOutlet UILabel *schoolName;
 @property (weak, nonatomic) IBOutlet UILabel *position;
-@property (weak, nonatomic) IBOutlet UILabel *departmentIntroduce;
+@property (weak, nonatomic) IBOutlet UITextView *departmentIntroduce;
+
 +(EducationExperienceView*)setEducationExperienceView;
+-(void)configVulue:(NSString*)model;
 @end

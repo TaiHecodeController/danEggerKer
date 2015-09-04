@@ -138,7 +138,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Mine/Login/TH_LoginVC.m"
-                  timestampString = "463049545.001591"
+                  timestampString = "463049953.728682"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "235"
@@ -153,7 +153,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Mine/Login/TH_LoginVC.m"
-                  timestampString = "463049545.002946"
+                  timestampString = "463049953.728898"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "235"
@@ -202,92 +202,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Class/TH_ClassVC.m"
-            timestampString = "463049717.868731"
+            timestampString = "463049959.753358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "-querTeacherFCVideo"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Class/TH_ClassVC.m"
-            timestampString = "463049717.868731"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "-querTeacherFCVideo"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TH_ClassVC querTeacherFCVideo]"
-                  moduleName = "EggShell"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Class/TH_ClassVC.m"
-                  timestampString = "463049545.03353"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "122"
-                  endingLineNumber = "122"
-                  offsetFromSymbolStart = "41">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__32-[TH_ClassVC querTeacherFCVideo]_block_invoke"
-                  moduleName = "EggShell"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Class/TH_ClassVC.m"
-                  timestampString = "463049545.03401"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "122"
-                  endingLineNumber = "122"
-                  offsetFromSymbolStart = "43">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/NetWork/AFAppRequest.m"
-            timestampString = "463046511.076583"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "+postRequestWithUrl:param:succ:fail:resp:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/NetWork/AFAppRequest.m"
-            timestampString = "463046506.98947"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "+postRequestWithUrl:param:succ:fail:resp:"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "-initTableView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -14,5 +14,12 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"project" owner:self options:nil]lastObject];
 }
-
+-(void)configValue:(NSString*)model
+{
+   
+    self.projectTime.text = model;
+    self.position.text = model;
+    self.proName.text = model;
+    self.proIntroduce.text = model;
+}
 @end

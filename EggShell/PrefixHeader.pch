@@ -35,6 +35,7 @@
 #import <BaiduMapAPI/BMapKit.h>
 #import "MyMD5.h"
 #import "MMNetWorkType.h"
+#import "AFAppRequest.h"
 
 #define WIDETH  [UIScreen mainScreen].bounds.size.width
 #define HEIGHT   [UIScreen mainScreen].bounds.size.height

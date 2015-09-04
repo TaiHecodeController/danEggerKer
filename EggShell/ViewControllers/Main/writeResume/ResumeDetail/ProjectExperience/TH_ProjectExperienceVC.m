@@ -8,7 +8,14 @@
 
 #import "TH_ProjectExperienceVC.h"
 #import "projectTableViewCell.h"
+#import "WriteRusumeModel2.h"
+#import "WriteResumeRequest.h"
+#import "AppDelegate.h"
+#import "EducationTimeCell.h"
 @interface TH_ProjectExperienceVC ()<UITableViewDelegate,UITableViewDataSource>
+{
+    WriteRusumeModel2 * _model;
+}
 @property (strong,nonatomic)UILabel * nameLab;
 @property (strong,nonatomic)UITextView * contentTextField;
 @property(nonatomic,strong)UIScrollView * scro;
@@ -25,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.jobCellArr = [NSMutableArray arrayWithCapacity:0];
+    _model = [[WriteRusumeModel2 alloc] init];
     [self createScro];
     [self createView];
     [self setData];
@@ -104,14 +112,68 @@
 {
     for(int i = 0;i < self.jobCellArr.count;i++)
     {
-        projectTableViewCell * cell = self.jobCellArr[i];
-        
-        if([cell.placehoderTextfield.text isEqualToString:@""])
+        if(i == 1)
         {
-            [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请输入%@",cell.nameLable.text]];
-            return;
+            EducationTimeCell * cell = self.jobCellArr[i];
+            if(!cell.startTime.selected)
+            {
+                [MBProgressHUD creatembHub:@"请输入开始时间"];
+                return;
+            }
+            
+            if(cell.startTime.selected)
+            {
+                if(!cell.endTime.selected)
+                {
+                    [MBProgressHUD creatembHub:@"请输入结束时间"];
+                    return;
+                }
+            }
+            
+            _model.sdate = cell.startTime.titleLabel.text;
+            _model.edate = cell.endTime.titleLabel.text;
         }
+        else
+        {
+            projectTableViewCell * cell = self.jobCellArr[i];
+            
+            if([cell.placehoderTextfield.text isEqualToString:@""])
+            {
+                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请输入%@",cell.nameLable.text]];
+                return;
+            }
+            
+            if(i == 0)
+            {
+                _model.name = [cell.placehoderTextfield.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            }
+            if(i == 2)
+            {
+                _model.projectPath = [cell.placehoderTextfield.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            }
+            if(i == 3)
+            {
+                _model.position = [cell.placehoderTextfield.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            }
+        }
+        
+
     }
+    
+    if(self.contentTextField.text.length > 30)
+    {
+        _model.content = [self.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }else
+    {
+        [MBProgressHUD creatembHub:@"请输入至少15个字符"];
+        return;
+    }
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    
+    [[WriteResumeRequest uploadProjectExperienceWithSucc:^(NSDictionary *dataDic) {
+        
+    } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"sys":_model.projectPath,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
+    
 
 }
 //重置
@@ -138,6 +200,18 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.row == 1)
+    {
+        EducationTimeCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TimeCell"];
+        if(!cell)
+        {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"EducationTimeCell" owner:self options:nil] firstObject];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        [self.jobCellArr addObject:cell];
+        return cell;
+    }
+
     projectTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"projectTableViewCell" owner:self options:nil] lastObject];

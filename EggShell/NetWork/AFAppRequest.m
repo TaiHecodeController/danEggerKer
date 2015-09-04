@@ -193,6 +193,10 @@
     if (errCode ==1010) {
         [MBProgressHUD creatembHub:@"密码为空"];
     }
+    if(errCode == 5)
+    {
+        [MBProgressHUD creatembHub:@"开始时间和结束时间一致"];
+    }
     
     
     

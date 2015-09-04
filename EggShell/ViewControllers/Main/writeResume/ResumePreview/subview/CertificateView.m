@@ -14,4 +14,12 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"Certificate" owner:self  options:nil]lastObject];
 }
+-(void)configValue:(NSString*)model
+{
+    
+    self.awardTime.text = model;
+    self.certificateName.text = model;
+    self.awardCompany.text = model;
+    self.certificateIntroduce.text = model;
+}
 @end

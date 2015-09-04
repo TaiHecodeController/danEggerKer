@@ -58,8 +58,9 @@
 - (void)pop
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"videoClose" object:nil];
-    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"writeresum" object:nil];
     [self popViewControllerAnimated:YES];
+    
 }
 - (UIStatusBarStyle)preferredStatusBarStyle
 {

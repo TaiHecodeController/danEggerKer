@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -56,25 +56,29 @@
                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="“蛋壳儿”是一个具有社交功能的就业孵化平台。为中国大学生提供线上职位推荐、社交互动，线下职能培训、校园实践项目、助学基金、创业辅导、创业基金扶持等一站式O2O全产业链服务。" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6O-Yc-Yxa">
-                    <rect key="frame" x="15" y="113" width="290" height="60"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="蛋壳儿”是一个具有社交功能的就业孵化平台。为中国大学生提供线上职位推荐、社交互动，线下职能培训、校园实践项目、助学基金、创业辅导、创业基金扶持等一站式O2O全产业链服务。" translatesAutoresizingMaskIntoConstraints="NO" id="X9y-9G-HTT">
+                    <rect key="frame" x="15" y="111" width="290" height="62"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="62" id="S4t-0h-ZF3"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="X9y-9G-HTT" secondAttribute="trailing" constant="15" id="1vK-EN-jXr"/>
+                <constraint firstAttribute="bottom" secondItem="X9y-9G-HTT" secondAttribute="bottom" constant="27" id="2VN-x4-dsX"/>
                 <constraint firstItem="doK-U0-4yk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GPb-oE-HeV"/>
-                <constraint firstItem="N6O-Yc-Yxa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="nAQ-oQ-ZeN"/>
+                <constraint firstItem="X9y-9G-HTT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="M1j-zU-bNq"/>
                 <constraint firstAttribute="trailing" secondItem="doK-U0-4yk" secondAttribute="trailing" id="tto-fi-Dt1"/>
-                <constraint firstAttribute="trailing" secondItem="N6O-Yc-Yxa" secondAttribute="trailing" constant="15" id="xgE-4a-qHn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="awardCompany" destination="rfl-dG-FT4" id="7oE-G7-bdQ"/>
                 <outlet property="awardTime" destination="mlN-AV-4dK" id="kvL-jP-es1"/>
-                <outlet property="certificateIntroduce" destination="N6O-Yc-Yxa" id="TF8-qM-bbB"/>
+                <outlet property="certificateIntroduce" destination="X9y-9G-HTT" id="wGM-Xk-mgN"/>
                 <outlet property="certificateName" destination="Wub-Vg-L6N" id="fZw-Y3-U5e"/>
             </connections>
             <point key="canvasLocation" x="297" y="-22"/>

@@ -12,6 +12,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *projectTime;
 @property (weak, nonatomic) IBOutlet UILabel *position;
 @property (weak, nonatomic) IBOutlet UILabel *proName;
-@property (weak, nonatomic) IBOutlet UILabel *proIntroduce;
+@property (weak, nonatomic) IBOutlet UITextView *proIntroduce;
+
 +(ProjectExperienceView*)setProjectExperienceView;
+-(void)configValue:(NSString*)model;
 @end

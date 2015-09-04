@@ -141,7 +141,6 @@
     self.subMitBtn = subMitBtn;
     [self.scro addSubview:subMitBtn];
     
-    
 }
 -(void)subClick
 {
@@ -165,14 +164,47 @@
     {
         emailText =self.emailTextFiled.text;
     }
+
+//    if ([self.textqqField.text length] ==0) {
+//       [MBProgressHUD creatembHub:@"内容不能为空"];
+//        return;
+//    }
+//    
+//    if (![self  isValidateEmail:self.emailTextFiled.text])
+//    {
+//        [MBProgressHUD creatembHub:@"邮箱不正确"];
+//        return;
+//    }
+
+   [TH_AFRequestState feedbackReRequestWithSucc:^(NSArray *DataDic) {
+       
+   } withSource:2 withOpinion:textView withqq:qqtext withEmail:emailText withfail:^(int errCode, NSError *err) {
+       if (errCode == 1013) {
+                       [MBProgressHUD creatembHub:@"请认真填写意见"];
+           
+                   }if (errCode ==1014) {
+                   [MBProgressHUD creatembHub:@"抱歉，由于未知原因，你的建议我们没有收到，请重试"];
+                                   
+                }
+
+   }];
     
-    NSDictionary * contentDic = @{@"opinion":textView, @"qq":qqtext,@"email":emailText};
-    [TH_AFRequestState feedbackReRequestWithSucc:^(NSArray *DataDic) {
-        
-    } withUserId:userId withContent:contentDic withfail:^(int errCode, NSError *err) {
-        
-    }];
-    
+//    [TH_AFRequestState feedbackReRequestWithSucc:^(NSArray *DataDic) {
+//        
+//    } withContent:textView withemail:emailText withqq:qqtext withfail:^(int errCode, NSError *err) {
+//        if (errCode == 1013) {
+//            [MBProgressHUD creatembHub:@"请认真填写意见"];
+//            
+//        }if (errCode ==1014) {
+//        [MBProgressHUD creatembHub:@"抱歉，由于未知原因，你的建议我们没有收到，请重试"];
+//                        
+//     }
+//    }];
+}
+-(BOOL)isValidateEmail:(NSString *)email {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:email];
 }
 -(void)keyboardHide:(UITapGestureRecognizer*)tap
 {

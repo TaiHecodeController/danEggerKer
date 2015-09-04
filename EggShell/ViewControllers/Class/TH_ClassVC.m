@@ -87,7 +87,7 @@
     
     [self initSegView];
     
-    [self initTableView];
+    
     
     [self querData];
     
@@ -125,6 +125,7 @@
         
         NSLog(@"%@",DataDic);
         _teacherArr = [NSMutableArray arrayWithArray:DataDic];
+        [self initTableView];
         
     } resp:[NSObject class] paramPage:@"1" Pagesize:@"1"];
 }

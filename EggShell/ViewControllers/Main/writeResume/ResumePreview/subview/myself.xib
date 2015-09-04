@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -21,23 +21,27 @@
                     <rect key="frame" x="0.0" y="22" width="320" height="0.5"/>
                     <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="“蛋壳儿”是一个具有社交功能的就业孵化平台。为中国大学生提供线上职位推荐、社交互动，线下职能培训、校园实践项目、助学基金、创业辅导、创业基金扶持等一站式O2O全产业链服务。" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByE-1C-7ck">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="蛋壳儿”是一个具有社交功能的就业孵化平台。为中国大学生提供线上职位推荐、社交互动，线下职能培训、校园实践项目、助学基金、创业辅导、创业基金扶持等一站式O2O全产业链服务。" translatesAutoresizingMaskIntoConstraints="NO" id="DfN-zO-g6P">
                     <rect key="frame" x="15" y="22" width="290" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="piE-KT-fUq"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="ByE-1C-7ck" secondAttribute="trailing" constant="15" id="5Qr-1P-o6A"/>
                 <constraint firstItem="Skb-J9-WhF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GHP-oc-pra"/>
-                <constraint firstItem="ByE-1C-7ck" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="IXt-YI-buF"/>
                 <constraint firstAttribute="trailing" secondItem="Skb-J9-WhF" secondAttribute="trailing" id="SlP-K8-4Wy"/>
+                <constraint firstItem="DfN-zO-g6P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="USL-Uy-8Xp"/>
+                <constraint firstAttribute="trailing" secondItem="DfN-zO-g6P" secondAttribute="trailing" constant="15" id="gQu-2M-wrW"/>
+                <constraint firstAttribute="bottom" secondItem="DfN-zO-g6P" secondAttribute="bottom" constant="18" id="s3l-7K-MUJ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="selfEvaluation" destination="ByE-1C-7ck" id="abH-Bz-psK"/>
+                <outlet property="selfEvaluation" destination="DfN-zO-g6P" id="jqL-0v-jqq"/>
             </connections>
             <point key="canvasLocation" x="305" y="95"/>
         </view>

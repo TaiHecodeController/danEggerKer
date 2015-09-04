@@ -9,7 +9,14 @@
 #import "TH_EducationExperienceVC.h"
 #import "EducationTimeCell.h"
 #import "EducationWriteCell.h"
+#import "EducationReadVC.h"
+
 #import "WriteRusumeModel2.h"
+
+#import "WriteResumeRequest.h"
+#import "AppDelegate.h"
+
+
 @interface TH_EducationExperienceVC ()<UITableViewDataSource,UITableViewDelegate>
 {
     WriteRusumeModel2 * _model;
@@ -28,6 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.jobArray = [NSMutableArray arrayWithCapacity:0];
+    _model = [[WriteRusumeModel2 alloc] init];
     [self createScro];
     [self createView];
      [self setData];
@@ -99,8 +107,6 @@
     [replaceBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
     [self.scro addSubview:replaceBtn];
-
-    
 }
 /*保存**/
 -(void)saveBtnClick
@@ -150,6 +156,9 @@
         
     }
     
+
+   
+
     if(self.contentTextField.text.length < 30)
     {
         [MBProgressHUD creatembHub:@"请输入至少15个字"];
@@ -158,7 +167,14 @@
     {
         _model.content = [self.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    [[WriteResumeRequest uploadEducationWithSucc:^(NSDictionary *dataDic) {
+        EducationReadVC * eduCation =[[EducationReadVC alloc] init];
+        eduCation.model = _model;
+        [self.navigationController pushViewController:eduCation animated:YES];
+    } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"specialty":_model.department,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
     
+
 }
 /*重置**/
 -(void)replaceBtnClick

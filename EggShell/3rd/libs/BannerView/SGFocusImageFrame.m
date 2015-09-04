@@ -128,14 +128,14 @@ static NSString *SG_FOCUS_ITEM_ASS_KEY = @"loopScrollview";
     [_scrollView addGestureRecognizer:tapGestureRecognize];
     _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width * imageItems.count, _scrollView.frame.size.height);
     
-    NSArray * imsgeArray = @[@"lunbotu0",@"lunbo2",@"lunbo3"];
+//    NSArray * imsgeArray = @[@"lunbotu0",@"lunbo2",@"lunbo3"];
     for (int i = 0; i < imageItems.count; i++) {
         HomePageModel *item = [imageItems objectAtIndex:i];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * _scrollView.frame.size.width+space, space, _scrollView.frame.size.width-space*2, _scrollView.frame.size.height-2*space-size.height)];
         //加载图片
        [imageView setImage:[UIImage imageNamed:@"lunbo3"]];
         //设置banner图片
-        [imageView sd_setImageWithURL:[NSURL URLWithString:item.photo] placeholderImage:[UIImage imageNamed:item.photo]];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:item.photo] placeholderImage:[UIImage imageNamed:@"lunbo3"]];
         [_scrollView addSubview:imageView];
         [imageView release];
     }

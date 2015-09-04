@@ -110,9 +110,12 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="koX-2M-YR8">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koX-2M-YR8">
                     <rect key="frame" x="15" y="277" width="290" height="207"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="207" id="40w-JO-faf"/>
+                    </constraints>
                     <string key="text">太和文化产业集团专注于教育文化产业的扛鼎之作，太和书院汇集了全国顶尖教育专家与团队，依托集团深厚的教育资源背景，逐步成长为中国最具特色的教育文化机构。我们致力于教育产业咨询管理及人才运营两大领域，拥有各类院校、科研机构、政府部门、信息机构、培训教育机构等各类用户和合作伙伴3万余家；建立并完善了包括CCTV-中学生校长联合会、名师汇、校园创就业服务中心等众多的平台，为广大教育产业群体提供最为精准的专有服务。</string>
                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -125,10 +128,13 @@
                 <constraint firstAttribute="trailing" secondItem="iBA-x6-vZo" secondAttribute="trailing" id="9N0-8W-1fa"/>
                 <constraint firstItem="8hW-ey-laz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Fw3-2O-9qk"/>
                 <constraint firstItem="iBA-x6-vZo" firstAttribute="top" secondItem="8hW-ey-laz" secondAttribute="bottom" id="Jas-AK-Dca"/>
+                <constraint firstAttribute="trailing" secondItem="koX-2M-YR8" secondAttribute="trailing" constant="15" id="OG8-jB-VHG"/>
                 <constraint firstAttribute="trailing" secondItem="8hW-ey-laz" secondAttribute="trailing" id="TpG-bd-grl"/>
                 <constraint firstItem="jkX-pn-uGb" firstAttribute="top" secondItem="iBA-x6-vZo" secondAttribute="bottom" constant="10" id="XQN-74-e7M"/>
+                <constraint firstItem="koX-2M-YR8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="i5d-KD-pIW"/>
                 <constraint firstItem="8hW-ey-laz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="p1Q-zf-IKH"/>
                 <constraint firstAttribute="trailing" secondItem="jkX-pn-uGb" secondAttribute="trailing" constant="205" id="sli-9u-2CO"/>
+                <constraint firstItem="koX-2M-YR8" firstAttribute="top" secondItem="jkX-pn-uGb" secondAttribute="bottom" constant="1" id="tPl-PH-yak"/>
                 <constraint firstItem="jkX-pn-uGb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="yKR-S9-9ZI"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

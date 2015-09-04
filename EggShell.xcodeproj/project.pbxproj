@@ -89,6 +89,8 @@
 		940EDEE01B96E35800376D37 /* WorkExReadingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 940EDEDF1B96E35800376D37 /* WorkExReadingVC.m */; };
 		940EDEE31B96E37400376D37 /* WorkExReadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 940EDEE21B96E37400376D37 /* WorkExReadingView.m */; };
 		940EDEE51B96E38B00376D37 /* WorkExReading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940EDEE41B96E38B00376D37 /* WorkExReading.xib */; };
+		940EDEEC1B9701B100376D37 /* EducationReadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 940EDEEB1B9701B100376D37 /* EducationReadingView.m */; };
+		940EDEEE1B9701BF00376D37 /* EducationReading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940EDEED1B9701BF00376D37 /* EducationReading.xib */; };
 		941F100A1B7B3BBD00719F5B /* TH_DeliveryJobVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F10091B7B3BBD00719F5B /* TH_DeliveryJobVC.m */; };
 		941F10151B7B3BCC00719F5B /* JobWishList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941F100D1B7B3BCC00719F5B /* JobWishList.xib */; };
 		941F10161B7B3BCC00719F5B /* JobWishlistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F100F1B7B3BCC00719F5B /* JobWishlistCell.m */; };
@@ -212,6 +214,7 @@
 		94EDD4F11B7831BB00A00A78 /* ZXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EDD4EF1B7831BB00A00A78 /* ZXLabel.m */; };
 		94EDD4F41B7831DA00A00A78 /* ZXImagePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EDD4F31B7831DA00A00A78 /* ZXImagePickerVC.m */; };
 		94EDD4F81B783FA700A00A78 /* TH_FindPartTimeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EDD4F71B783FA700A00A78 /* TH_FindPartTimeVC.m */; };
+		94EED7FA1B99286300049934 /* EducationReadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EED7F91B99286300049934 /* EducationReadVC.m */; };
 		94EFC1C11B7D046F00833068 /* TH_featureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EFC1C01B7D046F00833068 /* TH_featureVC.m */; };
 		94EFC1C41B7D8F6900833068 /* TH_AFRequestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EFC1C31B7D8F6900833068 /* TH_AFRequestState.m */; };
 		94EFC1C81B7DC65200833068 /* playFanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EFC1C71B7DC65200833068 /* playFanModel.m */; };
@@ -408,6 +411,9 @@
 		940EDEE11B96E37400376D37 /* WorkExReadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkExReadingView.h; sourceTree = "<group>"; };
 		940EDEE21B96E37400376D37 /* WorkExReadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkExReadingView.m; sourceTree = "<group>"; };
 		940EDEE41B96E38B00376D37 /* WorkExReading.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkExReading.xib; sourceTree = "<group>"; };
+		940EDEEA1B9701B100376D37 /* EducationReadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationReadingView.h; sourceTree = "<group>"; };
+		940EDEEB1B9701B100376D37 /* EducationReadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationReadingView.m; sourceTree = "<group>"; };
+		940EDEED1B9701BF00376D37 /* EducationReading.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EducationReading.xib; sourceTree = "<group>"; };
 		941F10081B7B3BBD00719F5B /* TH_DeliveryJobVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_DeliveryJobVC.h; sourceTree = "<group>"; };
 		941F10091B7B3BBD00719F5B /* TH_DeliveryJobVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_DeliveryJobVC.m; sourceTree = "<group>"; };
 		941F100D1B7B3BCC00719F5B /* JobWishList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobWishList.xib; sourceTree = "<group>"; };
@@ -614,6 +620,8 @@
 		94EDD4F31B7831DA00A00A78 /* ZXImagePickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXImagePickerVC.m; sourceTree = "<group>"; };
 		94EDD4F61B783FA700A00A78 /* TH_FindPartTimeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_FindPartTimeVC.h; sourceTree = "<group>"; };
 		94EDD4F71B783FA700A00A78 /* TH_FindPartTimeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_FindPartTimeVC.m; sourceTree = "<group>"; };
+		94EED7F81B99286300049934 /* EducationReadVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationReadVC.h; sourceTree = "<group>"; };
+		94EED7F91B99286300049934 /* EducationReadVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationReadVC.m; sourceTree = "<group>"; };
 		94EFC1BF1B7D046F00833068 /* TH_featureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_featureVC.h; sourceTree = "<group>"; };
 		94EFC1C01B7D046F00833068 /* TH_featureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_featureVC.m; sourceTree = "<group>"; };
 		94EFC1C21B7D8F6900833068 /* TH_AFRequestState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_AFRequestState.h; sourceTree = "<group>"; };
@@ -1135,6 +1143,7 @@
 		940032A41B840CC3001EB666 /* EducationExperience */ = {
 			isa = PBXGroup;
 			children = (
+				940EDEE61B97016200376D37 /* EducationReading */,
 				940032A51B840CC3001EB666 /* SubView */,
 				940032A91B840CC3001EB666 /* TH_EducationExperienceVC.h */,
 				940032AA1B840CC3001EB666 /* TH_EducationExperienceVC.m */,
@@ -1314,6 +1323,18 @@
 				940EDEE21B96E37400376D37 /* WorkExReadingView.m */,
 			);
 			path = WorkExReading;
+			sourceTree = "<group>";
+		};
+		940EDEE61B97016200376D37 /* EducationReading */ = {
+			isa = PBXGroup;
+			children = (
+				940EDEEA1B9701B100376D37 /* EducationReadingView.h */,
+				940EDEED1B9701BF00376D37 /* EducationReading.xib */,
+				940EDEEB1B9701B100376D37 /* EducationReadingView.m */,
+				94EED7F81B99286300049934 /* EducationReadVC.h */,
+				94EED7F91B99286300049934 /* EducationReadVC.m */,
+			);
+			path = EducationReading;
 			sourceTree = "<group>";
 		};
 		941F10071B7B3BBD00719F5B /* DeliveryJob */ = {
@@ -2088,6 +2109,7 @@
 				94E2C9DE1B8AFCF0001E3FDD /* BasicInformation.xib in Resources */,
 				0454ACED1B945F20004A70ED /* ResumeCell.xib in Resources */,
 				94313DF21B7CB5C9005D0A9A /* WriteResumeCell2.xib in Resources */,
+				940EDEEE1B9701BF00376D37 /* EducationReading.xib in Resources */,
 				9400329A1B840736001EB666 /* VersionUpdate.xib in Resources */,
 				9470069B1B85CA6000DEC289 /* MineEditInfoCell.xib in Resources */,
 				940032D11B840CC3001EB666 /* projectTableViewCell.xib in Resources */,
@@ -2233,6 +2255,7 @@
 				9400330A1B8414B9001EB666 /* TH_cooperationVC.m in Sources */,
 				04718DA71B7CDA26008214CB /* ZCControl.m in Sources */,
 				94313D7F1B7C24B1005D0A9A /* TH_getCodeNextVC.m in Sources */,
+				940EDEEC1B9701B100376D37 /* EducationReadingView.m in Sources */,
 				947006981B85CA6000DEC289 /* EditSexCell.m in Sources */,
 				940033221B841C2D001EB666 /* TH_ClassVC.m in Sources */,
 				041650691B4D7240008C78BE /* GObjAdapter.m in Sources */,
@@ -2249,6 +2272,7 @@
 				94E2C98A1B870F29001E3FDD /* MoreJobTitleCell.m in Sources */,
 				94E8F4F01B85797900088658 /* ExceptCityCell.m in Sources */,
 				94EAEAC31B78437A003C19DD /* TH_FindPracticeVC.m in Sources */,
+				94EED7FA1B99286300049934 /* EducationReadVC.m in Sources */,
 				94E2C9C71B8AF85E001E3FDD /* intentView.m in Sources */,
 				94E2C9CD1B8AF8AD001E3FDD /* EducationExperienceView.m in Sources */,
 				94313DE91B7CB5C9005D0A9A /* ManagerResumeVC.m in Sources */,

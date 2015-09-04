@@ -82,6 +82,18 @@
     cell.createDate.text = model.ctime;
     cell.ResumeName.font = [UIFont systemFontOfSize:13];
     cell.resumeId = model.rid;
+    cell.tag = 4000 + indexPath.row;
+    cell.selectBlock = ^(int tag)
+    {
+        for(int i = 0;i < self.cellArray.count;i++)
+        {
+            ResumeCell * cell = self.cellArray[i];
+            if(!cell.tag == tag)
+            {
+                cell.iSSelect.selected = NO;
+            }
+        }
+    };
     if(indexPath.row == 0)
     {
         cell.iSSelect.selected = YES;
@@ -89,6 +101,8 @@
     [self.cellArray addObject:cell];
     return cell;
 }
+
+//- (NSString *)flattenHTML:(NSString *)html {        NSScanner *theScanner;    NSString *text = nil;        theScanner = [NSScanner scannerWithString:html];        while ([theScanner isAtEnd] == NO) {        // find start of tag        [theScanner scanUpToString:@"<" intoString:NULL] ;        // find end of tag        [theScanner scanUpToString:@">" intoString:&text] ;        // replace the found tag with a space        //(you can filter multi-spaces out later if you wish)        html = [html stringByReplacingOccurrencesOfString:                [NSString stringWithFormat:@"%@>", text]                                               withString:@""];    } // while //        NSLog(@"-----===%@",html);    return html;}
 
 
 
@@ -117,6 +131,7 @@
 }
 
 - (IBAction)editClick:(UIButton *)sender {
+    
 }
 - (IBAction)userResume:(UIButton *)sender {
     [self addAlertView];
@@ -213,11 +228,16 @@
     for(int i = 0;i < self.dataArray.count;i++)
     {
         ResumeCell * cell = self.cellArray[i];
-        if(cell.iSSelect.selected == YES)
+        if(cell.iSSelect.selected)
         {
-            [self.dataArray removeObjectAtIndex:cell.cellIndex.row];
+            MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+            [[WriteResumeRequest deleteResumeWithSucc:^(NSDictionary *dataDic) {
+                [self.dataArray removeObjectAtIndex:i];
+                [self.ResumeList reloadData];
+            } WithResumeParam:@{@"eid":cell.resumeId}] addNotifaction:hub];
         }
+        
     }
-    [self.ResumeList reloadData];
+    
 }
 @end

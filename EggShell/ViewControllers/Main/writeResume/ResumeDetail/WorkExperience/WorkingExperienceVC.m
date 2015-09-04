@@ -97,7 +97,6 @@
     
     [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [saveBtn addTarget:self action:@selector(savaBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:saveBtn];
     
     UIButton * replaceBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 + 10, 368, 90, 29) ImageName:@"lanniu2" Target:self Action:@selector(replaceClick) Title:@"重置"];
@@ -107,11 +106,6 @@
     [self.view addSubview:replaceBtn];
 }
 #pragma mark - 保存简历阅览
--(void)savaBtnClick
-{
-    WorkExReadingVC * workreading = [[WorkExReadingVC alloc] init];
-    [self.navigationController pushViewController:workreading animated:YES];
-}
 -(void)saveClick
 {
     for(int i = 0;i < self.jobArray.count;i++)
@@ -173,7 +167,9 @@
     NSDictionary * param = @{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"department":_model.department,@"title":_model.title,@"content":_model.content};
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
     [[WriteResumeRequest uploadWorkExperienceWithSucc:^(NSDictionary * dataDic) {
-        
+        WorkExReadingVC * workreading = [[WorkExReadingVC alloc] init];
+        workreading.model = _model;
+        [self.navigationController pushViewController:workreading animated:YES];
     } WithResumeParam:param] addNotifaction:hub];
 }
 
