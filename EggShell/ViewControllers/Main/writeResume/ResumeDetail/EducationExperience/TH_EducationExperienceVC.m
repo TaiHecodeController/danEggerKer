@@ -10,6 +10,8 @@
 #import "EducationTimeCell.h"
 #import "EducationWriteCell.h"
 #import "WriteRusumeModel2.h"
+#import "WriteResumeRequest.h"
+#import "AppDelegate.h"
 @interface TH_EducationExperienceVC ()<UITableViewDataSource,UITableViewDelegate>
 {
     WriteRusumeModel2 * _model;
@@ -28,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.jobArray = [NSMutableArray arrayWithCapacity:0];
+    _model = [[WriteRusumeModel2 alloc] init];
     [self createScro];
     [self createView];
      [self setData];
@@ -158,6 +161,10 @@
     {
         _model.content = [self.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    [[WriteResumeRequest uploadEducationWithSucc:^(NSDictionary *dataDic) {
+
+    } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"specialty":_model.department,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
     
 }
 /*重置**/

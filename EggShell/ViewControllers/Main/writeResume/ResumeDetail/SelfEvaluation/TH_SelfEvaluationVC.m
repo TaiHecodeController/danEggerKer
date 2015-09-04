@@ -7,8 +7,13 @@
 //
 
 #import "TH_SelfEvaluationVC.h"
-
+#import "WriteRusumeModel2.h"
+#import "WriteResumeRequest.h"
+#import "AppDelegate.h"
 @interface TH_SelfEvaluationVC ()
+{
+    WriteRusumeModel2 * _model;
+}
 @property (strong,nonatomic)UILabel * nameLab;
 @property (strong,nonatomic)UITextView * contentTextField;
 @property(nonatomic,strong)UIScrollView * scro;
@@ -18,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _model = [[WriteRusumeModel2 alloc] init];
     [self createScro];
     [self createView];
 
@@ -79,7 +85,17 @@
     if(self.contentTextField.text.length<30)
     {
         [MBProgressHUD creatembHub:@"请输入至少15个字符"];
+        return;
+    }else
+    {
+        _model.content = [self.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    
+    [[WriteResumeRequest uploadSelfEvaluationWithSucc:^(NSDictionary *dataDic) {
+        [MBProgressHUD creatembHub:@"保存成功"];
+    } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"content":_model.content}] addNotifaction:hub];
+    
 }
 /*重置**/
 -(void)replaceBtnClick

@@ -8,7 +8,13 @@
 
 #import "TH_CertificateVC.h"
 #import "projectTableViewCell.h"
+#import "WriteRusumeModel2.h"
+#import "WriteResumeRequest.h"
+#import "AppDelegate.h"
 @interface TH_CertificateVC ()<UITableViewDelegate,UITableViewDataSource>
+{
+    WriteRusumeModel2 * _model;
+}
 @property (strong,nonatomic)UILabel * nameLab;
 @property (strong,nonatomic)UITextView * contentTextField;
 @property(nonatomic,strong)UIScrollView * scro;
@@ -23,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.jobCellArr = [NSMutableArray arrayWithCapacity:0];
+    _model = [[WriteRusumeModel2 alloc] init];
     [self createScro];
     [self createView];
     [self setData];
@@ -109,13 +116,35 @@
             [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请输入%@",cell.nameLable.text]];
             return;
         }
+        
+        if(i == 0)
+        {
+            _model.name = [cell.placehoderTextfield.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        }
+        
+        if(i == 1)
+        {
+            _model.edate = [cell.placehoderTextfield.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        }
+        if(i == 2)
+        {
+            _model.position = [cell.placehoderTextfield.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        }
     }
     
     if(self.contentTextField.text.length < 30)
     {
         [MBProgressHUD creatembHub:@"请输入至少15个字符"];
         return;
+    }else
+    {
+        _model.content = [self.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    [[WriteResumeRequest uploadCertificateWithSucc:^(NSDictionary *dataDic) {
+        [MBProgressHUD creatembHub:@"保存成功"];
+    } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
+    
     
 }
 /*重置**/
