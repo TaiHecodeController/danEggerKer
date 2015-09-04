@@ -8,6 +8,7 @@
 
 #import "WorkExReadingVC.h"
 #import "WorkExReadingView.h"
+#import "WriteResumeVC2.h"
 @interface WorkExReadingVC ()
 
 @end
@@ -18,23 +19,35 @@
     [super viewDidLoad];
     
     WorkExReadingView * workingView =[WorkExReadingView setView];
-    workingView.frame = CGRectMake(0, 0, 302, WIDETH);
+    workingView.frame = CGRectMake(0, 0, WIDETH, 317);
     workingView.descriptionTextView.userInteractionEnabled = NO;
     [self.view addSubview:workingView];
     
-    UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH - 150)/2.0, 302, 150, 30)];
-    [addButtn setImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
+    UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH - 150)/2.0, 317, 150, 30)];
+   
+    [addButtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
+    addButtn.titleLabel.font =[UIFont  systemFontOfSize:13];
     [addButtn setTitle:@"继续添加" forState:UIControlStateNormal];
+    addButtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [addButtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [addButtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
-    
+    [self.view addSubview:addButtn];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
     // Do any additional setup after loading the view.
+}
+-(void)backToResume
+{
+    [self.navigationController popViewControllerAnimated:NO];
+    WriteResumeVC2 * write = [[WriteResumeVC2 alloc] init];
+    [self.navigationController popToViewController:write animated:YES];
+    
+//    [self.navigationController pushViewController:write animated:YES];
 }
 #pragma mark --继续添加
 -(void)addClick
 {
 
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

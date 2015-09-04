@@ -141,7 +141,6 @@
     self.subMitBtn = subMitBtn;
     [self.scro addSubview:subMitBtn];
     
-    
 }
 -(void)subClick
 {
