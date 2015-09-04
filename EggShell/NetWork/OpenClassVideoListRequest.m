@@ -13,7 +13,7 @@
 +(AFRequestState *)requestWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp paramPage:(NSString *)page Pagesize:(NSString *)pageSie
 {
     NSDictionary * param = @{@"pagesize":pageSie,@"page":page};
-    return [self postRequestWithUrl:@"http://195.198.1.122:8066/eggker/phpv/API.php/Video/getPageList" param:param succ:succ resp:resp];
+    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/phpv/api.php/video/getPageList" param:param succ:succ resp:resp];
 }
 
 +(AFRequestState *)requestWithSucc:(void(^)(NSArray * DataDic))suc resp:(Class)resp paramWithId:(NSString *)id
@@ -21,6 +21,13 @@
     
     NSDictionary *param = @{@"id":id};
     return [self postRequestWithUrl:@"http://195.198.1.122:8066/eggker/phpv/API.php/video/getGroup" param:param succ:suc resp:resp];
+}
+
+/*名师风采**/
++(AFRequestState *)requestTeacherWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp paramPage:(NSString *)page Pagesize:(NSString *)pageSie
+{
+    NSDictionary * param = @{@"pagesize":pageSie,@"page":page};
+    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/phpv/api.php/video/getPageList" param:param succ:succ resp:resp];
 }
 
 @end

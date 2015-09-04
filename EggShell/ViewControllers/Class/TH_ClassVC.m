@@ -43,6 +43,7 @@
 @property(nonatomic,strong)MJRefreshHeaderView * header;
 @property (nonatomic,strong)AFRequestState * state;
 @property(nonatomic,assign)int page;
+@property (nonatomic, strong) NSArray *teacherArr;
 
 @end
 
@@ -82,6 +83,8 @@
 //    
 //    [self addRightBtn2_NormalImageName:@"sousuo001" hightImageName:nil action:@selector(rightClick2) target:self];
     
+    [self querTeacherFCVideo];
+    
     [self initSegView];
     
     [self initTableView];
@@ -89,6 +92,8 @@
     [self querData];
     
     [self hySegmentedControlSelectAtIndex:0];
+    
+   
     
 }
 
@@ -107,11 +112,22 @@
         
                 [weakSelf.dataArray addObjectsFromArray:[weakSelf getArray:DataDic length:2]];
                 [weakSelf._gridView reloadData];
+        
 
     } resp:[OpenClassModel class] paramPage:page Pagesize:@"2"] addNotifaction:notify];
-
+    
 }
 
+- (void)querTeacherFCVideo
+{
+
+    [OpenClassVideoListRequest requestTeacherWithSucc:^(NSArray *DataDic) {
+        
+        NSLog(@"%@",DataDic);
+        _teacherArr = [NSMutableArray arrayWithArray:DataDic];
+        
+    } resp:[NSObject class] paramPage:@"1" Pagesize:@"1"];
+}
 
 - (void)initSegView
 {
@@ -186,10 +202,11 @@
         qsBtn.tag = 1000 + i;
         [qsBtn addTarget:self action:@selector(qsBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 //        qsBtn.backgroundColor = [UIColor blackColor];
-        [qsBtn setBackgroundImage:[UIImage imageNamed:@"laoshi1"] forState:UIControlStateNormal];
+        UIImageView *iconview = [[UIImageView alloc]init];
+        [iconview sd_setImageWithURL:[NSURL URLWithString:_teacherArr[i][@"vimage"]] placeholderImage:nil];
+        [qsBtn setBackgroundImage:iconview.image forState:UIControlStateNormal];
         [headView addSubview:qsBtn];
         _headViewMaxY = CGRectGetMaxY(qsBtn.frame);
-        
     }
     
     headView.frame = CGRectMake(0, y, WIDETH, _headViewMaxY + 15);
@@ -315,7 +332,6 @@
 - (float)gridView:(MTGridView *)gridView widthOfItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return ((gridView.frame.size.width - 2 * 20 ) - 25) / 2;
-    
 }
 - (void)gridView:(MTGridView *)gridView didSelectedItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -370,22 +386,25 @@
 #pragma mark -- respondEvent
 - (void)qsBtnClick:(UIButton *)sender
 {
+    NSURL *Url;
     if (sender.tag == 1000)
     {
         THLog(@"名师风采被点击%ld",(long)sender.tag);
-        
+         Url = [NSURL URLWithString:_teacherArr[0][@"video_id"]];
     }
     else if (sender.tag == 1001)
     {
         THLog(@"名师风采被点击%ld",(long)sender.tag);
+         Url = [NSURL URLWithString:_teacherArr[1][@"video_id"]];
     }
     else if (sender.tag == 1002)
     {
         THLog(@"名师风采被点击%ld",(long)sender.tag);
+         Url = [NSURL URLWithString:_teacherArr[2][@"video_id"]];
     }
     
     //    播放视频
-    NSURL *Url = [NSURL URLWithString:@"00018093b103eb7fe795cf4cebab8871_0"];
+   
     if (!Url) {
         return;
     }

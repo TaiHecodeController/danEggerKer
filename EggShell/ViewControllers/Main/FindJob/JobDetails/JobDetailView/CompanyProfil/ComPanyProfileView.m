@@ -38,7 +38,7 @@
     self.detailLable = detailLalbe;
     detailLalbe.font = [UIFont systemFontOfSize:13];
     detailLalbe.numberOfLines = 6;
-//    detailLalbe.backgroundColor =[UIColor redColor];
+//    detailLalbe.backgroundColor = [UIColor redColor];
     [self addSubview:detailLalbe];
     
     UIButton * selectBtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH-100)/2.0, self.height-45, 100, 30)];
@@ -52,8 +52,6 @@
     [selectBtn setTitleColor:UIColorFromRGB(0xF44336) forState:UIControlStateNormal];
     selectBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [selectBtn addTarget:self action:@selector(btncompanyClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    
     
     self.selectBtn = selectBtn;
     [self addSubview:selectBtn];

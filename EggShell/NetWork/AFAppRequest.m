@@ -140,8 +140,15 @@
     
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation * operation, id responseObject)
      {
-      
-         [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
+         if ([[responseObject allKeys] containsObject:@"teacher"])
+         {
+             [self handleResponseForTeacher:responseObject Succ:succ Fail:fail Resp:resp State:State];
+         }
+         else
+         {
+              [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
+         }
+        
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {
@@ -224,6 +231,69 @@
         
         
         id data = [Gson fromObj:[responseObject objectForKey:@"data"] Cls:resp];
+        
+        if(data == nil && resp == [NSNull class])
+        {
+            succ(nil);
+            return;
+        }
+        
+        if( data == nil && resp != [NSNull class] )
+        {
+            fail(10001, nil);
+            return;
+        }
+        if(succ == nil)
+        {
+            return;
+        }
+        succ(data);
+    }
+    @catch(GsonException * excep){
+        fail(10000, nil);
+    }
+    @catch(NSException * excep){
+        fail(50000, nil);
+    }
+    @finally{
+        [State setEnd];
+    }
+}
+
+
+//对象转换＋异常捕获（防崩溃）
++(void)handleResponseForTeacher:(id)responseObject Succ:(void (^)(id data))succ Fail:(void (^)(int errCode, NSError * err))fail Resp:(Class)resp State:(AFRequestState *)State;
+{
+    
+    @try
+    {
+        if([responseObject isKindOfClass:[NSData class]])
+        {
+            responseObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        }
+        
+        if( responseObject == nil )
+        {
+            fail(10002, nil);
+            return;
+        }
+        
+        int error_code = [[responseObject objectForKey:@"code"] intValue];
+        
+        if( error_code != 0)
+        {
+            fail(error_code, nil);
+            return;
+        }
+        
+        if(!resp)
+        {
+            succ(responseObject);
+            return;
+        }
+        
+        
+        id data = [Gson fromObj:[responseObject objectForKey:@"teacher"] Cls:resp];
         
         if(data == nil && resp == [NSNull class])
         {

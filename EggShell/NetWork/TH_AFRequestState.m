@@ -43,7 +43,7 @@
     NSNumber * numPager = [NSNumber numberWithInt:pageNumber];
     NSNumber * limit = [NSNumber numberWithInt:3];
     NSDictionary * param = @{@"page":numPager,@"limit":limit};
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Position/loadMore" param:param succ:succ fail:fail resp:resp];
+    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Position/loadMore" param:param succ:succ fail:fail resp:resp];
     
 }
 
@@ -53,7 +53,27 @@
     NSNumber *numid = [NSNumber numberWithInt:id];
     NSNumber *numpid = [NSNumber numberWithInt:pid];
     NSDictionary *param = @{@"id":numid,@"pid":numpid};
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Position/details" param:param succ:succ fail:fail resp:resp];
+    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Position/details" param:param succ:succ fail:fail resp:resp];
+    
+}
+
+/*收藏职位**/
++(AFRequestState *)saveJobWithSucc:(void(^)(NSDictionary *DataArr))succ withFail:(void(^)(int errCode, NSError *err))fail withJob_id:(int)job_id resp:(Class)resp
+{
+    NSNumber *jobid = [NSNumber numberWithInt:job_id];
+    NSNumber *uid = [NSNumber numberWithInt:184];
+    NSDictionary *param = @{@"job_id":jobid,@"uid":uid};
+    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Position/collect" param:param succ:succ fail:fail resp:resp];
+}
+
+/*收藏职位列表**/
++(AFRequestState *)saveJobListSucc:(void(^)(NSArray *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid page:(int)page limit:(int)limit resp:(Class)resp
+{
+    NSNumber *nsuid = [NSNumber numberWithInt:141];
+    NSNumber *nspage = [NSNumber numberWithInt:page];
+    NSNumber *nslimit = [NSNumber numberWithInt:limit];
+    NSDictionary *param = @{@"uid":nsuid,@"page":nspage,@"limit":nslimit};
+    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Position/collectlist" param:param succ:succ fail:fail resp:resp];
     
 }
 
