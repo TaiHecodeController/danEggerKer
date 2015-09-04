@@ -21,6 +21,7 @@
     WorkExReadingView * workingView =[WorkExReadingView setView];
     workingView.frame = CGRectMake(0, 0, WIDETH, 317);
     workingView.descriptionTextView.userInteractionEnabled = NO;
+    [workingView config:self.model];
     [self.view addSubview:workingView];
     
     UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH - 150)/2.0, 317, 150, 30)];
@@ -53,6 +54,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation

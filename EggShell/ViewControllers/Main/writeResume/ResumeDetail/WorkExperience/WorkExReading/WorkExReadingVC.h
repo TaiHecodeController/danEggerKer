@@ -7,7 +7,9 @@
 //
 
 #import "TH_BaseVC.h"
+#import "WriteRusumeModel2.h"
 
 @interface WorkExReadingVC : TH_BaseVC
+@property (strong,nonatomic)WriteRusumeModel2 * model;
 
 @end
