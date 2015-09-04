@@ -40,6 +40,16 @@
 #define WIDETH  [UIScreen mainScreen].bounds.size.width
 #define HEIGHT   [UIScreen mainScreen].bounds.size.height
 //iOS7版本的适配
+//宽320
+#define is3_5Inch  ([UIScreen mainScreen].bounds.size.height == 480.0)
+/**是否4寸屏*/
+#define is4Inch  ([UIScreen mainScreen].bounds.size.height == 568.0)
+/**是否是4.7寸屏*/
+//宽375
+#define is4_7Inch ([UIScreen mainScreen].bounds.size.height == 667.0)
+/**是否是5.5寸屏幕*/
+//宽414
+#define is5_5Inch ([UIScreen mainScreen].bounds.size.height == 736.0)
 #define iOS7 [[[UIDevice currentDevice]systemVersion]floatValue]>=7.0
 #define MyWideth  WIDETH / 375
 #define MyHeight HEIGHT / 667

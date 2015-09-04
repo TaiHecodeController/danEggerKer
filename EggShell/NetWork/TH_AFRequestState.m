@@ -31,9 +31,10 @@
 }
 
 /*意见反馈**/
-+(AFRequestState*)feedbackReRequestWithSucc:(void(^)(NSArray * DataDic))succ   withSource:(int)source withOpinion:(NSString*)opinion withqq:(NSString*)qq withEmail:(NSString*)email withfail:(void (^)(int errCode, NSError * err))fail
++(AFRequestState*)feedbackReRequestWithSucc:(void(^)( NSDictionary * DataDic))succ   withSource:(int)source withOpinion:(NSString*)opinion withqq:(NSString*)qq withEmail:(NSString*)email withfail:(void (^)(int errCode, NSError * err))fail
 {
     NSNumber * num = [NSNumber numberWithInt:source];
+    
     
   NSDictionary * param = @{@"source":num ,@"opinion":opinion,@"qq":qq,@"email":email};
     return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/feedback" param:param succ:succ fail:fail];

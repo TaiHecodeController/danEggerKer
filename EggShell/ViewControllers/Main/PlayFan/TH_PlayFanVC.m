@@ -74,11 +74,7 @@
     {
         return;
     }
-    //    int a = num;
-    
-    //    NSString * pageNumber = [NSString stringWithFormat:@"%d",num];
-    
-    _state = [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
+        _state = [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
         [self.dataArray addObjectsFromArray:DataDic];
         
         [self.tableView reloadData];

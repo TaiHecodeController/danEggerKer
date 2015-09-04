@@ -24,13 +24,13 @@
 
 @interface TH_FindJobVC ()<UITableViewDataSource,UITableViewDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,MJRefreshBaseViewDelegate>
 {
-
+    
     jobTableViewCell *_cell;
-
+    
     BMKLocationService * _locService;
     NSIndexPath  * record_index;
-   
-        MBProgressHUD * _mbPro;
+    
+    MBProgressHUD * _mbPro;
     
 }
 
@@ -62,12 +62,12 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-
+    
     [super viewWillAppear:NO];
-   
+    
     UIButton *searchBtn = [[UIButton alloc] init];
     [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
-      [searchBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
+    [searchBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
     searchBtn.frame = CGRectMake(WIDETH - 10 - 50 - 20 - 10,0, 44, 44);
     [searchBtn addTarget:self action:@selector(searchBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.navigationBar addSubview:searchBtn];
@@ -78,27 +78,27 @@
 
 -(void)viewDidAppear:(BOOL)animated
 { self.cellArray = [NSMutableArray arrayWithCapacity:0];
-//    jobTableViewCell * cell = self.cellArray[record_index.row];
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//  [self.tableView reloadData];
+    //    jobTableViewCell * cell = self.cellArray[record_index.row];
+    //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    //  [self.tableView reloadData];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-  [super viewWillDisappear:NO];
+    [super viewWillDisappear:NO];
     
     [_searchBtn removeFromSuperview];
-        
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
     self.jobArr = [[NSMutableArray alloc]init];
-       _mailingNumBer = 0;
+    _mailingNumBer = 0;
     self.page = 1;
     self.view.backgroundColor =[UIColor whiteColor];
- 
+    
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barBtnItemWithNormalImageName:@"liebiao" hightImageName:nil action:@selector(rightClick) target:self];
     
     [self initView];
@@ -106,9 +106,9 @@
     //在此方法里请求数据
     [self hySegmentedControlSelectAtIndex:0];
     
-    //    //设置定位精确度，默认：kCLLocationAccuracyBest
+    //设置定位精确度，默认：kCLLocationAccuracyBest
     [BMKLocationService setLocationDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
-    //    //指定最小距离更新(米)，默认：kCLDistanceFilterNone
+    //指定最小距离更新(米)，默认：kCLDistanceFilterNone
     [BMKLocationService setLocationDistanceFilter:100.f];
     
     //初始化BMKLocationService
@@ -126,13 +126,13 @@
     }
     
     self.state =[[TH_AFRequestState jobListReRequestWithSucc:^(NSArray *DataDic) {
-       
-         [self.jobArr addObjectsFromArray:DataDic];
+        
+        [self.jobArr addObjectsFromArray:DataDic];
         
         [self.tableView reloadData];
         
     } withfail:^(int errCode, NSError *err) {
-       
+        
     } withPageNumber:num resp:[findJobModel class]] addNotifaction:notify];
 }
 
@@ -143,6 +143,7 @@
 - (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
 {
     NSLog(@"heading is %@",userLocation.heading);
+    
 }
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
@@ -250,21 +251,21 @@
     [closeBtn addTarget:self action:@selector(closeBtn) forControlEvents:UIControlEventTouchUpInside];
     [alertView addSubview:closeBtn];
     
-//    UIButton *jianliBtn = [[UIButton alloc]init];
-//    [jianliBtn setTitle:@"您投递10个职位，2个职位已经投递，一周内不能重复投递职位。" forState:UIControlStateNormal];
-//    [jianliBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    jianliBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-////    [jianliBtn setImage:[UIImage imageNamed:@"duihaolan"] forState:UIControlStateNormal];
-//    jianliBtn.frame = CGRectMake(margin, 40, 400, 50);
-//    [alertView addSubview:jianliBtn];
+    //    UIButton *jianliBtn = [[UIButton alloc]init];
+    //    [jianliBtn setTitle:@"您投递10个职位，2个职位已经投递，一周内不能重复投递职位。" forState:UIControlStateNormal];
+    //    [jianliBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    //    jianliBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    ////    [jianliBtn setImage:[UIImage imageNamed:@"duihaolan"] forState:UIControlStateNormal];
+    //    jianliBtn.frame = CGRectMake(margin, 40, 400, 50);
+    //    [alertView addSubview:jianliBtn];
     NSString *str = @"12";
     NSString *str2 = @"3";
     
-        UITextView *jianliBtn = [[UITextView alloc]init];
-        jianliBtn.text = [NSString stringWithFormat:@"您投递%d个职位，%@个职位已经投递，一周内不能重复投递职位。",_mailingNumBer,str2];
-        jianliBtn.font = [UIFont systemFontOfSize:13];
-        jianliBtn.frame = CGRectMake(margin, 40, 300, 50);
-        [alertView addSubview:jianliBtn];
+    UITextView *jianliBtn = [[UITextView alloc]init];
+    jianliBtn.text = [NSString stringWithFormat:@"您投递%d个职位，%@个职位已经投递，一周内不能重复投递职位。",_mailingNumBer,str2];
+    jianliBtn.font = [UIFont systemFontOfSize:13];
+    jianliBtn.frame = CGRectMake(margin, 40, 300, 50);
+    [alertView addSubview:jianliBtn];
     jianliBtn.editable = NO;
     
     UIButton *okBtn = [[UIButton alloc]init];
@@ -300,27 +301,27 @@
 #pragma mark - http
 - (void)startHttpRequest
 {
-//        __weak typeof(self) weakSelf = self;
-//    
-//        //模糊查询景点
-//        MTSearchScenicRequest *request = [MTSearchScenicRequest requestWithKeyword:_keyword cityCode:_cityCode limit:20 offset:0];
-//    
-//        [MTConnection startRequest:request onTarget:weakSelf withBlock:^(BOOL success, MTRespDataSourceType sourceType, MTURLResponse *response)
-//         {
-//    
-//             MTSearchScenicResponse *rp = (MTSearchScenicResponse *)response;
-//    
-//             if (rp.scenicList && rp.scenicList.count > 0)
-//             {
-//                 dataArray = [weakSelf getArray:rp.scenicList length:2];
-//                 [_gridView reloadData];
-//             }
-//             else
-//             {
-//                 //无符合信息
-//                 [weakSelf showHttpErrorInfo:nil info:nil];
-//             }
-//         }];
+    //        __weak typeof(self) weakSelf = self;
+    //
+    //        //模糊查询景点
+    //        MTSearchScenicRequest *request = [MTSearchScenicRequest requestWithKeyword:_keyword cityCode:_cityCode limit:20 offset:0];
+    //
+    //        [MTConnection startRequest:request onTarget:weakSelf withBlock:^(BOOL success, MTRespDataSourceType sourceType, MTURLResponse *response)
+    //         {
+    //
+    //             MTSearchScenicResponse *rp = (MTSearchScenicResponse *)response;
+    //
+    //             if (rp.scenicList && rp.scenicList.count > 0)
+    //             {
+    //                 dataArray = [weakSelf getArray:rp.scenicList length:2];
+    //                 [_gridView reloadData];
+    //             }
+    //             else
+    //             {
+    //                 //无符合信息
+    //                 [weakSelf showHttpErrorInfo:nil info:nil];
+    //             }
+    //         }];
 }
 - (void)hySegmentedControlSelectAtIndex:(NSInteger)index
 {
@@ -328,12 +329,12 @@
     {
         
         _currentIndex = 0;
-       
+        
         /*数据请求**/
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:self.page];
         
-       
+        
     }
     else
     {
@@ -356,8 +357,8 @@
 {
     static NSString *identifier = @"identifier";
     
-   jobTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if (cell == nil)
+    jobTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil)
     {
         cell = [[jobTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
@@ -388,7 +389,7 @@
         [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell layoutSubviews];
     }
-
+    
     return cell;
 }
 #pragma mark -- MJRefresh
@@ -417,7 +418,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return _jobArr.count;
+    return _jobArr.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -427,8 +428,8 @@
     }
     else
     {
-
-       findJobModel *fjModel = _jobArr[indexPath.row];
+        
+        findJobModel *fjModel = _jobArr[indexPath.row];
         
         TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
         record_index = indexPath;
@@ -436,9 +437,9 @@
         detail.pid = [fjModel.id intValue];
         
         [self.navigationController pushViewController:detail animated:YES];
-
+        
     }
-     
+    
 }
 
 #pragma mark -- respondEvent
@@ -449,14 +450,14 @@
         sender.selected = YES;
         //选中所有
         for (int i = 0; i<_jobArr.count; i++) {
-//            NSLog(@"_jobarr[%d]=%@", i, _jobArr[i]);
-           findJobModel *model = self.jobArr[i];
-//            _jobArr[i][@"selected"] = @"1";
+            //            NSLog(@"_jobarr[%d]=%@", i, _jobArr[i]);
+            findJobModel *model = self.jobArr[i];
+            //            _jobArr[i][@"selected"] = @"1";
             model.cellselected = @"1";
         }
         
         [_tableView reloadData];
-
+        
     }
     else
     {
@@ -483,7 +484,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         findJobModel *fjModel = self.jobArr[indexPath.row];
         fjModel.cellselected = @"1";
-//        [_cellIndeSet addIndex:indexPath.row];
+        //        [_cellIndeSet addIndex:indexPath.row];
         
     }
     else
@@ -494,9 +495,9 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         findJobModel *fjModel = self.jobArr[indexPath.row];
         fjModel.cellselected = @"0";
-//        [_cellIndeSet removeIndex:indexPath.row];
+        //        [_cellIndeSet removeIndex:indexPath.row];
     }
-
+    
 }
 
 
@@ -521,14 +522,14 @@
     
     _mailingNumBer = 0;
     
-//    for (int i = 0; i < _jobArr.count; i++)
-//    {
-//        
-//        if ([(findJobModel *)self.jobArr[i]. isEqualToString:@"1"])
-//        {
-//            _mailingNumBer++;
-//        }
-//    }
+    //    for (int i = 0; i < _jobArr.count; i++)
+    //    {
+    //
+    //        if ([(findJobModel *)self.jobArr[i]. isEqualToString:@"1"])
+    //        {
+    //            _mailingNumBer++;
+    //        }
+    //    }
     
     for (findJobModel *model in self.jobArr)
     {
@@ -541,26 +542,26 @@
     [self addCoverView];
     
     [self addAlertView];
-
+    
 }
 
 - (void)closeBtn
 {
     THLog(@"close被点击");
-//    for (int i ; i< _jobArr.count; i++)
-//    {
-//        _jobArr[i][@"selected"] = @"0";
-//    }
+    //    for (int i ; i< _jobArr.count; i++)
+    //    {
+    //        _jobArr[i][@"selected"] = @"0";
+    //    }
     [self removeCoverAndAlert];
 }
 
 - (void)okBtn
 {
-     THLog(@"确定被点击");
-//    for (int i ; i< _jobArr.count; i++)
-//    {
-//        _jobArr[i][@"selected"] = @"0";
-//    }
+    THLog(@"确定被点击");
+    //    for (int i ; i< _jobArr.count; i++)
+    //    {
+    //        _jobArr[i][@"selected"] = @"0";
+    //    }
     
     [self removeCoverAndAlert];
 }
@@ -570,7 +571,7 @@
     THLog(@"搜索被点击");
     SearchJobVC * search = [[SearchJobVC alloc] init];
     [self.navigationController pushViewController:search animated:YES];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -579,13 +580,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

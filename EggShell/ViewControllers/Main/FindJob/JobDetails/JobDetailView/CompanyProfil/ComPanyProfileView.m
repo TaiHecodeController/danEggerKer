@@ -22,6 +22,7 @@
 -(void)createUI
 {
 
+
     UIView * lineView = [[UIView alloc] initWithFrame:CGRectMake(15, 15, 2, 13)];
     lineView.backgroundColor = UIColorFromRGB(0xF44336);
     self.lineView = lineView;
