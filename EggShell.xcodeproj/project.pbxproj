@@ -235,6 +235,9 @@
 		F05B80101B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B800F1B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.m */; };
 		F05B80131B8AC34400DC0A1D /* UIColor+RK_Color.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B80121B8AC34400DC0A1D /* UIColor+RK_Color.m */; };
 		F06F72EF1B9694D200989489 /* playListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F06F72EE1B9694D200989489 /* playListModel.m */; };
+		F07F39011B993B7C002531CD /* CommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39001B993B7C002531CD /* CommonFunc.m */; };
+		F07F39051B996F65002531CD /* saveListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39041B996F65002531CD /* saveListModel.m */; };
+		F07F39091B998B62002531CD /* TeacherFCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39081B998B62002531CD /* TeacherFCModel.m */; };
 		F0D7C02B1B7994DB00836DD2 /* OpenClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */; };
 		F0D7C0551B79C7B400836DD2 /* libpolyvSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C04C1B79C7B400836DD2 /* libpolyvSDK.a */; };
 		F0D7C0571B79CC4800836DD2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C0561B79CC4800836DD2 /* MobileCoreServices.framework */; };
@@ -657,6 +660,12 @@
 		F05B80121B8AC34400DC0A1D /* UIColor+RK_Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RK_Color.m"; sourceTree = "<group>"; };
 		F06F72ED1B9694D200989489 /* playListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playListModel.h; sourceTree = "<group>"; };
 		F06F72EE1B9694D200989489 /* playListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playListModel.m; sourceTree = "<group>"; };
+		F07F38FF1B993B7C002531CD /* CommonFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFunc.h; sourceTree = "<group>"; };
+		F07F39001B993B7C002531CD /* CommonFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFunc.m; sourceTree = "<group>"; };
+		F07F39031B996F65002531CD /* saveListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = saveListModel.h; sourceTree = "<group>"; };
+		F07F39041B996F65002531CD /* saveListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = saveListModel.m; sourceTree = "<group>"; };
+		F07F39071B998B62002531CD /* TeacherFCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherFCModel.h; sourceTree = "<group>"; };
+		F07F39081B998B62002531CD /* TeacherFCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherFCModel.m; sourceTree = "<group>"; };
 		F0D7C0291B7994DB00836DD2 /* OpenClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenClassCell.h; sourceTree = "<group>"; };
 		F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenClassCell.m; sourceTree = "<group>"; };
 		F0D7C04B1B79C7B400836DD2 /* DownloadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadDelegate.h; sourceTree = "<group>"; };
@@ -799,6 +808,7 @@
 		0416505A1B4D71D4008C78BE /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				F07F38FE1B993B60002531CD /* Base64 */,
 				94E3EA8E1B8EB520007A699E /* internet */,
 				94E3EA8B1B8E9AAD007A699E /* Resources */,
 				94E3EA781B8E971C007A699E /* Release-iphoneos */,
@@ -1339,6 +1349,7 @@
 		941F100B1B7B3BCC00719F5B /* JobWishlist */ = {
 			isa = PBXGroup;
 			children = (
+				F07F39021B996F56002531CD /* Model */,
 				941F100C1B7B3BCC00719F5B /* JobWishlistCell */,
 				941F10131B7B3BCC00719F5B /* TH_JobWishlistVC.h */,
 				941F10141B7B3BCC00719F5B /* TH_JobWishlistVC.m */,
@@ -1803,6 +1814,7 @@
 		94E7DCEE1B841D510093C39B /* CoursePlay */ = {
 			isa = PBXGroup;
 			children = (
+				F07F39061B998B3B002531CD /* Model */,
 				94E7DCEF1B841D510093C39B /* CoursePlayview */,
 				94E7DCF61B841D510093C39B /* THCoursePlayVC.h */,
 				94E7DCF71B841D510093C39B /* THCoursePlayVC.m */,
@@ -1962,6 +1974,33 @@
 				F05B80121B8AC34400DC0A1D /* UIColor+RK_Color.m */,
 			);
 			path = RKCustomTool;
+			sourceTree = "<group>";
+		};
+		F07F38FE1B993B60002531CD /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				F07F38FF1B993B7C002531CD /* CommonFunc.h */,
+				F07F39001B993B7C002531CD /* CommonFunc.m */,
+			);
+			path = Base64;
+			sourceTree = "<group>";
+		};
+		F07F39021B996F56002531CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F07F39031B996F65002531CD /* saveListModel.h */,
+				F07F39041B996F65002531CD /* saveListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F07F39061B998B3B002531CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F07F39071B998B62002531CD /* TeacherFCModel.h */,
+				F07F39081B998B62002531CD /* TeacherFCModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F0D7C04A1B79C7B400836DD2 /* libpolyvSDK */ = {
@@ -2207,6 +2246,7 @@
 				947008C81B85FF0100DEC289 /* TH_ImagePickerVC.m in Sources */,
 				04EC1F0F1B78F5510009292E /* SearchView.m in Sources */,
 				940032C91B840CC3001EB666 /* TH_CertificateVC.m in Sources */,
+				F07F39011B993B7C002531CD /* CommonFunc.m in Sources */,
 				94313DF11B7CB5C9005D0A9A /* WriteResumeCell2.m in Sources */,
 				94313DC01B7CAAED005D0A9A /* TH_InformationDeskDetailVC.m in Sources */,
 				940EDEE01B96E35800376D37 /* WorkExReadingVC.m in Sources */,
@@ -2330,9 +2370,11 @@
 				0454ACF11B94A257004A70ED /* ResumeModel.m in Sources */,
 				94CB5B7A1B74CC0600B23B9D /* BaseModel.m in Sources */,
 				941F10161B7B3BCC00719F5B /* JobWishlistCell.m in Sources */,
+				F07F39091B998B62002531CD /* TeacherFCModel.m in Sources */,
 				94E2C98B1B870F29001E3FDD /* TH_JobDetailVC.m in Sources */,
 				041650681B4D7240008C78BE /* GArrayAdapter.m in Sources */,
 				941F10181B7B3BCC00719F5B /* JobWishlistHeadView.m in Sources */,
+				F07F39051B996F65002531CD /* saveListModel.m in Sources */,
 				F05B80071B8ABE2200DC0A1D /* MTGridView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

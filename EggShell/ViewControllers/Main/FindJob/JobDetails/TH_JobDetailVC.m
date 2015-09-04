@@ -16,6 +16,8 @@
 #import "playFanModel.h"
 #import "TH_AFRequestState.h"
 #import "JobDetailModel.h"
+#import "CommonFunc.h"
+
 @interface TH_JobDetailVC ()<UITableViewDataSource,UITableViewDelegate,companyProfileViewDelegate,MJRefreshBaseViewDelegate>
 {
     //纪录展开之前的frame
@@ -40,6 +42,7 @@
 @property (nonatomic, strong)JobDescriptionlView *jobDescription;
 @property (nonatomic, strong)ComPanyProfileView *companyprofileView;
 @property (nonatomic, strong) NSMutableArray *listArr;
+@property (nonatomic, strong) JobDetailModel *model;
 
 @end
 
@@ -83,9 +86,9 @@
 //    } withId:_id pid:pid resp:[JobDetailModel class]] addNotifaction:notify];
     
     self.state = [[TH_AFRequestState jobDetailsRequestWithSucc:^(NSDictionary *DataArr) {
-        JobDetailModel * model = (JobDetailModel *)DataArr;
-        [self setHeaderModel:model];
-        _listArr = [NSMutableArray arrayWithArray:model.lists];
+        _model = (JobDetailModel *)DataArr;
+        [self setHeaderModel:_model];
+        _listArr = [NSMutableArray arrayWithArray:_model.lists];
         [self.tableView reloadData];
         
     } withfail:^(int errCode, NSError *err) {
@@ -322,7 +325,12 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     _jobDescription.knowledge.text = model.edu;
     _jobDescription.salary.text = model.salary;
     
-    [_companyprofileView config:model.content];
+    [_companyprofileView config:[CommonFunc textFromBase64String:model.content]];
+    
+//    UIWebView *textView = [[UIWebView alloc]init];
+//    textView.frame = CGRectMake(0, 0, WIDETH, 300);
+//    [textView loadHTMLString:[CommonFunc textFromBase64String:model.content] baseURL:nil];
+//    [self.view addSubview:textView];
 }
 
 #pragma mark- - 收藏
@@ -330,8 +338,19 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
 {
     sender.selected = !sender.selected;
     
-//    UIAlertView * alert  = [[UIAlertView alloc] initWithTitle:@"提示" message:@"收藏" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-//    [alert show];
+//      NSLog(@"%@",_model.cj_id);
+    
+   self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
+       
+       NSLog(@"收藏职位成功",DataArr);
+        
+    } withFail:^(int errCode, NSError *err) {
+        
+         NSLog(@"%@",err);
+        
+    } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

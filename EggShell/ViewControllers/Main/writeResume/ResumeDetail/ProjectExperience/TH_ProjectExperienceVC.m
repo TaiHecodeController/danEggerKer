@@ -12,9 +12,11 @@
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
 #import "EducationTimeCell.h"
+#import "ResumeModel.h"
 @interface TH_ProjectExperienceVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     WriteRusumeModel2 * _model;
+    ResumeModel * _resume_model;
 }
 @property (strong,nonatomic)UILabel * nameLab;
 @property (strong,nonatomic)UITextView * contentTextField;
@@ -33,6 +35,7 @@
     [super viewDidLoad];
     self.jobCellArr = [NSMutableArray arrayWithCapacity:0];
     _model = [[WriteRusumeModel2 alloc] init];
+    _resume_model = [ResumeModel sharedResume];
     [self createScro];
     [self createView];
     [self setData];
@@ -51,7 +54,7 @@
 }
 
 -(void)createView
-{   UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 135, 13) Font:13 Text:@"个人简历001-专业技能"];
+{   UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 135, 13) Font:13 Text:[NSString stringWithFormat:@"%@-项目经验",_resume_model.resumeName]];
     [self.scro addSubview:nameLab];
     
     UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(160, 9.5, 53, 23) ImageName:@"lanniu2" Target:self Action:nil Title:@"可选填"];
@@ -76,7 +79,7 @@
     bgView.layer.borderColor = [UIColor colorWithRed:221 / 255.0 green:221 / 255.0 blue:221 / 255.0 alpha:1].CGColor;
     [self.scro addSubview:bgView];
     
-    self.nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 50, 52, 21) Font:13 Text:@"工作内容"];
+    self.nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 50, 52, 21) Font:13 Text:@"项目内容"];
     [bgView addSubview:self.nameLab];
     
     UIView * line = [ZCControl viewWithFrame:CGRectMake(77, 46, 1, 26)];
@@ -88,7 +91,7 @@
     
     self.contentTextField.textAlignment = NSTextAlignmentNatural;
     self.contentTextField.textColor = color(203, 203, 203);
-    self.contentTextField.text = @"请填写工作内容";
+    self.contentTextField.text = @"请填写项目内容";
     [bgView addSubview:self.contentTextField];
 
     
@@ -145,15 +148,15 @@
             
             if(i == 0)
             {
-                _model.name = [cell.placehoderTextfield.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                _model.name = cell.placehoderTextfield.text;
             }
             if(i == 2)
             {
-                _model.projectPath = [cell.placehoderTextfield.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                _model.projectPath = cell.placehoderTextfield.text;
             }
             if(i == 3)
             {
-                _model.position = [cell.placehoderTextfield.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                _model.position = cell.placehoderTextfield.text;
             }
         }
         
@@ -162,7 +165,7 @@
     
     if(self.contentTextField.text.length > 30)
     {
-        _model.content = [self.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        _model.content = self.contentTextField.text;
     }else
     {
         [MBProgressHUD creatembHub:@"请输入至少15个字符"];
@@ -181,11 +184,21 @@
 {
     for(int i = 0;i < self.jobCellArr.count;i++)
     {
+        if(i == 1)
+        {
+            EducationTimeCell * cell = self.jobCellArr[i];
+            cell.startTime.selected = NO;
+            cell.endTime.selected = NO;
+            cell.todayClick.selected = NO;
+            continue;
+        }
         projectTableViewCell * cell = self.jobCellArr[i];
-        
         cell.placehoderTextfield.text = @"";
     }
+    [self.jobCellArr removeAllObjects];
     [_tableView reloadData];
+    self.contentTextField.text = @"请输入项目内容";
+
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

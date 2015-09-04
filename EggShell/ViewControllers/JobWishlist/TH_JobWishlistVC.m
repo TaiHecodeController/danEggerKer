@@ -13,10 +13,12 @@
 #import "jobModel.h"
 #import "TH_JobDetailVC.h"
 #import "jobListCell.h"
-
+#import "saveListModel.h"
 #define bottomH 107
 
-@interface TH_JobWishlistVC ()<UITableViewDataSource,UITableViewDelegate>
+#import "MJRefresh.h"
+
+@interface TH_JobWishlistVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 
 {
     NSIndexPath  * record_index;
@@ -36,17 +38,30 @@
 @property (nonatomic, strong) UILabel *numLab;
 @property (nonatomic, strong) NSMutableIndexSet *cellIndeSet;
 @property (nonatomic, strong) NSMutableArray * cellArray;
+@property (nonatomic, strong) AFRequestState *state;
+@property (nonatomic, assign) int page;
+@property(nonatomic,strong)MJRefreshFooterView *  footer;
+@property(nonatomic,strong)MJRefreshHeaderView * header;
+
 @end
 
 @implementation TH_JobWishlistVC
+
+-(void)dealloc
+{
+    [_header free];
+    [_footer free];
+}
 -(void)viewDidAppear:(BOOL)animated
 {
     jobListCell * cell = self.cellArray[record_index.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [self.tableView reloadData];
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     self.view.backgroundColor =[UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
@@ -58,8 +73,10 @@
     _cellIndeSet = [[NSMutableIndexSet alloc]init];
     
     [self initView];
-    
-    [self querData];
+    _jobArr = [NSMutableArray array];
+    self.page = 1;
+    MBProgressHUD *mb = [MBProgressHUD mbHubShow];
+    [self loadData:mb page:self.page];
     
 }
 
@@ -100,6 +117,15 @@
     _tableView.backgroundColor = [UIColor clearColor];
     [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     [self.view addSubview:_tableView];
+    //下拉刷新
+    _header = [MJRefreshHeaderView header];
+    _header.scrollView = self.tableView;
+    _header.delegate = self;
+    //上拉刷新
+    _footer = [MJRefreshFooterView footer];
+    _footer.scrollView = self.tableView;
+    _footer.delegate = self;
+
     
     _bottomView = [[UIView alloc]init];
     _bottomView.frame = CGRectMake(0, HEIGHT - bottomH - 66, WIDETH, bottomH);
@@ -217,15 +243,27 @@
     _alertView = nil;
 }
 
-- (void)querData
+
+-(void)loadData:(id)notify page:(int)num
 {
-    _jobArr = [[NSMutableArray alloc]init];
-    NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"findjobtest" ofType:@"plist"];
-    _jobArr = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
-//    THLog(@"jobarr:%@",_jobArr);
+    if(_state.running)
+    {
+        return;
+    }
     
-    _numLab.text = [NSString stringWithFormat:@"%lu条记录",(unsigned long)_jobArr.count];
+    self.state = [[TH_AFRequestState saveJobListSucc:^(NSArray *DataArr) {
+        
+         [_jobArr addObjectsFromArray:DataArr];
+        [self.tableView reloadData];
+        
+    } withfail:^(int errCode, NSError *err) {
+        
+        NSLog(@"%@",err);
+        
+    } withUid:nil page:num limit:1 resp:[saveListModel class]] addNotifaction:notify];
+    
 }
+
 
 #pragma mark tabViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -251,39 +289,27 @@
     
     if (_currentIndex == 0)
     {
-        //        cell.numLab.text = [NSString stringWithFormat:@"%ld.",indexPath.row + 1];
-        //        cell.headIcon.image = [UIImage imageNamed:@"rankilau"];
-        //        cell.name = @"USER1";
-        //        cell.price = @"100";
-        //        cell.lab.commonLab.text = @"共送出了";
-        //        [cell adjustFrame];
-        
-        cell.positionLab.text = _jobArr[indexPath.row][@"positionName"];
-        cell.companyLab.text = @"苏宁消费金融有限公司";
-        cell.cityLab.text = @"北京";
-        cell.knowledgeLab.text = @"大专";
-        cell.timeLab.text = @"7-30";
-        cell.salaryLab.text = @"5k-7k";
-        cell.jobSelected = _jobArr[indexPath.row][@"selected"];
+        saveListModel *model = _jobArr[indexPath.row];
+        cell.positionLab.text = model.job_name;
+        cell.companyLab.text = model.com_name;
+        cell.cityLab.text = model.provinceid;
+        cell.knowledgeLab.text = model.provinceid;
+        cell.timeLab.text = model.lastupdate;
+        cell.salaryLab.text = model.salary;
+        cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
         [cell layoutSubviews];
     }
     else
     {
-        //        cell.numLab.text = [NSString stringWithFormat:@"%ld.",indexPath.row + 1];
-        //        [cell.headIcon sd_setImageWithURL:[NSURL URLWithString:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"] placeholderImage:nil];
-        //        cell.name = @"USER1";
-        //        cell.price = @"200";
-        //        cell.lab.commonLab.text = @"共收到了";
-        //        [cell adjustFrame];
         
-        cell.positionLab.text = _jobArr[indexPath.row][@"positionName"];
-        cell.companyLab.text = @"苏宁消费金融有限公司";
-        cell.cityLab.text = @"北京";
-        cell.knowledgeLab.text = @"大专";
-        cell.timeLab.text = @"7-30";
-        cell.salaryLab.text = @"5k-7k";
-        cell.jobSelected = _jobArr[indexPath.row][@"selected"];
-        
+        saveListModel *model = _jobArr[indexPath.row];
+        cell.positionLab.text = model.job_name;
+        cell.companyLab.text = model.com_name;
+        cell.cityLab.text = model.provinceid;
+        cell.knowledgeLab.text = model.provinceid;
+        cell.timeLab.text = model.lastupdate;
+        cell.salaryLab.text = model.salary;
+        cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
         [cell layoutSubviews];
         
     }
@@ -315,6 +341,26 @@
     }
 }
 
+#pragma mark -- MJRefresh
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    if( refreshView == _header ){
+        _page = 1;
+
+        [_jobArr removeAllObjects];
+        
+        [self loadData:refreshView page:_page];
+    }
+    else{
+        self.page++;
+        THLog(@"上拉加载更多");
+        [self loadData:refreshView page:_page];
+        
+        
+    }
+}
+
+
 #pragma mark -- respondEvent
 - (void)allClick:(UIButton *)sender
 {
@@ -323,8 +369,8 @@
         sender.selected = YES;
         //选中所有
         for (int i = 0; i<_jobArr.count; i++) {
-//            NSLog(@"_jobarr[%d]=%@", i, _jobArr[i]);
-            _jobArr[i][@"selected"] = @"1";
+            saveListModel *slModel = _jobArr[i];
+            slModel.cellselected = @"1";
             [_cellIndeSet addIndex:i];
         }
         [_tableView reloadData];
@@ -336,8 +382,8 @@
         
         //失选所有
         for (int i = 0; i<_jobArr.count; i++) {
-//            NSLog(@"_jobarr[%d]=%@", i, _jobArr[i]);
-            _jobArr[i][@"selected"] = @"0";
+            saveListModel *slModel = _jobArr[i];
+            slModel.cellselected = @"0";
             [_cellIndeSet removeIndex:i];
         }
         [_tableView reloadData];
@@ -380,7 +426,7 @@
 
 - (void)removeBtnClick
 {
-     THLog(@"删除职位被点击");
+    THLog(@"删除职位被点击");
     
     [_jobArr removeObjectsAtIndexes:_cellIndeSet];
     [_tableView reloadData];

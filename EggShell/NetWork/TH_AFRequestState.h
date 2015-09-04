@@ -23,7 +23,13 @@
 
 /*职位详情**/
 +(AFRequestState* )jobDetailsRequestWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode, NSError *err))fail withId:(int)id pid:(int)pid resp:(Class)resp;
+
+/*收藏职位**/
++(AFRequestState *)saveJobWithSucc:(void(^)(NSDictionary *DataArr))succ withFail:(void(^)(int errCode, NSError *err))fail withJob_id:(int)job_id resp:(Class)resp;
+
+/*收藏职位列表**/
++(AFRequestState *)saveJobListSucc:(void(^)(NSArray *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid page:(int)page limit:(int)limit resp:(Class)resp;
 /*轮播图**/
 +(AFRequestState*)CarouselFigureRequestWithSucc:(void(^)(NSDictionary * arr))succ withfail:(void(^)(int errCode, NSError *err))fail;
-+(void)
+
 @end

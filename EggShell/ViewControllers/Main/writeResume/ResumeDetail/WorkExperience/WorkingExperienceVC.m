@@ -18,12 +18,13 @@
 
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
-
+#import "ResumeModel.h"
 
 @interface WorkingExperienceVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;
     WriteRusumeModel2 * _model;
+    ResumeModel * _resume_model;
 }
 @property(strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
@@ -38,6 +39,7 @@
     self.title = @"工作经历";
     self.jobArray = [NSMutableArray arrayWithCapacity:0];
     _model = [[WriteRusumeModel2 alloc] init];
+    _resume_model = [ResumeModel sharedResume];
     [self createUI];
     [self createData];
     // Do any additional setup after loading the view.
@@ -52,7 +54,7 @@
 -(void)createUI
 {
     self.view.backgroundColor = color(243, 243, 241);
-    UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 150, 20) Font:14 Text:@"个人简历001-工作经历"];
+    UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 150, 20) Font:14 Text:[NSString stringWithFormat:@"%@-工作经历",_resume_model.resumeName]];
     [self.view addSubview:nameLab];
     
     UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(165, 15, 53, 23) ImageName:@"hongniu2" Target:self Action:nil Title:@"必填项"];
@@ -142,15 +144,15 @@
             {
                 if(i == 0)
                 {
-                    _model.name = [cell.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                    _model.name = cell.contentTextField.text;
                 }
                 if(i == 2)
                 {
-                    _model.department = [cell.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                    _model.department = cell.contentTextField.text;
                 }
                 if(i == 3)
                 {
-                    _model.title = [cell.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                    _model.title = cell.contentTextField.text;
                 }
             }
         }
@@ -158,7 +160,7 @@
     }
     if(self.contentTextField.text.length > 30)
     {
-        _model.content = [self.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        _model.content = self.contentTextField.text;
     }else
     {
         [MBProgressHUD creatembHub:@"请输入至少15个字符"];
@@ -183,10 +185,13 @@
             cell.StartTime.selected = NO;
             cell.endTime.selected = NO;
             cell.todaySelect.selected = NO;
+            continue;
         }
         WriteResumeCell * cell = self.jobArray[i];
         cell.contentTextField.text = @"";
     }
+    [self.jobArray removeAllObjects];
+    self.contentTextField.text = @"请填写工作内容";
     [_tableView reloadData];
 
 }
