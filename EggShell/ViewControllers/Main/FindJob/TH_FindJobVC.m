@@ -133,8 +133,6 @@
         
     } withfail:^(int errCode, NSError *err) {
        
-        
-        
     } withPageNumber:num resp:[findJobModel class]] addNotifaction:notify];
 }
 
@@ -373,7 +371,7 @@
         cell.knowledgeLab.text = model.edu;
         cell.timeLab.text = model.lastupdate;
         cell.salaryLab.text = model.salary;
-        cell.jobSelected = (model.cellselected.length > 0) ? (@"0") : (model.cellselected);
+        cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
         [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell layoutSubviews];
     }
@@ -386,7 +384,7 @@
         cell.knowledgeLab.text = model.edu;
         cell.timeLab.text = model.lastupdate;
         cell.salaryLab.text = model.salary;
-        cell.jobSelected = model.cellselected;
+        cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
         [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell layoutSubviews];
     }
@@ -481,20 +479,21 @@
     {
         sender.selected = YES;
         
-//        jobTableViewCell *cell = (jobTableViewCell *)[sender superview];
-//        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-//        THLog(@"_cellIndexSet增加%ld",(long)indexPath.row);
-//        _jobArr[indexPath.row][@"selected"] = @"1";
+        jobTableViewCell *cell = (jobTableViewCell *)[sender superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        findJobModel *fjModel = self.jobArr[indexPath.row];
+        fjModel.cellselected = @"1";
 //        [_cellIndeSet addIndex:indexPath.row];
         
     }
     else
     {
         sender.selected = NO;
-//        jobTableViewCell *cell = (jobTableViewCell *)[sender superview];
-//        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-//        THLog(@"_cellIndexSet减少%ld",(long)indexPath.row);
-//        _jobArr[indexPath.row][@"selected"] = @"0";
+        
+        jobTableViewCell *cell = (jobTableViewCell *)[sender superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        findJobModel *fjModel = self.jobArr[indexPath.row];
+        fjModel.cellselected = @"0";
 //        [_cellIndeSet removeIndex:indexPath.row];
     }
 
@@ -505,10 +504,8 @@
 {
     THLog(@"条件选择按钮被点击");
     
-    
     TH_JobScreeningVC * job = [[TH_JobScreeningVC alloc] init];
     job.title = @"职位搜索";
-    
     [self.navigationController pushViewController:job animated:YES];
 }
 
@@ -522,15 +519,24 @@
 {
     THLog(@"职位申请被点击");
     
-//    _mailingNumBer = 0;
+    _mailingNumBer = 0;
+    
 //    for (int i = 0; i < _jobArr.count; i++)
 //    {
 //        
-//        if ([_jobArr[i][@"selected"]  isEqual: @"1"])
+//        if ([(findJobModel *)self.jobArr[i]. isEqualToString:@"1"])
 //        {
 //            _mailingNumBer++;
 //        }
 //    }
+    
+    for (findJobModel *model in self.jobArr)
+    {
+        if ([model.cellselected isEqualToString: @"1"])
+        {
+            _mailingNumBer++;
+        }
+    }
     
     [self addCoverView];
     
