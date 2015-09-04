@@ -10,10 +10,12 @@
 #import "WriteResumeCell.h"
 #import "WorkingTimeCell.h"
 
+#import "WriteRusumeModel2.h"
+
+
 #import "WorkExReadingVC.h"
 
 
-#import "WorkExperienceModel.h"
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
 
@@ -21,7 +23,7 @@
 @interface WorkingExperienceVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;
-    WorkExperienceModel * _model;
+    WriteRusumeModel2 * _model;
 }
 @property(strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
@@ -35,7 +37,7 @@
     [super viewDidLoad];
     self.title = @"工作经历";
     self.jobArray = [NSMutableArray arrayWithCapacity:0];
-    _model = [[WorkExperienceModel alloc] init];
+    _model = [[WriteRusumeModel2 alloc] init];
     [self createUI];
     [self createData];
     // Do any additional setup after loading the view.
@@ -169,10 +171,10 @@
         return;
     }
     NSDictionary * param = @{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"department":_model.department,@"title":_model.title,@"content":_model.content};
-    
-    [WriteResumeRequest uploadWorkExperienceWithSucc:^(NSDictionary * dataDic) {
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    [[WriteResumeRequest uploadWorkExperienceWithSucc:^(NSDictionary * dataDic) {
         
-    } WithResumeParam:param];
+    } WithResumeParam:param] addNotifaction:hub];
 }
 
 -(void)replaceClick

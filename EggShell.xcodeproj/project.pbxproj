@@ -32,7 +32,7 @@
 		0454ACF41B962C7D004A70ED /* WriteResumeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454ACF31B962C7D004A70ED /* WriteResumeRequest.m */; };
 		045DEC511B8E14EB00E37C4D /* MyMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 045DEC501B8E14EB00E37C4D /* MyMD5.m */; };
 		0470291E1B974C4300565BC4 /* ManagerResumeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0470291D1B974C4300565BC4 /* ManagerResumeModel.m */; };
-		047029211B97604200565BC4 /* WorkExperienceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047029201B97604200565BC4 /* WorkExperienceModel.m */; };
+		047029211B97604200565BC4 /* WriteRusumeModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 047029201B97604200565BC4 /* WriteRusumeModel2.m */; };
 		04718DA71B7CDA26008214CB /* ZCControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 04718DA61B7CDA26008214CB /* ZCControl.m */; };
 		048426F51B8B1E6D009C597A /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048426F41B8B1E6D009C597A /* VPImageCropperViewController.m */; };
 		048F30A81B7A1562004AA9B2 /* HotSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F30A71B7A1562004AA9B2 /* HotSearch.m */; };
@@ -306,8 +306,8 @@
 		045DEC501B8E14EB00E37C4D /* MyMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMD5.m; sourceTree = "<group>"; };
 		0470291C1B974C4300565BC4 /* ManagerResumeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerResumeModel.h; sourceTree = "<group>"; };
 		0470291D1B974C4300565BC4 /* ManagerResumeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerResumeModel.m; sourceTree = "<group>"; };
-		0470291F1B97604200565BC4 /* WorkExperienceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkExperienceModel.h; sourceTree = "<group>"; };
-		047029201B97604200565BC4 /* WorkExperienceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkExperienceModel.m; sourceTree = "<group>"; };
+		0470291F1B97604200565BC4 /* WriteRusumeModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteRusumeModel2.h; sourceTree = "<group>"; };
+		047029201B97604200565BC4 /* WriteRusumeModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteRusumeModel2.m; sourceTree = "<group>"; };
 		04718DA51B7CDA26008214CB /* ZCControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCControl.h; sourceTree = "<group>"; };
 		04718DA61B7CDA26008214CB /* ZCControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCControl.m; sourceTree = "<group>"; };
 		048426F31B8B1E6D009C597A /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
@@ -886,8 +886,8 @@
 				0454ACF01B94A257004A70ED /* ResumeModel.m */,
 				0470291C1B974C4300565BC4 /* ManagerResumeModel.h */,
 				0470291D1B974C4300565BC4 /* ManagerResumeModel.m */,
-				0470291F1B97604200565BC4 /* WorkExperienceModel.h */,
-				047029201B97604200565BC4 /* WorkExperienceModel.m */,
+				0470291F1B97604200565BC4 /* WriteRusumeModel2.h */,
+				047029201B97604200565BC4 /* WriteRusumeModel2.m */,
 			);
 			path = ResumeModel;
 			sourceTree = "<group>";
@@ -2258,7 +2258,7 @@
 				94313D391B7B5731005D0A9A /* TH_RegisterVC.m in Sources */,
 				94CB5BAB1B763AAC00B23B9D /* TH_FindJobVC.m in Sources */,
 				940032CA1B840CC3001EB666 /* EducationTimeCell.m in Sources */,
-				047029211B97604200565BC4 /* WorkExperienceModel.m in Sources */,
+				047029211B97604200565BC4 /* WriteRusumeModel2.m in Sources */,
 				94E2C9691B870EED001E3FDD /* CompanyMessageView.m in Sources */,
 				048F30B81B7A4537004AA9B2 /* FMDatabaseAdditions.m in Sources */,
 				F05B80031B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m in Sources */,
