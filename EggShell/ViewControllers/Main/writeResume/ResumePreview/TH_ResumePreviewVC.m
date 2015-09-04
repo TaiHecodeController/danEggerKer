@@ -35,9 +35,10 @@
 }
 -(void)loadData
 {
- [WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
-
- } WithResumeParam:@{@"eid":[AppDelegate instance].resumeId} withfail:nil];
+    [WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
+        
+    } WithResumeParam:@{@"eid":[AppDelegate instance].resumeId} withfail:nil];
+ 
 }
 -(void)createTilteView
 {

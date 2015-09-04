@@ -9,7 +9,13 @@
 #import "TH_TrainExperienceVC.h"
 #import "EducationTimeCell.h"
 #import "EducationWriteCell.h"
+#import "WriteRusumeModel2.h"
+#import "WriteResumeRequest.h"
+#import "AppDelegate.h"
 @interface TH_TrainExperienceVC ()<UITableViewDataSource,UITableViewDelegate>
+{
+    WriteRusumeModel2 * _model;
+}
 
 @property(nonatomic,strong)UITableView * tableView ;
 @property (strong,nonatomic)UILabel * nameLab;
@@ -25,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.jobArray = [NSMutableArray arrayWithCapacity:0];
+    _model = [[WriteRusumeModel2 alloc] init];
     [self createScro];
     [self createView];
     [self setData];
@@ -120,6 +127,8 @@
                     return;
                 }
             }
+            _model.sdate = cell.startTime.titleLabel.text;
+            _model.edate = cell.endTime.titleLabel.text;
             
         }else
         {
@@ -129,9 +138,29 @@
                 [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请输入%@",cell.educationTitleLable.text]];
                 return;
             }
+            if(i == 0)
+            {
+                _model.name = [cell.educationTitleLable.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            }
+            if(i == 2)
+            {
+                _model.position = [cell.educationTitleLable.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            }
         }
         
     }
+    if(self.contentTextField.text.length < 30)
+    {
+        [MBProgressHUD creatembHub:@"请输入至少15个字"];
+        return;
+    }else
+    {
+        _model.content = [self.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    [[WriteResumeRequest uploadTrainWithSucc:^(NSDictionary *dataDic) {
+        [MBProgressHUD creatembHub:@"保存成功"];
+    } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
 
 }
 /*重置**/

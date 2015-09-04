@@ -30,10 +30,46 @@
     return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/resume_work" param:param succ:succ];
 }
 
+
 /*简历预览**/
 +(AFRequestState*)biographyPreviewWithSucc:(void(^)(NSDictionary * DataDic))succ WithResumeParam:(NSDictionary *)param withfail:(void (^)(int errCode, NSError * err))fail
 {
     return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/resume_preview" param:param succ:succ fail:nil];
-
 }
+
++(AFRequestState *)uploadEducationWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
+{
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/resume_edu" param:param succ:succ];
+}
+
++(AFRequestState *)uploadTrainWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
+{
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/resume_training" param:param succ:succ];
+}
+
++(AFRequestState *)uploadProfessionalSkillWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
+{
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/resume_skill" param:param succ:succ];
+}
+
++(AFRequestState *)uploadProjectExperienceWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
+{
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/resume_project" param:param succ:succ];
+}
+
++(AFRequestState *)uploadCertificateWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
+{
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/resume_cert" param:param succ:succ];
+}
+
++(AFRequestState *)uploadSelfEvaluationWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
+{
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/resume_other" param:param succ:succ];
+}
+
++(AFRequestState *)deleteResumeWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
+{
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/resume_del" param:param succ:succ];
+}
+
 @end

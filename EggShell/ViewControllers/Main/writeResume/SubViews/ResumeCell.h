@@ -19,5 +19,6 @@
 @property (strong,nonatomic) ManagerResumeVC * Controller;
 @property (strong,nonatomic)NSIndexPath * cellIndex;
 @property (strong,nonatomic)NSString * resumeId;
+@property (strong,nonatomic)void(^selectBlock)(int);
 
 @end

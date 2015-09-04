@@ -25,6 +25,7 @@
     EducationReadingView   * education = [EducationReadingView setView];
     education.frame = CGRectMake(0, 0, WIDETH, 317);
     education.userInteractionEnabled = NO;
+    [education config:self.model];
     [self.view addSubview:education];
     /*继续添加**/
     UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 317, 150, 30)];

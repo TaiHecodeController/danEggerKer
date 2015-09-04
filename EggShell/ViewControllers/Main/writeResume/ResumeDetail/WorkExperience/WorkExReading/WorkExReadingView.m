@@ -14,4 +14,13 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"WorkExReading" owner:self options:nil] lastObject];
 }
+
+-(void)config:(WriteRusumeModel2 *)model
+{
+    self.companyNameLable.text = model.name;
+    self.HoldTimelable.text = [model.sdate stringByAppendingFormat:@"-%@",model.edate];
+    self.DepartmentLable.text = model.department;
+    self.descriptionTextView.text = [model.content stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    self.OfficeLable.text = model.position;
+}
 @end

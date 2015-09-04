@@ -16,5 +16,11 @@
 @property (nonatomic,strong)NSString * title;
 @property (nonatomic,strong)NSString * content;
 @property (nonatomic,strong)NSString * position;
+//专业技能属性
+@property (nonatomic,strong)NSString * skillType;
+@property (nonatomic,strong)NSString * skillDegree;
+@property (nonatomic,strong)NSString * skillTime;
+//项目属性
 
+@property (nonatomic,strong)NSString * projectPath;
 @end

@@ -23,6 +23,12 @@
 
 - (IBAction)iSSelectClick:(UIButton *)sender {
     sender.selected = !sender.selected;
+    if(sender.selected)
+    {
+       self.selectBlock(self.tag);
+    }
+    
+    
 }
 - (IBAction)lookResumeClick:(UIButton *)sender {
     TH_ResumePreviewVC  * presum = [[TH_ResumePreviewVC alloc] init];

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WriteRusumeModel2.h"
 
 @interface WorkExReadingView : UIView
 +(WorkExReadingView*)setView;
@@ -17,4 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *DepartmentLable;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UILabel *OfficeLable;
+
+-(void)config:(WriteRusumeModel2 *)model;
+
 @end
