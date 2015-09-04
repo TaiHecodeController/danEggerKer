@@ -13,10 +13,12 @@
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
 #import "ManagerResumeModel.h"
+#import "ResumeModel.h"
 @interface ManagerResumeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     UIView * _alertView;
     UIView * bgView;
+    ResumeModel * _resume_model;
     
 }
 @property (strong,nonatomic)NSMutableArray * dataArray;
@@ -30,6 +32,7 @@
     [super viewDidLoad];
     self.title =  @"简历管理";
     self.ResumeList.tableFooterView = [[UIView alloc] init];
+    _resume_model = [ResumeModel sharedResume];
     [self loadData];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.cellArray = [NSMutableArray arrayWithCapacity:0];
@@ -47,6 +50,7 @@
         {
             ManagerResumeModel * model = self.dataArray[0];
             [AppDelegate instance].resumeId = model.rid;
+            _resume_model.resumeName = model.name;
             [self.ResumeList reloadData];
         }
     } WithUserId:[AppDelegate instance].userId resp:[ManagerResumeModel class]];

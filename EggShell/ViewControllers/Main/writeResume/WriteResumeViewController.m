@@ -408,7 +408,7 @@
             _writeJLChooseVC.titleText = @"期望职位";
             _writeJLChooseVC.cellIndex = indexPath;
             _writeJLChooseVC.tableViewTagIndex = 1555;
-            _writeJLChooseVC.DataArray = self.dataDic[@"hy"];
+            _writeJLChooseVC.DataArray = self.dataDic[@"job_classid"];
             [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
             
         }
@@ -657,7 +657,6 @@
             back_sv.contentSize = CGSizeMake(WIDETH, 754 + 64 + 240);
             [back_sv scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
         }
-        
     }
     recordTextField = textField;
     NSLog(@"%ld",(long)textField.tag);

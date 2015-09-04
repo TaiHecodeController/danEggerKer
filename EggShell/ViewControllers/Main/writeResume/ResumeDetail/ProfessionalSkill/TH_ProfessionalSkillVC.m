@@ -11,9 +11,11 @@
 #import "WriteRusumeModel2.h"
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
+#import "ResumeModel.h"
 @interface TH_ProfessionalSkillVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     WriteRusumeModel2 * _model;
+    ResumeModel * _resume_model;
 }
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UITableView * tableView;
@@ -29,6 +31,7 @@
     [super viewDidLoad];
     self.jobCellArr = [NSMutableArray arrayWithCapacity:0];
     _model = [[WriteRusumeModel2 alloc] init];
+    _resume_model = [ResumeModel sharedResume];
     [self createScro];
     [self createView];
     [self setData];
@@ -47,7 +50,7 @@
     [self.view addSubview:scro];
 }
 -(void)createView
-{   UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 135, 13) Font:13 Text:@"个人简历001-专业技能"];
+{   UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 135, 13) Font:13 Text:[NSString stringWithFormat:@"%@-专业技能",_resume_model.resumeName]];
     [self.scro addSubview:nameLab];
     
     UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(160, 9.5, 53, 23) ImageName:@"lanniu2" Target:self Action:nil Title:@"可选填"];
@@ -95,20 +98,20 @@
             }
         if(i == 0)
         {
-            _model.name = [cell.profisionTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            _model.name = cell.profisionTextField.text;
         }
         
         if(i == 1)
         {
-            _model.skillType = [cell.profisionTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            _model.skillType = cell.profisionTextField.text;
         }
         if(i == 2)
         {
-            _model.skillDegree = [cell.profisionTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            _model.skillDegree = cell.profisionTextField.text;
         }
         if(i == 3)
         {
-            _model.skillTime = [cell.profisionTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            _model.skillTime = cell.profisionTextField.text;
         }
         
     }
@@ -132,6 +135,7 @@
         cell.profisionTextField.text = @"";
         
     }
+    [self.jobCellArr removeAllObjects];
     [_tableView reloadData];
 
 }
