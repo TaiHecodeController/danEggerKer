@@ -287,9 +287,6 @@
     self.scro.contentSize = CGSizeMake(WIDETH, 450+height);
     [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+height) animated:YES];
     
-    
-    
-    
 }
 -(void)hideKeyBoard:(NSNotification*)notification
 {

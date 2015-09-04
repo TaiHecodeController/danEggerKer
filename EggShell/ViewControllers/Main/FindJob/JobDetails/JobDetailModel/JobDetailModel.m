@@ -8,15 +8,13 @@
 
 #import "JobDetailModel.h"
 
-@implementation Arr3_team
+@implementation list_item
 
-@end
-
-@implementation Arr4_team
 
 @end
 
 @implementation JobDetailModel
 
+array_item_impl(lists, list_item);
 
 @end

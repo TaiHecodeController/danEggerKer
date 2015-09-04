@@ -39,6 +39,7 @@
 @property (nonatomic, strong) MBProgressHUD *mbPro;
 @property (nonatomic, strong)JobDescriptionlView *jobDescription;
 @property (nonatomic, strong)ComPanyProfileView *companyprofileView;
+@property (nonatomic, strong) NSMutableArray *listArr;
 
 @end
 
@@ -71,9 +72,21 @@
 //    int _id = 23;
 //    int pid = 7;
     
+//    self.state = [[TH_AFRequestState jobDetailsRequestWithSucc:^(NSDictionary *DataArr) {
+//        JobDetailModel * model = (JobDetailModel *)DataArr;
+//        [self setHeaderModel:model];
+//        _listArr = [NSMutableArray arrayWithArray:model.lists];
+//        [self.tableView reloadData];
+//        
+//    } withfail:^(int errCode, NSError *err) {
+//        
+//    } withId:_id pid:pid resp:[JobDetailModel class]] addNotifaction:notify];
+    
     self.state = [[TH_AFRequestState jobDetailsRequestWithSucc:^(NSDictionary *DataArr) {
         JobDetailModel * model = (JobDetailModel *)DataArr;
         [self setHeaderModel:model];
+        _listArr = [NSMutableArray arrayWithArray:model.lists];
+        [self.tableView reloadData];
         
     } withfail:^(int errCode, NSError *err) {
         
@@ -179,19 +192,15 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.headerView;
     
-    _header = [MJRefreshHeaderView header];
-    _header.delegate = self;
-    _header.scrollView = self.tableView;
-    
-    _footer = [MJRefreshFooterView footer];
-    _footer.delegate = self;
-    _footer.scrollView = self.tableView;
+//    _header = [MJRefreshHeaderView header];
+//    _header.delegate = self;
+//    _header.scrollView = self.tableView;
+//    
+//    _footer = [MJRefreshFooterView footer];
+//    _footer.delegate = self;
+//    _footer.scrollView = self.tableView;
 }
 
-- (void)querData
-{
-    
-}
 
 -(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
@@ -226,13 +235,14 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     [_footer free];
 }
 
-
+#pragma mark tableviewdelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _listArr.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //头部
     if(indexPath.row == 0)
     {
         MoreJobTitleCell * cell = [tableView dequeueReusableCellWithIdentifier:@"moreJob"];
@@ -242,14 +252,24 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
         }
         return cell;
     }
+    
+    //身体
     NSString * identifier = @"identifier";
     moreJobTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"moreJobTableViewCell" owner:self options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    list_item *liModel = self.listArr[indexPath.row];
+    cell.positionName.text = liModel.com_name;
+    cell.time.text = liModel.lastupdate;
+    cell.companyName.text = liModel.com_name;
+    cell.addres.text = liModel.provinceid;
+    cell.knowdelge.text = liModel.edu;
+    cell.salary.text = liModel.salary;
     return cell;
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
@@ -278,7 +298,7 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
 #pragma set方法
 - (void)setHeaderModel:(JobDetailModel *)model
 {
-//    _jobDescription.postionName.text = model.;
+    _jobDescription.postionName.text = model.cj_name;
     _jobDescription.companyName.text = model.com_name;
     _jobDescription.publicTime.text = model.lastupdate;
     _jobDescription.availTime.text = model.lastupdate;

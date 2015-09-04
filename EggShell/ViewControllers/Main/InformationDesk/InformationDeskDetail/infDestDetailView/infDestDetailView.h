@@ -15,8 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *contactPesonLable;
 @property (weak, nonatomic) IBOutlet UILabel *RouteLable;
 @property (weak, nonatomic) IBOutlet UILabel *MeetingPlaceLable;
-
-
 @property (weak, nonatomic) IBOutlet UITextView *contentLable;
 
 
