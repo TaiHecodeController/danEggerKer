@@ -124,6 +124,14 @@
                     <constraint firstItem="omR-Tj-U0U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kbN-wt-BRG"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="addres" destination="rfO-uB-o8a" id="V1a-E4-2bE"/>
+                <outlet property="companyName" destination="OZe-23-eEz" id="zxV-6J-dj6"/>
+                <outlet property="knowdelge" destination="Wlf-Ws-sZi" id="dBf-g5-H1j"/>
+                <outlet property="positionName" destination="Obr-Op-m5u" id="EKY-Xq-0dH"/>
+                <outlet property="salary" destination="lhL-eK-eCn" id="iWe-ZF-1SJ"/>
+                <outlet property="time" destination="r2O-Em-uFL" id="fHA-ht-WVn"/>
+            </connections>
             <point key="canvasLocation" x="195" y="193.5"/>
         </tableViewCell>
     </objects>
