@@ -260,7 +260,7 @@
         
         NSLog(@"%@",err);
         
-    } withUid:nil page:num limit:1 resp:[saveListModel class]] addNotifaction:notify];
+    } withUid:nil page:num limit:10 resp:[saveListModel class]] addNotifaction:notify];
     
 }
 
@@ -428,10 +428,34 @@
 {
     THLog(@"删除职位被点击");
     
-    [_jobArr removeObjectsAtIndexes:_cellIndeSet];
-    [_tableView reloadData];
-    [_cellIndeSet removeAllIndexes];
-    _numLab.text = [NSString stringWithFormat:@"%lu条记录",(unsigned long)_jobArr.count];
+//    [_jobArr removeObjectsAtIndexes:_cellIndeSet];
+//    [_tableView reloadData];
+//    [_cellIndeSet removeAllIndexes];
+//    _numLab.text = [NSString stringWithFormat:@"%lu条记录",(unsigned long)_jobArr.count];
+    
+    NSMutableString *str = [[NSMutableString alloc]init];
+    for (saveListModel *slModel in _jobArr)
+    {
+        if ([slModel.cellselected  isEqual: @"1"])
+        {
+            slModel.id;
+            NSString *str1 = [NSString stringWithFormat:@"%@,",slModel.id];
+            [str appendString:str1];
+        }
+    }
+    
+    [TH_AFRequestState deleteJobWithSucc:^(NSDictionary *DataArr) {
+        
+        _page = 1;
+        [_jobArr removeAllObjects];
+        MBProgressHUD *mb = [MBProgressHUD mbHubShow];
+        [self loadData:mb page:_page];
+        [self.tableView reloadData];
+        
+    } withfail:^(int errCode, NSError *err) {
+        
+    } withUid:nil job_idStr:str resp:[NSObject class]];
+    
     
 }
 
@@ -445,15 +469,20 @@
       NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
       THLog(@"_cellIndexSet增加%ld",(long)indexPath.row);
       [_cellIndeSet addIndex:indexPath.row];
+      saveListModel *slModel = _jobArr[indexPath.row];
+      slModel.cellselected = @"1";
         
     }
     else
     {
         sender.selected = NO;
+        
         jobListCell *cell = (jobListCell *)[sender superview];
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         THLog(@"_cellIndexSet减少%ld",(long)indexPath.row);
         [_cellIndeSet removeIndex:indexPath.row];
+        saveListModel *slModel = _jobArr[indexPath.row];
+        slModel.cellselected = @"0";
     }
 }
 

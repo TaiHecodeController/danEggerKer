@@ -15,7 +15,7 @@
 @property (nonatomic, copy) NSString *com_name;
 @property (nonatomic, copy) NSString *datetime;
 @property (nonatomic, copy) NSString *edu;
-@property (nonatomic, copy) NSString *job_id;
+@property (nonatomic, copy) NSString *id;
 @property (nonatomic, copy) NSString *job_name;
 @property (nonatomic, copy) NSString *lastupdate;
 @property (nonatomic, copy) NSString *provinceid;
