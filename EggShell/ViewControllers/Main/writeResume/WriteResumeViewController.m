@@ -54,7 +54,25 @@
     [self createData];
     [self createUI];
     [self loadData];
+    //如果是编辑简历
+    if(self.isEdit)
+    {
+        [self loadOriginalData];
+    }
     // Do any additional setup after loading the view.
+}
+//加载之前保存到服务器上的数据
+-(void)loadOriginalData
+{
+    [WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
+        for(int i = 0;i < self.jobCellArray.count;i++)
+        {
+            
+        }
+        
+    } WithResumeParam:@{@"eid":self.resumeId} withfail:^(int errCode, NSError *err) {
+        
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -239,15 +257,21 @@
         }
         
     }
+    
     NSDictionary * param = @{@"uid":[AppDelegate instance].userId,@"name":_model.resumeName,@"hy":_model.industry,@"job_classid":_model.exceptJob,@"salary":_model.exceptSalary,@"provinceid":_model.exceptCity,@"type":_model.jobNature,@"report":_model.arriveTime,@"jobstatus":_model.findState,@"uname":_model.userName,@"birthday":_model.userBirthday,@"edu":_model.academic,@"exp":_model.workExperience,@"telphone":_model.phoneNum,@"email":_model.email,@"address":_model.address};
-    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
-    [[WriteResumeRequest uploadResumeMessageAboutUserMessageWithSucc:^(NSDictionary *DataDic) {
-        WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
-        [self.navigationController pushViewController:wrvc2 animated:YES];
-        [AppDelegate instance].resumeId = DataDic[@"data"];
-    } WithResumeParam:param] addNotifaction:hub];
-    WriteResumeVC2 * vc2 =[[WriteResumeVC2 alloc] init];
-    [self.navigationController pushViewController:vc2 animated:YES];
+    
+    if(!self.isEdit)
+    {
+        MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+        [[WriteResumeRequest uploadResumeMessageAboutUserMessageWithSucc:^(NSDictionary *DataDic) {
+            WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
+            [self.navigationController pushViewController:wrvc2 animated:YES];
+            [AppDelegate instance].resumeId = DataDic[@"data"];
+        } WithResumeParam:param] addNotifaction:hub];
+        WriteResumeVC2 * vc2 =[[WriteResumeVC2 alloc] init];
+        [self.navigationController pushViewController:vc2 animated:YES];
+    }
+    
 }
 
 //反射

@@ -74,7 +74,6 @@
                     </state>
                     <connections>
                         <action selector="createNewResume:" destination="-1" eventType="touchUpInside" id="szQ-5V-r6L"/>
-                        <action selector="createNewResumeClick:" destination="-1" eventType="touchUpInside" id="pnz-Ph-3fG"/>
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vcq-0j-cl0">
