@@ -331,7 +331,7 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
 //    textView.frame = CGRectMake(0, 0, WIDETH, 300);
 //    [textView loadHTMLString:[CommonFunc textFromBase64String:model.content] baseURL:nil];
 //    [self.view addSubview:textView];
-}
+    }
 
 #pragma mark- - 收藏
 -(void)rightBtnClick:(UIButton *)sender
@@ -339,6 +339,7 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     sender.selected = !sender.selected;
     
 //      NSLog(@"%@",_model.cj_id);
+    
     
    self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
        

@@ -65,7 +65,7 @@
 +(AFRequestState *)saveJobWithSucc:(void(^)(NSDictionary *DataArr))succ withFail:(void(^)(int errCode, NSError *err))fail withJob_id:(int)job_id resp:(Class)resp
 {
     NSNumber *jobid = [NSNumber numberWithInt:job_id];
-    NSNumber *uid = [NSNumber numberWithInt:184];
+    NSNumber *uid = [NSNumber numberWithInt:141];
     NSDictionary *param = @{@"job_id":jobid,@"uid":uid};
     return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Position/collect" param:param succ:succ fail:fail resp:resp];
 }
@@ -79,6 +79,15 @@
     NSDictionary *param = @{@"uid":nsuid,@"page":nspage,@"limit":nslimit};
     return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Position/collectlist" param:param succ:succ fail:fail resp:resp];
     
+}
+
+/*删除职位**/
++(AFRequestState *)deleteJobWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid job_idStr:(NSString *)job_idStr resp:(Class)resp
+{
+    NSNumber *nsuid = [NSNumber numberWithInt:141];
+    NSDictionary *param = @{@"uid":nsuid,@"id":job_idStr};
+    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Position/delcollectlist" param:param succ:succ fail:fail resp:resp];
+
 }
 /*轮播图**/
 +(AFRequestState*)CarouselFigureRequestWithSucc:(void(^)(NSDictionary *arr))succ withfail:(void(^)(int errCode, NSError *err))fail

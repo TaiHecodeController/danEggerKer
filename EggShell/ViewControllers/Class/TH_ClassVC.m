@@ -194,21 +194,39 @@
     CGFloat qsBtnH = qsBtnW;
     //中间距离
     CGFloat middleMargin = (WIDETH - (count * qsBtnW) - 2 * qsBtnMargin) / (count - 1);
-    for (int i = 0; i < count; i++)
-    {
-        UIButton *qsBtn = [[UIButton alloc]init];
-        CGFloat qsBtnX = qsBtnMargin + i * (qsBtnW + middleMargin);
-        CGFloat qsBtnY = CGRectGetMaxY(lineView.frame) + 15;
-        qsBtn.frame = CGRectMake(qsBtnX, qsBtnY, qsBtnW, qsBtnH);
-        qsBtn.tag = 1000 + i;
-        [qsBtn addTarget:self action:@selector(qsBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-//        qsBtn.backgroundColor = [UIColor blackColor];
-        UIImageView *iconview = [[UIImageView alloc]init];
-        [iconview sd_setImageWithURL:[NSURL URLWithString:_teacherArr[i][@"vimage"]] placeholderImage:nil];
-        [qsBtn setBackgroundImage:iconview.image forState:UIControlStateNormal];
-        [headView addSubview:qsBtn];
-        _headViewMaxY = CGRectGetMaxY(qsBtn.frame);
-    }
+//    for (int i = 0; i < count; i++)
+//    {
+//        UIButton *qsBtn = [[UIButton alloc]init];
+//        CGFloat qsBtnX = qsBtnMargin + i * (qsBtnW + middleMargin);
+//        CGFloat qsBtnY = CGRectGetMaxY(lineView.frame) + 15;
+//        qsBtn.frame = CGRectMake(qsBtnX, qsBtnY, qsBtnW, qsBtnH);
+//        qsBtn.tag = 1000 + i;
+//        [qsBtn addTarget:self action:@selector(qsBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+////        qsBtn.backgroundColor = [UIColor blackColor];
+////        UIImageView *iconview = [[UIImageView alloc]init];
+////        [iconview sd_setImageWithURL:[NSURL URLWithString:_teacherArr[i][@"vimage"]] placeholderImage:nil];
+//        [qsBtn setBackgroundImage:nil forState:UIControlStateNormal];
+//        [headView addSubview:qsBtn];
+//        _headViewMaxY = CGRectGetMaxY(qsBtn.frame);
+//    }
+        for (int i = 0; i < count; i++)
+        {
+            UIImageView *qsBtn = [[UIImageView alloc]init];
+            CGFloat qsBtnX = qsBtnMargin + i * (qsBtnW + middleMargin);
+            CGFloat qsBtnY = CGRectGetMaxY(lineView.frame) + 15;
+            qsBtn.frame = CGRectMake(qsBtnX, qsBtnY, qsBtnW, qsBtnH);
+            qsBtn.tag = 1000 + i;
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(qsBtnClick:)];
+            [qsBtn addGestureRecognizer:tap];
+            qsBtn.userInteractionEnabled = YES;
+//            [qsBtn addTarget:self action:@selector(qsBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    //        qsBtn.backgroundColor = [UIColor blackColor];
+    //        UIImageView *iconview = [[UIImageView alloc]init];
+            [qsBtn sd_setImageWithURL:[NSURL URLWithString:_teacherArr[i][@"vimage"]] placeholderImage:nil];
+            [headView addSubview:qsBtn];
+            _headViewMaxY = CGRectGetMaxY(qsBtn.frame);
+        }
+
     
     headView.frame = CGRectMake(0, y, WIDETH, _headViewMaxY + 15);
     
@@ -314,6 +332,8 @@
 //    [item.iconView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:mImageByName(@"placeholder")];
 //    item.specialtyName.text = model.name;
     
+    
+    
     return cell;
     
 }
@@ -343,8 +363,11 @@
     if (!Url) {
         return;
     }
+    NSString *str = model.plist;
+   NSArray *arr = [str componentsSeparatedByString:@","];
+
     THCoursePlayVC *moviePlayer =    [[THCoursePlayVC alloc] initNetworkMoviePlayerViewControllerWithURL:Url movieTitle:model.video_name];
-    moviePlayer.classId = model.plist;
+    moviePlayer.classId = arr.lastObject;
     //    [self.navigationController presentViewController:moviePlayer animated:YES completion:nil];
     [self.navigationController pushViewController:moviePlayer animated:YES];
 }
@@ -385,33 +408,32 @@
 }
 
 #pragma mark -- respondEvent
-- (void)qsBtnClick:(UIButton *)sender
+- (void)qsBtnClick:(UITapGestureRecognizer *)tap
 {
     NSURL *Url;
-    if (sender.tag == 1000)
+    if (tap.view.tag == 1000)
     {
-        THLog(@"名师风采被点击%ld",(long)sender.tag);
-         Url = [NSURL URLWithString:_teacherArr[0][@"video_id"]];
+         Url = [NSURL URLWithString:_teacherArr[tap.view.tag-1000][@"video_id"]];
     }
-    else if (sender.tag == 1001)
+    else if (tap.view.tag == 1001)
     {
-        THLog(@"名师风采被点击%ld",(long)sender.tag);
-         Url = [NSURL URLWithString:_teacherArr[1][@"video_id"]];
+         Url = [NSURL URLWithString:_teacherArr[tap.view.tag-1000][@"video_id"]];
     }
-    else if (sender.tag == 1002)
+    else if (tap.view.tag == 1002)
     {
-        THLog(@"名师风采被点击%ld",(long)sender.tag);
-         Url = [NSURL URLWithString:_teacherArr[2][@"video_id"]];
+         Url = [NSURL URLWithString:_teacherArr[tap.view.tag-1000][@"video_id"]];
     }
     
     //    播放视频
-   
+    NSString *str = _teacherArr[tap.view.tag-1000][@"plist"];
+    NSArray *arr = [str componentsSeparatedByString:@","];
+    
     if (!Url) {
         return;
     }
     
     THCoursePlayVC *moviePlayer =    [[THCoursePlayVC alloc] initNetworkMoviePlayerViewControllerWithURL:Url movieTitle:@"英语完型填空"];
-    
+    moviePlayer.classId = arr.lastObject;
     //    [self.navigationController presentViewController:moviePlayer animated:YES completion:nil];
     [self.navigationController pushViewController:moviePlayer animated:YES];
 
