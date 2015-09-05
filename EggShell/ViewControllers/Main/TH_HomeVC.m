@@ -534,7 +534,7 @@
     _bannerView.changeFocusImageInterval = 2;
     [self.scro addSubview:_bannerView];
 }
-
+#pragma mark -- banner数据请求
 - (void)quereData
 {
     self.dataDic = [NSMutableDictionary dictionaryWithCapacity:0 ];
@@ -559,6 +559,7 @@
             }
          
            self.imageArr = [NSArray arrayWithObjects:@{@"photo":self.str1},@{@"photo":self.str2},@{@"photo":self.str3}, nil];
+           
            [_bannerView setImageURLs:self.imageArr];
     } withfail:^(int errCode, NSError *err) {
         

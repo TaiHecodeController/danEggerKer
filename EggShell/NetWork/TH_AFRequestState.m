@@ -17,7 +17,7 @@
     NSNumber * typeNum = [NSNumber numberWithInt:type];
     
     NSDictionary * param = @{@"page":pagenumber,@"limit":limitNum,@"type":typeNum};
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Activity/index" param:param succ:succ resp:resp];
+    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Activity/index" param:param succ:succ resp:resp];
     
 }
 /*玩出范详情**/
@@ -87,5 +87,15 @@
 
     return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/lunbo" param:nil succ:succ fail:fail];
 }
+/*信息台**/
++(AFRequestState*)InformationDeskRequestWithSucc:(void(^)(NSDictionary * arr))succ  resp:(Class)resp withPage:(int)pageNumber withLimit:(int)limit withType:(int)type
+{
+    NSNumber * pageNum =[NSNumber numberWithInt:pageNumber];
+    NSNumber * limitNum =[NSNumber numberWithInt:limit];
+    NSNumber * typeNum =[NSNumber numberWithInt:type];
+    NSDictionary * param = @{@"page":pageNum,@"limit":limitNum,@"type":typeNum};
+    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Activity/index" param:param succ:succ resp:resp];
+}
+
 
 @end

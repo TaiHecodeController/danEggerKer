@@ -99,7 +99,7 @@
 {
     if (index == 0)
     {
-        self.dataArray = [NSMutableArray arrayWithCapacity:0];
+       self.dataArray = [NSMutableArray arrayWithCapacity:0];
         _currentIndex = 0;
         NSLog(@"蛋粉H翻天igh");
         _mbPro = [MBProgressHUD mbHubShow];
@@ -108,7 +108,8 @@
         
     }
     else
-    {self.dataArray = [NSMutableArray
+  {
+     self.dataArray = [NSMutableArray
                        arrayWithCapacity:0];
         _currentIndex = 1;
         NSLog(@"蛋壳儿送福利");
@@ -173,7 +174,8 @@
 
         
     }else if (_currentIndex==1)
-    {TH_InformationDeskDetailVC * detail = [[TH_InformationDeskDetailVC alloc] init];
+    {
+        TH_InformationDeskDetailVC * detail = [[TH_InformationDeskDetailVC alloc] init];
         detail.title = @"详情";
         playFanModel  * model = self.dataArray[indexPath.row];
         detail.detaildic = model;
@@ -190,11 +192,13 @@
 {
     if( refreshView == _header ){
         _page = 0;
-//        self.dataArray = [NSMutableArray arrayWithCapacity:0];
+
         [self loadData:refreshView page:_page pageTye:1];
     }
     else{
+//         self.dataArray = [NSMutableArray arrayWithCapacity:0];
         self.page++;
+        
         THLog(@"上拉加载更多");
         [self loadData:refreshView page:_page pageTye:1];
         

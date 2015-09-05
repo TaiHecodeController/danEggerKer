@@ -34,6 +34,7 @@
 /*简历预览**/
 +(AFRequestState*)biographyPreviewWithSucc:(void(^)(NSDictionary * DataDic))succ WithResumeParam:(NSDictionary *)param withfail:(void (^)(int errCode, NSError * err))fail
 {
+    
     return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/resume_preview" param:param succ:succ fail:nil];
 }
 

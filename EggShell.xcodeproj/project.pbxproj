@@ -117,6 +117,7 @@
 		94313DF31B7CB5C9005D0A9A /* WriteResumeVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */; };
 		94313DF41B7CB5C9005D0A9A /* WriteResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */; };
 		94313DF71B7CB610005D0A9A /* TH_HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DF51B7CB610005D0A9A /* TH_HomeVC.m */; };
+		943F41801B9A8766000FC299 /* informantionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 943F417F1B9A8766000FC299 /* informantionModel.m */; };
 		946EBAC51B84659800CD6AC9 /* jobListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946EBAC41B84659800CD6AC9 /* jobListCell.m */; };
 		947006931B85CA6000DEC289 /* EditAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947006851B85CA6000DEC289 /* EditAddressVC.m */; };
 		947006941B85CA6000DEC289 /* EditAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947006861B85CA6000DEC289 /* EditAddressVC.xib */; };
@@ -459,6 +460,8 @@
 		94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeViewController.m; sourceTree = "<group>"; };
 		94313DF51B7CB610005D0A9A /* TH_HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_HomeVC.m; sourceTree = "<group>"; };
 		94313DF61B7CB610005D0A9A /* TH_HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_HomeVC.h; sourceTree = "<group>"; };
+		943F417E1B9A8766000FC299 /* informantionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = informantionModel.h; sourceTree = "<group>"; };
+		943F417F1B9A8766000FC299 /* informantionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = informantionModel.m; sourceTree = "<group>"; };
 		946EBAC31B84659800CD6AC9 /* jobListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobListCell.h; sourceTree = "<group>"; };
 		946EBAC41B84659800CD6AC9 /* jobListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobListCell.m; sourceTree = "<group>"; };
 		947006841B85CA6000DEC289 /* EditAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAddressVC.h; sourceTree = "<group>"; };
@@ -1442,6 +1445,7 @@
 			children = (
 				94313DB11B7CAAED005D0A9A /* InformationDeskDetail */,
 				94313DB81B7CAAED005D0A9A /* InformationDeskView */,
+				943F417D1B9A8749000FC299 /* informantionModel */,
 				94313DBC1B7CAAED005D0A9A /* TH_InformationDeskVC.h */,
 				94313DBD1B7CAAED005D0A9A /* TH_InformationDeskVC.m */,
 			);
@@ -1507,6 +1511,15 @@
 				94313DE41B7CB5C9005D0A9A /* WriteResumeCell2.xib */,
 			);
 			path = SubViews2;
+			sourceTree = "<group>";
+		};
+		943F417D1B9A8749000FC299 /* informantionModel */ = {
+			isa = PBXGroup;
+			children = (
+				943F417E1B9A8766000FC299 /* informantionModel.h */,
+				943F417F1B9A8766000FC299 /* informantionModel.m */,
+			);
+			path = informantionModel;
 			sourceTree = "<group>";
 		};
 		947006821B85CA6000DEC289 /* EditInformation */ = {
@@ -2216,6 +2229,7 @@
 				94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */,
 				04A483D71B751E77006FDB9D /* Utils.m in Sources */,
 				94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */,
+				943F41801B9A8766000FC299 /* informantionModel.m in Sources */,
 				94CB5B8B1B74CC0600B23B9D /* SMPageControl.m in Sources */,
 				94EFC1C11B7D046F00833068 /* TH_featureVC.m in Sources */,
 				940032CC1B840CC3001EB666 /* TH_EducationExperienceVC.m in Sources */,

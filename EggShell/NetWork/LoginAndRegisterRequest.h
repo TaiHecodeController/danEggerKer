@@ -25,5 +25,6 @@
 +(AFRequestState *)forgitNextRequestWithPhoneNum:(NSString*)phone withSecurityCode:(NSString*)SecurityCode withSucc:(void(^)(NSDictionary*))succ;
 /*重置密码**/
 +(AFRequestState *)resetPasswordRequestWithPhoneNum:(NSString *)phone withNewCode:(NSString*)newCode  withSucc:(void(^)(NSDictionary*))succ;
-
+/*头像上传**/
++(void)uploadImage:(void (^)(NSString * backUrl))succ :(UIImage *)inputImage fail:(void(^)(int errCode, NSError *err))faile;
 @end

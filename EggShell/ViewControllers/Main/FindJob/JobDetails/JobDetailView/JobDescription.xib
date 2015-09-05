@@ -200,40 +200,22 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1:负责iOS所有产品客户端的应用开发；" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kn4-vk-rka">
-                            <rect key="frame" x="15" y="40" width="305" height="13"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="主要是关于ios的开发的" translatesAutoresizingMaskIntoConstraints="NO" id="oFm-eA-883">
+                            <rect key="frame" x="15" y="31" width="290" height="117"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="117" id="q4R-uJ-DIW"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2:初步的测试工作" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhQ-9G-myM">
-                            <rect key="frame" x="15" y="57" width="305" height="13"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3.修复程序的缺陷" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chb-bo-ZNT">
-                            <rect key="frame" x="15" y="74" width="305" height="13"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4.按照开发流程维护及编写相关文档；" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCJ-rC-Ue2">
-                            <rect key="frame" x="15" y="91" width="305" height="13"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5.根据项目的需求，项目经理要求完成相关系统的设计和开发，且保证开发质量；" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJP-qJ-rmS">
-                            <rect key="frame" x="15" y="108" width="290" height="29"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="oFm-eA-883" secondAttribute="trailing" constant="15" id="1Nl-uU-rCi"/>
+                        <constraint firstItem="oFm-eA-883" firstAttribute="leading" secondItem="QRS-2L-Xqk" secondAttribute="leading" constant="15" id="Dsl-6H-auJ"/>
                         <constraint firstAttribute="height" constant="148" id="M3I-Ya-ahX"/>
+                        <constraint firstAttribute="bottom" secondItem="oFm-eA-883" secondAttribute="bottom" id="jYT-Cm-VdO"/>
                     </constraints>
                 </view>
             </subviews>
@@ -264,6 +246,7 @@
                 <outlet property="availTime" destination="7Kc-b4-aV8" id="nLE-dx-M1X"/>
                 <outlet property="companyName" destination="BxQ-8c-JgL" id="yDI-bV-A4p"/>
                 <outlet property="exprienceTime" destination="rcM-Hm-0MS" id="N4x-uN-g5s"/>
+                <outlet property="jobDescriptionTextView" destination="oFm-eA-883" id="PUI-DE-Ago"/>
                 <outlet property="knowledge" destination="VHJ-Ov-2cE" id="To6-FM-nvi"/>
                 <outlet property="postionName" destination="nFp-JO-EE3" id="Fff-d2-YIe"/>
                 <outlet property="publicTime" destination="c3j-C0-wSa" id="UVG-hG-g0F"/>

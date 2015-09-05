@@ -237,14 +237,12 @@
             [MBProgressHUD creatembHub:dic[@"message"]];
             
             NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
-
             [user setObject:dic[@"data"][@"telphone"] forKey:@"login"];
             [user setObject:dic[@"data"][@"uid"] forKey:@"uid"];
             [user synchronize];
             self.navigationController.navigationBarHidden = YES;
             AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
             appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
-            
             appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
             appDelegate.userId = dic[@"data"][@"uid"];
             [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];

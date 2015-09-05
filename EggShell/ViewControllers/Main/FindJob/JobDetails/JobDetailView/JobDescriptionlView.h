@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *workPlace;
 @property (weak, nonatomic) IBOutlet UILabel *knowledge;
 @property (weak, nonatomic) IBOutlet UILabel *salary;
+@property (weak, nonatomic) IBOutlet UITextView *jobDescriptionTextView;
 
 +(JobDescriptionlView*)setJobDescriptionView;
 @end

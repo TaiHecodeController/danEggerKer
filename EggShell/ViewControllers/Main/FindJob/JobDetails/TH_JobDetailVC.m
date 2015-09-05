@@ -308,6 +308,9 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     _jobDescription.exprienceTime.text = model.exp;
     _jobDescription.RecruitmentNum.text = model.hy;
     
+    NSString *htmlString = [CommonFunc textFromBase64String:model.cj_description];
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    _jobDescription.jobDescriptionTextView.attributedText = attributedString;
     if ([model.type isEqualToString:@"54"])
     {
         _jobDescription.workNature.text = @"不限";

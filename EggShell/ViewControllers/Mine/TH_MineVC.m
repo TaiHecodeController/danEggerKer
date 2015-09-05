@@ -18,6 +18,7 @@
 #import "VersionUpdateView.h"
 #import "TH_ImagePickerVC.h"
 #import "VPImageCropperViewController.h"
+#import "LoginAndRegisterRequest.h"
 @interface TH_MineVC ()<THMineViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,VPImageCropperDelegate,UIAlertViewDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UITableView * tableView;
@@ -211,6 +212,7 @@
 ////    [self.mineView addSubview:self.mineView.loginBgview];
 //    [self.mineView.loginBgview removeFromSuperview];
 //}
+#pragma mark -- 退出登录
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
   NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
@@ -218,10 +220,9 @@
         self.navigationController.navigationBarHidden = YES;
         AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
         appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
-        
-        appDelegate.mainTabBar.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [userDefault setObject:@"" forKey:@"login"];
         [userDefault synchronize];
+        appDelegate.mainTabBar.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
     }
 }
@@ -284,7 +285,14 @@
 //裁剪代理
 -(void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage
 {
-    [self.mineView setIconImage:editedImage];
+//    [self.mineView setIconImage:editedImage];
+//    NSDictionary *dic=[NSDictionary dictionaryWithObjectsAndKeys:editedImage,@"img", nil];
+//    [LoginAndRegisterRequest uploadImage:^(NSString *backUrl) {
+//        
+//    } :editedImage fail:^(int errCode, NSError *err) {
+//        
+//    }];
+
     [cropperViewController dismissViewControllerAnimated:YES completion:^{
        
     }];
@@ -310,7 +318,6 @@
     CGSize targetSize = CGSizeMake(btWidth, btHeight);
     return [self imageByScalingAndCroppingForSourceImage:sourceImage targetSize:targetSize];
 }
-
 - (UIImage *)imageByScalingAndCroppingForSourceImage:(UIImage *)sourceImage targetSize:(CGSize)targetSize {
     UIImage *newImage = nil;
     CGSize imageSize = sourceImage.size;

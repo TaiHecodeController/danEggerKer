@@ -80,10 +80,14 @@
     }
 }
 
-
-
 @end
 
+@interface UploadImgResp : NSObject<Expose>
+@property (nonatomic, strong) NSString * img;
+@end
+
+@implementation UploadImgResp
+@end
 
 @implementation AFAppRequest
 
@@ -141,7 +145,7 @@
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation * operation, id responseObject)
      {
 
-         NSLog(@"%@",responseObject[@"data"][@"opinion"]);
+        
          [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
 
          if ([[responseObject allKeys] containsObject:@"teacher"])
@@ -151,8 +155,8 @@
          else
          {
               [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
+             
          }
-        
 
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
@@ -184,6 +188,7 @@
     }if (errCode ==1004) {
         [MBProgressHUD creatembHub:@"密码修改失败"];
     }if (errCode ==1005) {
+        
         [MBProgressHUD creatembHub:@"用户名为空"];
     }if (errCode ==1006) {
         [MBProgressHUD creatembHub:@"密码不正确"];
@@ -330,6 +335,56 @@
     @finally{
         [State setEnd];
     }
+}
+
++(AFRequestState *)postImageFlag:(BOOL)flag url:(NSString *)url succ:(void(^)(id img))succ WithData:(NSDictionary *)data fail:(void (^)(int errCode, NSError * err))fail
+{
+    
+//    NSMutableDictionary*parameter= [parameter setValuesForKeysWithDictionary:data];
+//    [parameter setValuesForKeysWithDictionary:data];
+    AFHTTPRequestOperationManager*manager=[self sharedClient];
+    
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithObject:@"application/json"];
+    
+    AFRequestState * State = [AFRequestState new];
+    
+    [manager POST:url parameters:data constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+     
+     {
+         
+         for (int i =0; i<[[data objectForKey:@"feedcontent_pic"]  count]; i++) {
+             
+             
+             [formData appendPartWithFileData:UIImagePNGRepresentation([[data objectForKey:@"feedcontent_pic"] objectAtIndex:i]) name:[NSString stringWithFormat: @"Filedata" ] fileName:@"upload.png" mimeType:@"image/png"];
+         }
+         
+     } success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         if(flag){
+             [self handleResponse:responseObject Succ:^(id data) {
+                succ(((UploadImgResp *)data).img);
+                 
+             } Fail:fail Resp:[UploadImgResp class] State:State];
+         }
+         else{
+             [self handleResponse:responseObject Succ:^(id data) {
+                 succ([NSNumber numberWithInt:(int)data]);
+                 
+             } Fail:fail Resp:nil State:State];
+         }
+         
+         
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         fail(10010,nil);
+         [State setEnd];
+     }];
+    
+    [State start];
+    return State;
 }
 
 

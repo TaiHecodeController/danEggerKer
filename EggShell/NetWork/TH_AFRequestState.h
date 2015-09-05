@@ -31,5 +31,7 @@
 +(AFRequestState *)saveJobListSucc:(void(^)(NSArray *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid page:(int)page limit:(int)limit resp:(Class)resp;
 /*轮播图**/
 +(AFRequestState*)CarouselFigureRequestWithSucc:(void(^)(NSDictionary * arr))succ withfail:(void(^)(int errCode, NSError *err))fail;
+/*信息台**/
++(AFRequestState*)InformationDeskRequestWithSucc:(void(^)(NSDictionary * arr))succ  resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type;
 
 @end

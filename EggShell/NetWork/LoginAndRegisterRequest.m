@@ -67,5 +67,12 @@ NSDictionary * param = @{@"telphone":phone,@"code":SecurityCode};
 NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
     return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/login/update_pwd" param:param succ:succ];
 }
+/*头像上传**/
++(void)uploadImage:(void (^)(NSString * backUrl))succ :(UIImage *)inputImage fail:(void(^)(int errCode, NSError *err))faile
+{
+    NSDictionary * param = @{@"feedcontent_pic":@[inputImage]} ;
+    [self postImageFlag:YES url:@"" succ:succ WithData:param fail:faile];
+
+}
 
 @end
