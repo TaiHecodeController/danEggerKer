@@ -19,12 +19,14 @@
 @property(nonatomic,strong)UIView *emailBgview;
 @property(nonatomic,strong)UIButton * subMitBtn;
 @property(nonatomic,strong)UITextView * textView;
+@property(nonatomic,strong)NSMutableDictionary * dic;
 @end
 
 @implementation TH_FeedBackVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.dic = [NSMutableDictionary dictionary];
     self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);
     
     UIScrollView * sco =[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
@@ -41,14 +43,6 @@
     
     //    /*收回键盘**/
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
-    
-    [self LodDatarequest];
-}
--(void)LodDatarequest
-{
-    
-    
-    
     
     
 }
@@ -144,62 +138,47 @@
 }
 -(void)subClick
 {
-    NSUserDefaults * userID= [NSUserDefaults standardUserDefaults];
-    NSString * userId =  [userID objectForKey:@"uid"];
+   
     
-    NSString * textView       = [self.textView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString  * qqtext ;
-    NSString  *emailText ;
-    if ([self.textqqField.text length] ==0) {
-        qqtext = @"";
-    }
-    else
-    {
-        qqtext        = self.textqqField.text;
-        
-    }
-    if([self.emailTextFiled.text length]== 0) {
-        emailText = @"";
-    }else
-    {
-        emailText =self.emailTextFiled.text;
-    }
+    NSString * textView       = self.textView.text ;
+    NSString  * qqtext = self.textqqField.text;
+    NSString  *emailText  = self.emailTextFiled.text;
 
-//    if ([self.textqqField.text length] ==0) {
-//       [MBProgressHUD creatembHub:@"内容不能为空"];
-//        return;
-//    }
-//    
-//    if (![self  isValidateEmail:self.emailTextFiled.text])
-//    {
-//        [MBProgressHUD creatembHub:@"邮箱不正确"];
-//        return;
-//    }
-
-   [TH_AFRequestState feedbackReRequestWithSucc:^(NSArray *DataDic) {
+    if ([self.textView.text length] ==0) {
+       [MBProgressHUD creatembHub:@"内容不能为空"];
+        return;
+    }else if (![qqtext length]==0)
+    {
+        if ([qqtext length]<=6) {
+            [MBProgressHUD creatembHub:@"qq号不合法"];
+            return;
+        }
+    }
+    else if (![self.emailTextFiled.text length]==0)
+    {
+        if (![self  isValidateEmail:self.emailTextFiled.text]) {
+            [MBProgressHUD creatembHub:@"邮箱不正确"];
+            return;
+        }
        
+    }
+   [TH_AFRequestState feedbackReRequestWithSucc:^(NSDictionary *DataDic) {
+       
+       [self.dic addEntriesFromDictionary:DataDic];
+       self.textView.text = DataDic[@"data"][@"opinion"];
+      [MBProgressHUD creatembHub:@"反馈成功"];
    } withSource:2 withOpinion:textView withqq:qqtext withEmail:emailText withfail:^(int errCode, NSError *err) {
        if (errCode == 1013) {
-                       [MBProgressHUD creatembHub:@"请认真填写意见"];
+            [MBProgressHUD creatembHub:@"请认真填写意见"];
            
-                   }if (errCode ==1014) {
+        }if (errCode ==1014) {
                    [MBProgressHUD creatembHub:@"抱歉，由于未知原因，你的建议我们没有收到，请重试"];
                                    
                 }
 
    }];
     
-//    [TH_AFRequestState feedbackReRequestWithSucc:^(NSArray *DataDic) {
-//        
-//    } withContent:textView withemail:emailText withqq:qqtext withfail:^(int errCode, NSError *err) {
-//        if (errCode == 1013) {
-//            [MBProgressHUD creatembHub:@"请认真填写意见"];
-//            
-//        }if (errCode ==1014) {
-//        [MBProgressHUD creatembHub:@"抱歉，由于未知原因，你的建议我们没有收到，请重试"];
-//                        
-//     }
-//    }];
+
 }
 -(BOOL)isValidateEmail:(NSString *)email {
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";

@@ -18,6 +18,7 @@
 @property(nonatomic,strong)UIView * lineView;
 @property(nonatomic,strong)UILabel * companyFile;
 @property(nonatomic,strong)UILabel * detailLable;
+@property(nonatomic,strong)UIWebView * detailWebView;
 @property(nonatomic,strong)UIButton * selectBtn;
 @property(nonatomic,assign)CGSize textSize;
 @property(nonatomic,strong)id<companyProfileViewDelegate>delegate;

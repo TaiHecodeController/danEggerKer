@@ -10,9 +10,11 @@
 #import "WriteRusumeModel2.h"
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
+#import "ResumeModel.h"
 @interface TH_SelfEvaluationVC ()
 {
     WriteRusumeModel2 * _model;
+    ResumeModel * _resume_model;
 }
 @property (strong,nonatomic)UILabel * nameLab;
 @property (strong,nonatomic)UITextView * contentTextField;
@@ -24,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _model = [[WriteRusumeModel2 alloc] init];
+    _resume_model = [ResumeModel sharedResume];
     [self createScro];
     [self createView];
 
@@ -38,7 +41,7 @@
 }
 
 -(void)createView
-{   UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 135, 13) Font:13 Text:@"个人简历001-自我评价"];
+{   UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 135, 13) Font:13 Text:[NSString stringWithFormat:@"%@-自我评价",_resume_model.resumeName]];
     [self.scro addSubview:nameLab];
     
     UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(160, 9.5, 53, 23) ImageName:@"lanniu2" Target:self Action:nil Title:@"可选填"];
@@ -88,7 +91,7 @@
         return;
     }else
     {
-        _model.content = [self.contentTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        _model.content = self.contentTextField.text;
     }
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
     

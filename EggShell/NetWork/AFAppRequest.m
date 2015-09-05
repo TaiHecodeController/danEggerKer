@@ -140,6 +140,10 @@
     
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation * operation, id responseObject)
      {
+
+         NSLog(@"%@",responseObject[@"data"][@"opinion"]);
+         [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
+
          if ([[responseObject allKeys] containsObject:@"teacher"])
          {
              [self handleResponseForTeacher:responseObject Succ:succ Fail:fail Resp:resp State:State];
@@ -149,6 +153,7 @@
               [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
          }
         
+         
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {
          NSNumber * errcode = [NSNumber numberWithInteger:error.code];

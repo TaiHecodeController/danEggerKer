@@ -47,6 +47,9 @@
 @property (nonatomic,strong)AFRequestState * state;
 @property(nonatomic,strong)NSDictionary * dataDic;
 @property(nonatomic,strong)NSArray *imageArr;
+@property(nonatomic,assign)NSString * str1;
+@property(nonatomic,assign)NSString * str2;
+@property(nonatomic,assign)NSString * str3;
 @end
 
 @implementation TH_HomeVC
@@ -536,30 +539,30 @@
 {
     self.dataDic = [NSMutableDictionary dictionaryWithCapacity:0 ];
 
-      _state = [TH_AFRequestState CarouselFigureRequestWithSucc:^(NSDictionary * arr) {
+       [TH_AFRequestState CarouselFigureRequestWithSucc:^(NSDictionary * arr) {
         
           self.dataDic = arr[@"data"];
-          NSString *str1 = self.dataDic[@"lunbo1"];
-          NSString *str2 =self.dataDic[@"lunbo2"];
-          NSString *str3 = self.dataDic[@"lunbo3"];
-          self.imageArr = [NSArray arrayWithObjects:@{@"photo":str1},@{@"photo":str2},@{@"photo":str3}, nil];
-         [_bannerView setImageURLs:self.imageArr];
+           if (is3_5Inch||is4Inch) {
+               self.str1 = self.dataDic[@"lunbo1"];
+               self.str2 =self.dataDic[@"lunbo1.2"];
+               self.str3 = self.dataDic[@"lunbo1.3"];
+           }else if (is4_7Inch)
+           {
+               self.str1 = self.dataDic[@"lunbo2"];
+               self.str2 =self.dataDic[@"lunbo2.2"];
+               self.str3 = self.dataDic[@"lunbo2.3"];
+           }else if (is5_5Inch)
+           {
+               self.str1 = self.dataDic[@"lunbo3"];
+               self.str2 =self.dataDic[@"lunbo3.2"];
+               self.str3 = self.dataDic[@"lunbo3.3"];
+            }
+         
+           self.imageArr = [NSArray arrayWithObjects:@{@"photo":self.str1},@{@"photo":self.str2},@{@"photo":self.str3}, nil];
+           [_bannerView setImageURLs:self.imageArr];
     } withfail:^(int errCode, NSError *err) {
         
     }];
-//   ////    @"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg";
-//   NSString *str2 =self.dataDic[@"lunbo2"];
-//////    @"http://s6.mogujie.cn/b7/bao/130928/c7k0_kqyw6vckkfbgeq3wgfjeg5sckzsew_500x750.jpg_200x999.jpg";
-//    NSString *str3 = self.dataDic[@"lunbo3"];
-////    @"http://s6.mogujie.cn/b7/bao/131008/q2o17_kqyvcz3ckfbewv3wgfjeg5sckzsew_330x445.jpg_200x999.jpg";
-    //包含字典的数组，每个字典key为photo,value为string
-//   NSArray *imageArr = [NSArray arrayWithObjects:@{@"photo":str1},@{@"photo":str2},@{@"photo":str3}, nil];
-//        NSArray * imsgeArray = @[@"lunbo2",@"lunbo3",@"lunbotu0"];
-//
-//    NSArray *imageArr = [NSArray arrayWithObjects:@{@"photo":imsgeArray[0]},@{@"photo":imsgeArray[1]},@{@"photo":imsgeArray[2]}, nil];
-//       //加载数据
-   
-    
 }
 
 /*

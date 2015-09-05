@@ -62,7 +62,7 @@
     _mbPro = [MBProgressHUD mbHubShow];
     [self loadData:_mbPro page:0];
     
-//    [self querData];
+//  [self querData];
 }
 
 -(void)loadData:(id)notify page:(int)num
