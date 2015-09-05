@@ -96,7 +96,7 @@
     
     self.jobArr = [[NSMutableArray alloc]init];
     _mailingNumBer = 0;
-    self.page = 1;
+    
     self.view.backgroundColor =[UIColor whiteColor];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barBtnItemWithNormalImageName:@"liebiao" hightImageName:nil action:@selector(rightClick) target:self];
@@ -104,6 +104,7 @@
     [self initView];
     
     //在此方法里请求数据
+    self.page = 1;
     [self hySegmentedControlSelectAtIndex:0];
     
     //设置定位精确度，默认：kCLLocationAccuracyBest
@@ -118,6 +119,31 @@
     [_locService startUserLocationService];
     
 }
+
+- (void)hySegmentedControlSelectAtIndex:(NSInteger)index
+{
+    if (index == 0)
+    {
+        
+        _currentIndex = 0;
+        
+        /*数据请求**/
+        _mbPro = [MBProgressHUD mbHubShow];
+        [self loadData:_mbPro page:self.page];
+        
+        
+    }
+    else
+    {
+        _currentIndex = 1;
+        /*数据请求**/
+        _mbPro = [MBProgressHUD mbHubShow];
+        [self loadData:_mbPro page:self.page];
+        
+    }
+}
+
+
 -(void)loadData:(id)notify page:(int)num
 {
     if(_state.running)
@@ -322,28 +348,6 @@
     //                 [weakSelf showHttpErrorInfo:nil info:nil];
     //             }
     //         }];
-}
-- (void)hySegmentedControlSelectAtIndex:(NSInteger)index
-{
-    if (index == 0)
-    {
-        
-        _currentIndex = 0;
-        
-        /*数据请求**/
-        _mbPro = [MBProgressHUD mbHubShow];
-        [self loadData:_mbPro page:self.page];
-        
-        
-    }
-    else
-    {
-        _currentIndex = 1;
-        /*数据请求**/
-        _mbPro = [MBProgressHUD mbHubShow];
-        [self loadData:_mbPro page:self.page];
-        
-    }
 }
 
 #pragma mark tabViewDelegate
