@@ -31,14 +31,13 @@
     self.scro = scro;
     [self.view addSubview:scro];
     [self createTilteView];
-    [self createView];
     [self loadData];
 }
 -(void)loadData
 {
     [WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
         self.dataDic = DataDic[@"data"];
-        
+        [self createView];
     } WithResumeParam:@{@"eid":self.resumeId} withfail:nil];
  
 }
@@ -64,16 +63,16 @@
 {/*基本信息**/
     Basicnformation * baseInformation =[Basicnformation setBaseView];
     baseInformation.frame = CGRectMake(0, 42, WIDETH, 158);
-    [baseInformation configVulue:@""];
+    [baseInformation configVulue:self.dataDic];
     [self.scro addSubview:baseInformation];
     /*求职意向**/
     intentView * intent = [intentView setIntentView];
     intent.frame = CGRectMake(0, 200, WIDETH, 190);
-    [intent configValue:@""];
+    [intent configValue:self.dataDic[@"expect"]];
     [self.scro addSubview:intent];
     /*工作经历**/
     WorkExperienceView * working = [WorkExperienceView setWorkExperienceView];
-    [working configVulue:@""];
+    [working configVulue:self.dataDic[@"work"]];
     working.workContent.userInteractionEnabled = NO;
     working.frame = CGRectMake(0, 390, WIDETH, 200);
     [self.scro  addSubview: working];
@@ -81,11 +80,11 @@
     EducationExperienceView * education  = [EducationExperienceView setEducationExperienceView];
     education.frame = CGRectMake(0, 590, WIDETH, 220);
     education.departmentIntroduce.userInteractionEnabled = NO;
-    [education configVulue:@""];
+    [education configVulue:self.dataDic[@"jy"]];
     [self.scro addSubview:education];
     /*专业技能**/
     professionalSkillView * skill = [professionalSkillView setprofessionalSkillView];
-    [skill conFigValue:@""];
+    [skill conFigValue:self.dataDic[@"skill"]];
     skill.frame = CGRectMake(0, 810, WIDETH, 135);
     [self.scro addSubview:skill];
     
@@ -93,25 +92,25 @@
     ProjectExperienceView * project =[ProjectExperienceView setProjectExperienceView];
     project.frame = CGRectMake(0, 810+135, WIDETH, 205);
     project.proIntroduce.userInteractionEnabled = NO;
-    [project configValue:@""];
+    [project configValue:self.dataDic[@"project"]];
     [self.scro addSubview:project];
     /*证书**/
     CertificateView * certific = [CertificateView setCertificateView];
     certific.certificateIntroduce.userInteractionEnabled = NO;
-    [certific configValue:@""];
+    [certific configValue:self.dataDic[@"cert"]];
     certific.frame = CGRectMake(0, 810+135+205, WIDETH, 200);
     [self.scro addSubview:certific];
     /*培训内容**/
     trainingExperienceView * train = [trainingExperienceView settrainingExperienceView];
     train.frame = CGRectMake(0,  810+135+205+200, WIDETH, 200);
     train.trainIntroduce.userInteractionEnabled = NO;
-    [train configValue:@""];
+    [train configValue:self.dataDic[@"training"]];
     [self.scro addSubview:train];
     /*自我评价**/
     SelfEvaluationView * selfevaluat =[SelfEvaluationView setSelfEvaluationView];
     selfevaluat.frame = CGRectMake(0, 810+135+205+200+200, WIDETH, 100);
     selfevaluat.selfEvaluation.userInteractionEnabled = NO;
-    [selfevaluat configValue:@""];
+    [selfevaluat configValue:self.dataDic[@"other"]];
     [self.scro addSubview:selfevaluat];
     self.scro.contentSize   = CGSizeMake(WIDETH, 810+135+205+200+200+100);
     

@@ -13,13 +13,17 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"train" owner:self options:nil] lastObject];
 }
--(void)configValue:(NSString*)model
-
+-(void)configValue:(NSArray *)dataArray
 {
-    self.trainTime.text = model;
-    self.trainDirection.text = model;
-    self.trainCompany.text = model;
-    self.trainIntroduce.text = model;
+    if(dataArray.count == 0)
+    {
+        return;
+    }
+    NSDictionary * dataDic = [dataArray firstObject];
+    self.trainTime.text = dataDic[@""];
+    self.trainDirection.text = dataDic[@""];
+    self.trainCompany.text = dataDic[@""];
+    self.trainIntroduce.text = dataDic[@""];
 
 }
 @end

@@ -14,11 +14,19 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"workExperecie" owner:self options:nil] lastObject];
 }
--(void)configVulue:(NSString *)model
+-(void)configVulue:(NSArray *)dataArray
 {
-
-    self.workTime.text = model;
-    self.position.text = model;
-    self.workContent.text = model;
+    if(dataArray.count == 0)
+    {
+        return;
+    }
+    NSDictionary * dataDic = [dataArray firstObject];
+    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
+    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
+    NSString * startTime = [Utils changeTimeToString:sdate];
+    NSString * endTime = [Utils changeTimeToString:edate];
+    self.workTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+    self.position.text = dataDic[@"title"];
+    self.workContent.text = dataDic[@"content"];
 }
 @end

@@ -14,14 +14,21 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"education" owner:self options:nil]lastObject];
 }
--(void)configVulue:(NSString*)model
+-(void)configVulue:(NSArray *)dataArray
 {
-   
-    
-    self.educationTime.text = model;
-    self.department.text = model;
-    self.schoolName.text = model;
-    self.position.text = model;
-    self.departmentIntroduce.text = model;
+    if(dataArray.count == 0)
+    {
+        return;
+    }
+    NSDictionary * dataDic = [dataArray firstObject];
+    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
+    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
+    NSString * startTime = [Utils changeTimeToString:sdate];
+    NSString * endTime = [Utils changeTimeToString:edate];
+    self.educationTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+    self.department.text = dataDic[@"specialty"];
+    self.schoolName.text = dataDic[@"name"];
+    self.position.text = dataDic[@"title"];
+    self.departmentIntroduce.text = dataDic[@"content"];
 }
 @end

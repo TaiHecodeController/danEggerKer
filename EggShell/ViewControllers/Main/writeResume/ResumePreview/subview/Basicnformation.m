@@ -18,11 +18,6 @@ return [[[NSBundle mainBundle] loadNibNamed:@
 -(void)configVulue:(NSDictionary *)dataDic
 {
     
-//    self.nameSexAge.text = [NSString stringWithFormat:@"%@"];
-//    self.adademic.text = model;
-//    self.experience.text = model;
-//    self.address.text = model;
-//    self.phoneNum.text = model;
-//    self.email.text = model;
+
 }
 @end

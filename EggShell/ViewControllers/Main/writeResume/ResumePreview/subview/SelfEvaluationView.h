@@ -12,5 +12,5 @@
 @property (weak, nonatomic) IBOutlet UITextView *selfEvaluation;
 
 +(SelfEvaluationView*)setSelfEvaluationView;
--(void)configValue:(NSString*)model;
+-(void)configValue:(NSDictionary *)dataDic;
 @end

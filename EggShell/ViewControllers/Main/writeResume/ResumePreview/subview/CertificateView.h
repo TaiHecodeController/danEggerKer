@@ -15,5 +15,5 @@
 @property (weak, nonatomic) IBOutlet UITextView *certificateIntroduce;
 
 +(CertificateView*)setCertificateView;
--(void)configValue:(NSString*)model;
+-(void)configValue:(NSArray *)dataArray;
 @end

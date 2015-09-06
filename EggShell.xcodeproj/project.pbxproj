@@ -34,6 +34,8 @@
 		0470291E1B974C4300565BC4 /* ManagerResumeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0470291D1B974C4300565BC4 /* ManagerResumeModel.m */; };
 		047029211B97604200565BC4 /* WriteRusumeModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 047029201B97604200565BC4 /* WriteRusumeModel2.m */; };
 		04718DA71B7CDA26008214CB /* ZCControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 04718DA61B7CDA26008214CB /* ZCControl.m */; };
+		047454F11B9C638600CE880A /* InfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047454F01B9C638600CE880A /* InfoModel.m */; };
+		047454F41B9C640500CE880A /* ExceptModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047454F31B9C640500CE880A /* ExceptModel.m */; };
 		048426F51B8B1E6D009C597A /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048426F41B8B1E6D009C597A /* VPImageCropperViewController.m */; };
 		048F30A81B7A1562004AA9B2 /* HotSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F30A71B7A1562004AA9B2 /* HotSearch.m */; };
 		048F30AA1B7A1577004AA9B2 /* HotSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048F30A91B7A1577004AA9B2 /* HotSearch.xib */; };
@@ -314,6 +316,10 @@
 		047029201B97604200565BC4 /* WriteRusumeModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteRusumeModel2.m; sourceTree = "<group>"; };
 		04718DA51B7CDA26008214CB /* ZCControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCControl.h; sourceTree = "<group>"; };
 		04718DA61B7CDA26008214CB /* ZCControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCControl.m; sourceTree = "<group>"; };
+		047454EF1B9C638600CE880A /* InfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoModel.h; sourceTree = "<group>"; };
+		047454F01B9C638600CE880A /* InfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoModel.m; sourceTree = "<group>"; };
+		047454F21B9C640500CE880A /* ExceptModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExceptModel.h; sourceTree = "<group>"; };
+		047454F31B9C640500CE880A /* ExceptModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExceptModel.m; sourceTree = "<group>"; };
 		048426F31B8B1E6D009C597A /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
 		048426F41B8B1E6D009C597A /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
 		048F30A61B7A1562004AA9B2 /* HotSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotSearch.h; sourceTree = "<group>"; };
@@ -901,6 +907,10 @@
 				0470291D1B974C4300565BC4 /* ManagerResumeModel.m */,
 				0470291F1B97604200565BC4 /* WriteRusumeModel2.h */,
 				047029201B97604200565BC4 /* WriteRusumeModel2.m */,
+				047454EF1B9C638600CE880A /* InfoModel.h */,
+				047454F01B9C638600CE880A /* InfoModel.m */,
+				047454F21B9C640500CE880A /* ExceptModel.h */,
+				047454F31B9C640500CE880A /* ExceptModel.m */,
 			);
 			path = ResumeModel;
 			sourceTree = "<group>";
@@ -2294,6 +2304,7 @@
 				94CB5BA71B76345D00B23B9D /* TH_MineVC.m in Sources */,
 				94E3EAE01B918CBE007A699E /* AccountRequest.m in Sources */,
 				94EDD4F01B7831BB00A00A78 /* ZXButton.m in Sources */,
+				047454F41B9C640500CE880A /* ExceptModel.m in Sources */,
 				940032931B83969B001EB666 /* FindjobView.m in Sources */,
 				940032D81B840CC3001EB666 /* TH_TrainExperienceVC.m in Sources */,
 				94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */,
@@ -2363,6 +2374,7 @@
 				94E2C9871B870F29001E3FDD /* JobDescriptionlView.m in Sources */,
 				940032D01B840CC3001EB666 /* projectTableViewCell.m in Sources */,
 				F01787AF1B959456005FF9C4 /* JobDetailModel_Arr4.m in Sources */,
+				047454F11B9C638600CE880A /* InfoModel.m in Sources */,
 				048F30BA1B7A4537004AA9B2 /* FMDatabaseQueue.m in Sources */,
 				94313DF41B7CB5C9005D0A9A /* WriteResumeViewController.m in Sources */,
 				041650EC1B4D7C4E008C78BE /* MJRefreshBaseView.m in Sources */,

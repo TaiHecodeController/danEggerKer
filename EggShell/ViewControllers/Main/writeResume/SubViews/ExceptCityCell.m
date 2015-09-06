@@ -90,7 +90,8 @@
     
     [sexOk removeFromSuperview];
     NSInteger row = [self.pickerView selectedRowInComponent:0];
-    [record_btn setTitle:self.pickDataArray[row] forState:UIControlStateNormal];
+    [record_btn setTitle:self.pickDataArray[row] forState:UIControlStateSelected];
+    
     if(record_btn.tag == 505)
     {
         self.proviceClick(2);

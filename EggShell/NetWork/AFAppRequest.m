@@ -144,20 +144,7 @@
     
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation * operation, id responseObject)
      {
-
-        
          [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
-
-         if ([[responseObject allKeys] containsObject:@"teacher"])
-         {
-             [self handleResponseForTeacher:responseObject Succ:succ Fail:fail Resp:resp State:State];
-         }
-         else
-         {
-              [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
-             
-         }
-
 
 
         
@@ -167,7 +154,6 @@
      {
          NSNumber * errcode = [NSNumber numberWithInteger:error.code];
          fail([errcode intValue],error);
-         
          //查原始数据 responseObject
          [State setEnd];
      }];
@@ -211,7 +197,10 @@
     {
         [MBProgressHUD creatembHub:@"开始时间和结束时间一致"];
     }
-    
+    if(errCode == 3840)
+    {
+        [MBProgressHUD creatembHub:@"服务器异常"];
+    }
     
     
 }

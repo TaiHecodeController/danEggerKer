@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    self.manBtn.selected = YES;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

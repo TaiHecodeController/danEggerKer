@@ -27,7 +27,6 @@
     int proviceId;
     int cityId;
     int threecityId;
-    BOOL isReload;
 }
 @property (strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
@@ -43,13 +42,14 @@
 @property (nonatomic, copy) NSString *dateString;
 @property (nonatomic,strong)NSDictionary * dataDic;
 
+@property (nonatomic,strong)NSDictionary * editDic;
+
 @end
 
 @implementation WriteResumeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    isReload = NO;
     _model = [ResumeModel sharedResume];
     
     self.title = @"写简历";
@@ -69,9 +69,133 @@
 -(void)loadOriginalData
 {
     [WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
+        self.editDic = DataDic[@"data"];
         for(int i = 0;i < self.jobCellArray.count;i++)
         {
-            
+            WriteResumeCell * cell = self.jobCellArray[i];
+            switch (i) {
+                case 0:
+                {
+                    cell.contentTextField.text = self.editDic[@"expect"][@"name"];
+                }
+                    break;
+                case 1:
+                {
+                    cell.contentTextField.text = self.editDic[@"expect"][@"hy"][@"name"];
+                    cell.userId = self.editDic[@"expect"][@"hy"][@"id"];
+                    
+                }
+                    break;
+                case 2:
+                {
+                    cell.contentTextField.text = self.editDic[@"expect"][@"job"][@"name"];
+                    cell.userId = self.editDic[@"expect"][@"job"][@"id"];
+                }
+                    break;
+                case 3:
+                {
+                    
+                    cell.contentTextField.text = self.editDic[@"expect"][@"salary"][@"name"];
+                    cell.userId = self.editDic[@"expect"][@"salary"][@"id"];
+                }
+                    break;
+                case 4:
+                {
+                    ExceptCityCell * cityCell = self.jobCellArray[i];
+                    cityCell.proviceBtn.selected = YES;
+                    proviceId = 2;
+                    [cityCell.proviceBtn setTitle:@"北京" forState:UIControlStateSelected];
+                    cityCell.cityBtn.selected = YES;
+                    [cityCell.cityBtn setTitle:@"北京" forState:UIControlStateSelected];
+                    cityId = 52;
+                    cityCell.countyBtn.selected = YES;
+                    [cityCell.countyBtn setTitle:self.editDic[@"expect"][@"three_cityid"][@"name"] forState:UIControlStateSelected];
+                    threecityId = [self.editDic[@"expect"][@"three_cityid"][@"id"] intValue];
+                    
+                }
+                    break;
+                case 5:
+                {
+                    
+                    cell.contentTextField.text = self.editDic[@"expect"][@"ctype"][@"name"];
+                    cell.userId = self.editDic[@"expect"][@"ctype"][@"id"];
+                }
+                    break;
+                case 6:
+                {
+                    cell.contentTextField.text = self.editDic[@"expect"][@"dgtime"][@"name"];
+                    cell.userId = self.editDic[@"expect"][@"dgtime"][@"id"];
+                }
+                    break;
+                case 7:
+                {
+                    cell.contentTextField.text = self.editDic[@"expect"][@"jobst"][@"name"];
+                    cell.userId = self.editDic[@"expect"][@"jobst"][@"id"];
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+        for(int i = 0;i < self.jobCellArray2.count;i++)
+        {
+            WriteResumeCell * cell = self.jobCellArray2[i];
+            switch (i) {
+                case 0:
+                {
+                    NameAndSexCell * nameSexCell = self.jobCellArray2[i];
+                    nameSexCell.contentTextField.text = self.editDic[@"info"][@"uname"];
+                    if([self.editDic[@"info"][@"sex"][@"id"] isEqualToString:@"6"])
+                    {
+                        nameSexCell.manBtn.selected = YES;
+                        
+                    }else
+                    {
+                        nameSexCell.womenBtn.selected = YES;
+                        
+                    }
+                    
+                    _model.sex = self.editDic[@"info"][@"sex"][@"id"];
+                }
+                    break;
+                case 1:
+                {
+                    cell.contentTextField.text = self.editDic[@"expect"][@"birthday"];
+                    
+                }
+                    break;
+                case 2:
+                {
+                    cell.contentTextField.text = self.editDic[@"info"][@"edu"][@"name"];
+                    cell.userId = self.editDic[@"info"][@"edu"][@"id"];
+                }
+                    break;
+                case 3:
+                {
+                    cell.contentTextField.text = self.editDic[@"info"][@"exp"][@"name"];
+                    cell.userId = self.editDic[@"info"][@"exp"][@"id"];
+                    
+                }
+                    break;
+                case 4:
+                {
+                    cell.contentTextField.text = self.editDic[@"info"][@"telphone"];
+                }
+                    break;
+                case 5:
+                {
+                    cell.contentTextField.text = self.editDic[@"info"][@"email"];
+                }
+                    break;
+                case 6:
+                {
+                    cell.contentTextField.text = self.editDic[@"info"][@"address"];
+                }
+                    break;
+                default:
+                    break;
+            }
         }
         
     } WithResumeParam:@{@"eid":self.resumeId} withfail:^(int errCode, NSError *err) {
@@ -94,9 +218,9 @@
 {
     [WriteResumeRequest getResumeMessageListWithSucc:^(NSDictionary *DataDic) {
         self.dataDic = DataDic[@"data"];
-        NSIndexPath *index = [NSIndexPath indexPathForRow:4 inSection:0];
-        [jobTableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
-        isReload = YES;
+
+        ExceptCityCell * cell = self.jobCellArray[4];
+        [cell config:self.dataDic[@"three_cityid"]];
     }];
 }
 
@@ -156,7 +280,7 @@
 -(void)nextClick
 {
     NSMutableArray * modelNameArr = [self propertyKeys];
-    for(int i = 0;i < self.jobCellArray.count - 1;i++)
+    for(int i = 0;i < self.jobCellArray.count;i++)
     {
         if(i != 4)
         {
@@ -264,18 +388,37 @@
         
     }
     
-    NSDictionary * param = @{@"uid":[AppDelegate instance].userId,@"name":_model.resumeName,@"hy":_model.industry,@"job_classid":_model.exceptJob,@"salary":_model.exceptSalary,@"type":_model.jobNature,@"report":_model.arriveTime,@"jobstatus":_model.findState,@"uname":_model.userName,@"birthday":_model.userBirthday,@"edu":_model.academic,@"exp":_model.workExperience,@"telphone":_model.phoneNum,@"email":_model.email,@"address":_model.address,@"provinceid":[NSString stringWithFormat:@"%d",proviceId],@"cityid":[NSString stringWithFormat:@"%d",cityId],@"three_cityid":[NSString stringWithFormat:@"%d",threecityId]};
+    
     
     if(!self.isEdit)
     {
+        NSDictionary * param = @{@"uid":[AppDelegate instance].userId,@"name":_model.resumeName,@"hy":_model.industry,@"job_classid":_model.exceptJob,@"salary":_model.exceptSalary,@"type":_model.jobNature,@"report":_model.arriveTime,@"jobstatus":_model.findState,@"uname":_model.userName,@"birthday":_model.userBirthday,@"edu":_model.academic,@"exp":_model.workExperience,@"telphone":_model.phoneNum,@"email":_model.email,@"address":_model.address,@"provinceid":[NSString stringWithFormat:@"%d",proviceId],@"cityid":[NSString stringWithFormat:@"%d",cityId],@"three_cityid":[NSString stringWithFormat:@"%d",threecityId],@"sex":_model.sex};
+        
         MBProgressHUD * hub = [MBProgressHUD mbHubShow];
         [[WriteResumeRequest uploadResumeMessageAboutUserMessageWithSucc:^(NSDictionary *DataDic) {
-            WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
-            [self.navigationController pushViewController:wrvc2 animated:YES];
-            [AppDelegate instance].resumeId = DataDic[@"data"];
+            if([DataDic[@"code"] intValue] == 0)
+            {
+                WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
+                [self.navigationController pushViewController:wrvc2 animated:YES];
+                [AppDelegate instance].resumeId = DataDic[@"data"];
+            }
         } WithResumeParam:param] addNotifaction:hub];
-        WriteResumeVC2 * vc2 =[[WriteResumeVC2 alloc] init];
-        [self.navigationController pushViewController:vc2 animated:YES];
+
+    }else
+    {
+        NSDictionary * param = @{@"uid":[AppDelegate instance].userId,@"name":_model.resumeName,@"hy":_model.industry,@"job_classid":_model.exceptJob,@"salary":_model.exceptSalary,@"type":_model.jobNature,@"report":_model.arriveTime,@"jobstatus":_model.findState,@"uname":_model.userName,@"birthday":_model.userBirthday,@"edu":_model.academic,@"exp":_model.workExperience,@"telphone":_model.phoneNum,@"email":_model.email,@"address":_model.address,@"provinceid":[NSString stringWithFormat:@"%d",proviceId],@"cityid":[NSString stringWithFormat:@"%d",cityId],@"three_cityid":[NSString stringWithFormat:@"%d",threecityId],@"eid":self.resumeId,@"sex":_model.sex};
+        
+        MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+        [[WriteResumeRequest uploadResumeMessageAboutUserMessageWithSucc:^(NSDictionary *DataDic) {
+            if([DataDic[@"code"] intValue] == 0)
+            {
+                WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
+                [self.navigationController pushViewController:wrvc2 animated:YES];
+                [AppDelegate instance].resumeId = DataDic[@"data"];
+            }
+            
+        } WithResumeParam:param] addNotifaction:hub];
+        
     }
     
 }
@@ -358,17 +501,9 @@
             {
                 threecityId = Id;
             };
-            
+        
             cell.Controller = self;
-            if(self.dataDic)
-            {
-               [cell config:self.dataDic[@"three_cityid"]];
-            }
-            if(!isReload)
-            {
-                [self.jobCellArray addObject:cell];
-            }
-            
+            [self.jobCellArray addObject:cell];
             return cell;
         }
         
