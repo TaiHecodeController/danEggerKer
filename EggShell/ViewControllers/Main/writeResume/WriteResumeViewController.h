@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WriteResumeViewController : UIViewController
-
+@property (assign)BOOL isEdit;
+@property (strong,nonatomic)NSString * resumeId;
 @end

@@ -43,4 +43,13 @@
     return [emailTest evaluateWithObject:email];
 }
 
++ (NSString *)changeTimeToString:(NSTimeInterval )time
+{
+    NSDate * confromTimesp = [NSDate dateWithTimeIntervalSince1970:time];
+    NSDateFormatter * dateFormatt = [[NSDateFormatter alloc] init];
+    [dateFormatt setDateFormat:@"yyyy-MM-dd"];
+    return [dateFormatt stringFromDate:confromTimesp];
+    
+}
+
 @end

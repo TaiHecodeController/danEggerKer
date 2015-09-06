@@ -15,5 +15,5 @@
 @property (weak, nonatomic) IBOutlet UITextView *trainIntroduce;
 
 +(trainingExperienceView*)settrainingExperienceView;
--(void)configValue:(NSString*)model;
+-(void)configValue:(NSArray *)dataArray;
 @end

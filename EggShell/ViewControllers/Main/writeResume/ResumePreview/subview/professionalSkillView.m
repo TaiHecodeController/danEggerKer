@@ -15,11 +15,21 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"professional" owner:self options:nil] lastObject];
 }
--(void)conFigValue:(NSString*)model
-{  self.professionalSkill.text = model;
-    self.graspTime.text = model;
-    self.skilledDegree.text = model;
-    self.skillName.text = model;
+-(void)conFigValue:(NSArray *)dataArray
+{
+    if(dataArray.count == 0)
+    {
+        return;
+    }
+    NSDictionary * dataDic = [dataArray firstObject];
+    if(dataDic.count == 0)
+    {
+        return;
+    }
+    self.professionalSkill.text = dataDic[@"skill"];
+    self.graspTime.text = dataDic[@"longtime"];
+    self.skilledDegree.text = dataDic[@"ing"];
+    self.skillName.text = dataDic[@"name"];
    
 
 }

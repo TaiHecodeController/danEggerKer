@@ -14,12 +14,20 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"Certificate" owner:self  options:nil]lastObject];
 }
--(void)configValue:(NSString*)model
+-(void)configValue:(NSArray *)dataArray
 {
-    
-    self.awardTime.text = model;
-    self.certificateName.text = model;
-    self.awardCompany.text = model;
-    self.certificateIntroduce.text = model;
+    if(dataArray.count == 0)
+    {
+        return;
+    }
+    NSDictionary * dataDic = [dataArray firstObject];
+    if(dataDic.count == 0)
+    {
+        return;
+    }
+    self.awardTime.text = dataDic[@""];
+    self.certificateName.text = dataDic[@""];
+    self.awardCompany.text = dataDic[@""];
+    self.certificateIntroduce.text = dataDic[@""];
 }
 @end

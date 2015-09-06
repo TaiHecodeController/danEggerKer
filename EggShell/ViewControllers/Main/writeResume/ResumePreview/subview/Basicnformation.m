@@ -15,14 +15,9 @@
 return [[[NSBundle mainBundle] loadNibNamed:@
          "BasicInformation"owner:self options:nil] lastObject];
 }
--(void)configVulue:(NSString * )model
+-(void)configVulue:(NSDictionary *)dataDic
 {
     
-    self.nameSexAge.text = model;
-    self.adademic.text = model;
-    self.experience.text = model;
-    self.address.text = model;
-    self.phoneNum.text = model;
-    self.email.text = model;
+
 }
 @end

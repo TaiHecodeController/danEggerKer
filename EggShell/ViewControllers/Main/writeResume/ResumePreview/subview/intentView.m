@@ -14,14 +14,14 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"intentView" owner:self options:nil] lastObject];
 }
--(void)configValue:(NSString*)model
+-(void)configValue:(NSDictionary*)dataDic
 {
-    self.exceptJob.text = model;
-    self.exceptIndustry.text = model;
-    self.exceptSalary.text = model;
-    self.workAddress.text = model;
-    self.arriveTime.text = model;
-    self.workNature.text = model;
-    self.workState.text = model;
+    self.exceptJob.text = dataDic[@"job"][@"name"];
+    self.exceptIndustry.text = dataDic[@"hy"][@"name"];
+    self.exceptSalary.text = dataDic[@"salary"][@"name"];
+    self.workAddress.text = dataDic[@"area"][@"name"];
+    self.arriveTime.text = dataDic[@"dgtime"][@"name"];
+    self.workNature.text = dataDic[@"ctype"][@"name"];
+    self.workState.text = dataDic[@"jobst"][@"name"];
 }
 @end

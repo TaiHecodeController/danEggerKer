@@ -14,5 +14,5 @@
 @property (weak, nonatomic) IBOutlet UITextView *workContent;
 
 +(WorkExperienceView*)setWorkExperienceView;
--(void)configVulue:(NSString *)model;
+-(void)configVulue:(NSArray *)dataArray;
 @end

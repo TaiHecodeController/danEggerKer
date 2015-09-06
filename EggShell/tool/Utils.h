@@ -32,4 +32,7 @@ return obj; \
 +(BOOL)checkTel:(NSString *)str;
 //邮箱检测
 + (BOOL) validateEmail:(NSString *)email;
+
++ (NSString *)changeTimeToString:(NSTimeInterval)time;
+
 @end

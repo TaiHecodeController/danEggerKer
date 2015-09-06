@@ -14,12 +14,21 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"project" owner:self options:nil]lastObject];
 }
--(void)configValue:(NSString*)model
+-(void)configValue:(NSArray *)dataArray
 {
+   if(dataArray.count == 0)
+   {
+       return;
+   }
    
-    self.projectTime.text = model;
-    self.position.text = model;
-    self.proName.text = model;
-    self.proIntroduce.text = model;
+    NSDictionary * dataDic = [dataArray firstObject];
+    if(dataDic.count == 0)
+    {
+        return;
+    }
+    self.projectTime.text = dataDic[@""];
+    self.position.text = dataDic[@""];
+    self.proName.text = dataDic[@""];
+    self.proIntroduce.text = dataDic[@""];
 }
 @end

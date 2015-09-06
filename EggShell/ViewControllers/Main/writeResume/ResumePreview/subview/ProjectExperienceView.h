@@ -15,5 +15,5 @@
 @property (weak, nonatomic) IBOutlet UITextView *proIntroduce;
 
 +(ProjectExperienceView*)setProjectExperienceView;
--(void)configValue:(NSString*)model;
+-(void)configValue:(NSArray *)dataArray;
 @end
