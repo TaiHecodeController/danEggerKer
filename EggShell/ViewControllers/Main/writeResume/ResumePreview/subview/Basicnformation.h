@@ -17,5 +17,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *address;
 @property (weak, nonatomic) IBOutlet UILabel *phoneNum;
 @property (weak, nonatomic) IBOutlet UILabel *email;
--(void)configVulue:(NSString * )model;
+-(void)configVulue:(NSDictionary *)dataDic;
 @end

@@ -15,9 +15,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *cityBtn;
 @property (weak, nonatomic) IBOutlet UIButton *countyBtn;
 @property (strong,nonatomic) WriteResumeViewController * Controller;
+@property (strong,nonatomic) void(^proviceClick)(int);
+@property (strong,nonatomic) void(^cityClick)(int);
+@property (strong,nonatomic) void(^threecityClick)(int);
 - (IBAction)exceptClick:(UIButton *)sender;
 - (IBAction)cityClick:(UIButton *)sender;
 - (IBAction)countyBtn:(UIButton *)sender;
 
+-(void)config:(NSArray *)dataArray;
 
 @end

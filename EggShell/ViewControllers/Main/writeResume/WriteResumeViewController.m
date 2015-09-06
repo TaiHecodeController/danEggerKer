@@ -24,6 +24,10 @@
     UIScrollView * back_sv;
     UITextField * recordTextField;
     ResumeModel * _model;
+    int proviceId;
+    int cityId;
+    int threecityId;
+    BOOL isReload;
 }
 @property (strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
@@ -45,7 +49,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    isReload = NO;
     _model = [ResumeModel sharedResume];
     
     self.title = @"写简历";
@@ -90,6 +94,9 @@
 {
     [WriteResumeRequest getResumeMessageListWithSucc:^(NSDictionary *DataDic) {
         self.dataDic = DataDic[@"data"];
+        NSIndexPath *index = [NSIndexPath indexPathForRow:4 inSection:0];
+        [jobTableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+        isReload = YES;
     }];
 }
 
@@ -149,7 +156,7 @@
 -(void)nextClick
 {
     NSMutableArray * modelNameArr = [self propertyKeys];
-    for(int i = 0;i < self.jobCellArray.count;i++)
+    for(int i = 0;i < self.jobCellArray.count - 1;i++)
     {
         if(i != 4)
         {
@@ -172,24 +179,23 @@
             }
         }else
         {
-            ExceptCityCell * cell = self.jobCellArray[i];
-            if(!cell.proviceBtn.selected)
+            
+            if(proviceId == 0)
             {
                 [MBProgressHUD creatembHub:@"请填写省份"];
                 return;
             }
-            if (!cell.cityBtn.selected)
+            if (cityId == 0)
             {
                 [MBProgressHUD creatembHub:@"请填写城市"];
                 return;
             }
-            if(!cell.countyBtn.selected)
+            if(threecityId == 0)
             {
                 [MBProgressHUD creatembHub:@"请填写县区"];
                 return;
             }
-            NSString * cityStr = [NSString stringWithFormat:@"%@%@",cell.proviceBtn.titleLabel.text,cell.countyBtn.titleLabel.text];
-            [_model setValue:cityStr forKey:modelNameArr[i]];
+            
         }
         
     }
@@ -210,10 +216,10 @@
                 //性别
                 if(cell.womenBtn.selected)
                 {
-                    [_model setValue:@"女" forKey:modelNameArr[i + 9]];
+                    [_model setValue:@"7" forKey:modelNameArr[i + 9]];
                 }else
                 {
-                    [_model setValue:@"男" forKey:modelNameArr[i + 9]];
+                    [_model setValue:@"6" forKey:modelNameArr[i + 9]];
                 }
                 
             }
@@ -258,7 +264,7 @@
         
     }
     
-    NSDictionary * param = @{@"uid":[AppDelegate instance].userId,@"name":_model.resumeName,@"hy":_model.industry,@"job_classid":_model.exceptJob,@"salary":_model.exceptSalary,@"provinceid":_model.exceptCity,@"type":_model.jobNature,@"report":_model.arriveTime,@"jobstatus":_model.findState,@"uname":_model.userName,@"birthday":_model.userBirthday,@"edu":_model.academic,@"exp":_model.workExperience,@"telphone":_model.phoneNum,@"email":_model.email,@"address":_model.address};
+    NSDictionary * param = @{@"uid":[AppDelegate instance].userId,@"name":_model.resumeName,@"hy":_model.industry,@"job_classid":_model.exceptJob,@"salary":_model.exceptSalary,@"type":_model.jobNature,@"report":_model.arriveTime,@"jobstatus":_model.findState,@"uname":_model.userName,@"birthday":_model.userBirthday,@"edu":_model.academic,@"exp":_model.workExperience,@"telphone":_model.phoneNum,@"email":_model.email,@"address":_model.address,@"provinceid":[NSString stringWithFormat:@"%d",proviceId],@"cityid":[NSString stringWithFormat:@"%d",cityId],@"three_cityid":[NSString stringWithFormat:@"%d",threecityId]};
     
     if(!self.isEdit)
     {
@@ -338,8 +344,31 @@
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"ExceptCityCell" owner:self options:nil] firstObject];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+            cell.proviceClick = ^(int Id)
+            {
+                proviceId = Id;
+            };
+            
+            cell.cityClick = ^(int Id)
+            {
+                cityId = Id;
+            };
+            
+            cell.threecityClick = ^(int Id)
+            {
+                threecityId = Id;
+            };
+            
             cell.Controller = self;
-            [self.jobCellArray addObject:cell];
+            if(self.dataDic)
+            {
+               [cell config:self.dataDic[@"three_cityid"]];
+            }
+            if(!isReload)
+            {
+                [self.jobCellArray addObject:cell];
+            }
+            
             return cell;
         }
         

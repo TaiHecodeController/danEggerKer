@@ -243,7 +243,7 @@
         {
             MBProgressHUD * hub = [MBProgressHUD mbHubShow];
             [[WriteResumeRequest deleteResumeWithSucc:^(NSDictionary *dataDic) {
-                [self.dataArray removeObjectAtIndex:i];
+//                [self.dataArray removeObjectAtIndex:i];
                 [self.ResumeList reloadData];
             } WithResumeParam:@{@"eid":cell.resumeId}] addNotifaction:hub];
         }

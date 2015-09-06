@@ -14,7 +14,9 @@
     UIButton * record_btn;
 }
 @property (strong,nonatomic)UIPickerView * pickerView;
-@property (strong,nonatomic)NSArray * pickDataArray;
+@property (strong,nonatomic)NSMutableArray * pickDataArray;
+@property (strong,nonatomic)NSMutableArray * dataArray;
+@property (strong,nonatomic)NSMutableArray * IDArray;
 @end
 @implementation ExceptCityCell
 
@@ -30,21 +32,24 @@
 
 - (IBAction)exceptClick:(UIButton *)sender {
     self.pickDataArray = @[@"北京"];
+    
     [self createPickView];
+    self.proviceBtn.tag = 505;
     record_btn = self.proviceBtn;
 }
 
 - (IBAction)cityClick:(UIButton *)sender {
     self.pickDataArray = @[@"北京"];
     [self createPickView];
+    self.cityBtn.tag = 506;
     record_btn = self.cityBtn;
 }
 
 - (IBAction)countyBtn:(UIButton *)sender {
-    self.pickDataArray = @[@"东城区",@"西城区",@"朝阳区",@"海淀区",@"石景山区",@"丰台区",@"顺义区",@"怀柔区",@"密云县",@"延庆县",@"昌平区",@"平谷区",@"门头沟区",@"房山区",@"通州区"];
     [self createPickView];
+    self.countyBtn.tag = 507;
     record_btn = self.countyBtn;
-    
+    self.pickDataArray = self.dataArray;
 }
 
 -(void)createPickView
@@ -86,8 +91,32 @@
     [sexOk removeFromSuperview];
     NSInteger row = [self.pickerView selectedRowInComponent:0];
     [record_btn setTitle:self.pickDataArray[row] forState:UIControlStateNormal];
+    if(record_btn.tag == 505)
+    {
+        self.proviceClick(2);
+    }
+    if(record_btn.tag == 506)
+    {
+        self.cityClick(52);
+    }
+    
+    if(record_btn.tag == 507)
+    {
+        self.threecityClick([self.IDArray[row] intValue]);
+    }
     record_btn.selected = YES;
     
+}
+
+-(void)config:(NSArray *)dataArray
+{
+    self.dataArray = [NSMutableArray arrayWithCapacity:0];
+    self.IDArray = [NSMutableArray arrayWithCapacity:0];
+    for(int i = 0;i < dataArray.count;i++)
+    {
+        [self.dataArray addObject:dataArray[i][@"name"]];
+        [self.IDArray addObject:dataArray[i][@"id"]];
+    }
 }
 
 //pickView代理

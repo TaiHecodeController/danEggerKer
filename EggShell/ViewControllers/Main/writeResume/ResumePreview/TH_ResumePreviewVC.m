@@ -20,6 +20,7 @@
 #import "AppDelegate.h"
 @interface TH_ResumePreviewVC ()
 @property(nonatomic,strong)UIScrollView *scro;
+@property(nonatomic,strong)NSDictionary * dataDic;
 @end
 
 @implementation TH_ResumePreviewVC
@@ -36,8 +37,9 @@
 -(void)loadData
 {
     [WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
+        self.dataDic = DataDic[@"data"];
         
-    } WithResumeParam:@{@"eid":[AppDelegate instance].resumeId} withfail:nil];
+    } WithResumeParam:@{@"eid":self.resumeId} withfail:nil];
  
 }
 -(void)createTilteView
@@ -47,7 +49,7 @@
     [self.scro addSubview:titleView];
     
     UILabel * myLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, 100, 13)];
-    myLable.text = @"个人简历001";
+    myLable.text = self.resumeName;
     myLable.font =[UIFont systemFontOfSize:13];
     [titleView addSubview:myLable];
     UILabel * timeLable = [[UILabel alloc] initWithFrame:CGRectMake(WIDETH - 165, 16, 150, 11)];
