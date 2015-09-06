@@ -4,7 +4,7 @@
 //
 //  Created by 李李贤军 on 15/8/17.
 //  Copyright (c) 2015年 wsd. All rights reserved.
-//
+//  条件搜索，选项界面
 
 #import "TH_JobScreenDetailVC.h"
 #import "JobScreenDetailCell.h"

@@ -4,7 +4,7 @@
 //
 //  Created by mac on 15/8/13.
 //  Copyright (c) 2015年 wsd. All rights reserved.
-//
+// 写简历
 
 #import "WriteResumeViewController.h"
 #import "WriteResumeCell.h"

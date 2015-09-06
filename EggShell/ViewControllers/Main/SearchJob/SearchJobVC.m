@@ -11,6 +11,8 @@
 #import "HotSearch.h"
 #import "DataBase.h"
 #import "TH_FindJobVC.h"
+#import "TH_AFRequestState.h"
+#import "SearchModelShare.h"
 
 @interface SearchJobVC ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -49,6 +51,9 @@
 
 -(void)crateUI
 {
+    
+    
+    
     headView = [[[NSBundle mainBundle] loadNibNamed:@"HeadView" owner:self options:nil] firstObject];
     headView.frame = CGRectMake(0, 64, WIDETH, 58);
     __weak typeof(self) weakSelf = self;
@@ -61,7 +66,9 @@
             [_tableView reloadData];
         }
         
-        [weakSelf.navigationController pushViewController:[[TH_FindJobVC alloc] init] animated:YES];
+        [SearchModelShare sharedInstance].keyword = text;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
+        [weakSelf.navigationController popViewControllerAnimated:YES];
     };
     [self.view addSubview:headView];
     
@@ -69,9 +76,28 @@
     hotSearch.frame = CGRectMake(0,  headView.height + 64, WIDETH, 149);
     [self.view addSubview:hotSearch];
     
+    for (UIButton *btn in hotSearch.subviews)
+    {
+        if ([btn isKindOfClass:[UIButton class]])
+        {
+            [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        }
+    }
+    
     [self createTableView];
     
 }
+
+- (void)btnClick:(UIButton *)sender
+{
+    NSLog(@"%@",sender.titleLabel.text);
+    
+    [SearchModelShare sharedInstance].keyword = sender.titleLabel.text;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 
 -(void)createTableView
 {
@@ -118,6 +144,13 @@
         cell.textLabel.textColor = [UIColor colorWithRed:57 / 255.0 green:57 / 255.0 blue:57 / 255.0 alpha:1];
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [SearchModelShare sharedInstance].keyword = self.dataArray[indexPath.row - 1];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated

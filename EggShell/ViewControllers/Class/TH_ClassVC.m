@@ -43,7 +43,7 @@
 @property(nonatomic,strong)MJRefreshHeaderView * header;
 @property (nonatomic,strong)AFRequestState * state;
 @property(nonatomic,assign)int page;
-@property (nonatomic, strong) NSArray *teacherArr;
+@property (nonatomic, strong) NSMutableArray *teacherArr;
 
 @end
 
@@ -61,7 +61,6 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
     
-
 }
 
 - (void)viewDidLoad {
@@ -73,8 +72,7 @@
 
     self.dataArray =[[NSMutableArray alloc]init];
     self.page = 1;
-    MBProgressHUD * mub = [MBProgressHUD mbHubShow];
-    [self loadData:mub page:self.page];
+    
     // Do any additional setup after loading the view.
 //    self.view.backgroundColor = color(243, 243, 241);
    
@@ -83,18 +81,16 @@
 //    
 //    [self addRightBtn2_NormalImageName:@"sousuo001" hightImageName:nil action:@selector(rightClick2) target:self];
     
-    [self querTeacherFCVideo];
+   
     
     [self initSegView];
     
+    [self initTableView];
     
-    
-    [self querData];
+//     [self querTeacherFCVideo];
     
     [self hySegmentedControlSelectAtIndex:0];
-    
    
-    
 }
 
 -(void)loadData:(id)notify page:(int)num
@@ -108,14 +104,35 @@
 
     __weak typeof (self) weakSelf = self;
     
-    _state = [[OpenClassVideoListRequest requestWithSucc:^(NSArray *DataDic) {
+    _state = [[OpenClassVideoListRequest requestWithSucc:^(NSDictionary *DataDic) {
         
-                [weakSelf.dataArray addObjectsFromArray:[weakSelf getArray:DataDic length:2]];
+                [weakSelf.dataArray addObjectsFromArray:[weakSelf getArray:DataDic[@"list"] length:2]];
                 [weakSelf._gridView reloadData];
         
-
-    } resp:[OpenClassModel class] paramPage:page Pagesize:@"2"] addNotifaction:notify];
+        _teacherArr =[NSMutableArray arrayWithArray: DataDic[@"teacher"]];
+        [self setHeadImageArr:_teacherArr];
+        
+    } resp:[NSDictionary class] paramPage:page Pagesize:@"2"] addNotifaction:notify];
     
+}
+
+- (void)setHeadImageArr:(NSMutableArray *)arr
+{
+    for (UIImageView *iconView in self._gridView.headerView.subviews) {
+        
+        if (iconView.tag == 1000)
+        {
+            [iconView sd_setImageWithURL:[NSURL URLWithString:arr[0][@"vimage"]] placeholderImage:nil];
+        }
+        else if (iconView.tag == 1001)
+        {
+            [iconView sd_setImageWithURL:[NSURL URLWithString:arr[1][@"vimage"]] placeholderImage:nil];
+        }
+        else if (iconView.tag == 1002)
+        {
+            [iconView sd_setImageWithURL:[NSURL URLWithString:arr[2][@"vimage"]] placeholderImage:nil];
+        }
+    }
 }
 
 - (void)querTeacherFCVideo
@@ -125,7 +142,6 @@
         
         NSLog(@"%@",DataDic);
         _teacherArr = [NSMutableArray arrayWithArray:DataDic];
-        [self initTableView];
         
     } resp:[NSObject class] paramPage:@"1" Pagesize:@"1"];
 }
@@ -142,22 +158,6 @@
     _segmentedControl = [[HYSegmentedControl alloc] initWithOriginY:y Titles:@[@"视频课程"]  IconNames:iconArr delegate:self] ;
 //    [self.view addSubview:_segmentedControl];
     
-}
-
-- (void)querData
-{
-    
-    __weak typeof (self) weakSelf = self;
-    
-//    [OpenClassVideoListRequest requestWithSucc:^(NSArray *DataDic) {
-//        
-////        _openClassList = [NSMutableArray arrayWithArray:DataDic];
-//        
-//        [weakSelf.dataArray addObjectsFromArray:DataDic];
-//        weakSelf.dataArray = [weakSelf getArray:DataDic length:2];
-//        [weakSelf._gridView reloadData];
-//        
-//    } resp:[OpenClassModel class]];
 }
 
 #pragma mark -- configConllectionView
@@ -219,9 +219,6 @@
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(qsBtnClick:)];
             [qsBtn addGestureRecognizer:tap];
             qsBtn.userInteractionEnabled = YES;
-//            [qsBtn addTarget:self action:@selector(qsBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    //        qsBtn.backgroundColor = [UIColor blackColor];
-    //        UIImageView *iconview = [[UIImageView alloc]init];
             [qsBtn sd_setImageWithURL:[NSURL URLWithString:_teacherArr[i][@"vimage"]] placeholderImage:nil];
             [headView addSubview:qsBtn];
             _headViewMaxY = CGRectGetMaxY(qsBtn.frame);
@@ -272,18 +269,7 @@
     _footer.delegate = self;
 }
 
-#pragma mark -- MJRefresh
-//- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
-//{
-//    if( refreshView == _header ){
-//
-//        THLog(@"");
-//    }
-//    else{
-//
-//        THLog(@"上拉加载更多");
-//    }
-//}
+
 
 #pragma  mark -- gridViewDelegate
 - (MTGridViewItem *)gridView:(MTGridView *)gridView itemForColumnAtIndexPath:(NSIndexPath *)indexPath
@@ -300,24 +286,22 @@
     
     if (_currentIndex == 0)
     {
-        OpenClassModel *model = self.dataArray[indexPath.rowIndex][indexPath.columnIndex];
+//        OpenClassModel *model = self.dataArray[indexPath.rowIndex][indexPath.columnIndex];
         
-        [cell.coverView sd_setImageWithURL:[NSURL URLWithString:model.vimage] placeholderImage:[UIImage imageNamed:@"remen"]];
-        cell.nameLab.text = model.video_teacher;
-        //        cell.coverView.image = [UIImage imageNamed:@"remen"];
-        //        cell.nameLab.text = @"王老师";
+        [cell.coverView sd_setImageWithURL:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"vimage"] placeholderImage:[UIImage imageNamed:@"remen"]];
+        cell.nameLab.text = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"];
         [cell.redXinBtn setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
-        [cell.redXinBtn setTitle:@"300" forState:UIControlStateNormal];
+        [cell.redXinBtn setTitle:[NSString stringWithFormat:@"%@",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_about"]] forState:UIControlStateNormal];
         [cell.priceBtn setImage:[UIImage imageNamed:@"qian"] forState:UIControlStateNormal];
-        [cell.priceBtn setTitle:@"9元" forState:UIControlStateNormal];
-        cell.companyLab.text = @"中国惠普";
+        [cell.priceBtn setTitle:[NSString stringWithFormat:@"%@元",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_obvious"]] forState:UIControlStateNormal];
+        cell.companyLab.text =self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_name"];
     }
     else
     {
-        OpenClassModel *model = _openClassList[indexPath.row];
+//        OpenClassModel *model = _openClassList[indexPath.row];
         
-        [cell.coverView sd_setImageWithURL:[NSURL URLWithString:model.vimage] placeholderImage:[UIImage imageNamed:@"remen"]];
-        cell.nameLab.text = model.video_teacher;
+        [cell.coverView sd_setImageWithURL:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"vimage"] placeholderImage:[UIImage imageNamed:@"remen"]];
+//        cell.nameLab.text = model.video_teacher;
         //        cell.coverView.image = [UIImage imageNamed:@"remen"];
         //        cell.nameLab.text = @"王老师";
         [cell.redXinBtn setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
@@ -356,17 +340,17 @@
 }
 - (void)gridView:(MTGridView *)gridView didSelectedItemAtIndexPath:(NSIndexPath *)indexPath
 {
-     OpenClassModel *model = self.dataArray[indexPath.rowIndex][indexPath.columnIndex];
+//     OpenClassModel *model = self.dataArray[indexPath.rowIndex][indexPath.columnIndex];
     //    播放视频
     //    NSURL *Url = [NSURL URLWithString:@"00018093b103eb7fe795cf4cebab8871_0"];
-    NSURL *Url = [NSURL URLWithString:model.video_id];
+    NSURL *Url = [NSURL URLWithString:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_id"]];
     if (!Url) {
         return;
     }
-    NSString *str = model.plist;
+    NSString *str = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"plist"];
    NSArray *arr = [str componentsSeparatedByString:@","];
 
-    THCoursePlayVC *moviePlayer =    [[THCoursePlayVC alloc] initNetworkMoviePlayerViewControllerWithURL:Url movieTitle:model.video_name];
+    THCoursePlayVC *moviePlayer =    [[THCoursePlayVC alloc] initNetworkMoviePlayerViewControllerWithURL:Url movieTitle:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_name"]];
     moviePlayer.classId = arr.lastObject;
     //    [self.navigationController presentViewController:moviePlayer animated:YES completion:nil];
     [self.navigationController pushViewController:moviePlayer animated:YES];
@@ -376,7 +360,7 @@
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
     if( refreshView == _header ){
-        _page = 0;
+        _page = 1;
         THLog(@"下拉刷新");
 //        [self.dataArray removeAllObjects];
         [self loadData:refreshView page:_page];
@@ -396,7 +380,10 @@
         
         _currentIndex = 0;
         
-        [self._gridView reloadData];
+        MBProgressHUD * mub = [MBProgressHUD mbHubShow];
+        [self loadData:mub page:self.page];
+        
+//        [self._gridView reloadData];
     }
     else
     {

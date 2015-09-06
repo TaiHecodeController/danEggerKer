@@ -4,12 +4,16 @@
 //
 //  Created by 李李贤军 on 15/8/17.
 //  Copyright (c) 2015年 wsd. All rights reserved.
-//
+//  条件搜索选项界面
 
 #import "TH_JobScreeningVC.h"
 #import "JobScreeningCell.h"
 #import "TH_JobScreenDetailVC.h"
-@interface TH_JobScreeningVC ()<UITableViewDataSource,UITableViewDelegate>
+#import "WriteResumeRequest.h"
+#import "WriteJLChooseVC.h"
+#import "SearchModelShare.h"
+
+@interface TH_JobScreeningVC ()<UITableViewDataSource,UITableViewDelegate,writeJLChooseVCDelegate>
 @property(nonatomic,strong)NSArray * nameArray;
 @property(nonatomic,strong)NSArray * conrentArray;
 @property(nonatomic,strong)UITableView * tableView;
@@ -17,7 +21,7 @@
 @property(nonatomic,strong)JobScreeningCell *cell;
 @property(nonatomic,strong)NSMutableArray * cellArray;
 /*类别的选择**/
-@property(nonatomic,strong)NSArray * industryArray;
+@property(nonatomic,strong)NSDictionary * categaryDic;
 @end
 
 @implementation TH_JobScreeningVC
@@ -30,14 +34,23 @@
     [self creatableView];
     self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);
     [self InquireBtn];
-    // Do any additional setup after loading the view.
+    
+    [self loadData];
+}
+
+-(void)loadData
+{
+    [WriteResumeRequest getResumeMessageListWithSucc:^(NSDictionary *DataDic) {
+        self.categaryDic = DataDic[@"data"];
+    }];
 }
 -(void)setData
 {
     self.nameArray = @[@"行业类别",@"职位类别",@"工作城市",@"薪资待遇",@"学历要求",@"工作经验",@"工作类型",@"发布时间"];
+    
     self.conrentArray = @[@"计算机/互联网",@"技术人员/助理",@"北京",@"3000-10000",@"本科",@"3年",@"全职",@"一天内"];
     
-    self.industryArray = @[@"不限",@"计算机/互联网",@"机械/设备/技工",@"贸易/百货",@"化工/能源",@"公务员/翻译/其他",@"服务业",@"咨询/法律/教育/科研",@"人事/行政/高级管理",@"建筑/房地产",@"广告/市场/媒体/艺术",@"生物/制药/医疗/护理",@"生产/营运/采购/物流",@"会计/金融/银行/保险",@"销售/客服/技术支持",@"信息/电子"];
+//    self.industryArray = @[@"不限",@"计算机/互联网",@"机械/设备/技工",@"贸易/百货",@"化工/能源",@"公务员/翻译/其他",@"服务业",@"咨询/法律/教育/科研",@"人事/行政/高级管理",@"建筑/房地产",@"广告/市场/媒体/艺术",@"生物/制药/医疗/护理",@"生产/营运/采购/物流",@"会计/金融/银行/保险",@"销售/客服/技术支持",@"信息/电子"];
 }
 -(void)createSco
 {
@@ -61,11 +74,7 @@
     [self.scro addSubview:inquireBtn];
     self.scro.contentSize = CGSizeMake(WIDETH, self.tableView.frame.size.height+20+80+50);
 }
-/*查询**/
--(void)inqireClick
-{
 
-}
 -(void)creatableView
 {
     UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 378)];
@@ -140,139 +149,100 @@
     switch (indexPath.row) {
         case 0:
         {
-             TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
-                JobDetail.title = @"行业类别";
-                JobDetail.titleText = @"请选择行业类别";
-                JobDetail.DataArray = self.industryArray;
-            JobDetail.myBlock = ^(NSString * text)
-            {
-                self.cell = (JobScreeningCell*)self.cellArray[0];
-                self.cell.contentTextFiled.text = text;
-                NSLog(@"%@",text);
-                
-            } ;
-                [self.navigationController pushViewController:JobDetail animated:YES];
+            
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
+            _writeJLChooseVC.titleText = @"行业类别";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+            _writeJLChooseVC.DataArray = self.categaryDic[@"hy"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+            
         }
             break;
             case 1:
         {
-            TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
-            JobDetail.title = @"职位大类";
-            JobDetail.titleText = @"请选择职位大类";
-            JobDetail.DataArray = self.industryArray;
-            JobDetail.myBlock = ^(NSString * text)
-            {
-               self.cell = (JobScreeningCell*)self.cellArray[1];
-                self.cell.contentTextFiled.text = text;
-                NSLog(@"%@",text);
-                
-            } ;
-            
-            [self.navigationController pushViewController:JobDetail animated:YES];
-
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
+            _writeJLChooseVC.titleText = @"职位类别";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+            _writeJLChooseVC.DataArray = self.categaryDic[@"job_classid"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
             break;
         }
         case 2:
         {
-            TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
-            JobDetail.title = @"工作城市";
-            JobDetail.titleText = @"请选择工作城市";
-            
-            JobDetail.DataArray = self.industryArray;
-            JobDetail.myBlock = ^(NSString * text)
-            {
-                self.cell = (JobScreeningCell*)self.cellArray[2];
-                self.cell.contentTextFiled.text = text;
-                NSLog(@"%@",text);
-                
-            } ;            [self.navigationController pushViewController:JobDetail animated:YES];
-
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
+            _writeJLChooseVC.titleText = @"工作城市";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+            _writeJLChooseVC.DataArray = self.categaryDic[@"three_cityid"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
             break;
         }
 
         case 3:
         {
-            TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
-            JobDetail.title = @"薪资待遇";
-            JobDetail.titleText = @"请选择你期望的薪资待遇";
-             JobDetail.DataArray = self.industryArray;
-            JobDetail.myBlock = ^(NSString * text)
-            {
-                self.cell = (JobScreeningCell*)self.cellArray[3];
-                self.cell.contentTextFiled.text = text;
-                NSLog(@"%@",text);
-                
-            } ;            [self.navigationController pushViewController:JobDetail animated:YES];
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
+            _writeJLChooseVC.titleText = @"薪资待遇";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+            _writeJLChooseVC.DataArray = self.categaryDic[@"pay"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
 
             break;
         }
 
         case 4:
         {
-            TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
-            JobDetail.DataArray = self.industryArray;
-            JobDetail.title = @"学历要求";
-            JobDetail.titleText = @"请选择职位要求的学历";
-            
-            JobDetail.myBlock = ^(NSString * text)
-            {
-                self.cell = (JobScreeningCell*)self.cellArray[4];
-                self.cell.contentTextFiled.text = text;
-                NSLog(@"%@",text);
-                
-            } ;
-            [self.navigationController pushViewController:JobDetail animated:YES];
 
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
+            _writeJLChooseVC.titleText = @"学历要求";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+            _writeJLChooseVC.DataArray = self.categaryDic[@"education"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
             break;
         }
 
         case 5:
         {
-            TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
-            JobDetail.title = @"工作经验";
-            JobDetail.titleText = @"请选择职位要求的工作经验";
-            JobDetail.DataArray = self.industryArray;
-            JobDetail.myBlock = ^(NSString * text)
-            {
-                self.cell = (JobScreeningCell*)self.cellArray[5];
-                self.cell.contentTextFiled.text = text;
-                NSLog(@"%@",text);
-                
-            } ;
-            [self.navigationController pushViewController:JobDetail animated:YES];
+            
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
+            _writeJLChooseVC.titleText = @"工作经验";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+            _writeJLChooseVC.DataArray = self.categaryDic[@"experience"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
 
             break;
         }
         case 6:
         {
-            TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
-            JobDetail.title = @"工作类型";
-            JobDetail.titleText = @"请选择你期望的工作类型";
-            JobDetail.DataArray = self.industryArray;
-            JobDetail.myBlock = ^(NSString * text)
-            {
-                self.cell = (JobScreeningCell*)self.cellArray[6];
-                self.cell.contentTextFiled.text = text;
-                NSLog(@"%@",text);
-                
-            } ;
-            [self.navigationController pushViewController:JobDetail animated:YES];
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
+            _writeJLChooseVC.titleText = @"工作类型";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+            _writeJLChooseVC.DataArray = self.categaryDic[@"type"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
 
             break;
         }
         case 7:
-        {TH_JobScreenDetailVC * JobDetail =[[TH_JobScreenDetailVC alloc] init];
-            JobDetail.title = @"发布时间";
-            JobDetail.titleText = @"请选择职位发布时间";
-            JobDetail.DataArray = self.industryArray;
-            JobDetail.myBlock = ^(NSString * text)
-            {
-                self.cell = (JobScreeningCell*)self.cellArray[7];
-                self.cell.contentTextFiled.text = text;
-                NSLog(@"%@",text);
-                
-            } ;
-            [self.navigationController pushViewController:JobDetail animated:YES];
+        {
+            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            _writeJLChooseVC.delegete = self;
+            _writeJLChooseVC.titleText = @"发布时间";
+            _writeJLChooseVC.cellIndex = indexPath;
+            _writeJLChooseVC.tableViewTagIndex = 1555;
+            _writeJLChooseVC.DataArray = self.categaryDic[@"fbtime"];
+            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
 
             break;
         }
@@ -282,6 +252,58 @@
     }
 
 }
+
+#pragma mark -- writeJLDelegate
+- (void)chooseWord:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
+{
+
+        JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
+        cell.contentTextFiled.placeholder = keyWord;
+    NSLog(@"%ld",(long)cellIndex.row);
+    if (cellIndex.row == 0)
+    {
+        [SearchModelShare sharedInstance].hy = keyWord;
+    }
+    else if (cellIndex.row == 1)
+    {
+        [SearchModelShare sharedInstance].job_post = keyWord;
+    }
+    else if (cellIndex.row == 2)
+    {
+        [SearchModelShare sharedInstance].city = keyWord;
+    }
+    else if (cellIndex.row == 3)
+    {
+        [SearchModelShare sharedInstance].salary = keyWord;
+    }
+    else if (cellIndex.row == 4)
+    {
+        [SearchModelShare sharedInstance].edu = keyWord;
+    }
+    else if (cellIndex.row == 5)
+    {
+        [SearchModelShare sharedInstance].exp = keyWord;
+    }
+    else if (cellIndex.row == 6)
+    {
+        [SearchModelShare sharedInstance].type = keyWord;
+    }
+    else if (cellIndex.row == 7)
+    {
+        [SearchModelShare sharedInstance].fbtime = keyWord;
+    }
+    
+
+}
+
+/*查询**/
+-(void)inqireClick
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TJsearch" object:nil];;
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

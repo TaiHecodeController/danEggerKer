@@ -18,6 +18,8 @@
 
 #import "MJRefresh.h"
 
+#import "Me_Request.h"
+
 @interface TH_JobWishlistVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 
 {
@@ -42,6 +44,9 @@
 @property (nonatomic, assign) int page;
 @property(nonatomic,strong)MJRefreshFooterView *  footer;
 @property(nonatomic,strong)MJRefreshHeaderView * header;
+@property (nonatomic, assign) int TDSuccNum;
+@property (nonatomic, assign) int mailingNumBer;
+
 
 @end
 
@@ -209,21 +214,29 @@
     
     UIButton *closeBtn = [[UIButton alloc]init];
     [closeBtn setBackgroundImage:[UIImage imageNamed:@"cha"] forState:UIControlStateNormal];
-    closeBtn.frame = CGRectMake(alertView.frame.size.width - margin - 20, margin, 20, 20);
+    CGFloat closeWith = 10;
+    closeBtn.frame = CGRectMake(alertView.frame.size.width - margin - closeWith, margin, closeWith, closeWith);
     [closeBtn addTarget:self action:@selector(closeBtn) forControlEvents:UIControlEventTouchUpInside];
     [alertView addSubview:closeBtn];
     
-    UIButton *jianliBtn = [[UIButton alloc]init];
-    [jianliBtn setTitle:@"您投递10个职位，2个职位已经投递，一周内不能重复投递职位。" forState:UIControlStateNormal];
-    [jianliBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    jianliBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-    [jianliBtn setImage:[UIImage imageNamed:@"duihaolan"] forState:UIControlStateNormal];
-    jianliBtn.frame = CGRectMake(margin, 40, 125, 50);
+    //    UIButton *jianliBtn = [[UIButton alloc]init];
+    //    [jianliBtn setTitle:@"您投递10个职位，2个职位已经投递，一周内不能重复投递职位。" forState:UIControlStateNormal];
+    //    [jianliBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    //    jianliBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    ////    [jianliBtn setImage:[UIImage imageNamed:@"duihaolan"] forState:UIControlStateNormal];
+    //    jianliBtn.frame = CGRectMake(margin, 40, 400, 50);
+    //    [alertView addSubview:jianliBtn];
+    
+    UITextView *jianliBtn = [[UITextView alloc]init];
+    jianliBtn.text = [NSString stringWithFormat:@"您投递%d个职位，%d个职位已经投递，一周内不能重复投递职位。",_mailingNumBer,(_mailingNumBer - _TDSuccNum)];
+    jianliBtn.font = [UIFont systemFontOfSize:13];
+    jianliBtn.frame = CGRectMake(margin, 40, 300, 50);
     [alertView addSubview:jianliBtn];
+    jianliBtn.editable = NO;
     
     UIButton *okBtn = [[UIButton alloc]init];
     [okBtn setTitle:@"确定" forState:UIControlStateNormal];
-    [okBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [okBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     okBtn.backgroundColor = color(63, 172, 241);
     CGFloat okBtnW =( 1- 0.34 * 2) * alertView.frame.size.width;
     okBtn.frame = CGRectMake(0.34 * alertView.frame.size.width, 100 , okBtnW, 30);
@@ -251,16 +264,30 @@
         return;
     }
     
-    self.state = [[TH_AFRequestState saveJobListSucc:^(NSArray *DataArr) {
+    //投递职位列表
+    self.state = [[Me_Request TDjobListWithSucc:^(NSArray *DataArr) {
         
          [_jobArr addObjectsFromArray:DataArr];
-        [self.tableView reloadData];
+         [self.tableView reloadData];
+
         
     } withfail:^(int errCode, NSError *err) {
         
-        NSLog(@"%@",err);
-        
-    } withUid:nil page:num limit:10 resp:[saveListModel class]] addNotifaction:notify];
+    } withUid:6 page:num limit:5 resp:[saveListModel class]] addNotifaction:notify];
+    
+    
+    
+    //搜藏职位列表
+//    self.state = [[TH_AFRequestState saveJobListSucc:^(NSArray *DataArr) {
+//        
+//         [_jobArr addObjectsFromArray:DataArr];
+//        [self.tableView reloadData];
+//        
+//    } withfail:^(int errCode, NSError *err) {
+//        
+//        NSLog(@"%@",err);
+//        
+//    } withUid:nil page:num limit:10 resp:[saveListModel class]] addNotifaction:notify];
     
 }
 
@@ -390,38 +417,48 @@
     }
 }
 
-- (void)rightClick
-{
-    THLog(@"条件选择按钮被点击");
-}
-
-- (void)rightClick2
-{
-    THLog(@"放大镜被点击");
-    
-}
-
 - (void)apllyBtnClick
 {
     THLog(@"职位申请被点击");
     
-    [self addCoverView];
+    _mailingNumBer = 0;
+    //遍历哪个职位被选中
+    NSMutableString *job_idStr = [[NSMutableString alloc]init];
+    for (saveListModel *model in self.jobArr)
+    {
+        if ([model.cellselected isEqualToString: @"1"])
+        {
+            _mailingNumBer++;
+            [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.id]];
+            
+        }
+        
+    }
+    NSLog(@"job_idStr%@",job_idStr);
     
-    [self addAlertView];
-}
-
-- (void)closeBtn
-{
-    THLog(@"close被点击");
-    
-    [self removeCoverAndAlert];
-}
-
-- (void)okBtn
-{
-    THLog(@"确定被点击");
-    
-    [self removeCoverAndAlert];
+    [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
+        
+        //返回的是投递成功的数量
+        NSLog(@"%@",DataArr);
+        _TDSuccNum = [DataArr intValue];
+        
+        [self addCoverView];
+        
+        [self addAlertView];
+        
+    } withfail:^(int errCode, NSError *err) {
+        
+        NSLog(@"%d",errCode);
+        
+        //errCode = 2, 全部都投递过了
+        
+        //投递成功的职位为0
+        _TDSuccNum = 0;
+        [self addCoverView];
+        [self addAlertView];
+        
+        
+    } withUid:6 job_id:job_idStr resp:[NSObject class]];
 }
 
 - (void)removeBtnClick
@@ -438,7 +475,6 @@
     {
         if ([slModel.cellselected  isEqual: @"1"])
         {
-            slModel.id;
             NSString *str1 = [NSString stringWithFormat:@"%@,",slModel.id];
             [str appendString:str1];
         }
@@ -454,7 +490,7 @@
         
     } withfail:^(int errCode, NSError *err) {
         
-    } withUid:nil job_idStr:str resp:[NSObject class]];
+    } withUid:6 job_idStr:str resp:[NSObject class]];
     
     
 }
@@ -485,6 +521,21 @@
         slModel.cellselected = @"0";
     }
 }
+
+- (void)closeBtn
+{
+    THLog(@"close被点击");
+    [self removeCoverAndAlert];
+}
+
+- (void)okBtn
+{
+    THLog(@"确定被点击");
+    
+    [self removeCoverAndAlert];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

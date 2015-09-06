@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -21,92 +22,68 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG8-BH-OS0">
-                    <rect key="frame" x="13" y="37" width="77" height="38"/>
+                    <rect key="frame" x="13" y="37" width="80" height="38"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="美术设计" backgroundImage="remenkuang">
+                    <state key="normal" title="网站编辑" backgroundImage="remenkuang">
                         <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="EjE-A4-Aww"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56q-G0-OWK">
-                    <rect key="frame" x="103" y="37" width="77" height="38"/>
+                    <rect key="frame" x="106" y="37" width="80" height="38"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="英语" backgroundImage="remenkuang">
+                    <state key="normal" title="运营专员" backgroundImage="remenkuang">
                         <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="40j-2S-Hkb"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqv-Vo-ATe">
-                    <rect key="frame" x="194" y="37" width="77" height="38"/>
+                    <rect key="frame" x="200" y="37" width="80" height="38"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="动漫制作" backgroundImage="remenkuang">
+                    <state key="normal" title="美工" backgroundImage="remenkuang">
                         <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="goU-NG-AWO"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onA-pi-30B">
-                    <rect key="frame" x="284" y="37" width="77" height="38"/>
+                    <rect key="frame" x="293" y="37" width="80" height="38"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="老师" backgroundImage="remenkuang">
+                    <state key="normal" title="银行柜员" backgroundImage="remenkuang">
                         <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="77b-Bj-xYT"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lk-pO-Vw8">
-                    <rect key="frame" x="13" y="83" width="77" height="38"/>
+                    <rect key="frame" x="13" y="83" width="80" height="38"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="天通苑租房" backgroundImage="remenkuang">
+                    <state key="normal" title="会计" backgroundImage="remenkuang">
                         <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="wBR-Ah-erU"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxZ-s7-H0t">
-                    <rect key="frame" x="103" y="83" width="77" height="38"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="日结" backgroundImage="remenkuang">
-                        <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="2T4-qd-veI"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzp-SB-NeL">
-                    <rect key="frame" x="194" y="83" width="77" height="38"/>
+                    <rect key="frame" x="200" y="83" width="80" height="38"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="学徒工" backgroundImage="remenkuang">
+                    <state key="normal" title="文案策划" backgroundImage="remenkuang">
                         <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bZC-IA-vIk"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqn-nm-aMS">
-                    <rect key="frame" x="284" y="83" width="77" height="38"/>
+                    <rect key="frame" x="293" y="83" width="80" height="38"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="单身公寓" backgroundImage="remenkuang">
+                    <state key="normal" title="媒介专员" backgroundImage="remenkuang">
                         <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="keyTextSearchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="e3G-Tm-otF"/>
-                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxZ-s7-H0t">
+                    <rect key="frame" x="106" y="83" width="80" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="出纳员" backgroundImage="remenkuang">
+                        <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

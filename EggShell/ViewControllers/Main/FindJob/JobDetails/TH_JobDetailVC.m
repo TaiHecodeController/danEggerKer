@@ -344,16 +344,32 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
 //      NSLog(@"%@",_model.cj_id);
     
     
-   self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
-       
-       NSLog(@"收藏职位成功",DataArr);
-        
-    } withFail:^(int errCode, NSError *err) {
-        
-         NSLog(@"%@",err);
-        
-    } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
-    
+    if (sender.selected == YES)
+    {
+        self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
+            
+            NSLog(@"收藏职位成功",DataArr);
+            
+        } withFail:^(int errCode, NSError *err) {
+            
+            NSLog(@"%@",err);
+            
+        } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
+
+    }
+    else
+    {
+        self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
+            
+            NSLog(@"取消职位成功",DataArr);
+            
+        } withFail:^(int errCode, NSError *err) {
+            
+            NSLog(@"%@",err);
+            
+        } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
+
+    }
     
 }
 - (void)didReceiveMemoryWarning {
