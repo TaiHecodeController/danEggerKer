@@ -11,9 +11,9 @@
 @interface findJobModel : NSObject<Expose>
 @property(nonatomic,copy)NSString *com_name;
 @property(nonatomic,copy)NSString *edu;
-@property(nonatomic,copy)NSString *id;
+@property(nonatomic,copy)NSString *job_id;
 @property(nonatomic,copy)NSString *lastupdate;
-@property(nonatomic,copy)NSString *name;
+@property(nonatomic,copy)NSString *job_name;
 @property(nonatomic,copy)NSString *provinceid;
 @property(nonatomic,copy)NSString *salary;
 @property(nonatomic,copy)NSString *uid;

@@ -18,7 +18,5 @@
 }
 */
 
-- (IBAction)keyTextSearchClick:(UIButton *)sender {
-    
-}
+
 @end

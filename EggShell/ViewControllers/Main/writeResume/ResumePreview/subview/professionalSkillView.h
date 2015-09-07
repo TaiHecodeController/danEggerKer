@@ -14,5 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *skilledDegree;
 @property (weak, nonatomic) IBOutlet UILabel *skillName;
 +(professionalSkillView*)setprofessionalSkillView;
--(void)conFigValue:(NSString*)model;
+-(void)conFigValue:(NSArray *)dataArray;
 @end

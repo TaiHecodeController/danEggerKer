@@ -56,8 +56,13 @@
     } WithUserId:[AppDelegate instance].userId resp:[ManagerResumeModel class]];
 }
 - (IBAction)createNewResume:(UIButton *)sender {
-    
+    if(self.dataArray.count > 0)
+    {
+        [MBProgressHUD creatembHub:@"当前只能创建一份简历"];
+        return;
+    }
     WriteResumeViewController * write = [[WriteResumeViewController alloc] init];
+    write.isEdit = NO;
     [self.navigationController pushViewController:write animated:YES];
 }
 
@@ -106,9 +111,6 @@
     return cell;
 }
 
-//- (NSString *)flattenHTML:(NSString *)html {        NSScanner *theScanner;    NSString *text = nil;        theScanner = [NSScanner scannerWithString:html];        while ([theScanner isAtEnd] == NO) {        // find start of tag        [theScanner scanUpToString:@"<" intoString:NULL] ;        // find end of tag        [theScanner scanUpToString:@">" intoString:&text] ;        // replace the found tag with a space        //(you can filter multi-spaces out later if you wish)        html = [html stringByReplacingOccurrencesOfString:                [NSString stringWithFormat:@"%@>", text]                                               withString:@""];    } // while //        NSLog(@"-----===%@",html);    return html;}
-
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -126,15 +128,20 @@
 }
 */
 
-- (IBAction)createNewResumeClick:(UIButton *)sender {
-    if(self.dataArray.count > 0)
-    {
-        [MBProgressHUD creatembHub:@"当前只能创建一份简历"];
-        return;
-    }
-}
-
 - (IBAction)editClick:(UIButton *)sender {
+    for(int i = 0;i < self.dataArray.count;i++)
+    {
+        ResumeCell * cell = self.cellArray[i];
+        if(cell.iSSelect.selected)
+        {
+            WriteResumeViewController * vc = [[WriteResumeViewController alloc] init];
+            vc.resumeId = cell.resumeId;
+            vc.isEdit = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+    }
+    
     
 }
 - (IBAction)userResume:(UIButton *)sender {

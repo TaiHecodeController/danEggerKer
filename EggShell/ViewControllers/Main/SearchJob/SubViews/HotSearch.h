@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol  HotSearchClickDelegate <NSObject>
+
+
+
+@end
+
 @interface HotSearch : UIView
-- (IBAction)keyTextSearchClick:(UIButton *)sender;
 
 @end

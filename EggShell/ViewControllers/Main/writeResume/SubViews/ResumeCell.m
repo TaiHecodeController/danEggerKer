@@ -33,6 +33,8 @@
 - (IBAction)lookResumeClick:(UIButton *)sender {
     TH_ResumePreviewVC  * presum = [[TH_ResumePreviewVC alloc] init];
     presum.title = @"简历预览";
+    presum.resumeId = self.resumeId;
+    presum.resumeName = self.ResumeName.text;
     [self.Controller.navigationController pushViewController:presum animated:YES];
 }
 @end

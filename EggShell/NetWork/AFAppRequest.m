@@ -145,6 +145,7 @@
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation * operation, id responseObject)
      {
 
+
         
          [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
 
@@ -159,11 +160,18 @@
              
          }
          
+
+         
+    [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
+
+
+        
+
+
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {
          NSNumber * errcode = [NSNumber numberWithInteger:error.code];
          fail([errcode intValue],error);
-         
          //查原始数据 responseObject
          [State setEnd];
      }];
@@ -209,7 +217,10 @@
     }if (errCode == 1012) {
         [MBProgressHUD creatembHub:@"您还有登录"];
     }
-    
+    if(errCode == 3840)
+    {
+        [MBProgressHUD creatembHub:@"服务器异常"];
+    }
     
     
 }

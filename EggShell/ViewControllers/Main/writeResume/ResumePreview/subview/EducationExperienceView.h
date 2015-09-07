@@ -16,5 +16,5 @@
 @property (weak, nonatomic) IBOutlet UITextView *departmentIntroduce;
 
 +(EducationExperienceView*)setEducationExperienceView;
--(void)configVulue:(NSString*)model;
+-(void)configVulue:(NSArray *)dataArray;
 @end

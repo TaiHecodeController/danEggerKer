@@ -19,7 +19,7 @@
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
 #import "ResumeModel.h"
-
+#import <UIKit/UIKit.h>
 @interface WorkingExperienceVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView * _tableView;

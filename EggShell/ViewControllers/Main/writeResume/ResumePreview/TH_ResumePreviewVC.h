@@ -9,5 +9,6 @@
 #import "TH_BaseVC.h"
 
 @interface TH_ResumePreviewVC : TH_BaseVC
-
+@property (strong,nonatomic)NSString * resumeId;
+@property (strong,nonatomic)NSString * resumeName;
 @end

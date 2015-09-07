@@ -34,6 +34,8 @@
 		0470291E1B974C4300565BC4 /* ManagerResumeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0470291D1B974C4300565BC4 /* ManagerResumeModel.m */; };
 		047029211B97604200565BC4 /* WriteRusumeModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 047029201B97604200565BC4 /* WriteRusumeModel2.m */; };
 		04718DA71B7CDA26008214CB /* ZCControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 04718DA61B7CDA26008214CB /* ZCControl.m */; };
+		047454F11B9C638600CE880A /* InfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047454F01B9C638600CE880A /* InfoModel.m */; };
+		047454F41B9C640500CE880A /* ExceptModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047454F31B9C640500CE880A /* ExceptModel.m */; };
 		048426F51B8B1E6D009C597A /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048426F41B8B1E6D009C597A /* VPImageCropperViewController.m */; };
 		048F30A81B7A1562004AA9B2 /* HotSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F30A71B7A1562004AA9B2 /* HotSearch.m */; };
 		048F30AA1B7A1577004AA9B2 /* HotSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048F30A91B7A1577004AA9B2 /* HotSearch.xib */; };
@@ -238,6 +240,7 @@
 		F07F39011B993B7C002531CD /* CommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39001B993B7C002531CD /* CommonFunc.m */; };
 		F07F39051B996F65002531CD /* saveListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39041B996F65002531CD /* saveListModel.m */; };
 		F07F39091B998B62002531CD /* TeacherFCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39081B998B62002531CD /* TeacherFCModel.m */; };
+		F083F8211B9C32F700781C08 /* Me_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F083F8201B9C32F700781C08 /* Me_Request.m */; };
 		F0D7C02B1B7994DB00836DD2 /* OpenClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */; };
 		F0D7C0551B79C7B400836DD2 /* libpolyvSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C04C1B79C7B400836DD2 /* libpolyvSDK.a */; };
 		F0D7C0571B79CC4800836DD2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C0561B79CC4800836DD2 /* MobileCoreServices.framework */; };
@@ -245,6 +248,7 @@
 		F0D7C05B1B79CC6400836DD2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C05A1B79CC6400836DD2 /* libz.dylib */; };
 		F0D7C0611B79EB3300836DD2 /* OpenClassVideoListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C0601B79EB3300836DD2 /* OpenClassVideoListRequest.m */; };
 		F0D7C06D1B79F92300836DD2 /* OpenClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C06C1B79F92300836DD2 /* OpenClassModel.m */; };
+		F0F2B4831B9AE4DD00F7A261 /* SearchModelShare.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F2B4821B9AE4DD00F7A261 /* SearchModelShare.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -313,6 +317,10 @@
 		047029201B97604200565BC4 /* WriteRusumeModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteRusumeModel2.m; sourceTree = "<group>"; };
 		04718DA51B7CDA26008214CB /* ZCControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCControl.h; sourceTree = "<group>"; };
 		04718DA61B7CDA26008214CB /* ZCControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCControl.m; sourceTree = "<group>"; };
+		047454EF1B9C638600CE880A /* InfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoModel.h; sourceTree = "<group>"; };
+		047454F01B9C638600CE880A /* InfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoModel.m; sourceTree = "<group>"; };
+		047454F21B9C640500CE880A /* ExceptModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExceptModel.h; sourceTree = "<group>"; };
+		047454F31B9C640500CE880A /* ExceptModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExceptModel.m; sourceTree = "<group>"; };
 		048426F31B8B1E6D009C597A /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
 		048426F41B8B1E6D009C597A /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
 		048F30A61B7A1562004AA9B2 /* HotSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotSearch.h; sourceTree = "<group>"; };
@@ -393,8 +401,8 @@
 		940032E81B840DCC001EB666 /* JobScreeningCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobScreeningCell.h; sourceTree = "<group>"; };
 		940032E91B840DCC001EB666 /* JobScreeningCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobScreeningCell.m; sourceTree = "<group>"; };
 		940032EA1B840DCC001EB666 /* JobScreeningCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobScreeningCell.xib; sourceTree = "<group>"; };
-		940032EB1B840DCC001EB666 /* TH_JobScreeningVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_JobScreeningVC.h; sourceTree = "<group>"; };
-		940032EC1B840DCD001EB666 /* TH_JobScreeningVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_JobScreeningVC.m; sourceTree = "<group>"; };
+		940032EB1B840DCC001EB666 /* TH_JobScreeningVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TH_JobScreeningVC.h; path = JobScreening/TH_JobScreeningVC.h; sourceTree = "<group>"; };
+		940032EC1B840DCD001EB666 /* TH_JobScreeningVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_JobScreeningVC.m; path = JobScreening/TH_JobScreeningVC.m; sourceTree = "<group>"; };
 		940032FE1B840FC6001EB666 /* MineVeiw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineVeiw.h; sourceTree = "<group>"; };
 		940032FF1B840FC6001EB666 /* MineVeiw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineVeiw.m; sourceTree = "<group>"; };
 		940033001B840FC6001EB666 /* MineView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineView.xib; sourceTree = "<group>"; };
@@ -667,6 +675,8 @@
 		F07F39041B996F65002531CD /* saveListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = saveListModel.m; sourceTree = "<group>"; };
 		F07F39071B998B62002531CD /* TeacherFCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherFCModel.h; sourceTree = "<group>"; };
 		F07F39081B998B62002531CD /* TeacherFCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherFCModel.m; sourceTree = "<group>"; };
+		F083F81F1B9C32F700781C08 /* Me_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Me_Request.h; sourceTree = "<group>"; };
+		F083F8201B9C32F700781C08 /* Me_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Me_Request.m; sourceTree = "<group>"; };
 		F0D7C0291B7994DB00836DD2 /* OpenClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenClassCell.h; sourceTree = "<group>"; };
 		F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenClassCell.m; sourceTree = "<group>"; };
 		F0D7C04B1B79C7B400836DD2 /* DownloadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadDelegate.h; sourceTree = "<group>"; };
@@ -687,6 +697,8 @@
 		F0D7C06B1B79F92300836DD2 /* OpenClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenClassModel.h; path = libpolyvSDK/OpenClassModel.h; sourceTree = "<group>"; };
 		F0D7C06C1B79F92300836DD2 /* OpenClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenClassModel.m; path = libpolyvSDK/OpenClassModel.m; sourceTree = "<group>"; };
 		F0D7C06E1B7A009A00836DD2 /* libPods-SDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SDWebImage.a"; path = "Pods/../build/Debug-iphoneos/libPods-SDWebImage.a"; sourceTree = "<group>"; };
+		F0F2B4811B9AE4DD00F7A261 /* SearchModelShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchModelShare.h; sourceTree = "<group>"; };
+		F0F2B4821B9AE4DD00F7A261 /* SearchModelShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchModelShare.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -861,14 +873,16 @@
 			children = (
 				041650DD1B4D795B008C78BE /* AFAppRequest.h */,
 				041650DE1B4D795B008C78BE /* AFAppRequest.m */,
-				04237D8F1B66456F00768FAD /* LoginAndRegisterRequest.m */,
 				04237D8E1B66456F00768FAD /* LoginAndRegisterRequest.h */,
+				04237D8F1B66456F00768FAD /* LoginAndRegisterRequest.m */,
 				F0D7C05F1B79EB3300836DD2 /* OpenClassVideoListRequest.h */,
 				F0D7C0601B79EB3300836DD2 /* OpenClassVideoListRequest.m */,
 				94EFC1C21B7D8F6900833068 /* TH_AFRequestState.h */,
 				94EFC1C31B7D8F6900833068 /* TH_AFRequestState.m */,
 				0454ACF21B962C7D004A70ED /* WriteResumeRequest.h */,
 				0454ACF31B962C7D004A70ED /* WriteResumeRequest.m */,
+				F083F81F1B9C32F700781C08 /* Me_Request.h */,
+				F083F8201B9C32F700781C08 /* Me_Request.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -899,6 +913,10 @@
 				0470291D1B974C4300565BC4 /* ManagerResumeModel.m */,
 				0470291F1B97604200565BC4 /* WriteRusumeModel2.h */,
 				047029201B97604200565BC4 /* WriteRusumeModel2.m */,
+				047454EF1B9C638600CE880A /* InfoModel.h */,
+				047454F01B9C638600CE880A /* InfoModel.m */,
+				047454F21B9C640500CE880A /* ExceptModel.h */,
+				047454F31B9C640500CE880A /* ExceptModel.m */,
 			);
 			path = ResumeModel;
 			sourceTree = "<group>";
@@ -951,6 +969,7 @@
 		04A0CD3F1B7A0FFE00EBCF01 /* SearchJob */ = {
 			isa = PBXGroup;
 			children = (
+				F0F2B4801B9AE45600F7A261 /* SearchParamSingle */,
 				04A0CD401B7A104900EBCF01 /* SearchJobVC.h */,
 				04A0CD411B7A104900EBCF01 /* SearchJobVC.m */,
 				04A0CD431B7A10F800EBCF01 /* SubViews */,
@@ -974,9 +993,10 @@
 		04A483B11B74FCE2006FDB9D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				94313DAC1B7CAAB5005D0A9A /* PlayFan */,
+				F083F81E1B9C324300781C08 /* TDjob */,
 				941F10071B7B3BBD00719F5B /* DeliveryJob */,
 				04A483C71B74FDF5006FDB9D /* Mine */,
-				941F100B1B7B3BCC00719F5B /* JobWishlist */,
 				04A483C11B74FDCE006FDB9D /* OpenClass */,
 				04A483BB1B74FD99006FDB9D /* Activity */,
 				04A483B51B74FD4D006FDB9D /* Home */,
@@ -994,7 +1014,6 @@
 				94313DF61B7CB610005D0A9A /* TH_HomeVC.h */,
 				94313DD31B7CB5C9005D0A9A /* writeResume */,
 				94313DB01B7CAAED005D0A9A /* InformationDesk */,
-				94313DAC1B7CAAB5005D0A9A /* PlayFan */,
 				04A0CD3F1B7A0FFE00EBCF01 /* SearchJob */,
 				94EAEAC01B784347003C19DD /* FindPractice */,
 				94EDD4F51B783F7800A00A78 /* FindPartTime */,
@@ -1034,6 +1053,7 @@
 		04A483C71B74FDF5006FDB9D /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				941F100B1B7B3BCC00719F5B /* JobWishlist */,
 				9470069C1B85FEC500DEC289 /* imagePicker */,
 				947006821B85CA6000DEC289 /* EditInformation */,
 				9400330B1B8415B4001EB666 /* AboutEggshell */,
@@ -1250,8 +1270,6 @@
 				940032E81B840DCC001EB666 /* JobScreeningCell.h */,
 				940032E91B840DCC001EB666 /* JobScreeningCell.m */,
 				940032EA1B840DCC001EB666 /* JobScreeningCell.xib */,
-				940032EB1B840DCC001EB666 /* TH_JobScreeningVC.h */,
-				940032EC1B840DCD001EB666 /* TH_JobScreeningVC.m */,
 			);
 			path = JobScreening;
 			sourceTree = "<group>";
@@ -1355,7 +1373,8 @@
 				941F10131B7B3BCC00719F5B /* TH_JobWishlistVC.h */,
 				941F10141B7B3BCC00719F5B /* TH_JobWishlistVC.m */,
 			);
-			path = JobWishlist;
+			name = JobWishlist;
+			path = ../JobWishlist;
 			sourceTree = "<group>";
 		};
 		941F100C1B7B3BCC00719F5B /* JobWishlistCell */ = {
@@ -1435,7 +1454,8 @@
 				94313DAD1B7CAAB5005D0A9A /* TH_PlayFanVC.h */,
 				94313DAE1B7CAAB5005D0A9A /* TH_PlayFanVC.m */,
 			);
-			path = PlayFan;
+			name = PlayFan;
+			path = Main/PlayFan;
 			sourceTree = "<group>";
 		};
 		94313DB01B7CAAED005D0A9A /* InformationDesk */ = {
@@ -1661,11 +1681,13 @@
 		94CB5BA81B763A8100B23B9D /* FindJob */ = {
 			isa = PBXGroup;
 			children = (
+				94CB5BA91B763AAC00B23B9D /* TH_FindJobVC.h */,
+				94CB5BAA1B763AAC00B23B9D /* TH_FindJobVC.m */,
+				940032EB1B840DCC001EB666 /* TH_JobScreeningVC.h */,
+				940032EC1B840DCD001EB666 /* TH_JobScreeningVC.m */,
 				94E3EAE41B95489A007A699E /* FindJobModel */,
 				94E2C96A1B870F29001E3FDD /* JobDetails */,
 				940032DA1B840DCC001EB666 /* JobScreening */,
-				94CB5BA91B763AAC00B23B9D /* TH_FindJobVC.h */,
-				94CB5BAA1B763AAC00B23B9D /* TH_FindJobVC.m */,
 				F05440B21B7870B800127A9B /* jobTableViewCell.h */,
 				F05440B31B7870B800127A9B /* jobTableViewCell.m */,
 				F05440B81B788DAB00127A9B /* findjobtest.plist */,
@@ -2013,6 +2035,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F083F81E1B9C324300781C08 /* TDjob */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TDjob;
+			sourceTree = "<group>";
+		};
 		F0D7C04A1B79C7B400836DD2 /* libpolyvSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -2028,6 +2057,15 @@
 				F0D7C0541B79C7B400836DD2 /* VideoDownloader.h */,
 			);
 			path = libpolyvSDK;
+			sourceTree = "<group>";
+		};
+		F0F2B4801B9AE45600F7A261 /* SearchParamSingle */ = {
+			isa = PBXGroup;
+			children = (
+				F0F2B4811B9AE4DD00F7A261 /* SearchModelShare.h */,
+				F0F2B4821B9AE4DD00F7A261 /* SearchModelShare.m */,
+			);
+			path = SearchParamSingle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2233,7 +2271,11 @@
 				94EDD4E81B78319A00A00A78 /* UIBarButtonItem+Extension.m in Sources */,
 				94EDD4F41B7831DA00A00A78 /* ZXImagePickerVC.m in Sources */,
 				947006931B85CA6000DEC289 /* EditAddressVC.m in Sources */,
+
 				94C320561B9B0CB000ACF07D /* UIButton+Extension.m in Sources */,
+
+				F083F8211B9C32F700781C08 /* Me_Request.m in Sources */,
+
 				94E2C9681B870EED001E3FDD /* CompanyDetailVC.m in Sources */,
 				94E2C9D61B8AF9B8001E3FDD /* CertificateView.m in Sources */,
 				94CB5B7E1B74CC0600B23B9D /* MJFoundation.m in Sources */,
@@ -2265,6 +2307,7 @@
 				94CB5B831B74CC0600B23B9D /* MJTypeEncoding.m in Sources */,
 				9400330A1B8414B9001EB666 /* TH_cooperationVC.m in Sources */,
 				04718DA71B7CDA26008214CB /* ZCControl.m in Sources */,
+				F0F2B4831B9AE4DD00F7A261 /* SearchModelShare.m in Sources */,
 				94313D7F1B7C24B1005D0A9A /* TH_getCodeNextVC.m in Sources */,
 				940EDEEC1B9701B100376D37 /* EducationReadingView.m in Sources */,
 				947006981B85CA6000DEC289 /* EditSexCell.m in Sources */,
@@ -2291,6 +2334,7 @@
 				94CB5BA71B76345D00B23B9D /* TH_MineVC.m in Sources */,
 				94E3EAE01B918CBE007A699E /* AccountRequest.m in Sources */,
 				94EDD4F01B7831BB00A00A78 /* ZXButton.m in Sources */,
+				047454F41B9C640500CE880A /* ExceptModel.m in Sources */,
 				940032931B83969B001EB666 /* FindjobView.m in Sources */,
 				940032D81B840CC3001EB666 /* TH_TrainExperienceVC.m in Sources */,
 				94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */,
@@ -2359,6 +2403,7 @@
 				94E2C9871B870F29001E3FDD /* JobDescriptionlView.m in Sources */,
 				940032D01B840CC3001EB666 /* projectTableViewCell.m in Sources */,
 				F01787AF1B959456005FF9C4 /* JobDetailModel_Arr4.m in Sources */,
+				047454F11B9C638600CE880A /* InfoModel.m in Sources */,
 				048F30BA1B7A4537004AA9B2 /* FMDatabaseQueue.m in Sources */,
 				94313DF41B7CB5C9005D0A9A /* WriteResumeViewController.m in Sources */,
 				041650EC1B4D7C4E008C78BE /* MJRefreshBaseView.m in Sources */,
@@ -2507,8 +2552,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2526,7 +2571,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19b65de5-9b87-4118-be8a-ded39fcf0739";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -2537,8 +2582,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2556,7 +2601,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19b65de5-9b87-4118-be8a-ded39fcf0739";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
@@ -2565,8 +2610,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2578,7 +2623,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19b65de5-9b87-4118-be8a-ded39fcf0739";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Debug;
@@ -2587,8 +2632,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2596,7 +2641,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19b65de5-9b87-4118-be8a-ded39fcf0739";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Release;
