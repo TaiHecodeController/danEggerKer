@@ -27,7 +27,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     NSUserDefaults * userId = [NSUserDefaults standardUserDefaults];
-   self.phonetextField.text = [userId objectForKey:@"moblie"];
+   self.phonetextField.text = [userId objectForKey:@"loginPhone"];
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -230,8 +231,9 @@
         if ([dic[@"code"] integerValue]==0) {
             [MBProgressHUD creatembHub:dic[@"message"]];
             NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
-            [user setObject:dic[@"data"][@"telphone"] forKey:@"login"];
-            [user setObject:dic[@"data"][@"uid"] forKey:@"uid"];
+            [user setObject:dic[@"data"] forKey:@"baseInformation"];
+            [user setObject:dic[@"data"][@"telphone"] forKey:@"loginPhone"];
+                        [user setObject:dic[@"data"][@"uid"] forKey:@"uid"];
             [user synchronize];
             self.navigationController.navigationBarHidden = YES;
             AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
@@ -240,13 +242,9 @@
             appDelegate.userId = dic[@"data"][@"uid"];
             [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
         }
-    } fail:^(int errCode, NSError *err) {
-        if (errCode==1007) {
-          [MBProgressHUD creatembHub:@"登录失败"];
-        }
+    }
         
-    }];
-
+    ];
 }
 -(void)ForgotPasswordClick
 {

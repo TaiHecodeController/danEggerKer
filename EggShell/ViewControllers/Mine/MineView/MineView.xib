@@ -609,18 +609,8 @@
                         <constraint firstAttribute="height" constant="20" id="L3P-Fc-2oA"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsv-SR-wx6">
-                    <rect key="frame" x="73" y="10" width="139" height="40"/>
-                    <state key="normal" title="点击登录">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="mineViewBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="47f-3n-q8q"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="学习是一种信仰" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atj-Aa-Jyl">
-                    <rect key="frame" x="73" y="49" width="85" height="21"/>
+                    <rect key="frame" x="73" y="44" width="85" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -632,6 +622,16 @@
                     </state>
                     <connections>
                         <action selector="mineViewBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="WQi-wA-yH0"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsv-SR-wx6">
+                    <rect key="frame" x="73" y="8" width="139" height="40"/>
+                    <state key="normal" title="点击登录">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="mineViewBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="47f-3n-q8q"/>
                     </connections>
                 </button>
             </subviews>
@@ -660,11 +660,14 @@
                 <outlet property="AboutEggshellBtn" destination="Q3b-B8-yGA" id="Ie6-9G-4qw"/>
                 <outlet property="ChannelsCooperation" destination="4VD-2R-V94" id="EXo-OF-rRt"/>
                 <outlet property="CollectionJobs" destination="6R5-Dv-ldT" id="ouj-DR-Cgb"/>
+                <outlet property="DeliveryJobNum" destination="oJ4-TE-Cbq" id="HPa-17-Gjp"/>
                 <outlet property="DeliveryJobsBtn" destination="YMQ-AK-UGw" id="Pzr-6U-VQj"/>
                 <outlet property="EditInformationBtn" destination="F46-mp-a7m" id="6P1-Sw-kWz"/>
+                <outlet property="FavoriteJobNum" destination="dqX-ZE-HgT" id="hAh-mi-LRA"/>
                 <outlet property="Feedback" destination="KiB-Es-B11" id="yuj-mE-47N"/>
                 <outlet property="HeadPortraitBtn" destination="6Mw-TM-SZe" id="dPa-aO-s9d"/>
                 <outlet property="Resume" destination="Z3F-97-uwL" id="Xmn-LB-ZWV"/>
+                <outlet property="ResumeNum" destination="BWZ-c8-U02" id="jPX-wz-qPL"/>
                 <outlet property="chatNewVersion" destination="YID-GA-ViR" id="5LN-z8-UcC"/>
                 <outlet property="headPotrait" destination="6Mw-TM-SZe" id="k3t-qa-x1N"/>
                 <outlet property="lginBtn" destination="jsv-SR-wx6" id="ji6-i6-erZ"/>
@@ -673,7 +676,7 @@
                 <outlet property="signOut" destination="Ltt-z5-6v9" id="RGc-u6-h2S"/>
                 <outlet property="userLable" destination="atj-Aa-Jyl" id="9iI-vx-4FN"/>
             </connections>
-            <point key="canvasLocation" x="-545" y="19"/>
+            <point key="canvasLocation" x="-754" y="25"/>
         </view>
     </objects>
     <resources>

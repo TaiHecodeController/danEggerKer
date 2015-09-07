@@ -28,12 +28,17 @@
 
 @implementation ManagerResumeVC
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self loadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =  @"简历管理";
     self.ResumeList.tableFooterView = [[UIView alloc] init];
     _resume_model = [ResumeModel sharedResume];
-    [self loadData];
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.cellArray = [NSMutableArray arrayWithCapacity:0];
     
@@ -41,7 +46,8 @@
 
 -(void)loadData
 {
-    [WriteResumeRequest getResumeListWithSucc:^(NSArray * DataArray) {
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    [[WriteResumeRequest getResumeListWithSucc:^(NSArray * DataArray) {
         self.dataArray = [NSMutableArray arrayWithArray:DataArray];
         if(self.dataArray.count == 0)
         {
@@ -53,7 +59,7 @@
             _resume_model.resumeName = model.name;
             [self.ResumeList reloadData];
         }
-    } WithUserId:[AppDelegate instance].userId resp:[ManagerResumeModel class]];
+    } WithUserId:[AppDelegate instance].userId resp:[ManagerResumeModel class]] addNotifaction:hub];
 }
 - (IBAction)createNewResume:(UIButton *)sender {
     if(self.dataArray.count > 0)
@@ -243,6 +249,7 @@
         {
             MBProgressHUD * hub = [MBProgressHUD mbHubShow];
             [[WriteResumeRequest deleteResumeWithSucc:^(NSDictionary *dataDic) {
+                [MBProgressHUD creatembHub:@"删除成功"];
                 [self.dataArray removeObjectAtIndex:i];
                 [self.ResumeList reloadData];
             } WithResumeParam:@{@"eid":cell.resumeId}] addNotifaction:hub];

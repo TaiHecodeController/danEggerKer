@@ -14,10 +14,23 @@
 {
 return [[[NSBundle mainBundle] loadNibNamed:@
          "BasicInformation"owner:self options:nil] lastObject];
+    
 }
 -(void)configVulue:(NSDictionary *)dataDic
 {
+    if(dataDic.count == 0)
+    {
+        self.hidden = YES;
+    }else
+    {
+        self.hidden = NO;
+    }
+    self.nameSexAge.text = [NSString stringWithFormat:@"%@ %@ %@岁",dataDic[@"uname"],dataDic[@"sex"][@"name"],dataDic[@"birthday"]];
+    self.adademic.text = dataDic[@"edu"][@"name"];
+    self.experience.text = dataDic[@"exp"][@"name"];
+    self.address.text = dataDic[@"address"];
+    self.email.text= dataDic[@"email"];
+    self.phoneNum.text = dataDic[@"telphone"];
     
-
 }
 @end

@@ -37,7 +37,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.page = 1;
+   
     self.limitNum = 5;
     [self createView];
     [self createTableView];
@@ -50,17 +50,11 @@
     {
         return;
     }
-//    _state = [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
-//        
-//        [self.dataArray addObjectsFromArray:DataDic];
-//        
-//        [self.tableView reloadData];
-//        
-//    } resp:[playFanModel class] withPage:num withLimit:self.limitNum withType:type] addNotifaction:notify];
     _state = [[TH_AFRequestState InformationDeskRequestWithSucc:^(NSArray *dataDic) {
     
         [self.dataArray addObjectsFromArray:dataDic];
         [self.tableView reloadData];
+        
     } resp:[informantionModel class] withPage:num withLimit:self.limitNum withType:type ] addNotifaction:notify];
     
     
@@ -85,11 +79,12 @@
     if (index == 0)
     {
         self.dataArray = [NSMutableArray arrayWithCapacity:0];
-      
+      _page = 0;
         _currentIndex = 0;
         NSLog(@"招聘会");
         
         _mbPro = [MBProgressHUD mbHubShow];
+        _page = 0;
         [self loadData:_mbPro page:_page pageTye:1];
         [self.tableView reloadData];
         

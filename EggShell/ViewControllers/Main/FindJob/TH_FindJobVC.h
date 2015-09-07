@@ -11,5 +11,5 @@
 //static NSString const *  staticVar;
 
 @interface TH_FindJobVC : TH_BaseVC
-
+@property(nonatomic,copy)NSString * jobId;
 @end

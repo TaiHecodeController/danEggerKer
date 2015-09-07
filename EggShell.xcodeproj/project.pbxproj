@@ -129,6 +129,7 @@
 		9470069A1B85CA6000DEC289 /* MineEditInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 947006911B85CA6000DEC289 /* MineEditInfoCell.m */; };
 		9470069B1B85CA6000DEC289 /* MineEditInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947006921B85CA6000DEC289 /* MineEditInfoCell.xib */; };
 		947008C81B85FF0100DEC289 /* TH_ImagePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947008C71B85FF0100DEC289 /* TH_ImagePickerVC.m */; };
+		947564A81B9D7B710087BA56 /* homedel.m in Sources */ = {isa = PBXBuildFile; fileRef = 947564A71B9D7B710087BA56 /* homedel.m */; };
 		94C320561B9B0CB000ACF07D /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C320551B9B0CB000ACF07D /* UIButton+Extension.m */; };
 		94CB5B7A1B74CC0600B23B9D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CB5B561B74CC0600B23B9D /* BaseModel.m */; };
 		94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CB5B581B74CC0600B23B9D /* HomePageModel.m */; };
@@ -484,6 +485,8 @@
 		947006921B85CA6000DEC289 /* MineEditInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineEditInfoCell.xib; sourceTree = "<group>"; };
 		947008C61B85FF0100DEC289 /* TH_ImagePickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_ImagePickerVC.h; sourceTree = "<group>"; };
 		947008C71B85FF0100DEC289 /* TH_ImagePickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_ImagePickerVC.m; sourceTree = "<group>"; };
+		947564A61B9D7B710087BA56 /* homedel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homedel.h; sourceTree = "<group>"; };
+		947564A71B9D7B710087BA56 /* homedel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homedel.m; sourceTree = "<group>"; };
 		94C320541B9B0CB000ACF07D /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
 		94C320551B9B0CB000ACF07D /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
 		94CB5B551B74CC0600B23B9D /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
@@ -1007,6 +1010,7 @@
 		04A483B51B74FD4D006FDB9D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				947564A51B9D7B550087BA56 /* homeModel */,
 				94E2C9621B870EED001E3FDD /* CompanyDetail */,
 				940032961B840736001EB666 /* VersionUpdate */,
 				9400328D1B83969B001EB666 /* HomeViewS */,
@@ -1581,6 +1585,15 @@
 				947008C71B85FF0100DEC289 /* TH_ImagePickerVC.m */,
 			);
 			path = imagePicker;
+			sourceTree = "<group>";
+		};
+		947564A51B9D7B550087BA56 /* homeModel */ = {
+			isa = PBXGroup;
+			children = (
+				947564A61B9D7B710087BA56 /* homedel.h */,
+				947564A71B9D7B710087BA56 /* homedel.m */,
+			);
+			path = homeModel;
 			sourceTree = "<group>";
 		};
 		94CB5B531B74CBBE00B23B9D /* libs */ = {
@@ -2271,11 +2284,8 @@
 				94EDD4E81B78319A00A00A78 /* UIBarButtonItem+Extension.m in Sources */,
 				94EDD4F41B7831DA00A00A78 /* ZXImagePickerVC.m in Sources */,
 				947006931B85CA6000DEC289 /* EditAddressVC.m in Sources */,
-
 				94C320561B9B0CB000ACF07D /* UIButton+Extension.m in Sources */,
-
 				F083F8211B9C32F700781C08 /* Me_Request.m in Sources */,
-
 				94E2C9681B870EED001E3FDD /* CompanyDetailVC.m in Sources */,
 				94E2C9D61B8AF9B8001E3FDD /* CertificateView.m in Sources */,
 				94CB5B7E1B74CC0600B23B9D /* MJFoundation.m in Sources */,
@@ -2397,6 +2407,7 @@
 				94313DF31B7CB5C9005D0A9A /* WriteResumeVC2.m in Sources */,
 				94E2C9D91B8AF9E8001E3FDD /* trainingExperienceView.m in Sources */,
 				940032D31B840CC3001EB666 /* TH_SelfEvaluationVC.m in Sources */,
+				947564A81B9D7B710087BA56 /* homedel.m in Sources */,
 				94CB5BA11B76342300B23B9D /* TH_SociallyVC.m in Sources */,
 				94313DF71B7CB610005D0A9A /* TH_HomeVC.m in Sources */,
 				9400330F1B8415B4001EB666 /* TH_AboutEggshellVC.m in Sources */,

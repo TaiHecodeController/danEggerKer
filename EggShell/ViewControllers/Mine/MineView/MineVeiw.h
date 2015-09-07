@@ -33,6 +33,9 @@ typedef enum
 @property (weak, nonatomic) IBOutlet UIButton *lginBtn;
 @property (weak, nonatomic) IBOutlet UILabel *userLable;
 @property (weak, nonatomic) IBOutlet UIButton *headPotrait;
+@property (weak, nonatomic) IBOutlet UILabel *DeliveryJobNum;
+@property (weak, nonatomic) IBOutlet UILabel *FavoriteJobNum;
+@property (weak, nonatomic) IBOutlet UILabel *ResumeNum;
 
 +(MineVeiw*)RegisterMineView;
 -(void)mineViewSetButtonTag;

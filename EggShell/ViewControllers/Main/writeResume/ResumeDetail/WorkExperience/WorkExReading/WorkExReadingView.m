@@ -20,7 +20,7 @@
     self.companyNameLable.text = model.name;
     self.HoldTimelable.text = [model.sdate stringByAppendingFormat:@"-%@",model.edate];
     self.DepartmentLable.text = model.department;
-    self.descriptionTextView.text = [model.content stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    self.descriptionTextView.text = model.content;
     self.OfficeLable.text = model.position;
 }
 @end

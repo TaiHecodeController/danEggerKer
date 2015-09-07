@@ -29,7 +29,7 @@
     [versionId synchronize];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-
+    [self checkVersion];
 //    [self checkVersion];
 //    self.window.rootViewController = [[WriteResumeViewController alloc] init];
    
@@ -94,7 +94,6 @@
         NSLog(@"版本检测数据error,resultsArray==nil");
         return;
     }
-    
     NSDictionary * infoDic = [resultsArray objectAtIndex:0];
     //2.需要version,trackViewUrl,trackName三个数据
     NSString * latestVersion = [infoDic objectForKey:@"version"];
@@ -102,10 +101,12 @@
     NSString * trackName = [infoDic objectForKey:@"trackName"];
     
     //3.获取此应用的版本号
+//    CFBundleShortVersionString
     NSDictionary * Local_infoDic = [[NSBundle mainBundle] infoDictionary];
     NSString * currentVersion = [Local_infoDic objectForKey:@"CFBundleVersion"];
     
     double doubleCurrentVersion = [currentVersion doubleValue];
+    
     double doubleUpdateVersion = [latestVersion doubleValue];
     
     //两个点的，最后那个是无效的

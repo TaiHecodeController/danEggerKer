@@ -218,7 +218,7 @@
                 NSLog(@"%@",self.registDic);
                 [MBProgressHUD creatembHub:self.registDic[@"message"]];
                 NSUserDefaults * userId =[NSUserDefaults standardUserDefaults];
-                [userId setObject:self.registDic[@"data"][@"telphone"] forKey:@"moblie"];
+                [userId setObject:self.registDic[@"data"][@"telphone"] forKey:@"loginPhone"];
                 [userId synchronize];
                 
                 [self.navigationController popViewControllerAnimated:YES];

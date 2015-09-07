@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Main/FindJob/TH_FindJobVC.m"
-            timestampString = "463316248.461537"
+            timestampString = "463319762.979946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "596"
-            endingLineNumber = "596"
+            startingLineNumber = "583"
+            endingLineNumber = "583"
             landmarkName = "-apllyBtnClick"
             landmarkType = "5">
          </BreakpointContent>

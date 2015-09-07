@@ -25,7 +25,7 @@ loading = NO; \
 return obj; \
 }
 
-#define APPID @""
+#define APPID @"983834010"
 
 @interface Utils : NSObject
 //手机号检测
