@@ -9,5 +9,5 @@
 #import "TH_BaseVC.h"
 
 @interface TH_ProfessionalSkillVC : TH_BaseVC
-
+@property (strong,nonatomic)NSDictionary * dataDic;
 @end

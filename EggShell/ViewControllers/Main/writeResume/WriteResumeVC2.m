@@ -112,6 +112,7 @@
         {
             TH_ProfessionalSkillVC * skill = [[TH_ProfessionalSkillVC alloc] init];
             skill.title = @"专业技能";
+            skill.dataDic = self.dataDic;
             [self.navigationController pushViewController:skill animated:YES];
         }
             break;

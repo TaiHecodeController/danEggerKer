@@ -31,8 +31,8 @@
     NSString * startTime = [Utils changeTimeToString:sdate];
     NSString * endTime = [Utils changeTimeToString:edate];
     self.projectTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
-    self.position.text = dataDic[@""];
+    self.position.text = dataDic[@"title"];
     self.proName.text = dataDic[@"name"];
-    self.proIntroduce.text = dataDic[@""];
+    self.proIntroduce.text = dataDic[@"content"];
 }
 @end

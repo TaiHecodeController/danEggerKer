@@ -28,12 +28,17 @@
 
 @implementation ManagerResumeVC
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self loadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =  @"简历管理";
     self.ResumeList.tableFooterView = [[UIView alloc] init];
     _resume_model = [ResumeModel sharedResume];
-    [self loadData];
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.cellArray = [NSMutableArray arrayWithCapacity:0];
     

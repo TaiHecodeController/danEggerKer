@@ -72,7 +72,8 @@
 //加载之前保存到服务器上的数据
 -(void)loadOriginalData
 {
-    [WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    [[WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
         self.editDic = DataDic[@"data"];
         for(int i = 0;i < self.jobCellArray.count;i++)
         {
@@ -204,7 +205,7 @@
         
     } WithResumeParam:@{@"eid":self.resumeId} withfail:^(int errCode, NSError *err) {
         
-    }];
+    }] addNotifaction:hub];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -221,9 +222,11 @@
 -(void)loadData
 {
     [WriteResumeRequest getResumeMessageListWithSucc:^(NSDictionary *DataDic) {
+        
         self.dataDic = DataDic[@"data"];
-
+        
         ExceptCityCell * cell = self.jobCellArray[4];
+        
         [cell config:self.dataDic[@"three_cityid"]];
     }];
 }
@@ -404,6 +407,7 @@
             {
                 [MBProgressHUD creatembHub:@"创建简历成功"];
                 WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
+                wrvc2.dataDic = self.dataDic;
                 [self.navigationController pushViewController:wrvc2 animated:YES];
                 [AppDelegate instance].resumeId = DataDic[@"data"];
             }
@@ -419,6 +423,7 @@
             {
                 [MBProgressHUD creatembHub:@"编辑简历成功"];
                 WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
+                wrvc2.dataDic = self.dataDic;
                 [self.navigationController pushViewController:wrvc2 animated:YES];
                 [AppDelegate instance].resumeId = DataDic[@"data"];
             }

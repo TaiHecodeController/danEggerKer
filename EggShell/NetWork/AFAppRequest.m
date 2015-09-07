@@ -149,20 +149,6 @@
         
          [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
 
-         if ([[responseObject allKeys] containsObject:@"teacher"])
-         {
-             [self handleResponseForTeacher:responseObject Succ:succ Fail:fail Resp:resp State:State];
-         }
-        
-         else
-         {
-              [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
-             
-         }
-         
-
-         
-    [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
 
 
         

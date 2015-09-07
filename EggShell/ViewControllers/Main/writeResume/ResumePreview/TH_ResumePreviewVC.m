@@ -43,6 +43,7 @@
     } WithResumeParam:@{@"eid":self.resumeId} withfail:nil] addNotifaction:hub];
  
 }
+
 -(void)createTilteView
 {
     UIView * titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 42)];
