@@ -21,4 +21,14 @@
     self.contentLable.text = model.content;
 
 }
+-(void)setValuess:(informantionModel*)model
+{
+    self.holdLable.text = model.organizers;
+    self.timelLable.text = model.endtime;
+    self.contactLable.text = model.telphone;
+    self.contactPesonLable.text = model.user;
+    self.RouteLable.text = model.address;
+    self.MeetingPlaceLable.text = model.address;
+    self.contentLable.text = model.content;
+}
 @end

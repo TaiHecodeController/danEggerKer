@@ -17,15 +17,6 @@
                         <constraint firstAttribute="height" constant="70" id="bcn-An-iDC"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Mw-TM-SZe">
-                    <rect key="frame" x="15" y="10" width="50" height="50"/>
-                    <state key="normal" backgroundImage="touxiang1">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="mineViewBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="WQi-wA-yH0"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgx-3U-4Co">
                     <rect key="frame" x="0.0" y="70" width="320" height="168"/>
                     <subviews>
@@ -619,7 +610,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsv-SR-wx6">
-                    <rect key="frame" x="73" y="21" width="139" height="30"/>
+                    <rect key="frame" x="73" y="10" width="139" height="40"/>
                     <state key="normal" title="点击登录">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -634,6 +625,15 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Mw-TM-SZe">
+                    <rect key="frame" x="15" y="10" width="50" height="50"/>
+                    <state key="normal" backgroundImage="touxiang1">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="mineViewBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="WQi-wA-yH0"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="Mgx-3U-4Co" firstAttribute="top" secondItem="Wyt-eJ-KOw" secondAttribute="bottom" id="1y5-Zb-I6J"/>
@@ -666,6 +666,7 @@
                 <outlet property="HeadPortraitBtn" destination="6Mw-TM-SZe" id="dPa-aO-s9d"/>
                 <outlet property="Resume" destination="Z3F-97-uwL" id="Xmn-LB-ZWV"/>
                 <outlet property="chatNewVersion" destination="YID-GA-ViR" id="5LN-z8-UcC"/>
+                <outlet property="headPotrait" destination="6Mw-TM-SZe" id="k3t-qa-x1N"/>
                 <outlet property="lginBtn" destination="jsv-SR-wx6" id="ji6-i6-erZ"/>
                 <outlet property="loginBgview" destination="d0F-7p-Hfz" id="Vru-8I-JeA"/>
                 <outlet property="loginBtn" destination="jsv-SR-wx6" id="PiV-Zz-AQN"/>

@@ -52,7 +52,6 @@
 @property(nonatomic,assign)int page;
 @property (nonatomic,strong)AFRequestState * state;
 @end
-
 @implementation TH_FindJobVC
 -(void)dealloc
 {

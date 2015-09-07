@@ -31,6 +31,8 @@
 #import "VersionUpdateView.h"
 #import "ManagerResumeVC.h"
 #import "TH_LoginVC.h"
+/*数据请求**/
+#import "AFAppRequest.h"
 
 @interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate>
 {
@@ -50,8 +52,10 @@
 @property(nonatomic,assign)NSString * str1;
 @property(nonatomic,assign)NSString * str2;
 @property(nonatomic,assign)NSString * str3;
+@property(nonatomic,strong)AFRequestState * enterState;
+@property(nonatomic,strong)NSArray * enterArray;
+@property(nonatomic,strong)HomeView * homeView;
 @end
-
 @implementation TH_HomeVC
 
 
@@ -74,11 +78,11 @@
         
     }else if([MMNetWorkType getNetWorkType] ==WWAN)
     {
-     [MBProgressHUD creatembHub:@"您当前处于3G状态"];
+        [MBProgressHUD creatembHub:@"您当前处于3G状态"];
     }
     {
         NSLog(@"当前是wifi状态");
-         [MBProgressHUD creatembHub:@"您当前处于wifi状态"];
+        [MBProgressHUD creatembHub:@"您当前处于wifi状态"];
         
     }
     //状态栏
@@ -90,18 +94,33 @@
     [self quereData];
     //注册XIB
     [self createHomeView];
+    //名企推荐
+    [self loadData];
+    [self ll ];
     
-//    NSUserDefaults * versionId = [NSUserDefaults standardUserDefaults];
-//    NSString * str = [versionId objectForKey:@"ver"];
-//    if ([str isEqualToString:@""]) {
-//        [self versionNew];
-//        [versionId setObject:@"dd" forKey:@"ver"];
-//        
-//        
-//        [versionId synchronize];
-//    }
-
-     
+    //    NSUserDefaults * versionId = [NSUserDefaults standardUserDefaults];
+    //    NSString * str = [versionId objectForKey:@"ver"];
+    //    if ([str isEqualToString:@""]) {
+    //        [self versionNew];
+    //        [versionId setObject:@"dd" forKey:@"ver"];
+    //
+    //
+    //        [versionId synchronize];
+    //    }
+    
+    
+}
+-(void)loadData
+{
+    self.enterArray =[NSArray array];
+    [TH_AFRequestState PrivateRecommendationWithSucc:^(NSDictionary *arr) {
+        
+        self.enterArray  = arr[@"data"];
+        //     [self.homeView config:self.enterArray];
+    
+        
+    } ];
+    
 }
 -(void)versionNew
 {
@@ -117,7 +136,18 @@
     [view showVersonView];
     
 }
+-(void)ll
 
+{
+    [self.homeView.first setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
+    [self.homeView.second setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
+    [self.homeView.three setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
+    [self.homeView.fourth  setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
+    [self.homeView.five  setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
+    [self.homeView.six  setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
+    
+    
+}
 #pragma mark - - 搜素
 -(void)createSearch
 {
@@ -138,8 +168,8 @@
     
     [self.navigationController.view addSubview:_searChBgView];
     //在navigation页面创建点击手势
-//    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
-//    [self.tabBarController.view addGestureRecognizer:tap];
+    //    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+    //    [self.tabBarController.view addGestureRecognizer:tap];
     
 }
 //取消textField编辑状态，收回键盘
@@ -190,20 +220,78 @@
     //注册HomeViews
     HomeView * homeView   = [HomeView homeViewFinJob] ;
     homeView.frame  = CGRectMake(0*WIDETH, MyHeight * 326, WIDETH, 436);
+    
     homeView.famousDelegate = self;
     [homeView setHomeViewAdBtn];
     [homeView setHomeViewFcBtn];
     [homeView setHomeViewItBtn];
+    self.homeView = homeView;
+    
     [self.scro addSubview:homeView];
     
     self.scro.contentSize = CGSizeMake(WIDETH, MyHeight * 326+416+25);
 }
 
--(void)homeViewFindJob:(HomeView *)homeView
+-(void)homeViewFindJob:(HomeView *)homeView withTag:(NSInteger)setTag
 {
+    
     self.navigationController.navigationBarHidden = NO;
-    CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-    [self.navigationController pushViewController:detail animated:YES];
+    if (setTag ==100) {
+        CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
+        detail.businessUid = [NSString stringWithFormat:@"%@",self.enterArray[0][@"uid"]];
+        detail.businessMid =[NSString stringWithFormat:@"%@",self.enterArray[0][@"mid"]];
+        [self.navigationController pushViewController:detail animated:YES];
+        
+    }
+    else if (setTag == 101)
+    {
+        CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
+        detail.businessUid = [NSString stringWithFormat:@"%@",self.enterArray[1][@"uid"]];
+        detail.businessMid =[NSString stringWithFormat:@"%@",self.enterArray[1][@"mid"]];
+        
+        [self.navigationController pushViewController:detail animated:YES];
+        
+    }else if (setTag == 102)
+    {
+        
+        CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
+        detail.businessUid = [NSString stringWithFormat:@"%@",self.enterArray[2][@"uid"]];
+        detail.businessMid =[NSString stringWithFormat:@"%@",self.enterArray[2][@"mid"]];
+        
+        
+        [self.navigationController pushViewController:detail animated:YES];
+    }
+    else if (setTag == 103)
+    {
+        
+        CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
+        detail.businessUid = [NSString stringWithFormat:@"%@",self.enterArray[3][@"uid"]];
+        detail.businessMid =[NSString stringWithFormat:@"%@",self.enterArray[3][@"mid"]];
+        
+        [self.navigationController pushViewController:detail animated:YES];
+        
+    }
+    else if (setTag == 104)
+    {
+        
+        CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
+        detail.businessUid = [NSString stringWithFormat:@"%@",self.enterArray[4][@"uid"]];
+        detail.businessMid =[NSString stringWithFormat:@"%@",self.enterArray[4][@"mid"]];
+        
+        [self.navigationController pushViewController:detail animated:YES];
+        
+    }
+    else if (setTag == 105)
+    {
+        
+        CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
+        detail.businessUid = [NSString stringWithFormat:@"%@",self.enterArray[5][@"uid"]];
+        detail.businessMid =[NSString stringWithFormat:@"%@",self.enterArray[5][@"mid"]];
+        
+        [self.navigationController pushViewController:detail animated:YES];
+    }
+    
+    
 }
 -(void)myselfView:(HomeView*)selfView didClickInterneButton:(THHomeViewButtonItType)buttonType
 {self.navigationController.navigationBarHidden = NO;
@@ -222,16 +310,16 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
-
+            
         case THHomeViewButtonTypeWebsiteEditor:
         {NSLog(@"1..3");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
             
@@ -240,39 +328,39 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
-
+            
         case THHomeViewButtonTypeSEO:
         {NSLog(@"1..5");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
-
+            
         case THHomeViewButtonTypeUIDesigner:
         {NSLog(@"1..6");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
-
+            
         case THHomeViewButtonTypenice:
         {NSLog(@"1..7");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
-
-        
-
+            
+            
+            
         default:
             break;
     }
@@ -286,7 +374,7 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
         case THHomeViewButtonTypeBank:
@@ -294,7 +382,7 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
             
@@ -303,7 +391,7 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
             
@@ -312,7 +400,7 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
             
@@ -321,7 +409,7 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
             
@@ -330,7 +418,7 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
             
@@ -339,16 +427,16 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
             
-       
+            
             
         default:
             break;
     }
-
+    
     NSLog(@"222");
 }
 -(void)myselfView:(HomeView*)selfView didClickAdvertisinButton:(THHomeViewButtonAdType)buttonType
@@ -359,7 +447,7 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
         case THHomeViewButtonTypeClient:
@@ -367,7 +455,7 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
             
@@ -376,7 +464,7 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
             //    THHomeViewButtonTypeAdvertising,
@@ -386,13 +474,13 @@
             //    THHomeViewButtonTypePlan,
             //    THHomeViewButtonTypeEstate,
             //    THHomeViewButtonTyMap,
-
+            
         case THHomeViewButtonTypeBusiness:
         {NSLog(@"3..\4");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
             
@@ -401,7 +489,7 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
             
@@ -410,23 +498,23 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
-
+            
             break;
         }
             
         case THHomeViewButtonTyMap:
         {NSLog(@"3..7");
-                    TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             [self.navigationController pushViewController:home animated:YES];
             break;
         }
             
-                   
+            
         default:
             break;
     }
-
+    
     NSLog(@"3333");
 }
 
@@ -452,22 +540,25 @@
             break;
         }
         case THHomeViewButtonTypeInternshipSearch:
-        {NSLog(@"找实习");
+        {
+            NSLog(@"找实习");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找实习";
-
+            
             [self.navigationController pushViewController:home animated:YES];
             break;
         }
         case THHomeViewButtonTypeInformationDesk:
-        {NSLog(@"信息台");
+        {
+            NSLog(@"信息台");
             TH_InformationDeskVC * information = [[TH_InformationDeskVC alloc] init];
             information.title = @"信息台";
             [self.navigationController pushViewController:information animated:YES];
             break;
         }
         case THHomeViewButtonTypeResumeWriting:
-        {NSLog(@"写简历");
+        {
+            NSLog(@"写简历");
             if([AppDelegate instance].userId)
             {
                 ManagerResumeVC * manaVC = [[ManagerResumeVC alloc] init];
@@ -478,31 +569,33 @@
                 UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登陆" delegate:self cancelButtonTitle:@"暂不登陆" otherButtonTitles:@"登陆", nil];
                 [alertView show];
             }
-           
+            
             break;
         }
         case THHomeViewButtonTypePlayFan:
-        {NSLog(@"玩出范");
+        {
+            NSLog(@"玩出范");
             TH_PlayFanVC * play =[[ TH_PlayFanVC alloc] init];
             play.title = @"玩出范";
             [self.navigationController pushViewController:play animated:YES];
             break;
         }
         case THHomeViewButtonTypeMicroSocial:
-        {NSLog(@"微社交");
+        {
+            NSLog(@"微社交");
             
-            
-//            CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-//            [self.navigationController pushViewController:detail animated:YES];
+            //            CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
+            //            [self.navigationController pushViewController:detail animated:YES];
+            self.navigationController.navigationBarHidden = YES;
             UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"正在建设中,敬请期待" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
             [alertView show];
             
             
             break;
         }
-          case THHomeViewButtonTypeOpenClass:
+        case THHomeViewButtonTypeOpenClass:
         {NSLog(@"公开课");
-          TH_ClassVC * class =  [[TH_ClassVC alloc] init];
+            TH_ClassVC * class =  [[TH_ClassVC alloc] init];
             [self.navigationController pushViewController:class animated:YES];
             
             break;
@@ -510,7 +603,7 @@
         default:
             break;
     }
-
+    
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -538,29 +631,29 @@
 - (void)quereData
 {
     self.dataDic = [NSMutableDictionary dictionaryWithCapacity:0 ];
-
-       [TH_AFRequestState CarouselFigureRequestWithSucc:^(NSDictionary * arr) {
+    
+    [TH_AFRequestState CarouselFigureRequestWithSucc:^(NSDictionary * arr) {
         
-          self.dataDic = arr[@"data"];
-           if (is3_5Inch||is4Inch) {
-               self.str1 = self.dataDic[@"lunbo1"];
-               self.str2 =self.dataDic[@"lunbo1.2"];
-               self.str3 = self.dataDic[@"lunbo1.3"];
-           }else if (is4_7Inch)
-           {
-               self.str1 = self.dataDic[@"lunbo2"];
-               self.str2 =self.dataDic[@"lunbo2.2"];
-               self.str3 = self.dataDic[@"lunbo2.3"];
-           }else if (is5_5Inch)
-           {
-               self.str1 = self.dataDic[@"lunbo3"];
-               self.str2 =self.dataDic[@"lunbo3.2"];
-               self.str3 = self.dataDic[@"lunbo3.3"];
-            }
-         
-           self.imageArr = [NSArray arrayWithObjects:@{@"photo":self.str1},@{@"photo":self.str2},@{@"photo":self.str3}, nil];
-           
-           [_bannerView setImageURLs:self.imageArr];
+        self.dataDic = arr[@"data"];
+        if (is3_5Inch||is4Inch) {
+            self.str1 = self.dataDic[@"lunbo1"];
+            self.str2 =self.dataDic[@"lunbo1.2"];
+            self.str3 = self.dataDic[@"lunbo1.3"];
+        }else if (is4_7Inch)
+        {
+            self.str1 = self.dataDic[@"lunbo2"];
+            self.str2 =self.dataDic[@"lunbo2.2"];
+            self.str3 = self.dataDic[@"lunbo2.3"];
+        }else if (is5_5Inch)
+        {
+            self.str1 = self.dataDic[@"lunbo3"];
+            self.str2 =self.dataDic[@"lunbo3.2"];
+            self.str3 = self.dataDic[@"lunbo3.3"];
+        }
+        
+        self.imageArr = [NSArray arrayWithObjects:@{@"photo":self.str1},@{@"photo":self.str2},@{@"photo":self.str3}, nil];
+        
+        [_bannerView setImageURLs:self.imageArr];
     } withfail:^(int errCode, NSError *err) {
         
     }];
@@ -583,7 +676,7 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-
+    
     _searChBgView.alpha = scrollView.contentOffset.y / 250;
 }
 
@@ -614,7 +707,7 @@
     NSLog(@"_searChBgView%p",_searChBgView);
     [_searChBgView removeFromSuperview];
     [_searchView removeFromSuperview];
-
+    
     _searchView = nil;
     _searChBgView = nil;
 }
@@ -622,7 +715,7 @@
 //隐藏导航栏,创建搜索视图
 -(void)viewWillAppear:(BOOL)animated
 {
-     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.navigationController.navigationBarHidden = YES;
     //搜索
     [self createSearch];
@@ -635,13 +728,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

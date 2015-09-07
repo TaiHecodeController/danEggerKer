@@ -49,7 +49,6 @@
 
 -(void)createTextView{
     
-    
     UIView * titleView =[[UIView alloc] initWithFrame:CGRectMake(30, 30, WIDETH-60, 160)];
     titleView.backgroundColor = [UIColor whiteColor];
     titleView.layer.cornerRadius = 3;
@@ -138,8 +137,7 @@
 }
 -(void)subClick
 {
-   
-    
+
     NSString * textView       = self.textView.text ;
     NSString  * qqtext = self.textqqField.text;
     NSString  *emailText  = self.emailTextFiled.text;
@@ -173,11 +171,9 @@
            
         }if (errCode ==1014) {
                    [MBProgressHUD creatembHub:@"抱歉，由于未知原因，你的建议我们没有收到，请重试"];
-                                   
-                }
+        }
 
    }];
-    
 
 }
 -(BOOL)isValidateEmail:(NSString *)email {
@@ -206,10 +202,6 @@
     NSLog(@"%d",height);
     self.scro.contentSize = CGSizeMake(WIDETH, 450+height);
     [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+height) animated:YES];
-    
-    
-    
-    
 }
 -(void)hideKeyBoard:(NSNotification*)notification
 {

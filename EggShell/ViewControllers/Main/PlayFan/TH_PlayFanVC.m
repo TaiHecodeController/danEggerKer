@@ -76,7 +76,6 @@
     }
         _state = [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
         [self.dataArray addObjectsFromArray:DataDic];
-        
         [self.tableView reloadData];
         
     } resp:[playFanModel class] withPage:num withLimit:self.limitNum withType:type] addNotifaction:notify];

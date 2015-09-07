@@ -48,7 +48,7 @@
     }
     if(sender.tag == 205)
     {
-        [self.Controller.navigationController pushViewController:[[EditAddressVC alloc] init] animated:YES];
+//        [self.Controller.navigationController pushViewController:[[EditAddressVC alloc] init] animated:YES];
     }
 
 }

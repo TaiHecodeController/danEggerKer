@@ -102,7 +102,7 @@
     //    startBtn.backgroundColor = color(255, 255, 255);
     startBtn.frame = CGRectMake((WIDETH-150)/2, HEIGHT-132, 150, 30);
     [startBtn setTitle:@"立即体验" forState:UIControlStateNormal];
-    startBtn.titleLabel.textColor = UIColorFromRGB(0xFFFFFF);
+  startBtn.titleLabel.textColor = UIColorFromRGB(0xFFFFFF);
     startBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [startBtn addTarget:self action:@selector(startClick) forControlEvents:UIControlEventTouchUpInside];
     [imageView addSubview:startBtn];

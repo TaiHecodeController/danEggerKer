@@ -13,4 +13,6 @@
 @property (strong,nonatomic)CompanyMessageView * CMview;
 @property (strong,nonatomic)MJRefreshHeaderView * header;
 @property (strong,nonatomic)MJRefreshFooterView * footer;
+@property(nonatomic,copy) NSString *  businessUid;
+@property(nonatomic,copy)  NSString * businessMid;;
 @end

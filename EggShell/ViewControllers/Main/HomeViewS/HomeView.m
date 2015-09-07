@@ -70,7 +70,8 @@
 }
 #pragma mark - - 企业
 - (IBAction)btnClick:(UIButton *)sender {
-    [self.famousDelegate homeViewFindJob:self];
+    
+    [self.famousDelegate homeViewFindJob:self withTag:sender.tag];
 }
 #pragma mark -- 互联网
 
@@ -96,5 +97,15 @@
         [self.famousDelegate myselfView:self didClickAdvertisinButton:(THHomeViewButtonAdType)sender.tag];
     }
 }
-
+-(void)config
+{
+   
+[self.first setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
+[self.second setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
+[self.three setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
+[self.fourth  setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
+    [self.five  setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
+    [self.six  setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
+   
+}
 @end

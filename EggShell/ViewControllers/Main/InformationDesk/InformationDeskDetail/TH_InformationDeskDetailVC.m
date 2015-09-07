@@ -45,11 +45,15 @@
 }
 -(void)registerView
 { infDestDetailView * detail = [[[NSBundle mainBundle] loadNibNamed:@"infDestDetailView" owner:self options:nil] lastObject];
-//    detail.contentLable.backgroundColor = [UIColor redColor];
    
     detail.frame = CGRectMake(0, 0, WIDETH, HEIGHT);
     detail.contentLable.userInteractionEnabled = NO;
-    [detail setValues:self.detaildic];
+    if (self.detaildic) {
+        [detail setValues:self.detaildic];
+    }if (self.informodel) {
+        [detail setValuess:self.informodel];
+    }
+    
     [self.scro addSubview:detail];
     self.scro.contentSize = CGSizeMake(WIDETH, 568);
     
@@ -60,14 +64,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

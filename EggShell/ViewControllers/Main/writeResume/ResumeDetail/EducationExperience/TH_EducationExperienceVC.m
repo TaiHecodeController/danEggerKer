@@ -51,7 +51,8 @@
     self.holderArray = @[@"请填写学校名称",@"",@"请填写学专业",@"请填写社团职位"];
 }
 -(void)createScro
-{self.view.backgroundColor = color(243, 243, 241);
+{
+    self.view.backgroundColor = color(243, 243, 241);
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     self.scro = scro;
     self.scro.backgroundColor = color(243, 243, 243);

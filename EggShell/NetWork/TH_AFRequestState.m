@@ -7,7 +7,7 @@
 //
 
 #import "TH_AFRequestState.h"
-
+#define base_Url @"http://195.198.1.120/eggker"
 @implementation TH_AFRequestState
 //玩出范
 +(AFRequestState *)playClassrRequestWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp withPage:(int)pageNumber withLimit:(int)limit withType:(int)type
@@ -97,14 +97,22 @@
     return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/lunbo" param:nil succ:succ fail:fail];
 }
 /*信息台**/
-+(AFRequestState*)InformationDeskRequestWithSucc:(void(^)(NSDictionary * arr))succ  resp:(Class)resp withPage:(int)pageNumber withLimit:(int)limit withType:(int)type
++(AFRequestState*)InformationDeskRequestWithSucc:(void(^)(NSArray * arr))succ  resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type;
 {
     NSNumber * pageNum =[NSNumber numberWithInt:pageNumber];
     NSNumber * limitNum =[NSNumber numberWithInt:limit];
     NSNumber * typeNum =[NSNumber numberWithInt:type];
     NSDictionary * param = @{@"page":pageNum,@"limit":limitNum,@"type":typeNum};
-    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Activity/index" param:param succ:succ resp:resp];
+    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Infos/index" param:param succ:succ resp:resp];
 }
-
-
+/*名企推荐**/
++(AFRequestState*)PrivateRecommendationWithSucc:(void(^)(NSDictionary * arr))succ
+{
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Position/recommend_company" param:nil succ:succ];
+}
+//名企详情
++(AFRequestState*)famousEnterprisesDetailWithSucc:(void(^)(NSDictionary * arr))succ withd:(NSDictionary*)dic
+{
+    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/Position/company_detail" param:dic succ:succ];
+}
 @end

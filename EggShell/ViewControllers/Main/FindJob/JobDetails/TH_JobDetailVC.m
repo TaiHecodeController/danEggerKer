@@ -122,15 +122,17 @@
     self.headerView.backgroundColor = UIColorFromRGB(0xF3F3F1);
     [self.view addSubview:self.headerView];
 }
+#pragma mark -- title
 -(void)createDetailView
 {
     JobDescriptionlView * jobDescription = [JobDescriptionlView setJobDescriptionView];
        jobDescription.frame = CGRectMake(0, 0, WIDETH, 350);
    [self.headerView addSubview:jobDescription];
+    
     _jobDescription = jobDescription;
-//        CompanyProfil * company =  [[[NSBundle mainBundle] loadNibNamed:@"CompanyProfile" owner:self options:nil]lastObject];
-//    [company companyProfilSelcet];
-//    company.frame = CGRectMake(0, 350, WIDETH, 160);
+    [jobDescription.jobDescriptionTextView setEditable:NO];
+    jobDescription.jobDescriptionTextView.scrollEnabled = YES;
+//公司简介
     ComPanyProfileView * companyprofileView = [[ComPanyProfileView alloc] initWithFrame:CGRectMake(0, 350, WIDETH, 160)];
     companyprofileView.backgroundColor = [UIColor whiteColor];
     
@@ -327,13 +329,11 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     _jobDescription.workPlace.text = model.address;
     _jobDescription.knowledge.text = model.edu;
     _jobDescription.salary.text = model.salary;
-    
-    [_companyprofileView config:[CommonFunc textFromBase64String:model.content]];
-    
-//    UIWebView *textView = [[UIWebView alloc]init];
-//    textView.frame = CGRectMake(0, 0, WIDETH, 300);
-//    [textView loadHTMLString:[CommonFunc textFromBase64String:model.content] baseURL:nil];
-//    [self.view addSubview:textView];
+    //公司简介
+    NSString *comHtmlString = [CommonFunc textFromBase64String:model.content];
+    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[comHtmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    _companyprofileView.detailLable.attributedText = comAttributedString;
+   
     }
 
 #pragma mark- - 收藏
@@ -342,8 +342,7 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     sender.selected = !sender.selected;
     
 //      NSLog(@"%@",_model.cj_id);
-    
-    
+    if (sender.selected== YES) {
    self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
        
        NSLog(@"收藏职位成功",DataArr);
@@ -353,6 +352,19 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
          NSLog(@"%@",err);
         
     } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
+}else if(sender.selected == NO)
+{
+
+    self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
+        
+        NSLog(@"取消收藏职位成功");
+        
+    } withFail:^(int errCode, NSError *err) {
+        
+        NSLog(@"%@",err);
+        
+    } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
+}
     
     
 }

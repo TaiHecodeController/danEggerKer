@@ -41,13 +41,22 @@ typedef enum
 @class HomeView;
 @protocol THFaousVieWDelegate <NSObject>
 @optional
--(void)homeViewFindJob:(HomeView*)homeView ;
+-(void)homeViewFindJob:(HomeView*)homeView withTag:(NSInteger)setTag;
 -(void)myselfView:(HomeView*)selfView didClickInterneButton:(THHomeViewButtonItType)buttonType;
 -(void)myselfView:(HomeView*)selfView didClickFinancialButton:(THHomeViewButtonFcType)buttonType;
 -(void)myselfView:(HomeView*)selfView didClickAdvertisinButton:(THHomeViewButtonAdType)buttonType;
 
 @end
 @interface HomeView : UIView
+/*民企推荐**/
+@property (weak, nonatomic) IBOutlet UIButton *first;
+@property (weak, nonatomic) IBOutlet UIButton *second;
+@property (weak, nonatomic) IBOutlet UIButton *three;
+
+@property (weak, nonatomic) IBOutlet UIButton *fourth;
+@property (weak, nonatomic) IBOutlet UIButton *five;
+@property (weak, nonatomic) IBOutlet UIButton *six;
+
 /*互联网**/
 
 @property (weak, nonatomic) IBOutlet UIButton *InternetBtn;
@@ -83,7 +92,7 @@ typedef enum
 -(void)setHomeViewItBtn;
 -(void)setHomeViewFcBtn;
 -(void)setHomeViewAdBtn;
-
+-(void)config;
 @property(nonatomic,strong)id<THFaousVieWDelegate>famousDelegate;
 
 @end

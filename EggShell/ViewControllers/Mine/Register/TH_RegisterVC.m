@@ -192,23 +192,6 @@
     }
     [self loginRequest];
     
-
-    
-//
-//    [AccountRequest RegisterRequestWithUserName:self.phoneTextField.text PassWord:self.passwordTextField.text withAccountName:self.securiedTextField.text succ:^(NSDictionary * dic) {
-//        if ([dic[@"code"] integerValue]==0) {
-//            
-//            NSUserDefaults * userId =[NSUserDefaults standardUserDefaults];
-//            [userId setObject:@"ligin" forKey:@"UserName"];
-//                  [MBProgressHUD creatembHub:dic[@"message"]];
-//                   [self.navigationController popViewControllerAnimated:YES];
-////            NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-////            [userInfo setValue:self.phoneTextField.text forKey:@"phoneText"];
-////            [[NSNotificationCenter defaultCenter]postNotificationName:@"registerSuccesNotification" object:self userInfo:userInfo];
-// 
-//        }
-//        
-//    }];
     
     }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -230,7 +213,6 @@
     if ([self.phoneTextField.text length]!=0&&[self.securiedTextField.text length]!=0&&[self.passwordTextField.text length]!=0) {
         [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
             [self.registDic setDictionary:DataDic];
-            NSLog(@"%@",DataDic);
             NSString * num = [NSString stringWithFormat:@"%d",0];
             if ([self.registDic[@"code"] isEqualToString:num]) {
                 NSLog(@"%@",self.registDic);
@@ -238,9 +220,7 @@
                 NSUserDefaults * userId =[NSUserDefaults standardUserDefaults];
                 [userId setObject:self.registDic[@"data"][@"telphone"] forKey:@"moblie"];
                 [userId synchronize];
-                NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-                [userInfo setValue:self.phoneTextField.text forKey:@"phoneText"];
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"registerSuccesNotification" object:self userInfo:userInfo];
+                
                 [self.navigationController popViewControllerAnimated:YES];
             }
             
