@@ -46,7 +46,7 @@
 @property(nonatomic,strong)MJRefreshHeaderView * header;
 @property (nonatomic, assign) int TDSuccNum;
 @property (nonatomic, assign) int mailingNumBer;
-
+@property (nonatomic, assign) int jiluNum;
 
 @end
 
@@ -101,7 +101,8 @@
     [self.view addSubview:headView];
     
     UILabel *numLab = [[UILabel alloc]init];
-    numLab.text = @"15条记录";
+//    numLab.text = @"15条记录";
+    numLab.text = [NSString stringWithFormat:@"%d条记录",_jiluNum];
     numLab.font = [UIFont systemFontOfSize:13];
     CGSize numSize = [@"15条记录" sizeWithFont:numLab.font];
     CGFloat numLabX = WIDETH - numSize.width - margin;
@@ -264,31 +265,45 @@
         return;
     }
     
-    //投递职位列表
-    self.state = [[Me_Request TDjobListWithSucc:^(NSArray *DataArr) {
-        
-         [_jobArr addObjectsFromArray:DataArr];
-         [self.tableView reloadData];
+    if (_pushType == 0)
+    {
+        //投递职位列表
+        self.state = [[Me_Request TDjobListWithSucc:^(NSArray *DataArr) {
+            
+            [_jobArr addObjectsFromArray:DataArr];
+            [self.tableView reloadData];
+             self.jiluNum = _jobArr.count;
+            [self setValueForJilu:self.jiluNum];
+            
+            
+        } withfail:^(int errCode, NSError *err) {
+            
+        } withUid:6 page:num limit:5 resp:[saveListModel class]] addNotifaction:notify];
+    }
+    
+    if (_pushType == 1)
+    {
+        //搜藏职位列表
+        self.state = [[TH_AFRequestState saveJobListSucc:^(NSArray *DataArr) {
+    
+             [_jobArr addObjectsFromArray:DataArr];
+            [self.tableView reloadData];
+            self.jiluNum = _jobArr.count;
+             [self setValueForJilu:self.jiluNum];
+    
+        } withfail:^(int errCode, NSError *err) {
+    
+            NSLog(@"%@",err);
+    
+        } withUid:6 page:num limit:10 resp:[saveListModel class]] addNotifaction:notify];
 
-        
-    } withfail:^(int errCode, NSError *err) {
-        
-    } withUid:6 page:num limit:5 resp:[saveListModel class]] addNotifaction:notify];
+    }
     
-    
-    
-    //搜藏职位列表
-//    self.state = [[TH_AFRequestState saveJobListSucc:^(NSArray *DataArr) {
-//        
-//         [_jobArr addObjectsFromArray:DataArr];
-//        [self.tableView reloadData];
-//        
-//    } withfail:^(int errCode, NSError *err) {
-//        
-//        NSLog(@"%@",err);
-//        
-//    } withUid:nil page:num limit:10 resp:[saveListModel class]] addNotifaction:notify];
-    
+}
+
+- (void)setValueForJilu:(int)num
+{
+    _numLab.text = [NSString stringWithFormat:@"%d条记录",num];;
 }
 
 
@@ -320,7 +335,7 @@
         cell.positionLab.text = model.job_name;
         cell.companyLab.text = model.com_name;
         cell.cityLab.text = model.provinceid;
-        cell.knowledgeLab.text = model.provinceid;
+        cell.knowledgeLab.text = model.edu;
         cell.timeLab.text = model.lastupdate;
         cell.salaryLab.text = model.salary;
         cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
@@ -362,8 +377,13 @@
     }
     else
     {
+        
+        findJobModel *fjModel = _jobArr[indexPath.row];
         TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
         record_index = indexPath;
+        detail.saveBOOL = 0;
+        detail.uid = [fjModel.com_id intValue];
+        detail.pid = [fjModel.job_id intValue];
         [self.navigationController pushViewController:detail animated:YES];
     }
 }

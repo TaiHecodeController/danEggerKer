@@ -32,6 +32,7 @@ typedef enum
 @property (weak, nonatomic) IBOutlet UIView *loginBgview;
 @property (weak, nonatomic) IBOutlet UIButton *lginBtn;
 @property (weak, nonatomic) IBOutlet UILabel *userLable;
+@property (weak, nonatomic) IBOutlet UIButton *headPotrait;
 
 +(MineVeiw*)RegisterMineView;
 -(void)mineViewSetButtonTag;

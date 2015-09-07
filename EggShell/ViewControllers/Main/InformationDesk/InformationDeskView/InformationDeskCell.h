@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "playFanModel.h"
+#import "informantionModel.h"
 @interface InformationDeskCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *logoImage;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *addressLable;
 @property (weak, nonatomic) IBOutlet UILabel *homeLable;
 @property (weak, nonatomic) IBOutlet UILabel *timeLable;
--(void)setValue:(playFanModel *)model;
+-(void)setValue:(informantionModel *)model;
 @end

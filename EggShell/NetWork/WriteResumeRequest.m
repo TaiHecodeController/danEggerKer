@@ -15,15 +15,25 @@
     
 }
 
+//搜索职位筛选列表
++(AFRequestState *)getSearchJobMessageListWithSucc:(void(^)(NSDictionary * DataDic))succ
+{
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Position/except_select" param:nil succ:succ];
+}
+
+//简历筛选
++(AFRequestState *)getResumeMessageListWithSucc:(void(^)(NSDictionary * DataDic))succ
+{
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/except_select" param:nil succ:succ];
+}
+
+
 +(AFRequestState *)uploadResumeMessageAboutUserMessageWithSucc:(void(^)(NSDictionary * DataDic))succ WithResumeParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/except" param:param succ:succ];
 }
 
-+(AFRequestState *)getResumeMessageListWithSucc:(void(^)(NSDictionary * DataDic))succ
-{
-    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/except_select" param:nil succ:succ];
-}
+
 
 +(AFRequestState *)uploadWorkExperienceWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {

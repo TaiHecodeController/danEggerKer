@@ -26,5 +26,12 @@
 /*重置密码**/
 +(AFRequestState *)resetPasswordRequestWithPhoneNum:(NSString *)phone withNewCode:(NSString*)newCode  withSucc:(void(^)(NSDictionary*))succ;
 /*头像上传**/
-+(void)uploadImage:(void (^)(NSString * backUrl))succ :(UIImage *)inputImage fail:(void(^)(int errCode, NSError *err))faile;
++(AFRequestState *)uploadImage:(void (^)(NSDictionary * ))succ :(UIImage *)inputImage withUid:(NSString*)uid ;
+/*获取头像**/
++(AFRequestState *)getImagewithSucc:(void (^)(NSDictionary * ))succ withUid:(NSString*)uid;
+/*编辑资料添加**/
++(AFRequestState *)EditInformationWithSucc:(void(^)(NSDictionary*))succ withParam:(NSDictionary*)dic;
+/*编辑资料预览**/
++(AFRequestState *)EditInformationWithSucc:(void(^)(NSDictionary*))succ withuid:(NSString*)uid;
+
 @end

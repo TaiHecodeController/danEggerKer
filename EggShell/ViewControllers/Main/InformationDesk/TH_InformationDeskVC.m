@@ -11,7 +11,7 @@
 #import "HYSegmentedControl.h"
 #import "TH_InformationDeskDetailVC.h"
 #import "AFAppRequest.h"
-#import "playFanModel.h"
+#import "informantionModel.h"
 @interface TH_InformationDeskVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
     MBProgressHUD * _mbPro;
@@ -37,7 +37,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.page = 0;
+    self.page = 1;
     self.limitNum = 5;
     [self createView];
     [self createTableView];
@@ -50,13 +50,20 @@
     {
         return;
     }
-    _state = [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
-        
-        [self.dataArray addObjectsFromArray:DataDic];
-        
+//    _state = [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
+//        
+//        [self.dataArray addObjectsFromArray:DataDic];
+//        
+//        [self.tableView reloadData];
+//        
+//    } resp:[playFanModel class] withPage:num withLimit:self.limitNum withType:type] addNotifaction:notify];
+    _state = [[TH_AFRequestState InformationDeskRequestWithSucc:^(NSArray *dataDic) {
+    
+        [self.dataArray addObjectsFromArray:dataDic];
         [self.tableView reloadData];
-        
-    } resp:[playFanModel class] withPage:num withLimit:self.limitNum withType:type] addNotifaction:notify];
+    } resp:[informantionModel class] withPage:num withLimit:self.limitNum withType:type ] addNotifaction:notify];
+    
+    
 }
 
 -(void)createView
@@ -133,7 +140,7 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"InformationDeskCell" owner:self options:nil] lastObject];
     }
-    playFanModel * model = self.dataArray[indexPath.row];
+    informantionModel * model = self.dataArray[indexPath.row];
     [cell setValue:model];
     return cell;
 }
@@ -142,11 +149,30 @@
     return 100;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    TH_InformationDeskDetailVC * inforMation = [[TH_InformationDeskDetailVC alloc]init];
-    inforMation.title = @"详情";
+{    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    [self.navigationController pushViewController:inforMation animated:YES];
+    if (_currentIndex == 0) {
+        TH_InformationDeskDetailVC * detail = [[TH_InformationDeskDetailVC alloc] init];
+        detail.title = @"详情";
+        informantionModel  * model = self.dataArray[indexPath.row];
+        detail.informodel = model;
+        record_index = indexPath;
+        
+        [self.navigationController pushViewController:detail animated:YES];
+        
+        
+    }else if (_currentIndex==1)
+    {
+        TH_InformationDeskDetailVC * detail = [[TH_InformationDeskDetailVC alloc] init];
+        detail.title = @"详情";
+        informantionModel  * model = self.dataArray[indexPath.row];
+        detail.informodel = model;
+        record_index = indexPath;
+        
+        [self.navigationController pushViewController:detail animated:YES];
+        
+    }
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -289,6 +289,8 @@ typedef NS_ENUM(NSInteger, GestureType){
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
 }
+
+#pragma mark -- tableviewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.videoListArr.count;
@@ -319,6 +321,15 @@ typedef NS_ENUM(NSInteger, GestureType){
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 66;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+     playListModel *plModel = self.videoListArr[indexPath.row];
+    
+     _titleLable.text = plModel.video_name;
+    [self.PLvideoPlayer setVid:plModel.video_id];
+    [self.PLvideoPlayer play];
 }
 
 #pragma mark -- ========================================

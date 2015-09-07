@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "playFanModel.h"
+#import "informantionModel.h"
 @interface infDestDetailView : UIView
 @property (weak, nonatomic) IBOutlet UILabel *holdLable;
 @property (weak, nonatomic) IBOutlet UILabel *timelLable;
@@ -19,4 +20,5 @@
 
 
 -(void)setValues:(playFanModel*)model;
+-(void)setValuess:(informantionModel*)model;
 @end

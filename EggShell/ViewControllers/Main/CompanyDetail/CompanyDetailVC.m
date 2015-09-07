@@ -12,7 +12,7 @@
 #import "AFAppRequest.h"
 #import "TH_AFRequestState.h"
 #import "playFanModel.h"
-
+#import "AFAppRequest.h"
 @interface CompanyDetailVC ()<UITableViewDelegate,UITableViewDataSource,MJRefreshBaseViewDelegate>
 {
     UIScrollView * backScroll;
@@ -25,7 +25,10 @@
     
 }
 @property(nonatomic,strong)UIView * comPanyView;
+@property (nonatomic, strong) MBProgressHUD *mbPro;
 @property (strong,nonatomic)AFRequestState * state;
+@property(strong,nonatomic)UIImageView * logoView;
+@property(nonatomic,strong)NSMutableArray * listArray;
 @end
 
 @implementation CompanyDetailVC
@@ -34,14 +37,34 @@
     [super viewDidLoad];
     self.view.backgroundColor =[UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+     self.navigationController.navigationBar.translucent = NO;
     [self createHeaderView];
     [self createUI];
-    self.navigationController.navigationBar.translucent = NO;
-    [_header beginRefreshing];
+//    [_header beginRefreshing];
+    /*数据请求**/
+    _mbPro = [MBProgressHUD mbHubShow];
+    [self loadData:_mbPro Page:0];
 }
-
-
-
+-(void)loadData:(id)notify Page:(int)page
+{
+        if(_state.running)
+        {
+            return;
+        }else
+        {
+            NSString * uid = [NSString stringWithFormat:@"%d",128];
+        NSDictionary * dic = @{@"uid":uid,@"mid":self.businessMid};
+        self.listArray = [NSMutableArray arrayWithCapacity:0];
+    
+    _state = [[TH_AFRequestState famousEnterprisesDetailWithSucc:^(NSDictionary *arr) {
+        
+        [self.CMview configValue:arr[@"data"][@"details"]];
+        [self.listArray addObjectsFromArray:arr[@"data"][@"list"]];
+        [self.logoView sd_setImageWithURL:[NSURL URLWithString:arr[@"data"][@"details"][@"logo"]] placeholderImage:[UIImage imageNamed:@"02"]];
+        [_tableView reloadData];
+    } withd:dic] addNotifaction:notify];
+    }
+}
 
 -(void)createHeaderView
 {
@@ -55,6 +78,7 @@
     //上部logo
     UIImageView * logoView = [[UIImageView alloc] initWithFrame:CGRectMake(WIDETH / 2 - 50,20, 100, 30)];
     logoView.image = [UIImage imageNamed:@"02"];
+    self.logoView = logoView;
     [logoBackView addSubview:logoView];
     
     self.title = @"名企详情";
@@ -134,27 +158,16 @@
     if(refreshView == _header)
     {
         _page = 1;
-        [self loadData:_header Page:1];
+        self.listArray = [NSMutableArray arrayWithCapacity:0];
+        [self loadData:_header Page:_page];
     }else
     {
         _page ++;
-        [self loadData:_footer Page:2];
+        self.listArray = [NSMutableArray arrayWithCapacity:0];
+        [self loadData:_footer Page:_page];
     }
 }
 
--(void)loadData:(id)notify Page:(int)page
-{
-//    if(_state.running)
-//    {
-//        return;
-//    }else
-//    {
-//        [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
-//            
-//        } resp:[playFanModel class] withPage:[NSString stringWithFormat:@"%d",page]] addNotifaction:notify];
-//    }
-    
-}
 
 -(void)dealloc
 {
@@ -162,15 +175,6 @@
     [_footer free];
 }
 
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    return self.comPanyView;
-//}
-//
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return 348;
-//}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -190,6 +194,16 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"moreJobTableViewCell" owner:self options:nil] firstObject];
         
     }
+    if(self.listArray.count > 0)
+    {
+            cell.positionName.text = self.listArray[indexPath.row][@"edu"];
+            cell.time.text = self.listArray[indexPath.row][@"sdate"];
+            cell.companyName.text = self.listArray[indexPath.row][@"name"];
+            cell.addres.text = self.listArray[indexPath.row][@"salary"];
+            cell.knowdelge.text = self.listArray[indexPath.row][@"provinceid"];
+            cell.salary.text = self.listArray[indexPath.row][@"salary"];
+    }
+
     return cell;
 }
 

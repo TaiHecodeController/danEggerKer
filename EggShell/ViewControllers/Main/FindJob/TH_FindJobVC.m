@@ -57,7 +57,6 @@
 //投递成功的数量
 @property (nonatomic, assign) int TDSuccNum;
 @end
-
 @implementation TH_FindJobVC
 -(void)dealloc
 {
@@ -69,12 +68,13 @@
     
     [SearchModelShare sharedInstance].hy = @"";
     [SearchModelShare sharedInstance].job_post = @"";
-    [SearchModelShare sharedInstance].city = @"";
+    [SearchModelShare sharedInstance].cityid = @"";
     [SearchModelShare sharedInstance].salary = @"";
     [SearchModelShare sharedInstance].edu = @"";
     [SearchModelShare sharedInstance].exp = @"";
     [SearchModelShare sharedInstance].type = @"";
-    [SearchModelShare sharedInstance].fbtime = @"";
+    [SearchModelShare sharedInstance].sdate = @"";
+    [SearchModelShare sharedInstance].job1 = @"";
     
     [_header free];
     [_footer free];
@@ -165,12 +165,13 @@
     //清空筛选条件
         [SearchModelShare sharedInstance].hy = @"";
         [SearchModelShare sharedInstance].job_post = @"";
-        [SearchModelShare sharedInstance].city = @"";
+        [SearchModelShare sharedInstance].cityid = @"";
         [SearchModelShare sharedInstance].salary = @"";
         [SearchModelShare sharedInstance].edu = @"";
         [SearchModelShare sharedInstance].exp = @"";
         [SearchModelShare sharedInstance].type = @"";
-        [SearchModelShare sharedInstance].fbtime = @"";
+        [SearchModelShare sharedInstance].sdate = @"";
+        [SearchModelShare sharedInstance].job1 = @"";
 
     //全城回调
     if ([SearchModelShare sharedInstance].longitude.length == 0)
@@ -211,11 +212,11 @@
         
         [SearchModelShare sharedInstance].longitude = [NSString stringWithFormat:@"%fd",_longitude];
         [SearchModelShare sharedInstance].dimensionality = [NSString stringWithFormat:@"%fd",_latitude];
-         
+        
+//        [SearchModelShare sharedInstance].job_post = @"132";
         /*数据请求**/
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:self.page];
-        
         
     }
 }
@@ -229,31 +230,16 @@
     }
     
     //打印出所有字段
-    NSLog(@"（经纬度）：%@,%@,（关键字）：%@,（条件）：%@,%@,%@,%@,%@,%@,%@,%@",[SearchModelShare sharedInstance].longitude,[SearchModelShare sharedInstance].dimensionality,[SearchModelShare sharedInstance].keyword,[SearchModelShare sharedInstance].hy,[SearchModelShare sharedInstance].job_post,[SearchModelShare sharedInstance].city,[SearchModelShare sharedInstance].salary,[SearchModelShare sharedInstance].edu,[SearchModelShare sharedInstance].exp,[SearchModelShare sharedInstance].type,[SearchModelShare sharedInstance].fbtime);
+    NSLog(@"经度%@ 纬度%@ 关键字%@,行业类别%@ 职位类别%@ 薪资%@ 教育水平%@ 经验%@ 工作性质%@ 发布时间%@ 城市%@ 首页行业%@",[SearchModelShare sharedInstance].longitude,[SearchModelShare sharedInstance].dimensionality,[SearchModelShare sharedInstance].keyword,[SearchModelShare sharedInstance].hy,[SearchModelShare sharedInstance].job_post,[SearchModelShare sharedInstance].salary,[SearchModelShare sharedInstance].edu,[SearchModelShare sharedInstance].exp,[SearchModelShare sharedInstance].type,[SearchModelShare sharedInstance].sdate,[SearchModelShare sharedInstance].cityid,[SearchModelShare sharedInstance].job1);
     
     NSString *numStr = [NSString stringWithFormat:@"%d",num];
     
-    self.state =  [[TH_AFRequestState searchJobWithSucc:^(NSArray *DataArr) {
+    self.state = [[TH_AFRequestState searchJobWithSucc:^(NSArray *DataArr) {
         
-              [self.jobArr addObjectsFromArray:DataArr];
-      
-              [self.tableView reloadData];
-
     } withfail:^(int errCode, NSError *err) {
         
-        NSLog(@"%@",err);
-        
-    } withlongitude:[SearchModelShare sharedInstance].longitude dimensionality:[SearchModelShare sharedInstance].dimensionality keyword:[SearchModelShare sharedInstance].keyword page:numStr hy:@"" job_post:@"" salary:@"" edu:@"" exp:@"" type:@"" resp:[findJobModel class]] addNotifaction:notify];
-    
-//    self.state =[[TH_AFRequestState jobListReRequestWithSucc:^(NSArray *DataDic) {
-//        
-//        [self.jobArr addObjectsFromArray:DataDic];
-//        
-//        [self.tableView reloadData];
-//        
-//    } withfail:^(int errCode, NSError *err) {
-//        
-//    } withPageNumber:num resp:[findJobModel class]] addNotifaction:notify];
+    } withlongitude:[SearchModelShare sharedInstance].longitude dimensionality:[SearchModelShare sharedInstance].dimensionality keyword:[SearchModelShare sharedInstance].keyword page:numStr hy:[SearchModelShare sharedInstance].hy job_post:[SearchModelShare sharedInstance].job_post salary:[SearchModelShare sharedInstance].salary edu:[SearchModelShare sharedInstance].edu exp:[SearchModelShare sharedInstance].exp type:[SearchModelShare sharedInstance].type sdate:[SearchModelShare sharedInstance].sdate job1:[SearchModelShare sharedInstance].job1 cityid:[SearchModelShare sharedInstance].cityid resp:[findJobModel class]] addNotifaction:notify];
+
 }
 
 #pragma mark -
@@ -511,7 +497,7 @@
         record_index = indexPath;
         detail.uid = [fjModel.uid intValue];
         detail.pid = [fjModel.job_id intValue];
-        
+        detail.saveBOOL = 1;
         [self.navigationController pushViewController:detail animated:YES];
         
     }

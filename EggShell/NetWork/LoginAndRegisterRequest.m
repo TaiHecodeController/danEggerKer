@@ -8,7 +8,7 @@
 
 #import "LoginAndRegisterRequest.h"
 #import "MyMD5.h"
-
+#define base_Url @"http://195.198.1.120/eggker"
 @implementation LoginAndRegisterRequest
 +(AFRequestState *)loginWithSucc:(void(^)(NSDictionary * DataDic))succ WithUserName:(NSString *)userName WithPassword:(NSString *)password
 {
@@ -28,14 +28,14 @@
 {
     
     NSDictionary * para = @{@"telphone":phonenumber,@"password":password,@"smscode":SecurityCode};
-    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/register/chTelphone" param:para succ:succ];
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/register/chTelphone" param:para succ:succ];
 
 }
 /*注册**/
 +(AFRequestState *)registerWithSucc:(void(^)(NSDictionary * DataDic))succ Withphonenumber:(NSString *)userName WithPassword:(NSString *)password withSecurityCodee:(NSString *)SecurityCodee
 {
     NSDictionary * para = @{@"telphone":userName,@"password":password,@"code":SecurityCodee};
-    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/register" param:para succ:succ];
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/register" param:para succ:succ];
 }
 
 //登录
@@ -43,7 +43,7 @@
 {
     NSDictionary * param = @{@"username":username,@"password":password};
 
-    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/login" param:param succ:succ fail:fail];
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/login" param:param succ:succ fail:fail];
     
 
 }
@@ -51,28 +51,55 @@
 +(AFRequestState *)forgitRequestWithPhoneNum:(NSString *)phone withSucc:(void(^)(NSDictionary*))succ
 {
 NSDictionary * param = @{@"telphone":phone};
-    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/login/send_code" param:param succ:succ];
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/login/send_code" param:param succ:succ];
     
 }
 /*忘记密码下一步**/
 +(AFRequestState *)forgitNextRequestWithPhoneNum:(NSString*)phone withSecurityCode:(NSString*)SecurityCode withSucc:(void(^)(NSDictionary*))succ
 {
 NSDictionary * param = @{@"telphone":phone,@"code":SecurityCode};
-    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/login/next" param:param succ:succ];
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/login/next" param:param succ:succ];
 }
 /*重置密码**/
 +(AFRequestState *)resetPasswordRequestWithPhoneNum:(NSString *)phone withNewCode:(NSString *)newCode  withSucc:(void(^)(NSDictionary*))succ
 {
     
 NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
-    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/login/update_pwd" param:param succ:succ];
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/login/update_pwd" param:param succ:succ];
 }
 /*头像上传**/
-+(void)uploadImage:(void (^)(NSString * backUrl))succ :(UIImage *)inputImage fail:(void(^)(int errCode, NSError *err))faile
++(AFRequestState*)uploadImage:(void (^)(NSDictionary *))succ :(UIImage *)inputImage withUid:(NSString*)uid
 {
-    NSDictionary * param = @{@"feedcontent_pic":@[inputImage]} ;
-    [self postImageFlag:YES url:@"" succ:succ WithData:param fail:faile];
+    NSData * data = UIImagePNGRepresentation(inputImage);
+    
+    NSString *encodedImageStr = [data base64EncodedStringWithOptions:0];
+    NSDictionary * param = @{@"uid":uid,@"photo":encodedImageStr} ;
+    
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/basicdata/head" param:param succ:succ];
+//    [self postImageFlag:YES url:@"http://195.198.1.211/eggker/interface/basicdata/head" succ:succ  WithData:param withImg:inputImage fail:faile];
 
 }
+/*获取头像**/
++(AFRequestState *)getImagewithSucc:(void (^)(NSDictionary * ))succ withUid:(NSString*)uid
+{
+    
+    NSDictionary * param = @{@"uid":uid} ;
+    
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/basicdata/gethead"param:param succ:succ];
 
+}
+/*编辑资料添加**/
++(AFRequestState *)EditInformationWithSucc:(void(^)(NSDictionary*))succ withParam:(NSDictionary*)dic
+{
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/basicdata/add_basicdata" param:dic succ:succ];
+}
+/*编辑资料预览**/
++(AFRequestState *)EditInformationWithSucc:(void(^)(NSDictionary*))succ withuid:(NSString*)uid
+
+{
+    NSDictionary * param = @{@"uid":uid};
+    
+    
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/basicdata" param:param succ:succ];
+}
 @end

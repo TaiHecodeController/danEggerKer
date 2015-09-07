@@ -7,7 +7,7 @@
 //
 
 #import "TH_AFRequestState.h"
-
+#define base_Url @"http://195.198.1.120/eggker"
 @implementation TH_AFRequestState
 //玩出范
 +(AFRequestState *)playClassrRequestWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp withPage:(int)pageNumber withLimit:(int)limit withType:(int)type
@@ -53,7 +53,7 @@
 }
 
 /*职位详情**/
-+(AFRequestState* )jobDetailsRequestWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode, NSError *err))fail withId:(int)id pid:(int)pid resp:(Class)resp
++(AFRequestState* )jobDetailsRequestWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode, NSError *err))fail withId:(int)id pid:(int)pid page:(int)page resp:(Class)resp
 {
     NSNumber *numid = [NSNumber numberWithInt:id];
     NSNumber *numpid = [NSNumber numberWithInt:pid];
@@ -74,7 +74,7 @@
 /*收藏职位列表**/
 +(AFRequestState *)saveJobListSucc:(void(^)(NSArray *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid page:(int)page limit:(int)limit resp:(Class)resp
 {
-    NSNumber *nsuid = [NSNumber numberWithInt:6];
+    NSNumber *nsuid = [NSNumber numberWithInt:uid];
     NSNumber *nspage = [NSNumber numberWithInt:page];
     NSNumber *nslimit = [NSNumber numberWithInt:limit];
     NSDictionary *param = @{@"uid":nsuid,@"page":nspage,@"limit":nslimit};
@@ -106,17 +106,30 @@
     return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/lunbo" param:nil succ:succ fail:fail];
 }
 /*信息台**/
-+(AFRequestState*)InformationDeskRequestWithSucc:(void(^)(NSDictionary * arr))succ  resp:(Class)resp withPage:(int)pageNumber withLimit:(int)limit withType:(int)type
++(AFRequestState*)InformationDeskRequestWithSucc:(void(^)(NSArray * arr))succ  resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type;
 {
     NSNumber * pageNum =[NSNumber numberWithInt:pageNumber];
     NSNumber * limitNum =[NSNumber numberWithInt:limit];
     NSNumber * typeNum =[NSNumber numberWithInt:type];
     NSDictionary * param = @{@"page":pageNum,@"limit":limitNum,@"type":typeNum};
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Activity/index" param:param succ:succ resp:resp];
+
+    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Infos/index" param:param succ:succ resp:resp];
+}
+/*名企推荐**/
++(AFRequestState*)PrivateRecommendationWithSucc:(void(^)(NSDictionary * arr))succ
+{
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Position/recommend_company" param:nil succ:succ];
+}
+//名企详情
++(AFRequestState*)famousEnterprisesDetailWithSucc:(void(^)(NSDictionary * arr))succ withd:(NSDictionary*)dic
+{
+    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/Position/company_detail" param:dic succ:succ];
+//=======
+//    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Activity/index" param:param succ:succ resp:resp];
 }
 
 /*职位搜索**/
-+(AFRequestState *)searchJobWithSucc:(void(^)(NSArray *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withlongitude:(NSString *)longitude dimensionality:(NSString *)dimensionality keyword:(NSString *)keyword page:(NSString *)page hy:(NSString *)hy job_post:(NSString *)job_post salary:(NSString *)salary edu:(NSString *)edu exp:(NSString *)exp type:(NSString *)type resp:(Class)resp
++(AFRequestState *)searchJobWithSucc:(void(^)(NSArray *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withlongitude:(NSString *)longitude dimensionality:(NSString *)dimensionality keyword:(NSString *)keyword page:(NSString *)page hy:(NSString *)hy job_post:(NSString *)job_post salary:(NSString *)salary edu:(NSString *)edu exp:(NSString *)exp type:(NSString *)type  sdate:(NSString *)sdate  job1:(NSString *)job1 cityid:(NSString *)cityid resp:(Class)resp
 {
     
     if (longitude.length == 0)
@@ -165,10 +178,21 @@
     {
         type = @"";
     }
-    
-    NSDictionary *param = @{@"longitude":longitude,@"dimensionality":dimensionality,@"keyword":keyword,@"page":page,@"hy":hy,@"job_post":job_post,@"salary":salary,@"edu":edu,@"exp":exp,@"type":type};
+    if (sdate.length == 0)
+    {
+        sdate = @"";
+    }
+    if (job1.length == 0)
+    {
+        job1 = @"";
+    }
+    if (cityid.length == 0)
+    {
+        cityid = @"";
+    }
+
+    NSDictionary *param = @{@"longitude":longitude,@"dimensionality":dimensionality,@"keyword":keyword,@"page":page,@"hy":hy,@"job_post":job_post,@"salary":salary,@"edu":edu,@"exp":exp,@"type":type,@"sdate":sdate,@"job1":job1,@"cityid":cityid};
     return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Position/nearbycompany" param:param succ:succ fail:fail resp:resp];
+
 }
-
-
 @end

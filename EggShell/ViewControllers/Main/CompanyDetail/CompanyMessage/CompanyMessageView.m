@@ -95,4 +95,14 @@
     self.showAllClick(sender);
     
 }
+-(void)configValue:(NSDictionary*)dic
+{
+    industryLab.text = [NSString stringWithFormat:@"行业:%@",dic[@"hy"]];
+    natureLab.text = [NSString stringWithFormat:@"性质:%@",dic[@"name"]];
+     scaleLab.text = [NSString stringWithFormat:@"规模:%@",dic[@"gm"]];
+    addressLab.text = [NSString stringWithFormat:@"地址:%@",dic[@"address"]];
+    self.companyMessage.text = [NSString stringWithFormat:@"%@",dic[@"content"]];
+//    @"性质：中外合资";
+//    @"行业：计算机软件，IT服务，系统集成";
+}
 @end

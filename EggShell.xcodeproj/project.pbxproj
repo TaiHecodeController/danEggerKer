@@ -123,14 +123,13 @@
 		946EBAC51B84659800CD6AC9 /* jobListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946EBAC41B84659800CD6AC9 /* jobListCell.m */; };
 		947006931B85CA6000DEC289 /* EditAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947006851B85CA6000DEC289 /* EditAddressVC.m */; };
 		947006941B85CA6000DEC289 /* EditAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947006861B85CA6000DEC289 /* EditAddressVC.xib */; };
-		947006951B85CA6000DEC289 /* MineEditInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 947006881B85CA6000DEC289 /* MineEditInfoView.m */; };
-		947006961B85CA6000DEC289 /* MineEditInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947006891B85CA6000DEC289 /* MineEditInfoView.xib */; };
 		947006971B85CA6000DEC289 /* MineEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9470068B1B85CA6000DEC289 /* MineEditVC.m */; };
 		947006981B85CA6000DEC289 /* EditSexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9470068E1B85CA6000DEC289 /* EditSexCell.m */; };
 		947006991B85CA6000DEC289 /* EditSexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9470068F1B85CA6000DEC289 /* EditSexCell.xib */; };
 		9470069A1B85CA6000DEC289 /* MineEditInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 947006911B85CA6000DEC289 /* MineEditInfoCell.m */; };
 		9470069B1B85CA6000DEC289 /* MineEditInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947006921B85CA6000DEC289 /* MineEditInfoCell.xib */; };
 		947008C81B85FF0100DEC289 /* TH_ImagePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947008C71B85FF0100DEC289 /* TH_ImagePickerVC.m */; };
+		94C320561B9B0CB000ACF07D /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C320551B9B0CB000ACF07D /* UIButton+Extension.m */; };
 		94CB5B7A1B74CC0600B23B9D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CB5B561B74CC0600B23B9D /* BaseModel.m */; };
 		94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CB5B581B74CC0600B23B9D /* HomePageModel.m */; };
 		94CB5B7C1B74CC0600B23B9D /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CB5B5B1B74CC0600B23B9D /* MJArgument.m */; };
@@ -475,9 +474,6 @@
 		947006841B85CA6000DEC289 /* EditAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAddressVC.h; sourceTree = "<group>"; };
 		947006851B85CA6000DEC289 /* EditAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAddressVC.m; sourceTree = "<group>"; };
 		947006861B85CA6000DEC289 /* EditAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditAddressVC.xib; sourceTree = "<group>"; };
-		947006871B85CA6000DEC289 /* MineEditInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineEditInfoView.h; sourceTree = "<group>"; };
-		947006881B85CA6000DEC289 /* MineEditInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineEditInfoView.m; sourceTree = "<group>"; };
-		947006891B85CA6000DEC289 /* MineEditInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineEditInfoView.xib; sourceTree = "<group>"; };
 		9470068A1B85CA6000DEC289 /* MineEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineEditVC.h; sourceTree = "<group>"; };
 		9470068B1B85CA6000DEC289 /* MineEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineEditVC.m; sourceTree = "<group>"; };
 		9470068D1B85CA6000DEC289 /* EditSexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSexCell.h; sourceTree = "<group>"; };
@@ -488,6 +484,8 @@
 		947006921B85CA6000DEC289 /* MineEditInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineEditInfoCell.xib; sourceTree = "<group>"; };
 		947008C61B85FF0100DEC289 /* TH_ImagePickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_ImagePickerVC.h; sourceTree = "<group>"; };
 		947008C71B85FF0100DEC289 /* TH_ImagePickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_ImagePickerVC.m; sourceTree = "<group>"; };
+		94C320541B9B0CB000ACF07D /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
+		94C320551B9B0CB000ACF07D /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
 		94CB5B551B74CC0600B23B9D /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		94CB5B561B74CC0600B23B9D /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		94CB5B571B74CC0600B23B9D /* HomePageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageModel.h; sourceTree = "<group>"; };
@@ -1546,9 +1544,6 @@
 			isa = PBXGroup;
 			children = (
 				947006831B85CA6000DEC289 /* EditAddress */,
-				947006871B85CA6000DEC289 /* MineEditInfoView.h */,
-				947006881B85CA6000DEC289 /* MineEditInfoView.m */,
-				947006891B85CA6000DEC289 /* MineEditInfoView.xib */,
 				9470068A1B85CA6000DEC289 /* MineEditVC.h */,
 				9470068B1B85CA6000DEC289 /* MineEditVC.m */,
 				9470068C1B85CA6000DEC289 /* SubViews */,
@@ -1914,6 +1909,8 @@
 		94EDD4E11B78319A00A00A78 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				94C320541B9B0CB000ACF07D /* UIButton+Extension.h */,
+				94C320551B9B0CB000ACF07D /* UIButton+Extension.m */,
 				F05440B51B7885F500127A9B /* UIBarButtonItem+DC.h */,
 				F05440B61B7885F500127A9B /* UIBarButtonItem+DC.m */,
 				94EDD4E21B78319A00A00A78 /* UIBarButtonItem+Extension.h */,
@@ -2200,7 +2197,6 @@
 				940032D51B840CC3001EB666 /* EducationWriteCell.xib in Resources */,
 				940032F21B840DCD001EB666 /* JobScreeningCell.xib in Resources */,
 				94E2C9E61B8B1120001E3FDD /* professional.xib in Resources */,
-				947006961B85CA6000DEC289 /* MineEditInfoView.xib in Resources */,
 				048F30AA1B7A1577004AA9B2 /* HotSearch.xib in Resources */,
 				94E2C9841B870F29001E3FDD /* CompanyProfile.xib in Resources */,
 				94E3EA8D1B8E9AAD007A699E /* mapapi.bundle in Resources */,
@@ -2275,7 +2271,11 @@
 				94EDD4E81B78319A00A00A78 /* UIBarButtonItem+Extension.m in Sources */,
 				94EDD4F41B7831DA00A00A78 /* ZXImagePickerVC.m in Sources */,
 				947006931B85CA6000DEC289 /* EditAddressVC.m in Sources */,
+
+				94C320561B9B0CB000ACF07D /* UIButton+Extension.m in Sources */,
+
 				F083F8211B9C32F700781C08 /* Me_Request.m in Sources */,
+
 				94E2C9681B870EED001E3FDD /* CompanyDetailVC.m in Sources */,
 				94E2C9D61B8AF9B8001E3FDD /* CertificateView.m in Sources */,
 				94CB5B7E1B74CC0600B23B9D /* MJFoundation.m in Sources */,
@@ -2398,7 +2398,6 @@
 				94E2C9D91B8AF9E8001E3FDD /* trainingExperienceView.m in Sources */,
 				940032D31B840CC3001EB666 /* TH_SelfEvaluationVC.m in Sources */,
 				94CB5BA11B76342300B23B9D /* TH_SociallyVC.m in Sources */,
-				947006951B85CA6000DEC289 /* MineEditInfoView.m in Sources */,
 				94313DF71B7CB610005D0A9A /* TH_HomeVC.m in Sources */,
 				9400330F1B8415B4001EB666 /* TH_AboutEggshellVC.m in Sources */,
 				94E2C9871B870F29001E3FDD /* JobDescriptionlView.m in Sources */,

@@ -294,7 +294,7 @@
                                 <constraint firstAttribute="height" constant="0.5" id="EXF-Af-OSw"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TJ-vA-O2y">
+                        <button opaque="NO" tag="101" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TJ-vA-O2y">
                             <rect key="frame" x="149" y="54" width="68" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="m4G-LB-rHX"/>
@@ -306,7 +306,7 @@
                                 <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="450-yE-RG9"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXl-WN-vt2">
+                        <button opaque="NO" tag="102" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXl-WN-vt2">
                             <rect key="frame" x="264" y="50" width="90" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="qHI-Qy-Sth"/>
@@ -318,7 +318,7 @@
                                 <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="m2e-Uo-Kqo"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmT-7j-ydu">
+                        <button opaque="NO" tag="104" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmT-7j-ydu">
                             <rect key="frame" x="145" y="109" width="85" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="hEW-v7-HcM"/>
@@ -330,7 +330,7 @@
                                 <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="NLv-Xd-xcX"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alA-io-Yow">
+                        <button opaque="NO" tag="103" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alA-io-Yow">
                             <rect key="frame" x="28" y="99" width="58" height="42"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="hy9-gj-8dz"/>
@@ -342,19 +342,7 @@
                                 <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="AWp-V9-PX3"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMN-YV-TN2">
-                            <rect key="frame" x="264" y="109" width="91" height="22"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="22" id="e9v-bV-z2D"/>
-                            </constraints>
-                            <state key="normal" image="06">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="GcI-qR-77v"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPZ-9K-0CV">
+                        <button opaque="NO" tag="100" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPZ-9K-0CV">
                             <rect key="frame" x="13" y="51" width="89" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="kXs-yu-Kdg"/>
@@ -364,6 +352,18 @@
                             </state>
                             <connections>
                                 <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="0W6-pg-9Mr"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="105" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMN-YV-TN2">
+                            <rect key="frame" x="264" y="109" width="91" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="e9v-bV-z2D"/>
+                            </constraints>
+                            <state key="normal" image="06">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="GcI-qR-77v"/>
                             </connections>
                         </button>
                     </subviews>
@@ -921,7 +921,13 @@
                 <outlet property="TraderBtn" destination="0AW-v2-Pil" id="MfR-gF-5q6"/>
                 <outlet property="UIDesignerBtn" destination="0fe-0M-jI4" id="2dm-gx-U92"/>
                 <outlet property="WebsiteEditorBtn" destination="bu0-qZ-TfT" id="dfK-C2-Uiu"/>
+                <outlet property="first" destination="HPZ-9K-0CV" id="2Xc-AC-Kck"/>
+                <outlet property="five" destination="nmT-7j-ydu" id="iz0-nc-M2Y"/>
+                <outlet property="fourth" destination="alA-io-Yow" id="mHn-6u-bqd"/>
                 <outlet property="niceBtn" destination="kNb-BF-JAi" id="aM2-8Z-bpO"/>
+                <outlet property="second" destination="1TJ-vA-O2y" id="ctw-m4-5nl"/>
+                <outlet property="six" destination="jMN-YV-TN2" id="0YL-qN-0ka"/>
+                <outlet property="three" destination="sXl-WN-vt2" id="bdy-Lw-cnq"/>
             </connections>
             <point key="canvasLocation" x="-105.5" y="140"/>
         </view>

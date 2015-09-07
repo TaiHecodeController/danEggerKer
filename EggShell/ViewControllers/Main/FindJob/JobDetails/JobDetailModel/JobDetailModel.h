@@ -45,6 +45,8 @@
 @property (nonatomic, copy) NSString *salary;
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *uid;
+@property (nonatomic, copy) NSString *sdate;
+@property (nonatomic, copy) NSString *edate;
 array_item_def(lists)
 @property (nonatomic, strong) NSArray *lists;
 //@property (nonatomic, copy) NSString *name;

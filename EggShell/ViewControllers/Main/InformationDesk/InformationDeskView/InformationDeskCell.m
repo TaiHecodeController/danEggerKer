@@ -19,7 +19,7 @@
 
     // Configure the view for the selected state
 }
--(void)setValue:(playFanModel *)model
+-(void)setValue:(informantionModel *)model
 {
 
     self.name.text = model.title;

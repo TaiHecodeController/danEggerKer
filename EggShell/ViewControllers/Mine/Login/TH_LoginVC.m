@@ -27,8 +27,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     NSUserDefaults * userId = [NSUserDefaults standardUserDefaults];
-    self.phonetextField.text = [userId objectForKey:@"moblie"];
-   
+   self.phonetextField.text = [userId objectForKey:@"moblie"];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,16 +45,12 @@
     
     //    /*收回键盘**/
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
-    /*注册成功通知**/
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerSucces:) name:@"registerSuccesNotification" object:nil];
+
     
-   
+    
     // Do any additional setup after loading the view.
 }
--(void)registerSucces:(NSNotification*)notification
-{
-    self.phonetextField.text = notification.userInfo[@"phoneText"];
-}
+
 -(void)createScro
 {
 
@@ -228,14 +223,12 @@
         return;
     }
     [self loginRequest];
-          
 }
 -(void)loginRequest
 {
     [LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text withSucc:^(NSDictionary * dic) {
         if ([dic[@"code"] integerValue]==0) {
             [MBProgressHUD creatembHub:dic[@"message"]];
-            
             NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
             [user setObject:dic[@"data"][@"telphone"] forKey:@"login"];
             [user setObject:dic[@"data"][@"uid"] forKey:@"uid"];
@@ -247,7 +240,6 @@
             appDelegate.userId = dic[@"data"][@"uid"];
             [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
         }
-        
     } fail:^(int errCode, NSError *err) {
         if (errCode==1007) {
           [MBProgressHUD creatembHub:@"登录失败"];

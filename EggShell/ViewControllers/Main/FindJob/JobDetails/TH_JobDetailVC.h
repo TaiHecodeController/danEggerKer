@@ -15,4 +15,6 @@
 
 @property (nonatomic, assign) int uid;
 @property (nonatomic, assign) int pid;
+//0是从收藏职位列表跳过来的，1不是从收藏职位列表跳过来的
+@property (nonatomic, assign) int saveBOOL;
 @end

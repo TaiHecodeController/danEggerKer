@@ -14,4 +14,5 @@
 @property (strong,nonatomic)UIButton * showAllBtn;
 @property (assign) CGSize textSize;
 @property (strong,nonatomic)UILabel * companyMessage;
+-(void)configValue:(NSDictionary*)dic;
 @end

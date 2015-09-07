@@ -145,7 +145,7 @@
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation * operation, id responseObject)
      {
          
-    [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
+         [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
 
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {
@@ -193,6 +193,8 @@
     if(errCode == 5)
     {
         [MBProgressHUD creatembHub:@"开始时间和结束时间一致"];
+    }if (errCode == 1012) {
+        [MBProgressHUD creatembHub:@"您还有登录"];
     }
     if(errCode == 3840)
     {
@@ -232,7 +234,6 @@
             succ(responseObject);
             return;
         }
-        
         
         id data = [Gson fromObj:[responseObject objectForKey:@"data"] Cls:resp];
         
@@ -327,56 +328,54 @@
     }
 }
 
-+(AFRequestState *)postImageFlag:(BOOL)flag url:(NSString *)url succ:(void(^)(id img))succ WithData:(NSDictionary *)data fail:(void (^)(int errCode, NSError * err))fail
-{
-    
-//    NSMutableDictionary*parameter= [parameter setValuesForKeysWithDictionary:data];
-//    [parameter setValuesForKeysWithDictionary:data];
-    AFHTTPRequestOperationManager*manager=[self sharedClient];
-    
-    
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    manager.responseSerializer.acceptableContentTypes =[NSSet setWithObject:@"application/json"];
-    
-    AFRequestState * State = [AFRequestState new];
-    
-    [manager POST:url parameters:data constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
-     
-     {
-         
-         for (int i =0; i<[[data objectForKey:@"feedcontent_pic"]  count]; i++) {
-             
-             
-             [formData appendPartWithFileData:UIImagePNGRepresentation([[data objectForKey:@"feedcontent_pic"] objectAtIndex:i]) name:[NSString stringWithFormat: @"Filedata" ] fileName:@"upload.png" mimeType:@"image/png"];
-         }
-         
-     } success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-         if(flag){
-             [self handleResponse:responseObject Succ:^(id data) {
-                succ(((UploadImgResp *)data).img);
-                 
-             } Fail:fail Resp:[UploadImgResp class] State:State];
-         }
-         else{
-             [self handleResponse:responseObject Succ:^(id data) {
-                 succ([NSNumber numberWithInt:(int)data]);
-                 
-             } Fail:fail Resp:nil State:State];
-         }
-         
-         
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-         fail(10010,nil);
-         [State setEnd];
-     }];
-    
-    [State start];
-    return State;
-}
-
-
+//+(AFRequestState *)postImageFlag:(BOOL)flag url:(NSString *)url succ:(void(^)(id img))succ WithData:(NSDictionary *)data withImg:(UIImage *)img fail:(void (^)(int errCode, NSError * err))fail
+//{
+//    
+//    
+//    AFHTTPRequestOperationManager*manager=[self sharedClient];
+//    
+////        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    
+//    
+//    AFRequestState * State = [AFRequestState new];
+//    
+//    [manager POST:url parameters:data constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+//     
+//     {
+//         NSData * data = UIImagePNGRepresentation(img);
+//         
+//         NSString *encodedImageStr = [data base64EncodedStringWithOptions:0];
+//         
+////        NSData* xmlData = [encodedImageStr dataUsingEncoding:NSASCIIStringEncoding];
+//         
+////         NSString * dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+////
+////        NSString * baseStr = [CommonFunc base64StringFromText:dataStr];
+////         
+////       NSData * dataimage = [[NSData alloc] initWithBase64EncodedString:encodedImageStr options:NSDataBase64DecodingIgnoreUnknownCharacters];
+////
+////      [formData appendPartWithFileData:xmlData  name:@"photo" fileName:@"upload.png" mimeType:@"image/png"];
+//         
+////         for (int i =0; i<[[data objectForKey:@"feedcontent_pic"]  count]; i++) {
+//             
+////             
+////             [formData appendPartWithFileData: UIImagePNGRepresentation([[data objectForKey:@"feedcontent_pic"] objectAtIndex:i]) name:[NSString stringWithFormat: @"Filedata" ] fileName:@"upload.png" mimeType:@"image/png"];
+////         }
+//     
+//     } success:^(AFHTTPRequestOperation *operation, id responseObject)
+//     {
+//         
+//         
+//         
+//     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+//     {
+//         fail(10010,nil);
+//         [State setEnd];
+//     }];
+//    
+//    [State start];
+//    return State;
+//}
+//
 
 @end
