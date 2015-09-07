@@ -125,11 +125,12 @@
             {
                 if (nameLab.tag == 2000)
                 {
-                    
+                 
+                    nameLab.text = arr[0][@"video_teacher"];
                 }
                 if (nameLab.tag == 3000)
                 {
-                    
+                     nameLab.text = arr[0][@"video_name"];
                 }
             }
             
@@ -142,11 +143,11 @@
             {
                 if (nameLab.tag == 2001)
                 {
-                    
+                     nameLab.text =arr[1][@"video_teacher"];
                 }
                 if (nameLab.tag == 3001)
                 {
-                    
+                     nameLab.text = arr[1][@"video_name"];
                 }
             }
             [iconView sd_setImageWithURL:[NSURL URLWithString:arr[1][@"vimage"]] placeholderImage:nil];
@@ -158,11 +159,11 @@
             {
                 if (nameLab.tag == 2002)
                 {
-                    
+                     nameLab.text = arr[2][@"video_teacher"];
                 }
                 if (nameLab.tag == 3002)
                 {
-                    
+                     nameLab.text = arr[2][@"video_name"];
                 }
             }
             
@@ -267,6 +268,7 @@
             nameLab.frame = CGRectMake(0, qsBtnH - 40, qsBtnW, 20);
             nameLab.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
             nameLab.textColor = [UIColor whiteColor];
+            nameLab.textAlignment = NSTextAlignmentCenter;
             [qsBtn addSubview:nameLab];
             
             UILabel *classLab = [[UILabel alloc]init];
@@ -274,6 +276,7 @@
             classLab.frame = CGRectMake(0, qsBtnH - 20, qsBtnW, 20);
             classLab.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
             classLab.textColor = [UIColor whiteColor];
+            classLab.textAlignment = NSTextAlignmentCenter;
             [qsBtn addSubview:classLab];
             
             _headViewMaxY = CGRectGetMaxY(qsBtn.frame);

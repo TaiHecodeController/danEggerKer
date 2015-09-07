@@ -129,6 +129,38 @@
             endingLineNumber = "47"
             landmarkName = "@interface WriteResumeViewController()"
             landmarkType = "2">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WriteResumeViewController editDic]"
+                  moduleName = "EggShell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Main/writeResume/WriteResumeViewController.m"
+                  timestampString = "463320358.935942"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WriteResumeViewController setEditDic:]"
+                  moduleName = "EggShell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Main/writeResume/WriteResumeViewController.m"
+                  timestampString = "463320358.93617"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,7 +218,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Main/FindJob/JobScreening/TH_JobScreeningVC.m"
-                  timestampString = "463316830.752263"
+                  timestampString = "463320358.938937"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
@@ -201,7 +233,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Main/FindJob/JobScreening/TH_JobScreeningVC.m"
-                  timestampString = "463316830.752453"
+                  timestampString = "463320358.939111"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
@@ -282,12 +314,12 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Mine/Login/TH_LoginVC.m"
-                  timestampString = "463316830.755908"
+                  timestampString = "463320358.942123"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
-                  offsetFromSymbolStart = "23">
+                  startingLineNumber = "230"
+                  endingLineNumber = "230"
+                  offsetFromSymbolStart = "20">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -297,11 +329,11 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Mine/Login/TH_LoginVC.m"
-                  timestampString = "463316830.756173"
+                  timestampString = "463320358.942349"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
+                  startingLineNumber = "230"
+                  endingLineNumber = "230"
                   offsetFromSymbolStart = "46">
                </Location>
             </Locations>
@@ -321,6 +353,38 @@
             endingLineNumber = "230"
             landmarkName = "-loginRequest"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TH_LoginVC loginRequest]"
+                  moduleName = "EggShell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Mine/Login/TH_LoginVC.m"
+                  timestampString = "463320358.943542"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "230"
+                  endingLineNumber = "230"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__26-[TH_LoginVC loginRequest]_block_invoke"
+                  moduleName = "EggShell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Mine/Login/TH_LoginVC.m"
+                  timestampString = "463320358.943756"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "230"
+                  endingLineNumber = "230"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -378,7 +442,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/JobWishlist/TH_JobWishlistVC.m"
-                  timestampString = "463316830.759361"
+                  timestampString = "463320358.946916"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "503"
@@ -393,7 +457,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/JobWishlist/TH_JobWishlistVC.m"
-                  timestampString = "463316830.759666"
+                  timestampString = "463320358.94712"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "503"
@@ -522,7 +586,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Main/FindJob/JobDetails/TH_JobDetailVC.m"
-                  timestampString = "463316830.765842"
+                  timestampString = "463320358.952472"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "136"
@@ -537,7 +601,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/Main/FindJob/JobDetails/TH_JobDetailVC.m"
-                  timestampString = "463316830.766132"
+                  timestampString = "463320358.952662"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "136"
