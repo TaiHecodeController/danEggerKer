@@ -119,7 +119,7 @@
         
         self.enterArray  = arr[@"data"];
         //     [self.homeView config:self.enterArray];
-    
+        
         
     } ];
     
@@ -239,9 +239,9 @@
 {    self.navigationController.navigationBarHidden = NO;
     CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
     if (!self.enterArray.count>0) {
-    [self.navigationController pushViewController:detail animated:YES];
+        [self.navigationController pushViewController:detail animated:YES];
         return;
-  }
+    }
     self.navigationController.navigationBarHidden = NO;
     if (setTag ==100) {
         homedel * data =(homedel *)[ Gson fromObj:self.enterArray[0] Cls:[homedel class]];
@@ -252,7 +252,7 @@
     else if (setTag == 101)
     {
         CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-         homedel * data =(homedel *)[ Gson fromObj:self.enterArray[1] Cls:[homedel class]];
+        homedel * data =(homedel *)[ Gson fromObj:self.enterArray[1] Cls:[homedel class]];
         detail.businessUid = data.uid;
         detail.businessMid = data.mid;
         [self.navigationController pushViewController:detail animated:YES];
@@ -261,7 +261,7 @@
     {
         
         CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-         homedel * data =(homedel *)[ Gson fromObj:self.enterArray[2] Cls:[homedel class]];
+        homedel * data =(homedel *)[ Gson fromObj:self.enterArray[2] Cls:[homedel class]];
         detail.businessUid = data.uid;
         detail.businessMid = data.mid;
         [self.navigationController pushViewController:detail animated:YES];
@@ -270,7 +270,7 @@
     {
         
         CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-         homedel * data =(homedel *)[ Gson fromObj:self.enterArray[3] Cls:[homedel class]];
+        homedel * data =(homedel *)[ Gson fromObj:self.enterArray[3] Cls:[homedel class]];
         detail.businessUid =data.uid;
         detail.businessMid = data.mid;
         [self.navigationController pushViewController:detail animated:YES];
@@ -280,7 +280,7 @@
     {
         
         CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-         homedel * data =(homedel *)[ Gson fromObj:self.enterArray[4] Cls:[homedel class]];
+        homedel * data =(homedel *)[ Gson fromObj:self.enterArray[4] Cls:[homedel class]];
         detail.businessUid = data.uid;
         detail.businessMid = data.mid;
         [self.navigationController pushViewController:detail animated:YES];
@@ -290,10 +290,10 @@
     {
         
         CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-         homedel * data =(homedel *)[ Gson fromObj:self.enterArray[0] Cls:[homedel class]];
+        homedel * data =(homedel *)[ Gson fromObj:self.enterArray[0] Cls:[homedel class]];
         detail.businessUid =data.uid;
         detail.businessMid =data.mid;
-               
+        
         [self.navigationController pushViewController:detail animated:YES];
     }
     
@@ -308,7 +308,7 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"互联网";
             [SearchModelShare sharedInstance].hy = @"35";
-//            home.jobId  = [NSString stringWithFormat:@"%d",35];
+            //            home.jobId  = [NSString stringWithFormat:@"%d",35];
             [self.navigationController pushViewController:home animated:YES];
             break;
         }
@@ -491,13 +491,7 @@
             
             break;
         }
-            //    THHomeViewButtonTypeAdvertising,
-            //    THHomeViewButtonTypeClient,
-            //    THHomeViewButtonTypeCreative,
-            //    THHomeViewButtonTypeBusiness,
-            //    THHomeViewButtonTypePlan,
-            //    THHomeViewButtonTypeEstate,
-            //    THHomeViewButtonTyMap,
+            
             
         case THHomeViewButtonTypeBusiness:
         {NSLog(@"3..\4");
@@ -587,6 +581,7 @@
         case THHomeViewButtonTypeResumeWriting:
         {
             NSLog(@"写简历");
+            [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
             if([AppDelegate instance].userId)
             {
                 ManagerResumeVC * manaVC = [[ManagerResumeVC alloc] init];

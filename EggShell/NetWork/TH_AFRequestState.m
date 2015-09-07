@@ -7,7 +7,7 @@
 //
 
 #import "TH_AFRequestState.h"
-#define base_Url @"http://195.198.1.120/eggker"
+
 @implementation TH_AFRequestState
 //玩出范
 +(AFRequestState *)playClassrRequestWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp withPage:(int)pageNumber withLimit:(int)limit withType:(int)type
@@ -17,7 +17,7 @@
     NSNumber * typeNum = [NSNumber numberWithInt:type];
     
     NSDictionary * param = @{@"page":pagenumber,@"limit":limitNum,@"type":typeNum};
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Activity/index" param:param succ:succ resp:resp];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/index",base_Url] param:param succ:succ resp:resp];
     
 }
 /*玩出范详情**/
@@ -27,7 +27,7 @@
     NSNumber * typeNum =[NSNumber numberWithBool:type];
     NSNumber  * classID = [NSNumber numberWithInt:classId];
     NSDictionary * param = @{@"type":typeNum,@"id":classID};
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Activity/details" param:param succ:succ];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/details",base_Url] param:param succ:succ];
 }
 
 /*意见反馈**/
@@ -37,7 +37,7 @@
     
     
   NSDictionary * param = @{@"source":num ,@"opinion":opinion,@"qq":qq,@"email":email};
-    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/feedback" param:param succ:succ fail:fail];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@feedback",base_Url] param:param succ:succ fail:fail];
    
 
 }
@@ -48,7 +48,7 @@
     NSNumber * numPager = [NSNumber numberWithInt:pageNumber];
     NSNumber * limit = [NSNumber numberWithInt:3];
     NSDictionary * param = @{@"page":numPager,@"limit":limit};
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Position/loadMore" param:param succ:succ fail:fail resp:resp];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/loadMore",base_Url] param:param succ:succ fail:fail resp:resp];
     
 }
 
@@ -58,7 +58,7 @@
     NSNumber *numid = [NSNumber numberWithInt:id];
     NSNumber *numpid = [NSNumber numberWithInt:pid];
     NSDictionary *param = @{@"id":numid,@"pid":numpid};
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Position/details" param:param succ:succ fail:fail resp:resp];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/details",base_Url] param:param succ:succ fail:fail resp:resp];
     
 }
 
@@ -68,7 +68,7 @@
     NSNumber *jobid = [NSNumber numberWithInt:job_id];
     NSNumber *uid = [NSNumber numberWithInt:6];
     NSDictionary *param = @{@"job_id":jobid,@"uid":uid};
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Position/collect" param:param succ:succ fail:fail resp:resp];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/collect",base_Url]param:param succ:succ fail:fail resp:resp];
 }
 
 /*收藏职位列表**/
@@ -78,7 +78,7 @@
     NSNumber *nspage = [NSNumber numberWithInt:page];
     NSNumber *nslimit = [NSNumber numberWithInt:limit];
     NSDictionary *param = @{@"uid":nsuid,@"page":nspage,@"limit":nslimit};
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Position/collectlist" param:param succ:succ fail:fail resp:resp];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/collectlist",base_Url] param:param succ:succ fail:fail resp:resp];
     
 }
 
@@ -87,7 +87,7 @@
 {
     NSNumber *nsuid = [NSNumber numberWithInt:uid];
     NSDictionary *param = @{@"uid":nsuid,@"id":job_idStr};
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Position/delcollectlist" param:param succ:succ fail:fail resp:resp];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/delcollectlist",base_Url] param:param succ:succ fail:fail resp:resp];
 
 }
 
@@ -97,13 +97,13 @@
     
     NSNumber *nsuid = [NSNumber numberWithInt:uid];
     NSDictionary *param = @{@"uid":nsuid,@"job_id":job_id};
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Position/getPosition" param:param succ:succ fail:fail resp:resp];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/getPosition",base_Url] param:param succ:succ fail:fail resp:resp];
 }
 /*轮播图**/
 +(AFRequestState*)CarouselFigureRequestWithSucc:(void(^)(NSDictionary *arr))succ withfail:(void(^)(int errCode, NSError *err))fail
 {
 
-    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/lunbo" param:nil succ:succ fail:fail];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@lunbo",base_Url] param:nil succ:succ fail:fail];
 }
 /*信息台**/
 +(AFRequestState*)InformationDeskRequestWithSucc:(void(^)(NSArray * arr))succ  resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type;
@@ -113,19 +113,18 @@
     NSNumber * typeNum =[NSNumber numberWithInt:type];
     NSDictionary * param = @{@"page":pageNum,@"limit":limitNum,@"type":typeNum};
 
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Infos/index" param:param succ:succ resp:resp];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Infos/index",base_Url]param:param succ:succ resp:resp];
 }
 /*名企推荐**/
 +(AFRequestState*)PrivateRecommendationWithSucc:(void(^)(NSDictionary * arr))succ
 {
-    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Position/recommend_company" param:nil succ:succ];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/recommend_company",base_Url] param:nil succ:succ];
 }
 //名企详情
 +(AFRequestState*)famousEnterprisesDetailWithSucc:(void(^)(NSDictionary * arr))succ withd:(NSDictionary*)dic
 {
-    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/Position/company_detail" param:dic succ:succ];
-//=======
-//    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Activity/index" param:param succ:succ resp:resp];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/company_detail",base_Url] param:dic succ:succ];
+
 }
 
 /*职位搜索**/
@@ -180,7 +179,7 @@
     }
     
     NSDictionary *param = @{@"longitude":longitude,@"dimensionality":dimensionality,@"keyword":keyword,@"page":page,@"hy":hy,@"job_post":job_post,@"salary":salary,@"edu":edu,@"exp":exp,@"type":type};
-    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Position/nearbycompany" param:param succ:succ fail:fail resp:resp];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/nearbycompany",base_Url] param:param succ:succ fail:fail resp:resp];
 
 }
 @end

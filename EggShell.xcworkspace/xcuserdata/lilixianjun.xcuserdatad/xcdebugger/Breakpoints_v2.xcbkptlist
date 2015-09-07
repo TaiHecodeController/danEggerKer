@@ -25,7 +25,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "-createView"
+            landmarkName = "-createTilteView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,22 +42,6 @@
             startingLineNumber = "135"
             endingLineNumber = "135"
             landmarkName = "-editClick:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Main/writeResume/ResumePreview/TH_ResumePreviewVC.m"
-            timestampString = "463126110.698132"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-loadData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

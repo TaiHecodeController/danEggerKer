@@ -87,7 +87,7 @@
     [self.scro addSubview:minVew];
     /*是否登录相关处理**/
     NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
-    if (![[user objectForKey:@"uid"] isEqualToString:@""]) {
+    if ([user objectForKey:@"uid"] ) {
         
         [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5
               initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
@@ -105,7 +105,7 @@
         self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"usejob"]];
         self.mineView.userLable.text =[user objectForKey:@"baseInformation"][@"description"];
     }
-    if ([[user objectForKey:@"uid"] isEqualToString:@""]) {
+    if (![user objectForKey:@"uid"]) {
         
         
         self.mineView.lginBtn.userInteractionEnabled = YES;
@@ -255,8 +255,8 @@
             self.navigationController.navigationBarHidden = YES;
             AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
             appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
-            [userDefault setObject:@"" forKey:@"login"];
-            [userDefault setObject:@"" forKey:@"uid"];
+            [userDefault removeObjectForKey:@"uid"];
+//            [userDefault setObject:@"" forKey:@"uid"];
             [userDefault synchronize];
             appDelegate.mainTabBar.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
