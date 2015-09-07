@@ -43,6 +43,7 @@
     tableView.layer.borderWidth = 0.5;
     tableView.separatorColor = [UIColor colorWithRed:221 / 255.0 green:221 / 255.0 blue:221 / 255.0 alpha:1];
     tableView.backgroundColor = UIColorFromRGB(0xF3F3F1);
+    tableView.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:tableView];
 }
 

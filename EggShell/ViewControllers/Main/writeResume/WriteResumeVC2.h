@@ -10,5 +10,5 @@
 
 @interface WriteResumeVC2 : UIViewController
 @property (strong,nonatomic)UILabel * resumeNameLab;
-
+@property (strong,nonatomic)NSDictionary * dataDic;
 @end

@@ -12,7 +12,8 @@
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
 #import "ResumeModel.h"
-@interface TH_ProfessionalSkillVC ()<UITableViewDelegate,UITableViewDataSource>
+#import "WriteJLChooseVC.h"
+@interface TH_ProfessionalSkillVC ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate>
 {
     WriteRusumeModel2 * _model;
     ResumeModel * _resume_model;
@@ -39,7 +40,7 @@
 -(void)setData
 {
     self.nameArray = @[@"技能名称",@"技能类别",@"熟练程度",@"掌握时间"];
-    self.holderArray = @[@"请填写培训中心",@"请填写技能类别",@"请选择熟练程度",@"请填写掌握时间"];
+    self.holderArray = @[@"请填技能名称",@"请填写技能类别",@"请选择熟练程度",@"请填写掌握时间"];
     self.imageArray  = @[@"",@"xiala-拷贝",@"xiala-拷贝",@""];
 }
 -(void)createScro
@@ -103,11 +104,11 @@
         
         if(i == 1)
         {
-            _model.skillType = cell.profisionTextField.text;
+            _model.skillType = cell.cellId;
         }
         if(i == 2)
         {
-            _model.skillDegree = cell.profisionTextField.text;
+            _model.skillDegree = cell.cellId;
         }
         if(i == 3)
         {
@@ -120,11 +121,9 @@
     
     [[WriteResumeRequest uploadProfessionalSkillWithSucc:^(NSDictionary *dataDic) {
         [MBProgressHUD creatembHub:@"保存成功"];
+        [self.navigationController popViewControllerAnimated:YES];
     } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"skill":_model.skillType,@"ing":_model.skillDegree,@"longtime":_model.skillTime}] addNotifaction:hub];
     
-    
-    
-
 }
 /*重置**/
 -(void)replaceBtnClick
@@ -154,6 +153,12 @@
     ProfessionalCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ProfessionalCell" owner:self options:nil] lastObject];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    if(indexPath.row == 1 || indexPath.row == 2)
+    {
+        cell.profisionTextField.enabled = NO;
+        
     }
     cell.profesionNameLable.text = self.nameArray[indexPath.row];
     cell.profisionTextField.placeholder= self.holderArray[indexPath.row];
@@ -161,6 +166,41 @@
     [self.jobCellArr addObject:cell];
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row == 1)
+    {
+        WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+        _writeJLChooseVC.delegete = self;
+        _writeJLChooseVC.titleText = @"技能类别";
+        _writeJLChooseVC.cellIndex = indexPath;
+        _writeJLChooseVC.tableViewTagIndex = 1555;
+        _writeJLChooseVC.DataArray = self.dataDic[@"skill"];
+        [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+    }
+    
+    if(indexPath.row == 2)
+    {
+        WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+        _writeJLChooseVC.delegete = self;
+        _writeJLChooseVC.titleText = @"熟练程度";
+        _writeJLChooseVC.cellIndex = indexPath;
+        _writeJLChooseVC.tableViewTagIndex = 1555;
+        _writeJLChooseVC.DataArray = self.dataDic[@"ing"];
+        [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+    }
+}
+
+- (void)chooseWord:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
+{
+    
+        ProfessionalCell *cell = self.jobCellArr[cellIndex.row];
+        cell.profisionTextField.text = keyWord;
+        cell.cellId = Id;
+    
+}
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {

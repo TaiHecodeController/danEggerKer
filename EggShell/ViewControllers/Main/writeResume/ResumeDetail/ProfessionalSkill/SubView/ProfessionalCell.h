@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *profisionTextField;
 @property (weak, nonatomic) IBOutlet UILabel *profesionNameLable;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImage;
+@property (strong,nonatomic)NSString * cellId;
+
 @end

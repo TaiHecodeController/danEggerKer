@@ -127,7 +127,7 @@
         
         if(i == 1)
         {
-            _model.edate = cell.placehoderTextfield.text;
+            _model.sdate = cell.placehoderTextfield.text;
         }
         if(i == 2)
         {
@@ -146,6 +146,7 @@
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
     [[WriteResumeRequest uploadCertificateWithSucc:^(NSDictionary *dataDic) {
         [MBProgressHUD creatembHub:@"保存成功"];
+        [self.navigationController popViewControllerAnimated:YES];
     } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
     
     
