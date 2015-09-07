@@ -19,7 +19,7 @@
     {
         return;
     }
-    self.selfEvaluation.text = dataDic[@""];
+    self.selfEvaluation.text = dataDic[@"content"];
     
 }
 @end

@@ -25,9 +25,9 @@
     {
         return;
     }
-    self.awardTime.text = dataDic[@""];
-    self.certificateName.text = dataDic[@""];
-    self.awardCompany.text = dataDic[@""];
-    self.certificateIntroduce.text = dataDic[@""];
+    self.awardTime.text = dataDic[@"sdate"];
+    self.certificateName.text = dataDic[@"name"];
+    self.awardCompany.text = dataDic[@"title"];
+    self.certificateIntroduce.text = dataDic[@"content"];
 }
 @end

@@ -26,9 +26,13 @@
     {
         return;
     }
-    self.projectTime.text = dataDic[@""];
+    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
+    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
+    NSString * startTime = [Utils changeTimeToString:sdate];
+    NSString * endTime = [Utils changeTimeToString:edate];
+    self.projectTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
     self.position.text = dataDic[@""];
-    self.proName.text = dataDic[@""];
+    self.proName.text = dataDic[@"name"];
     self.proIntroduce.text = dataDic[@""];
 }
 @end

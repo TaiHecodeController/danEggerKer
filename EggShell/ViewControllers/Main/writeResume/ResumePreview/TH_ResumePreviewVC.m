@@ -35,10 +35,12 @@
 }
 -(void)loadData
 {
-    [WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    
+    [[WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
         self.dataDic = DataDic[@"data"];
         [self createView];
-    } WithResumeParam:@{@"eid":self.resumeId} withfail:nil];
+    } WithResumeParam:@{@"eid":self.resumeId} withfail:nil] addNotifaction:hub];
  
 }
 -(void)createTilteView
@@ -63,7 +65,7 @@
 {/*基本信息**/
     Basicnformation * baseInformation =[Basicnformation setBaseView];
     baseInformation.frame = CGRectMake(0, 42, WIDETH, 158);
-    [baseInformation configVulue:self.dataDic];
+    [baseInformation configVulue:self.dataDic[@"info"]];
     [self.scro addSubview:baseInformation];
     /*求职意向**/
     intentView * intent = [intentView setIntentView];
@@ -115,6 +117,7 @@
     self.scro.contentSize   = CGSizeMake(WIDETH, 810+135+205+200+200+100);
     
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

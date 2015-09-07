@@ -16,7 +16,9 @@
 #import "ResumeModel.h"
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
-
+/**
+ *  本页面主要实现编辑简历，创建简历，并进行相关数据校验，整体采用UITableViewCell来对每一个子控件赋值（已完成适配）
+ */
 @interface WriteResumeViewController ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate,UITextFieldDelegate>
 {
     UITableView * jobTableView;
@@ -57,6 +59,7 @@
     self.jobCellArray2 = [NSMutableArray arrayWithCapacity:0];
     [self createData];
     [self createUI];
+    //加载静态数据
     [self loadData];
     //如果是编辑简历
     if(self.isEdit)
@@ -65,6 +68,7 @@
     }
     // Do any additional setup after loading the view.
 }
+
 //加载之前保存到服务器上的数据
 -(void)loadOriginalData
 {
@@ -398,6 +402,7 @@
         [[WriteResumeRequest uploadResumeMessageAboutUserMessageWithSucc:^(NSDictionary *DataDic) {
             if([DataDic[@"code"] intValue] == 0)
             {
+                [MBProgressHUD creatembHub:@"创建简历成功"];
                 WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
                 [self.navigationController pushViewController:wrvc2 animated:YES];
                 [AppDelegate instance].resumeId = DataDic[@"data"];
@@ -412,6 +417,7 @@
         [[WriteResumeRequest uploadResumeMessageAboutUserMessageWithSucc:^(NSDictionary *DataDic) {
             if([DataDic[@"code"] intValue] == 0)
             {
+                [MBProgressHUD creatembHub:@"编辑简历成功"];
                 WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
                 [self.navigationController pushViewController:wrvc2 animated:YES];
                 [AppDelegate instance].resumeId = DataDic[@"data"];

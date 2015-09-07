@@ -120,6 +120,7 @@
     
     [[WriteResumeRequest uploadProfessionalSkillWithSucc:^(NSDictionary *dataDic) {
         [MBProgressHUD creatembHub:@"保存成功"];
+        [self.navigationController popViewControllerAnimated:YES];
     } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"skill":_model.skillType,@"ing":_model.skillDegree,@"longtime":_model.skillTime}] addNotifaction:hub];
     
     

@@ -20,10 +20,19 @@
         return;
     }
     NSDictionary * dataDic = [dataArray firstObject];
-    self.trainTime.text = dataDic[@""];
-    self.trainDirection.text = dataDic[@""];
-    self.trainCompany.text = dataDic[@""];
-    self.trainIntroduce.text = dataDic[@""];
+    if(dataDic.count == 0)
+    {
+        return;
+    }
+    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
+    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
+    NSString * startTime = [Utils changeTimeToString:sdate];
+    NSString * endTime = [Utils changeTimeToString:edate];
+    self.trainTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+    
+    self.trainDirection.text = dataDic[@"title"];
+    self.trainCompany.text = dataDic[@"name"];
+    self.trainIntroduce.text = dataDic[@"content"];
 
 }
 @end
