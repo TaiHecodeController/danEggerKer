@@ -67,6 +67,8 @@
 -(void)config:(NSString *)str
 {
     self.detailLable.text = str;
+    
+    
 }
 
 @end

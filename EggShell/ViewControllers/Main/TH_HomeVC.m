@@ -77,7 +77,6 @@
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
         [MBProgressHUD creatembHub:@"当前处于无网络"];
         
-        
     }else if([MMNetWorkType getNetWorkType] ==WWAN)
     {
         [MBProgressHUD creatembHub:@"您当前处于3G状态"];

@@ -51,7 +51,6 @@
 
 -(void)dealloc
 {
-    
     [_header free];
     [_footer free];
 }
@@ -113,26 +112,67 @@
         [self setHeadImageArr:_teacherArr];
         
     } resp:[NSDictionary class] paramPage:page Pagesize:@"2"] addNotifaction:notify];
-    
 }
 
 - (void)setHeadImageArr:(NSMutableArray *)arr
 {
     for (UIImageView *iconView in self._gridView.headerView.subviews) {
         
+        
         if (iconView.tag == 1000)
         {
+            for (UILabel *nameLab in iconView.subviews)
+            {
+                if (nameLab.tag == 2000)
+                {
+                    
+                }
+                if (nameLab.tag == 3000)
+                {
+                    
+                }
+            }
+            
             [iconView sd_setImageWithURL:[NSURL URLWithString:arr[0][@"vimage"]] placeholderImage:nil];
         }
         else if (iconView.tag == 1001)
         {
+            
+            for (UILabel *nameLab in iconView.subviews)
+            {
+                if (nameLab.tag == 2001)
+                {
+                    
+                }
+                if (nameLab.tag == 3001)
+                {
+                    
+                }
+            }
             [iconView sd_setImageWithURL:[NSURL URLWithString:arr[1][@"vimage"]] placeholderImage:nil];
         }
         else if (iconView.tag == 1002)
         {
+            
+            for (UILabel *nameLab in iconView.subviews)
+            {
+                if (nameLab.tag == 2002)
+                {
+                    
+                }
+                if (nameLab.tag == 3002)
+                {
+                    
+                }
+            }
+            
             [iconView sd_setImageWithURL:[NSURL URLWithString:arr[2][@"vimage"]] placeholderImage:nil];
         }
     }
+    
+    
+    
+    
 }
 
 - (void)querTeacherFCVideo
@@ -221,6 +261,21 @@
             qsBtn.userInteractionEnabled = YES;
             [qsBtn sd_setImageWithURL:[NSURL URLWithString:_teacherArr[i][@"vimage"]] placeholderImage:nil];
             [headView addSubview:qsBtn];
+            
+            UILabel *nameLab = [[UILabel alloc]init];
+            nameLab.tag = 2000 + i;
+            nameLab.frame = CGRectMake(0, qsBtnH - 40, qsBtnW, 20);
+            nameLab.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
+            nameLab.textColor = [UIColor whiteColor];
+            [qsBtn addSubview:nameLab];
+            
+            UILabel *classLab = [[UILabel alloc]init];
+            classLab.tag = 3000 + i;
+            classLab.frame = CGRectMake(0, qsBtnH - 20, qsBtnW, 20);
+            classLab.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
+            classLab.textColor = [UIColor whiteColor];
+            [qsBtn addSubview:classLab];
+            
             _headViewMaxY = CGRectGetMaxY(qsBtn.frame);
         }
 

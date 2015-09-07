@@ -40,7 +40,7 @@
 
 -(void)loadData
 {
-    [WriteResumeRequest getResumeMessageListWithSucc:^(NSDictionary *DataDic) {
+    [WriteResumeRequest getSearchJobMessageListWithSucc:^(NSDictionary *DataDic) {
         self.categaryDic = DataDic[@"data"];
     }];
 }
@@ -262,35 +262,35 @@
     NSLog(@"%ld",(long)cellIndex.row);
     if (cellIndex.row == 0)
     {
-        [SearchModelShare sharedInstance].hy = keyWord;
+        [SearchModelShare sharedInstance].hy = Id;
     }
     else if (cellIndex.row == 1)
     {
-        [SearchModelShare sharedInstance].job_post = keyWord;
+        [SearchModelShare sharedInstance].job_post = Id;
     }
     else if (cellIndex.row == 2)
     {
-        [SearchModelShare sharedInstance].city = keyWord;
+        [SearchModelShare sharedInstance].cityid = Id;
     }
     else if (cellIndex.row == 3)
     {
-        [SearchModelShare sharedInstance].salary = keyWord;
+        [SearchModelShare sharedInstance].salary = Id;
     }
     else if (cellIndex.row == 4)
     {
-        [SearchModelShare sharedInstance].edu = keyWord;
+        [SearchModelShare sharedInstance].edu = Id;
     }
     else if (cellIndex.row == 5)
     {
-        [SearchModelShare sharedInstance].exp = keyWord;
+        [SearchModelShare sharedInstance].exp = Id;
     }
     else if (cellIndex.row == 6)
     {
-        [SearchModelShare sharedInstance].type = keyWord;
+        [SearchModelShare sharedInstance].type = Id;
     }
     else if (cellIndex.row == 7)
     {
-        [SearchModelShare sharedInstance].fbtime = keyWord;
+        [SearchModelShare sharedInstance].sdate = Id;
     }
     
 

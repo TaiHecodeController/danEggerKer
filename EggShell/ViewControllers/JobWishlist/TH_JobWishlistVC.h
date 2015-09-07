@@ -9,5 +9,7 @@
 #import "TH_BaseVC.h"
 
 @interface TH_JobWishlistVC : TH_BaseVC
+//跳转类型，0为投递职位跳转，1为收藏职位跳转
+@property (nonatomic, assign) int pushType;
 
 @end

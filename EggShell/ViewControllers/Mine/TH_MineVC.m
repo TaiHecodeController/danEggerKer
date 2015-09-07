@@ -48,6 +48,19 @@
 //    [self loadDataPortrait];
     
 }
+
+-(void)loadDataPortrait
+{
+        NSUserDefaults * uid =[NSUserDefaults standardUserDefaults];
+   NSString * uidStr = [uid objectForKey:@"uid"];
+    
+    
+     [LoginAndRegisterRequest getImagewithSucc:^(NSDictionary * dic) {
+         [self.mineView.headPotrait setButtonImageWithUrl:@""];
+         
+         
+    } withUid:@"6"];
+   }
 //-(void)loadDataPortrait
 //{
 //    NSUserDefaults * uid =[NSUserDefaults standardUserDefaults];
@@ -159,12 +172,14 @@
         {NSLog(@"投递职位");
             TH_JobWishlistVC * edit = [[TH_JobWishlistVC alloc] init];
             edit.title = @"投递职位";
+            edit.pushType = 0;
             [self.navigationController pushViewController:edit animated:YES];            break;
         }
         case THMineViewButtonTypeCollectionJobs:
         {NSLog(@"收藏职位");
             TH_JobWishlistVC * edit = [[TH_JobWishlistVC alloc] init];
             edit.title = @"收藏职位";
+            edit.pushType = 1;
             [self.navigationController pushViewController:edit animated:YES];
             break;
         }

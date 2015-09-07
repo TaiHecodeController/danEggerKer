@@ -22,7 +22,7 @@
 +(AFRequestState*)feedbackReRequestWithSucc:(void(^)(NSDictionary * DataDic))succ   withSource:(int)source withOpinion:(NSString*)opinion withqq:(NSString*)qq withEmail:(NSString*)email withfail:(void (^)(int errCode, NSError * err))fail;
 
 /*职位详情**/
-+(AFRequestState* )jobDetailsRequestWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode, NSError *err))fail withId:(int)id pid:(int)pid resp:(Class)resp;
++(AFRequestState* )jobDetailsRequestWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode, NSError *err))fail withId:(int)id pid:(int)pid page:(int)page resp:(Class)resp;
 
 /*收藏职位**/
 +(AFRequestState *)saveJobWithSucc:(void(^)(NSDictionary *DataArr))succ withFail:(void(^)(int errCode, NSError *err))fail withJob_id:(int)job_id resp:(Class)resp;
@@ -37,7 +37,7 @@
 +(AFRequestState *)SQJobWithSucc:(void(^)(NSString *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid job_id:(NSString *)job_id resp:(Class)resp;
 
 /*职位搜索**/
-+(AFRequestState *)searchJobWithSucc:(void(^)(NSArray *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withlongitude:(NSString *)longitude dimensionality:(NSString *)dimensionality keyword:(NSString *)keyword page:(NSString *)page hy:(NSString *)hy job_post:(NSString *)job_post salary:(NSString *)salary edu:(NSString *)edu exp:(NSString *)exp type:(NSString *)type resp:(Class)resp;
++(AFRequestState *)searchJobWithSucc:(void(^)(NSArray *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withlongitude:(NSString *)longitude dimensionality:(NSString *)dimensionality keyword:(NSString *)keyword page:(NSString *)page hy:(NSString *)hy job_post:(NSString *)job_post salary:(NSString *)salary edu:(NSString *)edu exp:(NSString *)exp type:(NSString *)type sdate:(NSString *)sdate job1:(NSString *)job1 cityid:(NSString *)cityid resp:(Class)resp;
 
 /*轮播图**/
 +(AFRequestState*)CarouselFigureRequestWithSucc:(void(^)(NSDictionary * arr))succ withfail:(void(^)(int errCode, NSError *err))fail;

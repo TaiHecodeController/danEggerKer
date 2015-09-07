@@ -150,8 +150,7 @@
      {
         
          [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
-         //请求的头部信息
-         NSLog(@"1111%@",operation.request.allHTTPHeaderFields);
+
 
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {
@@ -240,7 +239,6 @@
             succ(responseObject);
             return;
         }
-        
         
         id data = [Gson fromObj:[responseObject objectForKey:@"data"] Cls:resp];
         

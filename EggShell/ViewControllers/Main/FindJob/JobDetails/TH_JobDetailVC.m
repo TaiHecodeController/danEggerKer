@@ -43,6 +43,7 @@
 @property (nonatomic, strong)ComPanyProfileView *companyprofileView;
 @property (nonatomic, strong) NSMutableArray *listArr;
 @property (nonatomic, strong) JobDetailModel *model;
+@property (nonatomic, assign) int page;
 
 @end
 
@@ -58,11 +59,11 @@
     [self createDetailView];
     [self searchBtn];
     
+    self.page = 1;
     /*数据请求**/
     _mbPro = [MBProgressHUD mbHubShow];
-    [self loadData:_mbPro page:0];
+    [self loadData:_mbPro page:1];
     
-//  [self querData];
 }
 
 -(void)loadData:(id)notify page:(int)num
@@ -93,7 +94,7 @@
         
     } withfail:^(int errCode, NSError *err) {
         
-    } withId:_uid pid:_pid resp:[JobDetailModel class]] addNotifaction:notify];
+    } withId:_uid pid:_pid page:num resp:[JobDetailModel class]] addNotifaction:notify];
 }
 
 -(void)searchBtn
@@ -114,6 +115,34 @@
 -(void)searchBtnClick
 {
     NSLog(@"申请职位");
+    
+//    THLog(@"职位申请被点击");
+//    
+//    _mailingNumBer = 0;
+//    //遍历哪个职位被选中
+//    NSMutableString *job_idStr = [[NSMutableString alloc]init];
+//    for (findJobModel *model in self.jobArr)
+//    {
+//        if ([model.cellselected isEqualToString: @"1"])
+//        {
+//            _mailingNumBer++;
+//            [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.job_id]];
+//            
+//        }
+//        
+//    }
+//    NSLog(@"job_idStr%@",job_idStr);
+    
+    [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
+        
+
+        [MBProgressHUD creatembHub:@"申请成功"];
+        
+    } withfail:^(int errCode, NSError *err) {
+        
+        [MBProgressHUD creatembHub:@"申请失败"];
+        
+    } withUid:6 job_id:_model.cj_id resp:[NSObject class]];
 }
 
 -(void)createsheader
@@ -197,13 +226,13 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.headerView;
     
-//    _header = [MJRefreshHeaderView header];
-//    _header.delegate = self;
-//    _header.scrollView = self.tableView;
-//    
-//    _footer = [MJRefreshFooterView footer];
-//    _footer.delegate = self;
-//    _footer.scrollView = self.tableView;
+    _header = [MJRefreshHeaderView header];
+    _header.delegate = self;
+    _header.scrollView = self.tableView;
+    
+    _footer = [MJRefreshFooterView footer];
+    _footer.delegate = self;
+    _footer.scrollView = self.tableView;
 }
 
 
@@ -212,26 +241,12 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     if(refreshView == _header)
     {
         _page = 1;
-        [self loadData:_header Page:_page];
+        [self loadData:_mbPro page:_page];
     }else
     {
         _page ++;
-        [self loadData:_footer Page:_page];
+        [self loadData:refreshView page:_page];
     }
-}
-
--(void)loadData:(id)notify Page:(int)page
-{
-//    if(_state.running)
-//    {
-//        return;
-//    }else
-//    {
-//        [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
-//            
-//        } resp:[playFanModel class] withPage:[NSString stringWithFormat:@"%d",page]] addNotifaction:notify];
-//    }
-    
 }
 
 -(void)dealloc
@@ -266,7 +281,7 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     list_item *liModel = self.listArr[indexPath.row];
-    cell.positionName.text = liModel.com_name;
+    cell.positionName.text = liModel.name;
     cell.time.text = liModel.lastupdate;
     cell.companyName.text = liModel.com_name;
     cell.addres.text = liModel.provinceid;
@@ -286,8 +301,13 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    list_item *liModel = self.listArr[indexPath.row];
+    _pid = [liModel.id intValue];
    
-    [self.navigationController pushViewController:[[TH_JobDetailVC alloc] init] animated:YES];
+    /*数据请求**/
+    _mbPro = [MBProgressHUD mbHubShow];
+    [self loadData:_mbPro page:0];
+    
 }
 
 -(void)setStatus
@@ -296,8 +316,16 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     [rightCollectBtn setImage:[UIImage imageNamed:@"shoucang"] forState:UIControlStateNormal];
     [rightCollectBtn setImage:[UIImage imageNamed:@"shoucang2"] forState:UIControlStateSelected];
     [rightCollectBtn addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightCollectBtn];
-
+    
+    if (_saveBOOL == 0)
+    {
+        //从收藏职位列表跳到详情，详情页不加收藏按钮
+    }
+    else
+    {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightCollectBtn];
+    }
+    
 }
 
 #pragma set方法
@@ -305,8 +333,8 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
 {
     _jobDescription.postionName.text = model.cj_name;
     _jobDescription.companyName.text = model.com_name;
-    _jobDescription.publicTime.text = model.lastupdate;
-    _jobDescription.availTime.text = model.lastupdate;
+    _jobDescription.publicTime.text = model.sdate;
+    _jobDescription.availTime.text = model.edate;
     _jobDescription.exprienceTime.text = model.exp;
     _jobDescription.RecruitmentNum.text = model.hy;
     
@@ -333,21 +361,19 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     NSString *comHtmlString = [CommonFunc textFromBase64String:model.content];
     NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[comHtmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     _companyprofileView.detailLable.attributedText = comAttributedString;
-   
-    }
+}
 
 #pragma mark- - 收藏
 -(void)rightBtnClick:(UIButton *)sender
 {
     sender.selected = !sender.selected;
-    
-//      NSLog(@"%@",_model.cj_id);
-
+   
     if (sender.selected== YES) {
    self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
        
-       NSLog(@"收藏职位成功",DataArr);
-        
+       NSLog(@"%@",DataArr);
+       [MBProgressHUD creatembHub:@"收藏成功"];
+       
     } withFail:^(int errCode, NSError *err) {
         
          NSLog(@"%@",err);
@@ -355,10 +381,10 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
 }else if(sender.selected == NO)
 {
-
     self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
         
-        NSLog(@"取消收藏职位成功");
+        NSLog(@"%@",DataArr);
+        [MBProgressHUD creatembHub:@"取消收藏"];
         
     } withFail:^(int errCode, NSError *err) {
         
@@ -366,37 +392,6 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
         
     } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
 }
-    
-
-    
-    
-    if (sender.selected == YES)
-    {
-        self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
-            
-            NSLog(@"收藏职位成功",DataArr);
-            
-        } withFail:^(int errCode, NSError *err) {
-            
-            NSLog(@"%@",err);
-            
-        } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
-
-    }
-    else
-    {
-        self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
-            
-            NSLog(@"取消职位成功",DataArr);
-            
-        } withFail:^(int errCode, NSError *err) {
-            
-            NSLog(@"%@",err);
-            
-        } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
-
-    }
-
     
 }
 - (void)didReceiveMemoryWarning {

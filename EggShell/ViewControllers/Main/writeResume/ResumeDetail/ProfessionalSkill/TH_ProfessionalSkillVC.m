@@ -160,10 +160,12 @@
         cell.profisionTextField.enabled = NO;
         
     }
+    
     cell.profesionNameLable.text = self.nameArray[indexPath.row];
     cell.profisionTextField.placeholder= self.holderArray[indexPath.row];
     cell.logoImage.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
     [self.jobCellArr addObject:cell];
+    
     return cell;
 }
 
@@ -210,7 +212,6 @@
         [cell.profisionTextField resignFirstResponder];
     }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

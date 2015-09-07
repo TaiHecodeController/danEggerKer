@@ -31,9 +31,11 @@
 //
 @property (nonatomic, copy) NSString *type;
 //
-@property (nonatomic, copy) NSString *city;
+@property (nonatomic, copy) NSString *sdate;
 //
-@property (nonatomic, copy) NSString *fbtime;
+@property (nonatomic, copy) NSString *job1;
+//
+@property (nonatomic, copy) NSString *cityid;
 
 + (SearchModelShare *)sharedInstance;
 
