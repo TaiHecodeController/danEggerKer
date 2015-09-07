@@ -264,7 +264,7 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     list_item *liModel = self.listArr[indexPath.row];
-    cell.positionName.text = liModel.com_name;
+    cell.positionName.text = liModel.name;
     cell.time.text = liModel.lastupdate;
     cell.companyName.text = liModel.com_name;
     cell.addres.text = liModel.provinceid;
@@ -284,8 +284,13 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    list_item *liModel = self.listArr[indexPath.row];
+    _pid = [liModel.id intValue];
    
-    [self.navigationController pushViewController:[[TH_JobDetailVC alloc] init] animated:YES];
+    /*数据请求**/
+    _mbPro = [MBProgressHUD mbHubShow];
+    [self loadData:_mbPro page:0];
+    
 }
 
 -(void)setStatus
@@ -330,11 +335,7 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     
     [_companyprofileView config:[CommonFunc textFromBase64String:model.content]];
     
-//    UIWebView *textView = [[UIWebView alloc]init];
-//    textView.frame = CGRectMake(0, 0, WIDETH, 300);
-//    [textView loadHTMLString:[CommonFunc textFromBase64String:model.content] baseURL:nil];
-//    [self.view addSubview:textView];
-    }
+}
 
 #pragma mark- - 收藏
 -(void)rightBtnClick:(UIButton *)sender

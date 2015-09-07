@@ -147,9 +147,6 @@
          
     [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
 
-
-        
-
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {
          NSNumber * errcode = [NSNumber numberWithInteger:error.code];
