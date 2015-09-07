@@ -113,7 +113,7 @@
     NSNumber * typeNum =[NSNumber numberWithInt:type];
     NSDictionary * param = @{@"page":pageNum,@"limit":limitNum,@"type":typeNum};
 
-    return [self postRequestWithUrl:@"http://195.198.1.83/eggker/interface/Infos/index" param:param succ:succ resp:resp];
+    return [self postRequestWithUrl:@"http://195.198.1.84/eggker/interface/Infos/index" param:param succ:succ resp:resp];
 }
 /*名企推荐**/
 +(AFRequestState*)PrivateRecommendationWithSucc:(void(^)(NSDictionary * arr))succ

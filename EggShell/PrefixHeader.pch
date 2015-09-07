@@ -38,6 +38,8 @@
 #import "AFAppRequest.h"
 #import "CommonFunc.h"
 #import "UIButton+Extension.h"
+#import "Gson.h"
+#define base_Url @"http://195.198.1.120/eggker"
 #define WIDETH  [UIScreen mainScreen].bounds.size.width
 #define HEIGHT   [UIScreen mainScreen].bounds.size.height
 //iOS7版本的适配

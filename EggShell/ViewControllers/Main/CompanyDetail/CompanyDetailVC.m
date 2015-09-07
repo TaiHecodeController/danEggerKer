@@ -15,7 +15,6 @@
 #import "AFAppRequest.h"
 @interface CompanyDetailVC ()<UITableViewDelegate,UITableViewDataSource,MJRefreshBaseViewDelegate>
 {
-    UIScrollView * backScroll;
     UITableView * _tableView;
     CGRect record_Message;
     CGRect record_SelfView;
@@ -35,40 +34,50 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.listArray = [NSMutableArray arrayWithCapacity:0];
     self.view.backgroundColor =[UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-     self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.translucent = NO;
     [self createHeaderView];
     [self createUI];
-//    [_header beginRefreshing];
+    //    [_header beginRefreshing];
     /*数据请求**/
     _mbPro = [MBProgressHUD mbHubShow];
-    [self loadData:_mbPro Page:0];
+    [self loadData:_mbPro Page:1];
 }
 -(void)loadData:(id)notify Page:(int)page
 {
-        if(_state.running)
-        {
-            return;
-        }else
-        {
-            NSString * uid = [NSString stringWithFormat:@"%d",128];
-        NSDictionary * dic = @{@"uid":uid,@"mid":self.businessMid};
-        self.listArray = [NSMutableArray arrayWithCapacity:0];
+    if(_state.running)
+    {
+        return;
+    }
+    
+    NSNumber * pageNum = [NSNumber numberWithInt:page];
+    NSString * uid = [NSString stringWithFormat:@"%d",128];
+    
+    if (!self.businessMid) {
+        self.businessMid = @"";
+    }
+    if (!self.businessMid) {
+        self.businessMid = @"";
+    }
+    NSDictionary * dic = @{@"uid":uid,@"mid":self.businessMid,@"page":pageNum};
     
     _state = [[TH_AFRequestState famousEnterprisesDetailWithSucc:^(NSDictionary *arr) {
         
         [self.CMview configValue:arr[@"data"][@"details"]];
-        [self.listArray addObjectsFromArray:arr[@"data"][@"list"]];
+        if ([arr[@"data"][@"list"] count] >0) {
+            [self.listArray addObjectsFromArray:arr[@"data"][@"list"]];
+        }
         [self.logoView sd_setImageWithURL:[NSURL URLWithString:arr[@"data"][@"details"][@"logo"]] placeholderImage:[UIImage imageNamed:@"02"]];
         [_tableView reloadData];
     } withd:dic] addNotifaction:notify];
-    }
+    
 }
 
 -(void)createHeaderView
 {
-
+    
     self.comPanyView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 348)];
     self.comPanyView.backgroundColor = [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:241 / 255.0 alpha:1];
     UIView * logoBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 140)];
@@ -100,14 +109,14 @@
                 self.CMview.companyMessage.frame = CGRectMake(self.CMview.companyMessage.origin.x, self.CMview.companyMessage.origin.y + 8, self.CMview.companyMessage.frame.size.width, self.CMview.textSize.height);
                 self.CMview.companyMessage.numberOfLines = 0;
                 _tableView.tableHeaderView = self.comPanyView;
-//                for(int i = 0;i < 5;i++)
-//                {
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        [_tableView beginUpdates];
-//                        [_tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-//                        [_tableView endUpdates];
-//                    });
-//                }
+                //                for(int i = 0;i < 5;i++)
+                //                {
+                //                    dispatch_async(dispatch_get_main_queue(), ^{
+                //                        [_tableView beginUpdates];
+                //                        [_tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                //                        [_tableView endUpdates];
+                //                    });
+                //                }
             }];
             
             
@@ -128,9 +137,9 @@
     self.CMview.backgroundColor = [UIColor whiteColor];
     [self.comPanyView addSubview:self.CMview];
     
-//    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 338, WIDETH, 10)];
-//    view.backgroundColor = [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:241 / 255.0 alpha:1];
-//    [self.comPanyView addSubview:view];
+    //    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 338, WIDETH, 10)];
+    //    view.backgroundColor = [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:241 / 255.0 alpha:1];
+    //    [self.comPanyView addSubview:view];
 }
 -(void)createUI
 {
@@ -157,18 +166,15 @@
 {
     if(refreshView == _header)
     {
-        _page = 1;
+        _page = 0;
         self.listArray = [NSMutableArray arrayWithCapacity:0];
         [self loadData:_header Page:_page];
     }else
     {
         _page ++;
-        self.listArray = [NSMutableArray arrayWithCapacity:0];
         [self loadData:_footer Page:_page];
     }
 }
-
-
 -(void)dealloc
 {
     [_header free];
@@ -178,7 +184,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return self.listArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -194,16 +200,18 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"moreJobTableViewCell" owner:self options:nil] firstObject];
         
     }
-    if(self.listArray.count > 0)
-    {
-            cell.positionName.text = self.listArray[indexPath.row][@"edu"];
-            cell.time.text = self.listArray[indexPath.row][@"sdate"];
-            cell.companyName.text = self.listArray[indexPath.row][@"name"];
-            cell.addres.text = self.listArray[indexPath.row][@"salary"];
-            cell.knowdelge.text = self.listArray[indexPath.row][@"provinceid"];
-            cell.salary.text = self.listArray[indexPath.row][@"salary"];
+    
+    if (self.listArray.count > 0) {
+        
+        
+        cell.positionName.text = self.listArray[indexPath.row][@"name"];
+        cell.time.text = self.listArray[indexPath.row][@"sdate"];
+        cell.companyName.text = self.listArray[indexPath.row][@"provinceid"];
+        cell.addres.text = self.listArray[indexPath.row][@"provinceid"];
+        cell.knowdelge.text = self.listArray[indexPath.row][@"edu"];
+        cell.salary.text = self.listArray[indexPath.row][@"salary"];
+        
     }
-
     return cell;
 }
 
@@ -213,13 +221,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

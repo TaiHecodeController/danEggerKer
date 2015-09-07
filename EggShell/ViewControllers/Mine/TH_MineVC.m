@@ -25,6 +25,7 @@
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)MineVeiw * mineView;
 @property (nonatomic,strong)AFRequestState * state;
+@property(nonatomic,copy)NSString * uidStr;
 @end
 
 @implementation TH_MineVC
@@ -33,36 +34,36 @@
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
+  
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor =[UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
-    
     self.view.backgroundColor = color(243, 243, 241);
     self.title = @"我的";
     [self createScro];
-    
-    
-    
     [self createView];
+//    [self loadDataPortrait];
     
-   [self loadDataPortrait];
-   
 }
--(void)loadDataPortrait
-{
-        NSUserDefaults * uid =[NSUserDefaults standardUserDefaults];
-   NSString * uidStr = [uid objectForKey:@"uid"];
-    
-    
-     [LoginAndRegisterRequest getImagewithSucc:^(NSDictionary * dic) {
-         [self.mineView.headPotrait setButtonImageWithUrl:@""];
-         
-         
-    } withUid:uidStr];
-   }
+//-(void)loadDataPortrait
+//{
+//    NSUserDefaults * uid =[NSUserDefaults standardUserDefaults];
+//    NSString * uidStr = [uid objectForKey:@"uid"];
+//    if ([uidStr length]==0) {
+//        self.uidStr = @"";
+//    }else
+//    {
+//        self.uidStr = uidStr;
+//    }
+//    [LoginAndRegisterRequest getImagewithSucc:^(NSDictionary * dic) {
+//        [self.mineView.headPotrait setButtonImageWithUrl:@""];
+//        
+//        
+//    } withUid:self.uidStr];
+//}
 -(void)createScro
 {
     UIScrollView * sro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-49)];
@@ -85,8 +86,8 @@
     self.mineView = minVew;
     [self.scro addSubview:minVew];
     /*是否登录相关处理**/
-    NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
-    if (![[userDefault objectForKey:@"login"] isEqualToString:@""]) {
+    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+    if (![[user objectForKey:@"uid"] isEqualToString:@""]) {
         
         [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5
               initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
@@ -95,16 +96,25 @@
         self.scro.contentSize = CGSizeMake(WIDETH,450+60);
         self.mineView.lginBtn.userInteractionEnabled = NO;
         self.mineView.lginBtn.titleEdgeInsets = UIEdgeInsetsMake(-10, -1, 0, 0);
-        [self.mineView.lginBtn setTitle:[userDefault objectForKey:@"login"] forState:UIControlStateNormal];
+        [self.mineView.lginBtn setTitle:[user objectForKey:@"loginPhone"] forState:UIControlStateNormal];
         
-        self.mineView.userLable.text = @"学习是一种信仰";
+        [self.mineView.headPotrait setButtonImageWithUrl:[user objectForKey:@"baseInformation"][@"resume_photo"]];
+        self.mineView.DeliveryJobNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"expect"]];
+        self.mineView.FavoriteJobNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"favjob"]];
+        
+        self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"usejob"]];
+        self.mineView.userLable.text =[user objectForKey:@"baseInformation"][@"description"];
     }
-    if ([[userDefault objectForKey:@"login"] isEqualToString:@""]) {
+    if ([[user objectForKey:@"uid"] isEqualToString:@""]) {
         
         
         self.mineView.lginBtn.userInteractionEnabled = YES;
         [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
         self.mineView.userLable.text = @"";
+        self.mineView.DeliveryJobNum.text = @"";
+        self.mineView.FavoriteJobNum.text = @"";
+        
+        self.mineView.ResumeNum.text = @"";
         [minVew.loginBgview removeFromSuperview];
         
     }
@@ -122,7 +132,7 @@
 {
     switch (button) {
         case THMineViewButtonTypeHeadPortraitBtn:
-        {NSLog(@"编辑头像");
+        {    NSLog(@"编辑头像");
             UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选择", nil];
             [actionSheet showInView:self.tableView];
             break;
@@ -246,6 +256,7 @@
             AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
             appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
             [userDefault setObject:@"" forKey:@"login"];
+            [userDefault setObject:@"" forKey:@"uid"];
             [userDefault synchronize];
             appDelegate.mainTabBar.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
@@ -315,13 +326,19 @@
 {
     NSUserDefaults * uid =[NSUserDefaults standardUserDefaults];
     NSString * uidStr = [uid objectForKey:@"uid"];
+    if ([uidStr length]==0) {
+        self.uidStr = @"";
+    }else
+    {
+        self.uidStr = [uid objectForKey:@"uid"];
+    }
     [self.mineView setIconImage:editedImage];
-   
+    
     [LoginAndRegisterRequest uploadImage:^(NSDictionary * dic) {
         
         [MBProgressHUD creatembHub:@"上传图片成功"];
-
-    } :editedImage withUid:uidStr];
+        
+    } :editedImage withUid:self.uidStr];
     
     [cropperViewController dismissViewControllerAnimated:YES completion:^{
         

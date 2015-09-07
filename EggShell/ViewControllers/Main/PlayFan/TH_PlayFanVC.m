@@ -195,7 +195,6 @@
         [self loadData:refreshView page:_page pageTye:1];
     }
     else{
-//         self.dataArray = [NSMutableArray arrayWithCapacity:0];
         self.page++;
         
         THLog(@"上拉加载更多");

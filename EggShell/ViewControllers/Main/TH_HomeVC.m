@@ -33,6 +33,8 @@
 #import "TH_LoginVC.h"
 /*数据请求**/
 #import "AFAppRequest.h"
+#import "SearchModelShare.h"
+#import "homedel.h"
 
 @interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate>
 {
@@ -157,6 +159,7 @@
     [self.tabBarController.view addSubview:_searchView];
     _searchView.searchTextField.enabled = NO;
     [_searchView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
+    
     _searchView.searchClick = ^
     {
         self.navigationController.navigationBarHidden = NO;
@@ -233,41 +236,43 @@
 }
 
 -(void)homeViewFindJob:(HomeView *)homeView withTag:(NSInteger)setTag
-{
-    
+{    self.navigationController.navigationBarHidden = NO;
+    CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
+    if (!self.enterArray.count>0) {
+    [self.navigationController pushViewController:detail animated:YES];
+        return;
+  }
     self.navigationController.navigationBarHidden = NO;
     if (setTag ==100) {
-        CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-        detail.businessUid = [NSString stringWithFormat:@"%@",self.enterArray[0][@"uid"]];
-        detail.businessMid =[NSString stringWithFormat:@"%@",self.enterArray[0][@"mid"]];
+        homedel * data =(homedel *)[ Gson fromObj:self.enterArray[0] Cls:[homedel class]];
+        detail.businessUid = data.uid;
+        detail.businessMid = data.mid;
         [self.navigationController pushViewController:detail animated:YES];
-        
     }
     else if (setTag == 101)
     {
         CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-        detail.businessUid = [NSString stringWithFormat:@"%@",self.enterArray[1][@"uid"]];
-        detail.businessMid =[NSString stringWithFormat:@"%@",self.enterArray[1][@"mid"]];
-        
+         homedel * data =(homedel *)[ Gson fromObj:self.enterArray[1] Cls:[homedel class]];
+        detail.businessUid = data.uid;
+        detail.businessMid = data.mid;
         [self.navigationController pushViewController:detail animated:YES];
         
     }else if (setTag == 102)
     {
         
         CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-        detail.businessUid = [NSString stringWithFormat:@"%@",self.enterArray[2][@"uid"]];
-        detail.businessMid =[NSString stringWithFormat:@"%@",self.enterArray[2][@"mid"]];
-        
-        
+         homedel * data =(homedel *)[ Gson fromObj:self.enterArray[2] Cls:[homedel class]];
+        detail.businessUid = data.uid;
+        detail.businessMid = data.mid;
         [self.navigationController pushViewController:detail animated:YES];
     }
     else if (setTag == 103)
     {
         
         CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-        detail.businessUid = [NSString stringWithFormat:@"%@",self.enterArray[3][@"uid"]];
-        detail.businessMid =[NSString stringWithFormat:@"%@",self.enterArray[3][@"mid"]];
-        
+         homedel * data =(homedel *)[ Gson fromObj:self.enterArray[3] Cls:[homedel class]];
+        detail.businessUid =data.uid;
+        detail.businessMid = data.mid;
         [self.navigationController pushViewController:detail animated:YES];
         
     }
@@ -275,9 +280,9 @@
     {
         
         CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-        detail.businessUid = [NSString stringWithFormat:@"%@",self.enterArray[4][@"uid"]];
-        detail.businessMid =[NSString stringWithFormat:@"%@",self.enterArray[4][@"mid"]];
-        
+         homedel * data =(homedel *)[ Gson fromObj:self.enterArray[4] Cls:[homedel class]];
+        detail.businessUid = data.uid;
+        detail.businessMid = data.mid;
         [self.navigationController pushViewController:detail animated:YES];
         
     }
@@ -285,9 +290,10 @@
     {
         
         CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-        detail.businessUid = [NSString stringWithFormat:@"%@",self.enterArray[5][@"uid"]];
-        detail.businessMid =[NSString stringWithFormat:@"%@",self.enterArray[5][@"mid"]];
-        
+         homedel * data =(homedel *)[ Gson fromObj:self.enterArray[0] Cls:[homedel class]];
+        detail.businessUid =data.uid;
+        detail.businessMid =data.mid;
+               
         [self.navigationController pushViewController:detail animated:YES];
     }
     
@@ -300,7 +306,9 @@
         {
             NSLog(@"1..1");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"互联网";
+            [SearchModelShare sharedInstance].hy = @"35";
+//            home.jobId  = [NSString stringWithFormat:@"%d",35];
             [self.navigationController pushViewController:home animated:YES];
             break;
         }
@@ -308,7 +316,8 @@
         {
             NSLog(@"1..2");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"网站策划";
+            [SearchModelShare sharedInstance].job_post = @"131";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -317,7 +326,8 @@
         case THHomeViewButtonTypeWebsiteEditor:
         {NSLog(@"1..3");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"网站编辑";
+            [SearchModelShare sharedInstance].job_post = @"132";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -326,7 +336,8 @@
         case THHomeViewButtonTypeOperationsCommissioner:
         {NSLog(@"1..4");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"运营专员";
+            [SearchModelShare sharedInstance].job_post = @"125";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -335,7 +346,8 @@
         case THHomeViewButtonTypeSEO:
         {NSLog(@"1..5");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"SEM专员";
+            [SearchModelShare sharedInstance].job_post = @"141";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -344,7 +356,8 @@
         case THHomeViewButtonTypeUIDesigner:
         {NSLog(@"1..6");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"UI设计师";
+            [SearchModelShare sharedInstance].job_post = @"127";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -353,7 +366,8 @@
         case THHomeViewButtonTypenice:
         {NSLog(@"1..7");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"美工";
+            [SearchModelShare sharedInstance].job_post = @"133";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -372,7 +386,8 @@
         case THHomeViewButtonTypeFinancial:
         {NSLog(@"2..1");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"金融银行";
+            [SearchModelShare sharedInstance].hy = @"37";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -380,7 +395,8 @@
         case THHomeViewButtonTypeBank:
         {NSLog(@"2..2");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"银行柜员";
+            [SearchModelShare sharedInstance].job_post = @"296";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -389,7 +405,8 @@
         case THHomeViewButtonTypeObligation:
         {NSLog(@"2..3");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"业务专员";
+            [SearchModelShare sharedInstance].job_post = @"285";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -398,7 +415,8 @@
         case THHomeViewButtonTypeClear:
         {NSLog(@"2..4");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"清算员";
+            [SearchModelShare sharedInstance].job_post = @"292";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -407,7 +425,8 @@
         case THHomeViewButtonTypeTrader:
         {NSLog(@"2..5");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"资金专员";
+            [SearchModelShare sharedInstance].job_post = @"261";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -416,7 +435,8 @@
         case THHomeViewButtonTypeAccounting:
         {NSLog(@"2..6");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"会计";
+            [SearchModelShare sharedInstance].job_post = @"251";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -425,7 +445,8 @@
         case THHomeViewButtonTyCashier:
         {NSLog(@"2..7");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"出纳员";
+            [SearchModelShare sharedInstance].job_post = @"252";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -445,7 +466,8 @@
         case THHomeViewButtonTypeAdvertising:
         {NSLog(@"3..1");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"广告银行";
+            [SearchModelShare sharedInstance].hy = @"40";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -453,7 +475,8 @@
         case THHomeViewButtonTypeClient:
         {NSLog(@"3..2");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"文案策划";
+            [SearchModelShare sharedInstance].job_post = @"509";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -462,7 +485,8 @@
         case THHomeViewButtonTypeCreative:
         {NSLog(@"3..3");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"企业策划";
+            [SearchModelShare sharedInstance].job_post = @"511";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -478,7 +502,8 @@
         case THHomeViewButtonTypeBusiness:
         {NSLog(@"3..\4");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"活动策划";
+            [SearchModelShare sharedInstance].job_post = @"524";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -487,7 +512,8 @@
         case THHomeViewButtonTypePlan:
         {NSLog(@"3..5");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"客户专员";
+            [SearchModelShare sharedInstance].job_post = @"504";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -496,7 +522,8 @@
         case THHomeViewButtonTypeEstate:
         {NSLog(@"3..6");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"创业专员";
+            [SearchModelShare sharedInstance].job_post = @"507";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -505,7 +532,8 @@
         case THHomeViewButtonTyMap:
         {NSLog(@"3..7");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"媒介专员";
+            [SearchModelShare sharedInstance].job_post = @"521";
             [self.navigationController pushViewController:home animated:YES];
             break;
         }

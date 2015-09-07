@@ -8,7 +8,6 @@
 
 #import "LoginAndRegisterRequest.h"
 #import "MyMD5.h"
-#define base_Url @"http://195.198.1.120/eggker"
 @implementation LoginAndRegisterRequest
 +(AFRequestState *)loginWithSucc:(void(^)(NSDictionary * DataDic))succ WithUserName:(NSString *)userName WithPassword:(NSString *)password
 {
@@ -39,11 +38,11 @@
 }
 
 //登录
-+(AFRequestState *)loginRequestWithusername:(NSString * )username WithPassword:(NSString *)password withSucc:(void(^)(NSDictionary*))succ fail:(void (^)(int errCode, NSError * err))fail
++(AFRequestState *)loginRequestWithusername:(NSString * )username WithPassword:(NSString *)password withSucc:(void(^)(NSDictionary*))succ
 {
     NSDictionary * param = @{@"username":username,@"password":password};
 
-    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/login" param:param succ:succ fail:fail];
+    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/login" param:param succ:succ ];
     
 
 }
@@ -82,8 +81,7 @@ NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
 /*获取头像**/
 +(AFRequestState *)getImagewithSucc:(void (^)(NSDictionary * ))succ withUid:(NSString*)uid
 {
-    
-    NSDictionary * param = @{@"uid":uid} ;
+        NSDictionary * param = @{@"uid":uid} ;
     
     return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/basicdata/gethead"param:param succ:succ];
 
@@ -99,7 +97,7 @@ NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
 {
     NSDictionary * param = @{@"uid":uid};
     
-    
+//    @"http://195.198.1.120/eggker/interface/basicdata
     return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/basicdata" param:param succ:succ];
 }
 @end
