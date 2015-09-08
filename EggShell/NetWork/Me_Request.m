@@ -13,7 +13,6 @@
 /*投递职位列表**/
 +(AFRequestState *)TDjobListWithSucc:(void(^)(NSArray *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid page:(int)page limit:(int)limit resp:(Class)resp
 {
-
     NSNumber *nsuid = [NSNumber numberWithInt:uid];
     NSNumber *nspage = [NSNumber numberWithInt:page];
     NSNumber *nslimit = [NSNumber numberWithInt:limit];

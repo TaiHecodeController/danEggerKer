@@ -32,7 +32,7 @@
 
 +(AFRequestState *)uploadResumeMessageAboutUserMessageWithSucc:(void(^)(NSDictionary * DataDic))succ WithResumeParam:(NSDictionary *)param
 {
-    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Except/except" param:param succ:succ];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/except",base_Url] param:param succ:succ];
 }
 
 

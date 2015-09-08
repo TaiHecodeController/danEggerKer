@@ -116,7 +116,8 @@
         self.mineView.FavoriteJobNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"favjob"]];
         
         self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"usejob"]];
-        self.mineView.userLable.text =[user objectForKey:@"baseInformation"][@"description"];
+//        self.mineView.userLable.text =[user objectForKey:@"baseInformation"][@"description"];
+        self.mineView.userLable.text = @"学习是一种信仰";
     }
     if (![user objectForKey:@"uid"]) {
         
@@ -151,9 +152,9 @@
             break;
         }
         case THMineViewButtonTypeEditInformationBtn:
-        {NSLog(@"编辑资料");
+        {   NSLog(@"编辑资料");
             NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
-            if ([[userDefault objectForKey:@"login"] isEqualToString:@""])
+            if (![userDefault objectForKey:@"uid"])
             {
                 UIAlertView * alertView =[[UIAlertView alloc] initWithTitle:@"提示" message:@"必须登录才能编辑" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
                 alertView.delegate = self;
