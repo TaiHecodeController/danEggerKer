@@ -13,6 +13,8 @@
 #import "TH_AFRequestState.h"
 #import "playFanModel.h"
 #import "AFAppRequest.h"
+#import "TH_JobDetailVC.h"
+#import "findJobModel.h"
 @interface CompanyDetailVC ()<UITableViewDelegate,UITableViewDataSource,MJRefreshBaseViewDelegate>
 {
     UITableView * _tableView;
@@ -40,11 +42,23 @@
     self.navigationController.navigationBar.translucent = NO;
     [self createHeaderView];
     [self createUI];
+    
+//    /***/
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(compayBackToResume) name:@"company" object:nil];
+//
+
     //    [_header beginRefreshing];
     /*数据请求**/
     _mbPro = [MBProgressHUD mbHubShow];
     [self loadData:_mbPro Page:1];
 }
+-(void)compayBackToResume
+{
+    [self.navigationController popViewControllerAnimated:NO];
+    CompanyDetailVC * write = [[CompanyDetailVC alloc] init];
+    [self.navigationController popToViewController:write animated:YES];
+}
+
 -(void)loadData:(id)notify Page:(int)page
 {
     if(_state.running)
@@ -78,7 +92,7 @@
 -(void)createHeaderView
 {
     
-    self.comPanyView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 348)];
+    self.comPanyView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 355)];
     self.comPanyView.backgroundColor = [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:241 / 255.0 alpha:1];
     UIView * logoBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 140)];
     logoBackView.backgroundColor = [UIColor whiteColor];
@@ -92,7 +106,7 @@
     
     self.title = @"名企详情";
     
-    self.CMview = [[CompanyMessageView alloc] initWithFrame:CGRectMake(0, 80,WIDETH , 258)];
+    self.CMview = [[CompanyMessageView alloc] initWithFrame:CGRectMake(0, 80,WIDETH , 265)];
     self.CMview.showAllClick = ^(UIButton * sender)
     {
         if(!sender.selected)
@@ -191,7 +205,17 @@
 {
     return 75;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUserDefaults * userId = [NSUserDefaults standardUserDefaults];
+     [userId objectForKey:@"uid"];
+     TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
+    
+    detail.uid = [self.listArray[indexPath.row][@"id"]intValue];
+    detail.pid = [self.listArray[indexPath.row][@"uid"]intValue];
+    
+    [self.navigationController pushViewController:detail animated:YES];
+}
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     moreJobTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ID"];

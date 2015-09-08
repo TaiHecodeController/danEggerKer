@@ -154,7 +154,7 @@
         
         [self.navigationController pushViewController:detail animated:YES];
         
-        
+
     }else if (_currentIndex==1)
     {
         TH_InformationDeskDetailVC * detail = [[TH_InformationDeskDetailVC alloc] init];

@@ -64,7 +64,7 @@
     companyIntroduce.font = [UIFont systemFontOfSize:14];
     [self addSubview:companyIntroduce];
     
-    self.companyMessage = [[UILabel alloc] initWithFrame:CGRectMake(15, 132, WIDETH - 30, 80)];
+    self.companyMessage = [[UILabel alloc] initWithFrame:CGRectMake(15, 140, WIDETH - 30, 80)];
     self.companyMessage.numberOfLines = 5;
     self.companyMessage.text = @"根据项目的需求，项目经理要求完成相关应用系统设计和系统开发，我当前的1大的多说的随处可见哈上帝对撒旦科技和打卡的期待和萨看到很多期待打可视电话期望的大都会区看万家灯火请问大家活动看得起万家灯火的简单好看却觉得好奇我看见的话去外地回去我看到机会去外地客户期望的借口";
     self.textSize = [self.companyMessage.text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
@@ -72,7 +72,7 @@
     [self addSubview:self.companyMessage];
     
     self.showAllBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.showAllBtn.frame = CGRectMake((WIDETH -100)/2, 218, 100, 30);
+    self.showAllBtn.frame = CGRectMake((WIDETH -100)/2, 225, 100, 30);
     [self.showAllBtn setBackgroundImage:[UIImage imageNamed:@"showallBtn"] forState:UIControlStateNormal];
     [self.showAllBtn setTitle:@"查看全部" forState:UIControlStateNormal];
     [self.showAllBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -101,7 +101,12 @@
     natureLab.text = [NSString stringWithFormat:@"性质:%@",dic[@"name"]];
      scaleLab.text = [NSString stringWithFormat:@"规模:%@",dic[@"gm"]];
     addressLab.text = [NSString stringWithFormat:@"地址:%@",dic[@"address"]];
-    self.companyMessage.text = [NSString stringWithFormat:@"%@",dic[@"content"]];
+    
+    //公司简介
+//    NSString *comHtmlString = [CommonFunc textFromBase64String:dic[@"content"]];
+    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[dic[@"content"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    self.companyMessage.attributedText = comAttributedString;
+//    self.companyMessage.text = [NSString stringWithFormat:@"%@",dic[@"content"]];
 //    @"性质：中外合资";
 //    @"行业：计算机软件，IT服务，系统集成";
 }

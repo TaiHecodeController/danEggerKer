@@ -17,6 +17,7 @@
 @property(nonatomic,copy)NSString *provinceid;
 @property(nonatomic,copy)NSString *salary;
 @property(nonatomic,copy)NSString *uid;
+@property(nonatomic,copy)NSString * id;
 @property(nonatomic,copy)NSString *cellselected;
 @property (nonatomic, copy) NSString *com_id;
 @end

@@ -471,7 +471,7 @@
     }
     else
     {
-        findJobModel * model = self.jobArr[indexPath.row];
+       findJobModel * model = self.jobArr[indexPath.row];
         cell.positionLab.text = model.job_name;
         cell.companyLab.text = model.com_name;
         cell.cityLab.text =  model.provinceid;
