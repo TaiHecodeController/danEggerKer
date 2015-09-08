@@ -73,6 +73,8 @@
     [SearchModelShare sharedInstance].edu = @"";
     [SearchModelShare sharedInstance].exp = @"";
     [SearchModelShare sharedInstance].type = @"";
+
+    
     [SearchModelShare sharedInstance].sdate = @"";
     [SearchModelShare sharedInstance].job1 = @"";
     
@@ -91,6 +93,7 @@
     [searchBtn addTarget:self action:@selector(searchBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.navigationBar addSubview:searchBtn];
     _searchBtn = searchBtn;
+    
     
     
 }
@@ -116,6 +119,21 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyWordRefresh) name:@"keyWord" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TJsearch) name:@"TJsearch" object:nil];
+    
+    NSLog(@"_job_type%@",_job_type);
+    if ([_job_type isEqual:@"0"])
+    {
+        [SearchModelShare sharedInstance].type = @"";
+    }
+    if ([_job_type isEqual:@"1"])
+    {
+        [SearchModelShare sharedInstance].type = @"56";
+    }
+    if ([_job_type isEqual:@"2"])
+    {
+        [SearchModelShare sharedInstance].type = @"119";
+    }
+
     
     self.jobArr = [[NSMutableArray alloc]init];
     _mailingNumBer = 0;
@@ -169,7 +187,21 @@
         [SearchModelShare sharedInstance].salary = @"";
         [SearchModelShare sharedInstance].edu = @"";
         [SearchModelShare sharedInstance].exp = @"";
-        [SearchModelShare sharedInstance].type = @"";
+    
+        NSLog(@"_job_type%@",_job_type);
+        if ([_job_type isEqual:@"0"])
+        {
+            [SearchModelShare sharedInstance].type = @"";
+        }
+        if ([_job_type isEqual:@"1"])
+        {
+            [SearchModelShare sharedInstance].type = @"56";
+        }
+        if ([_job_type isEqual:@"2"])
+        {
+            [SearchModelShare sharedInstance].type = @"119";
+        }
+    
         [SearchModelShare sharedInstance].sdate = @"";
         [SearchModelShare sharedInstance].job1 = @"";
 
@@ -251,13 +283,13 @@
 //处理方向变更信息
 - (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
 {
-    NSLog(@"heading is %@",userLocation.heading);
+//    NSLog(@"heading is %@",userLocation.heading);
     
 }
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
-    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+//    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     _longitude = userLocation.location.coordinate.longitude;
     _latitude = userLocation.location.coordinate.latitude;
     
@@ -459,8 +491,9 @@
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
     if( refreshView == _header ){
-        _page = 0;
+        _page = 1;
         THLog(@"");
+        [self.jobArr removeAllObjects];
         
         [self loadData:refreshView page:_page];
     }

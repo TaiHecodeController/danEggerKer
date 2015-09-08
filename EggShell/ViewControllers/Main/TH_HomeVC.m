@@ -546,17 +546,18 @@
     switch (button) {
         case THHomeViewButtonTypeFindJob:
         {
-            NSLog(@"找工作");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
+            home.job_type = @"0";
             [self.navigationController pushViewController:home animated:YES];
             break;
         }
         case THHomeViewButtonTypeFindPartTime:
         {
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            [SearchModelShare sharedInstance].type = @"56";
             home.title = @"找兼职";
-            NSLog(@"找兼职");
+            home.job_type = @"1";
             [self.navigationController pushViewController:home animated:YES];
             break;
         }
@@ -564,6 +565,8 @@
         {
             NSLog(@"找实习");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            [SearchModelShare sharedInstance].type = @"119";
+            home.job_type = @"2";
             home.title = @"找实习";
             
             [self.navigationController pushViewController:home animated:YES];

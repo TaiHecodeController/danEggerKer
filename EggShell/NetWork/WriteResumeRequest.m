@@ -19,7 +19,7 @@
 //搜索职位筛选列表
 +(AFRequestState *)getSearchJobMessageListWithSucc:(void(^)(NSDictionary * DataDic))succ
 {
-    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/except",base_Url] param:nil succ:succ];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/except_select",base_Url] param:nil succ:succ];
 //    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Position/except_select" param:nil succ:succ];
 }
 

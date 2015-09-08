@@ -12,4 +12,7 @@
 
 @interface TH_FindJobVC : TH_BaseVC
 @property(nonatomic,copy)NSString * jobId;
+
+//工作性质 0 全职 1 兼职 2 实习
+@property (nonatomic, copy) NSString *job_type;
 @end
