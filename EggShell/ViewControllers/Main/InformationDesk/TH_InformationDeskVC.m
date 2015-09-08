@@ -37,7 +37,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.page = 0;
+    self.page = 1;
     self.limitNum = 10;
     [self createView];
     [self createTableView];
@@ -50,6 +50,7 @@
     {
         return;
     }
+    
     _state = [[TH_AFRequestState InformationDeskRequestWithSucc:^(NSArray *dataDic) {
         
         [self.dataArray addObjectsFromArray:dataDic];
@@ -177,13 +178,30 @@
     if( refreshView == _header ){
         _page = 1;
         
-        [self loadData:refreshView page:_page pageTye:1];
+        if (_currentIndex == 0)
+        {
+            [self loadData:refreshView page:_page pageTye:1];
+        }
+        else
+        {
+            [self loadData:refreshView page:_page pageTye:2];
+        }
+
+        
+        
     }
     else{
         self.page++;
         THLog(@"上拉加载更多");
-        [self loadData:refreshView page:_page pageTye:2];
         
+        if (_currentIndex == 0)
+        {
+             [self loadData:refreshView page:_page pageTye:1];
+        }
+        else
+        {
+            [self loadData:refreshView page:_page pageTye:2];
+        }
         
     }
 }

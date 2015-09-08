@@ -295,7 +295,6 @@
     
 }
 
-
 - (void)initView
 {
     CGFloat y = 0;
