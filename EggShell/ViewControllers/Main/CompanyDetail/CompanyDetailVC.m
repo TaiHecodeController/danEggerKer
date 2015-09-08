@@ -166,7 +166,7 @@
 {
     if(refreshView == _header)
     {
-        _page = 0;
+        _page = 1;
         self.listArray = [NSMutableArray arrayWithCapacity:0];
         [self loadData:_header Page:_page];
     }else

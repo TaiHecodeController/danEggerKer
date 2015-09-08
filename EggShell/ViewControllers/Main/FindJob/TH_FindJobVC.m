@@ -501,7 +501,6 @@
         THLog(@"上拉加载更多");
         [self loadData:refreshView page:_page];
         
-        
     }
 }
 
