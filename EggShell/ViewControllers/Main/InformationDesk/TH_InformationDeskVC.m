@@ -81,7 +81,7 @@
         self.dataArray = [NSMutableArray arrayWithCapacity:0];
         _currentIndex = 0;
         NSLog(@"招聘会");
-        _page = 0;
+        _page = 1;
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:_page pageTye:1];
         [self.tableView reloadData];
@@ -93,7 +93,7 @@
                        arrayWithCapacity:0];
         _currentIndex = 1;
         NSLog(@"双选会");
-        _page=0;
+        _page=1;
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:_page pageTye:2];
         [self.tableView reloadData];
@@ -175,7 +175,7 @@
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
     if( refreshView == _header ){
-        _page = 0;
+        _page = 1;
         
         [self loadData:refreshView page:_page pageTye:1];
     }

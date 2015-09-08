@@ -92,7 +92,7 @@ typedef enum
 -(void)setHomeViewItBtn;
 -(void)setHomeViewFcBtn;
 -(void)setHomeViewAdBtn;
--(void)config;
+-(void)config:(NSArray*)arr;
 @property(nonatomic,strong)id<THFaousVieWDelegate>famousDelegate;
 
 @end

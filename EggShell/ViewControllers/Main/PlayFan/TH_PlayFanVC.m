@@ -12,6 +12,7 @@
 #import "TH_InformationDeskDetailVC.h"
 #import "playFanModel.h"
 #import "AFAppRequest.h"
+#import "informantionModel.h"
 @interface TH_PlayFanVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
     MBProgressHUD * _mbPro;
@@ -150,7 +151,7 @@
     if (!InforCell) {
         InforCell = [[[NSBundle mainBundle] loadNibNamed:@"InformationDeskCell" owner:self options:nil] lastObject];
     }
-    playFanModel * model = self.dataArray[indexPath.row];
+    informantionModel * model = self.dataArray[indexPath.row];
     [InforCell setValue:model];
     
     //    NSLog(@"%@",model.endtime);

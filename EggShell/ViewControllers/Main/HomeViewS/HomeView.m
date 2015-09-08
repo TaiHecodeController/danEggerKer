@@ -97,15 +97,15 @@
         [self.famousDelegate myselfView:self didClickAdvertisinButton:(THHomeViewButtonAdType)sender.tag];
     }
 }
--(void)config
+-(void)config:(NSArray*)arr
 {
    
-[self.first setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
-[self.second setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
-[self.three setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
-[self.fourth  setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
-    [self.five  setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
-    [self.six  setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
+[self.first setButtonImageWithUrl:arr[0][@"hot_pic"]];
+[self.second setButtonImageWithUrl:arr[1][@"hot_pic"]];
+[self.three setButtonImageWithUrl:arr[2][@"hot_pic"]];
+[self.fourth  setButtonImageWithUrl:arr[3][@"hot_pic"]];
+[self.five  setButtonImageWithUrl:arr[4][@"hot_pic"]];
+[self.six  setButtonImageWithUrl:arr[5][@"hot_pic"]];
    
 }
 @end

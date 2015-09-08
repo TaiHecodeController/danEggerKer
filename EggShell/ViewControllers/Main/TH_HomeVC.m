@@ -97,7 +97,7 @@
     [self createHomeView];
     //名企推荐
     [self loadData];
-    [self ll ];
+//    [self ll ];
     
     //    NSUserDefaults * versionId = [NSUserDefaults standardUserDefaults];
     //    NSString * str = [versionId objectForKey:@"ver"];
@@ -117,7 +117,7 @@
     [TH_AFRequestState PrivateRecommendationWithSucc:^(NSDictionary *arr) {
         
         self.enterArray  = arr[@"data"];
-        //     [self.homeView config:self.enterArray];
+          [self.homeView config:self.enterArray];
         
         
     } ];
@@ -289,7 +289,7 @@
     {
         
         CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-        homedel * data =(homedel *)[ Gson fromObj:self.enterArray[0] Cls:[homedel class]];
+        homedel * data =(homedel *)[ Gson fromObj:self.enterArray[5] Cls:[homedel class]];
         detail.businessUid =data.uid;
         detail.businessMid =data.mid;
         
