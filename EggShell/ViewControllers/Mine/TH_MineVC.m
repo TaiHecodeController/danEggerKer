@@ -185,8 +185,11 @@
         }
         case THMineViewButtonTypeResume:
         {NSLog(@"简历管理");
-            ManagerResumeVC * manager = [[ManagerResumeVC alloc] init];
-            [self.navigationController pushViewController:manager animated:YES];
+            self.navigationController.navigationBarHidden = YES;
+            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登陆" delegate:self cancelButtonTitle:@"暂不登陆" otherButtonTitles:@"登陆", nil];
+            alertView.tag  = 102;
+            [alertView show];
+            
             break;
         }
         case THMineViewButtonTypeAboutEggshellBtn:
@@ -231,17 +234,36 @@
         case THMineViewButtonTypeversion:
         {
             NSLog(@"skdfjbc");
+            
+            if ([AppDelegate instance].doubleUpdateVersion>[AppDelegate instance].doubleCurrentVersion) {
+                [MBProgressHUD creatembHub:@"占无新版本"];
+            }else
+            {
             VersionUpdateView * view =[[[NSBundle mainBundle] loadNibNamed:@"VersionUpdate" owner:self options:nil] lastObject];
             ;
             view.frame = CGRectMake(0, 0, 250, 151);
-            //    [UIView animateWithDuration:0.5 animations:^{
-            //        view.center = self.view.center;
-            //    }];
+                [UIView animateWithDuration:0.5 animations:^{
+                    view.center = self.view.center;
+                }];
             
             view.layer.cornerRadius = 5;
             view.layer.masksToBounds = YES;
             [self.view addSubview:view];
             [view showVersonView];
+            
+            view.currentBlock = ^(UIView * backView)
+            {
+               
+                [view removeFromSuperview];
+                [backView removeFromSuperview];
+            } ;
+            view.updataBlock = ^(UIView*view)
+            { [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[AppDelegate instance].trackViewUrl]];
+            
+
+               
+            };
+            }
             
             break;
         }
@@ -275,6 +297,9 @@
             [userDefault synchronize];
             appDelegate.mainTabBar.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
+        }if (alertView.tag == 102) {
+            ManagerResumeVC * manager = [[ManagerResumeVC alloc] init];
+            [self.navigationController pushViewController:manager animated:YES];
         }
         
     }

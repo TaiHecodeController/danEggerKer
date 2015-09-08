@@ -306,7 +306,7 @@
             NSLog(@"1..1");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"互联网";
-            [SearchModelShare sharedInstance].hy = @"35";
+            [SearchModelShare sharedInstance].job1 = @"35";
             //            home.jobId  = [NSString stringWithFormat:@"%d",35];
             [self.navigationController pushViewController:home animated:YES];
             break;
@@ -386,7 +386,7 @@
         {NSLog(@"2..1");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"金融银行";
-            [SearchModelShare sharedInstance].hy = @"37";
+            [SearchModelShare sharedInstance].job1 = @"37";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -466,7 +466,7 @@
         {NSLog(@"3..1");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"广告银行";
-            [SearchModelShare sharedInstance].hy = @"40";
+            [SearchModelShare sharedInstance].job1 = @"40";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -658,19 +658,19 @@
         
         self.dataDic = arr[@"data"];
         if (is3_5Inch||is4Inch) {
-            self.str1 = self.dataDic[@"lunbo1"];
-            self.str2 =self.dataDic[@"lunbo1.2"];
-            self.str3 = self.dataDic[@"lunbo1.3"];
+            self.str1 = self.dataDic[@"lunbo1.2"];
+            self.str2 =self.dataDic[@"lunbo1.3"];
+            self.str3 = self.dataDic[@"lunbo1"];
         }else if (is4_7Inch)
         {
-            self.str1 = self.dataDic[@"lunbo2"];
-            self.str2 =self.dataDic[@"lunbo2.2"];
-            self.str3 = self.dataDic[@"lunbo2.3"];
+            self.str1 = self.dataDic[@"lunbo2.2"];
+            self.str2 =self.dataDic[@"lunbo2.3"];
+            self.str3 = self.dataDic[@"lunbo2"];
         }else if (is5_5Inch)
         {
-            self.str1 = self.dataDic[@"lunbo3"];
-            self.str2 =self.dataDic[@"lunbo3.2"];
-            self.str3 = self.dataDic[@"lunbo3.3"];
+            self.str1 = self.dataDic[@"lunbo3.2"];
+            self.str2 =self.dataDic[@"lunbo3.3"];
+            self.str3 = self.dataDic[@"lunbo3"];
         }
         
         self.imageArr = [NSArray arrayWithObjects:@{@"photo":self.str1},@{@"photo":self.str2},@{@"photo":self.str3}, nil];

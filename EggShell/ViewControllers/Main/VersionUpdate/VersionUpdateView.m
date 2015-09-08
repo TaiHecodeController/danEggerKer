@@ -28,12 +28,14 @@
 }
 - (IBAction)laterBtn:(UIButton *)sender {
     [self removeFromSuperview];
+    self.currentBlock(_backView);
     [_backView removeFromSuperview];
 }
 
 - (IBAction)btnclick:(id)sender {
     [self removeFromSuperview];
     [_backView removeFromSuperview];
+    self.updataBlock(_backView);
     NSLog(@"111");
 }
 

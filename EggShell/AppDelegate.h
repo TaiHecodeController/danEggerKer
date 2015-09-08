@@ -20,6 +20,9 @@
 @property(nonatomic,strong)TH_MainTabBarController * mainTabBar;
 @property (strong,nonatomic)NSString * userId;
 @property (strong,nonatomic)NSString * resumeId;
+@property(nonatomic,assign)  double doubleCurrentVersion;
+@property(nonatomic,assign)   double doubleUpdateVersion;
+@property(nonatomic,copy)NSString * trackViewUrl;
 +(AppDelegate*)instance;
 
 @end

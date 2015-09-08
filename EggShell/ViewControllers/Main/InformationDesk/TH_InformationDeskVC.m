@@ -37,8 +37,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-    self.limitNum = 5;
+    self.page = 0;
+    self.limitNum = 10;
     [self createView];
     [self createTableView];
     [self hySegmentedControlSelectAtIndex:0];
@@ -51,7 +51,7 @@
         return;
     }
     _state = [[TH_AFRequestState InformationDeskRequestWithSucc:^(NSArray *dataDic) {
-    
+        
         [self.dataArray addObjectsFromArray:dataDic];
         [self.tableView reloadData];
         
@@ -79,12 +79,10 @@
     if (index == 0)
     {
         self.dataArray = [NSMutableArray arrayWithCapacity:0];
-      _page = 0;
         _currentIndex = 0;
         NSLog(@"招聘会");
-        
-        _mbPro = [MBProgressHUD mbHubShow];
         _page = 0;
+        _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:_page pageTye:1];
         [self.tableView reloadData];
         
@@ -95,10 +93,10 @@
                        arrayWithCapacity:0];
         _currentIndex = 1;
         NSLog(@"双选会");
-
+        _page=0;
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:_page pageTye:2];
-       [self.tableView reloadData];
+        [self.tableView reloadData];
         
     }
 }
@@ -167,7 +165,7 @@
         [self.navigationController pushViewController:detail animated:YES];
         
     }
-
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -183,9 +181,8 @@
     }
     else{
         self.page++;
-//        self.dataArray = [NSMutableArray arrayWithCapacity:0];
         THLog(@"上拉加载更多");
-        [self loadData:refreshView page:_page pageTye:1];
+        [self loadData:refreshView page:_page pageTye:2];
         
         
     }

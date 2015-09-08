@@ -101,6 +101,7 @@
        self.dataArray = [NSMutableArray arrayWithCapacity:0];
         _currentIndex = 0;
         NSLog(@"蛋粉H翻天igh");
+        _page = 0;
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:_page pageTye:1];
         [self.tableView reloadData];
@@ -112,6 +113,7 @@
                        arrayWithCapacity:0];
         _currentIndex = 1;
         NSLog(@"蛋壳儿送福利");
+      _page = 0;
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:_page pageTye:2];
         [self.tableView reloadData];
@@ -120,7 +122,7 @@
 }
 -(void)createTbleView{
     
-    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT-40-49-64) style:UITableViewStylePlain];
+    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT-40-49) style:UITableViewStylePlain];
     tableView.dataSource = self;
     tableView.delegate = self;
     self.tableView = tableView;

@@ -87,7 +87,6 @@
         NSLog(@"版本检测数据error,message:%@",error);
         return;
     }
-    
     NSArray * resultsArray = [appInfoDic objectForKeyedSubscript:@"results"];
     if(!resultsArray.count)
     {
@@ -103,14 +102,14 @@
     //3.获取此应用的版本号
 //    CFBundleShortVersionString
     NSDictionary * Local_infoDic = [[NSBundle mainBundle] infoDictionary];
-    NSString * currentVersion = [Local_infoDic objectForKey:@"CFBundleVersion"];
+    NSString * currentVersion = [Local_infoDic objectForKey:@"CFBundleShortVersionString"];
     
-    double doubleCurrentVersion = [currentVersion doubleValue];
+   self.doubleCurrentVersion = [currentVersion doubleValue];
     
-    double doubleUpdateVersion = [latestVersion doubleValue];
+    self.doubleUpdateVersion = [latestVersion doubleValue];
     
     //两个点的，最后那个是无效的
-    if(doubleUpdateVersion > doubleCurrentVersion)
+    if(!_doubleUpdateVersion > _doubleCurrentVersion)
     {
         NSString * titleStr = [NSString stringWithFormat:@"检查更新:%@",trackName];
         NSString * messageStr = [NSString stringWithFormat:@"发现版本(%@),是否升级?",latestVersion];

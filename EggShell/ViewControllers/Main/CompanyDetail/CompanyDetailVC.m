@@ -204,12 +204,13 @@
     if (self.listArray.count > 0) {
         
         
-        cell.positionName.text = self.listArray[indexPath.row][@"name"];
-        cell.time.text = self.listArray[indexPath.row][@"sdate"];
-        cell.companyName.text = self.listArray[indexPath.row][@"provinceid"];
+      cell.positionName.text = self.listArray[indexPath.row][@"name"];
+        NSString * dateStr = self.listArray[indexPath.row][@"sdate"];
+               cell.time.text = [dateStr substringFromIndex:5];
         cell.addres.text = self.listArray[indexPath.row][@"provinceid"];
-        cell.knowdelge.text = self.listArray[indexPath.row][@"edu"];
-        cell.salary.text = self.listArray[indexPath.row][@"salary"];
+        cell.companyName.text = self.listArray[indexPath.row][@""];
+    cell.knowdelge.text = self.listArray[indexPath.row][@"edu"];
+       cell.salary.text = self.listArray[indexPath.row][@"salary"];
         
     }
     return cell;
