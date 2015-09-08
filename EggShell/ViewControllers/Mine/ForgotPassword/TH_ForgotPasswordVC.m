@@ -23,8 +23,9 @@
 @implementation TH_ForgotPasswordVC
 -(void)viewWillAppear:(BOOL)animated
 {
-    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
-    self.phoneTextField.text = [user objectForKey:@"moblie"];
+    NSUserDefaults * phone = [NSUserDefaults standardUserDefaults];
+    
+    self.phoneTextField.text = [phone objectForKey:@"loginPhone"];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

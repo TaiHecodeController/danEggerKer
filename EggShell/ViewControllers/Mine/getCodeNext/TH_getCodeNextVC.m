@@ -45,6 +45,7 @@
     
     UITextField * newPasswordTextFied = [[UITextField alloc] initWithFrame:CGRectMake(95, 0, WIDETH - 95, 45)];
     newPasswordTextFied.placeholder = @"请输入新密码";
+    newPasswordTextFied.secureTextEntry = YES;
     newPasswordTextFied.textColor = [UIColor blackColor];
     newPasswordTextFied.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     newPasswordTextFied.font = [UIFont systemFontOfSize:13];
@@ -71,6 +72,7 @@
     confirmPasswordTextField.placeholder = @"请输入确认密码";
 
     confirmPasswordTextField.textColor =[UIColor blackColor];
+    confirmPasswordTextField.secureTextEntry = YES;
     confirmPasswordTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     confirmPasswordTextField.font = [UIFont systemFontOfSize:13];
     confirmPasswordTextField.delegate = self;
@@ -107,8 +109,9 @@
 #pragma mark--重置密码
 -(void)resetpasswordClick
 {
+   
     NSUserDefaults * phone = [NSUserDefaults standardUserDefaults];
-    NSString * str =[NSString stringWithFormat:@"%@",[phone objectForKey:@"moblie"]];
+    NSString * str =[NSString stringWithFormat:@"%@",[phone objectForKey:@"loginPhone"]];
     
     if([self.newsPasswordTextFied .text isEqualToString:self.confirmPasswordTextField.text])
     {
@@ -121,7 +124,7 @@
                 [self presentViewController:home animated:YES completion:nil];
             }
         }];
-//        
+       
 //    [AccountRequest resetPasswordRequestWithPhoneNum:self.phoneNum withNewCode:self.newsPasswordTextFied.text  withSucc:^(NSDictionary * dic) {
 //        if ([dic[@"code"] integerValue]==0) {
 //            self.navigationController.navigationBarHidden =  YES ;

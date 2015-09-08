@@ -123,7 +123,7 @@
 }
 -(void)createTbleView{
     
-    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT-40-49) style:UITableViewStylePlain];
+    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT-64-49-40) style:UITableViewStylePlain];
     tableView.dataSource = self;
     tableView.delegate = self;
     self.tableView = tableView;
@@ -194,14 +194,27 @@
 {
     if( refreshView == _header ){
         _page = 0;
-
-        [self loadData:refreshView page:_page pageTye:1];
+        if (_currentIndex == 0)
+        {
+            [self loadData:refreshView page:_page pageTye:1];
+        }
+        else
+        {
+            [self loadData:refreshView page:_page pageTye:2];
+        }
     }
     else{
         self.page++;
         
         THLog(@"上拉加载更多");
-        [self loadData:refreshView page:_page pageTye:1];
+        if (_currentIndex == 0)
+        {
+            [self loadData:refreshView page:_page pageTye:1];
+        }
+        else
+        {
+            [self loadData:refreshView page:_page pageTye:2];
+        }
         
         
     }
