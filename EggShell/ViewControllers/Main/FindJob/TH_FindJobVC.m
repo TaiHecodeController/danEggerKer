@@ -405,8 +405,6 @@
     THLog(@"jobarr:%@",_jobArr);
 }
 
-
-
 #pragma mark tabViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
