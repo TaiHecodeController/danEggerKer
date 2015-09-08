@@ -44,6 +44,8 @@
 @property (nonatomic, strong) NSMutableArray *listArr;
 @property (nonatomic, strong) JobDetailModel *model;
 @property (nonatomic, assign) int page;
+@property (nonatomic, strong) NSString *isCollect;
+@property (nonatomic, strong) UIButton *rightCollectBtn;
 
 @end
 
@@ -63,6 +65,7 @@
     /*数据请求**/
     _mbPro = [MBProgressHUD mbHubShow];
     [self loadData:_mbPro page:1];
+    
     
 }
 
@@ -92,6 +95,7 @@
         _listArr = [NSMutableArray arrayWithArray:_model.lists];
         [self.tableView reloadData];
         
+        
     } withfail:^(int errCode, NSError *err) {
         
     } withId:_uid pid:_pid page:num resp:[JobDetailModel class]] addNotifaction:notify];
@@ -109,7 +113,6 @@
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:13];
     [button addTarget:self action:@selector(searchBtnClick) forControlEvents:UIControlEventTouchUpInside];
-
 }
 
 -(void)searchBtnClick
@@ -316,6 +319,7 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     [rightCollectBtn setImage:[UIImage imageNamed:@"shoucang"] forState:UIControlStateNormal];
     [rightCollectBtn setImage:[UIImage imageNamed:@"shoucang2"] forState:UIControlStateSelected];
     [rightCollectBtn addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    _rightCollectBtn = rightCollectBtn;
     
     if (_saveBOOL == 0)
     {
@@ -337,8 +341,17 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     _jobDescription.availTime.text = model.edate;
     _jobDescription.exprienceTime.text = model.exp;
     _jobDescription.RecruitmentNum.text = model.hy;
-    
-    NSLog(@"model.iscollect:%@",model.iscollect);
+        
+    if ([model.iscollect isEqual:@"0"])
+    {
+        _rightCollectBtn.selected = NO;
+        [_rightCollectBtn setImage:[UIImage imageNamed:@"shoucang"] forState:UIControlStateNormal];
+    }
+    else if([model.iscollect isEqual:@"1"])
+    {
+        _rightCollectBtn.selected = YES;
+        [_rightCollectBtn setImage:[UIImage imageNamed:@"shoucang2"] forState:UIControlStateSelected];
+    }
     
     NSString *htmlString = [CommonFunc textFromBase64String:model.cj_description];
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
@@ -368,6 +381,8 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
 #pragma mark- - 收藏
 -(void)rightBtnClick:(UIButton *)sender
 {
+    
+    
     sender.selected = !sender.selected;
    
     if (sender.selected== YES) {

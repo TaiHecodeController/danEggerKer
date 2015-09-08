@@ -57,7 +57,9 @@
 {
     NSNumber *numid = [NSNumber numberWithInt:id];
     NSNumber *numpid = [NSNumber numberWithInt:pid];
-    NSDictionary *param = @{@"id":numid,@"pid":numpid};
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+//    NSLog(@"uid%@",[df objectForKey:@"uid"]);
+    NSDictionary *param = @{@"id":numid,@"pid":numpid,@"uid":[df objectForKey:@"uid"]};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/details",base_Url] param:param succ:succ fail:fail resp:resp];
     
 }
@@ -66,8 +68,9 @@
 +(AFRequestState *)saveJobWithSucc:(void(^)(NSDictionary *DataArr))succ withFail:(void(^)(int errCode, NSError *err))fail withJob_id:(int)job_id resp:(Class)resp
 {
     NSNumber *jobid = [NSNumber numberWithInt:job_id];
-    NSNumber *uid = [NSNumber numberWithInt:6];
-    NSDictionary *param = @{@"job_id":jobid,@"uid":uid};
+//    NSNumber *uid = [NSNumber numberWithInt:6];
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSDictionary *param = @{@"job_id":jobid,@"uid":[df objectForKey:@"uid"]};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/collect",base_Url]param:param succ:succ fail:fail resp:resp];
 }
 

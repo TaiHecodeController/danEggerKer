@@ -205,6 +205,7 @@
     }
     return YES;
 }
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view resignFirstResponder];
@@ -233,7 +234,7 @@
             NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
             [user setObject:dic[@"data"] forKey:@"baseInformation"];
             [user setObject:dic[@"data"][@"telphone"] forKey:@"loginPhone"];
-                        [user setObject:dic[@"data"][@"uid"] forKey:@"uid"];
+            [user setObject:dic[@"data"][@"uid"] forKey:@"uid"];
             [user synchronize];
             self.navigationController.navigationBarHidden = YES;
             AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;

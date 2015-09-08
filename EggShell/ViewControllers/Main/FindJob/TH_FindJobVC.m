@@ -522,7 +522,6 @@
     }
     else
     {
-        
         findJobModel *fjModel = _jobArr[indexPath.row];
         
         TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
@@ -530,6 +529,8 @@
         detail.uid = [fjModel.uid intValue];
         detail.pid = [fjModel.job_id intValue];
         detail.saveBOOL = 1;
+//        NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+//        NSLog(@"uid%@",[df objectForKey:@"uid"]);
         [self.navigationController pushViewController:detail animated:YES];
         
     }

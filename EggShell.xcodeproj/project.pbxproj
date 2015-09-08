@@ -1010,6 +1010,7 @@
 		04A483B51B74FD4D006FDB9D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				94CB5BA81B763A8100B23B9D /* FindJob */,
 				947564A51B9D7B550087BA56 /* homeModel */,
 				94E2C9621B870EED001E3FDD /* CompanyDetail */,
 				940032961B840736001EB666 /* VersionUpdate */,
@@ -1021,7 +1022,6 @@
 				04A0CD3F1B7A0FFE00EBCF01 /* SearchJob */,
 				94EAEAC01B784347003C19DD /* FindPractice */,
 				94EDD4F51B783F7800A00A78 /* FindPartTime */,
-				94CB5BA81B763A8100B23B9D /* FindJob */,
 			);
 			name = Home;
 			path = Main;
@@ -2132,7 +2132,6 @@
 				TargetAttributes = {
 					041650301B4D7141008C78BE = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = M3BN6VM63R;
 					};
 					041650491B4D7142008C78BE = {
 						CreatedOnToolsVersion = 6.1.1;
