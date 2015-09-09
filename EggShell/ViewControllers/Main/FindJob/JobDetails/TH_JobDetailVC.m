@@ -17,6 +17,8 @@
 #import "TH_AFRequestState.h"
 #import "JobDetailModel.h"
 #import "CommonFunc.h"
+#import "TH_LoginVC.h"
+
 @interface TH_JobDetailVC ()<UITableViewDataSource,UITableViewDelegate,companyProfileViewDelegate,MJRefreshBaseViewDelegate>
 {
     //纪录展开之前的frame
@@ -385,34 +387,62 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
 #pragma mark- - 收藏
 -(void)rightBtnClick:(UIButton *)sender
 {
+  
     
-    sender.selected = !sender.selected;
-   
-    if (sender.selected== YES) {
-   self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
-       
-       NSLog(@"%@",DataArr);
-       [MBProgressHUD creatembHub:@"收藏成功"];
-       
-    } withFail:^(int errCode, NSError *err) {
+    [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+    
+    if([AppDelegate instance].userId)
+    {
+        sender.selected = !sender.selected;
         
-         NSLog(@"%@",err);
-        
-    } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
-}else if(sender.selected == NO)
-{
-    self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
-        
-        NSLog(@"%@",DataArr);
-        [MBProgressHUD creatembHub:@"取消收藏"];
-        
-    } withFail:^(int errCode, NSError *err) {
-        
-        NSLog(@"%@",err);
-        
-    } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
+        if (sender.selected== YES) {
+            self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
+                
+                NSLog(@"%@",DataArr);
+                [MBProgressHUD creatembHub:@"收藏成功"];
+                
+            } withFail:^(int errCode, NSError *err) {
+                
+                NSLog(@"%@",err);
+                
+            } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
+        }
+        else if(sender.selected == NO)
+        {
+            self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
+                
+                NSLog(@"%@",DataArr);
+                [MBProgressHUD creatembHub:@"取消收藏"];
+                
+            } withFail:^(int errCode, NSError *err)
+                           {
+                               
+                               NSLog(@"%@",err);
+                               
+                           } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
+        }
+
+                
+    }
+    else
+    {
+        self.navigationController.navigationBarHidden = YES;
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登陆" delegate:self cancelButtonTitle:@"暂不登陆" otherButtonTitles:@"登陆", nil];
+        [alertView show];
+    }
+
 }
-    
+
+#pragma mark -- alertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {
+        self.navigationController.navigationBarHidden = NO;
+        TH_LoginVC * lvc = [[TH_LoginVC alloc] init];
+        [self.navigationController pushViewController:lvc animated:YES];
+        
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -1747,12 +1747,12 @@
 		94E2C96A1B870F29001E3FDD /* JobDetails */ = {
 			isa = PBXGroup;
 			children = (
+				94E2C97F1B870F29001E3FDD /* TH_JobDetailVC.h */,
+				94E2C9801B870F29001E3FDD /* TH_JobDetailVC.m */,
 				F01787A31B958C01005FF9C4 /* JobDetailModel */,
 				94E2C96E1B870F29001E3FDD /* JobDetailView */,
 				94E2C9781B870F29001E3FDD /* moreJobCell */,
 				94E2C97C1B870F29001E3FDD /* SubViews */,
-				94E2C97F1B870F29001E3FDD /* TH_JobDetailVC.h */,
-				94E2C9801B870F29001E3FDD /* TH_JobDetailVC.m */,
 			);
 			path = JobDetails;
 			sourceTree = "<group>";

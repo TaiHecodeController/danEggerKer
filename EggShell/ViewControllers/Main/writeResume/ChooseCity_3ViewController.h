@@ -14,7 +14,6 @@
 
 @end
 
-
 @interface ChooseCity_3ViewController : UIViewController
 
 @property(nonatomic,copy)NSString * titleText;

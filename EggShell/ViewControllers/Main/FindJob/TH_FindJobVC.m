@@ -21,6 +21,8 @@
 #import "AFAppRequest.h"
 #import "findJobModel.h"
 #define bottomH 107
+#import "AppDelegate.h"
+#import "TH_LoginVC.h"
 
 @interface TH_FindJobVC ()<UITableViewDataSource,UITableViewDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,MJRefreshBaseViewDelegate>
 {
@@ -623,44 +625,68 @@
 {
     THLog(@"职位申请被点击");
     
-    _mailingNumBer = 0;
-    //遍历哪个职位被选中
-    NSMutableString *job_idStr = [[NSMutableString alloc]init];
-        for (findJobModel *model in self.jobArr)
+    [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+    
+    if([AppDelegate instance].userId)
     {
-        if ([model.cellselected isEqualToString: @"1"])
+        
+        _mailingNumBer = 0;
+        //遍历哪个职位被选中
+        NSMutableString *job_idStr = [[NSMutableString alloc]init];
+        for (findJobModel *model in self.jobArr)
         {
-            _mailingNumBer++;
-            [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.job_id]];
-
+            if ([model.cellselected isEqualToString: @"1"])
+            {
+                _mailingNumBer++;
+                [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.job_id]];
+                
+            }
+            
         }
+        NSLog(@"job_idStr%@",job_idStr);
+        
+        [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
+            
+            //返回的是投递成功的数量
+            NSLog(@"%@",DataArr);
+            _TDSuccNum = [DataArr intValue];
+            
+            [self addCoverView];
+            
+            [self addAlertView];
+            
+        } withfail:^(int errCode, NSError *err) {
+            
+            NSLog(@"%d",errCode);
+            
+            //errCode = 2, 全部都投递过了
+            
+            //投递成功的职位为0
+            _TDSuccNum = 0;
+            [self addCoverView];
+            [self addAlertView];
+            
+        } withUid:nil job_id:job_idStr resp:[NSObject class]];
+    
+    }
+    else
+    {
+        self.navigationController.navigationBarHidden = YES;
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登陆" delegate:self cancelButtonTitle:@"暂不登陆" otherButtonTitles:@"登陆", nil];
+        [alertView show];
+    }
+}
+
+#pragma mark -- alertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {
+        self.navigationController.navigationBarHidden = NO;
+        TH_LoginVC * lvc = [[TH_LoginVC alloc] init];
+        [self.navigationController pushViewController:lvc animated:YES];
         
     }
-    NSLog(@"job_idStr%@",job_idStr);
-    
-    [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
-        
-        //返回的是投递成功的数量
-        NSLog(@"%@",DataArr);
-        _TDSuccNum = [DataArr intValue];
-        
-        [self addCoverView];
-        
-        [self addAlertView];
-        
-    } withfail:^(int errCode, NSError *err) {
-        
-        NSLog(@"%d",errCode);
-    
-        //errCode = 2, 全部都投递过了
-        
-        //投递成功的职位为0
-        _TDSuccNum = 0;
-        [self addCoverView];
-        [self addAlertView];
-
-    } withUid:nil job_id:job_idStr resp:[NSObject class]];
-    
 }
 
 - (void)closeBtn
