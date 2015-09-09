@@ -479,19 +479,21 @@
     }
     else
     {
-       findJobModel * model = self.jobArr[indexPath.row];
-        cell.positionLab.text = model.job_name;
-        cell.companyLab.text = model.com_name;
-        cell.cityLab.text =  model.provinceid;
-        cell.knowledgeLab.text = model.edu;
-      NSString * dateStr = model.lastupdate;
-       cell.timeLab.text = [dateStr substringFromIndex:5];
-
-        cell.salaryLab.text = model.salary;
-        cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
-        [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
-        [cell layoutSubviews];
-
+        if (self.jobArr.count > 0)
+        {
+            findJobModel * model = self.jobArr[indexPath.row];
+            cell.positionLab.text = model.job_name;
+            cell.companyLab.text = model.com_name;
+            cell.cityLab.text =  model.provinceid;
+            cell.knowledgeLab.text = model.edu;
+            NSString * dateStr = model.lastupdate;
+            cell.timeLab.text = [dateStr substringFromIndex:5];
+            
+            cell.salaryLab.text = model.salary;
+            cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
+            [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
+            [cell layoutSubviews];
+        }
     }
     
     return cell;
@@ -621,9 +623,10 @@
     
 }
 
+#pragma mark  -- 职位申请按钮
 - (void)apllyBtnClick
 {
-    THLog(@"职位申请被点击");
+  
     
     [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
     
@@ -647,24 +650,43 @@
         
         [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
             
-            //返回的是投递成功的数量
-            NSLog(@"%@",DataArr);
-            _TDSuccNum = [DataArr intValue];
             
-            [self addCoverView];
+            //总投递数-投递成功数
+            if (( _mailingNumBer - [DataArr intValue] ) == 0)
+            {
+                 [MBProgressHUD creatembHub:@"投递成功"];
+            }
+            else
+            {
+                //如果有失败的情况下
+               //返回的是投递成功的数量
+                            NSLog(@"%@",DataArr);
+                            _TDSuccNum = [DataArr intValue];
+                
+                            [self addCoverView];
+                            
+                            [self addAlertView];
+            }
             
-            [self addAlertView];
+
             
         } withfail:^(int errCode, NSError *err) {
             
             NSLog(@"%d",errCode);
             
             //errCode = 2, 全部都投递过了
-            
-            //投递成功的职位为0
-            _TDSuccNum = 0;
-            [self addCoverView];
-            [self addAlertView];
+            if (errCode == 1)
+            {
+                [MBProgressHUD creatembHub:@"请先创建一份简历"];
+            }
+            if (errCode == 2)
+            {
+                [MBProgressHUD creatembHub:@"您已经投递过了，一周之内不能投递"];
+            }
+//            //投递成功的职位为0
+//            _TDSuccNum = 0;
+//            [self addCoverView];
+//            [self addAlertView];
             
         } withUid:nil job_id:job_idStr resp:[NSObject class]];
     

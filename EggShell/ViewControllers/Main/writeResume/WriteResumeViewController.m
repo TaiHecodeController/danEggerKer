@@ -337,11 +337,11 @@
                 [MBProgressHUD creatembHub:@"请填写城市"];
                 return;
             }
-            if(threecityId == 0)
-            {
-                [MBProgressHUD creatembHub:@"请填写县区"];
-                return;
-            }
+//            if(threecityId == 0)
+//            {
+//                [MBProgressHUD creatembHub:@"请填写县区"];
+//                return;
+//            }
             
         }
         

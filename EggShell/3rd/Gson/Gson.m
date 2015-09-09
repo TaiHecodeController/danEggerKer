@@ -25,6 +25,7 @@
     return [self fromObj:obj Cls:cls];
 }
 
+
 +(id)fromObj:(id)json Cls:(Class)cls
 {
     if( cls == nil ){

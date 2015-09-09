@@ -102,10 +102,10 @@
                     
                     if ([self.delegete respondsToSelector:@selector(chooseWord3:cellIndex:tableViewTagIndex:withId:)])
                     {
+                        self.cellIndex = [NSIndexPath indexPathForRow:2 inSection:0];
                         [self.delegete chooseWord3:cell.textLable.text cellIndex:self.cellIndex tableViewTagIndex:self.tableViewTagIndex withId:self.DataArray[indexPath.row][@"id"]];
                     }
                     
-
                     [self.navigationController popToViewController:vc animated:YES];
     
                     
