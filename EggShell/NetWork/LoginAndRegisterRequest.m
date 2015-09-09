@@ -94,9 +94,7 @@ NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
 }
 /*编辑资料预览**/
 +(AFRequestState *)EditInformationWithSucc:(void(^)(NSDictionary*))succ withuid:(NSDictionary*)uid
-
 {
-    
 
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@basicdata",base_Url] param:uid succ:succ];
 }

@@ -215,9 +215,9 @@
     headView.backgroundColor = [UIColor whiteColor];
 //    [self.view addSubview:headView];
     
-    CGSize msfcSize = [@"名师风采" sizeWithFont:[UIFont systemFontOfSize:15]];
+    CGSize msfcSize = [@"课程推荐" sizeWithFont:[UIFont systemFontOfSize:15]];
     UILabel *msfcLab = [[UILabel alloc]initWithFrame:CGRectMake(margin, minimargin, msfcSize.width, msfcSize.height)];
-    msfcLab.text = @"名师风采";
+    msfcLab.text = @"课程推荐";
     msfcLab.font = [UIFont systemFontOfSize:15];
     msfcLab.textColor = UIColorFromRGB(000000);
     [headView addSubview:msfcLab];

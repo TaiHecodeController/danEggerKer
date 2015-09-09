@@ -283,7 +283,11 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     list_item *liModel = self.listArr[indexPath.row];
     cell.positionName.text = liModel.name;
-    cell.time.text = liModel.lastupdate;
+//    cell.time.text = liModel.lastupdate;
+    NSString * dateStr = liModel.lastupdate;
+    cell.time.text = [dateStr substringFromIndex:5];
+    
+
     cell.companyName.text = liModel.com_name;
     cell.addres.text = liModel.provinceid;
     cell.knowdelge.text = liModel.edu;

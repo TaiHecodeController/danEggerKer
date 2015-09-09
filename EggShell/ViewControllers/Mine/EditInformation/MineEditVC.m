@@ -52,7 +52,7 @@
     
     [self createUI];
     [self createNav];
-    [self createData];
+   [self createData];
 }
 
 -(void)addNotifacation
@@ -80,7 +80,9 @@
     } withuid:dic];
     
     
-    
+//    [self.tableView1 reloadData];
+//    [self.tableView2 reloadData];
+//    [self.tableView3 reloadData];
     self.nameArray = @[@"登陆账号",@"昵称",@"性别",@"所在地",@"简介"];
     self.holderArray = @[@"18800006666",@"王鑫",@"男",@"北京",@"学习是一种信仰"];
     
@@ -88,7 +90,7 @@
     self.holderArray2 = @[@"2015-7-10",@"",@""];
     
     self.nameArray3 = @[@"等级",@"注册时间"];
-    self.holderArray3 = @[@"",@"2015-8-2"];
+    self.holderArray3 = @[@"1",@"2015-8-2"];
     
 }
 
@@ -157,11 +159,10 @@
     }
     if(tableView.tag == 1223)
     {
-        return 3;
+        return 2;
     }
     return 2;
 }
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 42;
@@ -198,7 +199,11 @@
 //                cell.contentTextField.text = self.dic[@"telphone"];
             }
         }if (indexPath.row==1) {
-            cell.contentTextField.text = self.dic[@"name"];
+            if (self.dic[@"name"])
+            {
+                cell.contentTextField.text = self.dic[@"name"];
+            }
+            
         }
         if(indexPath.row == 2)
         {
@@ -370,12 +375,16 @@
     NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
     NSString * uisStr = [user objectForKey:@"uid"];
     NSString  * token  =  [user objectForKey:@"md5_token"];
+    
     if(self.tableView1.tag == 1222)
     {
         for (int i = 0; i < self.jobCellArray.count; i ++) {
+            
             self.telphone = ((MineEditInfoCell*)self.jobCellArray[0]).contentTextField.text;
             
             self.name = ((MineEditInfoCell*)self.jobCellArray[1]).contentTextField.text;
+            
+            
             
             if ([((MineEditInfoCell*)self.jobCellArray[2]).contentTextField.text isEqualToString:@"男"]) {
                 self.sex = 6;

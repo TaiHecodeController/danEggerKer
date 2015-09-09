@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "AccountRequest.h"
 #import "LoginAndRegisterRequest.h"
+#import "TH_LoginVC.h"
 @interface TH_getCodeNextVC ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UITextField  * confirmPasswordTextField;
@@ -118,10 +119,12 @@
     
         [LoginAndRegisterRequest resetPasswordRequestWithPhoneNum:str withNewCode:self.newsPasswordTextFied.text withSucc:^(NSDictionary * dic) {
             if ([dic[@"code"] integerValue]==0) {
-                self.navigationController.navigationBarHidden =  YES ;
-                TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
-                home.modalTransitionStyle = UIModalPresentationPageSheet;
-                [self presentViewController:home animated:YES completion:nil];
+                TH_LoginVC * login = [[TH_LoginVC alloc] init];
+//             self.navigationController.navigationBarHidden =  YES ;
+//                TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
+//                home.modalTransitionStyle = UIModalPresentationPageSheet;
+//                [self presentViewController:login animated:YES completion:nil];
+                [self.navigationController pushViewController:login animated:YES];
             }
         }];
        

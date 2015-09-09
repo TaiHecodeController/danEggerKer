@@ -231,7 +231,7 @@
         NSString * dateStr = self.listArray[indexPath.row][@"sdate"];
                cell.time.text = [dateStr substringFromIndex:5];
         cell.addres.text = self.listArray[indexPath.row][@"provinceid"];
-        cell.companyName.text = self.listArray[indexPath.row][@""];
+        cell.companyName.text = self.listArray[indexPath.row][@"com_name"];
     cell.knowdelge.text = self.listArray[indexPath.row][@"edu"];
        cell.salary.text = self.listArray[indexPath.row][@"salary"];
         

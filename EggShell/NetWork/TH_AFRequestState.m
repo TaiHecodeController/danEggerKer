@@ -133,8 +133,6 @@
     NSDictionary * param = @{@"page":pageNum,@"limit":limitNum,@"type":typeNum};
 
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Infos/index",base_Url]param:param succ:succ resp:resp];
-
-
 }
 /*名企推荐**/
 +(AFRequestState*)PrivateRecommendationWithSucc:(void(^)(NSDictionary * arr))succ

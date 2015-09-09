@@ -17,17 +17,20 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omR-Tj-U0U">
                         <rect key="frame" x="0.0" y="10" width="320" height="13"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="数据分析负责人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obr-Op-m5u">
-                                <rect key="frame" x="15" y="0.0" width="144" height="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数据分析负责人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obr-Op-m5u">
+                                <rect key="frame" x="15" y="0.0" width="245" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="rzf-QV-KGU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="7-30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2O-Em-uFL">
-                                <rect key="frame" x="185" y="0.0" width="112" height="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01-30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2O-Em-uFL">
+                                <rect key="frame" x="263" y="0.0" width="41" height="13"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="13" id="Q7Q-oq-prJ"/>
-                                    <constraint firstAttribute="width" constant="38" id="x8C-zE-rpN"/>
+                                    <constraint firstAttribute="height" constant="13" id="Pia-qD-FVJ"/>
+                                    <constraint firstAttribute="width" constant="41" id="pIJ-LS-9Oq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -36,9 +39,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="r2O-Em-uFL" firstAttribute="top" secondItem="omR-Tj-U0U" secondAttribute="top" id="0OE-bF-jfS"/>
-                            <constraint firstAttribute="trailing" secondItem="r2O-Em-uFL" secondAttribute="trailing" constant="23" id="Ito-zx-rBQ"/>
+                            <constraint firstItem="r2O-Em-uFL" firstAttribute="top" secondItem="omR-Tj-U0U" secondAttribute="top" id="GYM-pb-YX4"/>
                             <constraint firstAttribute="height" constant="13" id="Rm7-Wu-5Bq"/>
+                            <constraint firstItem="Obr-Op-m5u" firstAttribute="leading" secondItem="omR-Tj-U0U" secondAttribute="leading" constant="15" id="b4k-k3-byn"/>
+                            <constraint firstItem="Obr-Op-m5u" firstAttribute="top" secondItem="omR-Tj-U0U" secondAttribute="top" id="htR-to-5VP"/>
+                            <constraint firstAttribute="trailing" secondItem="r2O-Em-uFL" secondAttribute="trailing" constant="16" id="sYu-dk-2Vb"/>
+                            <constraint firstItem="r2O-Em-uFL" firstAttribute="leading" secondItem="Obr-Op-m5u" secondAttribute="trailing" constant="3" id="tRC-M9-BmM"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Edm-oZ-FIL">
