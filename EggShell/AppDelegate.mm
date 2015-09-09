@@ -53,7 +53,7 @@
 
     [self.window makeKeyAndVisible];
 
-    sleep(0);
+//    sleep(0);
 
 
     NSString *key = @"CFBundleVersion";
