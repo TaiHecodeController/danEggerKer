@@ -30,6 +30,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self checkVersion];
+    
+     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSNumber *num = [NSNumber numberWithInt:0];
+    [df setObject:num forKey:@"citytag"];
+    [df synchronize];
 //    [self checkVersion];
 //    self.window.rootViewController = [[WriteResumeViewController alloc] init];
    
@@ -41,15 +46,14 @@
     _mapManager = [[BMKMapManager alloc]init];
     BOOL ret = [_mapManager start:@"0TPGk34SozOFM2njqn95eHIL" generalDelegate:self];
     
-    if (ret) {
+    if (ret)
+    {
         NSLog(@"配置成功");
-        
-        
     }
     
 
     [self.window makeKeyAndVisible];
-    sleep(1);
+//    sleep(1);
     NSString *key = @"CFBundleVersion";
     NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:kBundleVersion];
     NSString *currentVersion = [NSBundle mainBundle].infoDictionary[kBundleVersion];
