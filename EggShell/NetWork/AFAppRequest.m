@@ -253,6 +253,7 @@
             succ(nil);
             return;
         }
+        
         if( data == nil && resp != [NSNull class] )
         {
             fail(10001, nil);

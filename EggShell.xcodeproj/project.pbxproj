@@ -667,8 +667,8 @@
 		F05B80021B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+touchBegan.m"; sourceTree = "<group>"; };
 		F05B80051B8ABE2200DC0A1D /* MTGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGridView.h; sourceTree = "<group>"; };
 		F05B80061B8ABE2200DC0A1D /* MTGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGridView.m; sourceTree = "<group>"; };
-		F05B80081B8ABFC400DC0A1D /* MTSpecailtyListPointItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSpecailtyListPointItem.h; sourceTree = "<group>"; };
-		F05B80091B8ABFC400DC0A1D /* MTSpecailtyListPointItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSpecailtyListPointItem.m; sourceTree = "<group>"; };
+		F05B80081B8ABFC400DC0A1D /* MTSpecailtyListPointItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTSpecailtyListPointItem.h; path = ../MTSpecailtyListPointItem.h; sourceTree = "<group>"; };
+		F05B80091B8ABFC400DC0A1D /* MTSpecailtyListPointItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTSpecailtyListPointItem.m; path = ../MTSpecailtyListPointItem.m; sourceTree = "<group>"; };
 		F05B800E1B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+RK_row_col.h"; sourceTree = "<group>"; };
 		F05B800F1B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+RK_row_col.m"; sourceTree = "<group>"; };
 		F05B80111B8AC34400DC0A1D /* UIColor+RK_Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RK_Color.h"; sourceTree = "<group>"; };
@@ -1048,8 +1048,6 @@
 		04A483C11B74FDCE006FDB9D /* OpenClass */ = {
 			isa = PBXGroup;
 			children = (
-				F05B80081B8ABFC400DC0A1D /* MTSpecailtyListPointItem.h */,
-				F05B80091B8ABFC400DC0A1D /* MTSpecailtyListPointItem.m */,
 				94E7DCEE1B841D510093C39B /* CoursePlay */,
 				F0D7C04A1B79C7B400836DD2 /* libpolyvSDK */,
 				F0D7C0291B7994DB00836DD2 /* OpenClassCell.h */,
@@ -1876,6 +1874,8 @@
 				94E7DCEF1B841D510093C39B /* CoursePlayview */,
 				94E7DCF61B841D510093C39B /* THCoursePlayVC.h */,
 				94E7DCF71B841D510093C39B /* THCoursePlayVC.m */,
+				F05B80081B8ABFC400DC0A1D /* MTSpecailtyListPointItem.h */,
+				F05B80091B8ABFC400DC0A1D /* MTSpecailtyListPointItem.m */,
 				F06F72ED1B9694D200989489 /* playListModel.h */,
 				F06F72EE1B9694D200989489 /* playListModel.m */,
 			);
