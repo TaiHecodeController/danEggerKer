@@ -275,10 +275,9 @@
              self.jiluNum = _jobArr.count;
             [self setValueForJilu:self.jiluNum];
             
-            
         } withfail:^(int errCode, NSError *err) {
             
-        } withUid:6 page:num limit:5 resp:[saveListModel class]] addNotifaction:notify];
+        } withUid:nil page:num limit:5 resp:[saveListModel class]] addNotifaction:notify];
     }
     
     if (_pushType == 1)
@@ -295,7 +294,7 @@
     
             NSLog(@"%@",err);
     
-        } withUid:6 page:num limit:10 resp:[saveListModel class]] addNotifaction:notify];
+        } withUid:nil page:num limit:10 resp:[saveListModel class]] addNotifaction:notify];
 
     }
     
@@ -485,32 +484,62 @@
 {
     THLog(@"删除职位被点击");
     
-//    [_jobArr removeObjectsAtIndexes:_cellIndeSet];
-//    [_tableView reloadData];
-//    [_cellIndeSet removeAllIndexes];
-//    _numLab.text = [NSString stringWithFormat:@"%lu条记录",(unsigned long)_jobArr.count];
-    
-    NSMutableString *str = [[NSMutableString alloc]init];
-    for (saveListModel *slModel in _jobArr)
+    if (_pushType == 0)
     {
-        if ([slModel.cellselected  isEqual: @"1"])
+        //删除投递过的
+        NSMutableString *str = [[NSMutableString alloc]init];
+        for (saveListModel *slModel in _jobArr)
         {
-            NSString *str1 = [NSString stringWithFormat:@"%@,",slModel.id];
-            [str appendString:str1];
+            if ([slModel.cellselected  isEqual: @"1"])
+            {
+                NSString *str1 = [NSString stringWithFormat:@"%@,",slModel.job_id];
+                [str appendString:str1];
+            }
         }
+        
+        [TH_AFRequestState deleteSQJobWithSucc:^(NSDictionary *DataArr) {
+            
+            _page = 1;
+            [_jobArr removeAllObjects];
+            MBProgressHUD *mb = [MBProgressHUD mbHubShow];
+            [self loadData:mb page:_page];
+            [self.tableView reloadData];
+            
+        } withfail:^(int errCode, NSError *err) {
+            
+        } withUid:nil job_idStr:str resp:[NSObject class]];
+
+    }
+    else
+    {
+        //删除收藏职位
+        NSMutableString *str = [[NSMutableString alloc]init];
+        for (saveListModel *slModel in _jobArr)
+        {
+            if ([slModel.cellselected  isEqual: @"1"])
+            {
+                NSString *str1 = [NSString stringWithFormat:@"%@,",slModel.job_id];
+                [str appendString:str1];
+            }
+        }
+        
+        [TH_AFRequestState deleteJobWithSucc:^(NSDictionary *DataArr) {
+            
+            _page = 1;
+            [_jobArr removeAllObjects];
+            MBProgressHUD *mb = [MBProgressHUD mbHubShow];
+            [self loadData:mb page:_page];
+            [self.tableView reloadData];
+            
+        } withfail:^(int errCode, NSError *err) {
+            
+            
+            
+        } withUid:nil job_idStr:str resp:[NSObject class]];
     }
     
-    [TH_AFRequestState deleteJobWithSucc:^(NSDictionary *DataArr) {
-        
-        _page = 1;
-        [_jobArr removeAllObjects];
-        MBProgressHUD *mb = [MBProgressHUD mbHubShow];
-        [self loadData:mb page:_page];
-        [self.tableView reloadData];
-        
-    } withfail:^(int errCode, NSError *err) {
-        
-    } withUid:6 job_idStr:str resp:[NSObject class]];
+    
+   
     
     
 }

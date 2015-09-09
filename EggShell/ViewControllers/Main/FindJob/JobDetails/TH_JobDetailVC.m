@@ -94,7 +94,6 @@
         _listArr = [NSMutableArray arrayWithArray:_model.lists];
         [self.tableView reloadData];
         
-        
     } withfail:^(int errCode, NSError *err) {
         
     } withId:_uid pid:_pid page:num resp:[JobDetailModel class]] addNotifaction:notify];
@@ -149,7 +148,7 @@
 
 -(void)createsheader
 {
-    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 510)];
+    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 510+60)];
     self.headerView.backgroundColor = UIColorFromRGB(0xF3F3F1);
     [self.view addSubview:self.headerView];
 }
@@ -157,14 +156,14 @@
 -(void)createDetailView
 {
     JobDescriptionlView * jobDescription = [JobDescriptionlView setJobDescriptionView];
-       jobDescription.frame = CGRectMake(0, 0, WIDETH, 350);
+       jobDescription.frame = CGRectMake(0, 0, WIDETH, 410);
    [self.headerView addSubview:jobDescription];
     
     _jobDescription = jobDescription;
     [jobDescription.jobDescriptionTextView setEditable:NO];
     jobDescription.jobDescriptionTextView.scrollEnabled = YES;
 //公司简介
-    ComPanyProfileView * companyprofileView = [[ComPanyProfileView alloc] initWithFrame:CGRectMake(0, 350, WIDETH, 160)];
+    ComPanyProfileView * companyprofileView = [[ComPanyProfileView alloc] initWithFrame:CGRectMake(0, 410, WIDETH, 160)];
     companyprofileView.backgroundColor = [UIColor whiteColor];
     
     companyprofileView.delegate = self;
@@ -184,7 +183,7 @@
             company_recordFrame = companyView.frame;
             
             //company的frame
-        companyView.frame = CGRectMake(0, 350, companyView.frame.size.width, companyView.frame.size.height + textSize.height - 60);
+        companyView.frame = CGRectMake(0, 410, companyView.frame.size.width, companyView.frame.size.height + textSize.height - 60);
             
             //改变label的frame
             lab_recordFrame = companyView.detailLable.frame;
@@ -216,7 +215,7 @@
 
     }
     companyView.selectBtn.selected = !companyView.selectBtn.selected;
-self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-10+self.textSize.height);
+self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.height-10+self.textSize.height);
 }
 -(void)createTableView
 {
@@ -300,6 +299,7 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
         return 53;
     }
     return 78;
+    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -369,6 +369,7 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
     }
     
     _jobDescription.workPlace.text = model.address;
+    _jobDescription.detailAdressLable.text = model.address;
     _jobDescription.knowledge.text = model.edu;
     _jobDescription.salary.text = model.salary;
     //公司简介
@@ -380,7 +381,6 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+self.tableView.frame.size.height-
 #pragma mark- - 收藏
 -(void)rightBtnClick:(UIButton *)sender
 {
-    
     
     sender.selected = !sender.selected;
    
