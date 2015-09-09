@@ -79,7 +79,11 @@
 {
     NSNumber *jobid = [NSNumber numberWithInt:job_id];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-    NSDictionary *param = @{@"job_id":jobid,@"uid":[df objectForKey:@"uid"]};
+    NSString * userId =[df objectForKey:@"uid"];
+    if ([userId length]==0) {
+        userId = @"";
+    }
+    NSDictionary *param = @{@"job_id":jobid,@"uid":userId};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/collect",base_Url]param:param succ:succ fail:fail resp:resp];
 }
 
@@ -89,7 +93,11 @@
     NSNumber *nspage = [NSNumber numberWithInt:page];
     NSNumber *nslimit = [NSNumber numberWithInt:limit];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-    NSDictionary *param = @{@"uid":[df objectForKey:@"uid"],@"page":nspage,@"limit":nslimit};
+    NSString * userId =[df objectForKey:@"uid"];
+    if ([userId length]==0) {
+        userId = @"";
+    }
+    NSDictionary *param = @{@"uid":userId,@"page":nspage,@"limit":nslimit};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/collectlist",base_Url] param:param succ:succ fail:fail resp:resp];
     
 }
@@ -98,7 +106,11 @@
 +(AFRequestState *)deleteSQJobWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid job_idStr:(NSString *)job_idStr resp:(Class)resp
 {
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-    NSDictionary *param = @{@"uid":[df objectForKey:@"uid"],@"job_id":job_idStr};
+    NSString * userId =[df objectForKey:@"uid"];
+    if ([userId length]==0) {
+        userId = @"";
+    }
+    NSDictionary *param = @{@"uid":userId,@"job_id":job_idStr};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/delgetPosition",base_Url] param:param succ:succ fail:fail resp:resp];
 }
 
@@ -106,7 +118,11 @@
 +(AFRequestState *)deleteJobWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid job_idStr:(NSString *)job_idStr resp:(Class)resp
 {
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-    NSDictionary *param = @{@"uid":[df objectForKey:@"uid"],@"job_id":job_idStr};
+    NSString * userId =[df objectForKey:@"uid"];
+    if ([userId length]==0) {
+        userId = @"";
+    }
+    NSDictionary *param = @{@"uid":userId,@"job_id":job_idStr};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/delcollectlist",base_Url] param:param succ:succ fail:fail resp:resp];
 
 }

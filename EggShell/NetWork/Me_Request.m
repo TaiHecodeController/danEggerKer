@@ -17,7 +17,11 @@
     NSNumber *nspage = [NSNumber numberWithInt:page];
     NSNumber *nslimit = [NSNumber numberWithInt:limit];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-    NSDictionary *param = @{@"uid":[df objectForKey:@"uid"],@"page":nspage,@"limit":nslimit};
+    NSString * userId = [df objectForKey:@"uid"];
+    if ([userId length]==0) {
+        userId = @"";
+    }
+    NSDictionary *param = @{@"uid":userId,@"page":nspage,@"limit":nslimit};
     return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Position/getPositionlist" param:param succ:succ fail:fail resp:resp];
 }
 

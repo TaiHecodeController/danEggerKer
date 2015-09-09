@@ -162,6 +162,7 @@
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.tableFooterView = [[UIView alloc] init];
     _tableView.tableHeaderView = self.comPanyView;
     _tableView.backgroundColor = [UIColor whiteColor];
     

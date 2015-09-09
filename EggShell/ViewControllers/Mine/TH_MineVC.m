@@ -228,7 +228,7 @@
             }else
             {
                
-                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登陆", nil];
+                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
                 alertView.tag  = 102;
                 [alertView show];
             }

@@ -120,7 +120,9 @@
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, y, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - y - 66 - bottomH )];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.tableFooterView = [[UIView alloc] init];
     _tableView.backgroundColor = [UIColor clearColor];
+    _tableView.tableFooterView = [[UIView alloc] init];
     [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     [self.view addSubview:_tableView];
     //下拉刷新
