@@ -153,19 +153,18 @@
     }
     else
     {
-        self.navigationController.navigationBarHidden = YES;
+       
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登陆" delegate:self cancelButtonTitle:@"暂不登陆" otherButtonTitles:@"登陆", nil];
         [alertView show];
     }
 
-//    **************************************
 }
 #pragma mark -- alertViewDelegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1)
     {
-        self.navigationController.navigationBarHidden = NO;
+//        self.navigationController.navigationBarHidden = NO;
         TH_LoginVC * lvc = [[TH_LoginVC alloc] init];
         [self.navigationController pushViewController:lvc animated:YES];
         
