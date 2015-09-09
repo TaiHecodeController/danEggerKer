@@ -13,7 +13,7 @@
 +(AFRequestState *)requestWithSucc:(void(^)(NSDictionary * DataDic))succ resp:(Class)resp paramPage:(NSString *)page Pagesize:(NSString *)pageSie
 {
     NSDictionary * param = @{@"pagesize":pageSie,@"page":page};
-//    return [self postRequestWithUrl:@"http://195.198.1.211/eggker/phpv/api.php/video/getPageList" param:param succ:succ resp:resp];
+
     return [self postRequestWithUrl:@"http://ceshi.tiahel.com/eggker/interface/api.php/video/getPageList" param:param succ:succ resp:resp];
 }
 

@@ -78,7 +78,7 @@
     _cellIndeSet = [[NSMutableIndexSet alloc]init];
     
     [self initView];
-    _jobArr = [NSMutableArray array];
+    _jobArr = [[NSMutableArray alloc]init];
     self.page = 1;
     MBProgressHUD *mb = [MBProgressHUD mbHubShow];
     [self loadData:mb page:self.page];

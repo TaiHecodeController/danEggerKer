@@ -331,7 +331,7 @@
     [self.view addSubview:_bottomView];
     
     UIView *bottomLine = [[UIView alloc]init];
-    bottomLine.frame = CGRectMake(10, 0, WIDETH, 1);
+    bottomLine.frame = CGRectMake(0, 0, WIDETH, 1);
     bottomLine.backgroundColor = color(221, 221, 221);
     [_bottomView addSubview:bottomLine];
     

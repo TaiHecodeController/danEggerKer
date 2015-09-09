@@ -143,7 +143,7 @@
         
     } withfail:^(int errCode, NSError *err) {
         
-        [MBProgressHUD creatembHub:@"申请失败"];
+        [MBProgressHUD creatembHub:@"您已申请过了,一周内不得重复申请"];
         
     } withUid:6 job_id:_model.cj_id resp:[NSObject class]];
 }
