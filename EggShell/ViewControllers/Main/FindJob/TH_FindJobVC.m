@@ -458,6 +458,8 @@
     
     if (_currentIndex == 0)
     {
+        if(self.jobArr.count >0)
+        {
         findJobModel * model = self.jobArr[indexPath.row];
         cell.positionLab.text = model.job_name;
         cell.companyLab.text = model.com_name;
@@ -465,12 +467,13 @@
         cell.knowledgeLab.text = model.edu;
         NSString * dateStr = model.lastupdate;
         cell.timeLab.text = [dateStr substringFromIndex:5];
-        
+       
 
         cell.salaryLab.text = model.salary;
         cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
         [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell layoutSubviews];
+        }
     }
     else
     {

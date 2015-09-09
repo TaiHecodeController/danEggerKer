@@ -76,13 +76,11 @@
     NSString * tokenSerit = [NSString stringWithFormat:@"%@%@",token,uid];
     NSString * mymd5_token  = [MyMD5 md5:tokenSerit];
     [user setObject:mymd5_token forKey:@"md5_ken"];
-    NSDictionary * dic = @{@"token":mymd5_token,@"uid":uid};
-    if ([mymd5_token length]==0) {
+    if ([mymd5_token length]==0||[uid length]==0) {
         mymd5_token = @"";
-     }
-     if ([uid length]==0) {
-         uid = @"";
-     }
+        uid = @"";
+    }
+    NSDictionary * dic = @{@"token":mymd5_token,@"uid":uid};
     [LoginAndRegisterRequest getImagewithSucc:^(NSDictionary * succ) {
        
         if (![succ[@"data"][@"name"]length]==0) {
