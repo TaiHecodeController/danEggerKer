@@ -226,7 +226,17 @@
         self.dataDic = DataDic[@"data"];
         
         ExceptCityCell * cell = self.jobCellArray[4];
-        
+        //    {
+        //        display = 1;
+        //        id = 500;
+        //        keyid = 52;
+        //        letter = D;
+        //        name = "\U4e1c\U57ce\U533a";
+        //        sitetype = 0;
+        //        sort = 0;
+        //    }
+//         NSDictionary *dic = @{@"display":@"1",@"id":@"0",@"keyid":@"0",@"letter":@"0",@"name":@"不限",@"sitetype":@"0",@"sort":@"0"};
+//        [self.dataDic[@"three_cityid"] addObject:dic];
         [cell config:self.dataDic[@"three_cityid"]];
     }];
 }
