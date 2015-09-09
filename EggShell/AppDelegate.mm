@@ -55,7 +55,6 @@
 
 //    sleep(0);
 
-
     NSString *key = @"CFBundleVersion";
     NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:kBundleVersion];
     NSString *currentVersion = [NSBundle mainBundle].infoDictionary[kBundleVersion];
@@ -76,6 +75,7 @@
     {
         NSLog(@"已登陆");
     }
+    
     return YES;
    
 }

@@ -276,7 +276,6 @@
     }
 }
 
-
 //对象转换＋异常捕获（防崩溃）
 +(void)handleResponseForTeacher:(id)responseObject Succ:(void (^)(id data))succ Fail:(void (^)(int errCode, NSError * err))fail Resp:(Class)resp State:(AFRequestState *)State;
 {
