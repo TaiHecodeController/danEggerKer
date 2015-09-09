@@ -22,7 +22,7 @@
     [self registerView];
     
     
-    [self loadData];
+//    [self loadData];
     
     
 }

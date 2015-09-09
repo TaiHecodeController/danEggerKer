@@ -37,7 +37,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.page = 1;
+//    self.page = 1;
     self.limitNum = 10;
     [self createView];
     [self createTableView];
@@ -86,7 +86,6 @@
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:_page pageTye:1];
         [self.tableView reloadData];
-        
     }
     else
         
@@ -176,7 +175,7 @@
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
     if( refreshView == _header ){
-        _page = 1;
+        _page = 0;
         
         if (_currentIndex == 0)
         {
@@ -187,13 +186,10 @@
             [self loadData:refreshView page:_page pageTye:2];
         }
 
-        
-        
     }
     else{
         self.page++;
         THLog(@"上拉加载更多");
-        
         if (_currentIndex == 0)
         {
              [self loadData:refreshView page:_page pageTye:1];

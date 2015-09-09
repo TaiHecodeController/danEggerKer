@@ -20,6 +20,7 @@
 #import "VPImageCropperViewController.h"
 #import "LoginAndRegisterRequest.h"
 #import "AFAppRequest.h"
+#import "MyMD5.h"
 @interface TH_MineVC ()<THMineViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,VPImageCropperDelegate,UIAlertViewDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UITableView * tableView;
@@ -45,38 +46,72 @@
     self.title = @"我的";
     [self createScro];
     [self createView];
-//    [self loadDataPortrait];
+  [self baseIofomationLogin];
     
 }
-
--(void)loadDataPortrait
+-(void)baseIofomationLogin
 {
-        NSUserDefaults * uid =[NSUserDefaults standardUserDefaults];
-   NSString * uidStr = [uid objectForKey:@"uid"];
-    
-    
-     [LoginAndRegisterRequest getImagewithSucc:^(NSDictionary * dic) {
-         [self.mineView.headPotrait setButtonImageWithUrl:@""];
-         
-         
-    } withUid:@"6"];
-   }
-//-(void)loadDataPortrait
-//{
-//    NSUserDefaults * uid =[NSUserDefaults standardUserDefaults];
-//    NSString * uidStr = [uid objectForKey:@"uid"];
-//    if ([uidStr length]==0) {
-//        self.uidStr = @"";
-//    }else
-//    {
-//        self.uidStr = uidStr;
-//    }
-//    [LoginAndRegisterRequest getImagewithSucc:^(NSDictionary * dic) {
-//        [self.mineView.headPotrait setButtonImageWithUrl:@""];
-//        
-//        
-//    } withUid:self.uidStr];
-//}
+    /*是否登录相关处理**/
+    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+    if (![user objectForKey:@"uid"]) {
+        self.mineView.lginBtn.userInteractionEnabled = YES;
+        [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
+        self.mineView.userLable.text = @"";
+        self.mineView.DeliveryJobNum.text = @"";
+        self.mineView.FavoriteJobNum.text = @"";
+        self.mineView.ResumeNum.text = @"";
+        [self.mineView.loginBgview removeFromSuperview];
+        
+    }else
+    {
+        [self baseIofomation];
+        
+    }
+}
+-(void)baseIofomation
+{
+    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+    NSString * uid =[user objectForKey:@"uidAndToken"][@"uid"];
+    NSString * token = [user objectForKey:@"uidAndToken"][@"token"];
+    NSString * tokenSerit = [NSString stringWithFormat:@"%@%@",token,uid];
+    NSString * mymd5_token  = [MyMD5 md5:tokenSerit];
+    [user setObject:mymd5_token forKey:@"md5_ken"];
+    NSDictionary * dic = @{@"token":mymd5_token,@"uid":uid};
+    if ([mymd5_token length]==0) {
+        mymd5_token = @"";
+     }
+     if ([uid length]==0) {
+         uid = @"";
+     }
+    [LoginAndRegisterRequest getImagewithSucc:^(NSDictionary * succ) {
+       
+        if (![succ[@"data"][@"name"]length]==0) {
+            [self.mineView.lginBtn setTitle:succ[@"data"][@"name"] forState:UIControlStateNormal];
+        }else{
+        [self.mineView.lginBtn setTitle:[user objectForKey:@"loginPhone"] forState:UIControlStateNormal];
+        }
+        [self.mineView.headPotrait setButtonImageWithUrl:[user objectForKey:succ[@"data"][@"resume_photo"]]];
+        
+        self.mineView.DeliveryJobNum.text = [NSString stringWithFormat:@"(%@)",succ[@"data"][@"favjob"]];
+        self.mineView.FavoriteJobNum.text = [NSString stringWithFormat:@"(%@)",succ[@"data"][@"usejob"]];
+        
+        self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%@)",succ[@"data"][@"expect"]];
+        self.mineView.userLable.text = succ[@"data"][@"description"];
+       
+    } withUid:dic withFail:^(int errCode, NSError *err) {
+        if (errCode ==1017) {
+            [MBProgressHUD creatembHub:@"用户不存在"];
+        }
+        self.mineView.lginBtn.userInteractionEnabled = YES;
+        [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
+        self.mineView.userLable.text = @"";
+        self.mineView.DeliveryJobNum.text = @"";
+        self.mineView.FavoriteJobNum.text = @"";
+        self.mineView.ResumeNum.text = @"";
+        [self.mineView.loginBgview removeFromSuperview];
+
+    }];
+}
 -(void)createScro
 {
     UIScrollView * sro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-49)];
@@ -98,10 +133,10 @@
     minVew.backgroundColor =    color(243, 243, 241);
     self.mineView = minVew;
     [self.scro addSubview:minVew];
-    /*是否登录相关处理**/
-    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
-    if ([user objectForKey:@"uid"] ) {
-        
+//    /*是否登录相关处理**/
+//    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+//    if ([user objectForKey:@"uid"] ) {
+    
         [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5
               initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
                   minVew.frame = CGRectMake(0, 0, WIDETH, 440);
@@ -109,29 +144,29 @@
         self.scro.contentSize = CGSizeMake(WIDETH,450+60);
         self.mineView.lginBtn.userInteractionEnabled = NO;
         self.mineView.lginBtn.titleEdgeInsets = UIEdgeInsetsMake(-10, -1, 0, 0);
-        [self.mineView.lginBtn setTitle:[user objectForKey:@"loginPhone"] forState:UIControlStateNormal];
-        
-        [self.mineView.headPotrait setButtonImageWithUrl:[user objectForKey:@"baseInformation"][@"resume_photo"]];
-        self.mineView.DeliveryJobNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"expect"]];
-        self.mineView.FavoriteJobNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"favjob"]];
-        
-        self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"usejob"]];
-//        self.mineView.userLable.text =[user objectForKey:@"baseInformation"][@"description"];
-        self.mineView.userLable.text = @"学习是一种信仰";
-    }
-    if (![user objectForKey:@"uid"]) {
-        
-        
-        self.mineView.lginBtn.userInteractionEnabled = YES;
-        [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
-        self.mineView.userLable.text = @"";
-        self.mineView.DeliveryJobNum.text = @"";
-        self.mineView.FavoriteJobNum.text = @"";
-        
-        self.mineView.ResumeNum.text = @"";
-        [minVew.loginBgview removeFromSuperview];
-        
-    }
+//        [self.mineView.lginBtn setTitle:[user objectForKey:@"loginPhone"] forState:UIControlStateNormal];
+//        
+//        [self.mineView.headPotrait setButtonImageWithUrl:[user objectForKey:@"baseInformation"][@"resume_photo"]];
+//        self.mineView.DeliveryJobNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"expect"]];
+//        self.mineView.FavoriteJobNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"favjob"]];
+//        
+//        self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"usejob"]];
+////        self.mineView.userLable.text =[user objectForKey:@"baseInformation"][@"description"];
+//        self.mineView.userLable.text = @"学习是一种信仰";
+//    }
+//    if (![user objectForKey:@"uid"]) {
+//        
+//        
+//        self.mineView.lginBtn.userInteractionEnabled = YES;
+//        [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
+//        self.mineView.userLable.text = @"";
+//        self.mineView.DeliveryJobNum.text = @"";
+//        self.mineView.FavoriteJobNum.text = @"";
+//        
+//        self.mineView.ResumeNum.text = @"";
+//        [minVew.loginBgview removeFromSuperview];
+//        
+//    }
     
     [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5
           initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
@@ -185,11 +220,21 @@
             break;
         }
         case THMineViewButtonTypeResume:
-        {NSLog(@"简历管理");
-            self.navigationController.navigationBarHidden = YES;
-            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登陆" delegate:self cancelButtonTitle:@"暂不登陆" otherButtonTitles:@"登陆", nil];
-            alertView.tag  = 102;
-            [alertView show];
+        {   NSLog(@"简历管理");
+            
+            [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+            if([AppDelegate instance].userId)
+            {
+                ManagerResumeVC * manaVC = [[ManagerResumeVC alloc] init];
+                [self.navigationController pushViewController:manaVC animated:YES];
+            }else
+            {
+               
+                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登陆", nil];
+                alertView.tag  = 102;
+                [alertView show];
+            }
+
             
             break;
         }
@@ -294,13 +339,12 @@
             AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
             appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
             [userDefault removeObjectForKey:@"uid"];
-//            [userDefault setObject:@"" forKey:@"uid"];
             [userDefault synchronize];
             appDelegate.mainTabBar.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
         }if (alertView.tag == 102) {
-            ManagerResumeVC * manager = [[ManagerResumeVC alloc] init];
-            [self.navigationController pushViewController:manager animated:YES];
+            TH_LoginVC * login = [[TH_LoginVC alloc] init];
+            [self.navigationController pushViewController:login animated:YES];
         }
         
     }

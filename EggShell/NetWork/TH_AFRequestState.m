@@ -34,8 +34,6 @@
 +(AFRequestState*)feedbackReRequestWithSucc:(void(^)( NSDictionary * DataDic))succ   withSource:(int)source withOpinion:(NSString*)opinion withqq:(NSString*)qq withEmail:(NSString*)email withfail:(void (^)(int errCode, NSError * err))fail
 {
     NSNumber * num = [NSNumber numberWithInt:source];
-    
-    
   NSDictionary * param = @{@"source":num ,@"opinion":opinion,@"qq":qq,@"email":email};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@feedback",base_Url] param:param succ:succ fail:fail];
    
@@ -59,7 +57,13 @@
     NSNumber *numpid = [NSNumber numberWithInt:pid];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
 //    NSLog(@"uid%@",[df objectForKey:@"uid"]);
-    NSDictionary *param = @{@"id":numid,@"pid":numpid,@"uid":[df objectForKey:@"uid"]};
+    NSString * userUid = [df objectForKey:@"uid"];
+    
+    if([userUid length]==0)
+    {
+    userUid = @"";
+    }
+    NSDictionary *param = @{@"id":numid,@"pid":numpid,@"uid":userUid};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/details",base_Url] param:param succ:succ fail:fail resp:resp];
     
 }
@@ -115,7 +119,6 @@
     NSNumber * limitNum =[NSNumber numberWithInt:limit];
     NSNumber * typeNum =[NSNumber numberWithInt:type];
     NSDictionary * param = @{@"page":pageNum,@"limit":limitNum,@"type":typeNum};
-
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Infos/index",base_Url]param:param succ:succ resp:resp];
 }
 /*名企推荐**/

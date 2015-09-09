@@ -7,7 +7,6 @@
 //
 
 #import "MineEditVC.h"
-
 #import "EditAddressVC.h"
 #import "MineEditInfoCell.h"
 #import "AFAppRequest.h"
@@ -35,25 +34,25 @@
 @property(copy,nonatomic)NSString * NicknameCell;
 @property(assign,nonatomic)NSString * SexCell;
 @property(nonatomic,assign)NSInteger * jobtag;
+@property(nonatomic,strong)NSDictionary * dic;
 @end
 
 @implementation MineEditVC
 -(void)viewWillAppear:(BOOL)animated
 {
-
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"编辑资料";
+    self.dic = [NSDictionary dictionary];
     self.jobCellArray = [NSMutableArray arrayWithCapacity:0];
     self.birthdayCellArray = [NSMutableArray arrayWithCapacity:0];
     [self addNotifacation];
-   
+    
     [self createUI];
     [self createNav];
-     [self createData];
-   
-    // Do any additional setup after loading the view.
+    [self createData];
 }
 
 -(void)addNotifacation
@@ -70,16 +69,18 @@
 -(void)createData
 {
     NSUserDefaults * uid =[NSUserDefaults standardUserDefaults];
+    NSString  * token  =  [uid objectForKey:@"md5_token"];
     NSString * uisStr = [uid objectForKey:@"uid"];
-    
+    NSDictionary * dic = @{@"uid":uisStr,@"token":token};
     [LoginAndRegisterRequest EditInformationWithSucc:^(NSDictionary * succ) {
-        
+        self.dic = succ[@"data"];
         [self.tableView1 reloadData];
         [self.tableView2 reloadData];
-    } withuid:uisStr];
+        [self.tableView3 reloadData];
+    } withuid:dic];
     
-    [self.tableView3 reloadData];
-
+    
+    
     self.nameArray = @[@"登陆账号",@"昵称",@"性别",@"所在地",@"简介"];
     self.holderArray = @[@"18800006666",@"王鑫",@"男",@"北京",@"学习是一种信仰"];
     
@@ -96,7 +97,7 @@
     backView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     backView.contentSize = CGSizeMake(WIDETH / 2, HEIGHT + 60);
     backView.backgroundColor = [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:241 / 255.0 alpha:1];
-//    [backView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
+    //    [backView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
     backView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:backView];
     
@@ -192,11 +193,12 @@
             cell.contentTextField.enabled = NO;
             
             NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
-            if  (![[userDefault objectForKey:@"login"] isEqualToString:@""]) {
-                cell.contentTextField.text = [userDefault objectForKey:@"login"];
-                
+            if  ([userDefault objectForKey:@"uid"] ) {
+                cell.contentTextField.text = [userDefault objectForKey:@"loginPhone"];
+//                cell.contentTextField.text = self.dic[@"telphone"];
             }
-        
+        }if (indexPath.row==1) {
+            cell.contentTextField.text = self.dic[@"name"];
         }
         if(indexPath.row == 2)
         {
@@ -204,22 +206,30 @@
             cell.contentBtn.tag = 200 + 2;
             cell.contentTextField.enabled = NO;
             cell.contentBtn.hidden = NO;
-
+            if ([self.dic[@"sex"] isEqualToString:[NSString stringWithFormat:@"%d",7]]) {
+                cell.contentTextField.text = @"女";
+            }else
+            {
+                cell.contentTextField.text = @"男";
+            }
         }
         if(indexPath.row == 3)
         {
-//            cell.nextBtn.hidden = NO;
-//            cell.contentBtn.hidden = NO;
-//          cell.contentBtn.tag = 200 + 5;
-//            cell.contentTextField.enabled = YES;
-                    }
+            //            cell.nextBtn.hidden = NO;
+            //            cell.contentBtn.hidden = NO;
+            //          cell.contentBtn.tag = 200 + 5;
+            //            cell.contentTextField.enabled = YES;
+            cell.contentTextField.text = self.dic[@"address"];
+        }
         if(indexPath.row == 4)
         {
             cell.moreLab.hidden = NO;
             isEdit = YES;
-           
+            cell.contentTextField.text = self.dic[@"description"];
+            
         }
-      cell.nameLab.text = self.nameArray[indexPath.row];
+        cell.nameLab.text = self.nameArray[indexPath.row];
+        cell.contentTextField.placeholder = self.holderArray[indexPath.row];
         [self.jobCellArray addObject:cell];
         return cell;
     }
@@ -244,15 +254,19 @@
         cell.showAllBtn.hidden = YES;
         cell.moreLab.hidden = YES;
         cell.nameLab.text = self.nameArray2[indexPath.row];
-        cell.contentTextField.text = self.holderArray2[indexPath.row];
+        cell.contentTextField.placeholder = self.holderArray2[indexPath.row];
         if(indexPath.row == 0)
         {
             cell.showAllBtn.hidden = NO;
             cell.contentBtn.tag = 200;
             cell.contentTextField.enabled = NO;
             cell.contentBtn.hidden = NO;
+            cell.contentTextField.text = self.dic[@"reg_date"];
+        }if (indexPath.row==1) {
+            cell.contentTextField.text = self.dic[@"email"];
         }
         [self.birthdayCellArray addObject:cell];
+        cell.contentTextField.placeholder = self.holderArray2[indexPath.row];
         return cell;
         
     }
@@ -272,10 +286,16 @@
         cell.moreLab.hidden = YES;
         cell.nameLab.text = self.nameArray3[indexPath.row];
         cell.contentTextField.text = self.holderArray3[indexPath.row];
-//        [self.jobCellArray addObject:cell];
+        [self.jobCellArray addObject:cell];
+        if (indexPath.row==0) {
+            //            cell.contentTextField.text = self.dic[@"reg_date"];
+        }
+        if (indexPath.row==1) {
+            cell.contentTextField.text = self.dic[@"reg_date"];
+        }
         return cell;
     }
-
+    
     
     return nil;
 }
@@ -287,9 +307,9 @@
 ////             MineEditInfoCell * cell = self.jobCellArray[indexPath.row];
 ////            self.NicknameCell = cell.contentTextField.text ;
 ////            NSLog(@"%@",self.NicknameCell);
-////            
+////
 ////        }
-////        
+////
 ////    }
 //
 //}
@@ -331,68 +351,67 @@
 //限定输入字数
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-//    if(isEdit)
-//    {
-//        if((string.length - range.length + textField.text.length) > 30)
-//        {
-//            
-//            return NO;
-//        }
-//
-//    }
+    //    if(isEdit)
+    //    {
+    //        if((string.length - range.length + textField.text.length) > 30)
+    //        {
+    //
+    //            return NO;
+    //        }
+    //
+    //    }
     return YES;
 }
 #pragma mark - - 完成提交
 -(void)rightClick:(UIButton *)sender
 {
     
-//    NSArray * keyArray = [ NSArray arrayWithObjects:@"telphone",@"name",@"sex",@"address",@"description", nil];
+    //    NSArray * keyArray = [ NSArray arrayWithObjects:@"telphone",@"name",@"sex",@"address",@"description", nil];
+    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+    NSString * uisStr = [user objectForKey:@"uid"];
+    NSString  * token  =  [user objectForKey:@"md5_token"];
     if(self.tableView1.tag == 1222)
     {
         for (int i = 0; i < self.jobCellArray.count; i ++) {
-        self.telphone = ((MineEditInfoCell*)self.jobCellArray[0]).contentTextField.text;
+            self.telphone = ((MineEditInfoCell*)self.jobCellArray[0]).contentTextField.text;
             
             self.name = ((MineEditInfoCell*)self.jobCellArray[1]).contentTextField.text;
-
+            
             if ([((MineEditInfoCell*)self.jobCellArray[2]).contentTextField.text isEqualToString:@"男"]) {
                 self.sex = 6;
                 
                 
             }if ([((MineEditInfoCell*)self.jobCellArray[2]).contentTextField.text isEqualToString:@"女"]) {
-             
+                
                 self.sex = 7;
             }
             
-
+            
             self.address = ((MineEditInfoCell*)self.jobCellArray[3]).contentTextField.text;
-
+            
             self.descriptions = ((MineEditInfoCell*)self.jobCellArray[4]).contentTextField.text;
         }
         
     }
     if (self.tableView2.tag == 1223) {
         for (int i = 0; i < self.birthdayCellArray.count; i ++) {
-          self.birthday = ((MineEditInfoCell*)self.birthdayCellArray[0]).contentTextField.text;
+            self.birthday = ((MineEditInfoCell*)self.birthdayCellArray[0]).contentTextField.text;
             self.email = ((MineEditInfoCell*)self.birthdayCellArray[1]).contentTextField.text;
             
-            
-    }
-        NSUserDefaults * uid =[NSUserDefaults standardUserDefaults];
-        NSString * uisStr = [uid objectForKey:@"uid"];
-        
-        
-        
+        }
         NSNumber *sexNum = [NSNumber numberWithInt:self.sex];
-    NSDictionary * param = @{@"uid":uisStr,@"telphone":self.telphone,@"name":self.name,@"sex":sexNum,@"address":self.address,@"description":self.description,@"birthday":self.birthday,@"email":self.email};
-    
+        NSDictionary * param = @{@"token":token ,@"uid":uisStr,@"telphone":self.telphone,@"name":self.name,@"sex":sexNum,@"address":self.address,@"description":self.description,@"birthday":self.birthday,@"email":self.email};
         
-    [LoginAndRegisterRequest EditInformationWithSucc:^(NSDictionary * dic) {
         
-        NSLog(@"成功");
-    } withParam:param];
-    
-}
+        [LoginAndRegisterRequest EditInformationWithSucc:^(NSDictionary * dic) {
+            
+            [MBProgressHUD creatembHub:@"编辑资料成功"];
+            
+            
+        } withParam:param];
+        
     }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -400,13 +419,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

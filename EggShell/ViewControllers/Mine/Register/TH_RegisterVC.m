@@ -165,6 +165,14 @@
 #pragma mark -- 获取验证码
 -(void)securityCodeBtnClick:(UIButton *)sender
 {
+    if ([self.phoneTextField.text length]==0) {
+        [MBProgressHUD creatembHub:@"电话号码为空"];
+        return;
+    }else if([self.passwordTextField.text length]==0)
+    {
+        [MBProgressHUD creatembHub:@"密码不能够为空"];
+        return;
+    }
     [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
         
         NSLog(@"获取验证码");

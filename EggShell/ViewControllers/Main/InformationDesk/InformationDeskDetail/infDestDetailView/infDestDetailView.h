@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *RouteLable;
 @property (weak, nonatomic) IBOutlet UILabel *MeetingPlaceLable;
 @property (weak, nonatomic) IBOutlet UITextView *contentLable;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImage;
 
 
 -(void)setValues:(playFanModel*)model;

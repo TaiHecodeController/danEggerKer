@@ -17,7 +17,6 @@
 #import "TH_AFRequestState.h"
 #import "JobDetailModel.h"
 #import "CommonFunc.h"
-
 @interface TH_JobDetailVC ()<UITableViewDataSource,UITableViewDelegate,companyProfileViewDelegate,MJRefreshBaseViewDelegate>
 {
     //纪录展开之前的frame

@@ -28,7 +28,7 @@
 {
     
     NSDictionary * para = @{@"telphone":phonenumber,@"password":password,@"smscode":SecurityCode};
-    NSString * str = [NSString stringWithFormat:@"%@register/chTelphone",base_Url];
+   
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@register/chTelphone",base_Url] param:para succ:succ];
 }
 /*注册**/
@@ -78,26 +78,26 @@ NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
     
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@basicdata/head",base_Url] param:param succ:succ];
 }
-/*获取头像**/
-+(AFRequestState *)getImagewithSucc:(void (^)(NSDictionary * ))succ withUid:(NSString*)uid
+/*获取个人资料**/
++(AFRequestState *)getImagewithSucc:(void (^)(NSDictionary *))succ withUid:(NSDictionary*)dic withFail:(void(^)(int errCode, NSError *err))fail
 {
-        NSDictionary * param = @{@"uid":uid} ;
     
-    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@basicdata/gethead",base_Url]param:param succ:succ];
+   return [self postRequestWithUrl:[NSString stringWithFormat:@"%@basicdata/getbasic",base_Url] param:dic succ:succ fail:fail];
+//        return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/basicdata/getbasic" param:dic succ:succ fail:fail];
 
 }
 /*编辑资料添加**/
 +(AFRequestState *)EditInformationWithSucc:(void(^)(NSDictionary*))succ withParam:(NSDictionary*)dic
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@basicdata/add_basicdata",base_Url] param:dic succ:succ];
+
 }
 /*编辑资料预览**/
-+(AFRequestState *)EditInformationWithSucc:(void(^)(NSDictionary*))succ withuid:(NSString*)uid
++(AFRequestState *)EditInformationWithSucc:(void(^)(NSDictionary*))succ withuid:(NSDictionary*)uid
 
 {
-    NSDictionary * param = @{@"uid":uid};
     
 
-    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@basicdata",base_Url] param:param succ:succ];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@basicdata",base_Url] param:uid succ:succ];
 }
 @end

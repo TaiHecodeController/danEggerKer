@@ -11,12 +11,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tu001" translatesAutoresizingMaskIntoConstraints="NO" id="8hW-ey-laz">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="100" id="suh-49-K1f"/>
-                    </constraints>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBA-x6-vZo">
                     <rect key="frame" x="0.0" y="100" width="320" height="153"/>
                     <subviews>
@@ -121,6 +115,12 @@
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tu001" translatesAutoresizingMaskIntoConstraints="NO" id="8hW-ey-laz">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="suh-49-K1f"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -145,6 +145,7 @@
                 <outlet property="contactPesonLable" destination="IlN-f9-X3U" id="m1v-pH-AWy"/>
                 <outlet property="contentLable" destination="koX-2M-YR8" id="FCS-QU-GEY"/>
                 <outlet property="holdLable" destination="dT7-qI-dgf" id="siu-Fi-0c6"/>
+                <outlet property="logoImage" destination="8hW-ey-laz" id="B6k-9K-mow"/>
                 <outlet property="timelLable" destination="GZY-TZ-5L7" id="DJm-Cx-mqG"/>
             </connections>
             <point key="canvasLocation" x="199" y="278"/>

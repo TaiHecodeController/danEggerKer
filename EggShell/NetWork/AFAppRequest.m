@@ -157,6 +157,9 @@
          fail([errcode intValue],error);
          //查原始数据 responseObject
          [State setEnd];
+         NSLog(@"Error: %@", error);
+         NSLog ( @"operation: %@" , operation. responseString );
+         
      }];
     [State start];
     return State;
@@ -204,6 +207,9 @@
     {
         [MBProgressHUD creatembHub:@"服务器异常"];
     }
+//    }if (errCode == 3840) {
+//        [MBProgressHUD creatembHub:@"个人用户不存在"];
+//    }
     
     
 }
@@ -246,7 +252,6 @@
             succ(nil);
             return;
         }
-        
         if( data == nil && resp != [NSNull class] )
         {
             fail(10001, nil);

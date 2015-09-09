@@ -78,7 +78,6 @@
         _state = [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
         [self.dataArray addObjectsFromArray:DataDic];
         [self.tableView reloadData];
-        
     } resp:[playFanModel class] withPage:num withLimit:self.limitNum withType:type] addNotifaction:notify];
 }
 -(void)createView
@@ -88,9 +87,6 @@
     bgView.backgroundColor = color(221, 221, 221);
     [self.view addSubview:bgView];
     NSArray *iconArr = @[@[@"high1",@"high"],@[@"fuli",@"fuli1"]];
-    
-    
-    
     _segmentedControl = [[HYSegmentedControl alloc] initWithOriginY:0 Titles:@[@"蛋粉H翻天igh", @"蛋壳儿送福利"]  IconNames:iconArr delegate:self] ;
     [self.view addSubview:_segmentedControl];
     
@@ -102,7 +98,7 @@
        self.dataArray = [NSMutableArray arrayWithCapacity:0];
         _currentIndex = 0;
         NSLog(@"蛋粉H翻天igh");
-        _page = 0;
+        _page = 1;
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:_page pageTye:1];
         [self.tableView reloadData];
@@ -114,7 +110,7 @@
                        arrayWithCapacity:0];
         _currentIndex = 1;
         NSLog(@"蛋壳儿送福利");
-      _page = 0;
+      _page = 1;
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:_page pageTye:2];
         [self.tableView reloadData];
@@ -193,7 +189,7 @@
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
     if( refreshView == _header ){
-        _page = 0;
+        _page = 1;
         if (_currentIndex == 0)
         {
             [self loadData:refreshView page:_page pageTye:1];

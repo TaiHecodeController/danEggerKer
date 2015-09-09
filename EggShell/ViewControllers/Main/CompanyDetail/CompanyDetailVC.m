@@ -207,12 +207,11 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSUserDefaults * userId = [NSUserDefaults standardUserDefaults];
-     [userId objectForKey:@"uid"];
+//    NSUserDefaults * userId = [NSUserDefaults standardUserDefaults];
+//    NSString * userUid  =  [userId objectForKey:@"uid"];
      TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
-    
-    detail.uid = [self.listArray[indexPath.row][@"id"]intValue];
-    detail.pid = [self.listArray[indexPath.row][@"uid"]intValue];
+    detail.uid = [self.listArray[indexPath.row][@"uid"]intValue];
+    detail.pid = [self.listArray[indexPath.row][@"id"]intValue];
     
     [self.navigationController pushViewController:detail animated:YES];
 }

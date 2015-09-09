@@ -516,7 +516,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+{    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (tableView.editing) {
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
     }
