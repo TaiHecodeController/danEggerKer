@@ -168,9 +168,9 @@
     if ([self.phoneTextField.text length]==0) {
         [MBProgressHUD creatembHub:@"电话号码为空"];
         return;
-    }else if([self.passwordTextField.text length]==0)
+    }else if([self.passwordTextField.text length] < 6)
     {
-        [MBProgressHUD creatembHub:@"密码不能够为空"];
+        [MBProgressHUD creatembHub:@"密码不能少于6位"];
         return;
     }
     [LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {

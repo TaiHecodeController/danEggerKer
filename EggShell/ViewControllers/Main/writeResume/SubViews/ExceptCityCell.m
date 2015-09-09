@@ -138,8 +138,11 @@
             [self.dataArray addObject:@"全城"];
             [self.IDArray addObject:@"0"];
         }
-        [self.dataArray addObject:dataArray[i][@"name"]];
-        [self.IDArray addObject:dataArray[i][@"id"]];
+        if (self.dataArray.count>0) {
+            [self.dataArray addObject:dataArray[i][@"name"]];
+            [self.IDArray addObject:dataArray[i][@"id"]];
+        }
+        
     }
     
 }

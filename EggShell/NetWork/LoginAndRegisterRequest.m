@@ -73,11 +73,18 @@ NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
 }
 /*头像上传**/
 +(AFRequestState*)uploadImage:(void (^)(NSDictionary *))succ :(UIImage *)inputImage withUid:(NSString*)uid
-{
-    NSData * data = UIImagePNGRepresentation(inputImage);
+{  NSUserDefaults  *user = [NSUserDefaults standardUserDefaults];
     
+      NSString * tokenStr = [user objectForKey:@"md5_ken"];
+    if ([tokenStr length]==0) {
+        tokenStr = @"";
+        
+    }if ([uid length]==0) {
+        uid = @"";
+    }
+    NSData * data = UIImagePNGRepresentation(inputImage);
     NSString *encodedImageStr = [data base64EncodedStringWithOptions:0];
-    NSDictionary * param = @{@"uid":uid,@"photo":encodedImageStr} ;
+    NSDictionary * param = @{@"token":tokenStr, @"uid":uid,@"photo":encodedImageStr} ;
     
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@basicdata/head",base_Url] param:param succ:succ];
 }
@@ -86,7 +93,7 @@ NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
 {
     
    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@basicdata/getbasic",base_Url] param:dic succ:succ fail:fail];
-//        return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/basicdata/getbasic" param:dic succ:succ fail:fail];
+
 
 }
 /*编辑资料添加**/
