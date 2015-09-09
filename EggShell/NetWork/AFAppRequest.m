@@ -18,6 +18,7 @@
 -(void)changeState:(id)notify;
 -(void)setEnd;
 -(void)start;
+
 @end
 
 @implementation AFRequestState
@@ -159,9 +160,7 @@
          NSLog(@"Error: %@", error);
          NSLog ( @"operation: %@" , operation. responseString );
          
-         
-         
-     }];
+         }];
     [State start];
     return State;
     

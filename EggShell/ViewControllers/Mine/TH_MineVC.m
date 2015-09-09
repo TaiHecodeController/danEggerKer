@@ -94,8 +94,12 @@
         self.mineView.FavoriteJobNum.text = [NSString stringWithFormat:@"(%@)",succ[@"data"][@"usejob"]];
         
         self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%@)",succ[@"data"][@"expect"]];
+        if ([succ[@"data"][@"description"]length]==0) {
+            self.mineView.userLable.text = @"学习是一种信仰";
+        }else
+        {
         self.mineView.userLable.text = succ[@"data"][@"description"];
-       
+        }
     } withUid:dic withFail:^(int errCode, NSError *err) {
         if (errCode ==1017) {
             [MBProgressHUD creatembHub:@"用户不存在"];
@@ -204,17 +208,39 @@
         }
         case THMineViewButtonTypeDeliveryJobsBtn:
         {NSLog(@"投递职位");
+            [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+            if([AppDelegate instance].userId)
+            {
+                
+
             TH_JobWishlistVC * edit = [[TH_JobWishlistVC alloc] init];
             edit.title = @"投递职位";
             edit.pushType = 0;
             [self.navigationController pushViewController:edit animated:YES];            break;
+            }else
+            {
+                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请登录才能查看" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
+                alertView.tag  = 104;
+                [alertView show];
+            }
         }
         case THMineViewButtonTypeCollectionJobs:
-        {NSLog(@"收藏职位");
+        {
+            [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+            if([AppDelegate instance].userId)
+            {
+
+            NSLog(@"收藏职位");
             TH_JobWishlistVC * edit = [[TH_JobWishlistVC alloc] init];
             edit.title = @"收藏职位";
             edit.pushType = 1;
             [self.navigationController pushViewController:edit animated:YES];
+            }else
+            {
+                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请登录才能查看" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
+                alertView.tag  = 103;
+                [alertView show];
+            }
             break;
         }
         case THMineViewButtonTypeResume:
@@ -343,6 +369,14 @@
         }if (alertView.tag == 102) {
             TH_LoginVC * login = [[TH_LoginVC alloc] init];
             [self.navigationController pushViewController:login animated:YES];
+        }if(alertView.tag==103)
+        {
+            TH_LoginVC * login = [[TH_LoginVC alloc] init];
+            [self.navigationController pushViewController:login animated:YES];
+
+        }if (alertView.tag == 104) {
+            TH_LoginVC * login = [[TH_LoginVC alloc] init];
+            [self.navigationController pushViewController:login animated:YES];
         }
         
     }
@@ -408,18 +442,14 @@
 -(void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage
 {
     NSUserDefaults * uid =[NSUserDefaults standardUserDefaults];
-    NSString * uidStr = [uid objectForKey:@"uid"];
-    if ([uidStr length]==0) {
-        self.uidStr = @"";
-    }else
-    {
-        self.uidStr = [uid objectForKey:@"uid"];
-    }
-    [self.mineView setIconImage:editedImage];
+//    NSString * uidStr = [uid objectForKey:@"uid"];
+//    
+    self.uidStr = [uid objectForKey:@"uid"];
     
     [LoginAndRegisterRequest uploadImage:^(NSDictionary * dic) {
         
         [MBProgressHUD creatembHub:@"上传图片成功"];
+         [self.mineView setIconImage:editedImage];
         
     } :editedImage withUid:self.uidStr];
     

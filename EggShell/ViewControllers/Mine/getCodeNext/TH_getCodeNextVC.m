@@ -113,7 +113,11 @@
    
     NSUserDefaults * phone = [NSUserDefaults standardUserDefaults];
     NSString * str =[NSString stringWithFormat:@"%@",[phone objectForKey:@"loginPhone"]];
-    
+    if ([self.newsPasswordTextFied .text length]<6||[self.confirmPasswordTextField.text length]<6) {
+        [MBProgressHUD creatembHub:@"密码不能少于6位"];
+        return;
+        
+    }
     if([self.newsPasswordTextFied .text isEqualToString:self.confirmPasswordTextField.text])
     {
     

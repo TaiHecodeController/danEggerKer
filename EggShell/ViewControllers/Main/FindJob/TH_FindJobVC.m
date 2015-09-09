@@ -324,7 +324,6 @@
     _footer = [MJRefreshFooterView footer];
     _footer.scrollView = self.tableView;
     _footer.delegate = self;
-    
     _bottomView = [[UIView alloc]init];
     _bottomView.frame = CGRectMake(0, HEIGHT - bottomH - 66, WIDETH, bottomH);
     _bottomView.backgroundColor = [UIColor whiteColor];

@@ -28,7 +28,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
@@ -48,9 +48,9 @@
     }
     if(sender.tag == 205)
     {
-//        [self.Controller.navigationController pushViewController:[[EditAddressVC alloc] init] animated:YES];
+        //        [self.Controller.navigationController pushViewController:[[EditAddressVC alloc] init] animated:YES];
     }
-
+    
 }
 
 
@@ -71,7 +71,7 @@
     self.pickerView.dataSource = self;
     
     sexOk = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 40, HEIGHT, 40, 30) ImageName:@"" Target:self Action:@selector(sexOkClick) Title:@"确定"];
-
+    
     [sexOk setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.Controller.navigationController.view addSubview:sexOk];
     
@@ -87,11 +87,8 @@
 -(void)sexOkClick
 {
     [backView removeFromSuperview];
-    
     [self.pickerView removeFromSuperview];
-    
     [sexOk removeFromSuperview];
-    
     NSInteger row = [self.pickerView selectedRowInComponent:0];
     self.contentTextField.text = self.pickDataArray[row];
 }
@@ -138,9 +135,9 @@
 -(void)okClick
 {
     [backView removeFromSuperview];
-
+    
     [self.dataPicker removeFromSuperview];
-   
+    
     [ok removeFromSuperview];
     
     self.contentTextField.text = dateString;

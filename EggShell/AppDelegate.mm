@@ -15,7 +15,7 @@
 @interface AppDelegate ()<BMKGeneralDelegate>
 {
     NSString * _trackViewUrl;
-     BMKMapManager* _mapManager;
+    BMKMapManager* _mapManager;
 }
 
 @end
@@ -31,17 +31,17 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self checkVersion];
     
-     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSNumber *num = [NSNumber numberWithInt:0];
     [df setObject:num forKey:@"citytag"];
     [df synchronize];
-//    [self checkVersion];
-//    self.window.rootViewController = [[WriteResumeViewController alloc] init];
-   
+    //    [self checkVersion];
+    //    self.window.rootViewController = [[WriteResumeViewController alloc] init];
+    
     //rk——test
     
     //初始化保利视频
-//    [self initPloyVideo];
+    //    [self initPloyVideo];
     // 要使用百度地图，请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc]init];
     BOOL ret = [_mapManager start:@"0TPGk34SozOFM2njqn95eHIL" generalDelegate:self];
@@ -50,7 +50,7 @@
     {
         NSLog(@"配置成功");
     }
-
+    
     [self.window makeKeyAndVisible];
 
 //    sleep(0);
@@ -77,7 +77,7 @@
     }
     
     return YES;
-   
+    
 }
 //版本检测
 -(void)checkVersion
@@ -106,11 +106,11 @@
     NSString * trackName = [infoDic objectForKey:@"trackName"];
     
     //3.获取此应用的版本号
-//    CFBundleShortVersionString
+    //    CFBundleShortVersionString
     NSDictionary * Local_infoDic = [[NSBundle mainBundle] infoDictionary];
     NSString * currentVersion = [Local_infoDic objectForKey:@"CFBundleShortVersionString"];
     
-   self.doubleCurrentVersion = [currentVersion doubleValue];
+    self.doubleCurrentVersion = [currentVersion doubleValue];
     
     self.doubleUpdateVersion = [latestVersion doubleValue];
     
@@ -136,8 +136,8 @@
 
 - (void)initPloyVideo
 {
-//    polyvSettings = [[PolyvSettings alloc] init];
-//    [polyvSettings initVideoSettings:@"ylzOkbgQcn" Readtoken:@"AAiK2jiX0t-BAnX4n6CrX-xV0TfqPUML" Writetoken:@"ZDYlp4fGF8g100D-TYug02Z14idkcelP" UserId:@"00018093b1"];
+    //    polyvSettings = [[PolyvSettings alloc] init];
+    //    [polyvSettings initVideoSettings:@"ylzOkbgQcn" Readtoken:@"AAiK2jiX0t-BAnX4n6CrX-xV0TfqPUML" Writetoken:@"ZDYlp4fGF8g100D-TYug02Z14idkcelP" UserId:@"00018093b1"];
 }
 
 
