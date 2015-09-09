@@ -36,35 +36,62 @@
 {
     
     UIView * lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 0.5)];
-    lineView.backgroundColor = [UIColor lightGrayColor];
+    lineView.backgroundColor = UIColorFromRGB(0xDDDDDD);
     [self addSubview:lineView];
     
-    industryLab = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, 240, 15)];
+    UILabel * titileLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, 50, 13)];
+    titileLable.textColor = UIColorFromRGB(0x646464);
+    titileLable.text  = @"行业:";
+    titileLable.font = [UIFont systemFontOfSize:13];
+    [self addSubview:titileLable];
+    industryLab = [[UILabel alloc] initWithFrame:CGRectMake(50, 15, 240, 13)];
     [self addSubview:industryLab];
-    industryLab.text = @"行业：计算机软件，IT服务，系统集成";
-    industryLab.font = [UIFont systemFontOfSize:14];
+    industryLab.text = @"计算机软件，IT服务，系统集成";
+    industryLab.font = [UIFont systemFontOfSize:13];
     
-    natureLab = [[UILabel alloc] initWithFrame:CGRectMake(15, 40, 240, 15)];
-    natureLab.text = @"性质：中外合资";
-    natureLab.font = [UIFont systemFontOfSize:14];
+    UILabel * natureTitileLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 40, 50, 13)];
+    natureTitileLable.textColor = UIColorFromRGB(0x646464);
+    natureTitileLable.text  = @"性质:";
+    natureTitileLable.font = [UIFont systemFontOfSize:13];
+    [self addSubview:natureTitileLable];
+
+    natureLab = [[UILabel alloc] initWithFrame:CGRectMake(50, 40, 240, 13)];
+    natureLab.text = @"中外合资";
+    natureLab.font = [UIFont systemFontOfSize:13];
     [self addSubview:natureLab];
     
-    scaleLab = [[UILabel alloc] initWithFrame:CGRectMake(15, 65, 240, 15)];
-    scaleLab.text = @"规模：100人以上";
-    scaleLab.font = [UIFont systemFontOfSize:14];
+    
+    UILabel * scaleTitleLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 65, 50, 13)];
+    scaleTitleLable.textColor = UIColorFromRGB(0x646464);
+    scaleTitleLable.text  = @"规模:";
+    scaleTitleLable.font = [UIFont systemFontOfSize:13];
+    [self addSubview:scaleTitleLable];
+    scaleLab = [[UILabel alloc] initWithFrame:CGRectMake(50, 65, 240, 13)];
+    scaleLab.text = @"100人以上";
+    scaleLab.font = [UIFont systemFontOfSize:13];
     [self addSubview:scaleLab];
     
-    addressLab = [[UILabel alloc] initWithFrame:CGRectMake(15, 90, WIDETH - 30, 15)];
-    addressLab.text = @"地址：北京市朝阳区建国路112号中国惠普大厦";
-    addressLab.font = [UIFont systemFontOfSize:14];
-    [self addSubview:addressLab];
     
-    companyIntroduce = [[UILabel alloc] initWithFrame:CGRectMake(18, 120, WIDETH - 15, 15)];
+    UILabel * addressLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 90, 50, 13)];
+    addressLable.textColor = UIColorFromRGB(0x646464);
+    addressLable.text  = @"地址:";
+    addressLable.font = [UIFont systemFontOfSize:13];
+    [self addSubview:addressLable];
+    addressLab = [[UILabel alloc] initWithFrame:CGRectMake(50, 90, WIDETH - 30, 13)];
+    addressLab.text = @"北京市朝阳区建国路112号中国惠普大厦";
+    addressLab.font = [UIFont systemFontOfSize:13];
+    [self addSubview:addressLab];
+
+    UIView * companyView = [[UIView alloc] initWithFrame:CGRectMake(15, 121, 2, 13)];
+    companyView.backgroundColor = UIColorFromRGB(0XF44336);
+    [self addSubview:companyView];
+    companyIntroduce = [[UILabel alloc] initWithFrame:CGRectMake(20, 120, WIDETH - 15, 15)];
     companyIntroduce.text = @"公司介绍";
-    companyIntroduce.font = [UIFont systemFontOfSize:14];
+    companyIntroduce.textColor = UIColorFromRGB(0x646464);
+    companyIntroduce.font = [UIFont systemFontOfSize:13];
     [self addSubview:companyIntroduce];
     
-    self.companyMessage = [[UILabel alloc] initWithFrame:CGRectMake(15, 140, WIDETH - 30, 80)];
+    self.companyMessage = [[UILabel alloc] initWithFrame:CGRectMake(15, 138, WIDETH - 30, 80)];
     self.companyMessage.numberOfLines = 5;
     self.companyMessage.text = @"根据项目的需求，项目经理要求完成相关应用系统设计和系统开发，我当前的1大的多说的随处可见哈上帝对撒旦科技和打卡的期待和萨看到很多期待打可视电话期望的大都会区看万家灯火请问大家活动看得起万家灯火的简单好看却觉得好奇我看见的话去外地回去我看到机会去外地客户期望的借口";
     self.textSize = [self.companyMessage.text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
@@ -97,10 +124,10 @@
 }
 -(void)configValue:(NSDictionary*)dic
 {
-    industryLab.text = [NSString stringWithFormat:@"行业:%@",dic[@"hy"]];
-    natureLab.text = [NSString stringWithFormat:@"性质:%@",dic[@"name"]];
-     scaleLab.text = [NSString stringWithFormat:@"规模:%@",dic[@"gm"]];
-    addressLab.text = [NSString stringWithFormat:@"地址:%@",dic[@"address"]];
+    industryLab.text = [NSString stringWithFormat:@"%@",dic[@"hy"]];
+    natureLab.text = [NSString stringWithFormat:@"%@",dic[@"name"]];
+     scaleLab.text = [NSString stringWithFormat:@"%@",dic[@"gm"]];
+    addressLab.text = [NSString stringWithFormat:@"%@",dic[@"address"]];
     
     //公司简介
 //    NSString *comHtmlString = [CommonFunc textFromBase64String:dic[@"content"]];

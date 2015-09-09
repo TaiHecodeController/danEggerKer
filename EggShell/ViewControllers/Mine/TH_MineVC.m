@@ -35,6 +35,7 @@
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
+     [self baseIofomationLogin];
   
 }
 - (void)viewDidLoad {
@@ -46,8 +47,7 @@
     self.title = @"我的";
     [self createScro];
     [self createView];
-  [self baseIofomationLogin];
-    
+  
 }
 -(void)baseIofomationLogin
 {

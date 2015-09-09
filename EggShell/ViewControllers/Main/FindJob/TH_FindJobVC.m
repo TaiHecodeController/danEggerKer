@@ -314,6 +314,7 @@
     _tableView.backgroundColor = [UIColor clearColor];
     [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     _tableView.showsVerticalScrollIndicator = NO;
+    _tableView.tableFooterView =[[UIView alloc] init];
     [self.view addSubview:_tableView];
     //下拉刷新
     _header = [MJRefreshHeaderView header];
