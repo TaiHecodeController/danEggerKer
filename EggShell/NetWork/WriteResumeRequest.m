@@ -12,7 +12,8 @@
 +(AFRequestState *)getResumeListWithSucc:(void(^)(NSArray * DataArray))succ WithUserId:(NSString *)userId resp:(Class)resp;
 {
     
-    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_manager",base_Url] param:@{@"uid":userId} succ:succ resp:resp];
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_manager",base_Url] param:@{@"uid":[df objectForKey:@"uid"]} succ:succ resp:resp];
     
 }
 

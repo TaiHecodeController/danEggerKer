@@ -72,7 +72,7 @@
     [SearchModelShare sharedInstance].salary = @"";
     [SearchModelShare sharedInstance].edu = @"";
     [SearchModelShare sharedInstance].exp = @"";
-    [SearchModelShare sharedInstance].type = @"";
+//    [SearchModelShare sharedInstance].type = @"";
 
     
     [SearchModelShare sharedInstance].sdate = @"";
@@ -123,7 +123,7 @@
     NSLog(@"_job_type%@",_job_type);
     if ([_job_type isEqual:@"0"])
     {
-        [SearchModelShare sharedInstance].type = @"";
+        [SearchModelShare sharedInstance].type = @"55";
     }
     if ([_job_type isEqual:@"1"])
     {
@@ -651,8 +651,7 @@
         [self addCoverView];
         [self addAlertView];
 
-        
-    } withUid:6 job_id:job_idStr resp:[NSObject class]];
+    } withUid:nil job_id:job_idStr resp:[NSObject class]];
     
 }
 

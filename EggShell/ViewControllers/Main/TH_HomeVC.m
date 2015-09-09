@@ -178,7 +178,9 @@
 -(void)tap
 {
     self.navigationController.navigationBarHidden = NO;
-    [self.navigationController pushViewController:[[SearchJobVC alloc] init] animated:YES];
+    SearchJobVC *vc = [[SearchJobVC alloc]init];
+    vc.pushType = 0;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - - scorView
@@ -549,23 +551,25 @@
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找全职";
             home.job_type = @"0";
+            [SearchModelShare sharedInstance].type = @"55";
             [self.navigationController pushViewController:home animated:YES];
             break;
         }
         case THHomeViewButtonTypeFindPartTime:
         {
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            [SearchModelShare sharedInstance].type = @"56";
+            [SearchModelShare sharedInstance].keyword = @"兼职";
             home.title = @"找兼职";
             home.job_type = @"1";
             [self.navigationController pushViewController:home animated:YES];
             break;
         }
+            
         case THHomeViewButtonTypeInternshipSearch:
         {
             NSLog(@"找实习");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            [SearchModelShare sharedInstance].type = @"119";
+            [SearchModelShare sharedInstance].keyword = @"实习";
             home.job_type = @"2";
             home.title = @"找实习";
             

@@ -56,9 +56,7 @@
         [self.dataArray addObjectsFromArray:dataDic];
         [self.tableView reloadData];
         
-    } resp:[informantionModel class] withPage:num withLimit:self.limitNum withType:type ] addNotifaction:notify];
-    
-    
+    } resp:[informantionModel class] withPage:num withLimit:self.limitNum withType:type] addNotifaction:notify];
 }
 
 -(void)createView
@@ -75,11 +73,12 @@
     [self.view addSubview:_segmentedControl];
     
 }
+
 - (void)hySegmentedControlSelectAtIndex:(NSInteger)index
 {
     if (index == 0)
     {
-        self.dataArray = [NSMutableArray arrayWithCapacity:0];
+        self.dataArray = [[NSMutableArray alloc]init];
         _currentIndex = 0;
         NSLog(@"招聘会");
         _page = 1;
@@ -89,8 +88,8 @@
         
     }
     else
-        
-    {self.dataArray = [NSMutableArray
+    {
+        self.dataArray = [NSMutableArray
                        arrayWithCapacity:0];
         _currentIndex = 1;
         NSLog(@"双选会");
@@ -98,15 +97,12 @@
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:_page pageTye:2];
         [self.tableView reloadData];
-        
     }
 }
 
 
 -(void)createTableView
 {
-    
-    
     UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT - 64-49) style:UITableViewStylePlain];
     tableView.dataSource = self;
     tableView.delegate = self;

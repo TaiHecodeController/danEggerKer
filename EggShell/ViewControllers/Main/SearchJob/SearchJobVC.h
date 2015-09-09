@@ -10,4 +10,6 @@
 
 @interface SearchJobVC : UIViewController
 
+@property (nonatomic, assign) int pushType;
+
 @end

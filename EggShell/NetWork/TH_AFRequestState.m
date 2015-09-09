@@ -55,11 +55,12 @@
 /*职位详情**/
 +(AFRequestState* )jobDetailsRequestWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode, NSError *err))fail withId:(int)id pid:(int)pid page:(int)page resp:(Class)resp
 {
+    
     NSNumber *numid = [NSNumber numberWithInt:id];
     NSNumber *numpid = [NSNumber numberWithInt:pid];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-//    NSLog(@"uid%@",[df objectForKey:@"uid"]);
     NSDictionary *param = @{@"id":numid,@"pid":numpid,@"uid":[df objectForKey:@"uid"]};
+    
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/details",base_Url] param:param succ:succ fail:fail resp:resp];
     
 }
@@ -68,7 +69,6 @@
 +(AFRequestState *)saveJobWithSucc:(void(^)(NSDictionary *DataArr))succ withFail:(void(^)(int errCode, NSError *err))fail withJob_id:(int)job_id resp:(Class)resp
 {
     NSNumber *jobid = [NSNumber numberWithInt:job_id];
-//    NSNumber *uid = [NSNumber numberWithInt:6];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSDictionary *param = @{@"job_id":jobid,@"uid":[df objectForKey:@"uid"]};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/collect",base_Url]param:param succ:succ fail:fail resp:resp];
@@ -77,19 +77,27 @@
 /*收藏职位列表**/
 +(AFRequestState *)saveJobListSucc:(void(^)(NSArray *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid page:(int)page limit:(int)limit resp:(Class)resp
 {
-    NSNumber *nsuid = [NSNumber numberWithInt:uid];
     NSNumber *nspage = [NSNumber numberWithInt:page];
     NSNumber *nslimit = [NSNumber numberWithInt:limit];
-    NSDictionary *param = @{@"uid":nsuid,@"page":nspage,@"limit":nslimit};
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSDictionary *param = @{@"uid":[df objectForKey:@"uid"],@"page":nspage,@"limit":nslimit};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/collectlist",base_Url] param:param succ:succ fail:fail resp:resp];
     
 }
 
-/*删除职位**/
+/*删除申请职位**/
++(AFRequestState *)deleteSQJobWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid job_idStr:(NSString *)job_idStr resp:(Class)resp
+{
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSDictionary *param = @{@"uid":[df objectForKey:@"uid"],@"job_id":job_idStr};
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/delgetPosition",base_Url] param:param succ:succ fail:fail resp:resp];
+}
+
+/*删除收藏职位**/
 +(AFRequestState *)deleteJobWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid job_idStr:(NSString *)job_idStr resp:(Class)resp
 {
-    NSNumber *nsuid = [NSNumber numberWithInt:uid];
-    NSDictionary *param = @{@"uid":nsuid,@"id":job_idStr};
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSDictionary *param = @{@"uid":[df objectForKey:@"uid"],@"job_id":job_idStr};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/delcollectlist",base_Url] param:param succ:succ fail:fail resp:resp];
 
 }
@@ -97,9 +105,8 @@
 /*申请职位**/
 +(AFRequestState *)SQJobWithSucc:(void(^)(NSString *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid job_id:(NSString *)job_id resp:(Class)resp
 {
-    
-    NSNumber *nsuid = [NSNumber numberWithInt:uid];
-    NSDictionary *param = @{@"uid":nsuid,@"job_id":job_id};
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSDictionary *param = @{@"uid":[df objectForKey:@"uid"],@"job_id":job_id};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/getPosition",base_Url] param:param succ:succ fail:fail resp:resp];
 }
 /*轮播图**/
@@ -112,11 +119,11 @@
 +(AFRequestState*)InformationDeskRequestWithSucc:(void(^)(NSArray * arr))succ  resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type;
 {
     NSNumber * pageNum =[NSNumber numberWithInt:pageNumber];
-    NSNumber * limitNum =[NSNumber numberWithInt:limit];
+    NSNumber * limitNum =[NSNumber numberWithInt:2];
     NSNumber * typeNum =[NSNumber numberWithInt:type];
     NSDictionary * param = @{@"page":pageNum,@"limit":limitNum,@"type":typeNum};
 
-    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Infos/index",base_Url]param:param succ:succ resp:resp];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Infos/index",base_Url] param:param succ:succ resp:resp];
 }
 /*名企推荐**/
 +(AFRequestState*)PrivateRecommendationWithSucc:(void(^)(NSDictionary * arr))succ

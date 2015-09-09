@@ -68,7 +68,20 @@
         
         [SearchModelShare sharedInstance].keyword = text;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
-        [weakSelf.navigationController popViewControllerAnimated:YES];
+        
+        if (_pushType == 0)
+        {
+            //从首页来的，跳到职位列表页
+            TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }
+        else
+        {
+            //从职位列表来，返回职位列表
+             [weakSelf.navigationController popViewControllerAnimated:YES];
+        }
+        
+       
     };
     [self.view addSubview:headView];
     
@@ -94,7 +107,19 @@
     
     [SearchModelShare sharedInstance].keyword = sender.titleLabel.text;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    if (_pushType == 0)
+    {
+        //从首页来的，跳到职位列表页
+        TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        //从职位列表来，返回职位列表
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+
 }
 
 
@@ -150,7 +175,19 @@
 {
     [SearchModelShare sharedInstance].keyword = self.dataArray[indexPath.row - 1];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    if (_pushType == 0)
+    {
+        //从首页来的，跳到职位列表页
+        TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        //从职位列表来，返回职位列表
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
