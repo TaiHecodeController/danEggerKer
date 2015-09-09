@@ -22,6 +22,6 @@
 - (IBAction)cityClick:(UIButton *)sender;
 - (IBAction)countyBtn:(UIButton *)sender;
 
--(void)config:(NSArray *)dataArray;
+-(void)config:(NSMutableArray *)dataArray;
 
 @end

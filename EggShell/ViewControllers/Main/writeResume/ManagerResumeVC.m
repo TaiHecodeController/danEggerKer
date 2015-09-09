@@ -135,6 +135,7 @@
 */
 
 - (IBAction)editClick:(UIButton *)sender {
+    
     for(int i = 0;i < self.dataArray.count;i++)
     {
         ResumeCell * cell = self.cellArray[i];
@@ -147,11 +148,23 @@
         }
         
     }
+    if (self.dataArray.count == 0)
+    {
+        [MBProgressHUD creatembHub:@"请先创建简历"];
+    }
     
     
 }
 - (IBAction)userResume:(UIButton *)sender {
-    [self addAlertView];
+    
+    if (self.dataArray.count == 0)
+    {
+        [MBProgressHUD creatembHub:@"请先创建简历"];
+    }
+    else
+    {
+         [self addAlertView];
+    }
 }
 
 - (void)addAlertView
@@ -256,6 +269,12 @@
         }
         
     }
+    
+    if (self.dataArray.count == 0)
+    {
+        [MBProgressHUD creatembHub:@"请先创建简历"];
+    }
+    
     
 }
 @end

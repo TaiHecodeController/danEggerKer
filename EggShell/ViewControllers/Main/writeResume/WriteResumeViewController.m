@@ -16,10 +16,12 @@
 #import "ResumeModel.h"
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
+#import "ChooseCity_3ViewController.h"
+#import "ChooseCityViewController.h"
 /**
  *  本页面主要实现编辑简历，创建简历，并进行相关数据校验，整体采用UITableViewCell来对每一个子控件赋值（已完成适配）
  */
-@interface WriteResumeViewController ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate,UITextFieldDelegate>
+@interface WriteResumeViewController ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate,UITextFieldDelegate,writeJLChooseVCDelegate3>
 {
     UITableView * jobTableView;
     UITableView * userTableView;
@@ -52,6 +54,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    ChooseCity_3ViewController *vc = [[ChooseCity_3ViewController alloc]init];
+//    vc.delegete = self;
+    
     _model = [ResumeModel sharedResume];
     
     self.title = @"写简历";
@@ -226,7 +232,17 @@
         self.dataDic = DataDic[@"data"];
         
         ExceptCityCell * cell = self.jobCellArray[4];
-        
+        //    {
+        //        display = 1;
+        //        id = 500;
+        //        keyid = 52;
+        //        letter = D;
+        //        name = "\U4e1c\U57ce\U533a";
+        //        sitetype = 0;
+        //        sort = 0;
+        //    }
+//         NSDictionary *dic = @{@"display":@"1",@"id":@"0",@"keyid":@"0",@"letter":@"0",@"name":@"不限",@"sitetype":@"0",@"sort":@"0"};
+//        [self.dataDic[@"three_cityid"] addObject:dic];
         [cell config:self.dataDic[@"three_cityid"]];
     }];
 }
@@ -602,12 +618,24 @@
         else if (indexPath.row == 2)
         {
             THLog(@"期望职位");
-            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
-            _writeJLChooseVC.delegete = self;
+            ChooseCityViewController * _writeJLChooseVC = [[ChooseCityViewController alloc] init];
+//            _writeJLChooseVC.delegete = self;
             _writeJLChooseVC.titleText = @"期望职位";
             _writeJLChooseVC.cellIndex = indexPath;
             _writeJLChooseVC.tableViewTagIndex = 1555;
-            _writeJLChooseVC.DataArray = self.dataDic[@"job_classid"];
+            //存在user里
+            NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+            [df setObject:self.dataDic[@"job_classid"] forKey:@"job_classid"];
+            
+            NSMutableArray *arr1 = [[NSMutableArray alloc]init];
+            for (NSDictionary *dic in [df objectForKey:@"job_classid"])
+            {
+                if ([dic[@"keyid"] intValue] == 0 )
+                {
+                    [arr1 addObject:dic];
+                }
+            }
+            _writeJLChooseVC.DataArray = arr1;
             [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
             
         }
@@ -719,6 +747,23 @@
 ////    _datePick = datePicker;
 //}
 
+//城市选择页面回调
+//- (void)chooseWord1:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
+//{
+//    if (tableViewTagIndex == 1555)
+//    {
+//        WriteResumeCell *cell = (WriteResumeCell *)[jobTableView cellForRowAtIndexPath:cellIndex];
+//        cell.contentTextField.text = keyWord;
+//        cell.userId = Id;
+//    }
+//    else
+//    {
+//        WriteResumeCell *cell = (WriteResumeCell *)[userTableView cellForRowAtIndexPath:cellIndex];
+//        cell.contentTextField.text = keyWord;
+//        cell.userId = Id;
+//    }
+//}
+
 #pragma mark -- creatDatePickView
 -(void)createDataPickView
 {
@@ -812,6 +857,7 @@
     
 }
 
+#pragma mark -- chooseDelegate
 - (void)chooseWord:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
 {
     if (tableViewTagIndex == 1555)
@@ -827,6 +873,22 @@
         cell.userId = Id;
     }
     
+}
+
+- (void)chooseWord3:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
+{
+//    if (tableViewTagIndex == 1555)
+//    {
+        WriteResumeCell *cell = (WriteResumeCell *)[jobTableView cellForRowAtIndexPath:cellIndex];
+        cell.contentTextField.text = keyWord;
+        cell.userId = Id;
+//    }
+//    else
+//    {
+//        WriteResumeCell *cell = (WriteResumeCell *)[userTableView cellForRowAtIndexPath:cellIndex];
+//        cell.contentTextField.text = keyWord;
+//        cell.userId = Id;
+//    }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

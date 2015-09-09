@@ -249,6 +249,9 @@
 		F0D7C05B1B79CC6400836DD2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C05A1B79CC6400836DD2 /* libz.dylib */; };
 		F0D7C0611B79EB3300836DD2 /* OpenClassVideoListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C0601B79EB3300836DD2 /* OpenClassVideoListRequest.m */; };
 		F0D7C06D1B79F92300836DD2 /* OpenClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C06C1B79F92300836DD2 /* OpenClassModel.m */; };
+		F0E700101B9FE69900788B17 /* ChooseCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E7000F1B9FE69900788B17 /* ChooseCityViewController.m */; };
+		F0E700131B9FED7900788B17 /* ChooseCity_2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E700121B9FED7900788B17 /* ChooseCity_2ViewController.m */; };
+		F0E700161B9FEDE200788B17 /* ChooseCity_3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E700151B9FEDE200788B17 /* ChooseCity_3ViewController.m */; };
 		F0F2B4831B9AE4DD00F7A261 /* SearchModelShare.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F2B4821B9AE4DD00F7A261 /* SearchModelShare.m */; };
 /* End PBXBuildFile section */
 
@@ -700,6 +703,12 @@
 		F0D7C06B1B79F92300836DD2 /* OpenClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenClassModel.h; path = libpolyvSDK/OpenClassModel.h; sourceTree = "<group>"; };
 		F0D7C06C1B79F92300836DD2 /* OpenClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenClassModel.m; path = libpolyvSDK/OpenClassModel.m; sourceTree = "<group>"; };
 		F0D7C06E1B7A009A00836DD2 /* libPods-SDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SDWebImage.a"; path = "Pods/../build/Debug-iphoneos/libPods-SDWebImage.a"; sourceTree = "<group>"; };
+		F0E7000E1B9FE69900788B17 /* ChooseCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseCityViewController.h; sourceTree = "<group>"; };
+		F0E7000F1B9FE69900788B17 /* ChooseCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseCityViewController.m; sourceTree = "<group>"; };
+		F0E700111B9FED7900788B17 /* ChooseCity_2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseCity_2ViewController.h; sourceTree = "<group>"; };
+		F0E700121B9FED7900788B17 /* ChooseCity_2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseCity_2ViewController.m; sourceTree = "<group>"; };
+		F0E700141B9FEDE200788B17 /* ChooseCity_3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseCity_3ViewController.h; sourceTree = "<group>"; };
+		F0E700151B9FEDE200788B17 /* ChooseCity_3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseCity_3ViewController.m; sourceTree = "<group>"; };
 		F0F2B4811B9AE4DD00F7A261 /* SearchModelShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchModelShare.h; sourceTree = "<group>"; };
 		F0F2B4821B9AE4DD00F7A261 /* SearchModelShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchModelShare.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1507,6 +1516,14 @@
 		94313DD31B7CB5C9005D0A9A /* writeResume */ = {
 			isa = PBXGroup;
 			children = (
+				F0E700141B9FEDE200788B17 /* ChooseCity_3ViewController.h */,
+				F0E700151B9FEDE200788B17 /* ChooseCity_3ViewController.m */,
+				F0E700111B9FED7900788B17 /* ChooseCity_2ViewController.h */,
+				F0E700121B9FED7900788B17 /* ChooseCity_2ViewController.m */,
+				F0E7000E1B9FE69900788B17 /* ChooseCityViewController.h */,
+				F0E7000F1B9FE69900788B17 /* ChooseCityViewController.m */,
+				94313DE71B7CB5C9005D0A9A /* WriteResumeViewController.h */,
+				94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */,
 				0454ACEE1B94A20E004A70ED /* ResumeModel */,
 				F05B7FFC1B8AACA600DC0A1D /* WriteJLChooseVC.h */,
 				F05B7FFD1B8AACA600DC0A1D /* WriteJLChooseVC.m */,
@@ -1518,8 +1535,6 @@
 				94313DE11B7CB5C9005D0A9A /* SubViews2 */,
 				94313DE51B7CB5C9005D0A9A /* WriteResumeVC2.h */,
 				94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */,
-				94313DE71B7CB5C9005D0A9A /* WriteResumeViewController.h */,
-				94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */,
 				940032A01B840CC3001EB666 /* ResumeDetail */,
 			);
 			path = writeResume;
@@ -2370,6 +2385,7 @@
 				F05B80031B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m in Sources */,
 				94E2C9C41B8AF827001E3FDD /* Basicnformation.m in Sources */,
 				0416503A1B4D7141008C78BE /* AppDelegate.mm in Sources */,
+				F0E700131B9FED7900788B17 /* ChooseCity_2ViewController.m in Sources */,
 				041650371B4D7141008C78BE /* main.m in Sources */,
 				940032F01B840DCD001EB666 /* TH_JobScreenDetailVC.m in Sources */,
 				048F30A81B7A1562004AA9B2 /* HotSearch.m in Sources */,
@@ -2416,6 +2432,7 @@
 				940032D01B840CC3001EB666 /* projectTableViewCell.m in Sources */,
 				F01787AF1B959456005FF9C4 /* JobDetailModel_Arr4.m in Sources */,
 				047454F11B9C638600CE880A /* InfoModel.m in Sources */,
+				F0E700101B9FE69900788B17 /* ChooseCityViewController.m in Sources */,
 				048F30BA1B7A4537004AA9B2 /* FMDatabaseQueue.m in Sources */,
 				94313DF41B7CB5C9005D0A9A /* WriteResumeViewController.m in Sources */,
 				041650EC1B4D7C4E008C78BE /* MJRefreshBaseView.m in Sources */,
@@ -2434,6 +2451,7 @@
 				94CB5B9B1B7632E800B23B9D /* TH_BaseVC.m in Sources */,
 				940032F31B840DCD001EB666 /* TH_JobScreeningVC.m in Sources */,
 				0454ACF41B962C7D004A70ED /* WriteResumeRequest.m in Sources */,
+				F0E700161B9FEDE200788B17 /* ChooseCity_3ViewController.m in Sources */,
 				0454ACF11B94A257004A70ED /* ResumeModel.m in Sources */,
 				94CB5B7A1B74CC0600B23B9D /* BaseModel.m in Sources */,
 				941F10161B7B3BCC00719F5B /* JobWishlistCell.m in Sources */,
