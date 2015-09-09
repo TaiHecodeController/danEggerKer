@@ -9,20 +9,21 @@
 #import "LoginAndRegisterRequest.h"
 #import "MyMD5.h"
 @implementation LoginAndRegisterRequest
-+(AFRequestState *)loginWithSucc:(void(^)(NSDictionary * DataDic))succ WithUserName:(NSString *)userName WithPassword:(NSString *)password
-{
-    //密码加密
-    NSString * md5_passWord = [MyMD5 md5:password];
-    NSDictionary * param = @{@"username":userName,@"pw":md5_passWord};
-    return [self postRequestWithUrl:@"http://195.198.1.211/index.php?m=api" param:param succ:succ];
-}
-    
-+(AFRequestState *)registerWithSucc:(void (^)(NSDictionary *))succ WithUserName:(NSString *)userName WithPassword:(NSString *)password WithUserType:(int)userType WithSource:(int)source WithPhoneNum:(NSString *)phoneNum WithEmail:(NSString *)email
-{
-    NSString * md5_passWord = [MyMD5 md5:password];
-    NSDictionary * param = @{@"username":userName,@"password":md5_passWord,@"usertype":@(userType),@"source":@(source),@"moblie":phoneNum,@"email":email};
-    return [self postRequestWithUrl:@"http://195.198.1.211/index.php?m=api&c=res" param:param succ:succ];
-}
+//+(AFRequestState *)loginWithSucc:(void(^)(NSDictionary * DataDic))succ WithUserName:(NSString *)userName WithPassword:(NSString *)password
+//{
+//    //密码加密
+//    NSString * md5_passWord = [MyMD5 md5:password];
+//    NSDictionary * param = @{@"username":userName,@"pw":md5_passWord};
+//    return [self postRequestWithUrl:@"http://195.198.1.211/index.php?m=api" param:param succ:succ];
+//}
+//    
+//+(AFRequestState *)registerWithSucc:(void (^)(NSDictionary *))succ WithUserName:(NSString *)userName WithPassword:(NSString *)password WithUserType:(int)userType WithSource:(int)source WithPhoneNum:(NSString *)phoneNum WithEmail:(NSString *)email
+//{
+//    NSString * md5_passWord = [MyMD5 md5:password];
+//    NSDictionary * param = @{@"username":userName,@"password":md5_passWord,@"usertype":@(userType),@"source":@(source),@"moblie":phoneNum,@"email":email};
+//    return [self postRequestWithUrl:@"http://195.198.1.211/index.php?m=api&c=res" param:param succ:succ];
+//}
+
 /*获取验证码**/
 +(AFRequestState *)registerWithSucc:(void(^)(NSDictionary * DataDic))succ Withphonenumber:(NSString *)phonenumber WithPassword:(NSString *)password withSecurityCode:(NSString *)SecurityCode
 {
@@ -48,19 +49,21 @@
     
 
 }
+
 /*忘记密码**/
 +(AFRequestState *)forgitRequestWithPhoneNum:(NSString *)phone withSucc:(void(^)(NSDictionary*))succ
 {
 NSDictionary * param = @{@"telphone":phone};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@login/send_code",base_Url] param:param succ:succ];
-    
 }
+
 /*忘记密码下一步**/
 +(AFRequestState *)forgitNextRequestWithPhoneNum:(NSString*)phone withSecurityCode:(NSString*)SecurityCode withSucc:(void(^)(NSDictionary*))succ
 {
 NSDictionary * param = @{@"telphone":phone,@"code":SecurityCode};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@login/next",base_Url]param:param succ:succ];
 }
+
 /*重置密码**/
 +(AFRequestState *)resetPasswordRequestWithPhoneNum:(NSString *)phone withNewCode:(NSString *)newCode  withSucc:(void(^)(NSDictionary*))succ
 {

@@ -58,7 +58,6 @@
     NSNumber *numpid = [NSNumber numberWithInt:pid];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
 
-//    NSLog(@"uid%@",[df objectForKey:@"uid"]);
     NSString * userUid = [df objectForKey:@"uid"];
     
     if([userUid length]==0)
@@ -66,10 +65,6 @@
     userUid = @"";
     }
     NSDictionary *param = @{@"id":numid,@"pid":numpid,@"uid":userUid};
-//=======
-//    NSDictionary *param = @{@"id":numid,@"pid":numpid,@"uid":[df objectForKey:@"uid"]};
-//    
-//>>>>>>> origin/master
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/details",base_Url] param:param succ:succ fail:fail resp:resp];
     
 }

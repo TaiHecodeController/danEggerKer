@@ -51,7 +51,7 @@
         self.dataArray = [NSMutableArray arrayWithArray:DataArray];
         if(self.dataArray.count == 0)
         {
-            [MBProgressHUD creatembHub:@"暂时还没有简历,快来创建你的第一份简历吧😄😄"];
+            [MBProgressHUD creatembHub:@"暂时还没有简历,快来创建你的第一份简历吧"];
         }else
         {
             ManagerResumeModel * model = self.dataArray[0];
@@ -59,6 +59,7 @@
             _resume_model.resumeName = model.name;
             [self.ResumeList reloadData];
         }
+        
     } WithUserId:[AppDelegate instance].userId resp:[ManagerResumeModel class]] addNotifaction:hub];
 }
 - (IBAction)createNewResume:(UIButton *)sender {
