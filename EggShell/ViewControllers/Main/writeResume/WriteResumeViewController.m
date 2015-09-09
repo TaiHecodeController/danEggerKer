@@ -120,8 +120,16 @@
                     [cityCell.cityBtn setTitle:@"北京" forState:UIControlStateSelected];
                     cityId = 52;
                     cityCell.countyBtn.selected = YES;
-                    [cityCell.countyBtn setTitle:self.editDic[@"expect"][@"three_cityid"][@"name"] forState:UIControlStateSelected];
-                    threecityId = [self.editDic[@"expect"][@"three_cityid"][@"id"] intValue];
+                    if ([self.editDic[@"expect"][@"three_cityid"] isKindOfClass:[NSNull class]])
+                    {
+                        
+                    }
+                    else
+                    {
+                        [cityCell.countyBtn setTitle:self.editDic[@"expect"][@"three_cityid"][@"name"] forState:UIControlStateSelected];
+                        threecityId = [self.editDic[@"expect"][@"three_cityid"][@"id"] intValue];
+                    }
+                    
                     
                 }
                     break;

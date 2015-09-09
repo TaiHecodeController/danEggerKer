@@ -115,9 +115,9 @@
     [button addTarget:self action:@selector(searchBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
+#pragma mark -- 申请职位按钮
 -(void)searchBtnClick
 {
-    NSLog(@"申请职位");
     
 //    THLog(@"职位申请被点击");
 //    
@@ -136,16 +136,40 @@
 //    }
 //    NSLog(@"job_idStr%@",job_idStr);
     
-    [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
+    [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+    
+    if([AppDelegate instance].userId)
+    {
+        [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
+            
+            [MBProgressHUD creatembHub:@"申请成功"];
+            
+        } withfail:^(int errCode, NSError *err) {
+            
+            [MBProgressHUD creatembHub:@"您已申请过了,一周内不得重复申请"];
+            
+        } withUid:nil job_id:_model.cj_id resp:[NSObject class]];
         
+    }
+    else
+    {
+        self.navigationController.navigationBarHidden = YES;
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登陆" delegate:self cancelButtonTitle:@"暂不登陆" otherButtonTitles:@"登陆", nil];
+        [alertView show];
+    }
 
-        [MBProgressHUD creatembHub:@"申请成功"];
+//    **************************************
+}
+#pragma mark -- alertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {
+        self.navigationController.navigationBarHidden = NO;
+        TH_LoginVC * lvc = [[TH_LoginVC alloc] init];
+        [self.navigationController pushViewController:lvc animated:YES];
         
-    } withfail:^(int errCode, NSError *err) {
-        
-        [MBProgressHUD creatembHub:@"您已申请过了,一周内不得重复申请"];
-        
-    } withUid:6 job_id:_model.cj_id resp:[NSObject class]];
+    }
 }
 
 -(void)createsheader
@@ -433,17 +457,17 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
 
 }
 
-#pragma mark -- alertViewDelegate
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if(buttonIndex == 1)
-    {
-        self.navigationController.navigationBarHidden = NO;
-        TH_LoginVC * lvc = [[TH_LoginVC alloc] init];
-        [self.navigationController pushViewController:lvc animated:YES];
-        
-    }
-}
+//#pragma mark -- alertViewDelegate
+//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    if(buttonIndex == 1)
+//    {
+//        self.navigationController.navigationBarHidden = NO;
+//        TH_LoginVC * lvc = [[TH_LoginVC alloc] init];
+//        [self.navigationController pushViewController:lvc animated:YES];
+//        
+//    }
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

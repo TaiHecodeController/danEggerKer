@@ -185,22 +185,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Main/FindJob/JobDetails/TH_JobDetailVC.m"
-            timestampString = "463391708.421488"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "-searchBtnClick"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Main/SearchJob/SearchJobVC.m"
             timestampString = "463399285.933757"
             startingColumnNumber = "9223372036854775807"
@@ -346,7 +330,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/JobWishlist/TH_JobWishlistVC.m"
-                  timestampString = "463482852.077912"
+                  timestampString = "463487400.719958"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "288"
@@ -361,7 +345,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/JobWishlist/TH_JobWishlistVC.m"
-                  timestampString = "463482852.078128"
+                  timestampString = "463487400.720264"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "288"
@@ -394,7 +378,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/JobWishlist/TH_JobWishlistVC.m"
-                  timestampString = "463482852.088833"
+                  timestampString = "463487400.721356"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "288"
@@ -409,7 +393,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/JobWishlist/TH_JobWishlistVC.m"
-                  timestampString = "463482852.089111"
+                  timestampString = "463487400.721551"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "288"
@@ -442,7 +426,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/JobWishlist/TH_JobWishlistVC.m"
-                  timestampString = "463482852.090226"
+                  timestampString = "463487400.722628"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "295"
@@ -457,7 +441,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/JobWishlist/TH_JobWishlistVC.m"
-                  timestampString = "463482852.09039"
+                  timestampString = "463487400.723015"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "295"
@@ -650,7 +634,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/JobWishlist/TH_JobWishlistVC.m"
-                  timestampString = "463482852.108698"
+                  timestampString = "463487400.732067"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -665,7 +649,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Documents/danEggerKer/EggShell/ViewControllers/JobWishlist/TH_JobWishlistVC.m"
-                  timestampString = "463482852.10885"
+                  timestampString = "463487400.732268"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -673,22 +657,6 @@
                   offsetFromSymbolStart = "36">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/NetWork/AFAppRequest.m"
-            timestampString = "463483484.763274"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "+postRequestWithUrl:param:succ:fail:resp:"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -752,6 +720,70 @@
             startingLineNumber = "63"
             endingLineNumber = "63"
             landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Main/writeResume/WriteResumeViewController.m"
+            timestampString = "463486152.38595"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "-loadOriginalData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Main/writeResume/WriteResumeVC2.m"
+            timestampString = "463486882.531965"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Main/writeResume/ResumeDetail/WorkExperience/WorkingExperienceVC.m"
+            timestampString = "463486899.256483"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Main/writeResume/ResumeDetail/WorkExperience/WorkingExperienceVC.m"
+            timestampString = "463486951.560131"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

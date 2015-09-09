@@ -132,12 +132,12 @@
     self.IDArray = [NSMutableArray arrayWithCapacity:0];
     for(int i = 0;i < dataArray.count ;i++)
     {
-//        if (i == 0)
-//        {
-//            
-//            [self.dataArray addObject:@"全城"];
-//            [self.IDArray addObject:@"0"];
-//        }
+        if (i == 0)
+        {
+            
+            [self.dataArray addObject:@"全城"];
+            [self.IDArray addObject:@"0"];
+        }
             [self.dataArray addObject:dataArray[i][@"name"]];
             [self.IDArray addObject:dataArray[i][@"id"]];
        

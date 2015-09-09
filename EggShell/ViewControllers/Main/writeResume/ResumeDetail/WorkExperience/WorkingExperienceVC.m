@@ -243,6 +243,7 @@
         WriteResumeCell * cell = self.jobArray[i];
         [cell.contentTextField resignFirstResponder];
     }
+    
     [self.contentTextField resignFirstResponder];
 }
 
