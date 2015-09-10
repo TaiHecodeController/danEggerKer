@@ -30,7 +30,7 @@
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-64)];
     self.scro = scro;
     [self.view addSubview:scro];
-    [self createTilteView];
+   
     [self loadData];
 }
 -(void)loadData
@@ -39,6 +39,7 @@
     
     [[WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
         self.dataDic = DataDic[@"data"];
+         [self createTilteView];
         [self createView];
     } WithResumeParam:@{@"eid":self.resumeId} withfail:nil] addNotifaction:hub];
  
@@ -56,6 +57,7 @@
     [titleView addSubview:myLable];
     UILabel * timeLable = [[UILabel alloc] initWithFrame:CGRectMake(WIDETH - 165, 16, 150, 11)];
     timeLable.text = @"创建于2015-08-03";
+    timeLable.text = [NSString stringWithFormat:@"创建于%@", self.dataDic[@"expect"][@"ctime"]];
     timeLable.font =[UIFont systemFontOfSize:11];
     timeLable.textColor = UIColorFromRGB(0x646464);
     timeLable.textAlignment = NSTextAlignmentRight;

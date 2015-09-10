@@ -18,4 +18,5 @@
 @property(nonatomic,copy) NSString * descriptions;
 @property(nonatomic,copy) NSString * birthday;
 @property(nonatomic,copy) NSString * email;
+@property (assign)BOOL isEdit;
 @end

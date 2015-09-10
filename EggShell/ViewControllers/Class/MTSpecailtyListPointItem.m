@@ -56,8 +56,12 @@
     _coverView.frame = CGRectMake(0, y, self.frame.size.width, 85);
     
     y += _coverView.frame.size.height + 5;
+
     CGSize nameSize = [@"三个字三个" sizeWithFont:_nameLab.font];
     _nameLab.frame = CGRectMake(0, y, nameSize.width, nameSize.height);
+
+//    CGSize nameSize = [@"三个字" sizeWithFont:_nameLab.font];
+//    _nameLab.frame = CGRectMake(0, y, nameSize.width*MyWideth, nameSize.height);
     
     _redXinBtn.frame = CGRectMake(CGRectGetMaxX(_nameLab.frame) - 5 ,y + 3, 0.1 * WIDETH, 0.032 * WIDETH);
     

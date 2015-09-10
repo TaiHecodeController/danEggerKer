@@ -39,7 +39,7 @@
     [super viewDidLoad];
     self.dataArray = [NSMutableArray arrayWithCapacity:0];
     self.limitNum = 10;
- self.page = 0;
+    self.page = 0;
     [self createView];
     [self createTableView];
     [self hySegmentedControlSelectAtIndex:0];
@@ -172,7 +172,7 @@
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
     if( refreshView == _header ){
-        _page = 0;
+        _page = 1;
         [self.dataArray removeAllObjects];
         if (_currentIndex == 0)
         {

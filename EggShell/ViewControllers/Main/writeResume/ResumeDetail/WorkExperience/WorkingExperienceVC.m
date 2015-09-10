@@ -27,6 +27,7 @@
     ResumeModel * _resume_model;
 }
 @property(strong,nonatomic)NSArray * nameArray;
+@property(strong,nonatomic)UIScrollView * scro;
 @property (strong,nonatomic)NSArray * holderArray;
 @property(strong,nonatomic)NSMutableArray * jobArray;
 
@@ -40,6 +41,7 @@
     self.jobArray = [NSMutableArray arrayWithCapacity:0];
     _model = [[WriteRusumeModel2 alloc] init];
     _resume_model = [ResumeModel sharedResume];
+    [self createScro];
     [self createUI];
     [self createData];
     /*隐藏键盘**/
@@ -49,6 +51,14 @@
    
     // Do any additional setup after loading the view.
 }
+-(void)createScro
+{  self.view.backgroundColor = color(243, 243, 241);
+    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
+    self.scro = scro;
+    self.scro.backgroundColor = color(243, 243, 243);
+    [self.view addSubview:scro];
+}
+
 -(void)keyboardHide:(UITapGestureRecognizer*)tap
 {
     [self.view endEditing:YES];
@@ -63,12 +73,12 @@
 {
     self.view.backgroundColor = color(243, 243, 241);
     UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 150, 20) Font:14 Text:[NSString stringWithFormat:@"%@-工作经历",_resume_model.resumeName]];
-    [self.view addSubview:nameLab];
+    [self.scro addSubview:nameLab];
     
     UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(165, 15, 53, 23) ImageName:@"hongniu2" Target:self Action:nil Title:@"必填项"];
     [stateBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     stateBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-    [self.view addSubview:stateBtn];
+    [self.scro addSubview:stateBtn];
     
     //中间tableView
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(-1, 45, WIDETH + 1, 168)];
@@ -78,14 +88,14 @@
     _tableView.layer.borderWidth = 0.5;
     _tableView.layer.borderColor = [UIColor colorWithRed:221 / 255.0 green:221 / 255.0 blue:221 / 255.0 alpha:1].CGColor;
      _tableView.separatorColor = color(221, 221, 221);
-    [self.view addSubview:_tableView];
+    [self.scro addSubview:_tableView];
     
     //下方View
     UIView * backView = [[UIView alloc] initWithFrame:CGRectMake(-1, 233, WIDETH, 120)];
     backView.backgroundColor = [UIColor whiteColor];
     backView.layer.borderWidth = 0.5;
     backView.layer.borderColor = [UIColor colorWithRed:221 / 255.0 green:221 / 255.0 blue:221 / 255.0 alpha:1].CGColor;
-    [self.view addSubview:backView];
+    [self.scro addSubview:backView];
     
     self.nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 50, 57, 21) Font:13 Text:@"工作内容"];
     [backView addSubview:self.nameLab];
@@ -100,6 +110,7 @@
     self.contentTextField.textAlignment = NSTextAlignmentNatural;
     self.contentTextField.textColor = color(203, 203, 203);
     self.contentTextField.text = @"请填写工作内容";
+    self.contentTextField.delegate = self;
     [backView addSubview:self.contentTextField];
     
     //下方按钮
@@ -107,13 +118,13 @@
     
     [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [self.view addSubview:saveBtn];
+    [self.scro addSubview:saveBtn];
     
     UIButton * replaceBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 + 10, 368, 90, 29) ImageName:@"lanniu2" Target:self Action:@selector(replaceClick) Title:@"重置"];
     
     [replaceBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [self.view addSubview:replaceBtn];
+    [self.scro addSubview:replaceBtn];
 }
 #pragma mark - 保存简历阅览
 -(void)saveClick
@@ -253,6 +264,20 @@
     }
     
     [self.contentTextField resignFirstResponder];
+}
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if(HEIGHT == 480)
+    {
+        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
+        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+    }else
+    {
+        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 200);
+        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

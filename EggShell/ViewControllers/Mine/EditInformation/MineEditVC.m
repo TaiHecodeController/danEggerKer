@@ -48,11 +48,17 @@
     self.dic = [NSDictionary dictionary];
     self.jobCellArray = [NSMutableArray arrayWithCapacity:0];
     self.birthdayCellArray = [NSMutableArray arrayWithCapacity:0];
+    self.jobCellArray3 = [NSMutableArray arrayWithCapacity:0];
     [self addNotifacation];
     
     [self createUI];
     [self createNav];
-   [self createData];
+    [self createData];
+    [self loadData];
+    /*加载保存到网络的数据**/
+    if (self.isEdit) {
+        [self loadData];
+    }
 }
 
 -(void)addNotifacation
@@ -65,32 +71,110 @@
     backView.contentSize = CGSizeMake(WIDETH / 2, HEIGHT + 60);
     [backView scrollRectToVisible:[UIScreen mainScreen].bounds animated:YES];
 }
-
--(void)createData
-{
+#pragma mark -- 加载网络数据
+-(void )loadData{
+    
     NSUserDefaults * uid =[NSUserDefaults standardUserDefaults];
     NSString  * token  =  [uid objectForKey:@"md5_token"];
     NSString * uisStr = [uid objectForKey:@"uid"];
     NSDictionary * dic = @{@"uid":uisStr,@"token":token};
     [LoginAndRegisterRequest EditInformationWithSucc:^(NSDictionary * succ) {
         self.dic = succ[@"data"];
-        [self.tableView1 reloadData];
-        [self.tableView2 reloadData];
-        [self.tableView3 reloadData];
+      
+        if(self.tableView1.tag == 1222)
+        {
+            
+            for (int i =0; i < self.jobCellArray.count; i++) {
+                MineEditInfoCell * cell = self.jobCellArray[i];
+                switch (i) {
+                    case 0:
+                    {
+                        NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+                        if  ([userDefault objectForKey:@"uid"] ) {
+                            cell.contentTextField.text = [userDefault objectForKey:@"loginPhone"];
+                            //                        cell.contentTextField.text = self.dic[@"telphone"];
+                        }
+                        break;
+                        
+                        
+                    }
+                    case 1:
+                    {
+                        cell.contentTextField.text = self.dic[@"name"];
+                        break;
+                    }
+                    case 2:
+                    {
+                        if ([self.dic[@"sex"] isEqualToString:[NSString stringWithFormat:@"%d",7]]) {
+                            cell.contentTextField.text = @"女";
+                        }else
+                        {
+                            cell.contentTextField.text = @"男";
+                        }
+                        break;
+                        
+                    }
+                    case 3:
+                    {
+                        cell.contentTextField.text = self.dic[@"address"];
+                        break;
+                    }
+                    case 4:
+                    {
+                        
+                        cell.contentTextField.text = self.dic[@"description"];
+                        break;
+                    }
+                    default:
+                        break;
+                }
+                
+            }
+        }
+        if (self.tableView2.tag == 1223)
+        {
+            for (int i=0; i < self.birthdayCellArray.count; i++) {
+                MineEditInfoCell * cell1 = self.birthdayCellArray[i];
+                switch (i) {
+                    case 0:
+                    {
+                        cell1.contentTextField.text = self.dic[@"birthday"];
+                        break;
+                   
+                    
+                    }
+                    case 1:
+                    {
+                        
+                    cell1.contentTextField.text = self.dic[@"email"];
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            }
+            
+        }
+          if (self.tableView3.tag == 1224) {
+            for (int i = 0; i < self.jobCellArray3.count; i++) {
+                MineEditInfoCell * cell = self.jobCellArray3[i];
+           cell.contentTextField.text = self.dic[@"reg_date"];
+            }
+        }
+        
     } withuid:dic];
-    
-    
-//    [self.tableView1 reloadData];
-//    [self.tableView2 reloadData];
-//    [self.tableView3 reloadData];
+}
+#pragma mark -- 加载本地数据
+-(void)createData
+{
     self.nameArray = @[@"登陆账号",@"昵称",@"性别",@"所在地",@"简介"];
     self.holderArray = @[@"18800006666",@"",@"男",@"北京",@"学习是一种信仰"];
     
-    self.nameArray2 = @[@"生日",@"邮箱",@"QQ"];
-    self.holderArray2 = @[@"2015-7-10",@"",@""];
+    self.nameArray2 = @[@"生日",@"邮箱",];
+    self.holderArray2 = @[@"2015-7-10",@""];
     
-    self.nameArray3 = @[@"等级",@"注册时间"];
-    self.holderArray3 = @[@"1",@"2015-8-2"];
+    self.nameArray3 = @[@"注册时间"];
+    self.holderArray3 = @[@"2015-8-2"];
     
 }
 
@@ -115,7 +199,7 @@
     [backView addSubview:tableView1];
     
     //中间tableView
-    UITableView * tableView2 = [[UITableView alloc] initWithFrame:CGRectMake(0, 230, WIDETH, 126)];
+    UITableView * tableView2 = [[UITableView alloc] initWithFrame:CGRectMake(0, 230, WIDETH, 126-42)];
     tableView2.tag = 1223;
     tableView2.scrollEnabled = NO;
     tableView2.layer.borderColor = [UIColor colorWithRed:221 / 255.0 green:221 / 255.0 blue:221 / 255.0 alpha:1].CGColor;
@@ -126,7 +210,7 @@
     [backView addSubview:tableView2];
     
     //底部tableView
-    UITableView * tableView3 = [[UITableView alloc] initWithFrame:CGRectMake(0, 376, WIDETH, 84)];
+    UITableView * tableView3 = [[UITableView alloc] initWithFrame:CGRectMake(0, 376-42, WIDETH, 84-42)];
     tableView3.tag = 1224;
     tableView3.scrollEnabled = NO;
     tableView3.layer.borderColor = [UIColor colorWithRed:221 / 255.0 green:221 / 255.0 blue:221 / 255.0 alpha:1].CGColor;
@@ -161,7 +245,8 @@
     {
         return 2;
     }
-    return 2;
+    return 1;
+   
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -193,30 +278,31 @@
         {
             cell.contentTextField.enabled = NO;
             
-            NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
-            if  ([userDefault objectForKey:@"uid"] ) {
-                cell.contentTextField.text = [userDefault objectForKey:@"loginPhone"];
-//                cell.contentTextField.text = self.dic[@"telphone"];
-            }
-        }if (indexPath.row==1) {
-            if (self.dic[@"name"])
-            {
-                cell.contentTextField.text = self.dic[@"name"];
-            }
-            
+            //            NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+            //            if  ([userDefault objectForKey:@"uid"] ) {
+            //                cell.contentTextField.text = [userDefault objectForKey:@"loginPhone"];
+            //             cell.contentTextField.text = self.dic[@"telphone"];
+            //            }
         }
+        //        if (indexPath.row==1) {
+        //            if (self.dic[@"name"])
+        //            {
+        //                cell.contentTextField.text = self.dic[@"name"];
+        //            }
+        //
+        //        }
         if(indexPath.row == 2)
         {
             cell.showAllBtn.hidden = NO;
             cell.contentBtn.tag = 200 + 2;
             cell.contentTextField.enabled = NO;
             cell.contentBtn.hidden = NO;
-            if ([self.dic[@"sex"] isEqualToString:[NSString stringWithFormat:@"%d",7]]) {
-                cell.contentTextField.text = @"女";
-            }else
-            {
-                cell.contentTextField.text = @"男";
-            }
+            //            if ([self.dic[@"sex"] isEqualToString:[NSString stringWithFormat:@"%d",7]]) {
+            //                cell.contentTextField.text = @"女";
+            //            }else
+            //            {
+            //                cell.contentTextField.text = @"男";
+            //            }
         }
         if(indexPath.row == 3)
         {
@@ -224,13 +310,14 @@
             //            cell.contentBtn.hidden = NO;
             //          cell.contentBtn.tag = 200 + 5;
             //            cell.contentTextField.enabled = YES;
-            cell.contentTextField.text = self.dic[@"address"];
+            //            cell.contentTextField.text = self.dic[@"address"];
         }
         if(indexPath.row == 4)
         {
             cell.moreLab.hidden = NO;
             isEdit = YES;
-            cell.contentTextField.text = self.dic[@"description"];
+            cell.contentTextField.delegate = self;
+            //            cell.contentTextField.text = self.dic[@"description"];
             
         }
         cell.nameLab.text = self.nameArray[indexPath.row];
@@ -266,10 +353,11 @@
             cell.contentBtn.tag = 200;
             cell.contentTextField.enabled = NO;
             cell.contentBtn.hidden = NO;
-            cell.contentTextField.text = self.dic[@"reg_date"];
-        }if (indexPath.row==1) {
-            cell.contentTextField.text = self.dic[@"email"];
+            //            cell.contentTextField.text = self.dic[@"reg_date"];
         }
+        //        if (indexPath.row==1) {
+        //            cell.contentTextField.text = self.dic[@"email"];
+        //        }
         [self.birthdayCellArray addObject:cell];
         cell.contentTextField.placeholder = self.holderArray2[indexPath.row];
         return cell;
@@ -291,13 +379,13 @@
         cell.moreLab.hidden = YES;
         cell.nameLab.text = self.nameArray3[indexPath.row];
         cell.contentTextField.text = self.holderArray3[indexPath.row];
-        [self.jobCellArray addObject:cell];
-        if (indexPath.row==0) {
-            //            cell.contentTextField.text = self.dic[@"reg_date"];
-        }
-        if (indexPath.row==1) {
-            cell.contentTextField.text = self.dic[@"reg_date"];
-        }
+        [self.jobCellArray3 addObject:cell];
+        //        if (indexPath.row==0) {
+        //            //            cell.contentTextField.text = self.dic[@"reg_date"];
+        //        }
+//        if (indexPath.row==1) {
+//            cell.contentTextField.text = self.dic[@"reg_date"];
+//        }
         return cell;
     }
     
@@ -357,17 +445,16 @@
 //限定输入字数
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-//        if(isEdit)
-//        {
-//            if((string.length - range.length + textField.text.length) > 15)
-//            {
-//                [MBProgressHUD creatembHub:@"不能超过15个字"];
-//    
-//                return NO;
-//            }
-//    
-//        }
-    return YES;
+    if (range.location>=15)
+    {
+        [MBProgressHUD creatembHub:@"简介不能超过15字"];
+        return  NO;
+    }
+    else
+    {
+        return YES;
+    }
+
 }
 #pragma mark - - 完成提交
 -(void)rightClick:(UIButton *)sender
@@ -378,49 +465,51 @@
     NSString * uisStr = [user objectForKey:@"uid"];
     NSString  * token  =  [user objectForKey:@"md5_token"];
     
-    if(self.tableView1.tag == 1222)
-    {
-        for (int i = 0; i < self.jobCellArray.count; i ++) {
+    if (!self.isEdit) {
+        if(self.tableView1.tag == 1222)
+        {
             
-            self.telphone = ((MineEditInfoCell*)self.jobCellArray[0]).contentTextField.text;
-            
-            self.name = ((MineEditInfoCell*)self.jobCellArray[1]).contentTextField.text;
-            
-            
-            
-            if ([((MineEditInfoCell*)self.jobCellArray[2]).contentTextField.text isEqualToString:@"男"]) {
-                self.sex = 6;
+            for (int i = 0; i < self.jobCellArray.count; i ++) {
+                
+                self.telphone = ((MineEditInfoCell*)self.jobCellArray[0]).contentTextField.text;
+                
+                self.name = ((MineEditInfoCell*)self.jobCellArray[1]).contentTextField.text;
                 
                 
-            }if ([((MineEditInfoCell*)self.jobCellArray[2]).contentTextField.text isEqualToString:@"女"]) {
                 
-                self.sex = 7;
+                if ([((MineEditInfoCell*)self.jobCellArray[2]).contentTextField.text isEqualToString:@"男"]) {
+                    self.sex = 6;
+                    
+                    
+                }if ([((MineEditInfoCell*)self.jobCellArray[2]).contentTextField.text isEqualToString:@"女"]) {
+                    
+                    self.sex = 7;
+                }
+                
+        
+                self.address = ((MineEditInfoCell*)self.jobCellArray[3]).contentTextField.text;
+                
+                self.descriptions = ((MineEditInfoCell*)self.jobCellArray[4]).contentTextField.text;
+
             }
             
-            
-            self.address = ((MineEditInfoCell*)self.jobCellArray[3]).contentTextField.text;
-            
-            self.descriptions = ((MineEditInfoCell*)self.jobCellArray[4]).contentTextField.text;
         }
-        
-    }
-    if (self.tableView2.tag == 1223) {
-        for (int i = 0; i < self.birthdayCellArray.count; i ++) {
-            self.birthday = ((MineEditInfoCell*)self.birthdayCellArray[0]).contentTextField.text;
-            self.email = ((MineEditInfoCell*)self.birthdayCellArray[1]).contentTextField.text;
+        if (self.tableView2.tag == 1223) {
+            for (int i = 0; i < self.birthdayCellArray.count; i ++) {
+                self.birthday = ((MineEditInfoCell*)self.birthdayCellArray[0]).contentTextField.text;
+                self.email = ((MineEditInfoCell*)self.birthdayCellArray[1]).contentTextField.text;
+                
+            }
+            
+            NSNumber *sexNum = [NSNumber numberWithInt:self.sex];
+            NSDictionary * param = @{@"token":token ,@"uid":uisStr,@"telphone":self.telphone,@"name":self.name,@"sex":sexNum,@"address":self.address,@"description":self.description,@"birthday":self.birthday,@"email":self.email};
+            [LoginAndRegisterRequest EditInformationWithSucc:^(NSDictionary * dic) {
+                
+                [MBProgressHUD creatembHub:@"编辑资料成功"];
+                
+            } withParam:param];
             
         }
-        NSNumber *sexNum = [NSNumber numberWithInt:self.sex];
-        NSDictionary * param = @{@"token":token ,@"uid":uisStr,@"telphone":self.telphone,@"name":self.name,@"sex":sexNum,@"address":self.address,@"description":self.description,@"birthday":self.birthday,@"email":self.email};
-        
-        
-        [LoginAndRegisterRequest EditInformationWithSucc:^(NSDictionary * dic) {
-            
-            [MBProgressHUD creatembHub:@"编辑资料成功"];
-            
-            
-        } withParam:param];
-        
     }
 }
 - (void)didReceiveMemoryWarning {

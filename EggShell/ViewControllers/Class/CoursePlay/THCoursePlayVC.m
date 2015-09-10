@@ -416,9 +416,21 @@ typedef NS_ENUM(NSInteger, GestureType){
 
 - (void)popVC
 {
+    NSArray *events = self.PLvideoPlayer.accessLog.events;
+    int count = (int)events.count;
+    
+    
+    
+    for (int i = 0; i < count; i++)
+    {
+        MPMovieAccessLogEvent *currentEvent = [events objectAtIndex:i];
+        NSLog(@"durationWatched:%f",currentEvent.durationWatched);
+    }
+    
     [self.navigationController popViewControllerAnimated:NO];
     TH_ClassVC * class = [[TH_ClassVC alloc] init];
     [self.PLvideoPlayer stop];
+     [self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popToViewController:class animated:YES];
 }
 
