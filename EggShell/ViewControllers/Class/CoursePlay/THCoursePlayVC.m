@@ -99,16 +99,11 @@ typedef NS_ENUM(NSInteger, GestureType){
 @property(nonatomic,strong)UITableView * tableView;
 @property (nonatomic, strong) AFRequestState *state;
 @property (nonatomic, strong) NSMutableArray *videoListArr;
+@property (nonatomic, strong) UIButton *searchBtn;
 
 @end
 
 @implementation THCoursePlayVC
-
-- (void)dealloc
-{
-
-
-}
 
 #pragma mark - init
 - (id)initNetworkMoviePlayerViewControllerWithURL:(NSURL *)url movieTitle:(NSString *)movieTitle{
@@ -171,10 +166,42 @@ typedef NS_ENUM(NSInteger, GestureType){
     return self;
 }
 
+#pragma mark -- viewLifeCircle
+- (void)viewWillAppear:(BOOL)animated
+{
+    [AppDelegate instance].ori_flag = 1;
+    _systemBrightness = [UIScreen mainScreen].brightness;
+    
+    UIButton *searchBtn = [[UIButton alloc] init];
+    [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
+    [searchBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
+    searchBtn.frame = CGRectMake(WIDETH - 10 - 50 - 20 - 10,0, 44, 44);
+    [searchBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationController.navigationBar addSubview:searchBtn];
+    _searchBtn = searchBtn;
+    //    [MobClick beginLogPageView:@"视频播放"];
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    //    [AppDelegate instance].ori_flag = 0;
+    [super viewWillDisappear:animated];
+    
+    //    [MobClick endLogPageView:@"视频播放"];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [_searchBtn removeFromSuperview];
+    
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popVC) name:@"videoClose" object:nil];
-    //网络判断
+    
+        //网络判断
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
         [MBProgressHUD creatembHub:@"当前处于无网络"];
         
@@ -191,22 +218,12 @@ typedef NS_ENUM(NSInteger, GestureType){
     
      MBProgressHUD *mb = [MBProgressHUD mbHubShow];
     [self loadDataWithMB:mb classid:_classId];
-
-    // Do any additional setup after loading the view.
-//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
-//    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
-//        // iOS 7
-//        [self prefersStatusBarHidden];
-//        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
-//    }
-//    self.view.backgroundColor = [UIColor blackColor];
     
+    //设置返回按钮
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     backBtn.frame = CGRectMake(0, 0, 44, 44);
-    
     [backBtn setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     self.navigationItem.leftBarButtonItem = backItem;
     
@@ -219,19 +236,28 @@ typedef NS_ENUM(NSInteger, GestureType){
     [self.view bringSubviewToFront:_topView];
     [self.view bringSubviewToFront:_bottomView];
     
-    //监控 app 活动状态，打电话/锁屏 时暂停播放
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(becomeActive)
-                                                 name:UIApplicationDidBecomeActiveNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(resignActive)
-                                                 name:UIApplicationWillResignActiveNotification
-                                               object:nil];
+    self.title = @"课程播放";
+    [self createCourePlay];
+    [self createTableView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startFullScreen) name:MPMoviePlayerDidEnterFullscreenNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exitFullScreen) name:MPMoviePlayerDidExitFullscreenNotification object:nil];
+
+    /**********************************************/
+    
+//    //监控 app 活动状态，打电话/锁屏 时暂停播放
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(becomeActive)
+//                                                 name:UIApplicationDidBecomeActiveNotification
+//                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(resignActive)
+//                                                 name:UIApplicationWillResignActiveNotification
+//                                               object:nil];
+      //监听父类的play停止动作
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popView) name:@"videoClose" object:nil];
+
     
     //    NSUserDefaults *userd = [NSUserDefaults standardUserDefaults];
     //    if (![userd boolForKey:@"isFirstOpenMoviePlayerViewController"]) {
@@ -254,25 +280,73 @@ typedef NS_ENUM(NSInteger, GestureType){
     //    LOGO.frame = CGRectMake(self.view.bounds.size.height-48-10, 10, 48, 56);
     //    [self.view addSubview:LOGO];
     
-    self.title = @"课程播放";
-    [self createCourePlay];
-    [self createTableView];
+    // Do any additional setup after loading the view.
+    //    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    //    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+    //        // iOS 7
+    //        [self prefersStatusBarHidden];
+    //        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    //    }
+    //    self.view.backgroundColor = [UIColor blackColor];
+
+    
     
 }
 
+//- (void) playerLoadStateDidChange:(NSNotification*)notification
+//{
+//    
+//    
+//    MPMoviePlayerController *moviePlayer = [notification object];
+//    
+//    if ([moviePlayer loadState] != MPMovieLoadStateUnknown) {
+//        
+//        NSLog(@"playerReady");
+//        [self.PLvideoPlayer stop];
+//        // Remove observer
+//        [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerLoadStateDidChangeNotification object:nil];
+//        
+//        
+//        // Add movie player as subview
+//        //[[self view] addSubview:[moviePlayer view]];
+//        
+//        
+//        
+//    }
+//    
+//}
+
+#pragma mark -- respondEvent
+- (void)leftBtnClick
+{
+    //    [self popView];
+    //        [self dismissViewControllerAnimated:YES completion:^{
+    //            self.timeObserver = nil;
+    //            self.player = nil;
+    //            [UIScreen mainScreen].brightness = _systemBrightness;
+    //            if ([_delegate respondsToSelector:@selector(movieFinished:)]) {
+    //                [_delegate movieFinished:_movieProgressSlider.value];
+    //            }
+    //        }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playerLoadStateDidChange:)
+                                                 name:MPMoviePlayerLoadStateDidChangeNotification
+                                               object:nil];
+
+    [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"视频停止");
+}
+
+
 - (void)loadDataWithMB:(id)mb classid:(NSString *)classid
 {
- 
-    
     if(self.state.running)
     {
         return;
     }
-    
     self.state = [[OpenClassVideoListRequest requestWithSucc:^(NSArray *DataDic) {
-      
       self.videoListArr = [NSMutableArray arrayWithArray:DataDic];
-      
       [self.tableView reloadData];
     } resp:[playListModel class] paramWithId:classid] addNotifaction:mb];
     
@@ -339,32 +413,6 @@ typedef NS_ENUM(NSInteger, GestureType){
     [self.PLvideoPlayer play];
 }
 
-#pragma mark -- ========================================
-- (void)viewWillAppear:(BOOL)animated{
-  [AppDelegate instance].ori_flag = 1;
-    _systemBrightness = [UIScreen mainScreen].brightness;
-    
-    
-    
-    //    [MobClick beginLogPageView:@"视频播放"];
-    
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-//    [AppDelegate instance].ori_flag = 0;
-    [super viewWillDisappear:animated];
-    
-    //    [MobClick endLogPageView:@"视频播放"];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
-
-}
 
 - (void)popVC
 {
@@ -387,10 +435,10 @@ typedef NS_ENUM(NSInteger, GestureType){
     [MBProgressHUD showHUDAddedTo:self.PLvideoPlayer.view animated:YES];
 
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(playerLoadStateDidChange:)
-                                                 name:MPMoviePlayerLoadStateDidChangeNotification
-                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(playerLoadStateDidChange:)
+//                                                 name:MPMoviePlayerLoadStateDidChangeNotification
+//                                               object:nil];
     
 //    [_progressHUD removeFromSuperview];
 //    [_progressHUD show:NO];
@@ -497,15 +545,14 @@ typedef NS_ENUM(NSInteger, GestureType){
     
     MPMoviePlayerController *moviePlayer = [notification object];
     
-    
     if ([moviePlayer loadState] != MPMovieLoadStateUnknown) {
         NSLog(@"playerReady");
         //消除菊花
 
-        [MBProgressHUD hideAllHUDsForView:self.PLvideoPlayer.view animated:YES];
+//        [MBProgressHUD hideAllHUDsForView:self.PLvideoPlayer.view animated:YES];
+        [self.PLvideoPlayer stop];
         // Remove observer
         [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerLoadStateDidChangeNotification object:nil];
-        
         
         // Add movie player as subview
         //[[self view] addSubview:[moviePlayer view]];
@@ -959,28 +1006,30 @@ typedef NS_ENUM(NSInteger, GestureType){
 - (void)popView
 {
     //保存本次播放进度
-    //    [[DatabaseManager defaultDatabaseManager] addPlayRecordWithIdentifier:_movieTitle progress:_movieProgressSlider.value];
+//        [[DatabaseManager defaultDatabaseManager] addPlayRecordWithIdentifier:_movieTitle progress:_movieProgressSlider.value];
     
-    [_player removeTimeObserver:_timeObserver];
-    [self removeObserversFromVideoPlayerItem];
-    [_player replaceCurrentItemWithPlayerItem:nil];//自动移除 observer
-    [[self class] cancelPreviousPerformRequestsWithTarget:self];
+//    [_player removeTimeObserver:_timeObserver];
+//    [self removeObserversFromVideoPlayerItem];
+//    [_player replaceCurrentItemWithPlayerItem:nil];//自动移除 observer
+//    [[self class] cancelPreviousPerformRequestsWithTarget:self];
+//    
+//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+//    
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        self.timeObserver = nil;
+//        self.player = nil;
+//        [UIScreen mainScreen].brightness = _systemBrightness;
+//        if ([_delegate respondsToSelector:@selector(movieFinished:)]) {
+//            [_delegate movieFinished:_movieProgressSlider.value];
+//        }
+//    }];
+//    
+//    if(self.PLvideoPlayer.playbackState == MPMoviePlaybackStatePlaying){
+//        [self.PLvideoPlayer stop];
+//    }
+//    [self.navigationController popViewControllerAnimated:YES];
     
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        self.timeObserver = nil;
-        self.player = nil;
-        [UIScreen mainScreen].brightness = _systemBrightness;
-        if ([_delegate respondsToSelector:@selector(movieFinished:)]) {
-            [_delegate movieFinished:_movieProgressSlider.value];
-        }
-    }];
-    
-    if(self.PLvideoPlayer.playbackState == MPMoviePlaybackStatePlaying){
-        [self.PLvideoPlayer stop];
-    }
-    
+//    [self.PLvideoPlayer stop];
 }
 
 // 移除观察者.
@@ -1038,13 +1087,6 @@ typedef NS_ENUM(NSInteger, GestureType){
     [self scrubberIsScrolling];
 }
 
-- (void)leftBtnClick
-{
-    THLog(@"左侧按钮被点击");
-    [self popView];
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 #pragma mark touch event
 

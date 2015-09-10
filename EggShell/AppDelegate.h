@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 //保利视频
-//#import "PolyvSettings.h"
+#import "PolyvSettings.h"
 #import "TH_MainTabBarController.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate,UIAlertViewDelegate>
 {
-//    PolyvSettings *polyvSettings;
+    PolyvSettings *polyvSettings;
 
 }
 @property(nonatomic,assign)int ori_flag;

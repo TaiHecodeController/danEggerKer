@@ -41,11 +41,10 @@
     //rk——test
     
     //初始化保利视频
-    //    [self initPloyVideo];
+        [self initPloyVideo];
     // 要使用百度地图，请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc]init];
-    BOOL ret = [_mapManager start:@"0TPGk34SozOFM2njqn95eHIL" generalDelegate:self];
-    
+    BOOL ret = [_mapManager start:@"VETGQ5nQXBXtGt0VHhIetQuh" generalDelegate:self];
     if (ret)
     {
         NSLog(@"配置成功");
@@ -136,8 +135,8 @@
 
 - (void)initPloyVideo
 {
-    //    polyvSettings = [[PolyvSettings alloc] init];
-    //    [polyvSettings initVideoSettings:@"ylzOkbgQcn" Readtoken:@"AAiK2jiX0t-BAnX4n6CrX-xV0TfqPUML" Writetoken:@"ZDYlp4fGF8g100D-TYug02Z14idkcelP" UserId:@"00018093b1"];
+        polyvSettings = [[PolyvSettings alloc] init];
+        [polyvSettings initVideoSettings:@"ylzOkbgQcn" Readtoken:@"AAiK2jiX0t-BAnX4n6CrX-xV0TfqPUML" Writetoken:@"ZDYlp4fGF8g100D-TYug02Z14idkcelP" UserId:@"00018093b1"];
 }
 
 

@@ -28,7 +28,7 @@
 @end
 
 
-@interface THCoursePlayVC : TH_BaseVC
+@interface THCoursePlayVC : UIViewController
 
 typedef enum {
     MoviePlayerViewControllerModeNetwork = 0,

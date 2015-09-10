@@ -352,19 +352,21 @@
         }
         
     }
+   
 }
 //限定输入字数
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    //    if(isEdit)
-    //    {
-    //        if((string.length - range.length + textField.text.length) > 30)
-    //        {
-    //
-    //            return NO;
-    //        }
-    //
-    //    }
+//        if(isEdit)
+//        {
+//            if((string.length - range.length + textField.text.length) > 15)
+//            {
+//                [MBProgressHUD creatembHub:@"不能超过15个字"];
+//    
+//                return NO;
+//            }
+//    
+//        }
     return YES;
 }
 #pragma mark - - 完成提交
