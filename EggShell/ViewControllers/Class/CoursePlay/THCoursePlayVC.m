@@ -207,7 +207,6 @@ typedef NS_ENUM(NSInteger, GestureType){
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
         [MBProgressHUD creatembHub:@"当前处于无网络"];
         
-        
     }else if([MMNetWorkType getNetWorkType] ==WWAN)
     {
         [MBProgressHUD creatembHub:@"您当前处于3G状态"];
@@ -327,7 +326,8 @@ typedef NS_ENUM(NSInteger, GestureType){
 #pragma mark -- respondEvent
 - (void)leftBtnClick
 {
-    [self.PLvideoPlayer stop];
+//    [self.PLvideoPlayer stop];
+    self.PLvideoPlayer = [[PLVMoviePlayerController alloc]initWithVid:@""];
     [self.navigationController popViewControllerAnimated:YES];
     NSLog(@"视频停止");
 }
@@ -420,7 +420,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 
 - (void)popVC
 {
-    
+
     MPMovieLoadState loadState = self.PLvideoPlayer.loadState;
 
     if(loadState & MPMovieLoadStateStalled){
@@ -429,10 +429,8 @@ typedef NS_ENUM(NSInteger, GestureType){
         
     }
     [self.navigationController popViewControllerAnimated:NO];
-    TH_ClassVC * class = [[TH_ClassVC alloc] init];
-    [self.PLvideoPlayer stop];
-     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController popToViewController:class animated:YES];
+[self.navigationController popViewControllerAnimated:NO];
+
 }
 
 - (void)createAvPlayer{
