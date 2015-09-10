@@ -22,6 +22,7 @@
 //#import "MJRefresh.h"
 #import "MTSpecailtyListPointItem.h"
 #import "NSIndexPath+RK_row_col.h"
+#import "polyNewViewController.h"
 
 #define bottomH 107
 
@@ -410,6 +411,9 @@
 
     THCoursePlayVC *moviePlayer =    [[THCoursePlayVC alloc] initNetworkMoviePlayerViewControllerWithURL:Url movieTitle:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_name"]];
     moviePlayer.classId = arr.lastObject;
+    
+//    polyNewViewController *moviePlayer = [[polyNewViewController alloc]init];
+//    moviePlayer.vid = [NSString stringWithFormat:@"%@",Url];
     //    [self.navigationController presentViewController:moviePlayer animated:YES completion:nil];
     [self.navigationController pushViewController:moviePlayer animated:YES];
 }

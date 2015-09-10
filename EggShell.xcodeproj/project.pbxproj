@@ -245,6 +245,7 @@
 		F0B85A391BA11F83005799F5 /* SearchCity1_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */; };
 		F0B85A3C1BA11F97005799F5 /* SearchCity2_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */; };
 		F0B85A3F1BA11FA7005799F5 /* SearchCity3_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */; };
+		F0B85A431BA16124005799F5 /* polyNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A421BA16124005799F5 /* polyNewViewController.m */; };
 		F0D7C02B1B7994DB00836DD2 /* OpenClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */; };
 		F0D7C0551B79C7B400836DD2 /* libpolyvSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C04C1B79C7B400836DD2 /* libpolyvSDK.a */; };
 		F0D7C0571B79CC4800836DD2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C0561B79CC4800836DD2 /* MobileCoreServices.framework */; };
@@ -692,6 +693,8 @@
 		F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCity2_ViewController.m; sourceTree = "<group>"; };
 		F0B85A3D1BA11FA7005799F5 /* SearchCity3_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCity3_ViewController.h; sourceTree = "<group>"; };
 		F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCity3_ViewController.m; sourceTree = "<group>"; };
+		F0B85A411BA16124005799F5 /* polyNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = polyNewViewController.h; sourceTree = "<group>"; };
+		F0B85A421BA16124005799F5 /* polyNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = polyNewViewController.m; sourceTree = "<group>"; };
 		F0D7C0291B7994DB00836DD2 /* OpenClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenClassCell.h; sourceTree = "<group>"; };
 		F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenClassCell.m; sourceTree = "<group>"; };
 		F0D7C04B1B79C7B400836DD2 /* DownloadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadDelegate.h; sourceTree = "<group>"; };
@@ -1057,6 +1060,7 @@
 		04A483C11B74FDCE006FDB9D /* OpenClass */ = {
 			isa = PBXGroup;
 			children = (
+				F0B85A401BA160F4005799F5 /* 保利新页面 */,
 				94E7DCEE1B841D510093C39B /* CoursePlay */,
 				F0D7C04A1B79C7B400836DD2 /* libpolyvSDK */,
 				F0D7C0291B7994DB00836DD2 /* OpenClassCell.h */,
@@ -2085,6 +2089,15 @@
 			path = TDjob;
 			sourceTree = "<group>";
 		};
+		F0B85A401BA160F4005799F5 /* 保利新页面 */ = {
+			isa = PBXGroup;
+			children = (
+				F0B85A411BA16124005799F5 /* polyNewViewController.h */,
+				F0B85A421BA16124005799F5 /* polyNewViewController.m */,
+			);
+			path = "保利新页面";
+			sourceTree = "<group>";
+		};
 		F0D7C04A1B79C7B400836DD2 /* libpolyvSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -2343,6 +2356,7 @@
 				F07F39011B993B7C002531CD /* CommonFunc.m in Sources */,
 				94313DF11B7CB5C9005D0A9A /* WriteResumeCell2.m in Sources */,
 				94313DC01B7CAAED005D0A9A /* TH_InformationDeskDetailVC.m in Sources */,
+				F0B85A431BA16124005799F5 /* polyNewViewController.m in Sources */,
 				940EDEE01B96E35800376D37 /* WorkExReadingVC.m in Sources */,
 				946EBAC51B84659800CD6AC9 /* jobListCell.m in Sources */,
 				94CB5B831B74CC0600B23B9D /* MJTypeEncoding.m in Sources */,
