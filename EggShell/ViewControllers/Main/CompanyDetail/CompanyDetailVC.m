@@ -95,7 +95,7 @@
     self.comPanyView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 355)];
     self.comPanyView.backgroundColor = [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:241 / 255.0 alpha:1];
     UIView * logoBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 140)];
-    logoBackView.backgroundColor = [UIColor whiteColor];
+//    logoBackView.backgroundColor = [UIColor redColor];
     [self.comPanyView addSubview:logoBackView];
     
     //上部logo

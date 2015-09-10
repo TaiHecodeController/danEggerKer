@@ -56,11 +56,13 @@
     if (![user objectForKey:@"uid"]) {
         self.mineView.lginBtn.userInteractionEnabled = YES;
         [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
-        self.mineView.userLable.text = @"";
+//        self.mineView.userLable.text = @"";
         self.mineView.DeliveryJobNum.text = @"";
         self.mineView.FavoriteJobNum.text = @"";
         self.mineView.ResumeNum.text = @"";
         [self.mineView.loginBgview removeFromSuperview];
+        [self.mineView.userLable removeFromSuperview];
+        [self.mineView.phoneLable removeFromSuperview];
         
     }else
     {
@@ -84,15 +86,14 @@
     [LoginAndRegisterRequest getImagewithSucc:^(NSDictionary * succ) {
        
         if (![succ[@"data"][@"name"]length]==0) {
-            [self.mineView.lginBtn setTitle:succ[@"data"][@"name"] forState:UIControlStateNormal];
+            
+            self.mineView.phoneLable.text =succ[@"data"][@"name"];
         }else{
-        [self.mineView.lginBtn setTitle:[user objectForKey:@"loginPhone"] forState:UIControlStateNormal];
+            self.mineView.phoneLable.text =[user objectForKey:@"loginPhone"];
         }
-        [self.mineView.headPotrait setButtonImageWithUrl:[user objectForKey:succ[@"data"][@"resume_photo"]]];
-        
+        [self.mineView.headPotrait setButtonImageWithUrl:succ[@"data"][@"resume_photo"]];
         self.mineView.DeliveryJobNum.text = [NSString stringWithFormat:@"(%@)",succ[@"data"][@"favjob"]];
         self.mineView.FavoriteJobNum.text = [NSString stringWithFormat:@"(%@)",succ[@"data"][@"usejob"]];
-        
         self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%@)",succ[@"data"][@"expect"]];
         if ([succ[@"data"][@"description"]length]==0) {
             self.mineView.userLable.text = @"学习是一种信仰";
@@ -100,17 +101,21 @@
         {
         self.mineView.userLable.text = succ[@"data"][@"description"];
         }
+        [self.mineView.lginBtn removeFromSuperview];
+        
     } withUid:dic withFail:^(int errCode, NSError *err) {
         if (errCode ==1017) {
             [MBProgressHUD creatembHub:@"用户不存在"];
         }
         self.mineView.lginBtn.userInteractionEnabled = YES;
         [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
-        self.mineView.userLable.text = @"";
+//        self.mineView.userLable.text = @"";
         self.mineView.DeliveryJobNum.text = @"";
         self.mineView.FavoriteJobNum.text = @"";
         self.mineView.ResumeNum.text = @"";
         [self.mineView.loginBgview removeFromSuperview];
+        [self.mineView.phoneLable removeFromSuperview];
+        [self.mineView.userLable removeFromSuperview];
 
     }];
 }
@@ -144,7 +149,7 @@
                   minVew.frame = CGRectMake(0, 0, WIDETH, 440);
               } completion:nil];
         self.scro.contentSize = CGSizeMake(WIDETH,450+60);
-        self.mineView.lginBtn.userInteractionEnabled = NO;
+    
         self.mineView.lginBtn.titleEdgeInsets = UIEdgeInsetsMake(-10, -1, 0, 0);
 //        [self.mineView.lginBtn setTitle:[user objectForKey:@"loginPhone"] forState:UIControlStateNormal];
 //        

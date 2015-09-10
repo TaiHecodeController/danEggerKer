@@ -36,6 +36,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /*隐藏键盘**/
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+    
     self.jobArray = [NSMutableArray arrayWithCapacity:0];
     _model = [[WriteRusumeModel2 alloc] init];
     _resume_model = [ResumeModel sharedResume];
@@ -45,6 +50,11 @@
     
 
     }
+-(void)keyboardHide:(UITapGestureRecognizer*)tap
+{
+    [self.view endEditing:YES];
+}
+
 -(void)setData
 {
     self.nameArray = @[@"学校名称",@"在校时间",@"所学专业",@"社团职位"];

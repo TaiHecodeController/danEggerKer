@@ -37,8 +37,9 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.page = 1;
+    self.dataArray = [NSMutableArray arrayWithCapacity:0];
     self.limitNum = 10;
+ self.page = 0;
     [self createView];
     [self createTableView];
     [self hySegmentedControlSelectAtIndex:0];
@@ -78,7 +79,7 @@
 {
     if (index == 0)
     {
-        self.dataArray = [[NSMutableArray alloc]init];
+        [self.dataArray removeAllObjects];
         _currentIndex = 0;
         NSLog(@"招聘会");
         _page = 1;
@@ -88,8 +89,7 @@
     }
     else
     {
-        self.dataArray = [NSMutableArray
-                       arrayWithCapacity:0];
+        [self.dataArray removeAllObjects];
         _currentIndex = 1;
         NSLog(@"双选会");
         _page=1;
@@ -106,6 +106,7 @@
     tableView.dataSource = self;
     tableView.delegate = self;
     self.tableView = tableView;
+    self.tableView.tableFooterView =[[UIView alloc] init];
     tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:tableView];
     //下拉刷新
@@ -172,7 +173,7 @@
 {
     if( refreshView == _header ){
         _page = 0;
-        
+        [self.dataArray removeAllObjects];
         if (_currentIndex == 0)
         {
             [self loadData:refreshView page:_page pageTye:1];

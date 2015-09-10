@@ -42,9 +42,17 @@
     _resume_model = [ResumeModel sharedResume];
     [self createUI];
     [self createData];
+    /*隐藏键盘**/
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+   
     // Do any additional setup after loading the view.
 }
-
+-(void)keyboardHide:(UITapGestureRecognizer*)tap
+{
+    [self.view endEditing:YES];
+}
 -(void)createData
 {
     self.nameArray = @[@"单位名称",@"工作时间",@"所在部门",@"担任职位"];
@@ -246,7 +254,6 @@
     
     [self.contentTextField resignFirstResponder];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

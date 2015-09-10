@@ -610,7 +610,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="学习是一种信仰" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atj-Aa-Jyl">
-                    <rect key="frame" x="73" y="44" width="85" height="18"/>
+                    <rect key="frame" x="73" y="40" width="85" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -624,8 +624,15 @@
                         <action selector="mineViewBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="WQi-wA-yH0"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="13521320307" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGi-Ds-SiD">
+                    <rect key="frame" x="73" y="12" width="98" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsv-SR-wx6">
-                    <rect key="frame" x="73" y="8" width="139" height="40"/>
+                    <rect key="frame" x="75" y="10" width="139" height="52"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="点击登录">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -673,10 +680,11 @@
                 <outlet property="lginBtn" destination="jsv-SR-wx6" id="ji6-i6-erZ"/>
                 <outlet property="loginBgview" destination="d0F-7p-Hfz" id="Vru-8I-JeA"/>
                 <outlet property="loginBtn" destination="jsv-SR-wx6" id="PiV-Zz-AQN"/>
+                <outlet property="phoneLable" destination="NGi-Ds-SiD" id="tYI-R0-kKH"/>
                 <outlet property="signOut" destination="Ltt-z5-6v9" id="RGc-u6-h2S"/>
                 <outlet property="userLable" destination="atj-Aa-Jyl" id="9iI-vx-4FN"/>
             </connections>
-            <point key="canvasLocation" x="-754" y="25"/>
+            <point key="canvasLocation" x="-751" y="24"/>
         </view>
     </objects>
     <resources>

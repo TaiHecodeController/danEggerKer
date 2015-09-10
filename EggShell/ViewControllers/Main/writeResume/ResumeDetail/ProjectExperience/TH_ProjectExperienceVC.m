@@ -33,6 +33,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /*隐藏键盘**/
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
     self.jobCellArr = [NSMutableArray arrayWithCapacity:0];
     _model = [[WriteRusumeModel2 alloc] init];
     _resume_model = [ResumeModel sharedResume];
@@ -40,6 +44,11 @@
     [self createView];
     [self setData];
 }
+-(void)keyboardHide:(UITapGestureRecognizer*)tap
+{
+    [self.view endEditing:YES];
+}
+
 -(void)setData
 {
     self.nameArray = @[@"项目名称",@"项目时间",@"项目环境",@"担任职位"];
@@ -236,15 +245,15 @@
     return cell;
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    for(int i = 0;i < self.jobCellArr.count;i++)
-    {
-        projectTableViewCell * cell = self.jobCellArr[i];
-        [cell.placehoderTextfield resignFirstResponder];
-    }
-    [self.contentTextField resignFirstResponder];
-}
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    for(int i = 0;i < self.jobCellArr.count;i++)
+//    {
+//        projectTableViewCell * cell = self.jobCellArr[i];
+//        [cell.placehoderTextfield resignFirstResponder];
+//    }
+//    [self.contentTextField resignFirstResponder];
+//}
 
 
 

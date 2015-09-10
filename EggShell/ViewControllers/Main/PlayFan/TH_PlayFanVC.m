@@ -54,7 +54,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.dataArray =[NSMutableArray arrayWithCapacity:0];
+  self.dataArray =[NSMutableArray arrayWithCapacity:0];
     self.view.backgroundColor =[UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
@@ -95,9 +95,9 @@
 {
     if (index == 0)
     {
-       self.dataArray = [NSMutableArray arrayWithCapacity:0];
+        [self.dataArray removeAllObjects];
         _currentIndex = 0;
-        NSLog(@"蛋粉H翻天igh");
+        NSLog(@"蛋粉High翻天");
         _page = 1;
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:_page pageTye:1];
@@ -106,8 +106,7 @@
     }
     else
   {
-     self.dataArray = [NSMutableArray
-                       arrayWithCapacity:0];
+     [self.dataArray removeAllObjects];
         _currentIndex = 1;
         NSLog(@"蛋壳儿送福利");
       _page = 1;
@@ -189,6 +188,8 @@
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
     if( refreshView == _header ){
+        
+        [self.dataArray removeAllObjects];
         _page = 1;
         if (_currentIndex == 0)
         {

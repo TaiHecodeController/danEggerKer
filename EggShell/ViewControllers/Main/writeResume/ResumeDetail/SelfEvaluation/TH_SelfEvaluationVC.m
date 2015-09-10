@@ -25,12 +25,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /*隐藏键盘**/
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
     _model = [[WriteRusumeModel2 alloc] init];
     _resume_model = [ResumeModel sharedResume];
     [self createScro];
     [self createView];
 
 }
+-(void)keyboardHide:(UITapGestureRecognizer*)tap
+{
+    [self.view endEditing:YES];
+}
+
 -(void)createScro
 {
     self.view.backgroundColor = color(243, 243, 241);

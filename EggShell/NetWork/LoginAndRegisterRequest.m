@@ -82,7 +82,8 @@ NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
     }if ([uid length]==0) {
         uid = @"";
     }
-    NSData * data = UIImagePNGRepresentation(inputImage);
+//    NSData * data = UIImagePNGRepresentation(inputImage,0.5);
+    NSData *data = UIImageJPEGRepresentation(inputImage, 0.5);
     NSString *encodedImageStr = [data base64EncodedStringWithOptions:0];
     NSDictionary * param = @{@"token":tokenStr, @"uid":uid,@"photo":encodedImageStr} ;
     

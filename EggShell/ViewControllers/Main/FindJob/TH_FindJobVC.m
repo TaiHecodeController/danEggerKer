@@ -136,7 +136,6 @@
         [SearchModelShare sharedInstance].type = @"119";
     }
 
-    
     self.jobArr = [[NSMutableArray alloc]init];
     _mailingNumBer = 0;
     
@@ -693,7 +692,7 @@
     }
     else
     {
-        self.navigationController.navigationBarHidden = YES;
+       
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登陆" delegate:self cancelButtonTitle:@"暂不登陆" otherButtonTitles:@"登陆", nil];
         [alertView show];
     }

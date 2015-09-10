@@ -13,7 +13,7 @@
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
 #import "ResumeModel.h"
-@interface TH_TrainExperienceVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface TH_TrainExperienceVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UITextViewDelegate>
 {
     WriteRusumeModel2 * _model;
     ResumeModel * _resume_model;
@@ -32,12 +32,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /*隐藏键盘**/
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
     self.jobArray = [NSMutableArray arrayWithCapacity:0];
     _model = [[WriteRusumeModel2 alloc] init];
     _resume_model = [ResumeModel sharedResume];
     [self createScro];
     [self createView];
     [self setData];
+}
+
+-(void)keyboardHide:(UITapGestureRecognizer*)tap
+{
+    [self.view endEditing:YES];
 }
 
 -(void)setData
@@ -91,6 +100,7 @@
     self.contentTextField.textAlignment = NSTextAlignmentNatural;
     self.contentTextField.textColor = color(203, 203, 203);
     self.contentTextField.text = @"请填写培训内容";
+    self.contentTextField.delegate = self;
     [bgView addSubview:self.contentTextField];
     
     //下方按钮
@@ -227,8 +237,35 @@
         return cell;
     }
 }
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+        if(HEIGHT == 480)
+        {
+            self.scro.contentSize = CGSizeMake(WIDETH, 754 + 64 + 220);
+            [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        }else
+        {
+            self.scro.contentSize = CGSizeMake(WIDETH, 754 + 64 + 220);
+            [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
 
+        }
+}
 
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if(HEIGHT == 480)
+    {
+        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 100);
+        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+    }else
+    {
+        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 100);
+        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        
+    }
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

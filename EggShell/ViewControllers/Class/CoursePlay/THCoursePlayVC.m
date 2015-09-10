@@ -20,6 +20,7 @@
 #import "UIBarButtonItem+DC.h"
 #import "AppDelegate.h"
 #import "OpenClassVideoListRequest.h"
+#import "TH_ClassVC.h"
 #import "playListModel.h"
 
 #define TopViewHeight 44
@@ -166,7 +167,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popVC) name:@"videoClose" object:nil];
     //网络判断
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
         [MBProgressHUD creatembHub:@"当前处于无网络"];
@@ -338,7 +339,7 @@ typedef NS_ENUM(NSInteger, GestureType){
     _systemBrightness = [UIScreen mainScreen].brightness;
     
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popVC) name:@"videoClose" object:nil];
+    
     //    [MobClick beginLogPageView:@"视频播放"];
     
 }
@@ -361,7 +362,10 @@ typedef NS_ENUM(NSInteger, GestureType){
 
 - (void)popVC
 {
-    [self popView];
+    [self.navigationController popViewControllerAnimated:NO];
+    TH_ClassVC * class = [[TH_ClassVC alloc] init];
+    [self.PLvideoPlayer stop];
+    [self.navigationController popToViewController:class animated:YES];
 }
 
 - (void)createAvPlayer{

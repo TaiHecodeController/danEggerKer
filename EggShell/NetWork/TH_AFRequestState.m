@@ -139,7 +139,7 @@
 +(AFRequestState*)InformationDeskRequestWithSucc:(void(^)(NSArray * arr))succ  resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type;
 {
     NSNumber * pageNum =[NSNumber numberWithInt:pageNumber];
-    NSNumber * limitNum =[NSNumber numberWithInt:2];
+    NSNumber * limitNum =[NSNumber numberWithInt:limit];
     NSNumber * typeNum =[NSNumber numberWithInt:type];
     NSDictionary * param = @{@"page":pageNum,@"limit":limitNum,@"type":typeNum};
 

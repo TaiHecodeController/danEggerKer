@@ -144,7 +144,7 @@
     AFHTTPRequestOperationManager*manager=[self sharedManager];
     
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 10.f;
+    manager.requestSerializer.timeoutInterval = 8.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation * operation, id responseObject)

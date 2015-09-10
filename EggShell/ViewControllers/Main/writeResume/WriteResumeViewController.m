@@ -165,6 +165,7 @@
                 {
                     NameAndSexCell * nameSexCell = self.jobCellArray2[i];
                     nameSexCell.contentTextField.text = self.editDic[@"info"][@"uname"];
+                    
                     if([self.editDic[@"info"][@"sex"][@"id"] isEqualToString:@"6"])
                     {
                         nameSexCell.manBtn.selected = YES;

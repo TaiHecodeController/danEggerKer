@@ -264,6 +264,7 @@
     regist.title = @"注册";
     [self.navigationController pushViewController:regist animated:YES];
 }
+
 -(void)keyboardHide:(UITapGestureRecognizer*)tap
 {
     [self.view endEditing:YES];

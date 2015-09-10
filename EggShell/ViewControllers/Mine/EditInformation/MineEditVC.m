@@ -84,7 +84,7 @@
 //    [self.tableView2 reloadData];
 //    [self.tableView3 reloadData];
     self.nameArray = @[@"登陆账号",@"昵称",@"性别",@"所在地",@"简介"];
-    self.holderArray = @[@"18800006666",@"王鑫",@"男",@"北京",@"学习是一种信仰"];
+    self.holderArray = @[@"18800006666",@"",@"男",@"北京",@"学习是一种信仰"];
     
     self.nameArray2 = @[@"生日",@"邮箱",@"QQ"];
     self.holderArray2 = @[@"2015-7-10",@"",@""];

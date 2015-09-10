@@ -8,11 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="infDestDetailView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="618"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBA-x6-vZo">
-                    <rect key="frame" x="0.0" y="100" width="320" height="153"/>
+                    <rect key="frame" x="0.0" y="150" width="320" height="153"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="主办方：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yF-49-TW9">
                             <rect key="frame" x="15" y="15" width="60" height="13"/>
@@ -92,23 +92,14 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="153" id="AKk-EJ-Iio"/>
+                        <constraint firstAttribute="height" constant="153" id="UEa-i6-NK0"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="招聘会介绍：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkX-pn-uGb">
-                    <rect key="frame" x="15" y="263" width="100" height="13"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="13" id="1E9-kM-EO1"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koX-2M-YR8">
-                    <rect key="frame" x="15" y="277" width="290" height="207"/>
+                    <rect key="frame" x="15" y="323" width="290" height="207"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="207" id="40w-JO-faf"/>
+                        <constraint firstAttribute="height" constant="207" id="J62-Rf-daT"/>
                     </constraints>
                     <string key="text">太和文化产业集团专注于教育文化产业的扛鼎之作，太和书院汇集了全国顶尖教育专家与团队，依托集团深厚的教育资源背景，逐步成长为中国最具特色的教育文化机构。我们致力于教育产业咨询管理及人才运营两大领域，拥有各类院校、科研机构、政府部门、信息机构、培训教育机构等各类用户和合作伙伴3万余家；建立并完善了包括CCTV-中学生校长联合会、名师汇、校园创就业服务中心等众多的平台，为广大教育产业群体提供最为精准的专有服务。</string>
                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
@@ -116,26 +107,35 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tu001" translatesAutoresizingMaskIntoConstraints="NO" id="8hW-ey-laz">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="suh-49-K1f"/>
+                        <constraint firstAttribute="height" constant="150" id="tLz-yU-JLm"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="招聘会介绍：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkX-pn-uGb">
+                    <rect key="frame" x="20" y="311" width="100" height="13"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13" id="x2g-Ob-NVq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="iBA-x6-vZo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6RB-P0-AN6"/>
-                <constraint firstAttribute="trailing" secondItem="iBA-x6-vZo" secondAttribute="trailing" id="9N0-8W-1fa"/>
-                <constraint firstItem="8hW-ey-laz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Fw3-2O-9qk"/>
-                <constraint firstItem="iBA-x6-vZo" firstAttribute="top" secondItem="8hW-ey-laz" secondAttribute="bottom" id="Jas-AK-Dca"/>
-                <constraint firstAttribute="trailing" secondItem="koX-2M-YR8" secondAttribute="trailing" constant="15" id="OG8-jB-VHG"/>
-                <constraint firstAttribute="trailing" secondItem="8hW-ey-laz" secondAttribute="trailing" id="TpG-bd-grl"/>
-                <constraint firstItem="jkX-pn-uGb" firstAttribute="top" secondItem="iBA-x6-vZo" secondAttribute="bottom" constant="10" id="XQN-74-e7M"/>
-                <constraint firstItem="koX-2M-YR8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="i5d-KD-pIW"/>
-                <constraint firstItem="8hW-ey-laz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="p1Q-zf-IKH"/>
-                <constraint firstAttribute="trailing" secondItem="jkX-pn-uGb" secondAttribute="trailing" constant="205" id="sli-9u-2CO"/>
-                <constraint firstItem="koX-2M-YR8" firstAttribute="top" secondItem="jkX-pn-uGb" secondAttribute="bottom" constant="1" id="tPl-PH-yak"/>
-                <constraint firstItem="jkX-pn-uGb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="yKR-S9-9ZI"/>
+                <constraint firstAttribute="trailing" secondItem="koX-2M-YR8" secondAttribute="trailing" constant="15" id="DTm-YK-7lQ"/>
+                <constraint firstItem="jkX-pn-uGb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="GwI-gC-PXj"/>
+                <constraint firstItem="koX-2M-YR8" firstAttribute="top" secondItem="iBA-x6-vZo" secondAttribute="bottom" constant="20" id="IP1-mx-sbY"/>
+                <constraint firstItem="iBA-x6-vZo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OeA-tP-uXf"/>
+                <constraint firstItem="8hW-ey-laz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VSG-1g-d9L"/>
+                <constraint firstItem="iBA-x6-vZo" firstAttribute="top" secondItem="8hW-ey-laz" secondAttribute="bottom" id="Vf1-xy-hXI"/>
+                <constraint firstItem="8hW-ey-laz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YaW-LE-ccI"/>
+                <constraint firstItem="jkX-pn-uGb" firstAttribute="top" secondItem="iBA-x6-vZo" secondAttribute="bottom" constant="8" id="gGf-W2-VoF"/>
+                <constraint firstAttribute="trailing" secondItem="iBA-x6-vZo" secondAttribute="trailing" id="gfE-hq-uNG"/>
+                <constraint firstItem="koX-2M-YR8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="lOy-Ft-Quh"/>
+                <constraint firstAttribute="trailing" secondItem="jkX-pn-uGb" secondAttribute="trailing" constant="200" id="m0h-PS-01m"/>
+                <constraint firstAttribute="trailing" secondItem="8hW-ey-laz" secondAttribute="trailing" id="zUS-xO-38S"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
