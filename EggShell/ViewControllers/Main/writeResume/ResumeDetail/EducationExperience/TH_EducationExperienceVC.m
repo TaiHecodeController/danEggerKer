@@ -18,7 +18,7 @@
 #import "ResumeModel.h"
 
 
-@interface TH_EducationExperienceVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface TH_EducationExperienceVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UITextViewDelegate>
 {
     WriteRusumeModel2 * _model;
     ResumeModel * _resume_model;
@@ -107,6 +107,8 @@
     self.contentTextField.textAlignment = NSTextAlignmentNatural;
     self.contentTextField.textColor = color(203, 203, 203);
     self.contentTextField.text = @"请填写教育内容";
+    self.contentTextField.returnKeyType = UIReturnKeyDone;
+    self.contentTextField.delegate = self;
     [bgView addSubview:self.contentTextField];
     
     //下方按钮
@@ -263,6 +265,20 @@
     [self.contentTextField resignFirstResponder];
 }
 
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if(HEIGHT == 480)
+    {
+        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
+        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+    }else
+    {
+        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 200);
+        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        
+    }
+    
+}
 
 
 - (void)didReceiveMemoryWarning {

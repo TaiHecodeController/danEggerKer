@@ -55,7 +55,7 @@
     self.holderArray = @[@"请填培训中心",@"",@"请填写培训方向"];
 }
 -(void)createScro
-{self.view.backgroundColor = color(243, 243, 241);
+{  self.view.backgroundColor = color(243, 243, 241);
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     self.scro = scro;
     self.scro.backgroundColor = color(243, 243, 243);
@@ -256,11 +256,11 @@
 {
     if(HEIGHT == 480)
     {
-        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 100);
+        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
         [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
     }else
     {
-        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 100);
+        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 200);
         [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
         
     }

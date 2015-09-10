@@ -146,8 +146,11 @@
     if (!InforCell) {
         InforCell = [[[NSBundle mainBundle] loadNibNamed:@"InformationDeskCell" owner:self options:nil] lastObject];
     }
+    if(self.dataArray.count >0)
+    {
     informantionModel * model = self.dataArray[indexPath.row];
     [InforCell setValue:model];
+    }
     
     //    NSLog(@"%@",model.endtime);
 //    [self.cellArray addObject:InforCell];

@@ -8,7 +8,7 @@
 
 #import "TH_FeedBackVC.h"
 #import "AFAppRequest.h"
-@interface TH_FeedBackVC ()<UITextViewDelegate>
+@interface TH_FeedBackVC ()<UITextViewDelegate,UITextFieldDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UILabel * placeHoderLable;
 @property(nonatomic,strong)UITextField * textqqField;
@@ -38,11 +38,11 @@
     tapGestureRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
-    /*显示键盘**/
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
-    
-    //    /*收回键盘**/
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
+////    /*显示键盘**/
+////    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
+//    
+//    //    /*收回键盘**/
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
     
     
 }
@@ -79,6 +79,7 @@
     ContactTextLable.textColor = UIColorFromRGB(0x323232);
     ContactTextLable.font =[UIFont systemFontOfSize:12];
     self.ContactTextLable = ContactTextLable;
+    
     [self.scro addSubview:ContactTextLable];
     /*可选项**/
     UIButton * optionalBtn = [[UIButton alloc] initWithFrame:CGRectMake(263, 211, 40, 20)];
@@ -104,6 +105,8 @@
     textqqField.textColor = UIColorFromRGB(0xC8C8C8);
     textqqField.font = [UIFont systemFontOfSize:12];
     textqqField.textColor = [UIColor blackColor];
+    textqqField.tag = 100;
+    textqqField.delegate = self;
     textqqField.keyboardType = UIKeyboardTypeNumberPad;
     self.textqqField = textqqField;
     [bgqqView addSubview:textqqField];
@@ -123,6 +126,7 @@
     emailTextFiled.textColor = UIColorFromRGB(0xC8C8C8);
     emailTextFiled.textColor = [UIColor blackColor];
     self.emailTextFiled = emailTextFiled;
+    emailTextFiled.delegate = self;
     [emailBgview addSubview:emailTextFiled];
     /*提交**/
     UIButton * subMitBtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH-150)/2.0, 340, 150, 30)];
@@ -189,8 +193,40 @@
 {
     
     [self.placeHoderLable removeFromSuperview];
+//    if(HEIGHT == 568)
+//    {
+//        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
+//        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT+80) animated:YES];
+//    }else
+//    {
+//        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 200);
+//        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT+80) animated:YES];
+//        
+//    }
+
+    
+}
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+            if(HEIGHT == 568)
+        {
+            self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
+            [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT+80) animated:YES];
+        }else
+        {
+            self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 200);
+            [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT+80) animated:YES];
+            
+        }
+
 }
 
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+
+    self.scro.contentSize = CGSizeMake(WIDETH,  HEIGHT);
+    [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+}
 -(void)showKeyBoard:(NSNotification*)notification
 {
     
@@ -200,14 +236,21 @@
     CGRect keyboardRect = [aValue CGRectValue];
     int height = keyboardRect.size.height;
     NSLog(@"%d",height);
-    self.scro.contentSize = CGSizeMake(WIDETH, 450+height);
-    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+height) animated:YES];
+    if(HEIGHT == 568)
+    {
+        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
+        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT+80) animated:YES];}else
+        {
+    self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
+    [self.scro scrollRectToVisible:CGRectMake(0, 0, 500, HEIGHT+80) animated:YES];
+        }
 }
 -(void)hideKeyBoard:(NSNotification*)notification
 {
-    self.scro.contentSize = CGSizeMake(WIDETH, 450);
-    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
+    self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
+    [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
