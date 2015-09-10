@@ -107,8 +107,11 @@
     self.title = @"名企详情";
     
     self.CMview = [[CompanyMessageView alloc] initWithFrame:CGRectMake(0, 80,WIDETH , 265)];
+    
     self.CMview.showAllClick = ^(UIButton * sender)
     {
+    
+        
         if(!sender.selected)
         {
             [UIView animateWithDuration:0.1 animations:^{

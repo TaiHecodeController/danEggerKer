@@ -201,6 +201,7 @@
 -(void)CompanyProfilView:(ComPanyProfileView *)companyView
 {
     if (!companyView.selectBtn.isSelected) {
+        
         NSString * description = companyView.detailLable.text;
          CGSize textSize = [description sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(WIDETH-30, 2000)];
         self.textSize = textSize;

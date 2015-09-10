@@ -417,7 +417,13 @@ typedef NS_ENUM(NSInteger, GestureType){
 - (void)popVC
 {
     
-[self.navigationController popViewControllerAnimated:NO];
+    if (self.PLvideoPlayer.playbackState == MPMovieLoadStateStalled) {
+        
+        
+        [self.PLvideoPlayer stop];
+    }
+    
+   [self.navigationController popViewControllerAnimated:NO];
     TH_ClassVC * class = [[TH_ClassVC alloc] init];
     [self.PLvideoPlayer stop];
      [self dismissViewControllerAnimated:YES completion:nil];

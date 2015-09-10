@@ -100,7 +100,7 @@
         NSLog(@"蛋粉High翻天");
         _page = 1;
         _mbPro = [MBProgressHUD mbHubShow];
-        [self loadData:_mbPro page:_page pageTye:1];
+        [self loadData:_mbPro page:_page pageTye:2];
         [self.tableView reloadData];
         
     }
@@ -111,7 +111,7 @@
         NSLog(@"蛋壳儿送福利");
       _page = 1;
         _mbPro = [MBProgressHUD mbHubShow];
-        [self loadData:_mbPro page:_page pageTye:2];
+        [self loadData:_mbPro page:_page pageTye:1];
         [self.tableView reloadData];
         
     }
@@ -196,11 +196,11 @@
         _page = 1;
         if (_currentIndex == 0)
         {
-            [self loadData:refreshView page:_page pageTye:1];
+            [self loadData:refreshView page:_page pageTye:2];
         }
         else
         {
-            [self loadData:refreshView page:_page pageTye:2];
+            [self loadData:refreshView page:_page pageTye:1];
         }
     }
     else{
@@ -209,11 +209,11 @@
         THLog(@"上拉加载更多");
         if (_currentIndex == 0)
         {
-            [self loadData:refreshView page:_page pageTye:1];
+            [self loadData:refreshView page:_page pageTye:2];
         }
         else
         {
-            [self loadData:refreshView page:_page pageTye:2];
+            [self loadData:refreshView page:_page pageTye:1];
         }
         
         

@@ -440,22 +440,21 @@
         }
         
     }
-   
 }
-//限定输入字数
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    if (range.location>=15)
-    {
-        [MBProgressHUD creatembHub:@"简介不能超过15字"];
-        return  NO;
-    }
-    else
-    {
-        return YES;
-    }
-
-}
+////限定输入字数
+//-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+//{
+//    if (range.location>=15)
+//    {
+//        [MBProgressHUD creatembHub:@"简介不能超过15字"];
+//        return  NO;
+//    }
+//    else
+//    {
+//        return YES;
+//    }
+//
+//}
 #pragma mark - - 完成提交
 -(void)rightClick:(UIButton *)sender
 {
@@ -488,21 +487,28 @@
                 
         
                 self.address = ((MineEditInfoCell*)self.jobCellArray[3]).contentTextField.text;
-                
-                self.descriptions = ((MineEditInfoCell*)self.jobCellArray[4]).contentTextField.text;
+                if ([((MineEditInfoCell*)self.jobCellArray[4]).contentTextField.text length]>15) {
+                    [MBProgressHUD creatembHub:@"简介不能超过15字"];
 
+                    return;
+                }else
+                {
+                
+                self.descriptions = [NSString stringWithFormat:@"%@",((MineEditInfoCell*)self.jobCellArray[4]).contentTextField.text];
+
+                }
             }
             
         }
         if (self.tableView2.tag == 1223) {
             for (int i = 0; i < self.birthdayCellArray.count; i ++) {
                 self.birthday = ((MineEditInfoCell*)self.birthdayCellArray[0]).contentTextField.text;
-                self.email = ((MineEditInfoCell*)self.birthdayCellArray[1]).contentTextField.text;
+                self.email =   ((MineEditInfoCell*)self.birthdayCellArray[1]).contentTextField.text;
                 
             }
             
             NSNumber *sexNum = [NSNumber numberWithInt:self.sex];
-            NSDictionary * param = @{@"token":token ,@"uid":uisStr,@"telphone":self.telphone,@"name":self.name,@"sex":sexNum,@"address":self.address,@"description":self.description,@"birthday":self.birthday,@"email":self.email};
+            NSDictionary * param = @{@"token":token ,@"uid":uisStr,@"telphone":self.telphone,@"name":self.name,@"sex":sexNum,@"address":self.address,@"description":self.descriptions,@"birthday":self.birthday,@"email":self.email};
             [LoginAndRegisterRequest EditInformationWithSucc:^(NSDictionary * dic) {
                 
                 [MBProgressHUD creatembHub:@"编辑资料成功"];
