@@ -104,6 +104,12 @@ typedef NS_ENUM(NSInteger, GestureType){
 
 @implementation THCoursePlayVC
 
+- (void)dealloc
+{
+
+
+}
+
 #pragma mark - init
 - (id)initNetworkMoviePlayerViewControllerWithURL:(NSURL *)url movieTitle:(NSString *)movieTitle{
     self = [super init];
@@ -195,14 +201,14 @@ typedef NS_ENUM(NSInteger, GestureType){
 //    }
 //    self.view.backgroundColor = [UIColor blackColor];
     
-//    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    backBtn.frame = CGRectMake(0, 0, 44, 44);
-//    
-//    [backBtn setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
-//    [backBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
-//    
-//    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-//    self.navigationItem.leftBarButtonItem = backItem;
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    backBtn.frame = CGRectMake(0, 0, 44, 44);
+    
+    [backBtn setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    self.navigationItem.leftBarButtonItem = backItem;
     
     [self createTopView];
     //    [self createBottomView];
@@ -980,7 +986,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 // 移除观察者.
 - (void)removeObserversFromVideoPlayerItem
 {
-    [_player.currentItem removeObserver:self forKeyPath:@"status"];
+//    [_player.currentItem removeObserver:self forKeyPath:@"status"];
 //    [_player.currentItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
 //    [_player.currentItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
     //    [_player.currentItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
