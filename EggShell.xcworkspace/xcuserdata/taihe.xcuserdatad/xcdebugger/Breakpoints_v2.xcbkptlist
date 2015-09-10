@@ -671,8 +671,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "836"
             endingLineNumber = "836"
-            landmarkName = "-pauseBtnClick"
-            landmarkType = "5">
+            landmarkName = "@implementation THCoursePlayVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -687,8 +687,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "823"
             endingLineNumber = "823"
-            landmarkName = "-becomeActive"
-            landmarkType = "5">
+            landmarkName = "@implementation THCoursePlayVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -719,8 +719,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "812"
             endingLineNumber = "812"
-            landmarkName = "@implementation THCoursePlayVC"
-            landmarkType = "3">
+            landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
