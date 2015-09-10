@@ -242,6 +242,9 @@
 		F07F39051B996F65002531CD /* saveListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39041B996F65002531CD /* saveListModel.m */; };
 		F07F39091B998B62002531CD /* TeacherFCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39081B998B62002531CD /* TeacherFCModel.m */; };
 		F083F8211B9C32F700781C08 /* Me_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F083F8201B9C32F700781C08 /* Me_Request.m */; };
+		F0B85A391BA11F83005799F5 /* SearchCity1_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */; };
+		F0B85A3C1BA11F97005799F5 /* SearchCity2_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */; };
+		F0B85A3F1BA11FA7005799F5 /* SearchCity3_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */; };
 		F0D7C02B1B7994DB00836DD2 /* OpenClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */; };
 		F0D7C0551B79C7B400836DD2 /* libpolyvSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C04C1B79C7B400836DD2 /* libpolyvSDK.a */; };
 		F0D7C0571B79CC4800836DD2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C0561B79CC4800836DD2 /* MobileCoreServices.framework */; };
@@ -683,6 +686,12 @@
 		F07F39081B998B62002531CD /* TeacherFCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherFCModel.m; sourceTree = "<group>"; };
 		F083F81F1B9C32F700781C08 /* Me_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Me_Request.h; sourceTree = "<group>"; };
 		F083F8201B9C32F700781C08 /* Me_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Me_Request.m; sourceTree = "<group>"; };
+		F0B85A371BA11F83005799F5 /* SearchCity1_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCity1_ViewController.h; sourceTree = "<group>"; };
+		F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCity1_ViewController.m; sourceTree = "<group>"; };
+		F0B85A3A1BA11F97005799F5 /* SearchCity2_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCity2_ViewController.h; sourceTree = "<group>"; };
+		F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCity2_ViewController.m; sourceTree = "<group>"; };
+		F0B85A3D1BA11FA7005799F5 /* SearchCity3_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCity3_ViewController.h; sourceTree = "<group>"; };
+		F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCity3_ViewController.m; sourceTree = "<group>"; };
 		F0D7C0291B7994DB00836DD2 /* OpenClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenClassCell.h; sourceTree = "<group>"; };
 		F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenClassCell.m; sourceTree = "<group>"; };
 		F0D7C04B1B79C7B400836DD2 /* DownloadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadDelegate.h; sourceTree = "<group>"; };
@@ -1707,6 +1716,12 @@
 		94CB5BA81B763A8100B23B9D /* FindJob */ = {
 			isa = PBXGroup;
 			children = (
+				F0B85A3D1BA11FA7005799F5 /* SearchCity3_ViewController.h */,
+				F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */,
+				F0B85A3A1BA11F97005799F5 /* SearchCity2_ViewController.h */,
+				F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */,
+				F0B85A371BA11F83005799F5 /* SearchCity1_ViewController.h */,
+				F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */,
 				94CB5BA91B763AAC00B23B9D /* TH_FindJobVC.h */,
 				94CB5BAA1B763AAC00B23B9D /* TH_FindJobVC.m */,
 				940032EB1B840DCC001EB666 /* TH_JobScreeningVC.h */,
@@ -2378,6 +2393,7 @@
 				940EDEE31B96E37400376D37 /* WorkExReadingView.m in Sources */,
 				94313D391B7B5731005D0A9A /* TH_RegisterVC.m in Sources */,
 				94CB5BAB1B763AAC00B23B9D /* TH_FindJobVC.m in Sources */,
+				F0B85A3F1BA11FA7005799F5 /* SearchCity3_ViewController.m in Sources */,
 				940032CA1B840CC3001EB666 /* EducationTimeCell.m in Sources */,
 				047029211B97604200565BC4 /* WriteRusumeModel2.m in Sources */,
 				94E2C9691B870EED001E3FDD /* CompanyMessageView.m in Sources */,
@@ -2402,6 +2418,7 @@
 				9400329B1B840736001EB666 /* VersionUpdateView.m in Sources */,
 				94CB5B851B74CC0600B23B9D /* NSObject+MJKeyValue.m in Sources */,
 				941F10191B7B3BCC00719F5B /* TH_JobWishlistVC.m in Sources */,
+				F0B85A391BA11F83005799F5 /* SearchCity1_ViewController.m in Sources */,
 				94E8F4F21B85797900088658 /* NameAndSexCell.m in Sources */,
 				94E7DCFA1B841D510093C39B /* Course PlayCell.m in Sources */,
 				94CB5B8A1B74CC0600B23B9D /* readme.md in Sources */,
@@ -2456,6 +2473,7 @@
 				94CB5B7A1B74CC0600B23B9D /* BaseModel.m in Sources */,
 				941F10161B7B3BCC00719F5B /* JobWishlistCell.m in Sources */,
 				F07F39091B998B62002531CD /* TeacherFCModel.m in Sources */,
+				F0B85A3C1BA11F97005799F5 /* SearchCity2_ViewController.m in Sources */,
 				94E2C98B1B870F29001E3FDD /* TH_JobDetailVC.m in Sources */,
 				041650681B4D7240008C78BE /* GArrayAdapter.m in Sources */,
 				941F10181B7B3BCC00719F5B /* JobWishlistHeadView.m in Sources */,

@@ -12,8 +12,10 @@
 #import "WriteResumeRequest.h"
 #import "WriteJLChooseVC.h"
 #import "SearchModelShare.h"
+#import "SearchCity1_ViewController.h"
+#import "SearchCity3_ViewController.h"
 
-@interface TH_JobScreeningVC ()<UITableViewDataSource,UITableViewDelegate,writeJLChooseVCDelegate>
+@interface TH_JobScreeningVC ()<UITableViewDataSource,UITableViewDelegate,writeJLChooseVCDelegate,SearchCity3_VCDelegate3>
 @property(nonatomic,strong)NSArray * nameArray;
 @property(nonatomic,strong)NSArray * conrentArray;
 @property(nonatomic,strong)UITableView * tableView;
@@ -162,13 +164,37 @@
             break;
             case 1:
         {
-            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
-            _writeJLChooseVC.delegete = self;
-            _writeJLChooseVC.titleText = @"职位类别";
+//            asfdasfasfasdfasdf
+//            /**********     *************/
+//            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+//            _writeJLChooseVC.delegete = self;
+//            _writeJLChooseVC.titleText = @"职位类别";
+//            _writeJLChooseVC.cellIndex = indexPath;
+//            _writeJLChooseVC.tableViewTagIndex = 1555;
+//            _writeJLChooseVC.DataArray = self.categaryDic[@"job_classid"];
+//            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+            
+            THLog(@"期望职位");
+            SearchCity1_ViewController * _writeJLChooseVC = [[SearchCity1_ViewController alloc] init];
+            //            _writeJLChooseVC.delegete = self;
+            _writeJLChooseVC.titleText = @"期望职位";
             _writeJLChooseVC.cellIndex = indexPath;
             _writeJLChooseVC.tableViewTagIndex = 1555;
-            _writeJLChooseVC.DataArray = self.categaryDic[@"job_classid"];
+            //存在user里
+            NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+            [df setObject:self.categaryDic[@"job_classid"] forKey:@"job_classid"];
+            
+            NSMutableArray *arr1 = [[NSMutableArray alloc]init];
+            for (NSDictionary *dic in [df objectForKey:@"job_classid"])
+            {
+                if ([dic[@"keyid"] intValue] == 0 )
+                {
+                    [arr1 addObject:dic];
+                }
+            }
+            _writeJLChooseVC.DataArray = arr1;
             [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+
             break;
         }
         case 2:
@@ -266,7 +292,7 @@
     }
     else if (cellIndex.row == 1)
     {
-        [SearchModelShare sharedInstance].job_post = Id;
+//        [SearchModelShare sharedInstance].job_post = Id;
     }
     else if (cellIndex.row == 2)
     {
@@ -295,6 +321,23 @@
     
 
 }
+
+//- (void)chooseWord3:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
+//{
+//        JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
+//    cell.contentTextFiled.placeholder = keyWord;
+//    [SearchModelShare sharedInstance].job_post = Id;
+//}
+
+#pragma mark -- SearchCityDelegate
+
+- (void)chooseWord3_SearchCity:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
+{
+    JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
+    cell.contentTextFiled.placeholder = keyWord;
+    [SearchModelShare sharedInstance].job_post = Id;
+}
+
 
 /*查询**/
 -(void)inqireClick
