@@ -2619,7 +2619,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19b65de5-9b87-4118-be8a-ded39fcf0739";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -2649,7 +2649,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19b65de5-9b87-4118-be8a-ded39fcf0739";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
@@ -2671,7 +2671,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19b65de5-9b87-4118-be8a-ded39fcf0739";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Debug;
@@ -2689,7 +2689,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19b65de5-9b87-4118-be8a-ded39fcf0739";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Release;

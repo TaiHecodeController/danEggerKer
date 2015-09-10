@@ -65,8 +65,9 @@
     
     [SearchModelShare sharedInstance].longitude = @"";
     [SearchModelShare sharedInstance].dimensionality = @"";
-    
     [SearchModelShare sharedInstance].keyword = @"";
+
+   
     
     [SearchModelShare sharedInstance].hy = @"";
     [SearchModelShare sharedInstance].job_post = @"";
@@ -129,11 +130,13 @@
     }
     if ([_job_type isEqual:@"1"])
     {
-        [SearchModelShare sharedInstance].type = @"56";
+        [SearchModelShare sharedInstance].keyword = @"兼职";
+//        [SearchModelShare sharedInstance].type = @"56";
     }
     if ([_job_type isEqual:@"2"])
     {
-        [SearchModelShare sharedInstance].type = @"119";
+        [SearchModelShare sharedInstance].keyword = @"实习";
+//        [SearchModelShare sharedInstance].type = @"119";
     }
 
     self.jobArr = [[NSMutableArray alloc]init];
@@ -263,7 +266,7 @@
     }
     
     //打印出所有字段
-    NSLog(@"经度%@ 纬度%@ 关键字%@,行业类别%@ 职位类别%@ 薪资%@ 教育水平%@ 经验%@ 工作性质%@ 发布时间%@ 城市%@ 首页行业%@",[SearchModelShare sharedInstance].longitude,[SearchModelShare sharedInstance].dimensionality,[SearchModelShare sharedInstance].keyword,[SearchModelShare sharedInstance].hy,[SearchModelShare sharedInstance].job_post,[SearchModelShare sharedInstance].salary,[SearchModelShare sharedInstance].edu,[SearchModelShare sharedInstance].exp,[SearchModelShare sharedInstance].type,[SearchModelShare sharedInstance].sdate,[SearchModelShare sharedInstance].cityid,[SearchModelShare sharedInstance].job1);
+    NSLog(@"经度%@ 纬度%@ 关键字%@ 行业类别%@ 职位类别%@ 薪资%@ 教育水平%@ 经验%@ 工作性质%@ 发布时间%@ 城市%@ 首页行业%@",[SearchModelShare sharedInstance].longitude,[SearchModelShare sharedInstance].dimensionality,[SearchModelShare sharedInstance].keyword,[SearchModelShare sharedInstance].hy,[SearchModelShare sharedInstance].job_post,[SearchModelShare sharedInstance].salary,[SearchModelShare sharedInstance].edu,[SearchModelShare sharedInstance].exp,[SearchModelShare sharedInstance].type,[SearchModelShare sharedInstance].sdate,[SearchModelShare sharedInstance].cityid,[SearchModelShare sharedInstance].job1);
     
     NSString *numStr = [NSString stringWithFormat:@"%d",num];
     
@@ -349,15 +352,24 @@
     _allSelected = [[UIButton alloc]init];
     CGFloat allSelectedW =  90;
     CGFloat allSelectedH =  27.5;
-    _allSelected.frame = CGRectMake(0, 15, allSelectedW, allSelectedH);
-    [_allSelected setTitle:@"全选" forState:UIControlStateNormal];
+    _allSelected.frame = CGRectMake( 2 *margin, 15, 22.5, 22.5);
+//    [_allSelected setTitle:@"全选" forState:UIControlStateNormal];
     [_allSelected setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _allSelected.titleLabel.font = [UIFont systemFontOfSize:15];
     _allSelected.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
-    [_allSelected setImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
-    [_allSelected setImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
+//    [_allSelected setImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
+//    [_allSelected setImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
+    [_allSelected setBackgroundImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
+    [_allSelected setBackgroundImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
+
     [_allSelected addTarget:self action:@selector(allClick:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomView addSubview:_allSelected];
+    
+    UILabel *quanxuanLab = [[UILabel alloc]init];
+    quanxuanLab.text = @"全选";
+    quanxuanLab.font = [UIFont systemFontOfSize:13];
+    quanxuanLab.frame = CGRectMake(CGRectGetMaxX(_allSelected.frame)+3, 15, 40, 22.5);
+    [_bottomView addSubview:quanxuanLab];
     
 }
 

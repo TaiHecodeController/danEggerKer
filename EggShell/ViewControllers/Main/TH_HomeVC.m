@@ -564,7 +564,6 @@
             [self.navigationController pushViewController:home animated:YES];
             break;
         }
-            
         case THHomeViewButtonTypeInternshipSearch:
         {
             NSLog(@"找实习");
