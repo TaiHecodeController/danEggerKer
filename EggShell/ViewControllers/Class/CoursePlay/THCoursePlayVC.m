@@ -365,17 +365,27 @@ typedef NS_ENUM(NSInteger, GestureType){
 //    [[NSNotificationCenter defaultCenter] removeObserver:self];
 
 }
-
-- (void)popVC
-{
-    
-    MPMovieLoadState loadState = self.PLvideoPlayer.loadState;
-
-    if(loadState & MPMovieLoadStateStalled){
-        //网络不好，开始缓冲了
-        [self.PLvideoPlayer stop];
+- (void) MoviePlayerLoadStateDidChange {
+    switch (self.PLvideoPlayer.loadState) {
+    case MPMovieLoadStateStalled:
+            
+        {
+        
+        
+        }
+            
+            break;
+            
         
     }
+}
+- (void)popVC
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MoviePlayerLoadStateDidChange)
+                                                 name:MPMoviePlayerLoadStateDidChangeNotification
+                                               object:self.PLvideoPlayer];
+    
+   
     [self.navigationController popViewControllerAnimated:NO];
     TH_ClassVC * class = [[TH_ClassVC alloc] init];
     [self.PLvideoPlayer stop];
