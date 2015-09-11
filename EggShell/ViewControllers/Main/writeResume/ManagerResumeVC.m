@@ -23,6 +23,7 @@
 }
 @property (strong,nonatomic)NSMutableArray * dataArray;
 @property (strong,nonatomic)NSMutableArray * cellArray;
+@property (nonatomic, strong) ResumeCell *varCell;
 
 @end
 
@@ -107,12 +108,14 @@
             if(!cell.tag == tag)
             {
                 cell.iSSelect.selected = NO;
+                
             }
         }
     };
     if(indexPath.row == 0)
     {
         cell.iSSelect.selected = YES;
+        _varCell = cell;
     }
     [self.cellArray addObject:cell];
     return cell;
@@ -164,7 +167,21 @@
     }
     else
     {
-         [self addAlertView];
+        if (_varCell)
+        {
+            if (_varCell.iSSelect.selected == YES)
+            {
+                [MBProgressHUD creatembHub:@"使用成功"];
+            }
+            else
+            {
+                [MBProgressHUD creatembHub:@"请先选择简历"];
+            }
+        }
+        else
+        {
+            return;
+        }        
     }
 }
 

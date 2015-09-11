@@ -332,29 +332,35 @@
     
     if (_currentIndex == 0)
     {
-        saveListModel *model = _jobArr[indexPath.row];
-        cell.positionLab.text = model.job_name;
-        cell.companyLab.text = model.com_name;
-        cell.cityLab.text = model.provinceid;
-        cell.knowledgeLab.text = model.edu;
-        cell.timeLab.text = model.lastupdate;
-        cell.salaryLab.text = model.salary;
-        cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
-        [cell layoutSubviews];
+        if (_jobArr.count >0)
+        {
+            saveListModel *model = _jobArr[indexPath.row];
+            cell.positionLab.text = model.job_name;
+            cell.companyLab.text = model.com_name;
+            cell.cityLab.text = model.provinceid;
+            cell.knowledgeLab.text = model.edu;
+            cell.timeLab.text = model.lastupdate;
+            cell.salaryLab.text = model.salary;
+            cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
+            [cell layoutSubviews];
+
+        }
     }
     else
     {
-        
-        saveListModel *model = _jobArr[indexPath.row];
-        cell.positionLab.text = model.job_name;
-        cell.companyLab.text = model.com_name;
-        cell.cityLab.text = model.provinceid;
-        cell.knowledgeLab.text = model.provinceid;
-        cell.timeLab.text = model.lastupdate;
-        cell.salaryLab.text = model.salary;
-        cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
-        [cell layoutSubviews];
-        
+        if (_jobArr.count > 0)
+        {
+            saveListModel *model = _jobArr[indexPath.row];
+            cell.positionLab.text = model.job_name;
+            cell.companyLab.text = model.com_name;
+            cell.cityLab.text = model.provinceid;
+            cell.knowledgeLab.text = model.provinceid;
+            cell.timeLab.text = model.lastupdate;
+            cell.salaryLab.text = model.salary;
+            cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
+            [cell layoutSubviews];
+
+        }
     }
     
     return cell;
@@ -367,7 +373,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //    return dataArray.count;
     return _jobArr.count;
 }
 
