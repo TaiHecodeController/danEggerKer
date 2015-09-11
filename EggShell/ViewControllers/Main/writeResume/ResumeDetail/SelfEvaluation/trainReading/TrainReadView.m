@@ -16,13 +16,6 @@
 }
 -(void)configValue:(WriteRusumeModel2*)model
 {
-//    ILabel *nameLable;
-//    @property (weak, nonatomic) IBOutlet UILabel *trainingCentreLalbe;
-//    @property (weak, nonatomic) IBOutlet UILabel *trailTimeLable;
-//    @property (weak, nonatomic) IBOutlet UILabel *TrainingDirectionLable;
-//    @property (weak, nonatomic) IBOutlet UITextView *trainingContentLable;
-////    self.nameLab.text = model.name;
-    
     self.trainingCentreLalbe.text = model.name;
     self.trailTimeLable.text = [model.sdate stringByAppendingFormat:@"-%@",model.edate];
     self.TrainingDirectionLable.text = model.position;

@@ -201,8 +201,9 @@
 		94E761B61BA27DEB00B4C544 /* TrainReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761B51BA27DEB00B4C544 /* TrainReadView.m */; };
 		94E761B81BA27E0400B4C544 /* trainRead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E761B71BA27E0400B4C544 /* trainRead.xib */; };
 		94E761BD1BA2AC5800B4C544 /* ProjectExperienceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761BC1BA2AC5800B4C544 /* ProjectExperienceVC.m */; };
-		94E761C01BA2AC7300B4C544 /* ProjectExperienceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761BF1BA2AC7300B4C544 /* ProjectExperienceView.m */; };
 		94E761C21BA2AC8A00B4C544 /* ProjectExperience.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E761C11BA2AC8A00B4C544 /* ProjectExperience.xib */; };
+		94E761C51BA2B0F800B4C544 /* ProjectExpReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761C41BA2B0F800B4C544 /* ProjectExpReadView.m */; };
+		94E761C91BA2B7F300B4C544 /* CertificateReadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761C81BA2B7F300B4C544 /* CertificateReadVC.m */; };
 		94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF11B841D510093C39B /* CourePlayTitle.m */; };
 		94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E7DCF21B841D510093C39B /* CourePlaytitle.xib */; };
 		94E7DCFA1B841D510093C39B /* Course PlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF41B841D510093C39B /* Course PlayCell.m */; };
@@ -617,9 +618,11 @@
 		94E761B71BA27E0400B4C544 /* trainRead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = trainRead.xib; sourceTree = "<group>"; };
 		94E761BB1BA2AC5800B4C544 /* ProjectExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectExperienceVC.h; sourceTree = "<group>"; };
 		94E761BC1BA2AC5800B4C544 /* ProjectExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectExperienceVC.m; sourceTree = "<group>"; };
-		94E761BE1BA2AC7300B4C544 /* ProjectExperienceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectExperienceView.h; sourceTree = "<group>"; };
-		94E761BF1BA2AC7300B4C544 /* ProjectExperienceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectExperienceView.m; sourceTree = "<group>"; };
 		94E761C11BA2AC8A00B4C544 /* ProjectExperience.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectExperience.xib; sourceTree = "<group>"; };
+		94E761C31BA2B0F800B4C544 /* ProjectExpReadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectExpReadView.h; sourceTree = "<group>"; };
+		94E761C41BA2B0F800B4C544 /* ProjectExpReadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectExpReadView.m; sourceTree = "<group>"; };
+		94E761C71BA2B7F300B4C544 /* CertificateReadVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertificateReadVC.h; sourceTree = "<group>"; };
+		94E761C81BA2B7F300B4C544 /* CertificateReadVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertificateReadVC.m; sourceTree = "<group>"; };
 		94E7DCF01B841D510093C39B /* CourePlayTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourePlayTitle.h; sourceTree = "<group>"; };
 		94E7DCF11B841D510093C39B /* CourePlayTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourePlayTitle.m; sourceTree = "<group>"; };
 		94E7DCF21B841D510093C39B /* CourePlaytitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourePlaytitle.xib; sourceTree = "<group>"; };
@@ -1195,6 +1198,7 @@
 		940032A11B840CC3001EB666 /* Certificate */ = {
 			isa = PBXGroup;
 			children = (
+				94E761C61BA2B7D700B4C544 /* CertificateRead */,
 				940032A21B840CC3001EB666 /* TH_CertificateVC.h */,
 				940032A31B840CC3001EB666 /* TH_CertificateVC.m */,
 			);
@@ -1929,12 +1933,21 @@
 			isa = PBXGroup;
 			children = (
 				94E761BB1BA2AC5800B4C544 /* ProjectExperienceVC.h */,
-				94E761BE1BA2AC7300B4C544 /* ProjectExperienceView.h */,
-				94E761BF1BA2AC7300B4C544 /* ProjectExperienceView.m */,
 				94E761C11BA2AC8A00B4C544 /* ProjectExperience.xib */,
 				94E761BC1BA2AC5800B4C544 /* ProjectExperienceVC.m */,
+				94E761C31BA2B0F800B4C544 /* ProjectExpReadView.h */,
+				94E761C41BA2B0F800B4C544 /* ProjectExpReadView.m */,
 			);
 			path = ProjectExpRead;
+			sourceTree = "<group>";
+		};
+		94E761C61BA2B7D700B4C544 /* CertificateRead */ = {
+			isa = PBXGroup;
+			children = (
+				94E761C71BA2B7F300B4C544 /* CertificateReadVC.h */,
+				94E761C81BA2B7F300B4C544 /* CertificateReadVC.m */,
+			);
+			path = CertificateRead;
 			sourceTree = "<group>";
 		};
 		94E7DCEE1B841D510093C39B /* CoursePlay */ = {
@@ -2476,6 +2489,7 @@
 				94CB5B7F1B74CC0600B23B9D /* MJIvar.m in Sources */,
 				940033011B840FC6001EB666 /* MineVeiw.m in Sources */,
 				94E3EA911B8EB520007A699E /* MMNetWorkType.m in Sources */,
+				94E761C51BA2B0F800B4C544 /* ProjectExpReadView.m in Sources */,
 				F01787AC1B95938A005FF9C4 /* jobDetailModel_Arr3.m in Sources */,
 				94E761B31BA27DBF00B4C544 /* TrainReadVC.m in Sources */,
 				041650ED1B4D7C4E008C78BE /* MJRefreshConst.m in Sources */,
@@ -2530,7 +2544,6 @@
 				94CB5B871B74CC0600B23B9D /* SGFocusImageFrame.m in Sources */,
 				041650EF1B4D7C4E008C78BE /* MJRefreshHeaderView.m in Sources */,
 				9400329F1B840B47001EB666 /* TH_ResumePreviewVC.m in Sources */,
-				94E761C01BA2AC7300B4C544 /* ProjectExperienceView.m in Sources */,
 				94313DBE1B7CAAED005D0A9A /* infDestDetailView.m in Sources */,
 				04A483B41B74FD1B006FDB9D /* TH_MainTabBarController.m in Sources */,
 				F0D7C0611B79EB3300836DD2 /* OpenClassVideoListRequest.m in Sources */,
@@ -2550,6 +2563,7 @@
 				941F10181B7B3BCC00719F5B /* JobWishlistHeadView.m in Sources */,
 				F07F39051B996F65002531CD /* saveListModel.m in Sources */,
 				F05B80071B8ABE2200DC0A1D /* MTGridView.m in Sources */,
+				94E761C91BA2B7F300B4C544 /* CertificateReadVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
