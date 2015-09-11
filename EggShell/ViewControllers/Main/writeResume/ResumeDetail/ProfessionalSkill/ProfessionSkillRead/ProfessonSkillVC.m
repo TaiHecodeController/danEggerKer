@@ -1,42 +1,40 @@
-
-
 //
-//  ProjectExperienceVC.m
+//  ProfessonSkillVC.m
 //  EggShell
 //
 //  Created by 李李贤军 on 15/9/11.
 //  Copyright (c) 2015年 wsd. All rights reserved.
 //
 
-#import "ProjectExperienceVC.h"
-#import "ProjectExpReadView.h"
+#import "ProfessonSkillVC.h"
+#import "ProfessonSkillReadView.h"
 #import "WriteResumeVC2.h"
 #import "ResumeModel.h"
-@interface ProjectExperienceVC ()
+@interface ProfessonSkillVC ()
 {
     ResumeModel * _resume_model;
     
-    
+
 }
 @end
 
-@implementation ProjectExperienceVC
+@implementation ProfessonSkillVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _resume_model = [ResumeModel sharedResume];
+     _resume_model = [ResumeModel sharedResume];
     [self createView];
+   
     // Do any additional setup after loading the view.
 }
 -(void)createView
 {
-    ProjectExpReadView * project =[ProjectExpReadView setProjectExperienceView];
-    project.frame = CGRectMake(0, 0, WIDETH, 317);
-    [project configValue:self.model];
-    project.resumTitle.text = [NSString stringWithFormat:@"%@-证书",_resume_model.resumeName];
-    [self.view addSubview:project];
+    ProfessonSkillReadView  * prosion = [ProfessonSkillReadView setProfessonSkillReadView];
+    prosion.frame = CGRectMake(0, 0, WIDETH, 152);
+    prosion.resumTitleLable.text  = [NSString stringWithFormat:@"%@-证书",_resume_model.resumeName];
+    [self.view addSubview:prosion];
     /*继续添加**/
-    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 317, 150, 30)];
+    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 180, 150, 30)];
     [button addTarget:self action:@selector(addbUttonClick) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
     [button setTitle:@"继续添加" forState:UIControlStateNormal];

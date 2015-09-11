@@ -1,5 +1,5 @@
 //
-//  CertificateReadVC.h
+//  ProfessonSkillVC.h
 //  EggShell
 //
 //  Created by 李李贤军 on 15/9/11.
@@ -8,6 +8,7 @@
 
 #import "TH_BaseVC.h"
 #import "WriteRusumeModel2.h"
-@interface CertificateReadVC : TH_BaseVC
-@property(nonatomic,strong)WriteRusumeModel2* model;
+@interface ProfessonSkillVC : TH_BaseVC
+@property(nonatomic,strong)WriteRusumeModel2 * model;
+
 @end

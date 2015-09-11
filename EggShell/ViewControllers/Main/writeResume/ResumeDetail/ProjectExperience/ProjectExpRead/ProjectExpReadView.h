@@ -10,6 +10,8 @@
 #import "WriteRusumeModel2.h"
 @interface ProjectExpReadView : UIView
 +(ProjectExpReadView*)setProjectExperienceView;
+@property (weak, nonatomic) IBOutlet UILabel *resumTitle;
+
 @property (weak, nonatomic) IBOutlet UILabel *projectNameLable;
 @property (weak, nonatomic) IBOutlet UILabel *SchoolTimeLable;
 @property (weak, nonatomic) IBOutlet UILabel *ProjectEnvironmentLable;

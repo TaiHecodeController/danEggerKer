@@ -9,15 +9,22 @@
 #import "EducationReadVC.h"
 #import "EducationReadingView.h"
 #import "WriteResumeVC2.h"
+#import "ResumeModel.h"
 @interface EducationReadVC ()
+{
+    ResumeModel * _resume_model;
+    
 
+}
 @end
 
 @implementation EducationReadVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _resume_model = [ResumeModel sharedResume];
     [self setView];
+    
     // Do any additional setup after loading the view.
 }
 -(void)setView
@@ -26,6 +33,7 @@
     education.frame = CGRectMake(0, 0, WIDETH, 317);
     education.userInteractionEnabled = NO;
     [education config:self.model];
+    education.ResumeTitle.text = [NSString stringWithFormat:@"%@-证书",_resume_model.resumeName];
     [self.view addSubview:education];
     /*继续添加**/
     UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 317, 150, 30)];

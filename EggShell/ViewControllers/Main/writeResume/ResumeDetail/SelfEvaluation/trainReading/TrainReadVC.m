@@ -9,7 +9,13 @@
 #import "TrainReadVC.h"
 #import "TrainReadView.h"
 #import "WriteResumeVC2.h"
+#import "ResumeModel.h"
 @interface TrainReadVC ()
+{
+    ResumeModel * _resume_model;
+    
+    
+}
 
 @end
 
@@ -17,7 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     _resume_model = [ResumeModel sharedResume];
     [self createView];
+   
 }
 -(void)createView
 {
@@ -25,6 +33,8 @@
     traiView.frame = CGRectMake(0, 0, WIDETH, 300);
     [traiView configValue:self.model];
     traiView.trainingContentLable.userInteractionEnabled = NO;
+    traiView.nameLable.text = [NSString stringWithFormat:@"%@-证书",_resume_model.resumeName];
+    
     [self.view addSubview:traiView];
     /*继续添加**/
     UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 300, 150, 30)];

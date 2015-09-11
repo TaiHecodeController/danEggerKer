@@ -12,6 +12,7 @@
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
 #import "ResumeModel.h"
+#import "CertificateReadVC.h"
 @interface TH_CertificateVC ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
 {
     WriteRusumeModel2 * _model;
@@ -161,7 +162,10 @@
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
     [[WriteResumeRequest uploadCertificateWithSucc:^(NSDictionary *dataDic) {
         [MBProgressHUD creatembHub:@"保存成功"];
-        [self.navigationController popViewControllerAnimated:YES];
+//        [self.navigationController popViewControllerAnimated:YES];
+        CertificateReadVC * read = [[CertificateReadVC alloc] init];
+        read.model = _model;
+        [self.navigationController pushViewController:read animated:YES];
     } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
     
     

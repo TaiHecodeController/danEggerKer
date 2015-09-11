@@ -10,6 +10,8 @@
 #import "WriteRusumeModel2.h"
 
 @interface EducationReadingView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *ResumeTitle;
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
 @property (weak, nonatomic) IBOutlet UILabel *dapartmentLab;

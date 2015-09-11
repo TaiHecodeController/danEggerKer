@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "ResumeModel.h"
 #import "WriteJLChooseVC.h"
+#import "ProfessonSkillVC.h"
 @interface TH_ProfessionalSkillVC ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate>
 {
     WriteRusumeModel2 * _model;
@@ -130,7 +131,11 @@
     
     [[WriteResumeRequest uploadProfessionalSkillWithSucc:^(NSDictionary *dataDic) {
         [MBProgressHUD creatembHub:@"保存成功"];
-        [self.navigationController popViewControllerAnimated:YES];
+//        [self.navigationController popViewControllerAnimated:YES];
+        
+        ProfessonSkillVC * professon = [[ProfessonSkillVC alloc] init];
+        professon.model = _model;
+        [self.navigationController pushViewController:professon animated:YES];
     } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"skill":_model.skillType,@"ing":_model.skillDegree,@"longtime":_model.skillTime}] addNotifaction:hub];
     
 }

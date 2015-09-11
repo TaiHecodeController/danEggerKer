@@ -164,6 +164,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="ResumeTitle" destination="q0w-cV-Ysz" id="Iw4-Bz-OGx"/>
                 <outlet property="contentTextView" destination="Trp-sJ-0Ob" id="dRa-Ze-gx3"/>
                 <outlet property="dapartmentLab" destination="1vt-8k-qBy" id="0s0-ag-o5g"/>
                 <outlet property="nameLab" destination="qNX-l8-urb" id="qtS-Ga-tPZ"/>

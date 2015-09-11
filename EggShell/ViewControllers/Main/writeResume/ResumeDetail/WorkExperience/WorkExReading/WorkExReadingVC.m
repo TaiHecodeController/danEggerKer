@@ -9,7 +9,13 @@
 #import "WorkExReadingVC.h"
 #import "WorkExReadingView.h"
 #import "WriteResumeVC2.h"
+#import "ResumeModel.h"
 @interface WorkExReadingVC ()
+{
+    ResumeModel * _resume_model;
+    
+    
+}
 
 @end
 
@@ -17,9 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _resume_model = [ResumeModel sharedResume];
     WorkExReadingView * workingView =[WorkExReadingView setView];
     workingView.frame = CGRectMake(0, 0, WIDETH, 317);
+    workingView.resumTitle.text = [NSString stringWithFormat:@"%@-证书",_resume_model.resumeName];
     workingView.descriptionTextView.userInteractionEnabled = NO;
     [workingView config:self.model];
     [self.view addSubview:workingView];

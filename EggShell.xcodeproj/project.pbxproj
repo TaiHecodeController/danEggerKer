@@ -204,6 +204,11 @@
 		94E761C21BA2AC8A00B4C544 /* ProjectExperience.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E761C11BA2AC8A00B4C544 /* ProjectExperience.xib */; };
 		94E761C51BA2B0F800B4C544 /* ProjectExpReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761C41BA2B0F800B4C544 /* ProjectExpReadView.m */; };
 		94E761C91BA2B7F300B4C544 /* CertificateReadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761C81BA2B7F300B4C544 /* CertificateReadVC.m */; };
+		94E761CC1BA2B82B00B4C544 /* CertificateReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761CB1BA2B82B00B4C544 /* CertificateReadView.m */; };
+		94E761CE1BA2B83700B4C544 /* CertificateRead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E761CD1BA2B83700B4C544 /* CertificateRead.xib */; };
+		94E761D11BA2C1FB00B4C544 /* ProfessonSkillVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761D01BA2C1FB00B4C544 /* ProfessonSkillVC.m */; };
+		94E761D41BA2C21E00B4C544 /* ProfessonSkillReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761D31BA2C21E00B4C544 /* ProfessonSkillReadView.m */; };
+		94E761D61BA2C23200B4C544 /* ProfessonSkillRead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E761D51BA2C23200B4C544 /* ProfessonSkillRead.xib */; };
 		94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF11B841D510093C39B /* CourePlayTitle.m */; };
 		94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E7DCF21B841D510093C39B /* CourePlaytitle.xib */; };
 		94E7DCFA1B841D510093C39B /* Course PlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF41B841D510093C39B /* Course PlayCell.m */; };
@@ -632,6 +637,14 @@
 		94E761C41BA2B0F800B4C544 /* ProjectExpReadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectExpReadView.m; sourceTree = "<group>"; };
 		94E761C71BA2B7F300B4C544 /* CertificateReadVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertificateReadVC.h; sourceTree = "<group>"; };
 		94E761C81BA2B7F300B4C544 /* CertificateReadVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertificateReadVC.m; sourceTree = "<group>"; };
+		94E761CA1BA2B82B00B4C544 /* CertificateReadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertificateReadView.h; sourceTree = "<group>"; };
+		94E761CB1BA2B82B00B4C544 /* CertificateReadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertificateReadView.m; sourceTree = "<group>"; };
+		94E761CD1BA2B83700B4C544 /* CertificateRead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CertificateRead.xib; sourceTree = "<group>"; };
+		94E761CF1BA2C1FB00B4C544 /* ProfessonSkillVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfessonSkillVC.h; sourceTree = "<group>"; };
+		94E761D01BA2C1FB00B4C544 /* ProfessonSkillVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfessonSkillVC.m; sourceTree = "<group>"; };
+		94E761D21BA2C21E00B4C544 /* ProfessonSkillReadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfessonSkillReadView.h; sourceTree = "<group>"; };
+		94E761D31BA2C21E00B4C544 /* ProfessonSkillReadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfessonSkillReadView.m; sourceTree = "<group>"; };
+		94E761D51BA2C23200B4C544 /* ProfessonSkillRead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfessonSkillRead.xib; sourceTree = "<group>"; };
 		94E7DCF01B841D510093C39B /* CourePlayTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourePlayTitle.h; sourceTree = "<group>"; };
 		94E7DCF11B841D510093C39B /* CourePlayTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourePlayTitle.m; sourceTree = "<group>"; };
 		94E7DCF21B841D510093C39B /* CourePlaytitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourePlaytitle.xib; sourceTree = "<group>"; };
@@ -1952,6 +1965,11 @@
 		94E761B91BA2A7D500B4C544 /* ProfessionSkillRead */ = {
 			isa = PBXGroup;
 			children = (
+				94E761CF1BA2C1FB00B4C544 /* ProfessonSkillVC.h */,
+				94E761D01BA2C1FB00B4C544 /* ProfessonSkillVC.m */,
+				94E761D21BA2C21E00B4C544 /* ProfessonSkillReadView.h */,
+				94E761D51BA2C23200B4C544 /* ProfessonSkillRead.xib */,
+				94E761D31BA2C21E00B4C544 /* ProfessonSkillReadView.m */,
 			);
 			path = ProfessionSkillRead;
 			sourceTree = "<group>";
@@ -1972,6 +1990,9 @@
 			isa = PBXGroup;
 			children = (
 				94E761C71BA2B7F300B4C544 /* CertificateReadVC.h */,
+				94E761CA1BA2B82B00B4C544 /* CertificateReadView.h */,
+				94E761CD1BA2B83700B4C544 /* CertificateRead.xib */,
+				94E761CB1BA2B82B00B4C544 /* CertificateReadView.m */,
 				94E761C81BA2B7F300B4C544 /* CertificateReadVC.m */,
 			);
 			path = CertificateRead;
@@ -2347,6 +2368,7 @@
 				94E761C21BA2AC8A00B4C544 /* ProjectExperience.xib in Resources */,
 				94E2C9EC1B8B1A5E001E3FDD /* train.xib in Resources */,
 				041650EB1B4D7C4E008C78BE /* MJRefresh.bundle in Resources */,
+				94E761CE1BA2B83700B4C544 /* CertificateRead.xib in Resources */,
 				940032951B83969B001EB666 /* HomeViews.xib in Resources */,
 				04A0CD451B7A110B00EBCF01 /* HeadView.xib in Resources */,
 				94313D351B7B46C2005D0A9A /* LoginView.xib in Resources */,
@@ -2361,6 +2383,7 @@
 				94E3EA8D1B8E9AAD007A699E /* mapapi.bundle in Resources */,
 				94313DEA1B7CB5C9005D0A9A /* ManagerResumeVC.xib in Resources */,
 				947006941B85CA6000DEC289 /* EditAddressVC.xib in Resources */,
+				94E761D61BA2C23200B4C544 /* ProfessonSkillRead.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2417,7 +2440,9 @@
 				94CB5B801B74CC0600B23B9D /* MJMember.m in Sources */,
 				94CB5B821B74CC0600B23B9D /* MJType.m in Sources */,
 				94E2C9DC1B8AFA0D001E3FDD /* SelfEvaluationView.m in Sources */,
+				94E761CC1BA2B82B00B4C544 /* CertificateReadView.m in Sources */,
 				94EFC1C41B7D8F6900833068 /* TH_AFRequestState.m in Sources */,
+				94E761D41BA2C21E00B4C544 /* ProfessonSkillReadView.m in Sources */,
 				041650EE1B4D7C4E008C78BE /* MJRefreshFooterView.m in Sources */,
 				94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */,
 				04A483D71B751E77006FDB9D /* Utils.m in Sources */,
@@ -2564,6 +2589,7 @@
 				947564A81B9D7B710087BA56 /* homedel.m in Sources */,
 				94CB5BA11B76342300B23B9D /* TH_SociallyVC.m in Sources */,
 				94313DF71B7CB610005D0A9A /* TH_HomeVC.m in Sources */,
+				94E761D11BA2C1FB00B4C544 /* ProfessonSkillVC.m in Sources */,
 				9400330F1B8415B4001EB666 /* TH_AboutEggshellVC.m in Sources */,
 				94E2C9871B870F29001E3FDD /* JobDescriptionlView.m in Sources */,
 				940032D01B840CC3001EB666 /* projectTableViewCell.m in Sources */,

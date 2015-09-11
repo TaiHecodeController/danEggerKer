@@ -11,25 +11,26 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="个人简历001-工作经历" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sju-Tz-jWY">
-                    <rect key="frame" x="15" y="15" width="127" height="13"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyT-95-z4u">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyT-95-z4u">
                     <rect key="frame" x="150" y="10" width="53" height="23"/>
-                    <state key="normal" title="必填项" backgroundImage="hongniu2">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="53" id="UAE-Oq-VrI"/>
+                        <constraint firstAttribute="height" constant="23" id="vLL-20-jBk"/>
+                    </constraints>
+                    <state key="normal" title="选填项" backgroundImage="lanniu">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hxC-gt-QwD">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxC-gt-QwD">
                     <rect key="frame" x="0.0" y="41" width="320" height="89"/>
                     <subviews>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S7L-GS-Wxo">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S7L-GS-Wxo">
                             <rect key="frame" x="15" y="0.0" width="305" height="0.5"/>
                             <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="RhD-jD-gQ0"/>
+                            </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="培训中心：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wU4-fk-KGz">
                             <rect key="frame" x="15" y="15" width="65" height="13"/>
@@ -61,9 +62,12 @@
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NGH-VS-I0B">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGH-VS-I0B">
                             <rect key="frame" x="15" y="88.5" width="305" height="0.5"/>
                             <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="Cbn-Tf-s32"/>
+                            </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="培训时间：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkP-Hk-YY1">
                             <rect key="frame" x="15" y="38" width="65" height="13"/>
@@ -73,8 +77,17 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="S7L-GS-Wxo" secondAttribute="trailing" id="BQU-7T-uoB"/>
+                        <constraint firstAttribute="height" constant="89" id="EiD-uO-lwB"/>
+                        <constraint firstItem="S7L-GS-Wxo" firstAttribute="top" secondItem="hxC-gt-QwD" secondAttribute="top" id="JtA-sD-qIN"/>
+                        <constraint firstItem="NGH-VS-I0B" firstAttribute="leading" secondItem="hxC-gt-QwD" secondAttribute="leading" constant="15" id="RUq-Rl-TG4"/>
+                        <constraint firstAttribute="bottom" secondItem="NGH-VS-I0B" secondAttribute="bottom" id="X4b-3A-qmg"/>
+                        <constraint firstAttribute="trailing" secondItem="NGH-VS-I0B" secondAttribute="trailing" id="qNc-f0-wfo"/>
+                        <constraint firstItem="S7L-GS-Wxo" firstAttribute="leading" secondItem="hxC-gt-QwD" secondAttribute="leading" constant="15" id="zyz-dT-h9d"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WMZ-E5-Euf">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMZ-E5-Euf">
                     <rect key="frame" x="0.0" y="130" width="320" height="157"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="工作内容" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIj-PF-UUU">
@@ -83,22 +96,59 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="etX-dA-Vcu">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etX-dA-Vcu">
                             <rect key="frame" x="0.0" y="156.5" width="320" height="0.5"/>
                             <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="wzo-gc-UjT"/>
+                            </constraints>
                         </view>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="工作内容描述" translatesAutoresizingMaskIntoConstraints="NO" id="fq6-fb-dOb">
-                            <rect key="frame" x="15" y="23" width="290" height="134"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="工作内容描述" translatesAutoresizingMaskIntoConstraints="NO" id="fq6-fb-dOb">
+                            <rect key="frame" x="15" y="23" width="290" height="133"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="133" id="FON-ax-wmc"/>
+                            </constraints>
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="157" id="AE6-bz-3zJ"/>
+                        <constraint firstItem="fq6-fb-dOb" firstAttribute="leading" secondItem="WMZ-E5-Euf" secondAttribute="leading" constant="15" id="AgH-cS-bwd"/>
+                        <constraint firstItem="etX-dA-Vcu" firstAttribute="top" secondItem="fq6-fb-dOb" secondAttribute="bottom" constant="0.5" id="LxO-fj-nUh"/>
+                        <constraint firstAttribute="trailing" secondItem="fq6-fb-dOb" secondAttribute="trailing" constant="15" id="MI0-3k-8O9"/>
+                        <constraint firstItem="etX-dA-Vcu" firstAttribute="leading" secondItem="WMZ-E5-Euf" secondAttribute="leading" id="mY5-MG-P7G"/>
+                        <constraint firstAttribute="trailing" secondItem="etX-dA-Vcu" secondAttribute="trailing" id="nwk-jd-dMG"/>
+                        <constraint firstAttribute="bottom" secondItem="etX-dA-Vcu" secondAttribute="bottom" id="qnE-kX-Ogt"/>
+                    </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人简历001-工作经历" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sju-Tz-jWY">
+                    <rect key="frame" x="15" y="15" width="127" height="13"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13" id="SP7-KU-ftj"/>
+                        <constraint firstAttribute="width" constant="127" id="SXw-wG-Ptp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="kyT-95-z4u" firstAttribute="leading" secondItem="Sju-Tz-jWY" secondAttribute="trailing" constant="8" id="Fs6-UH-17G"/>
+                <constraint firstItem="hxC-gt-QwD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NgR-hD-V5V"/>
+                <constraint firstAttribute="trailing" secondItem="hxC-gt-QwD" secondAttribute="trailing" id="T6E-h9-10I"/>
+                <constraint firstItem="Sju-Tz-jWY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="TZf-RX-GAY"/>
+                <constraint firstItem="hxC-gt-QwD" firstAttribute="top" secondItem="kyT-95-z4u" secondAttribute="bottom" constant="8" id="UhD-Qb-6ZS"/>
+                <constraint firstItem="WMZ-E5-Euf" firstAttribute="top" secondItem="hxC-gt-QwD" secondAttribute="bottom" id="YlW-oB-yYJ"/>
+                <constraint firstItem="Sju-Tz-jWY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="dKT-OY-s7h"/>
+                <constraint firstAttribute="trailing" secondItem="WMZ-E5-Euf" secondAttribute="trailing" id="lkN-B6-qX5"/>
+                <constraint firstItem="WMZ-E5-Euf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="sn4-WD-XRF"/>
+                <constraint firstItem="kyT-95-z4u" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="uGy-1C-OPA"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="TrainingDirectionLable" destination="075-XM-Y7X" id="omK-KS-YIZ"/>
@@ -111,7 +161,7 @@
         </view>
     </objects>
     <resources>
-        <image name="hongniu2" width="100" height="30"/>
+        <image name="lanniu" width="150" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
