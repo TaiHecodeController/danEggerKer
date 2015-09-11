@@ -660,7 +660,6 @@
         
         [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
             
-            
             //总投递数-投递成功数
             if (( _mailingNumBer - [DataArr intValue] ) == 0)
             {

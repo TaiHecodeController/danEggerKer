@@ -455,22 +455,37 @@
             if ([model.cellselected isEqualToString: @"1"])
             {
                 _mailingNumBer++;
-                [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.id]];
-                
+                [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.job_id]];
             }
-            
         }
+        
         NSLog(@"job_idStr%@",job_idStr);
         
         [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
             
             //返回的是投递成功的数量
-            NSLog(@"%@",DataArr);
-            _TDSuccNum = [DataArr intValue];
+//            NSLog(@"%@",DataArr);
+//            _TDSuccNum = [DataArr intValue];
+//            [self addCoverView];
+//            [self addAlertView];
             
-            [self addCoverView];
-            
-            [self addAlertView];
+//            //总投递数-投递成功数
+            if (( _mailingNumBer - [DataArr intValue] ) == 0)
+            {
+                [MBProgressHUD creatembHub:@"投递成功"];
+            }
+            else
+            {
+                //如果有失败的情况下
+                //返回的是投递成功的数量
+                NSLog(@"%@",DataArr);
+                _TDSuccNum = [DataArr intValue];
+                
+                [self addCoverView];
+                
+                [self addAlertView];
+            }
+
             
         } withfail:^(int errCode, NSError *err) {
             
@@ -478,10 +493,19 @@
             
             //errCode = 2, 全部都投递过了
             
+            if (errCode == 1)
+            {
+                [MBProgressHUD creatembHub:@"请先创建一份简历"];
+            }
+            if (errCode == 2)
+            {
+                [MBProgressHUD creatembHub:@"您已经投递过了，一周之内不能投递"];
+            }
+
             //投递成功的职位为0
-            _TDSuccNum = 0;
-            [self addCoverView];
-            [self addAlertView];
+//            _TDSuccNum = 0;
+//            [self addCoverView];
+//            [self addAlertView];
             
             
         } withUid:6 job_id:job_idStr resp:[NSObject class]];
