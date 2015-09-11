@@ -53,7 +53,7 @@
 
 -(void)setData
 {
-    self.nameArray = @[@"培训中心",@"培训中心",@"培训时间"];
+    self.nameArray = @[@"培训中心",@"",@"培训方向"];
     self.holderArray = @[@"请填培训中心",@"",@"请填写培训方向"];
 }
 -(void)createScro
@@ -180,6 +180,7 @@
         [MBProgressHUD creatembHub:@"保存成功"];
 //        [self.navigationController popViewControllerAnimated:YES];
         TrainReadVC * train = [[TrainReadVC alloc] init];
+        train.model = _model;
         [self.navigationController pushViewController:train animated:YES];
         
     } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
@@ -245,6 +246,8 @@
         return cell;
     }
 }
+
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     [self.placeHoderTextLable removeFromSuperview];

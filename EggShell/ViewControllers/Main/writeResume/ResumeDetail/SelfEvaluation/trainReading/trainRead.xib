@@ -83,6 +83,10 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="etX-dA-Vcu">
+                            <rect key="frame" x="0.0" y="156.5" width="320" height="0.5"/>
+                            <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="工作内容描述" translatesAutoresizingMaskIntoConstraints="NO" id="fq6-fb-dOb">
                             <rect key="frame" x="15" y="23" width="290" height="134"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -90,16 +94,19 @@
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="etX-dA-Vcu">
-                            <rect key="frame" x="0.0" y="156.5" width="320" height="0.5"/>
-                            <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="TrainingDirectionLable" destination="075-XM-Y7X" id="omK-KS-YIZ"/>
+                <outlet property="nameLable" destination="Sju-Tz-jWY" id="3cS-fQ-X1B"/>
+                <outlet property="trailTimeLable" destination="cw8-C5-wEw" id="idq-y8-QwD"/>
+                <outlet property="trainingCentreLalbe" destination="IoW-tP-ijm" id="Mvu-IE-Hb5"/>
+                <outlet property="trainingContentLable" destination="fq6-fb-dOb" id="iZW-xv-xtm"/>
+            </connections>
             <point key="canvasLocation" x="382" y="177"/>
         </view>
     </objects>
