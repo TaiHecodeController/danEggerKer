@@ -24,7 +24,7 @@
 @interface TH_MineVC ()<THMineViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,VPImageCropperDelegate,UIAlertViewDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UITableView * tableView;
-@property(nonatomic,strong)MineVeiw * mineView;
+
 @property (nonatomic,strong)AFRequestState * state;
 @property(nonatomic,copy)NSString * uidStr;
 @end
@@ -85,6 +85,7 @@
     NSDictionary * dic = @{@"token":mymd5_token,@"uid":uid};
     [LoginAndRegisterRequest getImagewithSucc:^(NSDictionary * succ) {
        
+        
         if (![succ[@"data"][@"name"]length]==0) {
             
             self.mineView.phoneLable.text =succ[@"data"][@"name"];
@@ -104,19 +105,19 @@
         [self.mineView.lginBtn removeFromSuperview];
         
     } withUid:dic withFail:^(int errCode, NSError *err) {
-        if (errCode ==1017) {
-            [MBProgressHUD creatembHub:@"用户不存在"];
-        }
-        self.mineView.lginBtn.userInteractionEnabled = YES;
-        [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
-//        self.mineView.userLable.text = @"";
-        self.mineView.DeliveryJobNum.text = @"";
-        self.mineView.FavoriteJobNum.text = @"";
-        self.mineView.ResumeNum.text = @"";
-        [self.mineView.loginBgview removeFromSuperview];
-        [self.mineView.phoneLable removeFromSuperview];
-        [self.mineView.userLable removeFromSuperview];
-
+//        if (errCode ==1017) {
+//            [MBProgressHUD creatembHub:@"用户不存在"];
+//        }
+//        self.mineView.lginBtn.userInteractionEnabled = YES;
+//        [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
+////        self.mineView.userLable.text = @"";
+//        self.mineView.DeliveryJobNum.text = @"";
+//        self.mineView.FavoriteJobNum.text = @"";
+//        self.mineView.ResumeNum.text = @"";
+//        [self.mineView.loginBgview removeFromSuperview];
+//        [self.mineView.phoneLable removeFromSuperview];
+//        [self.mineView.userLable removeFromSuperview];
+//
     }];
 }
 -(void)createScro
@@ -140,9 +141,6 @@
     minVew.backgroundColor =    color(243, 243, 241);
     self.mineView = minVew;
     [self.scro addSubview:minVew];
-//    /*是否登录相关处理**/
-//    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
-//    if ([user objectForKey:@"uid"] ) {
     
         [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5
               initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
@@ -151,30 +149,6 @@
         self.scro.contentSize = CGSizeMake(WIDETH,450+60);
     
         self.mineView.lginBtn.titleEdgeInsets = UIEdgeInsetsMake(-10, -1, 0, 0);
-//        [self.mineView.lginBtn setTitle:[user objectForKey:@"loginPhone"] forState:UIControlStateNormal];
-//        
-//        [self.mineView.headPotrait setButtonImageWithUrl:[user objectForKey:@"baseInformation"][@"resume_photo"]];
-//        self.mineView.DeliveryJobNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"expect"]];
-//        self.mineView.FavoriteJobNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"favjob"]];
-//        
-//        self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"baseInformation"][@"usejob"]];
-////        self.mineView.userLable.text =[user objectForKey:@"baseInformation"][@"description"];
-//        self.mineView.userLable.text = @"学习是一种信仰";
-//    }
-//    if (![user objectForKey:@"uid"]) {
-//        
-//        
-//        self.mineView.lginBtn.userInteractionEnabled = YES;
-//        [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
-//        self.mineView.userLable.text = @"";
-//        self.mineView.DeliveryJobNum.text = @"";
-//        self.mineView.FavoriteJobNum.text = @"";
-//        
-//        self.mineView.ResumeNum.text = @"";
-//        [minVew.loginBgview removeFromSuperview];
-//        
-//    }
-    
     [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5
           initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
               minVew.frame = CGRectMake(0, 0, WIDETH, 490);
@@ -198,7 +172,7 @@
             NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
             if (![userDefault objectForKey:@"uid"])
             {
-                UIAlertView * alertView =[[UIAlertView alloc] initWithTitle:@"提示" message:@"必须登录才能编辑" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+                UIAlertView * alertView =[[UIAlertView alloc] initWithTitle:@"提示" message:@"先登录才能编辑" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
                 alertView.delegate = self;
                 alertView.tag = 100;
                 [alertView show];
@@ -212,58 +186,64 @@
             break;
         }
         case THMineViewButtonTypeDeliveryJobsBtn:
-        {NSLog(@"投递职位");
-            [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
-            if([AppDelegate instance].userId)
-            {
-                
-
-            TH_JobWishlistVC * edit = [[TH_JobWishlistVC alloc] init];
-            edit.title = @"投递职位";
-            edit.pushType = 0;
-            [self.navigationController pushViewController:edit animated:YES];            break;
+        {
+            NSLog(@"投递职位");
+             NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+            if(![userDefault objectForKey:@"uid"])
+            {UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"先登录才能查看" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
+                alertView.delegate  = self;
+                alertView.tag  = 101;
+                [alertView show];
             }else
             {
-                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请登录才能查看" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
-                alertView.tag  = 104;
-                [alertView show];
+                TH_JobWishlistVC * edit = [[TH_JobWishlistVC alloc] init];
+                edit.title = @"投递职位";
+                edit.pushType = 0;
+                [self.navigationController pushViewController:edit animated:YES];
             }
+              break;
         }
         case THMineViewButtonTypeCollectionJobs:
         {
-            [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
-            if([AppDelegate instance].userId)
+//            [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+            NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+            if(![userDefault objectForKey:@"uid"])
             {
 
             NSLog(@"收藏职位");
-            TH_JobWishlistVC * edit = [[TH_JobWishlistVC alloc] init];
-            edit.title = @"收藏职位";
-            edit.pushType = 1;
-            [self.navigationController pushViewController:edit animated:YES];
-            }else
-            {
-                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请登录才能查看" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
+                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"先登录才能查看" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
+                alertView.delegate = self;
                 alertView.tag  = 103;
                 [alertView show];
+            
+            }else
+            {
+                
+                TH_JobWishlistVC * edit = [[TH_JobWishlistVC alloc] init];
+                edit.title = @"收藏职位";
+                edit.pushType = 1;
+                [self.navigationController pushViewController:edit animated:YES];
+
             }
             break;
         }
         case THMineViewButtonTypeResume:
         {   NSLog(@"简历管理");
             
-            [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
-            if([AppDelegate instance].userId)
+            NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+            if(![userDefault objectForKey:@"uid"])
             {
-                ManagerResumeVC * manaVC = [[ManagerResumeVC alloc] init];
-                [self.navigationController pushViewController:manaVC animated:YES];
+                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"先登录才能查看" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
+                alertView.delegate = self;
+                alertView.tag  = 104;
+                [alertView show];
+            
             }else
             {
                
-                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
-                alertView.tag  = 102;
-                [alertView show];
+                ManagerResumeVC * manaVC = [[ManagerResumeVC alloc] init];
+                [self.navigationController pushViewController:manaVC animated:YES];
             }
-
             
             break;
         }
@@ -285,12 +265,13 @@
             NSLog(@"退出登录");
             UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认退出登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
             alertView.delegate = self;
-            alertView.tag = 101;
+            alertView.tag = 105;
             [alertView show];
             break;
         }
         case THMineViewButtonTypeLogin:
         {
+            
             
             
             TH_LoginVC * login = [[TH_LoginVC alloc] init];
@@ -334,8 +315,6 @@
             } ;
             view.updataBlock = ^(UIView*view)
             { [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[AppDelegate instance].trackViewUrl]];
-            
-
                
             };
             }
@@ -347,44 +326,103 @@
             break;
     }
 }
-//- (void)loginNotice:(NSNotification *)notification
-//{
-////    [self.mineView addSubview:self.mineView.loginBgview];
-//    [self.mineView.loginBgview removeFromSuperview];
-//}
+
 #pragma mark -- 退出登录
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.tag == 100) {
         if (buttonIndex == 1) {
+            TH_JobWishlistVC * jobList = [[TH_JobWishlistVC alloc] init];
             TH_LoginVC * login = [[TH_LoginVC alloc] init];
+            login.jobWilstRegist = @"jobWilstRegist";
+            self.jobWilstBlock(jobList);
             [self.navigationController pushViewController:login animated:YES];
         }
     }
+    
     if (alertView.tag == 101) {
-        NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
-        if (buttonIndex ==1) {
-            self.navigationController.navigationBarHidden = YES;
-            AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-            appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
-            [userDefault removeObjectForKey:@"uid"];
-            [userDefault synchronize];
-            appDelegate.mainTabBar.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
-        }if (alertView.tag == 102) {
+        if (buttonIndex ==1 ) {
             TH_LoginVC * login = [[TH_LoginVC alloc] init];
+            login.jobWilstRegist = @"jobWilstRegist";
             [self.navigationController pushViewController:login animated:YES];
-        }if(alertView.tag==103)
-        {
+        }
+    }
+    
+    if (alertView.tag ==103) {
+        if (buttonIndex ==1) {
+            TH_LoginVC * login = [[TH_LoginVC alloc] init];
+            login.jobWilstRegist = @"jobWilstRegist";
+            [self.navigationController pushViewController:login animated:YES];
+        }
+    }
+    
+    if (alertView.tag == 104) {
+        if (buttonIndex == 1) {
             TH_LoginVC * login = [[TH_LoginVC alloc] init];
             [self.navigationController pushViewController:login animated:YES];
 
-        }if (alertView.tag == 104) {
-            TH_LoginVC * login = [[TH_LoginVC alloc] init];
-            [self.navigationController pushViewController:login animated:YES];
         }
-        
     }
+    if (alertView.tag == 105) {
+        if (buttonIndex == 1) {
+            NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+            
+                        self.navigationController.navigationBarHidden = YES;
+                        AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                        appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
+                        [userDefault removeObjectForKey:@"uid"];
+                        [userDefault synchronize];
+                        appDelegate.mainTabBar.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                        [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
+        }
+    }
+//    if (alertView.tag == 105) {
+//        NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+//        if (buttonIndex ==1) {
+//            self.navigationController.navigationBarHidden = YES;
+//            AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+//            appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
+//            [userDefault removeObjectForKey:@"uid"];
+//            [userDefault synchronize];
+//            appDelegate.mainTabBar.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//            [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
+//        }
+//
+//          if (alertView.tag == 100)
+//        {
+//             if (buttonIndex ==1)
+//             {
+//            TH_LoginVC * login = [[TH_LoginVC alloc] init];
+//            [self.navigationController pushViewController:login animated:YES];
+//             }
+//        }
+//          if(alertView.tag==103)
+//        { if (buttonIndex ==1)
+//        {
+//            TH_LoginVC * login = [[TH_LoginVC alloc] init];
+//            [self.navigationController pushViewController:login animated:YES];
+//        }
+//
+//        }
+//       if (alertView.tag == 104)
+//        {
+//             if (buttonIndex ==1)
+//             {
+//            TH_LoginVC * login = [[TH_LoginVC alloc] init];
+//            [self.navigationController pushViewController:login animated:YES];
+//             }
+//        }
+//        if (alertView.tag == 101)
+//        {
+//            if (buttonIndex ==1)
+//            {
+//                TH_LoginVC * login = [[TH_LoginVC alloc] init];
+//                [self.navigationController pushViewController:login animated:YES];
+//            }
+//        }
+//
+//        
+//    }
 }
 #pragma mark ActionSheet delegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

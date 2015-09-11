@@ -197,6 +197,9 @@
 		94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EA991B8EB758007A699E /* Reachability.m */; };
 		94E3EAE01B918CBE007A699E /* AccountRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EADF1B918CBE007A699E /* AccountRequest.m */; };
 		94E3EAE71B954947007A699E /* findJobModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EAE61B954947007A699E /* findJobModel.m */; };
+		94E761B31BA27DBF00B4C544 /* TrainReadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761B21BA27DBF00B4C544 /* TrainReadVC.m */; };
+		94E761B61BA27DEB00B4C544 /* TrainReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761B51BA27DEB00B4C544 /* TrainReadView.m */; };
+		94E761B81BA27E0400B4C544 /* trainRead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E761B71BA27E0400B4C544 /* trainRead.xib */; };
 		94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF11B841D510093C39B /* CourePlayTitle.m */; };
 		94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E7DCF21B841D510093C39B /* CourePlaytitle.xib */; };
 		94E7DCFA1B841D510093C39B /* Course PlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF41B841D510093C39B /* Course PlayCell.m */; };
@@ -604,6 +607,11 @@
 		94E3EADF1B918CBE007A699E /* AccountRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRequest.m; sourceTree = "<group>"; };
 		94E3EAE51B954947007A699E /* findJobModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findJobModel.h; sourceTree = "<group>"; };
 		94E3EAE61B954947007A699E /* findJobModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = findJobModel.m; sourceTree = "<group>"; };
+		94E761B11BA27DBF00B4C544 /* TrainReadVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainReadVC.h; sourceTree = "<group>"; };
+		94E761B21BA27DBF00B4C544 /* TrainReadVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainReadVC.m; sourceTree = "<group>"; };
+		94E761B41BA27DEB00B4C544 /* TrainReadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainReadView.h; sourceTree = "<group>"; };
+		94E761B51BA27DEB00B4C544 /* TrainReadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainReadView.m; sourceTree = "<group>"; };
+		94E761B71BA27E0400B4C544 /* trainRead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = trainRead.xib; sourceTree = "<group>"; };
 		94E7DCF01B841D510093C39B /* CourePlayTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourePlayTitle.h; sourceTree = "<group>"; };
 		94E7DCF11B841D510093C39B /* CourePlayTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourePlayTitle.m; sourceTree = "<group>"; };
 		94E7DCF21B841D510093C39B /* CourePlaytitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourePlaytitle.xib; sourceTree = "<group>"; };
@@ -1271,6 +1279,7 @@
 		940032C31B840CC3001EB666 /* TrainExperience */ = {
 			isa = PBXGroup;
 			children = (
+				94E761B01BA27D8E00B4C544 /* trainReading */,
 				940032C41B840CC3001EB666 /* TH_TrainExperienceVC.h */,
 				940032C51B840CC3001EB666 /* TH_TrainExperienceVC.m */,
 			);
@@ -1886,6 +1895,19 @@
 			path = FindJobModel;
 			sourceTree = "<group>";
 		};
+		94E761B01BA27D8E00B4C544 /* trainReading */ = {
+			isa = PBXGroup;
+			children = (
+				94E761B11BA27DBF00B4C544 /* TrainReadVC.h */,
+				94E761B21BA27DBF00B4C544 /* TrainReadVC.m */,
+				94E761B41BA27DEB00B4C544 /* TrainReadView.h */,
+				94E761B71BA27E0400B4C544 /* trainRead.xib */,
+				94E761B51BA27DEB00B4C544 /* TrainReadView.m */,
+			);
+			name = trainReading;
+			path = ../SelfEvaluation/trainReading;
+			sourceTree = "<group>";
+		};
 		94E7DCEE1B841D510093C39B /* CoursePlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -2226,6 +2248,7 @@
 				94E8F4F31B85797900088658 /* NameAndSexCell.xib in Resources */,
 				94E7DCFB1B841D510093C39B /* Course PlayCell.xib in Resources */,
 				941F10171B7B3BCC00719F5B /* JobWishlistCell.xib in Resources */,
+				94E761B81BA27E0400B4C544 /* trainRead.xib in Resources */,
 				94CB5B891B74CC0600B23B9D /* LICENSE in Resources */,
 				94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */,
 				94E2C9E21B8B0876001E3FDD /* workExperecie.xib in Resources */,
@@ -2423,10 +2446,12 @@
 				940033011B840FC6001EB666 /* MineVeiw.m in Sources */,
 				94E3EA911B8EB520007A699E /* MMNetWorkType.m in Sources */,
 				F01787AC1B95938A005FF9C4 /* jobDetailModel_Arr3.m in Sources */,
+				94E761B31BA27DBF00B4C544 /* TrainReadVC.m in Sources */,
 				041650ED1B4D7C4E008C78BE /* MJRefreshConst.m in Sources */,
 				F01787A91B9592A0005FF9C4 /* companyInformationModel.m in Sources */,
 				04237D901B66456F00768FAD /* LoginAndRegisterRequest.m in Sources */,
 				0454ACEC1B945F20004A70ED /* ResumeCell.m in Sources */,
+				94E761B61BA27DEB00B4C544 /* TrainReadView.m in Sources */,
 				94313DAF1B7CAAB5005D0A9A /* TH_PlayFanVC.m in Sources */,
 				0416506A1B4D7240008C78BE /* Gson.m in Sources */,
 				9400329B1B840736001EB666 /* VersionUpdateView.m in Sources */,
@@ -2614,8 +2639,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2633,7 +2658,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -2644,8 +2669,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2663,7 +2688,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
@@ -2672,7 +2697,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -2685,7 +2710,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Debug;
@@ -2694,8 +2719,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2703,7 +2728,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Release;

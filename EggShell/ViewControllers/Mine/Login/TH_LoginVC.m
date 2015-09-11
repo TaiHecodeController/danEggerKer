@@ -14,6 +14,7 @@
 #import "TH_HomeVC.h"
 #import "AccountRequest.h"
 #import "LoginAndRegisterRequest.h"
+#import "TH_MineVC.h"
 @interface TH_LoginVC ()<UITextFieldDelegate>
 @property (strong,nonatomic)UIButton * loginBtn;
 @property(nonatomic,strong)UITextField * phonetextField;
@@ -241,12 +242,24 @@
             NSString* mymd5_token  = [MyMD5 md5:tokenSerit];
             [user setObject:mymd5_token forKey:@"md5_token"];
             [user synchronize];
+            
+            if ([self.jobWilstRegist isEqualToString:@"jobWilstRegist"]) {
+                [self.navigationController popViewControllerAnimated:NO];
+                TH_MineVC * mine = [[TH_MineVC alloc] init];
+//                [mine.mineView addSubview:mine.mineView.loginBgview ];
+//                [  mine.mineView addSubview: mine.mineView.userLable ];
+//                [   mine.mineView addSubview: mine.mineView.phoneLable ];
+                [self.navigationController popToViewController:mine animated:YES];
+            }
+            else
+            {
             self.navigationController.navigationBarHidden = YES;
             AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
             appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
             appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
             appDelegate.userId = dic[@"data"][@"uid"];
             [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
+            }
         }
     }
         

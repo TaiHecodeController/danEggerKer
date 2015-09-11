@@ -7,7 +7,9 @@
 //
 
 #import "TH_BaseVC.h"
-
+#import "TH_JobWishlistVC.h"
+#import "MineVeiw.h"
 @interface TH_MineVC : TH_BaseVC
-
+@property(nonatomic,strong)MineVeiw * mineView;
+@property(nonatomic,strong)void(^jobWilstBlock)(TH_JobWishlistVC * );
 @end

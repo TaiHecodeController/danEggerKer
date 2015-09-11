@@ -459,7 +459,7 @@
 -(void)rightClick:(UIButton *)sender
 {
     
-    //    NSArray * keyArray = [ NSArray arrayWithObjects:@"telphone",@"name",@"sex",@"address",@"description", nil];
+   //    NSArray * keyArray = [ NSArray arrayWithObjects:@"telphone",@"name",@"sex",@"address",@"description", nil];
     NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
     NSString * uisStr = [user objectForKey:@"uid"];
     NSString  * token  =  [user objectForKey:@"md5_token"];

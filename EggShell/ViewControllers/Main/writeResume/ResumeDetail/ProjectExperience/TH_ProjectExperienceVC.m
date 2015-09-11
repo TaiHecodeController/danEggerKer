@@ -21,6 +21,7 @@
 @property (strong,nonatomic)UILabel * nameLab;
 @property (strong,nonatomic)UITextView * contentTextField;
 @property(nonatomic,strong)UIScrollView * scro;
+@property(nonatomic,strong)UILabel * placeHoderTextLable;
 @property(nonatomic,strong)UITableView * tableView;
 @property(strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
@@ -99,11 +100,17 @@
     self.contentTextField.font = [UIFont systemFontOfSize:13];
     
     self.contentTextField.textAlignment = NSTextAlignmentNatural;
-    self.contentTextField.textColor = color(203, 203, 203);
-    self.contentTextField.text = @"请填写项目内容";
+    self.contentTextField.textColor = [UIColor blackColor];
+   
     self.contentTextField.delegate = self;
     [bgView addSubview:self.contentTextField];
-
+    /*显示隐藏内容**/
+    UILabel * placeHoderTextLable =[[UILabel alloc] initWithFrame:CGRectMake(10, 10, WIDETH - 121, 30)];
+    placeHoderTextLable.text = @"请填写培训内容";
+    placeHoderTextLable.textColor = color(203, 203, 203);
+    self.placeHoderTextLable = placeHoderTextLable;
+    [self.contentTextField addSubview:placeHoderTextLable];
+    self.placeHoderTextLable.font = [UIFont systemFontOfSize:13];
     
     /*按钮选项**/
     UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 365, (WIDETH-150-18)/2.0, 30) ImageName:@"hongniu2" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
@@ -258,6 +265,7 @@
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
+    [self.placeHoderTextLable removeFromSuperview];
     if(HEIGHT == 480)
     {
         self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);

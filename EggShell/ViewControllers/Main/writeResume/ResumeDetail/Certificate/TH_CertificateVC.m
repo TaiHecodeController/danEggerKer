@@ -12,13 +12,14 @@
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
 #import "ResumeModel.h"
-@interface TH_CertificateVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface TH_CertificateVC ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
 {
     WriteRusumeModel2 * _model;
     ResumeModel * _resume_model;
 }
 @property (strong,nonatomic)UILabel * nameLab;
 @property (strong,nonatomic)UITextView * contentTextField;
+@property(strong,nonatomic)UILabel * placeHoderTextLable;
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UITableView * tableView;
 @property(strong,nonatomic)NSArray * nameArray;
@@ -95,12 +96,17 @@
     
     self.contentTextField = [[UITextView alloc] initWithFrame:CGRectMake(87, 6, WIDETH - 101, 114)];
     self.contentTextField.font = [UIFont systemFontOfSize:13];
-    
+    self.contentTextField.delegate = self;
     self.contentTextField.textAlignment = NSTextAlignmentNatural;
-    self.contentTextField.textColor = color(203, 203, 203);
-    self.contentTextField.text = @"请填写证书内容";
-    [bgView addSubview:self.contentTextField];
-    
+    self.contentTextField.textColor = [UIColor blackColor];
+        [bgView addSubview:self.contentTextField];
+    /*显示隐藏内容**/
+    UILabel * placeHoderTextLable =[[UILabel alloc] initWithFrame:CGRectMake(10, 10, WIDETH - 121, 30)];
+    placeHoderTextLable.text = @"请填写培训内容";
+    placeHoderTextLable.textColor = color(203, 203, 203);
+    self.placeHoderTextLable = placeHoderTextLable;
+    [self.contentTextField addSubview:placeHoderTextLable];
+    self.placeHoderTextLable.font = [UIFont systemFontOfSize:13];
     
     /*按钮选项**/
     UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 323, (WIDETH-150-18)/2.0, 30) ImageName:@"hongniu2" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
@@ -208,6 +214,21 @@
     [self.contentTextField resignFirstResponder];
 }
 
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    [self.placeHoderTextLable removeFromSuperview];
+    if(HEIGHT == 480)
+    {
+        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
+        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+    }else
+    {
+        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 200);
+        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        
+    }
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

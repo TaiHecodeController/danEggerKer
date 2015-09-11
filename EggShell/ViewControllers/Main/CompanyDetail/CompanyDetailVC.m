@@ -114,8 +114,11 @@
         
         if(!sender.selected)
         {
-            [UIView animateWithDuration:0.1 animations:^{
+            
+       [UIView animateWithDuration:0.1 animations:^{
+                
                 record_Message = self.CMview.companyMessage.frame;
+                
                 record_SelfView = self.CMview.frame;
                 record_ShowAll = self.CMview.showAllBtn.frame;
                 record_headerView = self.comPanyView.frame;
