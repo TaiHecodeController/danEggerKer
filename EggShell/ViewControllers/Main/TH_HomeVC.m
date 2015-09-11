@@ -558,7 +558,7 @@
         case THHomeViewButtonTypeFindPartTime:
         {
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            [SearchModelShare sharedInstance].keyword = @"兼职";
+//            [SearchModelShare sharedInstance].keyword = @"兼职";
             home.title = @"找兼职";
             home.job_type = @"1";
             [self.navigationController pushViewController:home animated:YES];
