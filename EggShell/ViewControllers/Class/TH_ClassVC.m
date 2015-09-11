@@ -427,7 +427,7 @@
     if( refreshView == _header ){
         _page = 1;
         THLog(@"下拉刷新");
-//        [self.dataArray removeAllObjects];
+        [self.dataArray removeAllObjects];
         [self loadData:refreshView page:_page];
     }
     else{
