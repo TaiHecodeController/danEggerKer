@@ -14,13 +14,15 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"education" owner:self options:nil]lastObject];
 }
--(void)configVulue:(NSArray *)dataArray
+
+-(void)configVulue:(NSArray *)dataArray withArrIndex:(int)i
 {
     if(dataArray.count == 0)
     {
         return;
     }
-    NSDictionary * dataDic = [dataArray firstObject];
+//    NSDictionary * dataDic = [dataArray firstObject];
+    NSDictionary * dataDic = dataArray[i];
     NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
     NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
     NSString * startTime = [Utils changeTimeToString:sdate];
@@ -28,7 +30,11 @@
     self.educationTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
     self.department.text = dataDic[@"specialty"];
     self.schoolName.text = dataDic[@"name"];
-    self.position.text = dataDic[@"title"];
+    if (i == 0)
+    {
+       _titleLab.text = @"教育经历";
+    }
+     self.position.text = dataDic[@"title"];
     self.departmentIntroduce.text = dataDic[@"content"];
 }
 @end

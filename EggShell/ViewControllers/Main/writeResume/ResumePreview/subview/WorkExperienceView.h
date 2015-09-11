@@ -12,7 +12,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *workTime;
 @property (weak, nonatomic) IBOutlet UILabel *position;
 @property (weak, nonatomic) IBOutlet UITextView *workContent;
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
 
 +(WorkExperienceView*)setWorkExperienceView;
--(void)configVulue:(NSArray *)dataArray;
+-(void)configVulue:(NSArray *)dataArray withArrIndex:(int)i;
 @end

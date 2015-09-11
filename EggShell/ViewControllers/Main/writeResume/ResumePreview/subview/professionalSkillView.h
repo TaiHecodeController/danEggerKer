@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *graspTime;
 @property (weak, nonatomic) IBOutlet UILabel *skilledDegree;
 @property (weak, nonatomic) IBOutlet UILabel *skillName;
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+
 +(professionalSkillView*)setprofessionalSkillView;
--(void)conFigValue:(NSArray *)dataArray;
+-(void)conFigValue:(NSArray *)dataArray withArrIndex:(int)i;
 @end

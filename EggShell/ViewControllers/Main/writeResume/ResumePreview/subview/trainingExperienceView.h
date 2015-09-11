@@ -13,7 +13,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *trainDirection;
 @property (weak, nonatomic) IBOutlet UILabel *trainCompany;
 @property (weak, nonatomic) IBOutlet UITextView *trainIntroduce;
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
 
 +(trainingExperienceView*)settrainingExperienceView;
--(void)configValue:(NSArray *)dataArray;
+-(void)configValue:(NSArray *)dataArray withArrIndex:(int)i;
 @end

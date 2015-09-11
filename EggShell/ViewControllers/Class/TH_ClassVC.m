@@ -135,7 +135,8 @@
                 }
             }
             
-            [iconView sd_setImageWithURL:[NSURL URLWithString:arr[0][@"vimage"]] placeholderImage:nil];
+//            [iconView sd_setImageWithURL:[NSURL URLWithString:arr[0][@"vimage"]] placeholderImage:nil];
+            iconView.image = [UIImage imageNamed:@"zuo1"];
         }
         else if (iconView.tag == 1001)
         {
@@ -151,7 +152,8 @@
                      nameLab.text = arr[1][@"video_name"];
                 }
             }
-            [iconView sd_setImageWithURL:[NSURL URLWithString:arr[1][@"vimage"]] placeholderImage:nil];
+//            [iconView sd_setImageWithURL:[NSURL URLWithString:arr[1][@"vimage"]] placeholderImage:nil];
+             iconView.image = [UIImage imageNamed:@"zhong2"];
         }
         else if (iconView.tag == 1002)
         {
@@ -169,6 +171,7 @@
             }
             
             [iconView sd_setImageWithURL:[NSURL URLWithString:arr[2][@"vimage"]] placeholderImage:nil];
+             iconView.image = [UIImage imageNamed:@"you3"];
         }
     }
     
@@ -270,7 +273,7 @@
             nameLab.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
             nameLab.textColor = [UIColor whiteColor];
             nameLab.textAlignment = NSTextAlignmentCenter;
-            [qsBtn addSubview:nameLab];
+//            [qsBtn addSubview:nameLab];
             
             UILabel *classLab = [[UILabel alloc]init];
             classLab.tag = 3000 + i;
@@ -278,7 +281,7 @@
             classLab.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
             classLab.textColor = [UIColor whiteColor];
             classLab.textAlignment = NSTextAlignmentCenter;
-            [qsBtn addSubview:classLab];
+//            [qsBtn addSubview:classLab];
             
             _headViewMaxY = CGRectGetMaxY(qsBtn.frame);
         }

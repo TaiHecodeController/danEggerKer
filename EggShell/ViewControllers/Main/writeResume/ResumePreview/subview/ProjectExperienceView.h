@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *proName;
 @property (weak, nonatomic) IBOutlet UITextView *proIntroduce;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+
 +(ProjectExperienceView*)setProjectExperienceView;
--(void)configValue:(NSArray *)dataArray;
+-(void)configValue:(NSArray *)dataArray withArrIndex:(int)i;
 @end

@@ -35,13 +35,10 @@
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/except",base_Url] param:param succ:succ];
 }
 
-
-
 +(AFRequestState *)uploadWorkExperienceWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_work",base_Url] param:param succ:succ];
 }
-
 
 /*简历预览**/
 +(AFRequestState*)biographyPreviewWithSucc:(void(^)(NSDictionary * DataDic))succ WithResumeParam:(NSDictionary *)param withfail:(void (^)(int errCode, NSError * err))fail

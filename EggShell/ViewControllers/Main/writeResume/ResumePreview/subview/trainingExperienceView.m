@@ -13,13 +13,15 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"train" owner:self options:nil] lastObject];
 }
--(void)configValue:(NSArray *)dataArray
+-(void)configValue:(NSArray *)dataArray withArrIndex:(int)i
 {
     if(dataArray.count == 0)
     {
         return;
     }
-    NSDictionary * dataDic = [dataArray firstObject];
+    
+//    NSDictionary * dataDic = [dataArray firstObject];
+    NSDictionary * dataDic = dataArray[i];
     if(dataDic.count == 0)
     {
         return;
@@ -33,6 +35,11 @@
     self.trainDirection.text = dataDic[@"title"];
     self.trainCompany.text = dataDic[@"name"];
     self.trainIntroduce.text = dataDic[@"content"];
+    if (i == 0)
+    {
+        _titleLab.text = @"培训内容";
+        _titleLab.textColor = [UIColor redColor];
+    }
 
 }
 @end

@@ -22,7 +22,6 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSUserDefaults * versionId = [NSUserDefaults standardUserDefaults];
     [versionId setObject:@"" forKey:@"ver"];
@@ -51,7 +50,6 @@
     }
     
     [self.window makeKeyAndVisible];
-
 //    sleep(0);
 
     NSString *key = @"CFBundleVersion";
@@ -75,6 +73,8 @@
         NSLog(@"已登陆");
     }
     
+   
+
     return YES;
     
 }

@@ -14,14 +14,15 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"project" owner:self options:nil]lastObject];
 }
--(void)configValue:(NSArray *)dataArray
+-(void)configValue:(NSArray *)dataArray withArrIndex:(int)i
 {
    if(dataArray.count == 0)
    {
        return;
    }
    
-    NSDictionary * dataDic = [dataArray firstObject];
+//    NSDictionary * dataDic = [dataArray firstObject];
+    NSDictionary * dataDic = dataArray[i];
     if(dataDic.count == 0)
     {
         return;
@@ -31,8 +32,14 @@
     NSString * startTime = [Utils changeTimeToString:sdate];
     NSString * endTime = [Utils changeTimeToString:edate];
     self.projectTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+    
     self.position.text = dataDic[@"title"];
     self.proName.text = dataDic[@"name"];
     self.proIntroduce.text = dataDic[@"content"];
+    if (i == 0)
+    {
+        _titleLab.text = @"项目经验";
+        _titleLab.textColor = [UIColor redColor];
+    }
 }
 @end

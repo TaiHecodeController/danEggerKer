@@ -14,7 +14,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *schoolName;
 @property (weak, nonatomic) IBOutlet UILabel *position;
 @property (weak, nonatomic) IBOutlet UITextView *departmentIntroduce;
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+
 
 +(EducationExperienceView*)setEducationExperienceView;
--(void)configVulue:(NSArray *)dataArray;
+-(void)configVulue:(NSArray *)dataArray withArrIndex:(int)i;
 @end

@@ -226,6 +226,15 @@
 		F01787A91B9592A0005FF9C4 /* companyInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F01787A81B9592A0005FF9C4 /* companyInformationModel.m */; };
 		F01787AC1B95938A005FF9C4 /* jobDetailModel_Arr3.m in Sources */ = {isa = PBXBuildFile; fileRef = F01787AB1B95938A005FF9C4 /* jobDetailModel_Arr3.m */; };
 		F01787AF1B959456005FF9C4 /* JobDetailModel_Arr4.m in Sources */ = {isa = PBXBuildFile; fileRef = F01787AE1B959456005FF9C4 /* JobDetailModel_Arr4.m */; };
+		F0213AA51BA2AC450083AA81 /* you3.png in Resources */ = {isa = PBXBuildFile; fileRef = F0213A9C1BA2AC450083AA81 /* you3.png */; };
+		F0213AA61BA2AC450083AA81 /* you3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0213A9D1BA2AC450083AA81 /* you3@2x.png */; };
+		F0213AA71BA2AC450083AA81 /* you3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0213A9E1BA2AC450083AA81 /* you3@3x.png */; };
+		F0213AA81BA2AC450083AA81 /* zhong2.png in Resources */ = {isa = PBXBuildFile; fileRef = F0213A9F1BA2AC450083AA81 /* zhong2.png */; };
+		F0213AA91BA2AC450083AA81 /* zhong2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0213AA01BA2AC450083AA81 /* zhong2@2x.png */; };
+		F0213AAA1BA2AC450083AA81 /* zhong2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0213AA11BA2AC450083AA81 /* zhong2@3x.png */; };
+		F0213AAB1BA2AC450083AA81 /* zuo1.png in Resources */ = {isa = PBXBuildFile; fileRef = F0213AA21BA2AC450083AA81 /* zuo1.png */; };
+		F0213AAC1BA2AC450083AA81 /* zuo1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0213AA31BA2AC450083AA81 /* zuo1@2x.png */; };
+		F0213AAD1BA2AC450083AA81 /* zuo1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0213AA41BA2AC450083AA81 /* zuo1@3x.png */; };
 		F05440B11B7848B000127A9B /* HYSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F05440B01B7848B000127A9B /* HYSegmentedControl.m */; };
 		F05440B41B7870B800127A9B /* jobTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F05440B31B7870B800127A9B /* jobTableViewCell.m */; };
 		F05440B71B7885F500127A9B /* UIBarButtonItem+DC.m in Sources */ = {isa = PBXBuildFile; fileRef = F05440B61B7885F500127A9B /* UIBarButtonItem+DC.m */; };
@@ -656,6 +665,15 @@
 		F01787AB1B95938A005FF9C4 /* jobDetailModel_Arr3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobDetailModel_Arr3.m; sourceTree = "<group>"; };
 		F01787AD1B959456005FF9C4 /* JobDetailModel_Arr4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobDetailModel_Arr4.h; sourceTree = "<group>"; };
 		F01787AE1B959456005FF9C4 /* JobDetailModel_Arr4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailModel_Arr4.m; sourceTree = "<group>"; };
+		F0213A9C1BA2AC450083AA81 /* you3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = you3.png; sourceTree = "<group>"; };
+		F0213A9D1BA2AC450083AA81 /* you3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "you3@2x.png"; sourceTree = "<group>"; };
+		F0213A9E1BA2AC450083AA81 /* you3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "you3@3x.png"; sourceTree = "<group>"; };
+		F0213A9F1BA2AC450083AA81 /* zhong2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhong2.png; sourceTree = "<group>"; };
+		F0213AA01BA2AC450083AA81 /* zhong2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zhong2@2x.png"; sourceTree = "<group>"; };
+		F0213AA11BA2AC450083AA81 /* zhong2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zhong2@3x.png"; sourceTree = "<group>"; };
+		F0213AA21BA2AC450083AA81 /* zuo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zuo1.png; sourceTree = "<group>"; };
+		F0213AA31BA2AC450083AA81 /* zuo1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zuo1@2x.png"; sourceTree = "<group>"; };
+		F0213AA41BA2AC450083AA81 /* zuo1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zuo1@3x.png"; sourceTree = "<group>"; };
 		F05440AF1B7848B000127A9B /* HYSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYSegmentedControl.h; sourceTree = "<group>"; };
 		F05440B01B7848B000127A9B /* HYSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYSegmentedControl.m; sourceTree = "<group>"; };
 		F05440B21B7870B800127A9B /* jobTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobTableViewCell.h; sourceTree = "<group>"; };
@@ -1060,6 +1078,15 @@
 		04A483C11B74FDCE006FDB9D /* OpenClass */ = {
 			isa = PBXGroup;
 			children = (
+				F0213A9C1BA2AC450083AA81 /* you3.png */,
+				F0213A9D1BA2AC450083AA81 /* you3@2x.png */,
+				F0213A9E1BA2AC450083AA81 /* you3@3x.png */,
+				F0213A9F1BA2AC450083AA81 /* zhong2.png */,
+				F0213AA01BA2AC450083AA81 /* zhong2@2x.png */,
+				F0213AA11BA2AC450083AA81 /* zhong2@3x.png */,
+				F0213AA21BA2AC450083AA81 /* zuo1.png */,
+				F0213AA31BA2AC450083AA81 /* zuo1@2x.png */,
+				F0213AA41BA2AC450083AA81 /* zuo1@3x.png */,
 				F0B85A401BA160F4005799F5 /* 保利新页面 */,
 				94E7DCEE1B841D510093C39B /* CoursePlay */,
 				F0D7C04A1B79C7B400836DD2 /* libpolyvSDK */,
@@ -2209,6 +2236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0213AA61BA2AC450083AA81 /* you3@2x.png in Resources */,
 				94E2C95D1B86C112001E3FDD /* 蛋壳儿.doc in Resources */,
 				94E2C9891B870F29001E3FDD /* moreJobTableViewCell.xib in Resources */,
 				94E2C9DE1B8AFCF0001E3FDD /* BasicInformation.xib in Resources */,
@@ -2220,18 +2248,24 @@
 				940032D11B840CC3001EB666 /* projectTableViewCell.xib in Resources */,
 				94E2C9EE1B8B1CCA001E3FDD /* myself.xib in Resources */,
 				041650451B4D7142008C78BE /* LaunchScreen.xib in Resources */,
+				F0213AAD1BA2AC450083AA81 /* zuo1@3x.png in Resources */,
 				940032CB1B840CC3001EB666 /* EducationTimeCell.xib in Resources */,
+				F0213AAC1BA2AC450083AA81 /* zuo1@2x.png in Resources */,
 				04EC1F101B78F5510009292E /* SearchView.xib in Resources */,
 				940033021B840FC6001EB666 /* MineView.xib in Resources */,
 				94E8F4F31B85797900088658 /* NameAndSexCell.xib in Resources */,
 				94E7DCFB1B841D510093C39B /* Course PlayCell.xib in Resources */,
+				F0213AA81BA2AC450083AA81 /* zhong2.png in Resources */,
 				941F10171B7B3BCC00719F5B /* JobWishlistCell.xib in Resources */,
+				F0213AAA1BA2AC450083AA81 /* zhong2@3x.png in Resources */,
 				94CB5B891B74CC0600B23B9D /* LICENSE in Resources */,
 				94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */,
 				94E2C9E21B8B0876001E3FDD /* workExperecie.xib in Resources */,
 				94E8F4F51B85797900088658 /* WriteResumeCell.xib in Resources */,
 				F05440B91B788DAB00127A9B /* findjobtest.plist in Resources */,
 				947006991B85CA6000DEC289 /* EditSexCell.xib in Resources */,
+				F0213AA51BA2AC450083AA81 /* you3.png in Resources */,
+				F0213AA91BA2AC450083AA81 /* zhong2@2x.png in Resources */,
 				940032EF1B840DCD001EB666 /* JobScreenDetailCell.xib in Resources */,
 				94E2C9EA1B8B1740001E3FDD /* Certificate.xib in Resources */,
 				94E2C9E01B8B03F1001E3FDD /* intentView.xib in Resources */,
@@ -2250,9 +2284,11 @@
 				940032951B83969B001EB666 /* HomeViews.xib in Resources */,
 				04A0CD451B7A110B00EBCF01 /* HeadView.xib in Resources */,
 				94313D351B7B46C2005D0A9A /* LoginView.xib in Resources */,
+				F0213AA71BA2AC450083AA81 /* you3@3x.png in Resources */,
 				940032CE1B840CC3001EB666 /* ProfessionalCell.xib in Resources */,
 				940032D51B840CC3001EB666 /* EducationWriteCell.xib in Resources */,
 				940032F21B840DCD001EB666 /* JobScreeningCell.xib in Resources */,
+				F0213AAB1BA2AC450083AA81 /* zuo1.png in Resources */,
 				94E2C9E61B8B1120001E3FDD /* professional.xib in Resources */,
 				048F30AA1B7A1577004AA9B2 /* HotSearch.xib in Resources */,
 				94E2C9841B870F29001E3FDD /* CompanyProfile.xib in Resources */,

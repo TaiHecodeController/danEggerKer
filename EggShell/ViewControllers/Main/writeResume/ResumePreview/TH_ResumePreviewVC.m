@@ -4,7 +4,7 @@
 //
 //  Created by 李李贤军 on 15/8/17.
 //  Copyright (c) 2015年 wsd. All rights reserved.
-//
+//  简历预览
 
 #import "TH_ResumePreviewVC.h"
 #import "Basicnformation.h"
@@ -65,7 +65,9 @@
 }
 
 -(void)createView
-{/*基本信息**/
+{
+    
+    /*基本信息**/
     Basicnformation * baseInformation =[Basicnformation setBaseView];
     baseInformation.frame = CGRectMake(0, 42, WIDETH, 158);
     [baseInformation configVulue:self.dataDic[@"info"]];
@@ -75,49 +77,92 @@
     intent.frame = CGRectMake(0, 200, WIDETH, 190);
     [intent configValue:self.dataDic[@"expect"]];
     [self.scro addSubview:intent];
-    /*工作经历**/
-    WorkExperienceView * working = [WorkExperienceView setWorkExperienceView];
-    [working configVulue:self.dataDic[@"work"]];
-    working.workContent.userInteractionEnabled = NO;
-    working.frame = CGRectMake(0, 390, WIDETH, 200);
-    [self.scro  addSubview: working];
-    /*教育经历**/
-    EducationExperienceView * education  = [EducationExperienceView setEducationExperienceView];
-    education.frame = CGRectMake(0, 590, WIDETH, 220);
-    education.departmentIntroduce.userInteractionEnabled = NO;
-    [education configVulue:self.dataDic[@"jy"]];
-    [self.scro addSubview:education];
-    /*专业技能**/
-    professionalSkillView * skill = [professionalSkillView setprofessionalSkillView];
-    [skill conFigValue:self.dataDic[@"skill"]];
-    skill.frame = CGRectMake(0, 810, WIDETH, 135);
-    [self.scro addSubview:skill];
     
+    /*工作经历**/
+    CGFloat y = 390;
+    for (int i = 0; i < ((NSArray *)self.dataDic[@"work"]).count; i++)
+    {
+        CGFloat workingY = y + i * 200;
+        WorkExperienceView * working = [WorkExperienceView setWorkExperienceView];
+        [working configVulue:self.dataDic[@"work"] withArrIndex:i];
+        working.workContent.userInteractionEnabled = NO;
+        working.frame = CGRectMake(0, workingY, WIDETH, 200);
+        [self.scro  addSubview: working];
+    }
+   
+    y = y + 200 *  ((NSArray *)self.dataDic[@"work"]).count;
+    
+    /*教育经历**/
+    for (int i = 0; i < ((NSArray *)self.dataDic[@"jy"]).count; i++)
+    {
+        CGFloat educationY = y + i * 220;
+        EducationExperienceView * education  = [EducationExperienceView setEducationExperienceView];
+        education.frame = CGRectMake(0, educationY, WIDETH, 220);
+        education.departmentIntroduce.userInteractionEnabled = NO;
+        [education configVulue:self.dataDic[@"jy"] withArrIndex:i];
+        [self.scro addSubview:education];
+        
+    }
+    y = y + 220 *  ((NSArray *)self.dataDic[@"jy"]).count;
+    
+    /*专业技能**/
+    for (int i = 0; i < ((NSArray *)self.dataDic[@"skill"]).count; i++)
+    {
+        
+        CGFloat professionalSkillViewY = y + i*135;
+        professionalSkillView * skill = [professionalSkillView setprofessionalSkillView];
+        [skill conFigValue:self.dataDic[@"skill"] withArrIndex:i];
+        skill.frame = CGRectMake(0, professionalSkillViewY, WIDETH, 135);
+        [self.scro addSubview:skill];
+    }
+    y = y + 135 *  ((NSArray *)self.dataDic[@"skill"]).count;
+   
     /*项目经验**/
-    ProjectExperienceView * project =[ProjectExperienceView setProjectExperienceView];
-    project.frame = CGRectMake(0, 810+135, WIDETH, 205);
-    project.proIntroduce.userInteractionEnabled = NO;
-    [project configValue:self.dataDic[@"project"]];
-    [self.scro addSubview:project];
+    for (int i = 0; i < ((NSArray *)self.dataDic[@"project"]).count; i++)
+    {
+        CGFloat projectY = y + i * 205;
+        ProjectExperienceView * project =[ProjectExperienceView setProjectExperienceView];
+        project.frame = CGRectMake(0, projectY, WIDETH, 205);
+        project.proIntroduce.userInteractionEnabled = NO;
+        [project configValue:self.dataDic[@"project"] withArrIndex:i];
+        [self.scro addSubview:project];
+    }
+    y  = y + 205 * ((NSArray *)self.dataDic[@"project"]).count;
+    
     /*证书**/
-    CertificateView * certific = [CertificateView setCertificateView];
-    certific.certificateIntroduce.userInteractionEnabled = NO;
-    [certific configValue:self.dataDic[@"cert"]];
-    certific.frame = CGRectMake(0, 810+135+205, WIDETH, 200);
-    [self.scro addSubview:certific];
+    for (int i = 0; i < ((NSArray *)self.dataDic[@"cert"]).count; i++)
+    {
+        CGFloat certificY = y + i * 200;
+        CertificateView * certific = [CertificateView setCertificateView];
+        certific.certificateIntroduce.userInteractionEnabled = NO;
+        [certific configValue:self.dataDic[@"cert"] withArrIndex:i];
+        certific.frame = CGRectMake(0, certificY, WIDETH, 200);
+        [self.scro addSubview:certific];
+    }
+    y = y + 200 * ((NSArray *)self.dataDic[@"cert"]).count;
+    
     /*培训内容**/
-    trainingExperienceView * train = [trainingExperienceView settrainingExperienceView];
-    train.frame = CGRectMake(0,  810+135+205+200, WIDETH, 200);
-    train.trainIntroduce.userInteractionEnabled = NO;
-    [train configValue:self.dataDic[@"training"]];
-    [self.scro addSubview:train];
+    for (int i = 0; i < ((NSArray *)self.dataDic[@"training"]).count; i ++)
+    {
+        CGFloat trainY = y + i * 200;
+        trainingExperienceView * train = [trainingExperienceView settrainingExperienceView];
+        train.frame = CGRectMake(0,trainY, WIDETH, 200);
+        train.trainIntroduce.userInteractionEnabled = NO;
+        [train configValue:self.dataDic[@"training"] withArrIndex:i];
+        [self.scro addSubview:train];
+    }
+    y = y + ((NSArray *)self.dataDic[@"training"]).count * 200;
+    
     /*自我评价**/
     SelfEvaluationView * selfevaluat =[SelfEvaluationView setSelfEvaluationView];
-    selfevaluat.frame = CGRectMake(0, 810+135+205+200+200, WIDETH, 100);
+//    selfevaluat.frame = CGRectMake(0, 810+135+205+200+200, WIDETH, 100);
+    selfevaluat.frame = CGRectMake(0, y, WIDETH, 100);
     selfevaluat.selfEvaluation.userInteractionEnabled = NO;
     [selfevaluat configValue:self.dataDic[@"other"]];
     [self.scro addSubview:selfevaluat];
-    self.scro.contentSize   = CGSizeMake(WIDETH, 810+135+205+200+200+100);
+    
+//    self.scro.contentSize   = CGSizeMake(WIDETH, 810+135+205+200+200+100);
+    self.scro.contentSize   = CGSizeMake(WIDETH, y + 100);
     
 }
 
