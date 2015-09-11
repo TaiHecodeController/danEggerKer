@@ -72,7 +72,7 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="蛋壳儿" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ov-my-GRS">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="蛋壳儿" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ov-my-GRS">
                             <rect key="frame" x="80" y="61" width="150" height="13"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -85,23 +85,23 @@
                                 <constraint firstAttribute="height" constant="0.5" id="joB-wT-mUt"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NN4-Sk-ZQM">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NN4-Sk-ZQM">
                             <rect key="frame" x="15" y="88.5" width="305" height="0.5"/>
                             <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="0.5" id="c1S-Pc-HhO"/>
+                                <constraint firstAttribute="height" constant="0.5" id="E9r-ny-1wK"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="89" id="AB6-oL-jfd"/>
-                        <constraint firstAttribute="trailing" secondItem="NN4-Sk-ZQM" secondAttribute="trailing" id="Hju-Mp-gdj"/>
+                        <constraint firstAttribute="trailing" secondItem="NN4-Sk-ZQM" secondAttribute="trailing" id="goG-mj-iUr"/>
                         <constraint firstItem="FSs-9j-CvI" firstAttribute="top" secondItem="zDr-Do-t0H" secondAttribute="top" constant="0.5" id="he4-fH-Pu2"/>
+                        <constraint firstAttribute="bottom" secondItem="NN4-Sk-ZQM" secondAttribute="bottom" id="jVI-2k-PQ4"/>
                         <constraint firstAttribute="trailing" secondItem="FSs-9j-CvI" secondAttribute="trailing" id="kMy-3X-Qwq"/>
-                        <constraint firstItem="NN4-Sk-ZQM" firstAttribute="leading" secondItem="zDr-Do-t0H" secondAttribute="leading" constant="15" id="rZV-mM-WTD"/>
+                        <constraint firstItem="NN4-Sk-ZQM" firstAttribute="leading" secondItem="zDr-Do-t0H" secondAttribute="leading" constant="15" id="krk-YE-rsu"/>
                         <constraint firstItem="FSs-9j-CvI" firstAttribute="leading" secondItem="zDr-Do-t0H" secondAttribute="leading" constant="15" id="u12-wL-kfy"/>
-                        <constraint firstItem="NN4-Sk-ZQM" firstAttribute="top" secondItem="4ov-my-GRS" secondAttribute="bottom" constant="14.5" id="zIk-VZ-L1F"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jqu-ih-kVA">
