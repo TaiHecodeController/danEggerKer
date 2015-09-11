@@ -79,9 +79,12 @@
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ow6-PK-FVS">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ow6-PK-FVS">
                             <rect key="frame" x="15" y="152.5" width="320" height="0.5"/>
                             <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="Q8Q-NB-K4t"/>
+                            </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="010-5383938998" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIT-I1-C0d">
                             <rect key="frame" x="90" y="84" width="230" height="13"/>
@@ -92,7 +95,10 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="Ow6-PK-FVS" firstAttribute="leading" secondItem="iBA-x6-vZo" secondAttribute="leading" constant="15" id="7Xd-7F-R3o"/>
                         <constraint firstAttribute="height" constant="153" id="UEa-i6-NK0"/>
+                        <constraint firstAttribute="trailing" secondItem="Ow6-PK-FVS" secondAttribute="trailing" constant="-15" id="mSR-Yc-m3e"/>
+                        <constraint firstAttribute="bottom" secondItem="Ow6-PK-FVS" secondAttribute="bottom" id="maB-3l-HCG"/>
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koX-2M-YR8">
