@@ -350,13 +350,17 @@
     {
 //        OpenClassModel *model = self.dataArray[indexPath.rowIndex][indexPath.columnIndex];
         
-        [cell.coverView sd_setImageWithURL:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"vimage"] placeholderImage:[UIImage imageNamed:@"remen"]];
-        cell.nameLab.text = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"];
-        [cell.redXinBtn setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
-        [cell.redXinBtn setTitle:[NSString stringWithFormat:@"%@",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_obvious"]] forState:UIControlStateNormal];
-        [cell.priceBtn setImage:[UIImage imageNamed:@"qian"] forState:UIControlStateNormal];
-        [cell.priceBtn setTitle:[NSString stringWithFormat:@"%@元",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"status"]] forState:UIControlStateNormal];
-        cell.companyLab.text =self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_name"];
+        if (self.dataArray.count > 0)
+        {
+            [cell.coverView sd_setImageWithURL:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"vimage"] placeholderImage:[UIImage imageNamed:@"remen"]];
+            cell.nameLab.text = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"];
+            [cell.redXinBtn setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
+            [cell.redXinBtn setTitle:[NSString stringWithFormat:@"%@",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_obvious"]] forState:UIControlStateNormal];
+            [cell.priceBtn setImage:[UIImage imageNamed:@"qian"] forState:UIControlStateNormal];
+            [cell.priceBtn setTitle:[NSString stringWithFormat:@"%@元",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"status"]] forState:UIControlStateNormal];
+            cell.companyLab.text =self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_name"];
+        }
+        
     }
     else
     {
