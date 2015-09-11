@@ -200,6 +200,9 @@
 		94E761B31BA27DBF00B4C544 /* TrainReadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761B21BA27DBF00B4C544 /* TrainReadVC.m */; };
 		94E761B61BA27DEB00B4C544 /* TrainReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761B51BA27DEB00B4C544 /* TrainReadView.m */; };
 		94E761B81BA27E0400B4C544 /* trainRead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E761B71BA27E0400B4C544 /* trainRead.xib */; };
+		94E761BD1BA2AC5800B4C544 /* ProjectExperienceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761BC1BA2AC5800B4C544 /* ProjectExperienceVC.m */; };
+		94E761C01BA2AC7300B4C544 /* ProjectExperienceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761BF1BA2AC7300B4C544 /* ProjectExperienceView.m */; };
+		94E761C21BA2AC8A00B4C544 /* ProjectExperience.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E761C11BA2AC8A00B4C544 /* ProjectExperience.xib */; };
 		94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF11B841D510093C39B /* CourePlayTitle.m */; };
 		94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E7DCF21B841D510093C39B /* CourePlaytitle.xib */; };
 		94E7DCFA1B841D510093C39B /* Course PlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF41B841D510093C39B /* Course PlayCell.m */; };
@@ -612,6 +615,11 @@
 		94E761B41BA27DEB00B4C544 /* TrainReadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainReadView.h; sourceTree = "<group>"; };
 		94E761B51BA27DEB00B4C544 /* TrainReadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainReadView.m; sourceTree = "<group>"; };
 		94E761B71BA27E0400B4C544 /* trainRead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = trainRead.xib; sourceTree = "<group>"; };
+		94E761BB1BA2AC5800B4C544 /* ProjectExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectExperienceVC.h; sourceTree = "<group>"; };
+		94E761BC1BA2AC5800B4C544 /* ProjectExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectExperienceVC.m; sourceTree = "<group>"; };
+		94E761BE1BA2AC7300B4C544 /* ProjectExperienceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectExperienceView.h; sourceTree = "<group>"; };
+		94E761BF1BA2AC7300B4C544 /* ProjectExperienceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectExperienceView.m; sourceTree = "<group>"; };
+		94E761C11BA2AC8A00B4C544 /* ProjectExperience.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectExperience.xib; sourceTree = "<group>"; };
 		94E7DCF01B841D510093C39B /* CourePlayTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourePlayTitle.h; sourceTree = "<group>"; };
 		94E7DCF11B841D510093C39B /* CourePlayTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourePlayTitle.m; sourceTree = "<group>"; };
 		94E7DCF21B841D510093C39B /* CourePlaytitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourePlaytitle.xib; sourceTree = "<group>"; };
@@ -1217,6 +1225,7 @@
 		940032AB1B840CC3001EB666 /* ProfessionalSkill */ = {
 			isa = PBXGroup;
 			children = (
+				94E761B91BA2A7D500B4C544 /* ProfessionSkillRead */,
 				940032AC1B840CC3001EB666 /* SubView */,
 				940032B01B840CC3001EB666 /* TH_ProfessionalSkillVC.h */,
 				940032B11B840CC3001EB666 /* TH_ProfessionalSkillVC.m */,
@@ -1237,6 +1246,7 @@
 		940032B21B840CC3001EB666 /* ProjectExperience */ = {
 			isa = PBXGroup;
 			children = (
+				94E761BA1BA2AB5800B4C544 /* ProjectExpRead */,
 				940032B31B840CC3001EB666 /* SubView */,
 				940032B71B840CC3001EB666 /* TH_ProjectExperienceVC.h */,
 				940032B81B840CC3001EB666 /* TH_ProjectExperienceVC.m */,
@@ -1908,6 +1918,25 @@
 			path = ../SelfEvaluation/trainReading;
 			sourceTree = "<group>";
 		};
+		94E761B91BA2A7D500B4C544 /* ProfessionSkillRead */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProfessionSkillRead;
+			sourceTree = "<group>";
+		};
+		94E761BA1BA2AB5800B4C544 /* ProjectExpRead */ = {
+			isa = PBXGroup;
+			children = (
+				94E761BB1BA2AC5800B4C544 /* ProjectExperienceVC.h */,
+				94E761BE1BA2AC7300B4C544 /* ProjectExperienceView.h */,
+				94E761BF1BA2AC7300B4C544 /* ProjectExperienceView.m */,
+				94E761C11BA2AC8A00B4C544 /* ProjectExperience.xib */,
+				94E761BC1BA2AC5800B4C544 /* ProjectExperienceVC.m */,
+			);
+			path = ProjectExpRead;
+			sourceTree = "<group>";
+		};
 		94E7DCEE1B841D510093C39B /* CoursePlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -2268,6 +2297,7 @@
 				940EDEE51B96E38B00376D37 /* WorkExReading.xib in Resources */,
 				94313DBF1B7CAAED005D0A9A /* infDestDetailView.xib in Resources */,
 				94E2C9861B870F29001E3FDD /* JobDescription.xib in Resources */,
+				94E761C21BA2AC8A00B4C544 /* ProjectExperience.xib in Resources */,
 				94E2C9EC1B8B1A5E001E3FDD /* train.xib in Resources */,
 				041650EB1B4D7C4E008C78BE /* MJRefresh.bundle in Resources */,
 				940032951B83969B001EB666 /* HomeViews.xib in Resources */,
@@ -2343,6 +2373,7 @@
 				94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */,
 				04A483D71B751E77006FDB9D /* Utils.m in Sources */,
 				94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */,
+				94E761BD1BA2AC5800B4C544 /* ProjectExperienceVC.m in Sources */,
 				943F41801B9A8766000FC299 /* informantionModel.m in Sources */,
 				94CB5B8B1B74CC0600B23B9D /* SMPageControl.m in Sources */,
 				94EFC1C11B7D046F00833068 /* TH_featureVC.m in Sources */,
@@ -2499,6 +2530,7 @@
 				94CB5B871B74CC0600B23B9D /* SGFocusImageFrame.m in Sources */,
 				041650EF1B4D7C4E008C78BE /* MJRefreshHeaderView.m in Sources */,
 				9400329F1B840B47001EB666 /* TH_ResumePreviewVC.m in Sources */,
+				94E761C01BA2AC7300B4C544 /* ProjectExperienceView.m in Sources */,
 				94313DBE1B7CAAED005D0A9A /* infDestDetailView.m in Sources */,
 				04A483B41B74FD1B006FDB9D /* TH_MainTabBarController.m in Sources */,
 				F0D7C0611B79EB3300836DD2 /* OpenClassVideoListRequest.m in Sources */,

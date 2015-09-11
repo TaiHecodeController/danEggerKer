@@ -184,7 +184,6 @@
         [self.navigationController pushViewController:train animated:YES];
         
     } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
-
 }
 /*重置**/
 -(void)replaceBtnClick

@@ -24,6 +24,7 @@
     TrainReadView * traiView     = [TrainReadView settrinView];
     traiView.frame = CGRectMake(0, 0, WIDETH, 300);
     [traiView configValue:self.model];
+    traiView.trainingContentLable.userInteractionEnabled = NO;
     [self.view addSubview:traiView];
     /*继续添加**/
     UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 300, 150, 30)];
