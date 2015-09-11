@@ -152,7 +152,7 @@
     _apllyBtn.frame = CGRectMake(applyX, 50, applyBtnW, applyBtnH);
     [_apllyBtn setTitle:@"申请职位" forState:UIControlStateNormal];
     [_apllyBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_apllyBtn addTarget:self action:@selector(apllyBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [_apllyBtn addTarget:self action:@selector(apllyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     _apllyBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     _apllyBtn.backgroundColor = color(63, 172, 241);
     _apllyBtn.clipsToBounds = YES;
@@ -172,6 +172,7 @@
     _removeBtn.clipsToBounds = YES;
     _removeBtn.layer.cornerRadius = 5;
     [_bottomView addSubview:_removeBtn];
+    
     
     _allSelected = [[UIButton alloc]init];
     CGFloat allSelectedW =  90;
@@ -304,9 +305,8 @@
 
 - (void)setValueForJilu:(int)num
 {
-    _numLab.text = [NSString stringWithFormat:@"%d条记录",num];;
+    _numLab.text = [NSString stringWithFormat:@"%d条记录",num];
 }
-
 
 #pragma mark tabViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -383,7 +383,6 @@
     }
     else
     {
-        
         findJobModel *fjModel = _jobArr[indexPath.row];
         TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
         record_index = indexPath;
@@ -399,9 +398,7 @@
 {
     if( refreshView == _header ){
         _page = 1;
-
         [_jobArr removeAllObjects];
-        
         [self loadData:refreshView page:_page];
     }
     else{
@@ -421,7 +418,8 @@
     {
         sender.selected = YES;
         //选中所有
-        for (int i = 0; i<_jobArr.count; i++) {
+        for (int i = 0; i<_jobArr.count; i++)
+        {
             saveListModel *slModel = _jobArr[i];
             slModel.cellselected = @"1";
             [_cellIndeSet addIndex:i];
@@ -443,48 +441,60 @@
     }
 }
 
-- (void)apllyBtnClick
+- (void)apllyBtnClick:(UIButton *)sender
 {
     THLog(@"职位申请被点击");
     
-    _mailingNumBer = 0;
-    //遍历哪个职位被选中
-    NSMutableString *job_idStr = [[NSMutableString alloc]init];
-    for (saveListModel *model in self.jobArr)
+    if (sender.selected == NO)
     {
-        if ([model.cellselected isEqualToString: @"1"])
+        _mailingNumBer = 0;
+        //遍历哪个职位被选中
+        NSMutableString *job_idStr = [[NSMutableString alloc]init];
+        for (saveListModel *model in self.jobArr)
         {
-            _mailingNumBer++;
-            [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.id]];
+            if ([model.cellselected isEqualToString: @"1"])
+            {
+                _mailingNumBer++;
+                [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.id]];
+                
+            }
             
         }
+        NSLog(@"job_idStr%@",job_idStr);
+        
+        [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
+            
+            //返回的是投递成功的数量
+            NSLog(@"%@",DataArr);
+            _TDSuccNum = [DataArr intValue];
+            
+            [self addCoverView];
+            
+            [self addAlertView];
+            
+        } withfail:^(int errCode, NSError *err) {
+            
+            NSLog(@"%d",errCode);
+            
+            //errCode = 2, 全部都投递过了
+            
+            //投递成功的职位为0
+            _TDSuccNum = 0;
+            [self addCoverView];
+            [self addAlertView];
+            
+            
+        } withUid:6 job_id:job_idStr resp:[NSObject class]];
         
     }
-    NSLog(@"job_idStr%@",job_idStr);
+    else
+    {
+        [MBProgressHUD creatembHub:@"操作频率过高"];
+    }
     
-    [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
-        
-        //返回的是投递成功的数量
-        NSLog(@"%@",DataArr);
-        _TDSuccNum = [DataArr intValue];
-        
-        [self addCoverView];
-        
-        [self addAlertView];
-        
-    } withfail:^(int errCode, NSError *err) {
-        
-        NSLog(@"%d",errCode);
-        
-        //errCode = 2, 全部都投递过了
-        
-        //投递成功的职位为0
-        _TDSuccNum = 0;
-        [self addCoverView];
-        [self addAlertView];
-        
-        
-    } withUid:6 job_id:job_idStr resp:[NSObject class]];
+    sender.selected = !sender.selected;
+    
+    
 }
 
 - (void)removeBtnClick

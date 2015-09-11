@@ -481,7 +481,6 @@
         NSString * dateStr = model.lastupdate;
         cell.timeLab.text = [dateStr substringFromIndex:5];
        
-
         cell.salaryLab.text = model.salary;
         cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
         [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];

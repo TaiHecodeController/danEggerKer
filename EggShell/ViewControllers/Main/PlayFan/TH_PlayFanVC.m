@@ -59,7 +59,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
     
-    self.page = 0;
+//    self.page = 0;
     self.limitNum = 10;
     self.title = @"玩出范";
     [self createView];
@@ -109,7 +109,7 @@
      [self.dataArray removeAllObjects];
         _currentIndex = 1;
         NSLog(@"蛋壳儿送福利");
-      _page = 1;
+        _page = 1;
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:_page pageTye:1];
         [self.tableView reloadData];
@@ -146,6 +146,7 @@
     if (!InforCell) {
         InforCell = [[[NSBundle mainBundle] loadNibNamed:@"InformationDeskCell" owner:self options:nil] lastObject];
     }
+    
     if(self.dataArray.count >0)
     {
     informantionModel * model = self.dataArray[indexPath.row];
@@ -205,7 +206,6 @@
     }
     else{
         self.page++;
-        
         THLog(@"上拉加载更多");
         if (_currentIndex == 0)
         {
