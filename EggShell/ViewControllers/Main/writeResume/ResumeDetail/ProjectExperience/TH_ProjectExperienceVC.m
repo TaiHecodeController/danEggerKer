@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "EducationTimeCell.h"
 #import "ResumeModel.h"
+#import "ProjectExperienceVC.h"
 @interface TH_ProjectExperienceVC ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,UITextFieldDelegate>
 {
     WriteRusumeModel2 * _model;
@@ -21,6 +22,7 @@
 @property (strong,nonatomic)UILabel * nameLab;
 @property (strong,nonatomic)UITextView * contentTextField;
 @property(nonatomic,strong)UIScrollView * scro;
+@property(nonatomic,strong)UILabel * placeHoderTextLable;
 @property(nonatomic,strong)UITableView * tableView;
 @property(strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
@@ -99,11 +101,17 @@
     self.contentTextField.font = [UIFont systemFontOfSize:13];
     
     self.contentTextField.textAlignment = NSTextAlignmentNatural;
-    self.contentTextField.textColor = color(203, 203, 203);
-    self.contentTextField.text = @"请填写项目内容";
+    self.contentTextField.textColor = [UIColor blackColor];
+   
     self.contentTextField.delegate = self;
     [bgView addSubview:self.contentTextField];
-
+    /*显示隐藏内容**/
+    UILabel * placeHoderTextLable =[[UILabel alloc] initWithFrame:CGRectMake(10, 10, WIDETH - 121, 30)];
+    placeHoderTextLable.text = @"请填写培训内容";
+    placeHoderTextLable.textColor = color(203, 203, 203);
+    self.placeHoderTextLable = placeHoderTextLable;
+    [self.contentTextField addSubview:placeHoderTextLable];
+    self.placeHoderTextLable.font = [UIFont systemFontOfSize:13];
     
     /*按钮选项**/
     UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 365, (WIDETH-150-18)/2.0, 30) ImageName:@"hongniu2" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
@@ -185,7 +193,10 @@
     
     [[WriteResumeRequest uploadProjectExperienceWithSucc:^(NSDictionary *dataDic) {
         [MBProgressHUD creatembHub:@"创建成功"];
-        [self.navigationController popViewControllerAnimated:YES];
+//        [self.navigationController popViewControllerAnimated:YES];
+        ProjectExperienceVC * projects = [[ProjectExperienceVC alloc] init];
+            projects.model = _model;
+        [self.navigationController pushViewController:projects animated:YES];
     } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"sys":_model.projectPath,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
     
 
@@ -258,6 +269,7 @@
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
+    [self.placeHoderTextLable removeFromSuperview];
     if(HEIGHT == 480)
     {
         self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);

@@ -14,5 +14,6 @@
 @property (strong,nonatomic)MJRefreshHeaderView * header;
 @property (strong,nonatomic)MJRefreshFooterView * footer;
 @property(nonatomic,copy) NSString *  businessUid;
-@property(nonatomic,copy)  NSString * businessMid;;
+@property(nonatomic,copy)  NSString * businessMid;
+@property(assign)CGSize textSize;
 @end

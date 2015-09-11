@@ -127,11 +127,14 @@
     natureLab.text = [NSString stringWithFormat:@"%@",dic[@"name"]];
      scaleLab.text = [NSString stringWithFormat:@"%@",dic[@"gm"]];
     addressLab.text = [NSString stringWithFormat:@"%@",dic[@"address"]];
+    
     //公司简介
 //    NSString *comHtmlString = [CommonFunc textFromBase64String:dic[@"content"]];
     NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[dic[@"content"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     self.companyMessage.attributedText = comAttributedString;
+    self.textSize = [self.companyMessage.text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
     
+
 //    self.companyMessage.text = [NSString stringWithFormat:@"%@",dic[@"content"]];
 //    @"性质：中外合资";
 //    @"行业：计算机软件，IT服务，系统集成";

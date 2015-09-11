@@ -13,6 +13,7 @@
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
 #import "ResumeModel.h"
+#import "TrainReadVC.h"
 @interface TH_TrainExperienceVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UITextViewDelegate>
 {
     WriteRusumeModel2 * _model;
@@ -21,6 +22,7 @@
 
 @property(nonatomic,strong)UITableView * tableView ;
 @property (strong,nonatomic)UILabel * nameLab;
+@property(nonatomic,strong)UILabel * placeHoderTextLable;
 @property (strong,nonatomic)UITextView * contentTextField;
 @property(nonatomic,strong)UIScrollView * scro;
 @property(strong,nonatomic)NSArray * nameArray;
@@ -51,7 +53,7 @@
 
 -(void)setData
 {
-    self.nameArray = @[@"培训中心",@"培训中心",@"培训时间"];
+    self.nameArray = @[@"培训中心",@"",@"培训方向"];
     self.holderArray = @[@"请填培训中心",@"",@"请填写培训方向"];
 }
 -(void)createScro
@@ -98,11 +100,16 @@
     self.contentTextField.font = [UIFont systemFontOfSize:13];
     
     self.contentTextField.textAlignment = NSTextAlignmentNatural;
-    self.contentTextField.textColor = color(203, 203, 203);
-    self.contentTextField.text = @"请填写培训内容";
-    self.contentTextField.delegate = self;
+    self.contentTextField.textColor = [UIColor blackColor];
+       self.contentTextField.delegate = self;
     [bgView addSubview:self.contentTextField];
-    
+    /*显示隐藏内容**/
+    UILabel * placeHoderTextLable =[[UILabel alloc] initWithFrame:CGRectMake(10, 10, WIDETH - 121, 30)];
+    placeHoderTextLable.text = @"请填写培训内容";
+    placeHoderTextLable.textColor = color(203, 203, 203);
+    self.placeHoderTextLable = placeHoderTextLable;
+    [self.contentTextField addSubview:placeHoderTextLable];
+    self.placeHoderTextLable.font = [UIFont systemFontOfSize:13];
     //下方按钮
     UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 326, (WIDETH-150-18)/2.0, 30) ImageName:@"hongniu2" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
     
@@ -115,8 +122,6 @@
     [replaceBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
     [self.scro addSubview:replaceBtn];
-    
-    
 }
 /*保存**/
 -(void)saveBtnClick
@@ -173,9 +178,12 @@
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
     [[WriteResumeRequest uploadTrainWithSucc:^(NSDictionary *dataDic) {
         [MBProgressHUD creatembHub:@"保存成功"];
-        [self.navigationController popViewControllerAnimated:YES];
+//        [self.navigationController popViewControllerAnimated:YES];
+        TrainReadVC * train = [[TrainReadVC alloc] init];
+        train.model = _model;
+        [self.navigationController pushViewController:train animated:YES];
+        
     } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
-
 }
 /*重置**/
 -(void)replaceBtnClick
@@ -237,8 +245,11 @@
         return cell;
     }
 }
+
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    [self.placeHoderTextLable removeFromSuperview];
     
         if(HEIGHT == 480)
         {
@@ -254,6 +265,7 @@
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
+    [self.placeHoderTextLable removeFromSuperview];
     if(HEIGHT == 480)
     {
         self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);

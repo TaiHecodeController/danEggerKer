@@ -197,6 +197,13 @@
 		94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EA991B8EB758007A699E /* Reachability.m */; };
 		94E3EAE01B918CBE007A699E /* AccountRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EADF1B918CBE007A699E /* AccountRequest.m */; };
 		94E3EAE71B954947007A699E /* findJobModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EAE61B954947007A699E /* findJobModel.m */; };
+		94E761B31BA27DBF00B4C544 /* TrainReadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761B21BA27DBF00B4C544 /* TrainReadVC.m */; };
+		94E761B61BA27DEB00B4C544 /* TrainReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761B51BA27DEB00B4C544 /* TrainReadView.m */; };
+		94E761B81BA27E0400B4C544 /* trainRead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E761B71BA27E0400B4C544 /* trainRead.xib */; };
+		94E761BD1BA2AC5800B4C544 /* ProjectExperienceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761BC1BA2AC5800B4C544 /* ProjectExperienceVC.m */; };
+		94E761C21BA2AC8A00B4C544 /* ProjectExperience.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E761C11BA2AC8A00B4C544 /* ProjectExperience.xib */; };
+		94E761C51BA2B0F800B4C544 /* ProjectExpReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761C41BA2B0F800B4C544 /* ProjectExpReadView.m */; };
+		94E761C91BA2B7F300B4C544 /* CertificateReadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761C81BA2B7F300B4C544 /* CertificateReadVC.m */; };
 		94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF11B841D510093C39B /* CourePlayTitle.m */; };
 		94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E7DCF21B841D510093C39B /* CourePlaytitle.xib */; };
 		94E7DCFA1B841D510093C39B /* Course PlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7DCF41B841D510093C39B /* Course PlayCell.m */; };
@@ -613,6 +620,18 @@
 		94E3EADF1B918CBE007A699E /* AccountRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRequest.m; sourceTree = "<group>"; };
 		94E3EAE51B954947007A699E /* findJobModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findJobModel.h; sourceTree = "<group>"; };
 		94E3EAE61B954947007A699E /* findJobModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = findJobModel.m; sourceTree = "<group>"; };
+		94E761B11BA27DBF00B4C544 /* TrainReadVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainReadVC.h; sourceTree = "<group>"; };
+		94E761B21BA27DBF00B4C544 /* TrainReadVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainReadVC.m; sourceTree = "<group>"; };
+		94E761B41BA27DEB00B4C544 /* TrainReadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainReadView.h; sourceTree = "<group>"; };
+		94E761B51BA27DEB00B4C544 /* TrainReadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainReadView.m; sourceTree = "<group>"; };
+		94E761B71BA27E0400B4C544 /* trainRead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = trainRead.xib; sourceTree = "<group>"; };
+		94E761BB1BA2AC5800B4C544 /* ProjectExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectExperienceVC.h; sourceTree = "<group>"; };
+		94E761BC1BA2AC5800B4C544 /* ProjectExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectExperienceVC.m; sourceTree = "<group>"; };
+		94E761C11BA2AC8A00B4C544 /* ProjectExperience.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectExperience.xib; sourceTree = "<group>"; };
+		94E761C31BA2B0F800B4C544 /* ProjectExpReadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectExpReadView.h; sourceTree = "<group>"; };
+		94E761C41BA2B0F800B4C544 /* ProjectExpReadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectExpReadView.m; sourceTree = "<group>"; };
+		94E761C71BA2B7F300B4C544 /* CertificateReadVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertificateReadVC.h; sourceTree = "<group>"; };
+		94E761C81BA2B7F300B4C544 /* CertificateReadVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertificateReadVC.m; sourceTree = "<group>"; };
 		94E7DCF01B841D510093C39B /* CourePlayTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourePlayTitle.h; sourceTree = "<group>"; };
 		94E7DCF11B841D510093C39B /* CourePlayTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourePlayTitle.m; sourceTree = "<group>"; };
 		94E7DCF21B841D510093C39B /* CourePlaytitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourePlaytitle.xib; sourceTree = "<group>"; };
@@ -1206,6 +1225,7 @@
 		940032A11B840CC3001EB666 /* Certificate */ = {
 			isa = PBXGroup;
 			children = (
+				94E761C61BA2B7D700B4C544 /* CertificateRead */,
 				940032A21B840CC3001EB666 /* TH_CertificateVC.h */,
 				940032A31B840CC3001EB666 /* TH_CertificateVC.m */,
 			);
@@ -1236,6 +1256,7 @@
 		940032AB1B840CC3001EB666 /* ProfessionalSkill */ = {
 			isa = PBXGroup;
 			children = (
+				94E761B91BA2A7D500B4C544 /* ProfessionSkillRead */,
 				940032AC1B840CC3001EB666 /* SubView */,
 				940032B01B840CC3001EB666 /* TH_ProfessionalSkillVC.h */,
 				940032B11B840CC3001EB666 /* TH_ProfessionalSkillVC.m */,
@@ -1256,6 +1277,7 @@
 		940032B21B840CC3001EB666 /* ProjectExperience */ = {
 			isa = PBXGroup;
 			children = (
+				94E761BA1BA2AB5800B4C544 /* ProjectExpRead */,
 				940032B31B840CC3001EB666 /* SubView */,
 				940032B71B840CC3001EB666 /* TH_ProjectExperienceVC.h */,
 				940032B81B840CC3001EB666 /* TH_ProjectExperienceVC.m */,
@@ -1298,6 +1320,7 @@
 		940032C31B840CC3001EB666 /* TrainExperience */ = {
 			isa = PBXGroup;
 			children = (
+				94E761B01BA27D8E00B4C544 /* trainReading */,
 				940032C41B840CC3001EB666 /* TH_TrainExperienceVC.h */,
 				940032C51B840CC3001EB666 /* TH_TrainExperienceVC.m */,
 			);
@@ -1913,6 +1936,47 @@
 			path = FindJobModel;
 			sourceTree = "<group>";
 		};
+		94E761B01BA27D8E00B4C544 /* trainReading */ = {
+			isa = PBXGroup;
+			children = (
+				94E761B11BA27DBF00B4C544 /* TrainReadVC.h */,
+				94E761B21BA27DBF00B4C544 /* TrainReadVC.m */,
+				94E761B41BA27DEB00B4C544 /* TrainReadView.h */,
+				94E761B71BA27E0400B4C544 /* trainRead.xib */,
+				94E761B51BA27DEB00B4C544 /* TrainReadView.m */,
+			);
+			name = trainReading;
+			path = ../SelfEvaluation/trainReading;
+			sourceTree = "<group>";
+		};
+		94E761B91BA2A7D500B4C544 /* ProfessionSkillRead */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProfessionSkillRead;
+			sourceTree = "<group>";
+		};
+		94E761BA1BA2AB5800B4C544 /* ProjectExpRead */ = {
+			isa = PBXGroup;
+			children = (
+				94E761BB1BA2AC5800B4C544 /* ProjectExperienceVC.h */,
+				94E761C11BA2AC8A00B4C544 /* ProjectExperience.xib */,
+				94E761BC1BA2AC5800B4C544 /* ProjectExperienceVC.m */,
+				94E761C31BA2B0F800B4C544 /* ProjectExpReadView.h */,
+				94E761C41BA2B0F800B4C544 /* ProjectExpReadView.m */,
+			);
+			path = ProjectExpRead;
+			sourceTree = "<group>";
+		};
+		94E761C61BA2B7D700B4C544 /* CertificateRead */ = {
+			isa = PBXGroup;
+			children = (
+				94E761C71BA2B7F300B4C544 /* CertificateReadVC.h */,
+				94E761C81BA2B7F300B4C544 /* CertificateReadVC.m */,
+			);
+			path = CertificateRead;
+			sourceTree = "<group>";
+		};
 		94E7DCEE1B841D510093C39B /* CoursePlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -2258,6 +2322,7 @@
 				F0213AA81BA2AC450083AA81 /* zhong2.png in Resources */,
 				941F10171B7B3BCC00719F5B /* JobWishlistCell.xib in Resources */,
 				F0213AAA1BA2AC450083AA81 /* zhong2@3x.png in Resources */,
+				94E761B81BA27E0400B4C544 /* trainRead.xib in Resources */,
 				94CB5B891B74CC0600B23B9D /* LICENSE in Resources */,
 				94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */,
 				94E2C9E21B8B0876001E3FDD /* workExperecie.xib in Resources */,
@@ -2279,6 +2344,7 @@
 				940EDEE51B96E38B00376D37 /* WorkExReading.xib in Resources */,
 				94313DBF1B7CAAED005D0A9A /* infDestDetailView.xib in Resources */,
 				94E2C9861B870F29001E3FDD /* JobDescription.xib in Resources */,
+				94E761C21BA2AC8A00B4C544 /* ProjectExperience.xib in Resources */,
 				94E2C9EC1B8B1A5E001E3FDD /* train.xib in Resources */,
 				041650EB1B4D7C4E008C78BE /* MJRefresh.bundle in Resources */,
 				940032951B83969B001EB666 /* HomeViews.xib in Resources */,
@@ -2356,6 +2422,7 @@
 				94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */,
 				04A483D71B751E77006FDB9D /* Utils.m in Sources */,
 				94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */,
+				94E761BD1BA2AC5800B4C544 /* ProjectExperienceVC.m in Sources */,
 				943F41801B9A8766000FC299 /* informantionModel.m in Sources */,
 				94CB5B8B1B74CC0600B23B9D /* SMPageControl.m in Sources */,
 				94EFC1C11B7D046F00833068 /* TH_featureVC.m in Sources */,
@@ -2458,11 +2525,14 @@
 				94CB5B7F1B74CC0600B23B9D /* MJIvar.m in Sources */,
 				940033011B840FC6001EB666 /* MineVeiw.m in Sources */,
 				94E3EA911B8EB520007A699E /* MMNetWorkType.m in Sources */,
+				94E761C51BA2B0F800B4C544 /* ProjectExpReadView.m in Sources */,
 				F01787AC1B95938A005FF9C4 /* jobDetailModel_Arr3.m in Sources */,
+				94E761B31BA27DBF00B4C544 /* TrainReadVC.m in Sources */,
 				041650ED1B4D7C4E008C78BE /* MJRefreshConst.m in Sources */,
 				F01787A91B9592A0005FF9C4 /* companyInformationModel.m in Sources */,
 				04237D901B66456F00768FAD /* LoginAndRegisterRequest.m in Sources */,
 				0454ACEC1B945F20004A70ED /* ResumeCell.m in Sources */,
+				94E761B61BA27DEB00B4C544 /* TrainReadView.m in Sources */,
 				94313DAF1B7CAAB5005D0A9A /* TH_PlayFanVC.m in Sources */,
 				0416506A1B4D7240008C78BE /* Gson.m in Sources */,
 				9400329B1B840736001EB666 /* VersionUpdateView.m in Sources */,
@@ -2529,6 +2599,7 @@
 				941F10181B7B3BCC00719F5B /* JobWishlistHeadView.m in Sources */,
 				F07F39051B996F65002531CD /* saveListModel.m in Sources */,
 				F05B80071B8ABE2200DC0A1D /* MTGridView.m in Sources */,
+				94E761C91BA2B7F300B4C544 /* CertificateReadVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2650,8 +2721,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2669,7 +2740,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -2680,8 +2751,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2699,7 +2770,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
@@ -2708,7 +2779,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -2721,7 +2792,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Debug;
@@ -2730,8 +2801,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2739,7 +2810,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Release;

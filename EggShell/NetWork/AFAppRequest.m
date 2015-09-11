@@ -122,7 +122,6 @@
 {
     return [self postRequestWithUrl:url param:param succ:succ resp:nil];
 }
-
 +(AFRequestState *)postRequestWithUrl:(NSString *)url param:(NSDictionary *)param succ:(void (^)(id))succ fail:(void (^)(int errCode, NSError * err))fail
 {
     return [self postRequestWithUrl:url param:param succ:succ fail:fail resp:nil];
