@@ -168,8 +168,17 @@
     switch (button) {
         case THMineViewButtonTypeHeadPortraitBtn:
         {    NSLog(@"编辑头像");
+            NSUserDefaults * uid =[NSUserDefaults standardUserDefaults];
+            //    NSString * uidStr = [uid objectForKey:@"uid"];
+            //
+            self.uidStr = [uid objectForKey:@"uid"];
+            if (!self.uidStr) {
+                [MBProgressHUD creatembHub:@"请先登录才能编辑头像"];
+            }else
+            {
             UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选择", nil];
             [actionSheet showInView:self.tableView];
+            }
             break;
         }
         case THMineViewButtonTypeEditInformationBtn:

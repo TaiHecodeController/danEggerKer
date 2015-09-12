@@ -186,7 +186,7 @@
         _model.content = self.contentTextField.text;
     }else
     {
-        [MBProgressHUD creatembHub:@"请输入至少15个字符"];
+        [MBProgressHUD creatembHub:@"请输入至少30个字符"];
         return;
     }
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];

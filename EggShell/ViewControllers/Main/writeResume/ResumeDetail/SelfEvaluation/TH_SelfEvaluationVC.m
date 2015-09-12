@@ -106,7 +106,7 @@
 {
     if(self.contentTextField.text.length<30)
     {
-        [MBProgressHUD creatembHub:@"请输入至少15个字符"];
+        [MBProgressHUD creatembHub:@"请输入至少30个字符"];
         return;
     }else
     {

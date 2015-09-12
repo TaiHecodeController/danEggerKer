@@ -58,7 +58,9 @@
             ManagerResumeModel * model = self.dataArray[0];
             [AppDelegate instance].resumeId = model.rid;
             _resume_model.resumeName = model.name;
+            self.createNewResume.alpha = 0.5;
             [self.ResumeList reloadData];
+            
         }
         
     } WithUserId:[AppDelegate instance].userId resp:[ManagerResumeModel class]] addNotifaction:hub];
@@ -73,7 +75,6 @@
     write.isEdit = NO;
     [self.navigationController pushViewController:write animated:YES];
 }
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 48;
@@ -273,6 +274,11 @@
 
 
 - (IBAction)delete:(id)sender {
+    if (self.dataArray.count == 0)
+    {
+        [MBProgressHUD creatembHub:@"请先创建简历"];
+    }
+    
     for(int i = 0;i < self.dataArray.count;i++)
     {
         ResumeCell * cell = self.cellArray[i];
@@ -287,12 +293,6 @@
         }
         
     }
-    
-    if (self.dataArray.count == 0)
-    {
-        [MBProgressHUD creatembHub:@"请先创建简历"];
-    }
-    
     
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
