@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SelfEvaluationView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="自我评价" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRS-OC-55h">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自我评价" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRS-OC-55h">
                     <rect key="frame" x="15" y="0.0" width="100" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="Gl5-9O-rgM"/>
+                        <constraint firstAttribute="height" constant="12" id="pyR-JK-TVg"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Skb-J9-WhF">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Skb-J9-WhF">
                     <rect key="frame" x="0.0" y="22" width="320" height="0.5"/>
                     <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="O2W-1p-Ukd"/>
+                    </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="暂无" translatesAutoresizingMaskIntoConstraints="NO" id="DfN-zO-g6P">
-                    <rect key="frame" x="15" y="24" width="290" height="71.5"/>
+                    <rect key="frame" x="15" y="24" width="290" height="45"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="71.5" id="VJl-BX-6Fw"/>
+                        <constraint firstAttribute="height" constant="45" id="cIl-va-5kI"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -33,11 +40,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Skb-J9-WhF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GHP-oc-pra"/>
-                <constraint firstAttribute="trailing" secondItem="Skb-J9-WhF" secondAttribute="trailing" id="SlP-K8-4Wy"/>
-                <constraint firstItem="DfN-zO-g6P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="USL-Uy-8Xp"/>
-                <constraint firstAttribute="trailing" secondItem="DfN-zO-g6P" secondAttribute="trailing" constant="15" id="gQu-2M-wrW"/>
-                <constraint firstAttribute="bottom" secondItem="DfN-zO-g6P" secondAttribute="bottom" constant="4.5" id="vPw-EG-ach"/>
+                <constraint firstAttribute="trailing" secondItem="Skb-J9-WhF" secondAttribute="trailing" id="KNx-2f-XPb"/>
+                <constraint firstItem="DfN-zO-g6P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="LnW-dD-xtt"/>
+                <constraint firstItem="TRS-OC-55h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="PML-7F-Jz5"/>
+                <constraint firstAttribute="trailing" secondItem="DfN-zO-g6P" secondAttribute="trailing" constant="15" id="Uog-Tf-58x"/>
+                <constraint firstItem="Skb-J9-WhF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="X4A-p5-UTw"/>
+                <constraint firstItem="DfN-zO-g6P" firstAttribute="top" secondItem="Skb-J9-WhF" secondAttribute="bottom" constant="1.5" id="jl5-y4-lye"/>
+                <constraint firstItem="TRS-OC-55h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="m9a-oB-mTX"/>
+                <constraint firstItem="Skb-J9-WhF" firstAttribute="top" secondItem="TRS-OC-55h" secondAttribute="bottom" constant="10" id="xOX-78-eLQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

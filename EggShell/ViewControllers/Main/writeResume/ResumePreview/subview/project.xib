@@ -8,29 +8,36 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProjectExperienceView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="205"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaP-97-adV">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaP-97-adV">
                     <rect key="frame" x="15" y="0.0" width="100" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="b5E-HV-FCG"/>
+                        <constraint firstAttribute="width" constant="100" id="dsC-eX-kEa"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2gR-Q1-Mzv">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gR-Q1-Mzv">
                     <rect key="frame" x="0.0" y="22" width="320" height="0.5"/>
                     <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="Kff-jq-jd6"/>
+                    </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WO-Mw-ssG">
                     <rect key="frame" x="15" y="32" width="305" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="担任职位（项目环境）" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZZ-t1-8mf">
                     <rect key="frame" x="15" y="54" width="200" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="项目名称：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBx-dr-Gnm">
@@ -42,14 +49,14 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWo-Wf-xgM">
                     <rect key="frame" x="75" y="76" width="200" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="暂无" translatesAutoresizingMaskIntoConstraints="NO" id="Bsf-Ua-fQl">
-                    <rect key="frame" x="15" y="88" width="290" height="109"/>
+                    <rect key="frame" x="15" y="90" width="290" height="45"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="109" id="T1H-Ql-l23"/>
+                        <constraint firstAttribute="height" constant="45" id="ufv-g6-DMd"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -57,11 +64,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="2gR-Q1-Mzv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="20I-Y7-Tlx"/>
-                <constraint firstAttribute="bottom" secondItem="Bsf-Ua-fQl" secondAttribute="bottom" constant="8" id="B9P-xU-eh3"/>
-                <constraint firstItem="Bsf-Ua-fQl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="IW3-Uz-GNZ"/>
-                <constraint firstAttribute="trailing" secondItem="Bsf-Ua-fQl" secondAttribute="trailing" constant="15" id="Lla-30-Yyo"/>
-                <constraint firstAttribute="trailing" secondItem="2gR-Q1-Mzv" secondAttribute="trailing" id="rIF-Dv-odk"/>
+                <constraint firstAttribute="bottom" secondItem="Bsf-Ua-fQl" secondAttribute="bottom" constant="5" id="0y5-7A-xBg"/>
+                <constraint firstItem="AaP-97-adV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="3cq-q7-oYs"/>
+                <constraint firstItem="2gR-Q1-Mzv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EEY-UR-Y08"/>
+                <constraint firstAttribute="trailing" secondItem="Bsf-Ua-fQl" secondAttribute="trailing" constant="15" id="PuP-QW-pk0"/>
+                <constraint firstItem="Bsf-Ua-fQl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="dJF-oV-sJO"/>
+                <constraint firstAttribute="trailing" secondItem="2gR-Q1-Mzv" secondAttribute="trailing" id="iY9-Oh-FfF"/>
+                <constraint firstItem="2gR-Q1-Mzv" firstAttribute="top" secondItem="AaP-97-adV" secondAttribute="bottom" constant="10" id="kLf-kb-ar5"/>
+                <constraint firstItem="AaP-97-adV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="oy8-hd-R4X"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

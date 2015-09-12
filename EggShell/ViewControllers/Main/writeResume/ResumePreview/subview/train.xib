@@ -8,23 +8,30 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="trainingExperienceView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go7-vx-y64">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go7-vx-y64">
                     <rect key="frame" x="15" y="0.0" width="200" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="FqU-qk-gOh"/>
+                        <constraint firstAttribute="width" constant="200" id="gfH-ky-Bn9"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smD-BL-9cL">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smD-BL-9cL">
                     <rect key="frame" x="0.0" y="22" width="320" height="0.5"/>
                     <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="ujB-nW-cuB"/>
+                    </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jh9-i5-ckb">
                     <rect key="frame" x="15" y="32" width="150" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="培训方向：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1c-au-F0J">
@@ -36,7 +43,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfz-Dh-xMD">
                     <rect key="frame" x="75" y="54" width="100" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="培训中心：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13g-l3-g7R">
@@ -48,7 +55,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9L-7Q-cmB">
                     <rect key="frame" x="75" y="76" width="200" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="培训描述：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doW-qC-lJV">
@@ -58,10 +65,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="暂无" translatesAutoresizingMaskIntoConstraints="NO" id="Ll6-VX-T9j">
-                    <rect key="frame" x="15" y="118" width="290" height="74"/>
+                    <rect key="frame" x="15" y="110" width="290" height="45"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="74" id="qdH-Bm-U5f"/>
+                        <constraint firstAttribute="height" constant="45" id="hnk-zb-lpx"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -69,11 +76,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="smD-BL-9cL" secondAttribute="trailing" id="5d2-34-uIu"/>
-                <constraint firstAttribute="trailing" secondItem="Ll6-VX-T9j" secondAttribute="trailing" constant="15" id="JpA-U4-XXt"/>
-                <constraint firstAttribute="bottom" secondItem="Ll6-VX-T9j" secondAttribute="bottom" constant="8" id="Y4E-fW-X3l"/>
-                <constraint firstItem="smD-BL-9cL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Zoj-aR-JMo"/>
-                <constraint firstItem="Ll6-VX-T9j" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="veI-ic-fR4"/>
+                <constraint firstItem="Ll6-VX-T9j" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="1cK-5c-SuS"/>
+                <constraint firstAttribute="trailing" secondItem="smD-BL-9cL" secondAttribute="trailing" id="8lW-g2-LVn"/>
+                <constraint firstItem="smD-BL-9cL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FUp-yO-eiF"/>
+                <constraint firstItem="Go7-vx-y64" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="WJj-84-T84"/>
+                <constraint firstAttribute="bottom" secondItem="Ll6-VX-T9j" secondAttribute="bottom" id="Z3X-nd-sT0"/>
+                <constraint firstItem="smD-BL-9cL" firstAttribute="top" secondItem="Go7-vx-y64" secondAttribute="bottom" constant="10" id="gKg-if-p1A"/>
+                <constraint firstItem="Go7-vx-y64" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="geg-uZ-RsH"/>
+                <constraint firstAttribute="trailing" secondItem="Ll6-VX-T9j" secondAttribute="trailing" constant="15" id="wLr-PQ-L0O"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

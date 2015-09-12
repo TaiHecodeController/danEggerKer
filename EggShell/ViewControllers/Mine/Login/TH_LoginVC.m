@@ -230,7 +230,7 @@
 }
 -(void)loginRequest
 {
-     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+//     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
     [LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text  withSucc:^(NSDictionary * dic) {
         if ([dic[@"code"] integerValue]==0) {
             [MBProgressHUD creatembHub:dic[@"message"]];

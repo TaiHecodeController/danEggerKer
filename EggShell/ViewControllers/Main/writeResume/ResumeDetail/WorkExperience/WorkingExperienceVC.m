@@ -193,7 +193,7 @@
         _model.content = self.contentTextField.text;
     }else
     {
-        [MBProgressHUD creatembHub:@"请输入至少15个字符"];
+        [MBProgressHUD creatembHub:@"请输入至少30个字符"];
         return;
     }
     NSDictionary * param = @{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"department":_model.department,@"title":_model.title,@"content":_model.content};
@@ -291,7 +291,10 @@
     }
     
 }
-
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    [self.contentTextField  resignFirstResponder];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

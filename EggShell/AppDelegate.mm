@@ -34,7 +34,7 @@
     NSNumber *num = [NSNumber numberWithInt:0];
     [df setObject:num forKey:@"citytag"];
     [df synchronize];
-     [self checkVersion];
+//     [self checkVersion];
     //    self.window.rootViewController = [[WriteResumeViewController alloc] init];
     
     //rk——test
@@ -78,51 +78,51 @@
     return YES;
     
 }
-//版本检测
--(void)checkVersion
-{
-    //1.同步请求json数据
-    NSError * error;
-    NSString * urlStr = [NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",APPID];
-    NSURL * url = [NSURL URLWithString:urlStr];
-    NSData * response = [NSURLConnection sendSynchronousRequest:[[NSURLRequest alloc] initWithURL:url] returningResponse:nil error:nil];
-    NSDictionary * appInfoDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error:&error];
-    if(error)
-    {
-        NSLog(@"版本检测数据error,message:%@",error);
-        return;
-    }
-    NSArray * resultsArray = [appInfoDic objectForKeyedSubscript:@"results"];
-    if(!resultsArray.count)
-    {
-        NSLog(@"版本检测数据error,resultsArray==nil");
-        return;
-    }
-    NSDictionary * infoDic = [resultsArray objectAtIndex:0];
-    //2.需要version,trackViewUrl,trackName三个数据
-    NSString * latestVersion = [infoDic objectForKey:@"version"];
-    _trackViewUrl = [infoDic objectForKey:@"trackViewUrl"];//地址trackViewUrl
-    NSString * trackName = [infoDic objectForKey:@"trackName"];
-    
-    //3.获取此应用的版本号
-    //    CFBundleShortVersionString
-    NSDictionary * Local_infoDic = [[NSBundle mainBundle] infoDictionary];
-    NSString * currentVersion = [Local_infoDic objectForKey:@"CFBundleShortVersionString"];
-    
-    self.doubleCurrentVersion = [currentVersion doubleValue];
-    
-    self.doubleUpdateVersion = [latestVersion doubleValue];
-    
-    //两个点的，最后那个是无效的
-    if(!_doubleUpdateVersion > _doubleCurrentVersion)
-    {
-        NSString * titleStr = [NSString stringWithFormat:@"检查更新:%@",trackName];
-        NSString * messageStr = [NSString stringWithFormat:@"发现版本(%@),是否升级?",latestVersion];
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:titleStr message:messageStr delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"升级", nil];
-        [alert show];
-    }
-    
-}
+////版本检测
+//-(void)checkVersion
+//{
+//    //1.同步请求json数据
+//    NSError * error;
+//    NSString * urlStr = [NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",APPID];
+//    NSURL * url = [NSURL URLWithString:urlStr];
+//    NSData * response = [NSURLConnection sendSynchronousRequest:[[NSURLRequest alloc] initWithURL:url] returningResponse:nil error:nil];
+//    NSDictionary * appInfoDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error:&error];
+//    if(error)
+//    {
+//        NSLog(@"版本检测数据error,message:%@",error);
+//        return;
+//    }
+//    NSArray * resultsArray = [appInfoDic objectForKeyedSubscript:@"results"];
+//    if(!resultsArray.count)
+//    {
+//        NSLog(@"版本检测数据error,resultsArray==nil");
+//        return;
+//    }
+//    NSDictionary * infoDic = [resultsArray objectAtIndex:0];
+//    //2.需要version,trackViewUrl,trackName三个数据
+//    NSString * latestVersion = [infoDic objectForKey:@"version"];
+//    _trackViewUrl = [infoDic objectForKey:@"trackViewUrl"];//地址trackViewUrl
+//    NSString * trackName = [infoDic objectForKey:@"trackName"];
+//    
+//    //3.获取此应用的版本号
+//    //    CFBundleShortVersionString
+//    NSDictionary * Local_infoDic = [[NSBundle mainBundle] infoDictionary];
+//    NSString * currentVersion = [Local_infoDic objectForKey:@"CFBundleShortVersionString"];
+//    
+//    self.doubleCurrentVersion = [currentVersion doubleValue];
+//    
+//    self.doubleUpdateVersion = [latestVersion doubleValue];
+//    
+//    //两个点的，最后那个是无效的
+//    if(!_doubleUpdateVersion > _doubleCurrentVersion)
+//    {
+//        NSString * titleStr = [NSString stringWithFormat:@"检查更新:%@",trackName];
+//        NSString * messageStr = [NSString stringWithFormat:@"发现版本(%@),是否升级?",latestVersion];
+//        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:titleStr message:messageStr delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"升级", nil];
+//        [alert show];
+//    }
+//    
+//}
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
