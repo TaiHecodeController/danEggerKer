@@ -75,6 +75,7 @@
     if (!self.businessMid) {
         self.businessMid = @"";
     }
+    
     NSDictionary * dic = @{@"uid":uid,@"mid":self.businessMid,@"page":pageNum};
     
     _state = [[TH_AFRequestState famousEnterprisesDetailWithSucc:^(NSDictionary *arr) {

@@ -103,6 +103,7 @@
 
 - (void)btnClick:(UIButton *)sender
 {
+    
     NSLog(@"%@",sender.titleLabel.text);
     
     if ([sender.titleLabel.text isEqual:@"银行柜员"])
