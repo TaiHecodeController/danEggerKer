@@ -230,7 +230,8 @@
 }
 -(void)loginRequest
 {
-    [LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text withSucc:^(NSDictionary * dic) {
+     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    [LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text  withSucc:^(NSDictionary * dic) {
         if ([dic[@"code"] integerValue]==0) {
             [MBProgressHUD creatembHub:dic[@"message"]];
             NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
@@ -265,9 +266,7 @@
             [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
             }
         }
-    }
-        
-    ];
+    } ];
 }
 -(void)ForgotPasswordClick
 {

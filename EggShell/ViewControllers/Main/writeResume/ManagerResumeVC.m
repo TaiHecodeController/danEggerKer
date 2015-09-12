@@ -14,7 +14,7 @@
 #import "AppDelegate.h"
 #import "ManagerResumeModel.h"
 #import "ResumeModel.h"
-@interface ManagerResumeVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface ManagerResumeVC ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     UIView * _alertView;
     UIView * bgView;
@@ -129,14 +129,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)editClick:(UIButton *)sender {
     
@@ -181,7 +181,7 @@
         else
         {
             return;
-        }        
+        }
     }
 }
 
@@ -252,7 +252,7 @@
     } completion:^(BOOL finished) {
         
         
-
+        
     }];
     
     
@@ -278,12 +278,12 @@
         ResumeCell * cell = self.cellArray[i];
         if(cell.iSSelect.selected)
         {
-            MBProgressHUD * hub = [MBProgressHUD mbHubShow];
-            [[WriteResumeRequest deleteResumeWithSucc:^(NSDictionary *dataDic) {
-                [MBProgressHUD creatembHub:@"删除成功"];
-                [self.dataArray removeObjectAtIndex:i];
-                [self.ResumeList reloadData];
-            } WithResumeParam:@{@"eid":cell.resumeId}] addNotifaction:hub];
+            UIAlertView * aletview = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定删除" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"删除", nil];
+            aletview.delegate = self;
+            [aletview show];
+        }else
+        {
+            [MBProgressHUD creatembHub:@"请选择要删除的简历"];
         }
         
     }
@@ -294,5 +294,25 @@
     }
     
     
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        for(int i = 0;i < self.dataArray.count;i++)
+        {
+            ResumeCell * cell = self.cellArray[i];
+            if(cell.iSSelect.selected)
+            {
+                MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+                [[WriteResumeRequest deleteResumeWithSucc:^(NSDictionary *dataDic) {
+                    [MBProgressHUD creatembHub:@"删除成功"];
+                    [self.dataArray removeObjectAtIndex:i];
+                    [self.ResumeList reloadData];
+                } WithResumeParam:@{@"eid":cell.resumeId}] addNotifaction:hub];
+                
+            }
+        }
+        
+    }
 }
 @end
