@@ -54,10 +54,10 @@
 }
 #pragma mark --继续添加
 -(void)addClick
-{
-    [self.navigationController popViewControllerAnimated:YES];
+{   [self.navigationController popViewControllerAnimated:YES];
 //    WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
-//    [self.navigationController popToViewController:working animated:YES];
+////    [self.navigationController popToViewController:working animated:YES];
+//    [self.navigationController pushViewController:working animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

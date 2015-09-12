@@ -24,7 +24,7 @@
                             <constraint firstAttribute="width" constant="57" id="W9v-sC-z2p"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
@@ -58,7 +58,7 @@
                             <constraint firstAttribute="width" constant="11" id="Kyx-Gd-mPr"/>
                             <constraint firstAttribute="height" constant="6" id="wVb-8N-3bl"/>
                         </constraints>
-                        <state key="normal" image="xiala-拷贝">
+                        <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <variation key="default">
@@ -103,7 +103,4 @@
             <point key="canvasLocation" x="182" y="214"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="xiala-拷贝" width="11" height="6"/>
-    </resources>
 </document>

@@ -51,6 +51,36 @@
     
 
     }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    for(int i = 0;i < self.jobArray.count;i++)
+    {
+        if(i == 1)
+        {
+            EducationTimeCell * cell = self.jobArray[i];
+                        cell.startTime.titleLabel.text = @"";
+             cell.endTime.titleLabel.text  = @"";
+        }else
+        {   EducationWriteCell * cell = self.jobArray[i];
+            if(i == 0)
+            {
+                 cell.educationContentTextFile.text = @"";
+            }
+            if(i == 2)
+            {
+                cell.educationContentTextFile.text = @"";
+            }
+            if(i == 3)
+            {
+                 cell.educationContentTextFile.text = @"";
+            }
+
+        }
+        self.contentTextField.text = @"";
+
+    }
+}
 -(void)keyboardHide:(UITapGestureRecognizer*)tap
 {
     [self.view endEditing:YES];
@@ -183,9 +213,9 @@
 
    
 
-    if(self.contentTextField.text.length < 30)
+    if(self.contentTextField.text.length < 15)
     {
-        [MBProgressHUD creatembHub:@"请输入至少30个字"];
+        [MBProgressHUD creatembHub:@"请输入至少15个字"];
         return;
     }else
     {

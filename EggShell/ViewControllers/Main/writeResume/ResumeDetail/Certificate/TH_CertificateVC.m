@@ -47,7 +47,31 @@
 {
     [self.view endEditing:YES];
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+    for(int i = 0;i < self.jobCellArr.count;i++)
+    {
+        projectTableViewCell * cell = self.jobCellArr[i];
+        
+        
+        if(i == 0)
+        {
+             cell.placehoderTextfield.text = @"";
+        }
+        
+        if(i == 1)
+        {
+             cell.placehoderTextfield.text = @"";
+        }
+        if(i == 2)
+        {
+           cell.placehoderTextfield.text = @"";
+        }
+    }
+self.contentTextField.text = @"";
 
+}
 -(void)setData
 {
     self.nameArray = @[@"证书全称",@"颁发时间",@"颁发单位"];
@@ -151,9 +175,9 @@
         }
     }
     
-    if(self.contentTextField.text.length < 30)
+    if(self.contentTextField.text.length < 15)
     {
-        [MBProgressHUD creatembHub:@"请输入至少30个字符"];
+        [MBProgressHUD creatembHub:@"请输入至少15个字符"];
         return;
     }else
     {

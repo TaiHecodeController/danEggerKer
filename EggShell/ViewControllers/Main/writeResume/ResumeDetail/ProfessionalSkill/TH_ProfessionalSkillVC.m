@@ -46,7 +46,35 @@
 {
     [self.view endEditing:YES];
 }
+-(void)viewWillAppear:(BOOL)animated
+{
 
+    for(int i = 0;i < self.jobCellArr.count;i++)
+    {
+        ProfessionalCell * cell = self.jobCellArr[i];
+        
+        if(i == 0)
+        {
+            cell.profisionTextField.text = @"";
+        }
+        
+        if(i == 1)
+        {
+             cell.cellId = @"";
+        }
+        if(i == 2)
+        {
+            cell.cellId = @"";
+        }
+        if(i == 3)
+        {
+             cell.profisionTextField.text = @"";
+        }
+        
+
+    }
+    
+}
 -(void)setData
 {
     self.nameArray = @[@"技能名称",@"技能类别",@"熟练程度",@"掌握时间"];

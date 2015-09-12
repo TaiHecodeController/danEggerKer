@@ -87,7 +87,7 @@
                             <action selector="todaySelectClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="C0P-pi-cty"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="至今" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIz-3k-WZU">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="至今" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIz-3k-WZU">
                         <rect key="frame" x="289" y="10" width="29" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="29" id="Cgp-oJ-H56"/>

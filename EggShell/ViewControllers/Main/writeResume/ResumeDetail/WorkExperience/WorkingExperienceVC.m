@@ -54,7 +54,38 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-//    [_tableView reloadData];
+    for(int i = 0;i < self.jobArray.count;i++)
+    {
+    if(i == 1)
+        {
+            WorkingTimeCell * cell = self.jobArray[i];
+            cell.StartTime.titleLabel.text = @"";
+         cell.endTime.titleLabel.text = @"";
+
+        
+        }else
+        {
+             WriteResumeCell * cell = self.jobArray[i];
+            if(i == 0)
+            {
+                 cell.contentTextField.text = @"";
+            }
+            if(i == 2)
+            {
+                cell.contentTextField.text = @"";
+            }
+            if(i == 3)
+            {
+                 cell.contentTextField.text = @"";
+            }
+
+        }
+     self.contentTextField.text  = @"";
+        
+
+        
+    }
+    
 }
 -(void)createScro
 {  self.view.backgroundColor = color(243, 243, 241);
@@ -188,12 +219,12 @@
         }
         
     }
-    if(self.contentTextField.text.length > 30)
+    if(self.contentTextField.text.length > 15)
     {
         _model.content = self.contentTextField.text;
     }else
     {
-        [MBProgressHUD creatembHub:@"请输入至少30个字符"];
+        [MBProgressHUD creatembHub:@"请输入至少15个字符"];
         return;
     }
     NSDictionary * param = @{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"department":_model.department,@"title":_model.title,@"content":_model.content};

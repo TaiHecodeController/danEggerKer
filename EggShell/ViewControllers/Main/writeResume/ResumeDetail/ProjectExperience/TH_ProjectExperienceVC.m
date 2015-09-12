@@ -50,7 +50,35 @@
 {
     [self.view endEditing:YES];
 }
+-(void)viewWillAppear:(BOOL)animated
+{for(int i = 0;i < self.jobCellArr.count;i++)
+{
+    if(i == 1)
+    {
+        EducationTimeCell * cell = self.jobCellArr[i];
+        cell.startTime.titleLabel.text = @"";
+        cell.endTime.titleLabel.text = @"";
+    }else
+    {
+        projectTableViewCell * cell = self.jobCellArr[i];
+        
+        if(i == 0)
+        {
+           cell.placehoderTextfield.text = @"";
+        }
+        if(i == 2)
+        {
+             cell.placehoderTextfield.text = @"";
+        }
+        if(i == 3)
+        {
+            cell.placehoderTextfield.text = @"";
+        }
+    }
+    self.contentTextField.text = @"";
 
+}
+}
 -(void)setData
 {
     self.nameArray = @[@"项目名称",@"项目时间",@"项目环境",@"担任职位"];
@@ -181,12 +209,12 @@
 
     }
     
-    if(self.contentTextField.text.length > 30)
+    if(self.contentTextField.text.length > 15)
     {
         _model.content = self.contentTextField.text;
     }else
     {
-        [MBProgressHUD creatembHub:@"请输入至少30个字符"];
+        [MBProgressHUD creatembHub:@"请输入至少15个字符"];
         return;
     }
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];

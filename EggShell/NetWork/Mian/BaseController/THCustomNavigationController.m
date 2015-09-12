@@ -57,9 +57,12 @@
 #pragma mark -返回
 - (void)pop
 {
+    if (self.viewControllers.count >0) {
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"writeresum" object:nil];
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"company" object:nil];
+    }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"videoClose" object:nil];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"writeresum" object:nil];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"company" object:nil];
+    
 
     [self popViewControllerAnimated:YES];
     

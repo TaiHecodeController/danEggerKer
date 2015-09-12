@@ -10,6 +10,7 @@
 #import "ProfessonSkillReadView.h"
 #import "WriteResumeVC2.h"
 #import "ResumeModel.h"
+#import "WorkingExperienceVC.h"
 @interface ProfessonSkillVC ()
 {
     ResumeModel * _resume_model;
@@ -47,7 +48,10 @@
 -(void)addbUttonClick
 {
     
-    [self.navigationController popViewControllerAnimated:YES];
+   [self.navigationController popViewControllerAnimated:YES];
+//    WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
+//    [self.navigationController pushViewController:working animated:YES];
+
 }
 -(void)backToResume
 {

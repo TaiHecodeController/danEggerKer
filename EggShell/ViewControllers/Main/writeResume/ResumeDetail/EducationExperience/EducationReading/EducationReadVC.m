@@ -10,6 +10,7 @@
 #import "EducationReadingView.h"
 #import "WriteResumeVC2.h"
 #import "ResumeModel.h"
+#import "WorkingExperienceVC.h"
 @interface EducationReadVC ()
 {
     ResumeModel * _resume_model;
@@ -48,8 +49,9 @@
 #pragma mark --继续添加
 -(void)addbUttonClick
 {
-    
-    [self.navigationController popViewControllerAnimated:YES];
+   [self.navigationController popViewControllerAnimated:YES];
+//    WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
+//    [self.navigationController pushViewController:working animated:YES];
 }
 -(void)backToResume
 {
