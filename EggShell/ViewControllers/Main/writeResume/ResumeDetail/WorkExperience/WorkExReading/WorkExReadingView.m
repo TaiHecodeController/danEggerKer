@@ -22,5 +22,6 @@
     self.DepartmentLable.text = model.department;
     self.descriptionTextView.text = model.content;
     self.OfficeLable.text = model.position;
+    self.OfficeLable.text = model.title;
 }
 @end

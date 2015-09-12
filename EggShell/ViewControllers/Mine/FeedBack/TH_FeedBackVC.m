@@ -8,6 +8,7 @@
 
 #import "TH_FeedBackVC.h"
 #import "AFAppRequest.h"
+#import "TH_MineVC.h"
 @interface TH_FeedBackVC ()<UITextViewDelegate,UITextFieldDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UILabel * placeHoderLable;
@@ -169,6 +170,8 @@
        [self.dic addEntriesFromDictionary:DataDic];
        self.textView.text = DataDic[@"data"][@"opinion"];
       [MBProgressHUD creatembHub:@"反馈成功"];
+       
+       [self.navigationController popToRootViewControllerAnimated:YES];
    } withSource:2 withOpinion:textView withqq:qqtext withEmail:emailText withfail:^(int errCode, NSError *err) {
        if (errCode == 1013) {
             [MBProgressHUD creatembHub:@"请认真填写意见"];

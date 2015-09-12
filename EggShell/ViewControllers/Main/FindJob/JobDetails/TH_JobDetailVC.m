@@ -154,7 +154,7 @@
     else
     {
        
-        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登陆" delegate:self cancelButtonTitle:@"暂不登陆" otherButtonTitles:@"登陆", nil];
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
         [alertView show];
     }
 
@@ -163,9 +163,8 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1)
-    {
-//        self.navigationController.navigationBarHidden = NO;
-        TH_LoginVC * lvc = [[TH_LoginVC alloc] init];
+    {        TH_LoginVC * lvc = [[TH_LoginVC alloc] init];
+        lvc.findJobDetailApplication = @"findJobDetailApplication";
         [self.navigationController pushViewController:lvc animated:YES];
         
     }
@@ -450,7 +449,7 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
     }
     else
     {
-        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登陆" delegate:self cancelButtonTitle:@"暂不登陆" otherButtonTitles:@"登陆", nil];
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
         [alertView show];
     }
 

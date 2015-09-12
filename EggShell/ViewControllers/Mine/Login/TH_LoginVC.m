@@ -15,6 +15,7 @@
 #import "AccountRequest.h"
 #import "LoginAndRegisterRequest.h"
 #import "TH_MineVC.h"
+#import "TH_JobWishlistVC.h"
 @interface TH_LoginVC ()<UITextFieldDelegate>
 @property (strong,nonatomic)UIButton * loginBtn;
 @property(nonatomic,strong)UITextField * phonetextField;
@@ -244,12 +245,15 @@
             [user synchronize];
             
             if ([self.jobWilstRegist isEqualToString:@"jobWilstRegist"]) {
-                [self.navigationController popViewControllerAnimated:NO];
-                TH_MineVC * mine = [[TH_MineVC alloc] init];
-//                [mine.mineView addSubview:mine.mineView.loginBgview ];
-//                [  mine.mineView addSubview: mine.mineView.userLable ];
-//                [   mine.mineView addSubview: mine.mineView.phoneLable ];
-                [self.navigationController popToViewController:mine animated:YES];
+             [self.navigationController popViewControllerAnimated:YES];
+//               TH_MineVC * mine = [[TH_MineVC alloc] init];
+//             TH_JobWishlistVC * jobList = [[TH_JobWishlistVC alloc] init];
+            }if ([self.findJobApplication isEqualToString:@"findJobApplication"]) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            if ([self.findJobDetailApplication isEqualToString:@"findJobDetailApplication"]) {
+                [self.navigationController popViewControllerAnimated:YES];
+
             }
             else
             {

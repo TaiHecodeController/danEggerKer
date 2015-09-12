@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -22,7 +22,7 @@
                             <constraint firstAttribute="width" constant="57" id="WbH-aN-4AW"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Dk-gW-2gA">
@@ -48,7 +48,7 @@
                             <constraint firstAttribute="height" constant="21" id="zUy-fi-338"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2T-YS-ul9">
@@ -87,10 +87,13 @@
                             <action selector="todaySelectClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="C0P-pi-cty"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="至今" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIz-3k-WZU">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="至今" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIz-3k-WZU">
                         <rect key="frame" x="289" y="10" width="29" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="29" id="Cgp-oJ-H56"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paa-Up-LtI">
@@ -121,10 +124,13 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="oIz-3k-WZU" secondAttribute="bottom" constant="2.5" id="2uj-Df-FaP"/>
                     <constraint firstItem="paa-Up-LtI" firstAttribute="leading" secondItem="c2C-w6-ja4" secondAttribute="trailing" constant="2" id="58u-13-yv6"/>
                     <constraint firstItem="6Dk-gW-2gA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="6dl-ow-Stw"/>
+                    <constraint firstItem="oIz-3k-WZU" firstAttribute="leading" secondItem="G2Y-sz-V02" secondAttribute="trailing" constant="3" id="9ZV-TY-dbY"/>
                     <constraint firstItem="c2T-YS-ul9" firstAttribute="leading" secondItem="Aof-v0-nm2" secondAttribute="trailing" constant="1" id="BMG-FC-4Q3"/>
                     <constraint firstItem="c2C-w6-ja4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="Cpt-te-XCy"/>
+                    <constraint firstItem="oIz-3k-WZU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="MNa-JJ-Wf3"/>
                     <constraint firstItem="kJl-EW-NNN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="Qib-Vr-FCl"/>
                     <constraint firstItem="Aof-v0-nm2" firstAttribute="leading" secondItem="Ceu-jI-r6w" secondAttribute="trailing" constant="5" id="RJ3-g5-dI4"/>
                     <constraint firstItem="TFS-rS-QDa" firstAttribute="leading" secondItem="6Dk-gW-2gA" secondAttribute="trailing" constant="5" id="S8d-gP-bjb"/>
@@ -145,7 +151,7 @@
                 <outlet property="endTime" destination="c2C-w6-ja4" id="4qG-9e-jc1"/>
                 <outlet property="todaySelect" destination="G2Y-sz-V02" id="QVx-jp-OdG"/>
             </connections>
-            <point key="canvasLocation" x="241" y="244"/>
+            <point key="canvasLocation" x="114" y="66"/>
         </tableViewCell>
     </objects>
     <resources>

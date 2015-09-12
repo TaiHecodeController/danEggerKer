@@ -47,7 +47,9 @@
 { infDestDetailView * detail = [[[NSBundle mainBundle] loadNibNamed:@"infDestDetailView" owner:self options:nil] lastObject];
    
     detail.frame = CGRectMake(0, 0, WIDETH, HEIGHT);
-    detail.contentLable.userInteractionEnabled = NO;
+    
+    detail.RouteLable.editable = NO;
+    detail.contentLable.scrollEnabled = YES;
     if (self.detaildic) {
         [detail setValues:self.detaildic];
     }if (self.informodel) {

@@ -10,16 +10,16 @@
 #import "Gson.h"
 @interface informantionModel : NSObject<Expose>
 @property(nonatomic,copy)NSString * address;
-@property(nonatomic,copy)NSString * content;
+@property(nonatomic,copy)NSString * body;
 @property(nonatomic,copy)NSString * ctime;
 @property(nonatomic,copy)NSString * endtime;
 @property(nonatomic,copy)NSString * id;
 @property(nonatomic,copy)NSString * logo;
 @property(nonatomic,copy)NSString * organizers;
 @property(nonatomic,copy)NSString * starttime;
-@property(nonatomic,copy)NSString * telphone;
+@property(nonatomic,copy)NSString * phone;
 @property(nonatomic,copy)NSString * title;
-@property(nonatomic,copy)NSString * traffic_route;
+@property(nonatomic,copy)NSString * traffic;
 @property(nonatomic,copy)NSString * user;
 
 

@@ -14,7 +14,7 @@
 #import "ResumeModel.h"
 #import "WriteJLChooseVC.h"
 #import "ProfessonSkillVC.h"
-@interface TH_ProfessionalSkillVC ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate>
+@interface TH_ProfessionalSkillVC ()<UITableViewDelegate,UITableViewDataSource,writeJLChooseVCDelegate,UITextFieldDelegate>
 {
     WriteRusumeModel2 * _model;
     ResumeModel * _resume_model;
@@ -174,6 +174,9 @@
         cell.profisionTextField.enabled = NO;
         
     }
+    if (indexPath.row== 3) {
+        cell.profisionTextField.delegate = self;
+    }
     
     cell.profesionNameLable.text = self.nameArray[indexPath.row];
     cell.profisionTextField.placeholder= self.holderArray[indexPath.row];
@@ -226,7 +229,23 @@
         [cell.profisionTextField resignFirstResponder];
     }
 }
-
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    
+    
+    NSCharacterSet *cs;
+    cs = [[NSCharacterSet characterSetWithCharactersInString:NUMBERS] invertedSet];
+    NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+    BOOL basicTest = [string isEqualToString:filtered];
+    if(!basicTest)
+    {
+        [MBProgressHUD creatembHub:@"请输入数字"];
+        
+        return NO;
+    }
+    
+    return YES;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

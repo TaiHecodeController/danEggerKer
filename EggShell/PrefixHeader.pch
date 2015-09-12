@@ -40,6 +40,7 @@
 #import "UIButton+Extension.h"
 #import "Gson.h"
 #import "AppDelegate.h"
+#define NUMBERS @"0123456789\n"
 
 #define base_Url @"http://ceshi.tiahel.com/eggker/interface/index.php/"
 //#define base_Url @"http://195.198.1.120/eggker/interface/index.php/"

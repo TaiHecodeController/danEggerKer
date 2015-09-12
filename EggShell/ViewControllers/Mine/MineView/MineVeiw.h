@@ -42,5 +42,5 @@ typedef enum
 -(void)mineViewSetButtonTag;
 - (void)setIconImage:(UIImage *)image;
 
-@property(nonatomic,strong)id<THMineViewDelegate> mineDelegate;
+@property(nonatomic,assign)id<THMineViewDelegate> mineDelegate;
 @end

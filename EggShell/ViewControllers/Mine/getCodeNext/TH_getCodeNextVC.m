@@ -124,6 +124,7 @@
         [LoginAndRegisterRequest resetPasswordRequestWithPhoneNum:str withNewCode:self.newsPasswordTextFied.text withSucc:^(NSDictionary * dic) {
             if ([dic[@"code"] integerValue]==0) {
                 TH_LoginVC * login = [[TH_LoginVC alloc] init];
+                [MBProgressHUD creatembHub:@"重置密码成功"];
 //             self.navigationController.navigationBarHidden =  YES ;
 //                TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
 //                home.modalTransitionStyle = UIModalPresentationPageSheet;

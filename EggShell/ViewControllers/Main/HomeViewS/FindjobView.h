@@ -29,7 +29,7 @@ typedef enum
 
 @property(nonatomic,strong)UIButton * findjobBtn;
 @property(nonatomic,strong)UILabel * findjobLable;
-@property(nonatomic,strong)id<THHomeVieWDelegate>homeViewDelegate;
+@property(nonatomic,assign)id<THHomeVieWDelegate>homeViewDelegate;
 @property(nonatomic,strong)UIButton  * FindPartTimeBtn;
 @property(nonatomic,strong)UILabel * FindPartTimeLable;
 

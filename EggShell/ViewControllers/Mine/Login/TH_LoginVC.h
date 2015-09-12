@@ -9,5 +9,7 @@
 #import "TH_BaseVC.h"
 
 @interface TH_LoginVC : TH_BaseVC
-@property(nonatomic,assign)NSString * jobWilstRegist;
+@property(nonatomic,copy)NSString * jobWilstRegist;
+@property(nonatomic,copy)NSString * findJobApplication;
+@property(nonatomic,copy)NSString * findJobDetailApplication;
 @end

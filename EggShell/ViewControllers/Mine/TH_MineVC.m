@@ -47,6 +47,7 @@
     self.title = @"我的";
     [self createScro];
     [self createView];
+    [self baseIofomationLogin];
   
 }
 -(void)baseIofomationLogin
@@ -57,13 +58,13 @@
         self.mineView.lginBtn.userInteractionEnabled = YES;
         [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
 //        self.mineView.userLable.text = @"";
-        self.mineView.DeliveryJobNum.text = @"";
-        self.mineView.FavoriteJobNum.text = @"";
-        self.mineView.ResumeNum.text = @"";
-        [self.mineView.loginBgview removeFromSuperview];
-        [self.mineView.userLable removeFromSuperview];
-        [self.mineView.phoneLable removeFromSuperview];
-        
+        self.mineView.DeliveryJobNum.text = @"(0)";
+        self.mineView.FavoriteJobNum.text = @"(0)";
+        self.mineView.ResumeNum.text = @"(0)";
+        self.mineView.userLable.hidden = YES;
+        self.mineView.phoneLable.hidden  = YES;
+        self.mineView.loginBgview.hidden = YES;
+        self.mineView.lginBtn.hidden = NO;
     }else
     {
         [self baseIofomation];
@@ -72,6 +73,10 @@
 }
 -(void)baseIofomation
 {
+    self.mineView.userLable.hidden = NO;
+    self.mineView.phoneLable.hidden  = NO;
+    self.mineView.loginBgview.hidden = NO;
+
     NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
     NSString * uid =[user objectForKey:@"uidAndToken"][@"uid"];
     NSString * token = [user objectForKey:@"uidAndToken"][@"token"];
@@ -102,7 +107,7 @@
         {
         self.mineView.userLable.text = succ[@"data"][@"description"];
         }
-        [self.mineView.lginBtn removeFromSuperview];
+        self.mineView.lginBtn.hidden = YES;
         
     } withUid:dic withFail:^(int errCode, NSError *err) {
 //        if (errCode ==1017) {
@@ -148,7 +153,7 @@
               } completion:nil];
         self.scro.contentSize = CGSizeMake(WIDETH,450+60);
     
-        self.mineView.lginBtn.titleEdgeInsets = UIEdgeInsetsMake(-10, -1, 0, 0);
+    
     [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5
           initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
               minVew.frame = CGRectMake(0, 0, WIDETH, 490);
@@ -291,7 +296,7 @@
         {
             NSLog(@"skdfjbc");
             
-            if (![AppDelegate instance].doubleUpdateVersion>[AppDelegate instance].doubleCurrentVersion) {
+            if ([AppDelegate instance].doubleUpdateVersion>[AppDelegate instance].doubleCurrentVersion) {
                 [MBProgressHUD creatembHub:@"占无新版本"];
             }else
             {
@@ -332,10 +337,10 @@
 {
     if (alertView.tag == 100) {
         if (buttonIndex == 1) {
-            TH_JobWishlistVC * jobList = [[TH_JobWishlistVC alloc] init];
+
             TH_LoginVC * login = [[TH_LoginVC alloc] init];
             login.jobWilstRegist = @"jobWilstRegist";
-            self.jobWilstBlock(jobList);
+                        
             [self.navigationController pushViewController:login animated:YES];
         }
     }
@@ -351,7 +356,7 @@
     if (alertView.tag ==103) {
         if (buttonIndex ==1) {
             TH_LoginVC * login = [[TH_LoginVC alloc] init];
-            login.jobWilstRegist = @"jobWilstRegist";
+          login.jobWilstRegist = @"jobWilstRegist";
             [self.navigationController pushViewController:login animated:YES];
         }
     }
@@ -359,6 +364,7 @@
     if (alertView.tag == 104) {
         if (buttonIndex == 1) {
             TH_LoginVC * login = [[TH_LoginVC alloc] init];
+            login.jobWilstRegist = @"jobWilstRegist";
             [self.navigationController pushViewController:login animated:YES];
 
         }

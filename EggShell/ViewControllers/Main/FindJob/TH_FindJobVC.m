@@ -703,7 +703,7 @@
     else
     {
        
-        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登陆" delegate:self cancelButtonTitle:@"暂不登陆" otherButtonTitles:@"登陆", nil];
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
         [alertView show];
     }
 }
@@ -715,6 +715,7 @@
     {
         self.navigationController.navigationBarHidden = NO;
         TH_LoginVC * lvc = [[TH_LoginVC alloc] init];
+        lvc.findJobApplication = @"findJobApplication";
         [self.navigationController pushViewController:lvc animated:YES];
         
     }

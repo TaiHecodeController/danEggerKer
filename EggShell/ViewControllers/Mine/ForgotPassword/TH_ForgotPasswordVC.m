@@ -147,7 +147,7 @@
     [LoginAndRegisterRequest forgitRequestWithPhoneNum:self.phoneTextField.text withSucc:^(NSDictionary * dic) {
          NSLog(@"获取验证码成功");
         
-        
+    [MBProgressHUD creatembHub:@"获取验证码成功"];
     }];
     [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后可重发",(long)self.count] forState:UIControlStateNormal];
     self.securityCodeBtn.userInteractionEnabled = NO;
@@ -184,6 +184,7 @@
     
     [LoginAndRegisterRequest forgitNextRequestWithPhoneNum:self.phoneTextField.text withSecurityCode:self.securiedTextField.text withSucc:^(NSDictionary * dic) {
         if ([dic[@"code"] integerValue]==0) {
+            [MBProgressHUD creatembHub:@"点击下一步重置密码"];
             TH_getCodeNextVC * getNext = [[TH_getCodeNextVC alloc] init];
             getNext.title = @"找回密码";
             getNext.phoneNum = self.phoneTextField.text;

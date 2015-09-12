@@ -10,6 +10,7 @@
 #import "WorkExReadingView.h"
 #import "WriteResumeVC2.h"
 #import "ResumeModel.h"
+#import "WorkingExperienceVC.h"
 @interface WorkExReadingVC ()
 {
     ResumeModel * _resume_model;
@@ -54,8 +55,9 @@
 #pragma mark --继续添加
 -(void)addClick
 {
-
     [self.navigationController popViewControllerAnimated:YES];
+//    WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
+//    [self.navigationController popToViewController:working animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

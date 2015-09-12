@@ -11,6 +11,7 @@
 #import "MineEditInfoCell.h"
 #import "AFAppRequest.h"
 #import "LoginAndRegisterRequest.h"
+
 @interface MineEditVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 {
     UIScrollView * backView;
@@ -489,7 +490,6 @@
                 self.address = ((MineEditInfoCell*)self.jobCellArray[3]).contentTextField.text;
                 if ([((MineEditInfoCell*)self.jobCellArray[4]).contentTextField.text length]>15) {
                     [MBProgressHUD creatembHub:@"简介不能超过15字"];
-
                     return;
                 }else
                 {
@@ -503,8 +503,13 @@
         if (self.tableView2.tag == 1223) {
             for (int i = 0; i < self.birthdayCellArray.count; i ++) {
                 self.birthday = ((MineEditInfoCell*)self.birthdayCellArray[0]).contentTextField.text;
+                if (![self isValidateEmail:((MineEditInfoCell*)self.birthdayCellArray[1]).contentTextField.text]) {
+                    [MBProgressHUD creatembHub:@"请输入正确的邮箱"];
+                    return;
+                }else
+                {
                 self.email =   ((MineEditInfoCell*)self.birthdayCellArray[1]).contentTextField.text;
-                
+                }
             }
             
             NSNumber *sexNum = [NSNumber numberWithInt:self.sex];
@@ -512,12 +517,20 @@
             [LoginAndRegisterRequest EditInformationWithSucc:^(NSDictionary * dic) {
                 
                 [MBProgressHUD creatembHub:@"编辑资料成功"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
                 
             } withParam:param];
             
         }
     }
 }
+
+-(BOOL)isValidateEmail:(NSString *)email {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:email];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

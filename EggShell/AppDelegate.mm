@@ -28,13 +28,13 @@
     [versionId synchronize];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-   [self checkVersion];
+//   [self checkVersion];
     
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSNumber *num = [NSNumber numberWithInt:0];
     [df setObject:num forKey:@"citytag"];
     [df synchronize];
-    //    [self checkVersion];
+     [self checkVersion];
     //    self.window.rootViewController = [[WriteResumeViewController alloc] init];
     
     //rk——test
@@ -138,7 +138,6 @@
         polyvSettings = [[PolyvSettings alloc] init];
         [polyvSettings initVideoSettings:@"ylzOkbgQcn" Readtoken:@"AAiK2jiX0t-BAnX4n6CrX-xV0TfqPUML" Writetoken:@"ZDYlp4fGF8g100D-TYug02Z14idkcelP" UserId:@"00018093b1"];
 }
-
 
 +(AppDelegate*)instance
 {

@@ -11,8 +11,35 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="618"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koX-2M-YR8">
+                    <rect key="frame" x="15" y="341" width="290" height="207"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="207" id="B4K-eq-yaL"/>
+                    </constraints>
+                    <string key="text">太和文化产业集团专注于教育文化产业的扛鼎之作，太和书院汇集了全国顶尖教育专家与团队，依托集团深厚的教育资源背景，逐步成长为中国最具特色的教育文化机构。我们致力于教育产业咨询管理及人才运营两大领域，拥有各类院校、科研机构、政府部门、信息机构、培训教育机构等各类用户和合作伙伴3万余家；建立并完善了包括CCTV-中学生校长联合会、名师汇、校园创就业服务中心等众多的平台，为广大教育产业群体提供最为精准的专有服务。</string>
+                    <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tu001" translatesAutoresizingMaskIntoConstraints="NO" id="8hW-ey-laz">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="oM3-Uz-nrc"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="招聘会介绍：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkX-pn-uGb">
+                    <rect key="frame" x="20" y="328" width="100" height="13"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13" id="PR6-uu-amT"/>
+                        <constraint firstAttribute="width" constant="100" id="vYT-od-nYQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBA-x6-vZo">
-                    <rect key="frame" x="0.0" y="150" width="320" height="153"/>
+                    <rect key="frame" x="0.0" y="150" width="320" height="170"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="主办方：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yF-49-TW9">
                             <rect key="frame" x="15" y="15" width="60" height="13"/>
@@ -55,8 +82,12 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="交通路线:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPP-Ep-d1m">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="交通路线:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPP-Ep-d1m">
                             <rect key="frame" x="15" y="130" width="65" height="13"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="13" id="9Ey-OV-id0"/>
+                                <constraint firstAttribute="width" constant="65" id="Sie-TY-CJW"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -73,17 +104,11 @@
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="北京市海淀区人名大学旁" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFv-gu-fS3">
-                            <rect key="frame" x="90" y="130" width="230" height="13"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ow6-PK-FVS">
-                            <rect key="frame" x="15" y="152.5" width="320" height="0.5"/>
+                            <rect key="frame" x="15" y="169" width="305" height="0.5"/>
                             <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="0.5" id="Q8Q-NB-K4t"/>
+                                <constraint firstAttribute="height" constant="0.5" id="Mie-l5-2AF"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="010-5383938998" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIT-I1-C0d">
@@ -92,61 +117,49 @@
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="乘坐15路" translatesAutoresizingMaskIntoConstraints="NO" id="j2P-tf-7c8">
+                            <rect key="frame" x="85" y="124" width="230" height="42"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="42" id="rPe-Id-aJ6"/>
+                            </constraints>
+                            <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="Ow6-PK-FVS" firstAttribute="leading" secondItem="iBA-x6-vZo" secondAttribute="leading" constant="15" id="7Xd-7F-R3o"/>
-                        <constraint firstAttribute="height" constant="153" id="UEa-i6-NK0"/>
-                        <constraint firstAttribute="trailing" secondItem="Ow6-PK-FVS" secondAttribute="trailing" constant="-15" id="mSR-Yc-m3e"/>
-                        <constraint firstAttribute="bottom" secondItem="Ow6-PK-FVS" secondAttribute="bottom" id="maB-3l-HCG"/>
+                        <constraint firstItem="JPP-Ep-d1m" firstAttribute="leading" secondItem="iBA-x6-vZo" secondAttribute="leading" constant="15" id="1iI-ki-igj"/>
+                        <constraint firstAttribute="bottom" secondItem="Ow6-PK-FVS" secondAttribute="bottom" constant="0.5" id="H2S-o9-e1h"/>
+                        <constraint firstAttribute="height" constant="170" id="OaG-Os-1WP"/>
+                        <constraint firstAttribute="trailing" secondItem="Ow6-PK-FVS" secondAttribute="trailing" id="ahq-ed-Qmj"/>
+                        <constraint firstAttribute="trailing" secondItem="j2P-tf-7c8" secondAttribute="trailing" constant="5" id="amb-kM-81I"/>
+                        <constraint firstItem="Ow6-PK-FVS" firstAttribute="leading" secondItem="iBA-x6-vZo" secondAttribute="leading" constant="15" id="bru-MR-Ec5"/>
+                        <constraint firstItem="j2P-tf-7c8" firstAttribute="leading" secondItem="JPP-Ep-d1m" secondAttribute="trailing" constant="5" id="dYP-Yd-EQZ"/>
+                        <constraint firstItem="Ow6-PK-FVS" firstAttribute="top" secondItem="j2P-tf-7c8" secondAttribute="bottom" constant="3" id="hTt-yX-TAU"/>
+                        <constraint firstItem="Ow6-PK-FVS" firstAttribute="top" secondItem="JPP-Ep-d1m" secondAttribute="bottom" constant="26" id="jCy-xl-pNU"/>
                     </constraints>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koX-2M-YR8">
-                    <rect key="frame" x="15" y="323" width="290" height="207"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="207" id="J62-Rf-daT"/>
-                    </constraints>
-                    <string key="text">太和文化产业集团专注于教育文化产业的扛鼎之作，太和书院汇集了全国顶尖教育专家与团队，依托集团深厚的教育资源背景，逐步成长为中国最具特色的教育文化机构。我们致力于教育产业咨询管理及人才运营两大领域，拥有各类院校、科研机构、政府部门、信息机构、培训教育机构等各类用户和合作伙伴3万余家；建立并完善了包括CCTV-中学生校长联合会、名师汇、校园创就业服务中心等众多的平台，为广大教育产业群体提供最为精准的专有服务。</string>
-                    <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tu001" translatesAutoresizingMaskIntoConstraints="NO" id="8hW-ey-laz">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="150" id="tLz-yU-JLm"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="招聘会介绍：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkX-pn-uGb">
-                    <rect key="frame" x="20" y="311" width="100" height="13"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="13" id="x2g-Ob-NVq"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="koX-2M-YR8" secondAttribute="trailing" constant="15" id="DTm-YK-7lQ"/>
-                <constraint firstItem="jkX-pn-uGb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="GwI-gC-PXj"/>
-                <constraint firstItem="koX-2M-YR8" firstAttribute="top" secondItem="iBA-x6-vZo" secondAttribute="bottom" constant="20" id="IP1-mx-sbY"/>
-                <constraint firstItem="iBA-x6-vZo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OeA-tP-uXf"/>
-                <constraint firstItem="8hW-ey-laz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VSG-1g-d9L"/>
-                <constraint firstItem="iBA-x6-vZo" firstAttribute="top" secondItem="8hW-ey-laz" secondAttribute="bottom" id="Vf1-xy-hXI"/>
-                <constraint firstItem="8hW-ey-laz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YaW-LE-ccI"/>
-                <constraint firstItem="jkX-pn-uGb" firstAttribute="top" secondItem="iBA-x6-vZo" secondAttribute="bottom" constant="8" id="gGf-W2-VoF"/>
-                <constraint firstAttribute="trailing" secondItem="iBA-x6-vZo" secondAttribute="trailing" id="gfE-hq-uNG"/>
-                <constraint firstItem="koX-2M-YR8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="lOy-Ft-Quh"/>
-                <constraint firstAttribute="trailing" secondItem="jkX-pn-uGb" secondAttribute="trailing" constant="200" id="m0h-PS-01m"/>
-                <constraint firstAttribute="trailing" secondItem="8hW-ey-laz" secondAttribute="trailing" id="zUS-xO-38S"/>
+                <constraint firstAttribute="trailing" secondItem="koX-2M-YR8" secondAttribute="trailing" constant="15" id="4e0-jU-Jit"/>
+                <constraint firstItem="koX-2M-YR8" firstAttribute="top" secondItem="jkX-pn-uGb" secondAttribute="bottom" id="4vk-Ok-qSw"/>
+                <constraint firstAttribute="trailing" secondItem="iBA-x6-vZo" secondAttribute="trailing" id="5NA-b7-ztd"/>
+                <constraint firstItem="jkX-pn-uGb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="6KU-lm-V9F"/>
+                <constraint firstItem="8hW-ey-laz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="N76-63-7xH"/>
+                <constraint firstItem="jkX-pn-uGb" firstAttribute="top" secondItem="iBA-x6-vZo" secondAttribute="bottom" constant="8" id="Sqc-Jv-5Pb"/>
+                <constraint firstItem="koX-2M-YR8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="mDs-fV-iLQ"/>
+                <constraint firstItem="iBA-x6-vZo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="p9M-ro-36M"/>
+                <constraint firstItem="8hW-ey-laz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pCK-aS-fdZ"/>
+                <constraint firstItem="iBA-x6-vZo" firstAttribute="top" secondItem="8hW-ey-laz" secondAttribute="bottom" id="rUA-Q5-o8F"/>
+                <constraint firstAttribute="trailing" secondItem="8hW-ey-laz" secondAttribute="trailing" id="uBC-8G-FHt"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="MeetingPlaceLable" destination="VWr-gN-Xna" id="kKD-m6-96r"/>
-                <outlet property="RouteLable" destination="kFv-gu-fS3" id="bHj-mV-ngP"/>
+                <outlet property="RouteLable" destination="j2P-tf-7c8" id="0g3-WZ-RMl"/>
                 <outlet property="contactLable" destination="UIT-I1-C0d" id="hcX-0e-55T"/>
                 <outlet property="contactPesonLable" destination="IlN-f9-X3U" id="m1v-pH-AWy"/>
                 <outlet property="contentLable" destination="koX-2M-YR8" id="FCS-QU-GEY"/>
