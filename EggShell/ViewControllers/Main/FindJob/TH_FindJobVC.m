@@ -17,12 +17,15 @@
 #import "MJRefresh.h"
 #import "SearchModelShare.h"
 
+
 /*数据请求**/
 #import "AFAppRequest.h"
 #import "findJobModel.h"
 #define bottomH 107
 #import "AppDelegate.h"
 #import "TH_LoginVC.h"
+
+
 
 @interface TH_FindJobVC ()<UITableViewDataSource,UITableViewDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,MJRefreshBaseViewDelegate>
 {
@@ -58,6 +61,8 @@
 @property (nonatomic, assign) float latitude;
 //投递成功的数量
 @property (nonatomic, assign) int TDSuccNum;
+
+
 @end
 @implementation TH_FindJobVC
 -(void)dealloc
@@ -135,8 +140,8 @@
     }
     if ([_job_type isEqual:@"2"])
     {
-        [SearchModelShare sharedInstance].keyword = @"实习";
-//        [SearchModelShare sharedInstance].type = @"119";
+//        [SearchModelShare sharedInstance].keyword = @"实习";
+        [SearchModelShare sharedInstance].type = @"129";
     }
 
     self.jobArr = [[NSMutableArray alloc]init];
@@ -658,7 +663,7 @@
         }
         NSLog(@"job_idStr%@",job_idStr);
         
-        [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
+       self.state = [[TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
             
             //总投递数-投递成功数
             if (( _mailingNumBer - [DataArr intValue] ) == 0)
@@ -697,7 +702,7 @@
 //            [self addCoverView];
 //            [self addAlertView];
             
-        } withUid:nil job_id:job_idStr resp:[NSObject class]];
+        } withUid:nil job_id:job_idStr resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
     
     }
     else

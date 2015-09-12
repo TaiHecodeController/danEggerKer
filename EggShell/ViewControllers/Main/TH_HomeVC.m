@@ -467,7 +467,7 @@
         case THHomeViewButtonTypeAdvertising:
         {NSLog(@"3..1");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"广告银行";
+            home.title = @"广告媒体";
             [SearchModelShare sharedInstance].job1 = @"40";
             [self.navigationController pushViewController:home animated:YES];
             

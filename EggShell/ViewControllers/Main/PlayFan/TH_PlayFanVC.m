@@ -18,6 +18,7 @@
     MBProgressHUD * _mbPro;
      NSIndexPath  * record_index;
 }
+
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)NSMutableArray * cellArray;
 @property (nonatomic, strong) HYSegmentedControl *segmentedControl;
@@ -28,6 +29,7 @@
 @property(nonatomic,assign)int page;
 @property(nonatomic,assign)int limitNum;
 @property (nonatomic,strong)AFRequestState * state;
+
 @end
 
 @implementation TH_PlayFanVC
