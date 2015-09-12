@@ -168,7 +168,7 @@
 - (void)TJsearch
 {
     //清空keyword
-    [SearchModelShare sharedInstance].keyword = @"";
+//    [SearchModelShare sharedInstance].keyword = @"";
     
     //全城回调
     if ([SearchModelShare sharedInstance].longitude.length == 0)

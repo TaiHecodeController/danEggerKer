@@ -66,7 +66,6 @@
 
 -(void)createView
 {
-    
     /*基本信息**/
     Basicnformation * baseInformation =[Basicnformation setBaseView];
     baseInformation.frame = CGRectMake(0, 42, WIDETH, 158);
@@ -80,89 +79,95 @@
     
     /*工作经历**/
     CGFloat y = 390;
+    CGFloat gH = 145;
     for (int i = 0; i < ((NSArray *)self.dataDic[@"work"]).count; i++)
     {
-        CGFloat workingY = y + i * 200;
+        CGFloat workingY = y + i * gH;
         WorkExperienceView * working = [WorkExperienceView setWorkExperienceView];
         [working configVulue:self.dataDic[@"work"] withArrIndex:i];
         working.workContent.userInteractionEnabled = NO;
-        working.frame = CGRectMake(0, workingY, WIDETH, 200);
+        working.frame = CGRectMake(0, workingY, WIDETH, gH);
         [self.scro  addSubview: working];
     }
-   
-    y = y + 200 *  ((NSArray *)self.dataDic[@"work"]).count;
+    y = y + gH *  ((NSArray *)self.dataDic[@"work"]).count;
     
     /*教育经历**/
+    CGFloat jH = 175;
     for (int i = 0; i < ((NSArray *)self.dataDic[@"jy"]).count; i++)
     {
-        CGFloat educationY = y + i * 220;
+        CGFloat educationY = y + i * jH;
         EducationExperienceView * education  = [EducationExperienceView setEducationExperienceView];
-        education.frame = CGRectMake(0, educationY, WIDETH, 220);
+        education.frame = CGRectMake(0, educationY, WIDETH, jH);
         education.departmentIntroduce.userInteractionEnabled = NO;
         [education configVulue:self.dataDic[@"jy"] withArrIndex:i];
         [self.scro addSubview:education];
         
     }
-    y = y + 220 *  ((NSArray *)self.dataDic[@"jy"]).count;
+    y = y + jH *  ((NSArray *)self.dataDic[@"jy"]).count;
     
     /*专业技能**/
+    CGFloat zH = 120 ;
     for (int i = 0; i < ((NSArray *)self.dataDic[@"skill"]).count; i++)
     {
         
-        CGFloat professionalSkillViewY = y + i*135;
+        CGFloat professionalSkillViewY = y + i*zH;
         professionalSkillView * skill = [professionalSkillView setprofessionalSkillView];
         [skill conFigValue:self.dataDic[@"skill"] withArrIndex:i];
-        skill.frame = CGRectMake(0, professionalSkillViewY, WIDETH, 135);
+        skill.frame = CGRectMake(0, professionalSkillViewY, WIDETH, zH);
         [self.scro addSubview:skill];
     }
-    y = y + 135 *  ((NSArray *)self.dataDic[@"skill"]).count;
+    y = y + zH *  ((NSArray *)self.dataDic[@"skill"]).count;
    
     /*项目经验**/
+    CGFloat xH = 140;
     for (int i = 0; i < ((NSArray *)self.dataDic[@"project"]).count; i++)
     {
-        CGFloat projectY = y + i * 205;
+        CGFloat projectY = y + i * xH;
         ProjectExperienceView * project =[ProjectExperienceView setProjectExperienceView];
-        project.frame = CGRectMake(0, projectY, WIDETH, 205);
+        project.frame = CGRectMake(0, projectY, WIDETH, xH);
         project.proIntroduce.userInteractionEnabled = NO;
         [project configValue:self.dataDic[@"project"] withArrIndex:i];
         [self.scro addSubview:project];
     }
-    y  = y + 205 * ((NSArray *)self.dataDic[@"project"]).count;
+    y  = y + xH * ((NSArray *)self.dataDic[@"project"]).count;
     
     /*证书**/
+    CGFloat ZSh = 155;
     for (int i = 0; i < ((NSArray *)self.dataDic[@"cert"]).count; i++)
     {
-        CGFloat certificY = y + i * 200;
+        CGFloat certificY = y + i * ZSh;
         CertificateView * certific = [CertificateView setCertificateView];
         certific.certificateIntroduce.userInteractionEnabled = NO;
         [certific configValue:self.dataDic[@"cert"] withArrIndex:i];
-        certific.frame = CGRectMake(0, certificY, WIDETH, 200);
+        certific.frame = CGRectMake(0, certificY, WIDETH, ZSh);
         [self.scro addSubview:certific];
     }
-    y = y + 200 * ((NSArray *)self.dataDic[@"cert"]).count;
+    y = y + ZSh * ((NSArray *)self.dataDic[@"cert"]).count;
     
     /*培训内容**/
+    CGFloat Ph = 155;
     for (int i = 0; i < ((NSArray *)self.dataDic[@"training"]).count; i ++)
     {
-        CGFloat trainY = y + i * 200;
+        CGFloat trainY = y + i * Ph;
         trainingExperienceView * train = [trainingExperienceView settrainingExperienceView];
-        train.frame = CGRectMake(0,trainY, WIDETH, 200);
+        train.frame = CGRectMake(0,trainY, WIDETH, Ph);
         train.trainIntroduce.userInteractionEnabled = NO;
         [train configValue:self.dataDic[@"training"] withArrIndex:i];
         [self.scro addSubview:train];
     }
-    y = y + ((NSArray *)self.dataDic[@"training"]).count * 200;
+    y = y + ((NSArray *)self.dataDic[@"training"]).count * Ph;
     
     /*自我评价**/
+    CGFloat ZWH= 70;
     SelfEvaluationView * selfevaluat =[SelfEvaluationView setSelfEvaluationView];
 //    selfevaluat.frame = CGRectMake(0, 810+135+205+200+200, WIDETH, 100);
-    selfevaluat.frame = CGRectMake(0, y, WIDETH, 100);
+    selfevaluat.frame = CGRectMake(0, y, WIDETH, ZWH);
     selfevaluat.selfEvaluation.userInteractionEnabled = NO;
     [selfevaluat configValue:self.dataDic[@"other"]];
     [self.scro addSubview:selfevaluat];
     
 //    self.scro.contentSize   = CGSizeMake(WIDETH, 810+135+205+200+200+100);
-    self.scro.contentSize   = CGSizeMake(WIDETH, y + 100);
+    self.scro.contentSize   = CGSizeMake(WIDETH, y + ZWH);
     
 }
 

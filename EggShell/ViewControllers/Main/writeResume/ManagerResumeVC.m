@@ -138,53 +138,6 @@
  }
  */
 
-- (IBAction)editClick:(UIButton *)sender {
-    
-    for(int i = 0;i < self.dataArray.count;i++)
-    {
-        ResumeCell * cell = self.cellArray[i];
-        if(cell.iSSelect.selected)
-        {
-            WriteResumeViewController * vc = [[WriteResumeViewController alloc] init];
-            vc.resumeId = cell.resumeId;
-            vc.isEdit = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        
-    }
-    if (self.dataArray.count == 0)
-    {
-        [MBProgressHUD creatembHub:@"请先创建简历"];
-    }
-    
-    
-}
-- (IBAction)userResume:(UIButton *)sender {
-    
-    if (self.dataArray.count == 0)
-    {
-        [MBProgressHUD creatembHub:@"请先创建简历"];
-    }
-    else
-    {
-        if (_varCell)
-        {
-            if (_varCell.iSSelect.selected == YES)
-            {
-                [MBProgressHUD creatembHub:@"使用成功"];
-            }
-            else
-            {
-                [MBProgressHUD creatembHub:@"请先选择简历"];
-            }
-        }
-        else
-        {
-            return;
-        }
-    }
-}
-
 - (void)addAlertView
 {
     bgView = [[UIView alloc] initWithFrame:self.view.bounds];
@@ -272,6 +225,7 @@
 }
 
 
+#pragma mark -- respondEvent
 - (IBAction)delete:(id)sender {
     for(int i = 0;i < self.dataArray.count;i++)
     {
@@ -295,6 +249,55 @@
     
     
 }
+
+- (IBAction)editClick:(UIButton *)sender {
+    
+    for(int i = 0;i < self.dataArray.count;i++)
+    {
+        ResumeCell * cell = self.cellArray[i];
+        if(cell.iSSelect.selected)
+        {
+            WriteResumeViewController * vc = [[WriteResumeViewController alloc] init];
+            vc.resumeId = cell.resumeId;
+            vc.isEdit = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+    }
+    if (self.dataArray.count == 0)
+    {
+        [MBProgressHUD creatembHub:@"请先创建简历"];
+    }
+    
+    
+}
+- (IBAction)userResume:(UIButton *)sender {
+    
+    if (self.dataArray.count == 0)
+    {
+        [MBProgressHUD creatembHub:@"请先创建简历"];
+    }
+    else
+    {
+        if (_varCell)
+        {
+            if (_varCell.iSSelect.selected == YES)
+            {
+                [MBProgressHUD creatembHub:@"使用成功"];
+            }
+            else
+            {
+                [MBProgressHUD creatembHub:@"请先选择简历"];
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
+}
+
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {

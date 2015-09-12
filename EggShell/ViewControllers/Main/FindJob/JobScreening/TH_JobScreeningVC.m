@@ -15,7 +15,7 @@
 #import "SearchCity1_ViewController.h"
 #import "SearchCity3_ViewController.h"
 
-@interface TH_JobScreeningVC ()<UITableViewDataSource,UITableViewDelegate,writeJLChooseVCDelegate,SearchCity3_VCDelegate3>
+@interface TH_JobScreeningVC ()<UITableViewDataSource,UITableViewDelegate,writeJLChooseVCDelegate,SearchCity3_VCDelegate3,UITextFieldDelegate>
 @property(nonatomic,strong)NSArray * nameArray;
 @property(nonatomic,strong)NSArray * conrentArray;
 @property(nonatomic,strong)UITableView * tableView;
@@ -120,14 +120,25 @@
     CategorieLable.font =[UIFont systemFontOfSize:13];
     [bgView addSubview:CategorieLable];
     
-    UILabel * contenLable =[[UILabel alloc] initWithFrame:CGRectMake(100, 15, WIDETH-165, 13)];
-    contenLable.text = [SearchModelShare sharedInstance].keyword;
+//    UILabel * contenLable =[[UILabel alloc] initWithFrame:CGRectMake(100, 15, WIDETH-165, 13)];
+//    contenLable.text = [SearchModelShare sharedInstance].keyword;
+//    contenLable.font =[UIFont systemFontOfSize:13];
+//    contenLable.textAlignment = NSTextAlignmentRight;
+//    UIView * lineView =[[UIView alloc] initWithFrame:CGRectMake(15, 41.5, WIDETH-15, 0.5)];
+//    lineView.backgroundColor = UIColorFromRGB(0xDDDDDD);
+//    [bgView addSubview:lineView];
+//    [bgView addSubview:contenLable];
+    UITextField * contenLable =[[UITextField alloc] initWithFrame:CGRectMake(100, 15, WIDETH-165, 26)];
+//    contenLable.text = [SearchModelShare sharedInstance].keyword;
     contenLable.font =[UIFont systemFontOfSize:13];
     contenLable.textAlignment = NSTextAlignmentRight;
     UIView * lineView =[[UIView alloc] initWithFrame:CGRectMake(15, 41.5, WIDETH-15, 0.5)];
     lineView.backgroundColor = UIColorFromRGB(0xDDDDDD);
     [bgView addSubview:lineView];
     [bgView addSubview:contenLable];
+    contenLable.delegate = self;
+    
+//    [SearchModelShare sharedInstance].keyword;
     
     UIImageView * imageView =[[UIImageView alloc] initWithFrame:CGRectMake(WIDETH-35, 12, 20, 20)];
     imageView.image = [UIImage imageNamed:@"chashaixuan"];
@@ -352,6 +363,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma textFieldDelegate
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [SearchModelShare sharedInstance].keyword = textField.text;
+   
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 /*
 #pragma mark - Navigation
 
