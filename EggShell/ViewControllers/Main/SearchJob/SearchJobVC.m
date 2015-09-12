@@ -105,7 +105,15 @@
 {
     NSLog(@"%@",sender.titleLabel.text);
     
-    [SearchModelShare sharedInstance].keyword = sender.titleLabel.text;
+    if ([sender.titleLabel.text isEqual:@"银行柜员"])
+    {
+        [SearchModelShare sharedInstance].keyword = @"柜员";
+    }
+    else
+    {
+        [SearchModelShare sharedInstance].keyword = sender.titleLabel.text;
+    }
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
     
     if (_pushType == 0)

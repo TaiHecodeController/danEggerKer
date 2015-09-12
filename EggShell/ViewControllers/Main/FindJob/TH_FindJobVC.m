@@ -277,8 +277,17 @@
     
     self.state = [[TH_AFRequestState searchJobWithSucc:^(NSArray *DataArr) {
         
-        [self.jobArr addObjectsFromArray:DataArr];
-        [self.tableView reloadData];
+        
+        
+        if (DataArr.count > 0)
+        {
+            [self.jobArr addObjectsFromArray:DataArr];
+            [self.tableView reloadData];
+        }
+        else
+        {
+            [MBProgressHUD creatembHub:@"暂无数据"];
+        }
         
     } withfail:^(int errCode, NSError *err) {
         
@@ -641,8 +650,6 @@
 #pragma mark  -- 职位申请按钮
 - (void)apllyBtnClick
 {
-  
-    
     [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
     
     if([AppDelegate instance].userId)
