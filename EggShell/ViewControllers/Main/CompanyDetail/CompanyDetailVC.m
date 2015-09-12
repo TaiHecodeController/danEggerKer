@@ -36,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.listArray = [NSMutableArray arrayWithCapacity:0];
+    self.listArray = [[NSMutableArray alloc]init];
     self.view.backgroundColor =[UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
@@ -50,7 +50,9 @@
     //    [_header beginRefreshing];
     /*数据请求**/
     _mbPro = [MBProgressHUD mbHubShow];
-    [self loadData:_mbPro Page:1];
+    _page = 1;
+    [self loadData:_mbPro Page:_page];
+    
 }
 -(void)compayBackToResume
 {
@@ -190,7 +192,7 @@
     if(refreshView == _header)
     {
         _page = 1;
-        self.listArray = [NSMutableArray arrayWithCapacity:0];
+        [self.listArray removeAllObjects];
         [self loadData:_header Page:_page];
     }else
     {
@@ -214,6 +216,7 @@
 {
     return 75;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    NSUserDefaults * userId = [NSUserDefaults standardUserDefaults];
