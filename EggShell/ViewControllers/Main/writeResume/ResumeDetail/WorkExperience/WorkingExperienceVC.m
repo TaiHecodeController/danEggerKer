@@ -60,8 +60,10 @@
         {
             WorkingTimeCell * cell = self.jobArray[i];
             cell.StartTime.titleLabel.text = @"";
+            
          cell.endTime.titleLabel.text = @"";
-
+            
+            
         
         }else
         {
@@ -85,8 +87,7 @@
 
         
     }
-    
-}
+    }
 -(void)createScro
 {  self.view.backgroundColor = color(243, 243, 241);
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];

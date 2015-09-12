@@ -67,21 +67,22 @@
     }
     
     NSNumber * pageNum = [NSNumber numberWithInt:page];
-    NSString * uid = [NSString stringWithFormat:@"%d",128];
+    
     
     if (!self.businessMid) {
         self.businessMid = @"";
     }
-    if (!self.businessMid) {
-        self.businessMid = @"";
+    if (!self.businessUid) {
+        self.businessUid = @"";
     }
-    NSDictionary * dic = @{@"uid":uid,@"mid":self.businessMid,@"page":pageNum};
+    NSDictionary * dic = @{@"uid":self.businessUid,@"mid":self.businessMid,@"page":pageNum};
     
     _state = [[TH_AFRequestState famousEnterprisesDetailWithSucc:^(NSDictionary *arr) {
         
         [self.CMview configValue:arr[@"data"][@"details"]];
         if ([arr[@"data"][@"list"] count] >0) {
             [self.listArray addObjectsFromArray:arr[@"data"][@"list"]];
+            
         }
         [self.logoView sd_setImageWithURL:[NSURL URLWithString:arr[@"data"][@"details"][@"logo"]] placeholderImage:[UIImage imageNamed:@"02"]];
         [_tableView reloadData];
@@ -241,7 +242,6 @@
         cell.companyName.text = self.listArray[indexPath.row][@"com_name"];
     cell.knowdelge.text = self.listArray[indexPath.row][@"edu"];
        cell.salary.text = self.listArray[indexPath.row][@"salary"];
-        
     }
     return cell;
 }

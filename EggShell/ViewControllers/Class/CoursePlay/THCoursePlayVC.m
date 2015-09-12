@@ -202,7 +202,6 @@ typedef NS_ENUM(NSInteger, GestureType){
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
         //网络判断
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
         [MBProgressHUD creatembHub:@"当前处于无网络"];
@@ -220,14 +219,14 @@ typedef NS_ENUM(NSInteger, GestureType){
      MBProgressHUD *mb = [MBProgressHUD mbHubShow];
     [self loadDataWithMB:mb classid:_classId];
     
-    //设置返回按钮
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    backBtn.frame = CGRectMake(0, 0, 44, 44);
-    [backBtn setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-    self.navigationItem.leftBarButtonItem = backItem;
-    
+//    //设置返回按钮
+//    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    backBtn.frame = CGRectMake(0, 0, 44, 44);
+//    [backBtn setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
+//    [backBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+//    self.navigationItem.leftBarButtonItem = backItem;
+//    
     //    //1、先监听，在播放视频
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(playerLoadStateDidChange:)
@@ -270,7 +269,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 //                                                 name:UIApplicationWillResignActiveNotification
 //                                               object:nil];
       //监听父类的play停止动作
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popView) name:@"videoClose" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popView) name:@"videoClose" object:nil];
 
     
     //    NSUserDefaults *userd = [NSUserDefaults standardUserDefaults];
@@ -418,9 +417,11 @@ typedef NS_ENUM(NSInteger, GestureType){
 }
 
 
-- (void)popVC
+- (void)popView
 {
-    
+            NSLog(@"视频停止");
+    self.PLvideoPlayer = [[PLVMoviePlayerController alloc]initWithVid:@""];
+
    [self.navigationController popViewControllerAnimated:NO];
     TH_ClassVC * class = [[TH_ClassVC alloc] init];
     [self.PLvideoPlayer stop];
@@ -428,17 +429,14 @@ typedef NS_ENUM(NSInteger, GestureType){
     [self.navigationController popToViewController:class animated:YES];
 
 
-    MPMovieLoadState loadState = self.PLvideoPlayer.loadState;
-
-    if(loadState & MPMovieLoadStateStalled){
-        //网络不好，开始缓冲了
-        [self.PLvideoPlayer pause];
-        
-    }
-    [self.navigationController popViewControllerAnimated:NO];
-[self.navigationController popViewControllerAnimated:NO];
-
-
+//    MPMovieLoadState loadState = self.PLvideoPlayer.loadState;
+//
+//    if(loadState & MPMovieLoadStateStalled){
+//        //网络不好，开始缓冲了
+//        [self.PLvideoPlayer pause];
+//        
+//    }
+   
 }
 
 - (void)createAvPlayer{
@@ -932,34 +930,6 @@ typedef NS_ENUM(NSInteger, GestureType){
     [button removeFromSuperview];
 }
 //返回事件
-- (void)popView
-{
-    //保存本次播放进度
-//        [[DatabaseManager defaultDatabaseManager] addPlayRecordWithIdentifier:_movieTitle progress:_movieProgressSlider.value];
-    
-//    [_player removeTimeObserver:_timeObserver];
-//    [self removeObserversFromVideoPlayerItem];
-//    [_player replaceCurrentItemWithPlayerItem:nil];//自动移除 observer
-//    [[self class] cancelPreviousPerformRequestsWithTarget:self];
-//    
-//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-//    
-//    [self dismissViewControllerAnimated:YES completion:^{
-//        self.timeObserver = nil;
-//        self.player = nil;
-//        [UIScreen mainScreen].brightness = _systemBrightness;
-//        if ([_delegate respondsToSelector:@selector(movieFinished:)]) {
-//            [_delegate movieFinished:_movieProgressSlider.value];
-//        }
-//    }];
-//    
-//    if(self.PLvideoPlayer.playbackState == MPMoviePlaybackStatePlaying){
-//        [self.PLvideoPlayer stop];
-//    }
-//    [self.navigationController popViewControllerAnimated:YES];
-    
-//    [self.PLvideoPlayer stop];
-}
 
 // 移除观察者.
 - (void)removeObserversFromVideoPlayerItem
