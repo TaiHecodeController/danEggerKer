@@ -305,7 +305,7 @@
         {
             NSLog(@"skdfjbc");
             
-            if ([AppDelegate instance].doubleUpdateVersion>[AppDelegate instance].doubleCurrentVersion) {
+            if (![AppDelegate instance].doubleUpdateVersion>[AppDelegate instance].doubleCurrentVersion) {
                 [MBProgressHUD creatembHub:@"占无新版本"];
             }else
             {

@@ -236,6 +236,7 @@
     self.scro.contentSize = CGSizeMake(WIDETH, MyHeight * 326+416+25);
 }
 
+#pragma mark -- 名企推荐
 -(void)homeViewFindJob:(HomeView *)homeView withTag:(NSInteger)setTag
 {    self.navigationController.navigationBarHidden = NO;
     CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
