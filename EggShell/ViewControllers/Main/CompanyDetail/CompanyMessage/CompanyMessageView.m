@@ -124,7 +124,7 @@
 -(void)configValue:(NSDictionary*)dic
 {
     industryLab.text = [NSString stringWithFormat:@"%@",dic[@"hy"]];
-    natureLab.text = [NSString stringWithFormat:@"%@",dic[@"name"]];
+    natureLab.text = [NSString stringWithFormat:@"%@",dic[@"pr"]];
      scaleLab.text = [NSString stringWithFormat:@"%@",dic[@"gm"]];
     addressLab.text = [NSString stringWithFormat:@"%@",dic[@"address"]];
     
