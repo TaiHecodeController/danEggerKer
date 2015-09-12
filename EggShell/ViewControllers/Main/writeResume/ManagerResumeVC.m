@@ -307,6 +307,9 @@
                 [[WriteResumeRequest deleteResumeWithSucc:^(NSDictionary *dataDic) {
                     [MBProgressHUD creatembHub:@"删除成功"];
                     [self.dataArray removeObjectAtIndex:i];
+                    self.createNewResume.alpha = 1;
+                    [self.ResumeList reloadData];
+
                     [self.ResumeList reloadData];
                 } WithResumeParam:@{@"eid":cell.resumeId}] addNotifaction:hub];
                 

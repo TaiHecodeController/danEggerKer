@@ -21,6 +21,4 @@
 @property(nonatomic,copy)NSString * title;
 @property(nonatomic,copy)NSString * user;
 @property(nonatomic,copy)NSString * traffic_route;
-
-
 @end
