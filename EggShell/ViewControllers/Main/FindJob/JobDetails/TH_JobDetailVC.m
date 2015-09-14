@@ -140,7 +140,7 @@
     
     if([AppDelegate instance].userId)
     {
-        [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
+      self.state=  [[TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
             
             [MBProgressHUD creatembHub:@"申请成功"];
             
@@ -148,7 +148,7 @@
             
             [MBProgressHUD creatembHub:@"您已申请过了,一周内不得重复申请"];
             
-        } withUid:nil job_id:_model.cj_id resp:[NSObject class]];
+        } withUid:nil job_id:_model.cj_id resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
         
     }
     else

@@ -57,8 +57,8 @@
 @property(nonatomic,assign)int page;
 @property (nonatomic,strong)AFRequestState * state;
 
-@property (nonatomic, assign) float longitude;
-@property (nonatomic, assign) float latitude;
+@property (nonatomic, assign) double longitude;
+@property (nonatomic, assign) double latitude;
 //投递成功的数量
 @property (nonatomic, assign) int TDSuccNum;
 
@@ -117,15 +117,13 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:YES];
-
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewWillDisappear:NO];
     [_searchBtn removeFromSuperview];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"findJobBackClick" object:nil];
 }
 
 - (void)viewDidLoad {
@@ -212,15 +210,15 @@
         NSLog(@"_job_type%@",_job_type);
         if ([_job_type isEqual:@"0"])
         {
-            [SearchModelShare sharedInstance].type = @"";
+//            [SearchModelShare sharedInstance].type = @"";
         }
         if ([_job_type isEqual:@"1"])
         {
-            [SearchModelShare sharedInstance].type = @"56";
+//            [SearchModelShare sharedInstance].type = @"56";
         }
         if ([_job_type isEqual:@"2"])
         {
-            [SearchModelShare sharedInstance].type = @"119";
+//            [SearchModelShare sharedInstance].type = @"119";
         }
     
         [SearchModelShare sharedInstance].sdate = @"";
@@ -254,8 +252,6 @@
         /*数据请求**/
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:self.page];
-        
-        
     }
     else
     {
@@ -263,8 +259,12 @@
         [_jobArr removeAllObjects];
         [self.tableView reloadData];
         
-        [SearchModelShare sharedInstance].longitude = [NSString stringWithFormat:@"%fd",_longitude];
-        [SearchModelShare sharedInstance].dimensionality = [NSString stringWithFormat:@"%fd",_latitude];
+        AppDelegate *app = [AppDelegate instance];
+        
+//        [SearchModelShare sharedInstance].longitude = [NSString stringWithFormat:@"%fd",_longitude];
+//        [SearchModelShare sharedInstance].dimensionality = [NSString stringWithFormat:@"%fd",_latitude];
+                [SearchModelShare sharedInstance].longitude = [NSString stringWithFormat:@"%fd",app.longitude];
+                [SearchModelShare sharedInstance].dimensionality = [NSString stringWithFormat:@"%fd",app.latitude];
         
 //        [SearchModelShare sharedInstance].job_post = @"132";
         /*数据请求**/
@@ -282,13 +282,13 @@
         return;
     }
     //打印出所有字段
-    NSLog(@"经度%@ 纬度%@ 关键字%@ 行业类别%@ 职位类别%@ 薪资%@ 教育水平%@ 经验%@ 工作性质%@ 发布时间%@ 城市%@ 首页行业%@",[SearchModelShare sharedInstance].longitude,[SearchModelShare sharedInstance].dimensionality,[SearchModelShare sharedInstance].keyword,[SearchModelShare sharedInstance].hy,[SearchModelShare sharedInstance].job_post,[SearchModelShare sharedInstance].salary,[SearchModelShare sharedInstance].edu,[SearchModelShare sharedInstance].exp,[SearchModelShare sharedInstance].type,[SearchModelShare sharedInstance].sdate,[SearchModelShare sharedInstance].cityid,[SearchModelShare sharedInstance].job1);
+    NSLog(@"~~~~~~~~~~~经度%@ 纬度%@ 关键字%@ 行业类别%@ 职位类别%@ 薪资%@ 教育水平%@ 经验%@ 工作性质%@ 发布时间%@ 城市%@ 首页行业%@",[SearchModelShare sharedInstance].longitude,[SearchModelShare sharedInstance].dimensionality,[SearchModelShare sharedInstance].keyword,[SearchModelShare sharedInstance].hy,[SearchModelShare sharedInstance].job_post,[SearchModelShare sharedInstance].salary,[SearchModelShare sharedInstance].edu,[SearchModelShare sharedInstance].exp,[SearchModelShare sharedInstance].type,[SearchModelShare sharedInstance].sdate,[SearchModelShare sharedInstance].cityid,[SearchModelShare sharedInstance].job1);
     
     NSString *numStr = [NSString stringWithFormat:@"%d",num];
     
     self.state = [[TH_AFRequestState searchJobWithSucc:^(NSArray *DataArr) {
         
-        
+
         if (DataArr.count > 0)
         {
             [self.jobArr addObjectsFromArray:DataArr];
@@ -317,10 +317,9 @@
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
-//    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    NSLog(@"didUpdateUserLocation lat %0.2f,long %0.2f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     _longitude = userLocation.location.coordinate.longitude;
     _latitude = userLocation.location.coordinate.latitude;
-    
 }
 
 - (void)initView
