@@ -48,6 +48,7 @@
     NSDictionary * param = @{@"page":numPager,@"limit":limit};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/loadMore",base_Url] param:param succ:succ fail:fail resp:resp];
     
+
 }
 
 /*职位详情**/

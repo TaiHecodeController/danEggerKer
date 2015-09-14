@@ -453,9 +453,6 @@
             
             break;
         }
-            
-            
-            
         default:
             break;
     }
@@ -533,8 +530,7 @@
             [self.navigationController pushViewController:home animated:YES];
             break;
         }
-            
-            
+        
         default:
             break;
     }

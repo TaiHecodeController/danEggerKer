@@ -281,14 +281,12 @@
     {
         return;
     }
-    
     //打印出所有字段
     NSLog(@"经度%@ 纬度%@ 关键字%@ 行业类别%@ 职位类别%@ 薪资%@ 教育水平%@ 经验%@ 工作性质%@ 发布时间%@ 城市%@ 首页行业%@",[SearchModelShare sharedInstance].longitude,[SearchModelShare sharedInstance].dimensionality,[SearchModelShare sharedInstance].keyword,[SearchModelShare sharedInstance].hy,[SearchModelShare sharedInstance].job_post,[SearchModelShare sharedInstance].salary,[SearchModelShare sharedInstance].edu,[SearchModelShare sharedInstance].exp,[SearchModelShare sharedInstance].type,[SearchModelShare sharedInstance].sdate,[SearchModelShare sharedInstance].cityid,[SearchModelShare sharedInstance].job1);
     
     NSString *numStr = [NSString stringWithFormat:@"%d",num];
     
     self.state = [[TH_AFRequestState searchJobWithSucc:^(NSArray *DataArr) {
-        
         
         
         if (DataArr.count > 0)
