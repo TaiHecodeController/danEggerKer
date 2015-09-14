@@ -124,6 +124,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backRootController:) name:@"findJobBackClick" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyWordRefresh) name:@"keyWord" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TJsearch) name:@"TJsearch" object:nil];
@@ -169,7 +170,23 @@
     [_locService startUserLocationService];
     
 }
+-(void)backRootController:(NSNotification*)notion
+{
+    for(UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if([controller isKindOfClass:[TH_FindJobVC class]])
+        {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            
+        }
+        else
+        {
+            [self.navigationController popViewControllerAnimated:YES];
 
+        }
+    }
+    
+}
 - (void)TJsearch
 {
     //清空keyword

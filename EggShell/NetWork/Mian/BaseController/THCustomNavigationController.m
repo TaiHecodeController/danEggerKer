@@ -63,6 +63,7 @@
 
       [[NSNotificationCenter defaultCenter] postNotificationName:@"videoClose" object:nil];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"writeStep2BackClick" object:nil];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"findJobBackClick" object:nil];
     
 
     [self popViewControllerAnimated:YES];
