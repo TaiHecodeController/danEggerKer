@@ -220,6 +220,8 @@ typedef NS_ENUM(NSInteger, GestureType){
         
     }
     
+     MBProgressHUD *mb = [MBProgressHUD mbHubShow];
+    [self loadDataWithMB:mb classid:_classId];
     
 //    //设置返回按钮
 //    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -254,10 +256,6 @@ typedef NS_ENUM(NSInteger, GestureType){
     self.title = @"课程播放";
     [self createCourePlay];
     [self createTableView];
-    
-    MBProgressHUD *mb = [MBProgressHUD mbHubShow];
-    [self loadDataWithMB:mb classid:_classId];
-
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startFullScreen) name:MPMoviePlayerDidEnterFullscreenNotification object:nil];
     
@@ -349,23 +347,7 @@ typedef NS_ENUM(NSInteger, GestureType){
     }
     self.state = [[OpenClassVideoListRequest requestWithSucc:^(NSArray *DataDic) {
       self.videoListArr = [NSMutableArray arrayWithArray:DataDic];
-        
-//        NSString *name;
-//        playListModel *plModel = self.videoListArr[indexPath.row];
-        
-        
       [self.tableView reloadData];
-        
-        for (int i = 0; i < self.videoListArr.count; i++)
-        {
-            playListModel *plModel = self.videoListArr[i];
-            if ([_name isEqual:plModel.video_name])
-            {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-                                [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-//                [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
-            }
-        }
     } resp:[playListModel class] paramWithId:classid] addNotifaction:mb];
 //        [OpenClassVideoListRequest requestWithSucc:^(NSArray *DataDic) {
 //          self.videoListArr = [NSMutableArray arrayWithArray:DataDic];
@@ -473,7 +455,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 //    [Pbtn addTarget:self action:@selector(PbtnClick) forControlEvents:UIControlEventTouchUpInside];
 //    [self.PLvideoPlayer.view addSubview:Pbtn];
 //    _Pbtn = Pbtn;
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.PLvideoPlayer.view animated:YES];
 }
 
 
