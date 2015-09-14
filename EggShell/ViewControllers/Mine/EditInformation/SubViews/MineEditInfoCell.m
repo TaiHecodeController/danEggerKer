@@ -76,8 +76,8 @@
     [self.Controller.navigationController.view addSubview:sexOk];
     
     [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        self.pickerView.frame = CGRectMake(0, HEIGHT / 2 + 80, WIDETH, HEIGHT / 2 - 80);
-        sexOk.frame = CGRectMake(WIDETH - 40, HEIGHT - 80, 40, 30);
+        self.pickerView.frame = CGRectMake(0, HEIGHT / 2 + 90*MyHeight, WIDETH, HEIGHT / 2 - 80);
+        sexOk.frame = CGRectMake(WIDETH - 50, HEIGHT - 100*MyHeight, 40, 30);
     } completion:^(BOOL finished) {
         
     }];
@@ -124,8 +124,8 @@
     [self.Controller.navigationController.view addSubview:ok];
     
     [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        self.dataPicker.frame = CGRectMake(0, HEIGHT / 2 + 80, WIDETH, HEIGHT / 2 - 80);
-        ok.frame = CGRectMake(WIDETH - 60, HEIGHT - 60, 50, 40);
+        self.dataPicker.frame = CGRectMake(0, HEIGHT / 2 + 90*MyHeight, WIDETH, HEIGHT / 2 - 80);
+        ok.frame = CGRectMake(WIDETH - 50, HEIGHT - 100*MyHeight, 40, 30);
     } completion:^(BOOL finished) {
         
     }];

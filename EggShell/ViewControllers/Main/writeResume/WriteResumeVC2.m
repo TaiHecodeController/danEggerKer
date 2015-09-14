@@ -28,45 +28,38 @@
 @implementation WriteResumeVC2
 -(void)viewWillAppear:(BOOL)animated
 {
-//    [self.navigationController popViewControllerAnimated:NO];
+     [super viewWillAppear:NO];
 
-//  self.navigationItem.leftBarButtonItem = nil;
-//       [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backClick) name:@"writeStep2BackClick" object:nil];
-//    UIButton *releaseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    releaseButton.frame= CGRectMake(0, 0, 40, 40);
-//    [releaseButton setTitle:@"发布" forState:normal];
-//    [releaseButton addTarget:self action:@selector(releaseInfo) forControlEvents:UIControlEventTouchUpInside];
-//    UIBarButtonItem *releaseButtonItem = [[UIBarButtonItem alloc] initWithCustomView:releaseButton];
-//    self.navigationItem.leftBarButtonItem = releaseButtonItem;
-   
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backClick) name:@"writeStep2BackClick" object:nil];
 }
--(void)releaseInfo
+
+- (void)viewDidDisappear:(BOOL)animated
 {
-    for(UIViewController *controller in self.navigationController.viewControllers) {
-    if([controller isKindOfClass:[ManagerResumeVC class]]){
-        ManagerResumeVC*owr = (ManagerResumeVC *)controller;
-        [self.navigationController popToViewController:owr animated:YES];
-    }
-}
+    [super viewDidDisappear:YES];
     
-//    [self.navigationController popViewControllerAnimated:NO];
-//    ManagerResumeVC * manager = [[ManagerResumeVC alloc] init];
-//    
-//    [self.navigationController pushViewController:manager animated:YES];
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = @"写简历";
     self.view.backgroundColor = [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:241 / 255.0 alpha:1];
     
     [self createUI];
     [self createData];
- [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backClick) name:@"writeStep2BackClick" object:nil];
+ 
 //    // Do any additional setup after loading the view.
 }
 -(void)backClick
 {
+    for(UIViewController *controller in self.navigationController.viewControllers) {
+       [self.navigationController popViewControllerAnimated:NO];
+        if([controller isKindOfClass:[ManagerResumeVC class]]){
+            ManagerResumeVC*owr = (ManagerResumeVC *)controller;
+            [self.navigationController popToViewController:owr animated:YES];
+        }}
 //    self.navigationItem.leftBarButtonItem = nil;
 //    [self.navigationController popViewControllerAnimated:NO];
 //    ManagerResumeVC * manager = [[ManagerResumeVC alloc] init];

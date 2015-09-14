@@ -472,9 +472,15 @@
             for (int i = 0; i < self.jobCellArray.count; i ++) {
                 
                 self.telphone = ((MineEditInfoCell*)self.jobCellArray[0]).contentTextField.text;
+                if([((MineEditInfoCell*)self.jobCellArray[1]).contentTextField.text length]>16)
+                {
+                    [MBProgressHUD creatembHub:@"昵称不能超过16字"];
+                    return;
+                }
+                {
                 
                 self.name = ((MineEditInfoCell*)self.jobCellArray[1]).contentTextField.text;
-                
+                }
                 
                 
                 if ([((MineEditInfoCell*)self.jobCellArray[2]).contentTextField.text isEqualToString:@"男"]) {

@@ -812,8 +812,8 @@
     [self.navigationController.view addSubview:_ok];
     
     [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        self.datePick.frame = CGRectMake(0, HEIGHT / 2 + 80 + 40, WIDETH, HEIGHT / 2 - 80);
-        _ok.frame = CGRectMake(WIDETH - 60, HEIGHT - 60, 50, 40);
+        self.datePick.frame = CGRectMake(0, HEIGHT / 2 + 90*MyHeight, WIDETH, HEIGHT / 2 - 80);
+        _ok.frame = CGRectMake(WIDETH - 50, HEIGHT - 100*MyHeight, 40, 30);
         [back_sv scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
     
     } completion:^(BOOL finished) {
