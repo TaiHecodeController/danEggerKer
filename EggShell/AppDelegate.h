@@ -23,7 +23,10 @@
 @property(nonatomic,assign)  double doubleCurrentVersion;
 @property(nonatomic,assign)   double doubleUpdateVersion;
 @property(nonatomic,copy)NSString * trackViewUrl;
+@property (nonatomic, assign) double longitude;
+@property (nonatomic, assign) double latitude;
 +(AppDelegate*)instance;
+
 
 @end
 

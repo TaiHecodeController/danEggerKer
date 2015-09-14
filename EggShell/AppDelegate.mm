@@ -13,10 +13,11 @@
 #import "TH_featureVC.h"
 #import <BaiduMapAPI/BMKMapManager.h>
 #import "IQTitleBarButtonItem.h"
-@interface AppDelegate ()<BMKGeneralDelegate>
+@interface AppDelegate ()<BMKGeneralDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate>
 {
     NSString * _trackViewUrl;
     BMKMapManager* _mapManager;
+      BMKLocationService * _locService;
 }
 
 @end
@@ -75,10 +76,28 @@
         NSLog(@"已登陆");
     }
     
-   
+    
+    //设置定位精确度，默认：kCLLocationAccuracyBest
+    [BMKLocationService setLocationDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
+    //指定最小距离更新(米)，默认：kCLDistanceFilterNone
+    [BMKLocationService setLocationDistanceFilter:100.f];
+    
+    //初始化BMKLocationService
+    _locService = [[BMKLocationService alloc]init];
+    _locService.delegate = self;
+    //启动LocationService
+    [_locService startUserLocationService];
 
     return YES;
     
+}
+
+//处理位置坐标更新
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    NSLog(@"didUpdateUserLocation lat %0.2f,long %0.2f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    _longitude = userLocation.location.coordinate.longitude;
+    _latitude = userLocation.location.coordinate.latitude;
 }
 #pragma mark -- 键盘收回处理
 -(void)keyBoard

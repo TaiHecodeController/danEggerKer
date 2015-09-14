@@ -36,8 +36,6 @@
     self.dataArray = [NSMutableArray arrayWithCapacity:0];
     [self loadData];
     [self crateUI];
-    
-    
 }
 
 -(void)loadData
@@ -111,6 +109,7 @@
     }
     else
     {
+        [SearchModelShare sharedInstance].type = @"";
         [SearchModelShare sharedInstance].keyword = sender.titleLabel.text;
     }
     
