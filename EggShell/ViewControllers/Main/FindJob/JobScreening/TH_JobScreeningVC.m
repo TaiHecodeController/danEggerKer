@@ -50,7 +50,8 @@
 {
     self.nameArray = @[@"行业类别",@"职位类别",@"工作城市",@"薪资待遇",@"学历要求",@"工作经验",@"工作类型",@"发布时间"];
     
-    self.conrentArray = @[@"计算机/互联网",@"技术人员/助理",@"北京",@"3000-10000",@"本科",@"3年",@"全职",@"一天内"];
+//    self.conrentArray = @[@"计算机/互联网",@"技术人员/助理",@"北京",@"3000-10000",@"本科",@"3年",@"全职",@"一天内"];
+    self.conrentArray = @[@"",@"",@"北京",@"",@"",@"",@"",@""];
     
 //    self.industryArray = @[@"不限",@"计算机/互联网",@"机械/设备/技工",@"贸易/百货",@"化工/能源",@"公务员/翻译/其他",@"服务业",@"咨询/法律/教育/科研",@"人事/行政/高级管理",@"建筑/房地产",@"广告/市场/媒体/艺术",@"生物/制药/医疗/护理",@"生产/营运/采购/物流",@"会计/金融/银行/保险",@"销售/客服/技术支持",@"信息/电子"];
 }
@@ -107,6 +108,7 @@
     cell.titleLable.text = self.nameArray[indexPath.row];
     cell.contentTextFiled.placeholder  = self.conrentArray[indexPath.row];
     cell.contentTextFiled.userInteractionEnabled = NO;
+    cell.contentTextFiled.textColor = [UIColor blackColor];
     [self.cellArray addObject:cell];
     self.cell = cell;
     return cell;
@@ -131,6 +133,8 @@
     UITextField * contenLable =[[UITextField alloc] initWithFrame:CGRectMake(100, 15, WIDETH-165, 26)];
 //    contenLable.text = [SearchModelShare sharedInstance].keyword;
     contenLable.font =[UIFont systemFontOfSize:13];
+    contenLable.placeholder = @"输入关键字，例:工程师";
+    contenLable.textColor = [UIColor blackColor];
     contenLable.textAlignment = NSTextAlignmentRight;
     UIView * lineView =[[UIView alloc] initWithFrame:CGRectMake(15, 41.5, WIDETH-15, 0.5)];
     lineView.backgroundColor = UIColorFromRGB(0xDDDDDD);
@@ -295,7 +299,7 @@
 {
 
         JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
-        cell.contentTextFiled.placeholder = keyWord;
+        cell.contentTextFiled.text = keyWord;
     NSLog(@"%ld",(long)cellIndex.row);
     if (cellIndex.row == 0)
     {
@@ -345,7 +349,7 @@
 - (void)chooseWord3_SearchCity:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
 {
     JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
-    cell.contentTextFiled.placeholder = keyWord;
+    cell.contentTextFiled.text = keyWord;
     [SearchModelShare sharedInstance].job_post = Id;
 }
 

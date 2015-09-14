@@ -182,7 +182,6 @@
     }
     return cell;
 }
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [SearchModelShare sharedInstance].keyword = self.dataArray[indexPath.row - 1];
