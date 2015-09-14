@@ -550,7 +550,7 @@
         case THHomeViewButtonTypeFindJob:
         {
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找全职";
+            home.title = @"找工作";
             home.job_type = @"0";
             [SearchModelShare sharedInstance].type = @"55";
             [self.navigationController pushViewController:home animated:YES];

@@ -89,6 +89,8 @@
     [_header free];
     [_footer free];
 }
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     
@@ -102,8 +104,7 @@
     [self.navigationController.navigationBar addSubview:searchBtn];
     _searchBtn = searchBtn;
     
-    
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backRootController:) name:@"findJobBackClick" object:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -113,18 +114,26 @@
     //  [self.tableView reloadData];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewWillDisappear:NO];
-    
     [_searchBtn removeFromSuperview];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backRootController:) name:@"findJobBackClick" object:nil];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backRootController:) name:@"findJobBackClick" object:nil];
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyWordRefresh) name:@"keyWord" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TJsearch) name:@"TJsearch" object:nil];
@@ -172,20 +181,7 @@
 }
 -(void)backRootController:(NSNotification*)notion
 {
-    for(UIViewController *controller in self.navigationController.viewControllers)
-    {
-        if([controller isKindOfClass:[TH_FindJobVC class]])
-        {
-            [self.navigationController popToRootViewControllerAnimated:YES];
-            
-        }
-        else
-        {
-            [self.navigationController popViewControllerAnimated:YES];
-
-        }
-    }
-    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (void)TJsearch
 {
