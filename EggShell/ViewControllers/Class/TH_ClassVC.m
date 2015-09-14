@@ -483,7 +483,7 @@
     else if (tap.view.tag == 1002)
     {
          Url = [NSURL URLWithString:_teacherArr[tap.view.tag-1000][@"video_id"]];
-        name = @"新时代的大学生职位定向2";
+        name = _teacherArr[tap.view.tag-1000][@"video_name"];
     }
     
     //    播放视频

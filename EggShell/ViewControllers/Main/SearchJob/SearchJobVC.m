@@ -106,12 +106,16 @@
     if ([sender.titleLabel.text isEqual:@"银行柜员"])
     {
         [SearchModelShare sharedInstance].keyword = @"柜员";
+        [self.db insertDB:@"柜员"];
     }
     else
     {
         [SearchModelShare sharedInstance].type = @"";
         [SearchModelShare sharedInstance].keyword = sender.titleLabel.text;
+         [self.db insertDB:sender.titleLabel.text];
     }
+    
+    
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
     

@@ -67,13 +67,10 @@
 @implementation TH_FindJobVC
 -(void)dealloc
 {
-    
     [SearchModelShare sharedInstance].longitude = @"";
     [SearchModelShare sharedInstance].dimensionality = @"";
     [SearchModelShare sharedInstance].keyword = @"";
 
-   
-    
     [SearchModelShare sharedInstance].hy = @"";
     [SearchModelShare sharedInstance].job_post = @"";
     [SearchModelShare sharedInstance].cityid = @"";
@@ -82,7 +79,6 @@
     [SearchModelShare sharedInstance].exp = @"";
 //    [SearchModelShare sharedInstance].type = @"";
 
-    
     [SearchModelShare sharedInstance].sdate = @"";
     [SearchModelShare sharedInstance].job1 = @"";
     
@@ -136,19 +132,25 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TJsearch) name:@"TJsearch" object:nil];
     
     NSLog(@"_job_type%@",_job_type);
+    //全职过来
     if ([_job_type isEqual:@"0"])
     {
-//        [SearchModelShare sharedInstance].type = @"55";
+        [SearchModelShare sharedInstance].type = @"55";
     }
-    if ([_job_type isEqual:@"1"])
+    //兼职过来
+    else if ([_job_type isEqual:@"1"])
     {
-//        [SearchModelShare sharedInstance].keyword = @"兼职";
-//        [SearchModelShare sharedInstance].type = @"56";
+        [SearchModelShare sharedInstance].type = @"56";
     }
-    if ([_job_type isEqual:@"2"])
+    //实习过来
+    else if  ([_job_type isEqual:@"2"])
     {
-//        [SearchModelShare sharedInstance].keyword = @"实习";
-//        [SearchModelShare sharedInstance].type = @"129";
+        [SearchModelShare sharedInstance].type = @"129";
+    }
+    //18项进来
+    else
+    {
+        [SearchModelShare sharedInstance].type = @"";
     }
 
     self.jobArr = [[NSMutableArray alloc]init];
@@ -174,16 +176,19 @@
     _locService.delegate = self;
     //启动LocationService
     [_locService startUserLocationService];
-    
 }
+
 -(void)backRootController:(NSNotification*)notion
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+#pragma mark -- 条件筛选刷新
 - (void)TJsearch
 {
-    //清空keyword
-//    [SearchModelShare sharedInstance].keyword = @"";
+    //工作性质
+    [SearchModelShare sharedInstance].type = @"";
+    [SearchModelShare sharedInstance].job1 = @"";
+    [SearchModelShare sharedInstance].keyword = @"";
     
     //全城回调
     if ([SearchModelShare sharedInstance].longitude.length == 0)
@@ -196,7 +201,7 @@
         [self hySegmentedControlSelectAtIndex:1];
     }
 }
-
+#pragma mark -- 关键字刷新
 - (void)keyWordRefresh
 {
     //清空筛选条件
@@ -206,20 +211,21 @@
         [SearchModelShare sharedInstance].salary = @"";
         [SearchModelShare sharedInstance].edu = @"";
         [SearchModelShare sharedInstance].exp = @"";
+        [SearchModelShare sharedInstance].type = @"";
     
-        NSLog(@"_job_type%@",_job_type);
-        if ([_job_type isEqual:@"0"])
-        {
-//            [SearchModelShare sharedInstance].type = @"";
-        }
-        if ([_job_type isEqual:@"1"])
-        {
-//            [SearchModelShare sharedInstance].type = @"56";
-        }
-        if ([_job_type isEqual:@"2"])
-        {
-//            [SearchModelShare sharedInstance].type = @"119";
-        }
+//        NSLog(@"_job_type%@",_job_type);
+//        if ([_job_type isEqual:@"0"])
+//        {
+////            [SearchModelShare sharedInstance].type = @"";
+//        }
+//        if ([_job_type isEqual:@"1"])
+//        {
+////            [SearchModelShare sharedInstance].type = @"56";
+//        }
+//        if ([_job_type isEqual:@"2"])
+//        {
+////            [SearchModelShare sharedInstance].type = @"119";
+//        }
     
         [SearchModelShare sharedInstance].sdate = @"";
         [SearchModelShare sharedInstance].job1 = @"";
@@ -260,9 +266,7 @@
         [self.tableView reloadData];
         
         AppDelegate *app = [AppDelegate instance];
-        
-//        [SearchModelShare sharedInstance].longitude = [NSString stringWithFormat:@"%fd",_longitude];
-//        [SearchModelShare sharedInstance].dimensionality = [NSString stringWithFormat:@"%fd",_latitude];
+
                 [SearchModelShare sharedInstance].longitude = [NSString stringWithFormat:@"%fd",app.longitude];
                 [SearchModelShare sharedInstance].dimensionality = [NSString stringWithFormat:@"%fd",app.latitude];
         
@@ -270,7 +274,6 @@
         /*数据请求**/
         _mbPro = [MBProgressHUD mbHubShow];
         [self loadData:_mbPro page:self.page];
-        
     }
 }
 

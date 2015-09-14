@@ -101,6 +101,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 @property (nonatomic, strong) NSMutableArray *videoListArr;
 @property (nonatomic, strong) UIButton *searchBtn;
 @property (nonatomic, strong) UIButton *Pbtn;
+@property (nonatomic, assign) CGFloat position;
 
 @end
 
@@ -346,13 +347,37 @@ typedef NS_ENUM(NSInteger, GestureType){
         return;
     }
     self.state = [[OpenClassVideoListRequest requestWithSucc:^(NSArray *DataDic) {
-      self.videoListArr = [NSMutableArray arrayWithArray:DataDic];
-      [self.tableView reloadData];
+      
+        self.videoListArr = [NSMutableArray arrayWithArray:DataDic];
+       
+        [self.tableView reloadData];
+        
+        for (int i = 0; i < self.videoListArr.count; i++)
+        {
+            playListModel *plModel = self.videoListArr[i];
+            
+            if ([_name isEqual:plModel.video_name])
+            {
+                
+                
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+                _position = i * 35;
+                
+                [self.tableView scrollRectToVisible:CGRectMake(0, _position, WIDETH, HEIGHT - 211-64) animated:NO];
+                
+                [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            }
+            
+        }
+        
+        
+        
     } resp:[playListModel class] paramWithId:classid] addNotifaction:mb];
 //        [OpenClassVideoListRequest requestWithSucc:^(NSArray *DataDic) {
 //          self.videoListArr = [NSMutableArray arrayWithArray:DataDic];
 //          [self.tableView reloadData];
 //        } resp:[playListModel class] paramWithId:classid];
+    
     
 }
 
@@ -367,7 +392,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 }
 -(void)createTableView
 {
-    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 211, WIDETH, HEIGHT - 211-64) style:UITableViewStylePlain];
+    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 211, WIDETH, HEIGHT - 211-64) ];
     tableView.dataSource = self;
     tableView.delegate = self;
     self.tableView = tableView;
@@ -394,9 +419,9 @@ typedef NS_ENUM(NSInteger, GestureType){
     [cell setOrderValue:(int)indexPath.row];
     return cell;
 }
--(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 35;
+     return 35;
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
