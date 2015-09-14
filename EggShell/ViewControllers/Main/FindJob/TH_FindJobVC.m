@@ -96,7 +96,7 @@
     
     [super viewWillAppear:NO];
     
-       UIButton *searchBtn = [[UIButton alloc] init];
+    UIButton *searchBtn = [[UIButton alloc] init];
     [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
     [searchBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
     searchBtn.frame = CGRectMake(WIDETH - 10 - 50 - 20 - 10,0, 44, 44);
@@ -132,7 +132,6 @@
     [super viewDidLoad];
     
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backRootController:) name:@"findJobBackClick" object:nil];
-    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyWordRefresh) name:@"keyWord" object:nil];
     
@@ -386,8 +385,8 @@
     _allSelected.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
 //    [_allSelected setImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
 //    [_allSelected setImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
-    [_allSelected setBackgroundImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
-    [_allSelected setBackgroundImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
+    [_allSelected setBackgroundImage:[UIImage imageNamed:@"duikuang001"] forState:UIControlStateNormal];
+    [_allSelected setBackgroundImage:[UIImage imageNamed:@"duikuang123"] forState:UIControlStateSelected];
 
     [_allSelected addTarget:self action:@selector(allClick:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomView addSubview:_allSelected];
