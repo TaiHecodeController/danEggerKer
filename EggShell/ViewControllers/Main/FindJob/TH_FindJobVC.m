@@ -94,7 +94,7 @@
     
     [super viewWillAppear:NO];
     
-    UIButton *searchBtn = [[UIButton alloc] init];
+       UIButton *searchBtn = [[UIButton alloc] init];
     [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
     [searchBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
     searchBtn.frame = CGRectMake(WIDETH - 10 - 50 - 20 - 10,0, 44, 44);
@@ -716,6 +716,7 @@
     {
        
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
+        alertView.delegate = self;
         [alertView show];
     }
 }
@@ -725,11 +726,10 @@
 {
     if(buttonIndex == 1)
     {
-        self.navigationController.navigationBarHidden = NO;
-        TH_LoginVC * lvc = [[TH_LoginVC alloc] init];
-        lvc.findJobApplication = @"findJobApplication";
-        [self.navigationController pushViewController:lvc animated:YES];
-        
+        TH_LoginVC * login =[[TH_LoginVC alloc] init];
+        login.findJobApplications = @"findJobApplications";
+        [self.navigationController pushViewController:login animated:YES];
+
     }
 }
 

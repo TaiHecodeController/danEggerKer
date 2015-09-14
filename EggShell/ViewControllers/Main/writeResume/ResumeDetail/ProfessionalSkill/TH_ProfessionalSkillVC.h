@@ -10,4 +10,5 @@
 
 @interface TH_ProfessionalSkillVC : TH_BaseVC
 @property (strong,nonatomic)NSDictionary * dataDic;
+@property(assign)BOOL isSelect;
 @end

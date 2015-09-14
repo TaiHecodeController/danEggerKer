@@ -32,7 +32,7 @@
                         <action selector="cityClick:" destination="-1" eventType="touchUpInside" id="H4b-Qs-MC9"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="街道" minimumFontSize="17" background="jiedao" translatesAutoresizingMaskIntoConstraints="NO" id="xzq-lW-lct">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="街道" minimumFontSize="17" background="jiedao" translatesAutoresizingMaskIntoConstraints="NO" id="xzq-lW-lct">
                     <rect key="frame" x="30" y="76" width="260" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Kye-JJ-dXL"/>

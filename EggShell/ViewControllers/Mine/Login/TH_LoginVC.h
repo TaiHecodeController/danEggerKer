@@ -10,6 +10,6 @@
 
 @interface TH_LoginVC : TH_BaseVC
 @property(nonatomic,copy)NSString * jobWilstRegist;
-@property(nonatomic,copy)NSString * findJobApplication;
+@property(nonatomic,copy)NSString * findJobApplications;
 @property(nonatomic,copy)NSString * findJobDetailApplication;
 @end

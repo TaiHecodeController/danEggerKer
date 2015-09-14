@@ -70,7 +70,7 @@
         }
     }
 self.contentTextField.text = @"";
-
+   
 }
 -(void)setData
 {
@@ -151,6 +151,8 @@ self.contentTextField.text = @"";
 /*保存**/
 -(void)saveBtnClick
 {
+   
+    
     for(int i = 0;i < self.jobCellArr.count;i++)
     {
         projectTableViewCell * cell = self.jobCellArr[i];
@@ -204,7 +206,8 @@ self.contentTextField.text = @"";
         [_tableView reloadData];
     }
     [self.jobCellArr removeAllObjects];
-    self.contentTextField.text = @"请输入工作内容";
+    self.contentTextField.text = @"";
+    self.placeHoderTextLable.hidden = NO;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -244,15 +247,15 @@ self.contentTextField.text = @"";
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
-    [self.placeHoderTextLable removeFromSuperview];
+   self.placeHoderTextLable.hidden = YES;
     if(HEIGHT == 480)
     {
-        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
-        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 150);
+        [self.scro scrollRectToVisible:CGRectMake(0, 450, WIDETH, HEIGHT) animated:YES];
     }else
     {
-        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 200);
-        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 150);
+        [self.scro scrollRectToVisible:CGRectMake(0, 450, WIDETH, HEIGHT) animated:YES];
         
     }
     

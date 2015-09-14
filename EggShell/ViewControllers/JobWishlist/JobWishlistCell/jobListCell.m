@@ -87,7 +87,7 @@
     }
     
     CGSize pLabSize = [_positionLab.text sizeWithFont:_positionLab.font];
-    _positionLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + margin, y, pLabSize.width, pLabSize.height);
+    _positionLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + margin, y, 235*MyWideth, pLabSize.height);
     
     y += _positionLab.frame.size.height + 5;
     CGSize compSize = [_companyLab.text sizeWithFont:_companyLab.font];

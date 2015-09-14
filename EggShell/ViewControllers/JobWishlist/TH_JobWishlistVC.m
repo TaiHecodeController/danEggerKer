@@ -280,7 +280,7 @@
             
         } withfail:^(int errCode, NSError *err) {
             
-        } withUid:nil page:num limit:5 resp:[saveListModel class]] addNotifaction:notify];
+        } withUid:nil page:num limit:10 resp:[saveListModel class]] addNotifaction:notify];
     }
     
     if (_pushType == 1)
@@ -339,7 +339,9 @@
             cell.companyLab.text = model.com_name;
             cell.cityLab.text = model.provinceid;
             cell.knowledgeLab.text = model.edu;
-            cell.timeLab.text = model.lastupdate;
+//            cell.timeLab.text = model.lastupdate;
+            NSString * dateStr = model.lastupdate;
+            cell.timeLab.text = [dateStr substringFromIndex:5];
             cell.salaryLab.text = model.salary;
             cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
             [cell layoutSubviews];

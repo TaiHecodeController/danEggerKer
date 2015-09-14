@@ -31,11 +31,11 @@
 }
 
 /*意见反馈**/
-+(AFRequestState*)feedbackReRequestWithSucc:(void(^)( NSDictionary * DataDic))succ   withSource:(int)source withOpinion:(NSString*)opinion withqq:(NSString*)qq withEmail:(NSString*)email withfail:(void (^)(int errCode, NSError * err))fail
++(AFRequestState*)feedbackReRequestWithSucc:(void(^)( NSDictionary * DataDic))succ   withSource:(int)source withOpinion:(NSString*)opinion withqq:(NSString*)qq withEmail:(NSString*)email
 {
     NSNumber * num = [NSNumber numberWithInt:source];
   NSDictionary * param = @{@"source":num ,@"opinion":opinion,@"qq":qq,@"email":email};
-    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@feedback",base_Url] param:param succ:succ fail:fail];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@feedback",base_Url] param:param succ:succ];
    
 
 }

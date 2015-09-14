@@ -202,6 +202,10 @@ typedef NS_ENUM(NSInteger, GestureType){
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //监听父类的play停止动作
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popView) name:@"videoClose" object:nil];
+    
+
         //网络判断
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
         [MBProgressHUD creatembHub:@"当前处于无网络"];
@@ -268,9 +272,6 @@ typedef NS_ENUM(NSInteger, GestureType){
 //                                             selector:@selector(resignActive)
 //                                                 name:UIApplicationWillResignActiveNotification
 //                                               object:nil];
-      //监听父类的play停止动作
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popView) name:@"videoClose" object:nil];
-
     
     //    NSUserDefaults *userd = [NSUserDefaults standardUserDefaults];
     //    if (![userd boolForKey:@"isFirstOpenMoviePlayerViewController"]) {
@@ -325,10 +326,10 @@ typedef NS_ENUM(NSInteger, GestureType){
 #pragma mark -- respondEvent
 - (void)leftBtnClick
 {
-//    [self.PLvideoPlayer stop];
-    self.PLvideoPlayer = [[PLVMoviePlayerController alloc]initWithVid:@""];
-    [self.navigationController popViewControllerAnimated:YES];
-    NSLog(@"视频停止");
+////    [self.PLvideoPlayer stop];
+//    self.PLvideoPlayer = [[PLVMoviePlayerController alloc]initWithVid:@""];
+//    [self.navigationController popViewControllerAnimated:YES];
+//    NSLog(@"视频停止");
 }
 
 - (void)PbtnClick
@@ -419,14 +420,13 @@ typedef NS_ENUM(NSInteger, GestureType){
 
 - (void)popView
 {
-            NSLog(@"视频停止");
-    self.PLvideoPlayer = [[PLVMoviePlayerController alloc]initWithVid:@""];
-
-   [self.navigationController popViewControllerAnimated:NO];
-    TH_ClassVC * class = [[TH_ClassVC alloc] init];
+             //    TH_ClassVC * class = [[TH_ClassVC alloc] init];
+    NSLog(@"视频停止");
     [self.PLvideoPlayer stop];
-     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController popToViewController:class animated:YES];
+    self.PLvideoPlayer = [[PLVMoviePlayerController alloc]initWithVid:@""];
+//    [self.navigationController popViewControllerAnimated:YES];
+//     [self dismissViewControllerAnimated:YES completion:nil];
+//    [self.navigationController popToViewController:class animated:YES];
 
 
 //    MPMovieLoadState loadState = self.PLvideoPlayer.loadState;
@@ -901,7 +901,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 //视频播放到结尾
 - (void)playerItemDidReachEnd:(NSNotification *)notification{
     if (_currentPlayingItem+1 == _movieURLList.count) {
-        [self popView];
+//        [self popView];
     }else{
         ++_currentPlayingItem;
         [_player replaceCurrentItemWithPlayerItem:[AVPlayerItem playerItemWithURL:_movieURLList[_currentPlayingItem]]];

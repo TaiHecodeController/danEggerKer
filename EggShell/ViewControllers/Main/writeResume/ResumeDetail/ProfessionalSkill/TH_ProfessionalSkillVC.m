@@ -41,14 +41,15 @@
     [self createScro];
     [self createView];
     [self setData];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(removeClick:) name:@"removeMessage" object:nil];
 }
 -(void)keyboardHide:(UITapGestureRecognizer*)tap
 {
     [self.view endEditing:YES];
 }
--(void)viewWillAppear:(BOOL)animated
+-(void)removeClick:(NSNotification*)notion
 {
-
+   
     for(int i = 0;i < self.jobCellArr.count;i++)
     {
         ProfessionalCell * cell = self.jobCellArr[i];
@@ -60,11 +61,13 @@
         
         if(i == 1)
         {
-             cell.cellId = @"";
+
+            cell.profisionTextField.text = @"";
         }
         if(i == 2)
         {
-            cell.cellId = @"";
+
+            cell.profisionTextField.text = @"";
         }
         if(i == 3)
         {
@@ -72,8 +75,8 @@
         }
         
 
-    }
     
+    }
 }
 -(void)setData
 {
@@ -126,6 +129,8 @@
 /*保存**/
 -(void)saveBtnClick
 {
+   
+   
     for(int i = 0;i < self.jobCellArr.count;i++)
     {
         ProfessionalCell * cell = self.jobCellArr[i];
@@ -150,7 +155,22 @@
         }
         if(i == 3)
         {
+            
+            NSCharacterSet *cs;
+            cs = [[NSCharacterSet characterSetWithCharactersInString:NUMBERS] invertedSet];
+            NSString *filtered = [[cell.profisionTextField.text componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+            BOOL basicTest = [cell.profisionTextField.text isEqualToString:filtered];
+            if(!basicTest)
+            {
+                [MBProgressHUD creatembHub:@"掌握时间必须为数字"];
+                
+                return ;
+                
+            }else
+            {
             _model.skillTime = cell.profisionTextField.text;
+            }
+            
         }
         
     }
@@ -163,6 +183,8 @@
         
         ProfessonSkillVC * professon = [[ProfessonSkillVC alloc] init];
         professon.model = _model;
+        
+        
         [self.navigationController pushViewController:professon animated:YES];
     } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"skill":_model.skillType,@"ing":_model.skillDegree,@"longtime":_model.skillTime}] addNotifaction:hub];
     

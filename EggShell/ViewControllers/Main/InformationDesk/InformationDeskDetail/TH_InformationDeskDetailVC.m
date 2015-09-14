@@ -52,6 +52,7 @@
     detail.contentLable.scrollEnabled = YES;
     if (self.detaildic) {
         [detail setValues:self.detaildic];
+        
     }if (self.informodel) {
         [detail setValuess:self.informodel];
     }

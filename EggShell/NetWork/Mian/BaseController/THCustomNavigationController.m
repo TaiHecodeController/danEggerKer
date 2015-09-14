@@ -57,16 +57,16 @@
 #pragma mark -返回
 - (void)pop
 {
-    if (self.viewControllers.count >0) {
+    
         [[NSNotificationCenter defaultCenter]postNotificationName:@"writeresum" object:nil];
         [[NSNotificationCenter defaultCenter]postNotificationName:@"company" object:nil];
-    }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"videoClose" object:nil];
+
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"videoClose" object:nil];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"writeStep2BackClick" object:nil];
     
 
     [self popViewControllerAnimated:YES];
-    
-}
+     }
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;

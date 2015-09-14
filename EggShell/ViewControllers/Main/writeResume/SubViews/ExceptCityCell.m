@@ -70,14 +70,15 @@
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
     
-    sexOk = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 40, HEIGHT, 40, 30) ImageName:@"" Target:self Action:@selector(sexOkClick) Title:@"确定"];
+    sexOk = [ZCControl createButtonWithFrame:CGRectMake(0, 0, 100, 100) ImageName:@"" Target:self Action:@selector(sexOkClick) Title:@"确定"];
     
     [sexOk setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    sexOk.backgroundColor = [UIColor redColor];
     [self.Controller.navigationController.view addSubview:sexOk];
     
     [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        self.pickerView.frame = CGRectMake(0, HEIGHT / 2 + 80, WIDETH, HEIGHT / 2 - 80);
-        sexOk.frame = CGRectMake(WIDETH - 40, HEIGHT - 80, 40, 30);
+        self.pickerView.frame = CGRectMake(0, HEIGHT / 2 + 80+40, WIDETH, HEIGHT / 2 - 80);
+        sexOk.frame = CGRectMake(WIDETH - 60, HEIGHT - 60, 50, 40);
     } completion:^(BOOL finished) {
         
     }];

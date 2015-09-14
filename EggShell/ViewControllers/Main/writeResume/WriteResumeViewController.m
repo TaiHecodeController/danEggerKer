@@ -34,9 +34,11 @@
 }
 @property (strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
+@property(strong,nonatomic)NSArray  * image1Array;
 @property (strong,nonatomic)NSMutableArray * jobCellArray;
 
 @property (strong,nonatomic)NSArray * nameArray2;
+@property(strong,nonatomic)NSArray * image2Array;
 @property (strong,nonatomic)NSArray * holderArray2;
 @property (strong,nonatomic)NSMutableArray * jobCellArray2;
 @property (nonatomic, strong)UIDatePicker *datePick;
@@ -259,8 +261,10 @@
 -(void)createData
 {
     self.nameArray = @[@"简历名称",@"从事行业",@"期望职位",@"期望薪资",@"期望城市",@"工作性质",@"到岗时间",@"求职状态"];
+    self.image1Array  = @[@"",@"xiala-拷贝",@"xiala-拷贝",@"xiala-拷贝",@"",@"xiala-拷贝",@"xiala-拷贝",@"xiala-拷贝"];
     self.holderArray = @[@"请填写您的简历名称",@"请选择您的从事行业",@"请选择您的期望职位",@"请选择您的期望薪资",@"",@"请选择您的工作性质",@"请选择您的到岗时间",@"请选择您的求职状态"];
     self.nameArray2 = @[@"",@"出生年月",@"最高学历",@"工作经验",@"手机号码",@"联系邮箱",@"现居住地"];
+    self.image2Array = @[@"",@"xiala-拷贝",@"xiala-拷贝",@"xiala-拷贝",@"",@"",@""];
     self.holderArray2 = @[@"",@"请填写您的出生年月",@"请填写您的最高学历",@"请填写您的工作经验",@"请填写您的手机号码",@"请填写您的联系邮箱",@"请填写您的现居住地"];
     
 }
@@ -506,6 +510,7 @@
                 }
             }
             cell.resumeName.text = self.nameArray[indexPath.row];
+            [cell.showMessageBtn setImage:[UIImage imageNamed:self.image1Array[indexPath.row]] forState:UIControlStateNormal];
             cell.contentTextField.placeholder = self.holderArray[indexPath.row];
             cell.showMessageBtn.tag = 100 + indexPath.row;
             if(indexPath.row == 0)
@@ -589,6 +594,7 @@
                 cell.contentTextField.enabled = NO;
             }
             cell.resumeName.text = self.nameArray2[indexPath.row];
+            [cell.showMessageBtn setImage:[UIImage imageNamed:self.image2Array[indexPath.row]] forState:UIControlStateNormal];
             cell.contentTextField.placeholder = self.holderArray2[indexPath.row];
             [self.jobCellArray2 addObject:cell];
             return cell;
@@ -807,7 +813,7 @@
     
     [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         self.datePick.frame = CGRectMake(0, HEIGHT / 2 + 80 + 40, WIDETH, HEIGHT / 2 - 80);
-        _ok.frame = CGRectMake(WIDETH - 40, HEIGHT - 80, 40, 30);
+        _ok.frame = CGRectMake(WIDETH - 60, HEIGHT - 60, 50, 40);
         [back_sv scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
     
     } completion:^(BOOL finished) {
@@ -920,12 +926,12 @@
     {
         if(HEIGHT == 480)
         {
-            back_sv.contentSize = CGSizeMake(WIDETH, 754 + 64 + 220);
-            [back_sv scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+            back_sv.contentSize = CGSizeMake(WIDETH, 754 + 64 + 400);
+            [back_sv scrollRectToVisible:CGRectMake(0, 320, WIDETH, HEIGHT) animated:YES];
         }else
         {
-            back_sv.contentSize = CGSizeMake(WIDETH, 754 + 64 + 240);
-            [back_sv scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+            back_sv.contentSize = CGSizeMake(WIDETH, 754 + 64 + 420);
+            [back_sv scrollRectToVisible:CGRectMake(0, 320, WIDETH, HEIGHT) animated:YES];
         }
     }
     recordTextField = textField;

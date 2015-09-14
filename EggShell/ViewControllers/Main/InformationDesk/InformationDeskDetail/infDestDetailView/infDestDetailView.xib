@@ -54,13 +54,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="北京太和集团投资有限公司" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT7-qI-dgf">
-                            <rect key="frame" x="90" y="15" width="230" height="13"/>
+                            <rect key="frame" x="75" y="15" width="230" height="13"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2015-07-24至2016-08-10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZY-TZ-5L7">
-                            <rect key="frame" x="90" y="38" width="230" height="13"/>
+                            <rect key="frame" x="75" y="38" width="230" height="13"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -93,13 +93,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="北京各大高校" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWr-gN-Xna">
-                            <rect key="frame" x="90" y="61" width="230" height="13"/>
+                            <rect key="frame" x="75" y="61" width="230" height="13"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="奇奇老师" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlN-f9-X3U">
-                            <rect key="frame" x="90" y="107" width="230" height="13"/>
+                            <rect key="frame" x="75" y="107" width="230" height="13"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -112,16 +112,16 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="010-5383938998" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIT-I1-C0d">
-                            <rect key="frame" x="90" y="84" width="230" height="13"/>
+                            <rect key="frame" x="75" y="84" width="230" height="13"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="乘坐15路" translatesAutoresizingMaskIntoConstraints="NO" id="j2P-tf-7c8">
-                            <rect key="frame" x="85" y="124" width="230" height="42"/>
+                            <rect key="frame" x="75" y="124" width="230" height="42"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="42" id="rPe-Id-aJ6"/>
+                                <constraint firstAttribute="height" constant="42" id="tXm-lH-5mJ"/>
                             </constraints>
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -134,11 +134,11 @@
                         <constraint firstAttribute="bottom" secondItem="Ow6-PK-FVS" secondAttribute="bottom" constant="0.5" id="H2S-o9-e1h"/>
                         <constraint firstAttribute="height" constant="170" id="OaG-Os-1WP"/>
                         <constraint firstAttribute="trailing" secondItem="Ow6-PK-FVS" secondAttribute="trailing" id="ahq-ed-Qmj"/>
-                        <constraint firstAttribute="trailing" secondItem="j2P-tf-7c8" secondAttribute="trailing" constant="5" id="amb-kM-81I"/>
                         <constraint firstItem="Ow6-PK-FVS" firstAttribute="leading" secondItem="iBA-x6-vZo" secondAttribute="leading" constant="15" id="bru-MR-Ec5"/>
-                        <constraint firstItem="j2P-tf-7c8" firstAttribute="leading" secondItem="JPP-Ep-d1m" secondAttribute="trailing" constant="5" id="dYP-Yd-EQZ"/>
-                        <constraint firstItem="Ow6-PK-FVS" firstAttribute="top" secondItem="j2P-tf-7c8" secondAttribute="bottom" constant="3" id="hTt-yX-TAU"/>
+                        <constraint firstItem="j2P-tf-7c8" firstAttribute="leading" secondItem="iBA-x6-vZo" secondAttribute="leading" constant="75" id="iei-py-k7a"/>
                         <constraint firstItem="Ow6-PK-FVS" firstAttribute="top" secondItem="JPP-Ep-d1m" secondAttribute="bottom" constant="26" id="jCy-xl-pNU"/>
+                        <constraint firstAttribute="trailing" secondItem="j2P-tf-7c8" secondAttribute="trailing" constant="15" id="lzb-Eu-ZgW"/>
+                        <constraint firstItem="Ow6-PK-FVS" firstAttribute="top" secondItem="j2P-tf-7c8" secondAttribute="bottom" constant="3" id="sJv-lz-bOk"/>
                     </constraints>
                 </view>
             </subviews>

@@ -52,8 +52,6 @@
 -(void)crateUI
 {
     
-    
-    
     headView = [[[NSBundle mainBundle] loadNibNamed:@"HeadView" owner:self options:nil] firstObject];
     headView.frame = CGRectMake(0, 64, WIDETH, 58);
     __weak typeof(self) weakSelf = self;
@@ -73,6 +71,7 @@
         {
             //从首页来的，跳到职位列表页
             TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
+            vc.title = @"搜索结果";
             [weakSelf.navigationController pushViewController:vc animated:YES];
         }
         else
@@ -121,6 +120,7 @@
     {
         //从首页来的，跳到职位列表页
         TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
+        vc.title  = @"搜索结果";
         [self.navigationController pushViewController:vc animated:YES];
     }
     else

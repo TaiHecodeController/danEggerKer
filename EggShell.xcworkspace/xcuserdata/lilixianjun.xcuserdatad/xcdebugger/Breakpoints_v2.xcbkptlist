@@ -19,13 +19,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Class/CoursePlay/THCoursePlayVC.m"
-            timestampString = "463742199.93115"
+            filePath = "EggShell/ViewControllers/Main/writeResume/ResumeDetail/ProfessionalSkill/TH_ProfessionalSkillVC.m"
+            timestampString = "463813664.630862"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
-            landmarkName = "-createTableView"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "-saveBtnClick"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

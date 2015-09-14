@@ -59,8 +59,9 @@
         if(i == 1)
         {
             EducationTimeCell * cell = self.jobArray[i];
-                        cell.startTime.titleLabel.text = @"";
-             cell.endTime.titleLabel.text  = @"";
+            cell.startTime.selected = NO;
+            cell.endTime.selected = NO;
+            cell.todayClick.selected = NO;
         }else
         {   EducationWriteCell * cell = self.jobArray[i];
             if(i == 0)
@@ -80,6 +81,8 @@
         self.contentTextField.text = @"";
 
     }
+    
+    
 }
 -(void)keyboardHide:(UITapGestureRecognizer*)tap
 {
@@ -247,7 +250,8 @@
         EducationWriteCell * cell = self.jobArray[i];
         cell.educationContentTextFile.text = @"";
     }
-    self.contentTextField.text = @"请填写教育经历";
+    self.contentTextField.text = @"";
+    self.placeHoderTextLable.hidden = NO;
     [self.jobArray removeAllObjects];
     [_tableView reloadData];
 }
@@ -305,15 +309,15 @@
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
-    [self.placeHoderTextLable removeFromSuperview];
+   self.placeHoderTextLable.hidden = YES;
     if(HEIGHT == 480)
     {
-        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
-        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 150);
+        [self.scro scrollRectToVisible:CGRectMake(0, 450, WIDETH, HEIGHT) animated:YES];
     }else
     {
-        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 200);
-        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 150);
+        [self.scro scrollRectToVisible:CGRectMake(0, 450, WIDETH, HEIGHT) animated:YES];
         
     }
     

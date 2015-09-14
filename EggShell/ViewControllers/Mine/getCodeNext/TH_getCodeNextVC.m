@@ -110,7 +110,7 @@
 #pragma mark--重置密码
 -(void)resetpasswordClick
 {
-   
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
     NSUserDefaults * phone = [NSUserDefaults standardUserDefaults];
     NSString * str =[NSString stringWithFormat:@"%@",[phone objectForKey:@"loginPhone"]];
     if ([self.newsPasswordTextFied .text length]<6||[self.confirmPasswordTextField.text length]<6) {
@@ -121,7 +121,7 @@
     if([self.newsPasswordTextFied .text isEqualToString:self.confirmPasswordTextField.text])
     {
     
-        [LoginAndRegisterRequest resetPasswordRequestWithPhoneNum:str withNewCode:self.newsPasswordTextFied.text withSucc:^(NSDictionary * dic) {
+        [[LoginAndRegisterRequest resetPasswordRequestWithPhoneNum:str withNewCode:self.newsPasswordTextFied.text withSucc:^(NSDictionary * dic) {
             if ([dic[@"code"] integerValue]==0) {
                 TH_LoginVC * login = [[TH_LoginVC alloc] init];
                 [MBProgressHUD creatembHub:@"重置密码成功"];
@@ -131,7 +131,7 @@
 //                [self presentViewController:login animated:YES completion:nil];
                 [self.navigationController pushViewController:login animated:YES];
             }
-        }];
+        }] addNotifaction:hub];
        
 //    [AccountRequest resetPasswordRequestWithPhoneNum:self.phoneNum withNewCode:self.newsPasswordTextFied.text  withSucc:^(NSDictionary * dic) {
 //        if ([dic[@"code"] integerValue]==0) {

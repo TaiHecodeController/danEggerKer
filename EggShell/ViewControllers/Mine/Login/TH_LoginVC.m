@@ -16,6 +16,7 @@
 #import "LoginAndRegisterRequest.h"
 #import "TH_MineVC.h"
 #import "TH_JobWishlistVC.h"
+#import "TH_FindJobVC.h"
 @interface TH_LoginVC ()<UITextFieldDelegate>
 @property (strong,nonatomic)UIButton * loginBtn;
 @property(nonatomic,strong)UITextField * phonetextField;
@@ -230,8 +231,8 @@
 }
 -(void)loginRequest
 {
-//     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
-    [LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text  withSucc:^(NSDictionary * dic) {
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    [[LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text  withSucc:^(NSDictionary * dic) {
         if ([dic[@"code"] integerValue]==0) {
             [MBProgressHUD creatembHub:dic[@"message"]];
             NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
@@ -247,17 +248,14 @@
             
             if ([self.jobWilstRegist isEqualToString:@"jobWilstRegist"]) {
              [self.navigationController popViewControllerAnimated:YES];
-//               TH_MineVC * mine = [[TH_MineVC alloc] init];
-//             TH_JobWishlistVC * jobList = [[TH_JobWishlistVC alloc] init];
-            }if ([self.findJobApplication isEqualToString:@"findJobApplication"]) {
-                [self.navigationController popViewControllerAnimated:YES];
-            }
-            if ([self.findJobDetailApplication isEqualToString:@"findJobDetailApplication"]) {
-                [self.navigationController popViewControllerAnimated:YES];
-
-            }
-            else
+                
+            }else if ([self.findJobApplications isEqualToString:@"findJobApplications"]) {
+                  [self.navigationController popViewControllerAnimated:YES];
+            }else if ([self.findJobDetailApplication isEqualToString:@"findJobDetailApplication"])
             {
+                [self.navigationController popViewControllerAnimated:YES];
+            }else
+              {
             self.navigationController.navigationBarHidden = YES;
             AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
             appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
@@ -266,7 +264,7 @@
             [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
             }
         }
-    } ];
+    } ] addNotifaction:hub];
 }
 -(void)ForgotPasswordClick
 {

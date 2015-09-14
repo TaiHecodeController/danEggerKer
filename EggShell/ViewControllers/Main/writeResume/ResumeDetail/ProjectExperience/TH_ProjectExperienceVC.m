@@ -51,13 +51,16 @@
     [self.view endEditing:YES];
 }
 -(void)viewWillAppear:(BOOL)animated
-{for(int i = 0;i < self.jobCellArr.count;i++)
+{
+    
+    for(int i = 0;i < self.jobCellArr.count;i++)
 {
     if(i == 1)
     {
         EducationTimeCell * cell = self.jobCellArr[i];
-        cell.startTime.titleLabel.text = @"";
-        cell.endTime.titleLabel.text = @"";
+        cell.startTime.selected = NO;
+        cell.endTime.selected = NO;
+        cell.todayClick.selected = NO;
     }else
     {
         projectTableViewCell * cell = self.jobCellArr[i];
@@ -78,7 +81,7 @@
     self.contentTextField.text = @"";
 
 }
-}
+   }
 -(void)setData
 {
     self.nameArray = @[@"项目名称",@"项目时间",@"项目环境",@"担任职位"];
@@ -247,7 +250,8 @@
     }
     [self.jobCellArr removeAllObjects];
     [_tableView reloadData];
-    self.contentTextField.text = @"请输入项目内容";
+    self.contentTextField.text = @"";
+    self.placeHoderTextLable.hidden = NO;
 
 }
 
@@ -297,15 +301,15 @@
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
-    [self.placeHoderTextLable removeFromSuperview];
+    self.placeHoderTextLable.hidden = YES;
     if(HEIGHT == 480)
     {
-        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
-        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 150);
+        [self.scro scrollRectToVisible:CGRectMake(0, 450, WIDETH, HEIGHT) animated:YES];
     }else
     {
-        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 200);
-        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 150);
+        [self.scro scrollRectToVisible:CGRectMake(0, 450, WIDETH, HEIGHT) animated:YES];
         
     }
     

@@ -47,10 +47,18 @@
 -(void)backToResume
 {
     [self.navigationController popViewControllerAnimated:NO];
-    WriteResumeVC2 * write = [[WriteResumeVC2 alloc] init];
-    [self.navigationController popToViewController:write animated:YES];
-    
+    for(UIViewController *controller in self.navigationController.viewControllers) {
+        if([controller isKindOfClass:[WriteResumeVC2 class]]){
+            WriteResumeVC2*owr = (WriteResumeVC2 *)controller;
+            [self.navigationController popToViewController:owr animated:YES];
+            
+        }
+//    [self.navigationController popViewControllerAnimated:NO];
+//    WriteResumeVC2 * write = [[WriteResumeVC2 alloc] init];
+//    [self.navigationController popToViewController:write animated:YES];
+//    
 //    [self.navigationController pushViewController:write animated:YES];
+    }
 }
 #pragma mark --继续添加
 -(void)addClick

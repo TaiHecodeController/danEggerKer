@@ -12,6 +12,7 @@
 #import "WriteResumeViewController.h"
 #import "TH_featureVC.h"
 #import <BaiduMapAPI/BMKMapManager.h>
+#import "IQTitleBarButtonItem.h"
 @interface AppDelegate ()<BMKGeneralDelegate>
 {
     NSString * _trackViewUrl;
@@ -38,7 +39,8 @@
     //    self.window.rootViewController = [[WriteResumeViewController alloc] init];
     
     //rk——test
-    
+    /*键盘处理**/
+    [self keyBoard];
     //初始化保利视频
         [self initPloyVideo];
     // 要使用百度地图，请先启动BaiduMapManager
@@ -77,6 +79,20 @@
 
     return YES;
     
+}
+#pragma mark -- 键盘收回处理
+-(void)keyBoard
+{
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+    
+    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:IQAutoToolbarBySubviews];
+    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
+    [[IQKeyboardManager sharedManager] setCanAdjustTextView:YES];
+    [[IQKeyboardManager sharedManager] setShouldShowTextFieldPlaceholder:YES];
+
+    IQTitleBarButtonItem * done =[[IQTitleBarButtonItem alloc] initWithFrame:CGRectMake(WIDETH-60, 0, 440, 40) Title:@"完成"];
+        
 }
 ////版本检测
 //-(void)checkVersion

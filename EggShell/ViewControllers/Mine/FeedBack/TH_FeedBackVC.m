@@ -59,11 +59,10 @@
     [self.scro addSubview:titleView];
     self.titleView = titleView;
     UITextView * textView =[[UITextView alloc] initWithFrame:CGRectMake(5, 5, titleView.width-10, 150)];
-    //    textView.text = @"请留下你的宝贵意见，我们会尽快处理...";
-    textView.font =[UIFont systemFontOfSize:12];
+       textView.font =[UIFont systemFontOfSize:12];
     textView.delegate = self;
     textView.textColor  = [UIColor blackColor];
-    //    UIColorFromRGB(0xC8C8C8);
+    
     self.textView = textView;
     [titleView addSubview:textView];
     
@@ -100,7 +99,6 @@
     bgqqView.layer.borderColor = UIColorFromRGB(0xDDDDDD).CGColor;
     self.bgqqView = bgqqView;
     [self.scro addSubview:bgqqView];
-    
     UITextField * textqqField = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, WIDETH-70, 35)];
     textqqField.placeholder = @"QQ号码";
     textqqField.textColor = UIColorFromRGB(0xC8C8C8);
@@ -108,7 +106,7 @@
     textqqField.textColor = [UIColor blackColor];
     textqqField.tag = 100;
     textqqField.delegate = self;
-    textqqField.keyboardType = UIKeyboardTypeNumberPad;
+    
     self.textqqField = textqqField;
     [bgqqView addSubview:textqqField];
     
@@ -165,22 +163,14 @@
         }
        
     }
-   [TH_AFRequestState feedbackReRequestWithSucc:^(NSDictionary *DataDic) {
+   [[TH_AFRequestState feedbackReRequestWithSucc:^(NSDictionary *DataDic) {
        
        [self.dic addEntriesFromDictionary:DataDic];
        self.textView.text = DataDic[@"data"][@"opinion"];
       [MBProgressHUD creatembHub:@"反馈成功"];
        
        [self.navigationController popToRootViewControllerAnimated:YES];
-   } withSource:2 withOpinion:textView withqq:qqtext withEmail:emailText withfail:^(int errCode, NSError *err) {
-       if (errCode == 1013) {
-            [MBProgressHUD creatembHub:@"请认真填写意见"];
-           
-        }if (errCode ==1014) {
-                   [MBProgressHUD creatembHub:@"抱歉，由于未知原因，你的建议我们没有收到，请重试"];
-        }
-
-   }];
+   } withSource:2 withOpinion:textView withqq:qqtext withEmail:emailText ] addNotifaction:[MBProgressHUD mbHubShow]];
 
 }
 -(BOOL)isValidateEmail:(NSString *)email {

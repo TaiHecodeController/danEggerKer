@@ -57,7 +57,6 @@
     if (![user objectForKey:@"uid"]) {
         self.mineView.lginBtn.userInteractionEnabled = YES;
         [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
-//        self.mineView.userLable.text = @"";
         self.mineView.DeliveryJobNum.text = @"(0)";
         self.mineView.FavoriteJobNum.text = @"(0)";
         self.mineView.ResumeNum.text = @"(0)";
@@ -88,7 +87,7 @@
         uid = @"";
     }
     NSDictionary * dic = @{@"token":mymd5_token,@"uid":uid};
-    [LoginAndRegisterRequest getImagewithSucc:^(NSDictionary * succ) {
+    [[LoginAndRegisterRequest getImagewithSucc:^(NSDictionary * succ) {
        
         
         if (![succ[@"data"][@"name"]length]==0) {
@@ -123,7 +122,7 @@
 //        [self.mineView.phoneLable removeFromSuperview];
 //        [self.mineView.userLable removeFromSuperview];
 //
-    }];
+    }] addNotifaction:[MBProgressHUD mbHubShow]];
 }
 -(void)createScro
 {
@@ -306,7 +305,7 @@
             NSLog(@"skdfjbc");
             
             if (![AppDelegate instance].doubleUpdateVersion>[AppDelegate instance].doubleCurrentVersion) {
-                [MBProgressHUD creatembHub:@"占无新版本"];
+                [MBProgressHUD creatembHub:@"暂无新版本"];
             }else
             {
             VersionUpdateView * view =[[[NSBundle mainBundle] loadNibNamed:@"VersionUpdate" owner:self options:nil] lastObject];
@@ -504,12 +503,12 @@
 //    
     self.uidStr = [uid objectForKey:@"uid"];
     
-    [LoginAndRegisterRequest uploadImage:^(NSDictionary * dic) {
+    [[LoginAndRegisterRequest uploadImage:^(NSDictionary * dic) {
         
         [MBProgressHUD creatembHub:@"上传图片成功"];
          [self.mineView setIconImage:editedImage];
         
-    } :editedImage withUid:self.uidStr];
+    } :editedImage withUid:self.uidStr] addNotifaction:[MBProgressHUD  mbHubShow]];
     
     [cropperViewController dismissViewControllerAnimated:YES completion:^{
         

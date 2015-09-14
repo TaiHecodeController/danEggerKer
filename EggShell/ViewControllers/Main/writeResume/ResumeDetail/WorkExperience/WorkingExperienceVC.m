@@ -59,9 +59,10 @@
     if(i == 1)
         {
             WorkingTimeCell * cell = self.jobArray[i];
-            cell.StartTime.titleLabel.text = @"";
-            
-         cell.endTime.titleLabel.text = @"";
+            cell.StartTime.selected = NO;
+            cell.endTime.selected = NO;
+            cell.todaySelect.selected = NO;
+
             
             
         
@@ -87,7 +88,7 @@
 
         
     }
-    }
+        }
 -(void)createScro
 {  self.view.backgroundColor = color(243, 243, 241);
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
@@ -253,7 +254,8 @@
         cell.contentTextField.text = @"";
     }
     [self.jobArray removeAllObjects];
-    self.contentTextField.text = @"请填写工作内容";
+    self.contentTextField.text = @"";
+    self.placeHoderTextLable.hidden = NO;
     [_tableView reloadData];
 
 }
@@ -267,7 +269,6 @@
 {
     return 42;
 }
-
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row == 1)
@@ -310,15 +311,15 @@
 }
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
-    [self.placeHoderTextLable removeFromSuperview];
+    self.placeHoderTextLable.hidden = YES;
     if(HEIGHT == 480)
     {
-        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
-        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 150);
+        [self.scro scrollRectToVisible:CGRectMake(0, 450, WIDETH, HEIGHT) animated:YES];
     }else
     {
-        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 200);
-        [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT) animated:YES];
+        self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 150);
+        [self.scro scrollRectToVisible:CGRectMake(0, 450, WIDETH, HEIGHT) animated:YES];
         
     }
     

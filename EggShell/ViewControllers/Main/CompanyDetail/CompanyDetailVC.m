@@ -15,6 +15,7 @@
 #import "AFAppRequest.h"
 #import "TH_JobDetailVC.h"
 #import "findJobModel.h"
+#import "TH_LoginVC.h"
 @interface CompanyDetailVC ()<UITableViewDelegate,UITableViewDataSource,MJRefreshBaseViewDelegate>
 {
     UITableView * _tableView;
@@ -43,9 +44,6 @@
     [self createHeaderView];
     [self createUI];
     
-//    /***/
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(compayBackToResume) name:@"company" object:nil];
-//
 
     //    [_header beginRefreshing];
     /*数据请求**/
@@ -53,12 +51,6 @@
     _page = 1;
     [self loadData:_mbPro Page:_page];
     
-}
--(void)compayBackToResume
-{
-    [self.navigationController popViewControllerAnimated:NO];
-    CompanyDetailVC * write = [[CompanyDetailVC alloc] init];
-    [self.navigationController popToViewController:write animated:YES];
 }
 
 -(void)loadData:(id)notify Page:(int)page
@@ -118,6 +110,7 @@
         
         if(!sender.selected)
         {
+            
             
        [UIView animateWithDuration:0.1 animations:^{
                 

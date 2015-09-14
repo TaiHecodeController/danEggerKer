@@ -33,6 +33,7 @@
     ProfessonSkillReadView  * prosion = [ProfessonSkillReadView setProfessonSkillReadView];
     prosion.frame = CGRectMake(0, 0, WIDETH, 152);
     prosion.resumTitleLable.text  = [NSString stringWithFormat:@"%@-证书",_resume_model.resumeName];
+    [prosion configValue:self.model];
     [self.view addSubview:prosion];
     /*继续添加**/
     UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 180, 150, 30)];
@@ -47,11 +48,9 @@
 #pragma mark --继续添加
 -(void)addbUttonClick
 {
-    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"removeMessage" object:self];
    [self.navigationController popViewControllerAnimated:YES];
-//    WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
-//    [self.navigationController pushViewController:working animated:YES];
-
+    
 }
 -(void)backToResume
 {

@@ -162,9 +162,7 @@
          }];
     [State start];
     return State;
-    
 }
-
 //统一错误处理
 +(void)error_hanlde:(int)errCode Witherr:(NSError *)err {
     
@@ -206,10 +204,16 @@
     {
         [MBProgressHUD creatembHub:@"服务器异常"];
     }
-//    }if (errCode == 3840) {
-//        [MBProgressHUD creatembHub:@"个人用户不存在"];
-//    }
-    
+if (errCode == -1001) {
+        [MBProgressHUD creatembHub:@"链接服务器超时"];
+    }
+    if (errCode == 1013) {
+        [MBProgressHUD creatembHub:@"请认真填写意见"];
+        
+    }if (errCode ==1014) {
+        [MBProgressHUD creatembHub:@"抱歉，由于未知原因，你的建议我们没有收到，请重试"];
+    }
+
 }
 
 //对象转换＋异常捕获（防崩溃）

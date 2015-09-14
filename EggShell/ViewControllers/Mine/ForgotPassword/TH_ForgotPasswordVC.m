@@ -138,17 +138,17 @@
 }
 #pragma mark -- 获取验证码
 -(void)securityCodeBtnClick:(UIButton *)sender
-{
+{ MBProgressHUD * hub = [MBProgressHUD mbHubShow];
     if ([self.phoneTextField.text length]==0) {
         [MBProgressHUD creatembHub:@"电话号码为空"];
         return;
     }
     [self loginRequest];
-    [LoginAndRegisterRequest forgitRequestWithPhoneNum:self.phoneTextField.text withSucc:^(NSDictionary * dic) {
+    [[LoginAndRegisterRequest forgitRequestWithPhoneNum:self.phoneTextField.text withSucc:^(NSDictionary * dic) {
          NSLog(@"获取验证码成功");
         
     [MBProgressHUD creatembHub:@"获取验证码成功"];
-    }];
+    }] addNotifaction:hub];
     [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后可重发",(long)self.count] forState:UIControlStateNormal];
     self.securityCodeBtn.userInteractionEnabled = NO;
     self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
@@ -181,8 +181,8 @@
 //        }
 //
 //    }];
-    
-    [LoginAndRegisterRequest forgitNextRequestWithPhoneNum:self.phoneTextField.text withSecurityCode:self.securiedTextField.text withSucc:^(NSDictionary * dic) {
+     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    [[LoginAndRegisterRequest forgitNextRequestWithPhoneNum:self.phoneTextField.text withSecurityCode:self.securiedTextField.text withSucc:^(NSDictionary * dic) {
         if ([dic[@"code"] integerValue]==0) {
             [MBProgressHUD creatembHub:@"点击下一步重置密码"];
             TH_getCodeNextVC * getNext = [[TH_getCodeNextVC alloc] init];
@@ -191,7 +191,7 @@
             [self.navigationController pushViewController:getNext animated:YES];
         }
 
-    }];
+    }] addNotifaction:hub];
 
     }
 - (void)didReceiveMemoryWarning {

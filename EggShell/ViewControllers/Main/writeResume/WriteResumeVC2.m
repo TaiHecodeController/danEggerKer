@@ -16,6 +16,7 @@
 #import "TH_TrainExperienceVC.h"
 #import "TH_ProjectExperienceVC.h"
 #import "ResumeModel.h"
+#import "ManagerResumeVC.h"
 @interface WriteResumeVC2 ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView * writeTabView;
@@ -25,7 +26,35 @@
 @end
 
 @implementation WriteResumeVC2
+-(void)viewWillAppear:(BOOL)animated
+{
+//    [self.navigationController popViewControllerAnimated:NO];
 
+//  self.navigationItem.leftBarButtonItem = nil;
+//       [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backClick) name:@"writeStep2BackClick" object:nil];
+//    UIButton *releaseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    releaseButton.frame= CGRectMake(0, 0, 40, 40);
+//    [releaseButton setTitle:@"发布" forState:normal];
+//    [releaseButton addTarget:self action:@selector(releaseInfo) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *releaseButtonItem = [[UIBarButtonItem alloc] initWithCustomView:releaseButton];
+//    self.navigationItem.leftBarButtonItem = releaseButtonItem;
+   
+}
+-(void)releaseInfo
+{
+    for(UIViewController *controller in self.navigationController.viewControllers) {
+    if([controller isKindOfClass:[ManagerResumeVC class]]){
+        ManagerResumeVC*owr = (ManagerResumeVC *)controller;
+        [self.navigationController popToViewController:owr animated:YES];
+    }
+}
+    
+//    [self.navigationController popViewControllerAnimated:NO];
+//    ManagerResumeVC * manager = [[ManagerResumeVC alloc] init];
+//    
+//    [self.navigationController pushViewController:manager animated:YES];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"写简历";
@@ -33,9 +62,17 @@
     
     [self createUI];
     [self createData];
-    // Do any additional setup after loading the view.
+ [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backClick) name:@"writeStep2BackClick" object:nil];
+//    // Do any additional setup after loading the view.
 }
-
+-(void)backClick
+{
+//    self.navigationItem.leftBarButtonItem = nil;
+//    [self.navigationController popViewControllerAnimated:NO];
+//    ManagerResumeVC * manager = [[ManagerResumeVC alloc] init];
+//    [self.navigationController popToViewController:manager animated:YES];
+    
+}
 -(void)createData
 {
     self.nameArray = @[@"工作经历",@"教育经历",@"培训经历",@"专业技能",@"项目经验",@"证书",@"自我评价"];
@@ -125,7 +162,7 @@
         case 5:
         {
             TH_CertificateVC * certificate = [[TH_CertificateVC alloc] init];
-            certificate.title = @"自我评价";
+            certificate.title = @"证书";
             [self.navigationController pushViewController:certificate animated:YES];
         }
             break ;
