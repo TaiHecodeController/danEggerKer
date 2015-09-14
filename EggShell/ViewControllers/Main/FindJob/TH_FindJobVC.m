@@ -378,7 +378,7 @@
     _allSelected = [[UIButton alloc]init];
     CGFloat allSelectedW =  90;
     CGFloat allSelectedH =  27.5;
-    _allSelected.frame = CGRectMake( 2 *margin, 15, 22.5, 22.5);
+    _allSelected.frame = CGRectMake( 2 *margin, 8, 40, 40);
 //    [_allSelected setTitle:@"全选" forState:UIControlStateNormal];
     [_allSelected setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _allSelected.titleLabel.font = [UIFont systemFontOfSize:15];
