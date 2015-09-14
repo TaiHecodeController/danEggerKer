@@ -309,7 +309,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 {
     switch (self.PLvideoPlayer.playbackState) {
         case MPMoviePlaybackStatePlaying:
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD hideHUDForView:self.PLvideoPlayer.view animated:YES];
             NSLog(@"播放");
             break;
         case MPMoviePlaybackStatePaused:
@@ -449,12 +449,6 @@ typedef NS_ENUM(NSInteger, GestureType){
     //直接播放
     [self.PLvideoPlayer play];
     
-//    UIButton *Pbtn = [[UIButton alloc]init];
-//    Pbtn.frame = CGRectMake((WIDETH - 50) / 2, (211 - 50) / 2, 50, 50);
-//    Pbtn.backgroundColor = [UIColor whiteColor];
-//    [Pbtn addTarget:self action:@selector(PbtnClick) forControlEvents:UIControlEventTouchUpInside];
-//    [self.PLvideoPlayer.view addSubview:Pbtn];
-//    _Pbtn = Pbtn;
     [MBProgressHUD showHUDAddedTo:self.PLvideoPlayer.view animated:YES];
 }
 
@@ -467,6 +461,7 @@ typedef NS_ENUM(NSInteger, GestureType){
     {
         case MPMovieLoadStatePlayable:
             // 可播放
+//            [MBProgressHUD hideHUDForView:self.view animated:YES];
             NSLog(@"可播放");
             break;
             
