@@ -138,17 +138,17 @@
     NSLog(@"_job_type%@",_job_type);
     if ([_job_type isEqual:@"0"])
     {
-        [SearchModelShare sharedInstance].type = @"55";
+//        [SearchModelShare sharedInstance].type = @"55";
     }
     if ([_job_type isEqual:@"1"])
     {
 //        [SearchModelShare sharedInstance].keyword = @"兼职";
-        [SearchModelShare sharedInstance].type = @"56";
+//        [SearchModelShare sharedInstance].type = @"56";
     }
     if ([_job_type isEqual:@"2"])
     {
 //        [SearchModelShare sharedInstance].keyword = @"实习";
-        [SearchModelShare sharedInstance].type = @"129";
+//        [SearchModelShare sharedInstance].type = @"129";
     }
 
     self.jobArr = [[NSMutableArray alloc]init];
