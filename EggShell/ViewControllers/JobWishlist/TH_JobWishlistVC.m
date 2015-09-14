@@ -361,7 +361,6 @@
             cell.salaryLab.text = model.salary;
             cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
             [cell layoutSubviews];
-
         }
     }
     

@@ -376,8 +376,8 @@
     [_bottomView addSubview:_apllyBtn];
     
     _allSelected = [[UIButton alloc]init];
-    CGFloat allSelectedW =  90;
-    CGFloat allSelectedH =  27.5;
+//    CGFloat allSelectedW =  90;
+//    CGFloat allSelectedH =  27.5;
     _allSelected.frame = CGRectMake( 2 *margin, 8, 40, 40);
 //    [_allSelected setTitle:@"全选" forState:UIControlStateNormal];
     [_allSelected setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

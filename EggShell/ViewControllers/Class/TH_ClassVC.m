@@ -418,6 +418,7 @@
 
     THCoursePlayVC *moviePlayer =    [[THCoursePlayVC alloc] initNetworkMoviePlayerViewControllerWithURL:Url movieTitle:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_name"]];
     moviePlayer.classId = arr.lastObject;
+    moviePlayer.name = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_name"];
     
 //    polyNewViewController *moviePlayer = [[polyNewViewController alloc]init];
 //    moviePlayer.vid = [NSString stringWithFormat:@"%@",Url];
@@ -467,17 +468,22 @@
 - (void)qsBtnClick:(UITapGestureRecognizer *)tap
 {
     NSURL *Url;
+    NSString *name;
     if (tap.view.tag == 1000)
     {
          Url = [NSURL URLWithString:_teacherArr[tap.view.tag-1000][@"video_id"]];
+        name = @"新媒体营销";
+        
     }
     else if (tap.view.tag == 1001)
     {
          Url = [NSURL URLWithString:_teacherArr[tap.view.tag-1000][@"video_id"]];
+        name = @"企业组织架构1";
     }
     else if (tap.view.tag == 1002)
     {
          Url = [NSURL URLWithString:_teacherArr[tap.view.tag-1000][@"video_id"]];
+        name = @"新时代的大学生职位定向2";
     }
     
     //    播放视频
@@ -488,8 +494,9 @@
         return;
     }
     
-    THCoursePlayVC *moviePlayer =    [[THCoursePlayVC alloc] initNetworkMoviePlayerViewControllerWithURL:Url movieTitle:@"英语完型填空"];
+    THCoursePlayVC *moviePlayer =    [[THCoursePlayVC alloc] initNetworkMoviePlayerViewControllerWithURL:Url movieTitle:name];
     moviePlayer.classId = arr.lastObject;
+    moviePlayer.name = name;
     //    [self.navigationController presentViewController:moviePlayer animated:YES completion:nil];
     [self.navigationController pushViewController:moviePlayer animated:YES];
 

@@ -24,8 +24,8 @@
     {
         
         _positionSecBtn = [[UIButton alloc]init];
-        [_positionSecBtn setImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
-        [_positionSecBtn setImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
+        [_positionSecBtn setImage:[UIImage imageNamed:@"duikuang001"] forState:UIControlStateNormal];
+        [_positionSecBtn setImage:[UIImage imageNamed:@"duikuang123"] forState:UIControlStateSelected];
         //        [_positionSecBtn addTarget:self action:@selector(positionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_positionSecBtn];
         
@@ -93,11 +93,11 @@
     CGSize compSize = [_companyLab.text sizeWithFont:_companyLab.font];
     _companyLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + margin, y, compSize.width, compSize.height);
     
-    _positionSecBtn.frame = CGRectMake(margin, CGRectGetMinY(_companyLab.frame), 17.5, 17.5);
+    _positionSecBtn.frame = CGRectMake(margin, CGRectGetMinY(_companyLab.frame) - 8, 40, 40);
     
     y += _companyLab.frame.size.height + 5;
     CGSize cityLabSize = [_cityLab.text sizeWithFont:_cityLab.font];
-    _cityLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + margin,  y, cityLabSize.width, cityLabSize.height);
+    _cityLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) ,  y, cityLabSize.width, cityLabSize.height);
     
     _lineView.frame = CGRectMake(CGRectGetMaxX(_cityLab.frame) + 7, y, 1, cityLabSize.height);
     
