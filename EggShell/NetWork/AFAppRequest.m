@@ -204,8 +204,8 @@
     {
         [MBProgressHUD creatembHub:@"服务器异常"];
     }
-if (errCode == -1001) {
-        [MBProgressHUD creatembHub:@"链接服务器超时"];
+if (errCode == -1001||errCode==404||errCode==500) {
+        [MBProgressHUD creatembHub:@"网络异常"];
     }
     if (errCode == 1013) {
         [MBProgressHUD creatembHub:@"请认真填写意见"];
