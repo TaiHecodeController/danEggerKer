@@ -34,7 +34,8 @@
                             <constraint firstAttribute="height" constant="13" id="ZIw-SS-ldA"/>
                             <constraint firstAttribute="width" constant="167" id="kDE-kZ-YIQ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
