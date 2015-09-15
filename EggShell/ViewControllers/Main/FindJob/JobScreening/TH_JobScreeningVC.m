@@ -303,7 +303,7 @@
     NSLog(@"%ld",(long)cellIndex.row);
     if (cellIndex.row == 0)
     {
-        [SearchModelShare sharedInstance].hy = Id;
+        [SearchModelShare sharedInstance].job1 = Id;
     }
     else if (cellIndex.row == 1)
     {
