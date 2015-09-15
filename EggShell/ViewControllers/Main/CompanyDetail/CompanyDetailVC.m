@@ -119,11 +119,11 @@
                 record_SelfView = self.CMview.frame;
                 record_ShowAll = self.CMview.showAllBtn.frame;
                 record_headerView = self.comPanyView.frame;
-                self.CMview.frame = CGRectMake(0, self.CMview.frame.origin.y, WIDETH, self.CMview.frame.size.height + self.CMview.textSize.height -280);
-                self.comPanyView.frame = CGRectMake(0, self.comPanyView.origin.y, WIDETH, self.comPanyView.height + self.CMview.textSize.height - 280);
+                self.CMview.frame = CGRectMake(0, self.CMview.frame.origin.y, WIDETH, self.CMview.frame.size.height + self.CMview.textSize.height -160);
+                self.comPanyView.frame = CGRectMake(0, self.comPanyView.origin.y, WIDETH, self.comPanyView.height + self.CMview.textSize.height - 150);
                 
-                self.CMview.showAllBtn.frame = CGRectMake(self.CMview.showAllBtn.origin.x,self.CMview.frame.size.height - 45 , 100, 30);
-                self.CMview.companyMessage.frame = CGRectMake(self.CMview.companyMessage.origin.x, self.CMview.companyMessage.origin.y , self.CMview.companyMessage.frame.size.width, self.CMview.textSize.height-200);
+                self.CMview.showAllBtn.frame = CGRectMake(self.CMview.showAllBtn.origin.x,self.CMview.frame.size.height - 35 , 100, 30);
+                self.CMview.companyMessage.frame = CGRectMake(self.CMview.companyMessage.origin.x, self.CMview.companyMessage.origin.y , self.CMview.companyMessage.frame.size.width, self.CMview.textSize.height-60);
                 self.CMview.companyMessage.numberOfLines = 0;
                 _tableView.tableHeaderView = self.comPanyView;
                 //                for(int i = 0;i < 5;i++)

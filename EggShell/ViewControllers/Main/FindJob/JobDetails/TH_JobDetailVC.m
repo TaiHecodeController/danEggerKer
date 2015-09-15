@@ -216,22 +216,22 @@
          CGSize textSize = [description sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(WIDETH-30, 2000)];
         self.textSize = textSize;
         [UIView animateWithDuration:0.1 animations:^{
-            company_recordFrame = companyView.frame;
             
+            company_recordFrame = companyView.frame;
             //company的frame
-        companyView.frame = CGRectMake(0, 410, companyView.frame.size.width, companyView.frame.size.height + textSize.height - 60);
+        companyView.frame = CGRectMake(0, 410, companyView.frame.size.width, companyView.frame.size.height + textSize.height - 100);
             
             //改变label的frame
             lab_recordFrame = companyView.detailLable.frame;
-            companyView.detailLable.frame = CGRectMake(companyView.detailLable.frame.origin.x, companyView.detailLable.frame.origin.y, textSize.width, textSize.height);
+            companyView.detailLable.frame = CGRectMake(companyView.detailLable.frame.origin.x, companyView.detailLable.frame.origin.y-15, textSize.width, textSize.height);
             companyView.detailLable.numberOfLines = 0;
             
             
                         //按钮的frame
                 btn_recordFrame = companyView.selectBtn.frame;
-                companyView.selectBtn.frame = CGRectMake(companyView.selectBtn.frame.origin.x, companyView.detailLable.frame.origin.y + companyView.detailLable.frame.size.height + 10, companyView.selectBtn.frame.size.width, companyView.selectBtn.frame.size.height);
+                companyView.selectBtn.frame = CGRectMake(companyView.selectBtn.frame.origin.x, companyView.detailLable.frame.origin.y + companyView.detailLable.frame.size.height -10, companyView.selectBtn.frame.size.width, companyView.selectBtn.frame.size.height);
                 header_recordFrame = self.headerView.frame;
-                self.headerView.frame = CGRectMake(0, self.headerView.origin.y, WIDETH, self.headerView.origin.y + self.headerView.frame.size.height + textSize.height - 60);
+                self.headerView.frame = CGRectMake(0, self.headerView.origin.y, WIDETH, self.headerView.origin.y + self.headerView.frame.size.height + textSize.height - 100);
             self.tableView.tableHeaderView = self.headerView;
             }];
         

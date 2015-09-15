@@ -1137,10 +1137,15 @@ typedef NS_ENUM(NSInteger, GestureType){
     return UIInterfaceOrientationMaskLandscapeRight;
 }
 
-//- (void)dealloc{
-//    NSLog(@"dealloc");
-//    [super dealloc];
-//}
+- (void)dealloc{
+    NSLog(@"dealloc");
+    [_player.currentItem removeObserver:self forKeyPath:@"status"];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:MPMoviePlayerLoadStateDidChangeNotification];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:MPMoviePlayerPlaybackStateDidChangeNotification];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:MPMoviePlayerDidEnterFullscreenNotification];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:MPMoviePlayerDidExitFullscreenNotification];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 @end
 
 
