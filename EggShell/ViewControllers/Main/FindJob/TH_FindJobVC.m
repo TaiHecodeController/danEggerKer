@@ -92,6 +92,8 @@
     
     [super viewWillAppear:NO];
     
+    [MobClick beginLogPageView:@"findjobvc"];
+    
     UIButton *searchBtn = [[UIButton alloc] init];
     [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
     [searchBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
@@ -113,6 +115,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:YES];
+    [MobClick endLogPageView:@"findjobvc"];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

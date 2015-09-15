@@ -17,6 +17,16 @@
 
 @implementation TH_InformationDeskDetailVC
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"informationdeskdetail"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"informationdeskdetail"];
+}
+
 - (void)viewDidLoad {
     [self createSco];
     [self registerView];

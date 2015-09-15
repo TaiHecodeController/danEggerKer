@@ -17,6 +17,7 @@
     MBProgressHUD * _mbPro;
     NSIndexPath  * record_index;
 }
+
 @property(nonatomic,strong)UITableView * tableView;
 @property (nonatomic, strong) HYSegmentedControl *segmentedControl;
 @property (nonatomic, assign) int currentIndex;
@@ -26,9 +27,21 @@
 @property(nonatomic,assign)int page;
 @property(nonatomic,assign)int limitNum;
 @property (nonatomic,strong)AFRequestState * state;
+
 @end
 
 @implementation TH_InformationDeskVC
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"informationdesk"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+     [MobClick endLogPageView:@"informationdesk"];
+}
+
 -(void)dealloc
 {
     

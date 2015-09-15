@@ -13,6 +13,7 @@
 #import "TH_featureVC.h"
 #import <BaiduMapAPI/BMKMapManager.h>
 #import "IQTitleBarButtonItem.h"
+#import "MobClick.h"
 @interface AppDelegate ()<BMKGeneralDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate>
 {
     NSString * _trackViewUrl;
@@ -25,6 +26,10 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //注册友盟统计
+    [MobClick startWithAppkey:@"xxxxxxxxxxxxxxx" reportPolicy:BATCH   channelId:nil];
+    
     NSUserDefaults * versionId = [NSUserDefaults standardUserDefaults];
     [versionId setObject:@"" forKey:@"ver"];
     [versionId synchronize];

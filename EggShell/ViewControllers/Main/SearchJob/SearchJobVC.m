@@ -204,11 +204,16 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBar.translucent = YES;
+   
+    [MobClick beginLogPageView:@"searchjobvc"];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
     self.navigationController.navigationBar.translucent = NO;
+    [MobClick endLogPageView:@"searchjobvc"];
+
 }
 
 - (void)didReceiveMemoryWarning {

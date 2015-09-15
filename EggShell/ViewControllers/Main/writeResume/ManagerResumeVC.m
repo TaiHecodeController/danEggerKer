@@ -19,8 +19,8 @@
     UIView * _alertView;
     UIView * bgView;
     ResumeModel * _resume_model;
-    
 }
+
 @property (strong,nonatomic)NSMutableArray * dataArray;
 @property (strong,nonatomic)NSMutableArray * cellArray;
 @property (nonatomic, strong) ResumeCell *varCell;
@@ -29,8 +29,15 @@
 
 @implementation ManagerResumeVC
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"managerresumevc"];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
+    [MobClick beginLogPageView:@"manegerresumevc"];
+    
     [self loadData];
 }
 

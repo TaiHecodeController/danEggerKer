@@ -19,6 +19,16 @@
 
 @implementation SearchCity1_ViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"searchcity1_vc"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+     [MobClick endLogPageView:@"searchcity1_vc"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);

@@ -52,6 +52,16 @@
 
 @implementation TH_JobDetailVC
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"jobdetailvc"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"jobdetailvc"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
         self.title = @"职位详情";

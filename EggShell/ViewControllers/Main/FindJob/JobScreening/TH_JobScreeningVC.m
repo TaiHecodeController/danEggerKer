@@ -28,6 +28,17 @@
 
 @implementation TH_JobScreeningVC
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"jobscreeningvc"];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"jobscreeningvc"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.cellArray = [NSMutableArray arrayWithCapacity:0];

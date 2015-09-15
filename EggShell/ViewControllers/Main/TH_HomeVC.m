@@ -726,6 +726,21 @@
     }
 }
 
+
+
+#pragma mark -- lifecircle
+//隐藏导航栏,创建搜索视图
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    self.navigationController.navigationBarHidden = YES;
+    //搜索
+    [self createSearch];
+    
+    [MobClick beginLogPageView:@"homevc"];
+    
+}
+
 //删除搜索视图
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -735,17 +750,10 @@
     
     _searchView = nil;
     _searChBgView = nil;
+    [MobClick endLogPageView:@"homevc"];
 }
 
-//隐藏导航栏,创建搜索视图
--(void)viewWillAppear:(BOOL)animated
-{
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    self.navigationController.navigationBarHidden = YES;
-    //搜索
-    [self createSearch];
-    
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
