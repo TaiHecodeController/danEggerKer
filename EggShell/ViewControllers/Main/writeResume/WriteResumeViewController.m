@@ -225,9 +225,16 @@
     }] addNotifaction:hub];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"writeresumevc"];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:YES];
+    
+    [MobClick endLogPageView:@"writeresumevc"];
     
     [_backView removeFromSuperview];
     

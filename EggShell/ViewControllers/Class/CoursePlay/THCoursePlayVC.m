@@ -107,6 +107,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 
 @implementation THCoursePlayVC
 
+
 #pragma mark - init
 - (id)initNetworkMoviePlayerViewControllerWithURL:(NSURL *)url movieTitle:(NSString *)movieTitle{
     self = [super init];
@@ -176,6 +177,8 @@ typedef NS_ENUM(NSInteger, GestureType){
     [AppDelegate instance].ori_flag = 1;
     _systemBrightness = [UIScreen mainScreen].brightness;
     
+    [MobClick beginLogPageView:@"courseplayvc"];
+    
 //    UIButton *searchBtn = [[UIButton alloc] init];
 //    [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
 //    [searchBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
@@ -191,6 +194,8 @@ typedef NS_ENUM(NSInteger, GestureType){
 {
     //    [AppDelegate instance].ori_flag = 0;
     [super viewWillDisappear:animated];
+    
+    [MobClick endLogPageView:@"courseplayvc"];
     
     //    [MobClick endLogPageView:@"视频播放"];
 }

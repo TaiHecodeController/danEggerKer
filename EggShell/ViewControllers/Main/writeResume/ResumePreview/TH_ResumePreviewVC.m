@@ -25,6 +25,16 @@
 
 @implementation TH_ResumePreviewVC
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"resumepreview"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"resumepreview"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-64)];

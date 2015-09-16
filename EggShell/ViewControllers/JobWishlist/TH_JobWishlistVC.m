@@ -52,6 +52,16 @@
 
 @implementation TH_JobWishlistVC
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"jobwishlistvc"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"jobwishlistvc"];
+}
+
 -(void)dealloc
 {
     [_header free];

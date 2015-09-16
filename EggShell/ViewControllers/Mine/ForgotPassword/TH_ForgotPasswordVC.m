@@ -21,11 +21,22 @@
 @end
 
 @implementation TH_ForgotPasswordVC
+
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"forgotpasswordvc"];
+    
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     NSUserDefaults * phone = [NSUserDefaults standardUserDefaults];
     
     self.phoneTextField.text = [phone objectForKey:@"loginPhone"];
+    
+     [MobClick beginLogPageView:@"forgotpasswordvc"];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

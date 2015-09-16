@@ -25,6 +25,16 @@
 
 @implementation TH_FeedBackVC
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"feedbackvc"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"feedbackvc"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dic = [NSMutableDictionary dictionary];

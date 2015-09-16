@@ -19,6 +19,16 @@
 
 @implementation ChooseCityViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"choosecityvc"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"choosecityvc"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);

@@ -41,7 +41,13 @@
 @implementation MineEditVC
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+    [MobClick beginLogPageView:@"mineeditvc"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"mineeditvc"];
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -116,8 +116,6 @@
     return _AFRequest;
 }
 
-
-
 +(AFRequestState *)postRequestWithUrl:(NSString *)url param:(NSDictionary *)param succ:(void (^)(id))succ
 {
     return [self postRequestWithUrl:url param:param succ:succ resp:nil];

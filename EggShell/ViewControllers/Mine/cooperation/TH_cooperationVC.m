@@ -14,6 +14,17 @@
 
 @implementation TH_cooperationVC
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"cooperationvc"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"cooperationvc"];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"合作渠道";

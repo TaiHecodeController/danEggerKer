@@ -26,11 +26,20 @@
 @end
 
 @implementation WriteResumeVC2
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
      [super viewWillAppear:NO];
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backClick) name:@"writeStep2BackClick" object:nil];
+    
+    [MobClick beginLogPageView:@"writeresumevc2"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"writeresumevc2"];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

@@ -23,6 +23,17 @@
 
 @implementation TH_RegisterVC
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"registervc"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"registervc"];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

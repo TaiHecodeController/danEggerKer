@@ -14,6 +14,16 @@
 
 @implementation TH_AboutEggshellVC
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"abouteggshellvc"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"abouteggshellvc"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

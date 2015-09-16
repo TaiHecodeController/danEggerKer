@@ -20,6 +20,17 @@
 
 @implementation TH_getCodeNextVC
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [MobClick beginLogPageView:@"getcodenextvc"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"getcodenextvc"];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = color(243, 243, 243);
@@ -91,7 +102,6 @@
     [self.scro addSubview:resetpassword];
     
     
-    
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -116,11 +126,10 @@
     if ([self.newsPasswordTextFied .text length]<6||[self.confirmPasswordTextField.text length]<6) {
         [MBProgressHUD creatembHub:@"密码不能少于6位"];
         return;
-        
     }
     if([self.newsPasswordTextFied .text isEqualToString:self.confirmPasswordTextField.text])
     {
-    
+        
         [[LoginAndRegisterRequest resetPasswordRequestWithPhoneNum:str withNewCode:self.newsPasswordTextFied.text withSucc:^(NSDictionary * dic) {
             if ([dic[@"code"] integerValue]==0) {
                 TH_LoginVC * login = [[TH_LoginVC alloc] init];
