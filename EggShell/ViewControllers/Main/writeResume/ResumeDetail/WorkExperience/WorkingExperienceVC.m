@@ -269,6 +269,7 @@
 {
     return 42;
 }
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row == 1)

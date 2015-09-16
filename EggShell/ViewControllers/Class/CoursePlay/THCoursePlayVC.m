@@ -48,7 +48,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 
 @end
 
-@interface THCoursePlayVC ()<UIAlertViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface THCoursePlayVC ()<UIAlertViewDelegate,UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic,assign)BOOL isPlaying;
 @property (nonatomic,strong)AVPlayer *player;
@@ -178,7 +178,7 @@ typedef NS_ENUM(NSInteger, GestureType){
     _systemBrightness = [UIScreen mainScreen].brightness;
     
     [MobClick beginLogPageView:@"courseplayvc"];
-    
+   
 //    UIButton *searchBtn = [[UIButton alloc] init];
 //    [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
 //    [searchBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
@@ -190,15 +190,23 @@ typedef NS_ENUM(NSInteger, GestureType){
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    
+
+}
+
 -(void)viewWillDisappear:(BOOL)animated
 {
     //    [AppDelegate instance].ori_flag = 0;
-    [super viewWillDisappear:animated];
+    [super viewWillDisappear:YES];
     
     [MobClick endLogPageView:@"courseplayvc"];
     
-    //    [MobClick endLogPageView:@"视频播放"];
 }
+
+
 
 - (void)viewDidDisappear:(BOOL)animated
 {
@@ -211,7 +219,6 @@ typedef NS_ENUM(NSInteger, GestureType){
     //监听父类的play停止动作
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popView) name:@"videoClose" object:nil];
     
-
         //网络判断
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
         [MBProgressHUD creatembHub:@"当前处于无网络"];
@@ -223,7 +230,6 @@ typedef NS_ENUM(NSInteger, GestureType){
       else {
         NSLog(@"当前是3G或wifi状态");
         [MBProgressHUD creatembHub:@"您当前处于wifi状态"];
-        
     }
     
      MBProgressHUD *mb = [MBProgressHUD mbHubShow];
@@ -251,7 +257,6 @@ typedef NS_ENUM(NSInteger, GestureType){
     
     [self createTopView];
 //    [self createBottomView];
-    
     
 //    [self createBrightnessView];
 //    [self createProgressTimeLable];
