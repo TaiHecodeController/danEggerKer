@@ -441,8 +441,8 @@
 		940032E81B840DCC001EB666 /* JobScreeningCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobScreeningCell.h; sourceTree = "<group>"; };
 		940032E91B840DCC001EB666 /* JobScreeningCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobScreeningCell.m; sourceTree = "<group>"; };
 		940032EA1B840DCC001EB666 /* JobScreeningCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobScreeningCell.xib; sourceTree = "<group>"; };
-		940032EB1B840DCC001EB666 /* TH_JobScreeningVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TH_JobScreeningVC.h; path = ../JobScreening/TH_JobScreeningVC.h; sourceTree = "<group>"; };
-		940032EC1B840DCD001EB666 /* TH_JobScreeningVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_JobScreeningVC.m; path = ../JobScreening/TH_JobScreeningVC.m; sourceTree = "<group>"; };
+		940032EB1B840DCC001EB666 /* TH_JobScreeningVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TH_JobScreeningVC.h; path = ../TH_JobScreeningVC.h; sourceTree = "<group>"; };
+		940032EC1B840DCD001EB666 /* TH_JobScreeningVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_JobScreeningVC.m; path = ../TH_JobScreeningVC.m; sourceTree = "<group>"; };
 		940032FE1B840FC6001EB666 /* MineVeiw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineVeiw.h; sourceTree = "<group>"; };
 		940032FF1B840FC6001EB666 /* MineVeiw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineVeiw.m; sourceTree = "<group>"; };
 		940033001B840FC6001EB666 /* MineView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineView.xib; sourceTree = "<group>"; };
@@ -495,18 +495,18 @@
 		94313DBB1B7CAAED005D0A9A /* InformationDeskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformationDeskCell.xib; sourceTree = "<group>"; };
 		94313DBC1B7CAAED005D0A9A /* TH_InformationDeskVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_InformationDeskVC.h; sourceTree = "<group>"; };
 		94313DBD1B7CAAED005D0A9A /* TH_InformationDeskVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_InformationDeskVC.m; sourceTree = "<group>"; };
-		94313DD41B7CB5C9005D0A9A /* ManagerResumeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerResumeVC.h; path = ../ManagerResumeVC.h; sourceTree = "<group>"; };
-		94313DD51B7CB5C9005D0A9A /* ManagerResumeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagerResumeVC.m; path = ../ManagerResumeVC.m; sourceTree = "<group>"; };
-		94313DD61B7CB5C9005D0A9A /* ManagerResumeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManagerResumeVC.xib; path = ../ManagerResumeVC.xib; sourceTree = "<group>"; };
+		94313DD41B7CB5C9005D0A9A /* ManagerResumeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerResumeVC.h; sourceTree = "<group>"; };
+		94313DD51B7CB5C9005D0A9A /* ManagerResumeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerResumeVC.m; sourceTree = "<group>"; };
+		94313DD61B7CB5C9005D0A9A /* ManagerResumeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerResumeVC.xib; sourceTree = "<group>"; };
 		94313DE21B7CB5C9005D0A9A /* WriteResumeCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteResumeCell2.h; sourceTree = "<group>"; };
 		94313DE31B7CB5C9005D0A9A /* WriteResumeCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeCell2.m; sourceTree = "<group>"; };
 		94313DE41B7CB5C9005D0A9A /* WriteResumeCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WriteResumeCell2.xib; sourceTree = "<group>"; };
-		94313DE51B7CB5C9005D0A9A /* WriteResumeVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WriteResumeVC2.h; path = ../WriteResumeVC2.h; sourceTree = "<group>"; };
-		94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WriteResumeVC2.m; path = ../WriteResumeVC2.m; sourceTree = "<group>"; };
-		94313DE71B7CB5C9005D0A9A /* WriteResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WriteResumeViewController.h; path = ../WriteResumeViewController.h; sourceTree = "<group>"; };
-		94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WriteResumeViewController.m; path = ../WriteResumeViewController.m; sourceTree = "<group>"; };
-		94313DF51B7CB610005D0A9A /* TH_HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_HomeVC.m; path = ../TH_HomeVC.m; sourceTree = "<group>"; };
-		94313DF61B7CB610005D0A9A /* TH_HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TH_HomeVC.h; path = ../TH_HomeVC.h; sourceTree = "<group>"; };
+		94313DE51B7CB5C9005D0A9A /* WriteResumeVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteResumeVC2.h; sourceTree = "<group>"; };
+		94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeVC2.m; sourceTree = "<group>"; };
+		94313DE71B7CB5C9005D0A9A /* WriteResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteResumeViewController.h; sourceTree = "<group>"; };
+		94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeViewController.m; sourceTree = "<group>"; };
+		94313DF51B7CB610005D0A9A /* TH_HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_HomeVC.m; sourceTree = "<group>"; };
+		94313DF61B7CB610005D0A9A /* TH_HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_HomeVC.h; sourceTree = "<group>"; };
 		943F417E1B9A8766000FC299 /* informantionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = informantionModel.h; sourceTree = "<group>"; };
 		943F417F1B9A8766000FC299 /* informantionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = informantionModel.m; sourceTree = "<group>"; };
 		946EBAC31B84659800CD6AC9 /* jobListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobListCell.h; sourceTree = "<group>"; };
@@ -731,26 +731,26 @@
 		F01787AB1B95938A005FF9C4 /* jobDetailModel_Arr3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobDetailModel_Arr3.m; sourceTree = "<group>"; };
 		F01787AD1B959456005FF9C4 /* JobDetailModel_Arr4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobDetailModel_Arr4.h; sourceTree = "<group>"; };
 		F01787AE1B959456005FF9C4 /* JobDetailModel_Arr4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailModel_Arr4.m; sourceTree = "<group>"; };
-		F0213A9C1BA2AC450083AA81 /* you3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = you3.png; path = ../you3.png; sourceTree = "<group>"; };
-		F0213A9D1BA2AC450083AA81 /* you3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "you3@2x.png"; path = "../you3@2x.png"; sourceTree = "<group>"; };
-		F0213A9E1BA2AC450083AA81 /* you3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "you3@3x.png"; path = "../you3@3x.png"; sourceTree = "<group>"; };
-		F0213A9F1BA2AC450083AA81 /* zhong2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zhong2.png; path = ../zhong2.png; sourceTree = "<group>"; };
-		F0213AA01BA2AC450083AA81 /* zhong2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zhong2@2x.png"; path = "../zhong2@2x.png"; sourceTree = "<group>"; };
-		F0213AA11BA2AC450083AA81 /* zhong2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zhong2@3x.png"; path = "../zhong2@3x.png"; sourceTree = "<group>"; };
-		F0213AA21BA2AC450083AA81 /* zuo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zuo1.png; path = ../zuo1.png; sourceTree = "<group>"; };
-		F0213AA31BA2AC450083AA81 /* zuo1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zuo1@2x.png"; path = "../zuo1@2x.png"; sourceTree = "<group>"; };
-		F0213AA41BA2AC450083AA81 /* zuo1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zuo1@3x.png"; path = "../zuo1@3x.png"; sourceTree = "<group>"; };
+		F0213A9C1BA2AC450083AA81 /* you3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = you3.png; sourceTree = "<group>"; };
+		F0213A9D1BA2AC450083AA81 /* you3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "you3@2x.png"; sourceTree = "<group>"; };
+		F0213A9E1BA2AC450083AA81 /* you3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "you3@3x.png"; sourceTree = "<group>"; };
+		F0213A9F1BA2AC450083AA81 /* zhong2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhong2.png; sourceTree = "<group>"; };
+		F0213AA01BA2AC450083AA81 /* zhong2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zhong2@2x.png"; sourceTree = "<group>"; };
+		F0213AA11BA2AC450083AA81 /* zhong2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zhong2@3x.png"; sourceTree = "<group>"; };
+		F0213AA21BA2AC450083AA81 /* zuo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zuo1.png; sourceTree = "<group>"; };
+		F0213AA31BA2AC450083AA81 /* zuo1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zuo1@2x.png"; sourceTree = "<group>"; };
+		F0213AA41BA2AC450083AA81 /* zuo1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zuo1@3x.png"; sourceTree = "<group>"; };
 		F05440AF1B7848B000127A9B /* HYSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYSegmentedControl.h; sourceTree = "<group>"; };
 		F05440B01B7848B000127A9B /* HYSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYSegmentedControl.m; sourceTree = "<group>"; };
-		F05440B21B7870B800127A9B /* jobTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jobTableViewCell.h; path = ../../jobTableViewCell.h; sourceTree = "<group>"; };
-		F05440B31B7870B800127A9B /* jobTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = jobTableViewCell.m; path = ../../jobTableViewCell.m; sourceTree = "<group>"; };
+		F05440B21B7870B800127A9B /* jobTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobTableViewCell.h; sourceTree = "<group>"; };
+		F05440B31B7870B800127A9B /* jobTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobTableViewCell.m; sourceTree = "<group>"; };
 		F05440B51B7885F500127A9B /* UIBarButtonItem+DC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+DC.h"; sourceTree = "<group>"; };
 		F05440B61B7885F500127A9B /* UIBarButtonItem+DC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+DC.m"; sourceTree = "<group>"; };
-		F05440B81B788DAB00127A9B /* findjobtest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = findjobtest.plist; path = ../../findjobtest.plist; sourceTree = "<group>"; };
-		F05440BA1B788FE000127A9B /* jobModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jobModel.h; path = ../../jobModel.h; sourceTree = "<group>"; };
-		F05440BB1B788FE000127A9B /* jobModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = jobModel.m; path = ../../jobModel.m; sourceTree = "<group>"; };
-		F05B7FFC1B8AACA600DC0A1D /* WriteJLChooseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WriteJLChooseVC.h; path = ../WriteJLChooseVC.h; sourceTree = "<group>"; };
-		F05B7FFD1B8AACA600DC0A1D /* WriteJLChooseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WriteJLChooseVC.m; path = ../WriteJLChooseVC.m; sourceTree = "<group>"; };
+		F05440B81B788DAB00127A9B /* findjobtest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = findjobtest.plist; sourceTree = "<group>"; };
+		F05440BA1B788FE000127A9B /* jobModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobModel.h; sourceTree = "<group>"; };
+		F05440BB1B788FE000127A9B /* jobModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobModel.m; sourceTree = "<group>"; };
+		F05B7FFC1B8AACA600DC0A1D /* WriteJLChooseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteJLChooseVC.h; sourceTree = "<group>"; };
+		F05B7FFD1B8AACA600DC0A1D /* WriteJLChooseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteJLChooseVC.m; sourceTree = "<group>"; };
 		F05B80011B8AAD5E00DC0A1D /* UIScrollView+touchBegan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+touchBegan.h"; sourceTree = "<group>"; };
 		F05B80021B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+touchBegan.m"; sourceTree = "<group>"; };
 		F05B80051B8ABE2200DC0A1D /* MTGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGridView.h; sourceTree = "<group>"; };
@@ -769,12 +769,12 @@
 		F07F39081B998B62002531CD /* TeacherFCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherFCModel.m; sourceTree = "<group>"; };
 		F083F81F1B9C32F700781C08 /* Me_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Me_Request.h; sourceTree = "<group>"; };
 		F083F8201B9C32F700781C08 /* Me_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Me_Request.m; sourceTree = "<group>"; };
-		F0B85A371BA11F83005799F5 /* SearchCity1_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCity1_ViewController.h; path = ../SearchCity1_ViewController.h; sourceTree = "<group>"; };
-		F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCity1_ViewController.m; path = ../SearchCity1_ViewController.m; sourceTree = "<group>"; };
-		F0B85A3A1BA11F97005799F5 /* SearchCity2_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCity2_ViewController.h; path = ../SearchCity2_ViewController.h; sourceTree = "<group>"; };
-		F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCity2_ViewController.m; path = ../SearchCity2_ViewController.m; sourceTree = "<group>"; };
-		F0B85A3D1BA11FA7005799F5 /* SearchCity3_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCity3_ViewController.h; path = ../SearchCity3_ViewController.h; sourceTree = "<group>"; };
-		F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCity3_ViewController.m; path = ../SearchCity3_ViewController.m; sourceTree = "<group>"; };
+		F0B85A371BA11F83005799F5 /* SearchCity1_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCity1_ViewController.h; path = ../FindJob/SearchCity1_ViewController.h; sourceTree = "<group>"; };
+		F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCity1_ViewController.m; path = ../FindJob/SearchCity1_ViewController.m; sourceTree = "<group>"; };
+		F0B85A3A1BA11F97005799F5 /* SearchCity2_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCity2_ViewController.h; path = ../FindJob/SearchCity2_ViewController.h; sourceTree = "<group>"; };
+		F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCity2_ViewController.m; path = ../FindJob/SearchCity2_ViewController.m; sourceTree = "<group>"; };
+		F0B85A3D1BA11FA7005799F5 /* SearchCity3_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCity3_ViewController.h; path = ../FindJob/SearchCity3_ViewController.h; sourceTree = "<group>"; };
+		F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCity3_ViewController.m; path = ../FindJob/SearchCity3_ViewController.m; sourceTree = "<group>"; };
 		F0B85A411BA16124005799F5 /* polyNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = polyNewViewController.h; sourceTree = "<group>"; };
 		F0B85A421BA16124005799F5 /* polyNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = polyNewViewController.m; sourceTree = "<group>"; };
 		F0D7C0291B7994DB00836DD2 /* OpenClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenClassCell.h; sourceTree = "<group>"; };
@@ -797,12 +797,12 @@
 		F0D7C06B1B79F92300836DD2 /* OpenClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenClassModel.h; path = libpolyvSDK/OpenClassModel.h; sourceTree = "<group>"; };
 		F0D7C06C1B79F92300836DD2 /* OpenClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenClassModel.m; path = libpolyvSDK/OpenClassModel.m; sourceTree = "<group>"; };
 		F0D7C06E1B7A009A00836DD2 /* libPods-SDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SDWebImage.a"; path = "Pods/../build/Debug-iphoneos/libPods-SDWebImage.a"; sourceTree = "<group>"; };
-		F0E7000E1B9FE69900788B17 /* ChooseCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseCityViewController.h; path = ../ChooseCityViewController.h; sourceTree = "<group>"; };
-		F0E7000F1B9FE69900788B17 /* ChooseCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseCityViewController.m; path = ../ChooseCityViewController.m; sourceTree = "<group>"; };
-		F0E700111B9FED7900788B17 /* ChooseCity_2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseCity_2ViewController.h; path = ../ChooseCity_2ViewController.h; sourceTree = "<group>"; };
-		F0E700121B9FED7900788B17 /* ChooseCity_2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseCity_2ViewController.m; path = ../ChooseCity_2ViewController.m; sourceTree = "<group>"; };
-		F0E700141B9FEDE200788B17 /* ChooseCity_3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseCity_3ViewController.h; path = ../ChooseCity_3ViewController.h; sourceTree = "<group>"; };
-		F0E700151B9FEDE200788B17 /* ChooseCity_3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseCity_3ViewController.m; path = ../ChooseCity_3ViewController.m; sourceTree = "<group>"; };
+		F0E7000E1B9FE69900788B17 /* ChooseCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseCityViewController.h; sourceTree = "<group>"; };
+		F0E7000F1B9FE69900788B17 /* ChooseCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseCityViewController.m; sourceTree = "<group>"; };
+		F0E700111B9FED7900788B17 /* ChooseCity_2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseCity_2ViewController.h; sourceTree = "<group>"; };
+		F0E700121B9FED7900788B17 /* ChooseCity_2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseCity_2ViewController.m; sourceTree = "<group>"; };
+		F0E700141B9FEDE200788B17 /* ChooseCity_3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseCity_3ViewController.h; sourceTree = "<group>"; };
+		F0E700151B9FEDE200788B17 /* ChooseCity_3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseCity_3ViewController.m; sourceTree = "<group>"; };
 		F0EEABC21BA7CB5D0023A075 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		F0EEABC31BA7CB5D0023A075 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		F0EEABC41BA7CB5D0023A075 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
@@ -1081,6 +1081,12 @@
 			isa = PBXGroup;
 			children = (
 				04A0CD401B7A104900EBCF01 /* SearchJobVC.h */,
+				F0B85A3D1BA11FA7005799F5 /* SearchCity3_ViewController.h */,
+				F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */,
+				F0B85A3A1BA11F97005799F5 /* SearchCity2_ViewController.h */,
+				F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */,
+				F0B85A371BA11F83005799F5 /* SearchCity1_ViewController.h */,
+				F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */,
 				04A0CD411B7A104900EBCF01 /* SearchJobVC.m */,
 				F0F2B4801B9AE45600F7A261 /* SearchParamSingle */,
 				04A0CD431B7A10F800EBCF01 /* SubViews */,
@@ -1119,7 +1125,8 @@
 		04A483B51B74FD4D006FDB9D /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F07E9C551BA90E8700495154 /* controller */,
+				94313DF51B7CB610005D0A9A /* TH_HomeVC.m */,
+				94313DF61B7CB610005D0A9A /* TH_HomeVC.h */,
 				94CB5BA81B763A8100B23B9D /* FindJob */,
 				94E2C9621B870EED001E3FDD /* CompanyDetail */,
 				94313DB01B7CAAED005D0A9A /* InformationDesk */,
@@ -1146,7 +1153,15 @@
 		04A483C11B74FDCE006FDB9D /* OpenClass */ = {
 			isa = PBXGroup;
 			children = (
-				F07E9C561BA90F1300495154 /* resource */,
+				F0213A9C1BA2AC450083AA81 /* you3.png */,
+				F0213A9D1BA2AC450083AA81 /* you3@2x.png */,
+				F0213A9E1BA2AC450083AA81 /* you3@3x.png */,
+				F0213A9F1BA2AC450083AA81 /* zhong2.png */,
+				F0213AA01BA2AC450083AA81 /* zhong2@2x.png */,
+				F0213AA11BA2AC450083AA81 /* zhong2@3x.png */,
+				F0213AA21BA2AC450083AA81 /* zuo1.png */,
+				F0213AA31BA2AC450083AA81 /* zuo1@2x.png */,
+				F0213AA41BA2AC450083AA81 /* zuo1@3x.png */,
 				F0B85A401BA160F4005799F5 /* 保利新页面 */,
 				94E7DCEE1B841D510093C39B /* CoursePlay课程播放页 */,
 				F0D7C04A1B79C7B400836DD2 /* libpolyvSDK */,
@@ -1392,6 +1407,8 @@
 		940032E11B840DCC001EB666 /* JobScreenDetail */ = {
 			isa = PBXGroup;
 			children = (
+				940032EB1B840DCC001EB666 /* TH_JobScreeningVC.h */,
+				940032EC1B840DCD001EB666 /* TH_JobScreeningVC.m */,
 				940032E21B840DCC001EB666 /* JobScreenDetailCell */,
 				940032E61B840DCC001EB666 /* TH_JobScreenDetailVC.h */,
 				940032E71B840DCC001EB666 /* TH_JobScreenDetailVC.m */,
@@ -1618,10 +1635,21 @@
 		94313DD31B7CB5C9005D0A9A /* writeResume */ = {
 			isa = PBXGroup;
 			children = (
-				F07E9C531BA90D0D00495154 /* 编辑简历 */,
-				F07E9C521BA90CBB00495154 /* 职位三级选择 */,
-				F07E9C541BA90D5400495154 /* 一级选择 */,
-				F07E9C511BA90B5D00495154 /* manegerResume */,
+				F05B7FFC1B8AACA600DC0A1D /* WriteJLChooseVC.h */,
+				F05B7FFD1B8AACA600DC0A1D /* WriteJLChooseVC.m */,
+				94313DE71B7CB5C9005D0A9A /* WriteResumeViewController.h */,
+				94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */,
+				94313DE51B7CB5C9005D0A9A /* WriteResumeVC2.h */,
+				F0E700141B9FEDE200788B17 /* ChooseCity_3ViewController.h */,
+				F0E700151B9FEDE200788B17 /* ChooseCity_3ViewController.m */,
+				F0E700111B9FED7900788B17 /* ChooseCity_2ViewController.h */,
+				F0E700121B9FED7900788B17 /* ChooseCity_2ViewController.m */,
+				F0E7000E1B9FE69900788B17 /* ChooseCityViewController.h */,
+				F0E7000F1B9FE69900788B17 /* ChooseCityViewController.m */,
+				94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */,
+				94313DD41B7CB5C9005D0A9A /* ManagerResumeVC.h */,
+				94313DD51B7CB5C9005D0A9A /* ManagerResumeVC.m */,
+				94313DD61B7CB5C9005D0A9A /* ManagerResumeVC.xib */,
 				9400329C1B840B47001EB666 /* ResumePreview */,
 				0454ACEE1B94A20E004A70ED /* ResumeModel */,
 				94E8F4E61B85797900088658 /* SubViews */,
@@ -1830,14 +1858,16 @@
 			isa = PBXGroup;
 			children = (
 				94CB5BA91B763AAC00B23B9D /* TH_FindJobVC.h */,
+				F05440B21B7870B800127A9B /* jobTableViewCell.h */,
+				F05440B81B788DAB00127A9B /* findjobtest.plist */,
+				F05440BA1B788FE000127A9B /* jobModel.h */,
+				F05440BB1B788FE000127A9B /* jobModel.m */,
+				F05440B31B7870B800127A9B /* jobTableViewCell.m */,
 				94CB5BAA1B763AAC00B23B9D /* TH_FindJobVC.m */,
-				F0EEABC61BA7E2320023A075 /* 3级筛选 */,
-				F0EEABC71BA7E2640023A075 /* 筛选界面 */,
 				04A0CD3F1B7A0FFE00EBCF01 /* SearchJob */,
 				94E3EAE41B95489A007A699E /* FindJobModel */,
 				940032DA1B840DCC001EB666 /* JobScreening */,
 				94E2C96A1B870F29001E3FDD /* JobDetails */,
-				F0EEABC81BA7E53E0023A075 /* 职位详情测试模型 */,
 			);
 			path = FindJob;
 			sourceTree = "<group>";
@@ -2202,75 +2232,6 @@
 			path = RKCustomTool;
 			sourceTree = "<group>";
 		};
-		F07E9C511BA90B5D00495154 /* manegerResume */ = {
-			isa = PBXGroup;
-			children = (
-				94313DD41B7CB5C9005D0A9A /* ManagerResumeVC.h */,
-				94313DD51B7CB5C9005D0A9A /* ManagerResumeVC.m */,
-				94313DD61B7CB5C9005D0A9A /* ManagerResumeVC.xib */,
-			);
-			path = manegerResume;
-			sourceTree = "<group>";
-		};
-		F07E9C521BA90CBB00495154 /* 职位三级选择 */ = {
-			isa = PBXGroup;
-			children = (
-				F0E700141B9FEDE200788B17 /* ChooseCity_3ViewController.h */,
-				F0E700151B9FEDE200788B17 /* ChooseCity_3ViewController.m */,
-				F0E700111B9FED7900788B17 /* ChooseCity_2ViewController.h */,
-				F0E700121B9FED7900788B17 /* ChooseCity_2ViewController.m */,
-				F0E7000E1B9FE69900788B17 /* ChooseCityViewController.h */,
-				F0E7000F1B9FE69900788B17 /* ChooseCityViewController.m */,
-			);
-			name = "职位三级选择";
-			path = controller;
-			sourceTree = "<group>";
-		};
-		F07E9C531BA90D0D00495154 /* 编辑简历 */ = {
-			isa = PBXGroup;
-			children = (
-				94313DE71B7CB5C9005D0A9A /* WriteResumeViewController.h */,
-				94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */,
-				94313DE51B7CB5C9005D0A9A /* WriteResumeVC2.h */,
-				94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */,
-			);
-			path = "编辑简历";
-			sourceTree = "<group>";
-		};
-		F07E9C541BA90D5400495154 /* 一级选择 */ = {
-			isa = PBXGroup;
-			children = (
-				F05B7FFC1B8AACA600DC0A1D /* WriteJLChooseVC.h */,
-				F05B7FFD1B8AACA600DC0A1D /* WriteJLChooseVC.m */,
-			);
-			path = "一级选择";
-			sourceTree = "<group>";
-		};
-		F07E9C551BA90E8700495154 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				94313DF61B7CB610005D0A9A /* TH_HomeVC.h */,
-				94313DF51B7CB610005D0A9A /* TH_HomeVC.m */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		F07E9C561BA90F1300495154 /* resource */ = {
-			isa = PBXGroup;
-			children = (
-				F0213A9C1BA2AC450083AA81 /* you3.png */,
-				F0213A9D1BA2AC450083AA81 /* you3@2x.png */,
-				F0213A9E1BA2AC450083AA81 /* you3@3x.png */,
-				F0213A9F1BA2AC450083AA81 /* zhong2.png */,
-				F0213AA01BA2AC450083AA81 /* zhong2@2x.png */,
-				F0213AA11BA2AC450083AA81 /* zhong2@3x.png */,
-				F0213AA21BA2AC450083AA81 /* zuo1.png */,
-				F0213AA31BA2AC450083AA81 /* zuo1@2x.png */,
-				F0213AA41BA2AC450083AA81 /* zuo1@3x.png */,
-			);
-			path = resource;
-			sourceTree = "<group>";
-		};
 		F07E9C571BA90F4500495154 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -2350,41 +2311,6 @@
 				F0EEABC41BA7CB5D0023A075 /* MobClickSocialAnalytics.h */,
 			);
 			path = UMAnalytics_Sdk_3.5.12;
-			sourceTree = "<group>";
-		};
-		F0EEABC61BA7E2320023A075 /* 3级筛选 */ = {
-			isa = PBXGroup;
-			children = (
-				F0B85A3D1BA11FA7005799F5 /* SearchCity3_ViewController.h */,
-				F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */,
-				F0B85A3A1BA11F97005799F5 /* SearchCity2_ViewController.h */,
-				F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */,
-				F0B85A371BA11F83005799F5 /* SearchCity1_ViewController.h */,
-				F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */,
-			);
-			path = "3级筛选";
-			sourceTree = "<group>";
-		};
-		F0EEABC71BA7E2640023A075 /* 筛选界面 */ = {
-			isa = PBXGroup;
-			children = (
-				940032EB1B840DCC001EB666 /* TH_JobScreeningVC.h */,
-				940032EC1B840DCD001EB666 /* TH_JobScreeningVC.m */,
-			);
-			path = "筛选界面";
-			sourceTree = "<group>";
-		};
-		F0EEABC81BA7E53E0023A075 /* 职位详情测试模型 */ = {
-			isa = PBXGroup;
-			children = (
-				F05440B21B7870B800127A9B /* jobTableViewCell.h */,
-				F05440B31B7870B800127A9B /* jobTableViewCell.m */,
-				F05440B81B788DAB00127A9B /* findjobtest.plist */,
-				F05440BA1B788FE000127A9B /* jobModel.h */,
-				F05440BB1B788FE000127A9B /* jobModel.m */,
-			);
-			name = "职位详情测试模型";
-			path = "JobDetails/职位详情测试模型";
 			sourceTree = "<group>";
 		};
 		F0F2B4801B9AE45600F7A261 /* SearchParamSingle */ = {
