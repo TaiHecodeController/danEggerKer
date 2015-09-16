@@ -142,7 +142,7 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
 
        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 8.f;
+    manager.requestSerializer.timeoutInterval = 6.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation * operation, id responseObject)
      {
@@ -270,6 +270,8 @@ if (errCode == -1001||errCode==404||errCode==500) {
     }
     @catch(NSException * excep){
         fail(50000, nil);
+        
+        
     }
     @finally{
         [State setEnd];

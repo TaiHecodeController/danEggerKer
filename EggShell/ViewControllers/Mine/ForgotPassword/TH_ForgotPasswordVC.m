@@ -37,6 +37,9 @@
     self.phoneTextField.text = [phone objectForKey:@"loginPhone"];
     
      [MobClick beginLogPageView:@"forgotpasswordvc"];
+//    NSUserDefaults * phone = [NSUserDefaults standardUserDefaults];
+//    
+//    self.phoneTextField.text = [phone objectForKey:@"loginPhone"];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -149,7 +152,8 @@
 }
 #pragma mark -- 获取验证码
 -(void)securityCodeBtnClick:(UIButton *)sender
-{ MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+{
+    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
     if ([self.phoneTextField.text length]==0) {
         [MBProgressHUD creatembHub:@"电话号码为空"];
         return;
@@ -198,7 +202,8 @@
             [MBProgressHUD creatembHub:@"点击下一步重置密码"];
             TH_getCodeNextVC * getNext = [[TH_getCodeNextVC alloc] init];
             getNext.title = @"找回密码";
-            getNext.phoneNum = self.phoneTextField.text;
+            getNext.forgetPhoneNum = self.phoneTextField.text;
+            
             [self.navigationController pushViewController:getNext animated:YES];
         }
 

@@ -132,7 +132,7 @@
 //    NSString *comHtmlString = [CommonFunc textFromBase64String:dic[@"content"]];
     NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[dic[@"content"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     self.companyMessage.attributedText = comAttributedString;
-    self.textSize = [self.companyMessage.text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+    self.textSize = [self.companyMessage.text sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
     
 
 //    self.companyMessage.text = [NSString stringWithFormat:@"%@",dic[@"content"]];

@@ -142,6 +142,7 @@
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.tableFooterView =[[UIView alloc] init];
     [self.view addSubview:_tableView];
 }
 

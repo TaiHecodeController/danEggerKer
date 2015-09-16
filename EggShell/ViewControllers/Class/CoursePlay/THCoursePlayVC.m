@@ -220,7 +220,7 @@ typedef NS_ENUM(NSInteger, GestureType){
     {
         [MBProgressHUD creatembHub:@"您当前处于3G状态"];
     }
-    {
+      else {
         NSLog(@"当前是3G或wifi状态");
         [MBProgressHUD creatembHub:@"您当前处于wifi状态"];
         

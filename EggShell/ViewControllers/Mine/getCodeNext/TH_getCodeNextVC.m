@@ -121,16 +121,17 @@
 -(void)resetpasswordClick
 {
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
-    NSUserDefaults * phone = [NSUserDefaults standardUserDefaults];
-    NSString * str =[NSString stringWithFormat:@"%@",[phone objectForKey:@"loginPhone"]];
+//    NSUserDefaults * phone = [NSUserDefaults standardUserDefaults];
+    
+    
     if ([self.newsPasswordTextFied .text length]<6||[self.confirmPasswordTextField.text length]<6) {
         [MBProgressHUD creatembHub:@"密码不能少于6位"];
         return;
     }
     if([self.newsPasswordTextFied .text isEqualToString:self.confirmPasswordTextField.text])
     {
-        
-        [[LoginAndRegisterRequest resetPasswordRequestWithPhoneNum:str withNewCode:self.newsPasswordTextFied.text withSucc:^(NSDictionary * dic) {
+
+        [[LoginAndRegisterRequest resetPasswordRequestWithPhoneNum:self.forgetPhoneNum withNewCode:self.newsPasswordTextFied.text withSucc:^(NSDictionary * dic) {
             if ([dic[@"code"] integerValue]==0) {
                 TH_LoginVC * login = [[TH_LoginVC alloc] init];
                 [MBProgressHUD creatembHub:@"重置密码成功"];
