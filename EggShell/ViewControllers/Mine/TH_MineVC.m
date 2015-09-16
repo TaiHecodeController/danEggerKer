@@ -36,7 +36,13 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
      [self baseIofomationLogin];
-  
+    
+    [MobClick beginLogPageView:@"minevc"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"minevc"];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

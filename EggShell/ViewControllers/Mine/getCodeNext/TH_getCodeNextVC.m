@@ -28,7 +28,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [MobClick endLogPageView:@"getcodenextvc"];
-
 }
 
 - (void)viewDidLoad {

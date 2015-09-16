@@ -1105,13 +1105,13 @@
 		04A483B11B74FCE2006FDB9D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				04A483B51B74FD4D006FDB9D /* Home */,
 				94313DAC1B7CAAB5005D0A9A /* PlayFan */,
+				04A483C11B74FDCE006FDB9D /* OpenClass */,
+				04A483C71B74FDF5006FDB9D /* Mine */,
+				04A483BB1B74FD99006FDB9D /* Activity */,
 				F083F81E1B9C324300781C08 /* TDjob */,
 				941F10071B7B3BBD00719F5B /* DeliveryJob */,
-				04A483C71B74FDF5006FDB9D /* Mine */,
-				04A483C11B74FDCE006FDB9D /* OpenClass */,
-				04A483BB1B74FD99006FDB9D /* Activity */,
-				04A483B51B74FD4D006FDB9D /* Home */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2937,7 +2937,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19b65de5-9b87-4118-be8a-ded39fcf0739";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -2968,7 +2968,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19b65de5-9b87-4118-be8a-ded39fcf0739";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
@@ -2990,7 +2990,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a69eaeef-0f81-41bc-b2e9-596942861d55";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Debug;
@@ -3008,7 +3008,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a69eaeef-0f81-41bc-b2e9-596942861d55";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Release;

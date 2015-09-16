@@ -31,7 +31,13 @@
 {
     NSUserDefaults * userId = [NSUserDefaults standardUserDefaults];
    self.phonetextField.text = [userId objectForKey:@"loginPhone"];
+    [MobClick beginLogPageView:@"loginvc"];
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"loginvc"];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

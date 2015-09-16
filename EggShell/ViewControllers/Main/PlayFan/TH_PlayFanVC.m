@@ -40,10 +40,11 @@
     [_footer free];
 }
 -(void)viewWillAppear:(BOOL)animated
-{[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
     
-    
+    [MobClick beginLogPageView:@"playfanvc"];
     
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -52,8 +53,12 @@
 //        InformationDeskCell * cell = self.cellArray[record_index.row];
 //        cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //      [self.tableView reloadData];
-
 }
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [MobClick endLogPageView:@"playfanvc"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
   self.dataArray =[NSMutableArray arrayWithCapacity:0];
