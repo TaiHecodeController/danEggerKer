@@ -35,8 +35,9 @@
 - (void)swipeAction:(UISwipeGestureRecognizer *)gesture
 {
     if (self.viewControllers.count > 0)
-    {
+    {[[NSNotificationCenter defaultCenter] postNotificationName:@"videoClose" object:nil];
         [self popViewControllerAnimated:YES];
+        
     }
 }
 - (void)didReceiveMemoryWarning

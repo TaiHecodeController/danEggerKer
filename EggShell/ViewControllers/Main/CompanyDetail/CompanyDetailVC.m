@@ -96,7 +96,7 @@
     
     //上部logo
     UIImageView * logoView = [[UIImageView alloc] initWithFrame:CGRectMake(WIDETH / 2 - 50,20, 100, 30)];
-    logoView.image = [UIImage imageNamed:@""];
+    logoView.image = [UIImage imageNamed:@"logomorentu"];
     self.logoView = logoView;
     [logoBackView addSubview:logoView];
     

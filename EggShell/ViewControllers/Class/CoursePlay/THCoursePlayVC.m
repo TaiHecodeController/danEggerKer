@@ -173,8 +173,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 #pragma mark -- viewLifeCircle
 - (void)viewWillAppear:(BOOL)animated
 {
-    
-    [AppDelegate instance].ori_flag = 1;
+       [AppDelegate instance].ori_flag = 1;
     _systemBrightness = [UIScreen mainScreen].brightness;
     
     [MobClick beginLogPageView:@"courseplayvc"];

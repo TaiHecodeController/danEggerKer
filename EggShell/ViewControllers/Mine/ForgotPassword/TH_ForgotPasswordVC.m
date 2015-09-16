@@ -32,14 +32,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    NSUserDefaults * phone = [NSUserDefaults standardUserDefaults];
-    
-    self.phoneTextField.text = [phone objectForKey:@"loginPhone"];
-    
-     [MobClick beginLogPageView:@"forgotpasswordvc"];
-//    NSUserDefaults * phone = [NSUserDefaults standardUserDefaults];
-//    
-//    self.phoneTextField.text = [phone objectForKey:@"loginPhone"];
+   
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

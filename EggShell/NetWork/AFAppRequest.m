@@ -142,7 +142,7 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
 
        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 7.f;
+    manager.requestSerializer.timeoutInterval = 8.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation * operation, id responseObject)
      {
@@ -202,8 +202,7 @@
     if(errCode == 3840)
     {
         [MBProgressHUD creatembHub:@"服务器异常"];
-    }
-if (errCode == -1001||errCode==404||errCode==500) {
+    }if (errCode == -1001||errCode==404||errCode==500) {
         [MBProgressHUD creatembHub:@"网络异常"];
     }
     if (errCode == 1013) {
@@ -218,7 +217,6 @@ if (errCode == -1001||errCode==404||errCode==500) {
 //对象转换＋异常捕获（防崩溃）
 +(void)handleResponse:(id)responseObject Succ:(void (^)(id data))succ Fail:(void (^)(int errCode, NSError * err))fail Resp:(Class)resp State:(AFRequestState *)State;
 {
-    
     @try
     {
         if([responseObject isKindOfClass:[NSData class]])

@@ -114,6 +114,9 @@
     _state = [[OpenClassVideoListRequest requestWithSucc:^(NSDictionary *DataDic) {
         
                 [weakSelf.dataArray addObjectsFromArray:[weakSelf getArray:DataDic[@"list"] length:2]];
+        if (![DataDic[@"list"] count]>0) {
+            [MBProgressHUD creatembHub:@"暂无更多数据"];
+        }
                 [weakSelf._gridView reloadData];
         
         _teacherArr =[NSMutableArray arrayWithArray: DataDic[@"teacher"]];
@@ -194,6 +197,7 @@
         
         NSLog(@"%@",DataDic);
         _teacherArr = [NSMutableArray arrayWithArray:DataDic];
+        
         
     } resp:[NSObject class] paramPage:@"1" Pagesize:@"1"];
 }
@@ -360,7 +364,10 @@
         if (self.dataArray.count > 0)
         {
             [cell.coverView sd_setImageWithURL:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"vimage"] placeholderImage:[UIImage imageNamed:@"remen"]];
-            cell.nameLab.text = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"];
+            
+//            cell.nameLab.text = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"];
+             NSArray *tearName = [self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"] componentsSeparatedByString:@"-"];
+            cell.nameLab.text = tearName[0];
             [cell.redXinBtn setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
             [cell.redXinBtn setTitle:[NSString stringWithFormat:@"%@",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_obvious"]] forState:UIControlStateNormal];
             [cell.priceBtn setImage:[UIImage imageNamed:@"qian"] forState:UIControlStateNormal];

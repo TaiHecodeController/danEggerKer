@@ -163,6 +163,7 @@
 		94CB5BA11B76342300B23B9D /* TH_SociallyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CB5BA01B76342300B23B9D /* TH_SociallyVC.m */; };
 		94CB5BA71B76345D00B23B9D /* TH_MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CB5BA61B76345D00B23B9D /* TH_MineVC.m */; };
 		94CB5BAB1B763AAC00B23B9D /* TH_FindJobVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CB5BAA1B763AAC00B23B9D /* TH_FindJobVC.m */; };
+		94E216301BA951DD00D96B67 /* MTSpecailtyListPointItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2162F1BA951DD00D96B67 /* MTSpecailtyListPointItem.m */; };
 		94E2C95D1B86C112001E3FDD /* 蛋壳儿.doc in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C95C1B86C112001E3FDD /* 蛋壳儿.doc */; };
 		94E2C9681B870EED001E3FDD /* CompanyDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2C9641B870EED001E3FDD /* CompanyDetailVC.m */; };
 		94E2C9691B870EED001E3FDD /* CompanyMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2C9671B870EED001E3FDD /* CompanyMessageView.m */; };
@@ -265,7 +266,6 @@
 		F05B7FFE1B8AACA600DC0A1D /* WriteJLChooseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B7FFD1B8AACA600DC0A1D /* WriteJLChooseVC.m */; };
 		F05B80031B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B80021B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m */; };
 		F05B80071B8ABE2200DC0A1D /* MTGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B80061B8ABE2200DC0A1D /* MTGridView.m */; };
-		F05B800A1B8ABFC400DC0A1D /* MTSpecailtyListPointItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B80091B8ABFC400DC0A1D /* MTSpecailtyListPointItem.m */; };
 		F05B80101B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B800F1B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.m */; };
 		F05B80131B8AC34400DC0A1D /* UIColor+RK_Color.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B80121B8AC34400DC0A1D /* UIColor+RK_Color.m */; };
 		F06F72EF1B9694D200989489 /* playListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F06F72EE1B9694D200989489 /* playListModel.m */; };
@@ -592,6 +592,8 @@
 		94CB5BA61B76345D00B23B9D /* TH_MineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_MineVC.m; sourceTree = "<group>"; };
 		94CB5BA91B763AAC00B23B9D /* TH_FindJobVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_FindJobVC.h; sourceTree = "<group>"; };
 		94CB5BAA1B763AAC00B23B9D /* TH_FindJobVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_FindJobVC.m; sourceTree = "<group>"; };
+		94E2162C1BA951CE00D96B67 /* MTSpecailtyListPointItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTSpecailtyListPointItem.h; path = EggShell/ViewControllers/Class/MTSpecailtyListPointItem.h; sourceTree = SOURCE_ROOT; };
+		94E2162F1BA951DD00D96B67 /* MTSpecailtyListPointItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTSpecailtyListPointItem.m; path = EggShell/ViewControllers/Class/MTSpecailtyListPointItem.m; sourceTree = SOURCE_ROOT; };
 		94E2C95C1B86C112001E3FDD /* 蛋壳儿.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "蛋壳儿.doc"; sourceTree = "<group>"; };
 		94E2C9631B870EED001E3FDD /* CompanyDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyDetailVC.h; sourceTree = "<group>"; };
 		94E2C9641B870EED001E3FDD /* CompanyDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyDetailVC.m; sourceTree = "<group>"; };
@@ -753,8 +755,6 @@
 		F05B80021B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+touchBegan.m"; sourceTree = "<group>"; };
 		F05B80051B8ABE2200DC0A1D /* MTGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGridView.h; sourceTree = "<group>"; };
 		F05B80061B8ABE2200DC0A1D /* MTGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGridView.m; sourceTree = "<group>"; };
-		F05B80081B8ABFC400DC0A1D /* MTSpecailtyListPointItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTSpecailtyListPointItem.h; path = ../../MTSpecailtyListPointItem.h; sourceTree = "<group>"; };
-		F05B80091B8ABFC400DC0A1D /* MTSpecailtyListPointItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTSpecailtyListPointItem.m; path = ../../MTSpecailtyListPointItem.m; sourceTree = "<group>"; };
 		F05B800E1B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+RK_row_col.h"; sourceTree = "<group>"; };
 		F05B800F1B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+RK_row_col.m"; sourceTree = "<group>"; };
 		F05B80111B8AC34400DC0A1D /* UIColor+RK_Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RK_Color.h"; sourceTree = "<group>"; };
@@ -2274,8 +2274,8 @@
 		F07E9C571BA90F4500495154 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				F05B80081B8ABFC400DC0A1D /* MTSpecailtyListPointItem.h */,
-				F05B80091B8ABFC400DC0A1D /* MTSpecailtyListPointItem.m */,
+				94E2162F1BA951DD00D96B67 /* MTSpecailtyListPointItem.m */,
+				94E2162C1BA951CE00D96B67 /* MTSpecailtyListPointItem.h */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2451,7 +2451,7 @@
 					};
 					041650491B4D7142008C78BE = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = B8W5YY9JPL;
+						DevelopmentTeam = M3BN6VM63R;
 						TestTargetID = 041650301B4D7141008C78BE;
 					};
 				};
@@ -2621,6 +2621,7 @@
 				947006931B85CA6000DEC289 /* EditAddressVC.m in Sources */,
 				94C320561B9B0CB000ACF07D /* UIButton+Extension.m in Sources */,
 				F083F8211B9C32F700781C08 /* Me_Request.m in Sources */,
+				94E216301BA951DD00D96B67 /* MTSpecailtyListPointItem.m in Sources */,
 				94E2C9681B870EED001E3FDD /* CompanyDetailVC.m in Sources */,
 				94E2C9D61B8AF9B8001E3FDD /* CertificateView.m in Sources */,
 				94CB5B7E1B74CC0600B23B9D /* MJFoundation.m in Sources */,
@@ -2631,7 +2632,6 @@
 				041650DF1B4D795B008C78BE /* AFAppRequest.m in Sources */,
 				F05440B11B7848B000127A9B /* HYSegmentedControl.m in Sources */,
 				94313DC31B7CAAED005D0A9A /* TH_InformationDeskVC.m in Sources */,
-				F05B800A1B8ABFC400DC0A1D /* MTSpecailtyListPointItem.m in Sources */,
 				940032CF1B840CC3001EB666 /* TH_ProfessionalSkillVC.m in Sources */,
 				94E2C9851B870F29001E3FDD /* ComPanyProfileView.m in Sources */,
 				940032D91B840CC3001EB666 /* WorkingExperienceVC.m in Sources */,
@@ -2868,7 +2868,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "01900aba-80b5-4c93-a0ee-5403f490f9fb";
+				PROVISIONING_PROFILE = "be4a21e9-4736-459f-b709-21fca174063a";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2905,7 +2905,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "01900aba-80b5-4c93-a0ee-5403f490f9fb";
+				PROVISIONING_PROFILE = "be4a21e9-4736-459f-b709-21fca174063a";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
