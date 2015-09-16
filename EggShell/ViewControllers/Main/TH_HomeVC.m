@@ -80,11 +80,9 @@
     }else if([MMNetWorkType getNetWorkType] ==WWAN)
     {
         [MBProgressHUD creatembHub:@"您当前处于3G状态"];
-    }
-    {
+    }else{
         NSLog(@"当前是wifi状态");
         [MBProgressHUD creatembHub:@"您当前处于wifi状态"];
-        
     }
     //状态栏
     [self setStatus];
