@@ -2447,7 +2447,7 @@
 				TargetAttributes = {
 					041650301B4D7141008C78BE = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = B8W5YY9JPL;
+						DevelopmentTeam = M3BN6VM63R;
 					};
 					041650491B4D7142008C78BE = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -2868,7 +2868,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "a69eaeef-0f81-41bc-b2e9-596942861d55";
+				PROVISIONING_PROFILE = "01900aba-80b5-4c93-a0ee-5403f490f9fb";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2905,7 +2905,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "a69eaeef-0f81-41bc-b2e9-596942861d55";
+				PROVISIONING_PROFILE = "01900aba-80b5-4c93-a0ee-5403f490f9fb";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2937,7 +2937,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "01900aba-80b5-4c93-a0ee-5403f490f9fb";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -2968,7 +2968,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "01900aba-80b5-4c93-a0ee-5403f490f9fb";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
@@ -2990,7 +2990,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Debug;
@@ -3008,7 +3008,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "90279711-4d9f-4321-a461-1a2e831359d9";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Release;

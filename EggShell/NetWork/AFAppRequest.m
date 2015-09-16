@@ -142,7 +142,7 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
 
        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 6.f;
+    manager.requestSerializer.timeoutInterval = 7.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation * operation, id responseObject)
      {
