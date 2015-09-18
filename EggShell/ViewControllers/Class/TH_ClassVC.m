@@ -365,7 +365,6 @@
             
 //            cell.nameLab.text = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"];
 
-            
             if ([self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"]rangeOfString:@"-"].location !=NSNotFound) {
                 NSArray *tearName = [self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"] componentsSeparatedByString:@"-"];
                 cell.nameLab.text = tearName[0];
