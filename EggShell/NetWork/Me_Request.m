@@ -15,6 +15,7 @@
 {
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSLog(@"~~%@",[df objectForKey:@"uid"]);
+     NSString * tokenStr = [df objectForKey:@"md5_token"];
     NSNumber *nspage = [NSNumber numberWithInt:page];
     NSNumber *nslimit = [NSNumber numberWithInt:limit];
 
@@ -28,7 +29,7 @@
 //    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Position/getPositionlist" param:param succ:succ fail:fail resp:resp];
 //=======
     
-    NSDictionary *param = @{@"uid":userId,@"page":nspage,@"limit":nslimit};
+    NSDictionary *param = @{@"token":tokenStr, @"uid":userId,@"page":nspage,@"limit":nslimit};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/getPositionlist",base_Url] param:param succ:succ resp:resp];
 
 }
