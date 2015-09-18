@@ -250,6 +250,8 @@
             NSString * tokenSerit = [NSString stringWithFormat:@"%@%@",token,uid];
             NSString* mymd5_token  = [MyMD5 md5:tokenSerit];
             [user setObject:mymd5_token forKey:@"md5_token"];
+            
+            
             [user synchronize];
             
             if ([self.jobWilstRegist isEqualToString:@"jobWilstRegist"]) {

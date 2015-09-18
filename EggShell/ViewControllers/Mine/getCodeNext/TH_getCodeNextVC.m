@@ -102,24 +102,23 @@
     
     
 }
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    if (textField == self.newsPasswordTextFied) {
-        [self.confirmPasswordTextField becomeFirstResponder];
-    
-    }
-    
-    [self loginRequest];
-    return YES;
-}
--(void)loginRequest
-{
-
-}
+//-(BOOL)textFieldShouldReturn:(UITextField *)textField
+//{
+//    if (textField == self.newsPasswordTextFied) {
+//        [self.confirmPasswordTextField becomeFirstResponder];
+//    
+//    }
+//    
+//       return YES;
+//}
+//-(void)loginRequest
+//{
+//
+//}
 #pragma mark--重置密码
 -(void)resetpasswordClick
 {
-    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+   
 //    NSUserDefaults * phone = [NSUserDefaults standardUserDefaults];
     
     
@@ -127,34 +126,35 @@
         [MBProgressHUD creatembHub:@"密码不能少于6位"];
         return;
     }
-    if([self.newsPasswordTextFied .text isEqualToString:self.confirmPasswordTextField.text])
+    if(![self.newsPasswordTextFied .text isEqualToString:self.confirmPasswordTextField.text])
     {
-
+    [MBProgressHUD creatembHub:@"两次密码不一致"];
+        return;
+    }
+    else
+    {
         [[LoginAndRegisterRequest resetPasswordRequestWithPhoneNum:self.forgetPhoneNum withNewCode:self.newsPasswordTextFied.text withSucc:^(NSDictionary * dic) {
             if ([dic[@"code"] integerValue]==0) {
                 TH_LoginVC * login = [[TH_LoginVC alloc] init];
                 [MBProgressHUD creatembHub:@"重置密码成功"];
-//             self.navigationController.navigationBarHidden =  YES ;
-//                TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
-//                home.modalTransitionStyle = UIModalPresentationPageSheet;
-//                [self presentViewController:login animated:YES completion:nil];
+                //             self.navigationController.navigationBarHidden =  YES ;
+                //                TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
+                //                home.modalTransitionStyle = UIModalPresentationPageSheet;
+                //                [self presentViewController:login animated:YES completion:nil];
                 [self.navigationController pushViewController:login animated:YES];
             }
-        }] addNotifaction:hub];
-       
-//    [AccountRequest resetPasswordRequestWithPhoneNum:self.phoneNum withNewCode:self.newsPasswordTextFied.text  withSucc:^(NSDictionary * dic) {
-//        if ([dic[@"code"] integerValue]==0) {
-//            self.navigationController.navigationBarHidden =  YES ;
-//            TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
-//            home.modalTransitionStyle = UIModalPresentationPageSheet;
-//            [self presentViewController:home animated:YES completion:nil];
-//        }
-//    }];
-    }
-    else
-    {
+        }] addNotifaction:[MBProgressHUD mbHubShow]];
+        
+        //    [AccountRequest resetPasswordRequestWithPhoneNum:self.phoneNum withNewCode:self.newsPasswordTextFied.text  withSucc:^(NSDictionary * dic) {
+        //        if ([dic[@"code"] integerValue]==0) {
+        //            self.navigationController.navigationBarHidden =  YES ;
+        //            TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
+        //            home.modalTransitionStyle = UIModalPresentationPageSheet;
+        //            [self presentViewController:home animated:YES completion:nil];
+        //        }
+        //    }];
+
     
-    [MBProgressHUD creatembHub:@"密码不一致"];
     }
     
 }

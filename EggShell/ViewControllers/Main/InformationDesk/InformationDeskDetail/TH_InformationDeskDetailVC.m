@@ -58,8 +58,12 @@
    
     detail.frame = CGRectMake(0, 0, WIDETH, HEIGHT);
     detail.RouteLable.editable = NO;
+        detail.contactLable.userInteractionEnabled = NO;
     detail.contentLable.scrollEnabled = YES;
-    detail.contactLable.userInteractionEnabled = NO;
+
+    detail.contentLable.editable = NO;
+    detail.contentLable.userInteractionEnabled = NO;
+    detail.contentLable.scrollEnabled = YES;
     if (self.detaildic) {
         [detail setValues:self.detaildic];
         

@@ -58,6 +58,7 @@
     NSNumber *numid = [NSNumber numberWithInt:id];
     NSNumber *numpid = [NSNumber numberWithInt:pid];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
 
     NSString * userUid = [df objectForKey:@"uid"];
     
@@ -65,7 +66,7 @@
     {
     userUid = @"";
     }
-    NSDictionary *param = @{@"id":numid,@"pid":numpid,@"uid":userUid};
+    NSDictionary *param = @{@"id":numid,@"pid":numpid,@"uid":userUid,@"token":tokenStr};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/details",base_Url] param:param succ:succ fail:fail resp:resp];
     
 }
@@ -75,11 +76,13 @@
 {
     NSNumber *jobid = [NSNumber numberWithInt:job_id];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
     NSString * userId =[df objectForKey:@"uid"];
+    
     if ([userId length]==0) {
         userId = @"";
     }
-    NSDictionary *param = @{@"job_id":jobid,@"uid":userId};
+    NSDictionary *param = @{@"job_id":jobid,@"uid":userId,@"token":tokenStr};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/collect",base_Url]param:param succ:succ fail:fail resp:resp];
 }
 
@@ -90,10 +93,11 @@
     NSNumber *nslimit = [NSNumber numberWithInt:limit];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * userId =[df objectForKey:@"uid"];
+     NSString * tokenStr = [df objectForKey:@"md5_token"];
     if ([userId length]==0) {
         userId = @"";
     }
-    NSDictionary *param = @{@"uid":userId,@"page":nspage,@"limit":nslimit};
+    NSDictionary *param = @{@"uid":userId,@"page":nspage,@"limit":nslimit,@"token":tokenStr};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/collectlist",base_Url] param:param succ:succ fail:fail resp:resp];
     
 }
@@ -103,10 +107,12 @@
 {
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * userId =[df objectForKey:@"uid"];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
+
     if ([userId length]==0) {
         userId = @"";
     }
-    NSDictionary *param = @{@"uid":userId,@"job_id":job_idStr};
+    NSDictionary *param = @{@"uid":userId,@"job_id":job_idStr,@"token":tokenStr};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/delgetPosition",base_Url] param:param succ:succ fail:fail resp:resp];
 }
 
@@ -115,10 +121,12 @@
 {
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * userId =[df objectForKey:@"uid"];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
+
     if ([userId length]==0) {
         userId = @"";
     }
-    NSDictionary *param = @{@"uid":userId,@"job_id":job_idStr};
+    NSDictionary *param = @{@"uid":userId,@"job_id":job_idStr,@"token":tokenStr};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/delcollectlist",base_Url] param:param succ:succ fail:fail resp:resp];
 
 }
@@ -127,7 +135,8 @@
 +(AFRequestState *)SQJobWithSucc:(void(^)(NSString *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withUid:(int)uid job_id:(NSString *)job_id resp:(Class)resp
 {
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-    NSDictionary *param = @{@"uid":[df objectForKey:@"uid"],@"job_id":job_id};
+     NSString * tokenStr = [df objectForKey:@"md5_token"];
+    NSDictionary *param = @{@"uid":[df objectForKey:@"uid"],@"job_id":job_id,@"token":tokenStr};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/getPosition",base_Url] param:param succ:succ fail:fail resp:resp];
 }
 /*轮播图**/

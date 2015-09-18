@@ -221,14 +221,15 @@
         return;
     }
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
-    
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
     [[WriteResumeRequest uploadProjectExperienceWithSucc:^(NSDictionary *dataDic) {
         [MBProgressHUD creatembHub:@"创建成功"];
 //        [self.navigationController popViewControllerAnimated:YES];
         ProjectExperienceVC * projects = [[ProjectExperienceVC alloc] init];
             projects.model = _model;
         [self.navigationController pushViewController:projects animated:YES];
-    } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"sys":_model.projectPath,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
+    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"sys":_model.projectPath,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
     
 
 }

@@ -74,8 +74,7 @@ NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
 /*头像上传**/
 +(AFRequestState*)uploadImage:(void (^)(NSDictionary *))succ :(UIImage *)inputImage withUid:(NSString*)uid
 {  NSUserDefaults  *user = [NSUserDefaults standardUserDefaults];
-    
-      NSString * tokenStr = [user objectForKey:@"md5_ken"];
+      NSString * tokenStr = [user objectForKey:@"md5_token"];
     if ([tokenStr length]==0) {
         tokenStr = @"";
         

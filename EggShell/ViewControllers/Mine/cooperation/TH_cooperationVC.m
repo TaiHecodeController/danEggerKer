@@ -34,9 +34,10 @@
     UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 30, WIDETH-30, 390)];
     imageView.image = [UIImage  imageNamed:@"logotu"];
     [scro addSubview:imageView];
-    UILabel * lable = [[UILabel alloc] initWithFrame:CGRectMake((WIDETH-187)/2.0,480, 187, 11)];
-    lable.text = @"太和天下投资控股有限公司 版权所有" ;
+    UILabel * lable = [[UILabel alloc] initWithFrame:CGRectMake((WIDETH-250)/2.0,480, 250, 11)];
+    lable.text = @"北京太和百富管理咨询有限公司  版权所有" ;
     lable.textColor = UIColorFromRGB(0x646464);
+    lable.textAlignment = NSTextAlignmentCenter;
     lable.font =[UIFont systemFontOfSize:11];
     [scro addSubview:lable];
     scro.contentSize = CGSizeMake(WIDETH, 590);

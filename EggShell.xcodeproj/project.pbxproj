@@ -2373,7 +2373,7 @@
 				TargetAttributes = {
 					041650301B4D7141008C78BE = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = B8W5YY9JPL;
+						DevelopmentTeam = M3BN6VM63R;
 					};
 					041650491B4D7142008C78BE = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -2794,7 +2794,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "be4a21e9-4736-459f-b709-21fca174063a";
+				PROVISIONING_PROFILE = "3fde5b0f-5d72-46f1-b91b-78e8c25cb380";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2831,7 +2831,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "be4a21e9-4736-459f-b709-21fca174063a";
+				PROVISIONING_PROFILE = "3fde5b0f-5d72-46f1-b91b-78e8c25cb380";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

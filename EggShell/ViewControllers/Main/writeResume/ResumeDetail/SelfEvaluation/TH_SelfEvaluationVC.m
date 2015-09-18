@@ -113,10 +113,11 @@
         _model.content = self.contentTextField.text;
     }
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
-    
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
     [[WriteResumeRequest uploadSelfEvaluationWithSucc:^(NSDictionary *dataDic) {
         [MBProgressHUD creatembHub:@"保存成功"];
-    } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"content":_model.content}] addNotifaction:hub];
+    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"content":_model.content}] addNotifaction:hub];
     
 }
 /*重置**/

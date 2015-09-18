@@ -9,11 +9,13 @@
 #import "WriteResumeRequest.h"
 
 @implementation WriteResumeRequest
+//简历列表
 +(AFRequestState *)getResumeListWithSucc:(void(^)(NSArray * DataArray))succ WithUserId:(NSString *)userId resp:(Class)resp;
 {
     
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_manager",base_Url] param:@{@"uid":[df objectForKey:@"uid"]} succ:succ resp:resp];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_manager",base_Url] param:@{@"uid":[df objectForKey:@"uid"],@"token":tokenStr} succ:succ resp:resp];
     
 }
 
@@ -23,18 +25,19 @@
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/except_select",base_Url] param:nil succ:succ];
 }
 
-//简历筛选
+//简历选择信息列表
 +(AFRequestState *)getResumeMessageListWithSucc:(void(^)(NSDictionary * DataDic))succ
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/except_select",base_Url] param:nil succ:succ];
 }
 
-
+//上传用户所填信息
 +(AFRequestState *)uploadResumeMessageAboutUserMessageWithSucc:(void(^)(NSDictionary * DataDic))succ WithResumeParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/except",base_Url] param:param succ:succ];
+    
 }
-
+//上传工作经历
 +(AFRequestState *)uploadWorkExperienceWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_work",base_Url] param:param succ:succ];
@@ -46,37 +49,37 @@
     
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_preview",base_Url] param:param succ:succ fail:nil];
 }
-
+//上传教育经历
 +(AFRequestState *)uploadEducationWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_edu",base_Url] param:param succ:succ];
 }
-
+//上传培训经历
 +(AFRequestState *)uploadTrainWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_training",base_Url] param:param succ:succ];
 }
-
+//上传专业技能
 +(AFRequestState *)uploadProfessionalSkillWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_skill",base_Url] param:param succ:succ];
 }
-
+//上传项目经验
 +(AFRequestState *)uploadProjectExperienceWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_project",base_Url] param:param succ:succ];
 }
-
+//上传证书
 +(AFRequestState *)uploadCertificateWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_cert",base_Url] param:param succ:succ];
 }
-
+//自我评价
 +(AFRequestState *)uploadSelfEvaluationWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_other",base_Url] param:param succ:succ];
 }
-
+//删除简历
 +(AFRequestState *)deleteResumeWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_del",base_Url] param:param succ:succ];

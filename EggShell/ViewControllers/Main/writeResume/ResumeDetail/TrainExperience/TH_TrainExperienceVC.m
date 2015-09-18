@@ -207,6 +207,8 @@
         _model.content = self.contentTextField.text;
     }
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
     [[WriteResumeRequest uploadTrainWithSucc:^(NSDictionary *dataDic) {
         [MBProgressHUD creatembHub:@"保存成功"];
 //        [self.navigationController popViewControllerAnimated:YES];
@@ -214,7 +216,7 @@
         train.model = _model;
         [self.navigationController pushViewController:train animated:YES];
         
-    } WithResumeParam:@{@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
+    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
 }
 /*重置**/
 -(void)replaceBtnClick

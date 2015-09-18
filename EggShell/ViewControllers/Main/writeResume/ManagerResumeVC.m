@@ -314,6 +314,7 @@
             if(cell.iSSelect.selected)
             {
                 MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+                
                 [[WriteResumeRequest deleteResumeWithSucc:^(NSDictionary *dataDic) {
                     [MBProgressHUD creatembHub:@"删除成功"];
                     [self.dataArray removeObjectAtIndex:i];

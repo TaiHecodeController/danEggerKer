@@ -366,8 +366,15 @@
             [cell.coverView sd_setImageWithURL:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"vimage"] placeholderImage:[UIImage imageNamed:@"remen"]];
             
 //            cell.nameLab.text = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"];
-             NSArray *tearName = [self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"] componentsSeparatedByString:@"-"];
-            cell.nameLab.text = tearName[0];
+            
+            if ([self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"]rangeOfString:@"-"].location !=NSNotFound) {
+                NSArray *tearName = [self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"] componentsSeparatedByString:@"-"];
+                cell.nameLab.text = tearName[0];
+            }if ([self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"]rangeOfString:@" "].location!=NSNotFound) {
+                NSArray *tearName = [self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"] componentsSeparatedByString:@" "];
+                cell.nameLab.text = tearName[0];
+            }
+            
             [cell.redXinBtn setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
             [cell.redXinBtn setTitle:[NSString stringWithFormat:@"%@",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_obvious"]] forState:UIControlStateNormal];
             [cell.priceBtn setImage:[UIImage imageNamed:@"qian"] forState:UIControlStateNormal];
