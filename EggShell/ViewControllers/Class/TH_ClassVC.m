@@ -129,7 +129,6 @@
 {
     for (UIImageView *iconView in self._gridView.headerView.subviews) {
         
-        
         if (iconView.tag == 1000)
         {
             for (UILabel *nameLab in iconView.subviews)
@@ -144,9 +143,9 @@
                      nameLab.text = arr[0][@"video_name"];
                 }
             }
-            
+            iconView.image = [UIImage imageNamed:@"演讲口语语音训练1"];
 //            [iconView sd_setImageWithURL:[NSURL URLWithString:arr[0][@"vimage"]] placeholderImage:nil];
-            iconView.image = [UIImage imageNamed:@"zuo1"];
+           
         }
         else if (iconView.tag == 1001)
         {
@@ -163,7 +162,8 @@
                 }
             }
 //            [iconView sd_setImageWithURL:[NSURL URLWithString:arr[1][@"vimage"]] placeholderImage:nil];
-             iconView.image = [UIImage imageNamed:@"zhong2"];
+            
+             iconView.image = [UIImage imageNamed:@"销售时什么东东"];
         }
         else if (iconView.tag == 1002)
         {
@@ -180,13 +180,10 @@
                 }
             }
             
-            [iconView sd_setImageWithURL:[NSURL URLWithString:arr[2][@"vimage"]] placeholderImage:nil];
-             iconView.image = [UIImage imageNamed:@"you3"];
+//            [iconView sd_setImageWithURL:[NSURL URLWithString:arr[2][@"vimage"]] placeholderImage:nil];
+             iconView.image = [UIImage imageNamed:@"组-4-拷贝"];
         }
     }
-    
-    
-    
     
 }
 
@@ -276,6 +273,7 @@
             [qsBtn addGestureRecognizer:tap];
             qsBtn.userInteractionEnabled = YES;
             [qsBtn sd_setImageWithURL:[NSURL URLWithString:_teacherArr[i][@"vimage"]] placeholderImage:nil];
+            
             [headView addSubview:qsBtn];
             
             UILabel *nameLab = [[UILabel alloc]init];
@@ -363,9 +361,10 @@
         
         if (self.dataArray.count > 0)
         {
-            [cell.coverView sd_setImageWithURL:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"vimage"] placeholderImage:[UIImage imageNamed:@"remen"]];
+            [cell.coverView sd_setImageWithURL:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"vimage"] placeholderImage:[UIImage imageNamed:@"视频推荐默认图"]];
             
 //            cell.nameLab.text = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"];
+
             
             if ([self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"]rangeOfString:@"-"].location !=NSNotFound) {
                 NSArray *tearName = [self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"] componentsSeparatedByString:@"-"];
@@ -379,6 +378,14 @@
             [cell.redXinBtn setTitle:[NSString stringWithFormat:@"%@",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_obvious"]] forState:UIControlStateNormal];
             [cell.priceBtn setImage:[UIImage imageNamed:@"qian"] forState:UIControlStateNormal];
             [cell.priceBtn setTitle:[NSString stringWithFormat:@"%@元",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"status"]] forState:UIControlStateNormal];
+
+             NSArray *tearName = [self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"] componentsSeparatedByString:@"-"];
+            cell.nameLab.text = tearName[0];
+//            [cell.redXinBtn setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
+//            [cell.redXinBtn setTitle:[NSString stringWithFormat:@"%@",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_obvious"]] forState:UIControlStateNormal];
+//            [cell.priceBtn setImage:[UIImage imageNamed:@"qian"] forState:UIControlStateNormal];
+//            [cell.priceBtn setTitle:[NSString stringWithFormat:@"%@元",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"status"]] forState:UIControlStateNormal];
+
             cell.companyLab.text =self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_name"];
         }
         
@@ -493,13 +500,13 @@
     if (tap.view.tag == 1000)
     {
          Url = [NSURL URLWithString:_teacherArr[tap.view.tag-1000][@"video_id"]];
-        name = @"新媒体营销";
+        name =  _teacherArr[tap.view.tag-1000][@"video_name"];
         
     }
     else if (tap.view.tag == 1001)
     {
          Url = [NSURL URLWithString:_teacherArr[tap.view.tag-1000][@"video_id"]];
-        name = @"企业组织架构1";
+        name = _teacherArr[tap.view.tag-1000][@"video_name"];
     }
     else if (tap.view.tag == 1002)
     {

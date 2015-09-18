@@ -27,7 +27,6 @@
 - (BOOL)isHavePreviousMovie;
 @end
 
-
 @interface THCoursePlayVC : UIViewController
 
 typedef enum {

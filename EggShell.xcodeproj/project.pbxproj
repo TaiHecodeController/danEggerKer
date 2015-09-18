@@ -277,6 +277,21 @@
 		F0B85A3C1BA11F97005799F5 /* SearchCity2_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */; };
 		F0B85A3F1BA11FA7005799F5 /* SearchCity3_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */; };
 		F0B85A431BA16124005799F5 /* polyNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A421BA16124005799F5 /* polyNewViewController.m */; };
+		F0BC9D2D1BABE29700383EE3 /* 视频默认图.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D1E1BABE29700383EE3 /* 视频默认图.png */; };
+		F0BC9D2E1BABE29700383EE3 /* 视频默认图@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D1F1BABE29700383EE3 /* 视频默认图@2x.png */; };
+		F0BC9D2F1BABE29700383EE3 /* 视频默认图@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D201BABE29700383EE3 /* 视频默认图@3x.png */; };
+		F0BC9D301BABE29700383EE3 /* 视频推荐默认图.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D211BABE29700383EE3 /* 视频推荐默认图.png */; };
+		F0BC9D311BABE29700383EE3 /* 视频推荐默认图@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D221BABE29700383EE3 /* 视频推荐默认图@2x.png */; };
+		F0BC9D321BABE29700383EE3 /* 视频推荐默认图@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D231BABE29700383EE3 /* 视频推荐默认图@3x.png */; };
+		F0BC9D331BABE29700383EE3 /* 销售时什么东东.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D241BABE29700383EE3 /* 销售时什么东东.png */; };
+		F0BC9D341BABE29700383EE3 /* 销售时什么东东@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D251BABE29700383EE3 /* 销售时什么东东@2x.png */; };
+		F0BC9D351BABE29700383EE3 /* 销售时什么东东@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D261BABE29700383EE3 /* 销售时什么东东@3x.png */; };
+		F0BC9D361BABE29700383EE3 /* 演讲口语语音训练1.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D271BABE29700383EE3 /* 演讲口语语音训练1.png */; };
+		F0BC9D371BABE29700383EE3 /* 演讲口语语音训练1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D281BABE29700383EE3 /* 演讲口语语音训练1@2x.png */; };
+		F0BC9D381BABE29700383EE3 /* 演讲口语语音训练1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D291BABE29700383EE3 /* 演讲口语语音训练1@3x.png */; };
+		F0BC9D391BABE29700383EE3 /* 组-4-拷贝.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D2A1BABE29700383EE3 /* 组-4-拷贝.png */; };
+		F0BC9D3A1BABE29700383EE3 /* 组-4-拷贝@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D2B1BABE29700383EE3 /* 组-4-拷贝@2x.png */; };
+		F0BC9D3B1BABE29700383EE3 /* 组-4-拷贝@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D2C1BABE29700383EE3 /* 组-4-拷贝@3x.png */; };
 		F0D7C02B1B7994DB00836DD2 /* OpenClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */; };
 		F0D7C0551B79C7B400836DD2 /* libpolyvSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C04C1B79C7B400836DD2 /* libpolyvSDK.a */; };
 		F0D7C0571B79CC4800836DD2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C0561B79CC4800836DD2 /* MobileCoreServices.framework */; };
@@ -777,6 +792,21 @@
 		F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCity3_ViewController.m; path = ../FindJob/SearchCity3_ViewController.m; sourceTree = "<group>"; };
 		F0B85A411BA16124005799F5 /* polyNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = polyNewViewController.h; sourceTree = "<group>"; };
 		F0B85A421BA16124005799F5 /* polyNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = polyNewViewController.m; sourceTree = "<group>"; };
+		F0BC9D1E1BABE29700383EE3 /* 视频默认图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "视频默认图.png"; sourceTree = "<group>"; };
+		F0BC9D1F1BABE29700383EE3 /* 视频默认图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "视频默认图@2x.png"; sourceTree = "<group>"; };
+		F0BC9D201BABE29700383EE3 /* 视频默认图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "视频默认图@3x.png"; sourceTree = "<group>"; };
+		F0BC9D211BABE29700383EE3 /* 视频推荐默认图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "视频推荐默认图.png"; sourceTree = "<group>"; };
+		F0BC9D221BABE29700383EE3 /* 视频推荐默认图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "视频推荐默认图@2x.png"; sourceTree = "<group>"; };
+		F0BC9D231BABE29700383EE3 /* 视频推荐默认图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "视频推荐默认图@3x.png"; sourceTree = "<group>"; };
+		F0BC9D241BABE29700383EE3 /* 销售时什么东东.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "销售时什么东东.png"; sourceTree = "<group>"; };
+		F0BC9D251BABE29700383EE3 /* 销售时什么东东@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "销售时什么东东@2x.png"; sourceTree = "<group>"; };
+		F0BC9D261BABE29700383EE3 /* 销售时什么东东@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "销售时什么东东@3x.png"; sourceTree = "<group>"; };
+		F0BC9D271BABE29700383EE3 /* 演讲口语语音训练1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "演讲口语语音训练1.png"; sourceTree = "<group>"; };
+		F0BC9D281BABE29700383EE3 /* 演讲口语语音训练1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "演讲口语语音训练1@2x.png"; sourceTree = "<group>"; };
+		F0BC9D291BABE29700383EE3 /* 演讲口语语音训练1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "演讲口语语音训练1@3x.png"; sourceTree = "<group>"; };
+		F0BC9D2A1BABE29700383EE3 /* 组-4-拷贝.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "组-4-拷贝.png"; sourceTree = "<group>"; };
+		F0BC9D2B1BABE29700383EE3 /* 组-4-拷贝@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "组-4-拷贝@2x.png"; sourceTree = "<group>"; };
+		F0BC9D2C1BABE29700383EE3 /* 组-4-拷贝@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "组-4-拷贝@3x.png"; sourceTree = "<group>"; };
 		F0D7C0291B7994DB00836DD2 /* OpenClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenClassCell.h; sourceTree = "<group>"; };
 		F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenClassCell.m; sourceTree = "<group>"; };
 		F0D7C04B1B79C7B400836DD2 /* DownloadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadDelegate.h; sourceTree = "<group>"; };
@@ -1153,6 +1183,21 @@
 		04A483C11B74FDCE006FDB9D /* OpenClass */ = {
 			isa = PBXGroup;
 			children = (
+				F0BC9D1E1BABE29700383EE3 /* 视频默认图.png */,
+				F0BC9D1F1BABE29700383EE3 /* 视频默认图@2x.png */,
+				F0BC9D201BABE29700383EE3 /* 视频默认图@3x.png */,
+				F0BC9D211BABE29700383EE3 /* 视频推荐默认图.png */,
+				F0BC9D221BABE29700383EE3 /* 视频推荐默认图@2x.png */,
+				F0BC9D231BABE29700383EE3 /* 视频推荐默认图@3x.png */,
+				F0BC9D241BABE29700383EE3 /* 销售时什么东东.png */,
+				F0BC9D251BABE29700383EE3 /* 销售时什么东东@2x.png */,
+				F0BC9D261BABE29700383EE3 /* 销售时什么东东@3x.png */,
+				F0BC9D271BABE29700383EE3 /* 演讲口语语音训练1.png */,
+				F0BC9D281BABE29700383EE3 /* 演讲口语语音训练1@2x.png */,
+				F0BC9D291BABE29700383EE3 /* 演讲口语语音训练1@3x.png */,
+				F0BC9D2A1BABE29700383EE3 /* 组-4-拷贝.png */,
+				F0BC9D2B1BABE29700383EE3 /* 组-4-拷贝@2x.png */,
+				F0BC9D2C1BABE29700383EE3 /* 组-4-拷贝@3x.png */,
 				F0213A9C1BA2AC450083AA81 /* you3.png */,
 				F0213A9D1BA2AC450083AA81 /* you3@2x.png */,
 				F0213A9E1BA2AC450083AA81 /* you3@3x.png */,
@@ -2407,12 +2452,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0BC9D371BABE29700383EE3 /* 演讲口语语音训练1@2x.png in Resources */,
 				F0213AA61BA2AC450083AA81 /* you3@2x.png in Resources */,
 				94E2C95D1B86C112001E3FDD /* 蛋壳儿.doc in Resources */,
 				94E2C9891B870F29001E3FDD /* moreJobTableViewCell.xib in Resources */,
+				F0BC9D321BABE29700383EE3 /* 视频推荐默认图@3x.png in Resources */,
 				94E2C9DE1B8AFCF0001E3FDD /* BasicInformation.xib in Resources */,
 				0454ACED1B945F20004A70ED /* ResumeCell.xib in Resources */,
 				94313DF21B7CB5C9005D0A9A /* WriteResumeCell2.xib in Resources */,
+				F0BC9D341BABE29700383EE3 /* 销售时什么东东@2x.png in Resources */,
 				94CB30561BA5169700577FE6 /* IQKeyboardManager.bundle in Resources */,
 				940EDEEE1B9701BF00376D37 /* EducationReading.xib in Resources */,
 				9400329A1B840736001EB666 /* VersionUpdate.xib in Resources */,
@@ -2422,6 +2470,7 @@
 				041650451B4D7142008C78BE /* LaunchScreen.xib in Resources */,
 				F0213AAD1BA2AC450083AA81 /* zuo1@3x.png in Resources */,
 				940032CB1B840CC3001EB666 /* EducationTimeCell.xib in Resources */,
+				F0BC9D391BABE29700383EE3 /* 组-4-拷贝.png in Resources */,
 				F0213AAC1BA2AC450083AA81 /* zuo1@2x.png in Resources */,
 				04EC1F101B78F5510009292E /* SearchView.xib in Resources */,
 				940033021B840FC6001EB666 /* MineView.xib in Resources */,
@@ -2434,8 +2483,10 @@
 				94CB5B891B74CC0600B23B9D /* LICENSE in Resources */,
 				94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */,
 				94E2C9E21B8B0876001E3FDD /* workExperecie.xib in Resources */,
+				F0BC9D301BABE29700383EE3 /* 视频推荐默认图.png in Resources */,
 				94E8F4F51B85797900088658 /* WriteResumeCell.xib in Resources */,
 				F05440B91B788DAB00127A9B /* findjobtest.plist in Resources */,
+				F0BC9D2F1BABE29700383EE3 /* 视频默认图@3x.png in Resources */,
 				947006991B85CA6000DEC289 /* EditSexCell.xib in Resources */,
 				F0213AA51BA2AC450083AA81 /* you3.png in Resources */,
 				F0213AA91BA2AC450083AA81 /* zhong2@2x.png in Resources */,
@@ -2448,13 +2499,17 @@
 				041650421B4D7142008C78BE /* Images.xcassets in Resources */,
 				94E2C9E41B8B0BEE001E3FDD /* education.xib in Resources */,
 				94E2C9E81B8B1416001E3FDD /* project.xib in Resources */,
+				F0BC9D361BABE29700383EE3 /* 演讲口语语音训练1.png in Resources */,
 				94313DC21B7CAAED005D0A9A /* InformationDeskCell.xib in Resources */,
 				940EDEE51B96E38B00376D37 /* WorkExReading.xib in Resources */,
 				94313DBF1B7CAAED005D0A9A /* infDestDetailView.xib in Resources */,
 				94E2C9861B870F29001E3FDD /* JobDescription.xib in Resources */,
 				94E761C21BA2AC8A00B4C544 /* ProjectExperience.xib in Resources */,
+				F0BC9D311BABE29700383EE3 /* 视频推荐默认图@2x.png in Resources */,
+				F0BC9D351BABE29700383EE3 /* 销售时什么东东@3x.png in Resources */,
 				94E2C9EC1B8B1A5E001E3FDD /* train.xib in Resources */,
 				041650EB1B4D7C4E008C78BE /* MJRefresh.bundle in Resources */,
+				F0BC9D3B1BABE29700383EE3 /* 组-4-拷贝@3x.png in Resources */,
 				94E761CE1BA2B83700B4C544 /* CertificateRead.xib in Resources */,
 				940032951B83969B001EB666 /* HomeViews.xib in Resources */,
 				04A0CD451B7A110B00EBCF01 /* HeadView.xib in Resources */,
@@ -2462,12 +2517,17 @@
 				F0213AA71BA2AC450083AA81 /* you3@3x.png in Resources */,
 				940032CE1B840CC3001EB666 /* ProfessionalCell.xib in Resources */,
 				940032D51B840CC3001EB666 /* EducationWriteCell.xib in Resources */,
+				F0BC9D2D1BABE29700383EE3 /* 视频默认图.png in Resources */,
 				940032F21B840DCD001EB666 /* JobScreeningCell.xib in Resources */,
+				F0BC9D381BABE29700383EE3 /* 演讲口语语音训练1@3x.png in Resources */,
+				F0BC9D331BABE29700383EE3 /* 销售时什么东东.png in Resources */,
 				F0213AAB1BA2AC450083AA81 /* zuo1.png in Resources */,
 				94E2C9E61B8B1120001E3FDD /* professional.xib in Resources */,
+				F0BC9D3A1BABE29700383EE3 /* 组-4-拷贝@2x.png in Resources */,
 				048F30AA1B7A1577004AA9B2 /* HotSearch.xib in Resources */,
 				94E2C9841B870F29001E3FDD /* CompanyProfile.xib in Resources */,
 				94E3EA8D1B8E9AAD007A699E /* mapapi.bundle in Resources */,
+				F0BC9D2E1BABE29700383EE3 /* 视频默认图@2x.png in Resources */,
 				94313DEA1B7CB5C9005D0A9A /* ManagerResumeVC.xib in Resources */,
 				947006941B85CA6000DEC289 /* EditAddressVC.xib in Resources */,
 				94E761D61BA2C23200B4C544 /* ProfessonSkillRead.xib in Resources */,
@@ -2852,7 +2912,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EggShell/PrefixHeader.pch";
 				INFOPLIST_FILE = EggShell/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2883,7 +2943,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EggShell/PrefixHeader.pch";
 				INFOPLIST_FILE = EggShell/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

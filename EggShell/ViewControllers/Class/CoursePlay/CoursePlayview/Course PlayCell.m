@@ -21,7 +21,8 @@
 }
 -(void)setOrderValue:(int)number
 {
-    [self.orderBtn setTitle:[NSString stringWithFormat:@"%d",number] forState:UIControlStateNormal];
+    int numB = number + 1;
+    [self.orderBtn setTitle:[NSString stringWithFormat:@"%d",numB] forState:UIControlStateNormal];
 
 }
 @end

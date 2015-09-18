@@ -368,7 +368,6 @@ typedef NS_ENUM(NSInteger, GestureType){
             if ([_name isEqual:plModel.video_name])
             {
                 
-                
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
                 _position = i * 35;
                 
