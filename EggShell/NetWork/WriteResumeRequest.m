@@ -79,6 +79,7 @@
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_other",base_Url] param:param succ:succ];
 }
+
 //删除简历
 +(AFRequestState *)deleteResumeWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {

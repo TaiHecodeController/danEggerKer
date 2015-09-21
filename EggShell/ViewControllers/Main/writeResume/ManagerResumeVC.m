@@ -60,22 +60,32 @@
         if(self.dataArray.count == 0)
         {
             [MBProgressHUD creatembHub:@"暂时还没有简历,快来创建你的第一份简历吧"];
-        }else
+        }else if (self.dataArray.count < 5)
         {
             ManagerResumeModel * model = self.dataArray[0];
             [AppDelegate instance].resumeId = model.rid;
             _resume_model.resumeName = model.name;
-            self.createNewResume.alpha = 0.5;
+//            self.createNewResume.alpha = 0.5;
             [self.ResumeList reloadData];
             
+        }
+        else
+        {
+            self.createNewResume.alpha = 0.5;
+            [self.ResumeList reloadData];
         }
         
     } WithUserId:[AppDelegate instance].userId resp:[ManagerResumeModel class]] addNotifaction:hub];
 }
 - (IBAction)createNewResume:(UIButton *)sender {
-    if(self.dataArray.count > 0)
+    if(self.dataArray.count  < 5)
     {
-        [MBProgressHUD creatembHub:@"当前只能创建一份简历"];
+        
+    }
+    else
+    {
+        //简历等于5时候，不让创建简历
+        [MBProgressHUD creatembHub:@"当前只能创建五份简历"];
         return;
     }
     WriteResumeViewController * write = [[WriteResumeViewController alloc] init];
@@ -104,7 +114,14 @@
     cell.cellIndex = indexPath;
     ManagerResumeModel * model = self.dataArray[indexPath.row];
     cell.ResumeName.text = model.name;
-    cell.createDate.text = model.ctime;
+//    cell.createDate.text = model.ctime;
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[model.ctime integerValue]];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"yyyy年MM月dd日"];
+    cell.createDate.text = [formatter stringFromDate:confromTimesp];
+
     cell.ResumeName.font = [UIFont systemFontOfSize:13];
     cell.resumeId = model.rid;
     cell.tag = 4000 + indexPath.row;
@@ -160,7 +177,6 @@
     alertView.backgroundColor = [UIColor colorWithPatternImage:bgimg];
     [self.view addSubview:alertView];
     _alertView = alertView;
-    
     
     
     UILabel *lab1 = [[UILabel alloc]init];
@@ -318,10 +334,11 @@
                 [[WriteResumeRequest deleteResumeWithSucc:^(NSDictionary *dataDic) {
                     [MBProgressHUD creatembHub:@"删除成功"];
                     [self.dataArray removeObjectAtIndex:i];
+                    [self.cellArray removeAllObjects];
+
                     self.createNewResume.alpha = 1;
                     [self.ResumeList reloadData];
 
-                    [self.ResumeList reloadData];
                 } WithResumeParam:@{@"eid":cell.resumeId}] addNotifaction:hub];
                 
             }
