@@ -34,5 +34,6 @@
     }
      self.position.text = dataDic[@"title"];
     self.workContent.text = dataDic[@"content"];
+    self.CompanyNameLable.text = dataDic[@"name"];
 }
 @end
