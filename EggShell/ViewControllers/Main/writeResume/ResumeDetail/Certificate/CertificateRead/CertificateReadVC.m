@@ -28,7 +28,8 @@
     // Do any additional setup after loading the view.
 }
 -(void)createView
-{ CertificateReadView * certific = [CertificateReadView setCertificateReadView];
+{
+    CertificateReadView * certific = [CertificateReadView setCertificateReadView];
     certific.certificContent.userInteractionEnabled = NO;
     [certific configValue:self.model];
     certific.resumNameTitle.text = [NSString stringWithFormat:@"%@-证书",_resume_model.resumeName];

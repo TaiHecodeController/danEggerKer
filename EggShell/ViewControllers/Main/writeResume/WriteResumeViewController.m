@@ -4,7 +4,7 @@
 //
 //  Created by mac on 15/8/13.
 //  Copyright (c) 2015年 wsd. All rights reserved.
-// 写简历
+//  写简历
 
 #import "WriteResumeViewController.h"
 #import "WriteResumeCell.h"
@@ -67,11 +67,13 @@
     self.jobCellArray2 = [NSMutableArray arrayWithCapacity:0];
     [self createData];
     [self createUI];
-    //加载静态数据
+    //加载三级职位筛选的数据，还有其他列表的数据
     [self loadData];
+    
     //如果是编辑简历
     if(self.isEdit)
     {
+        //加载已经编辑过的简历内容
         [self loadOriginalData];
     }
     // Do any additional setup after loading the view.
@@ -245,11 +247,12 @@
 
 -(void)loadData
 {
+    
     [WriteResumeRequest getResumeMessageListWithSucc:^(NSDictionary *DataDic) {
         
         self.dataDic = DataDic[@"data"];
         
-        ExceptCityCell * cell = self.jobCellArray[4];
+        ExceptCityCell *cell = self.jobCellArray[4];
         //    {
         //        display = 1;
         //        id = 500;
@@ -475,8 +478,8 @@
 -(NSMutableArray *)propertyKeys
 {
     unsigned int outCount,i;
-    objc_property_t * properties = class_copyPropertyList([ResumeModel class], &outCount);
-    NSMutableArray * keys = [[NSMutableArray alloc] initWithCapacity:outCount];
+    objc_property_t *properties = class_copyPropertyList([ResumeModel class], &outCount);
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithCapacity:outCount];
     for(i = 0;i < outCount;i++)
     {
         objc_property_t propery = properties[i];
@@ -556,7 +559,8 @@
             return cell;
         }
         
-    }else
+    }
+    else
     {
         if(indexPath.row == 0)
         {
@@ -570,7 +574,8 @@
             }
             [self.jobCellArray2 addObject:cell];
             return cell;
-        }else
+        }
+        else
         {
             WriteResumeCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ID"];
             if(!cell)

@@ -10,6 +10,7 @@
 #import "WriteRusumeModel2.h"
 @interface TrainReadView : UIView
 +(TrainReadView*)settrinView;
+@property (weak, nonatomic) IBOutlet UIButton *bitianxiang;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLable;
 @property (weak, nonatomic) IBOutlet UILabel *trainingCentreLalbe;

@@ -11,6 +11,7 @@
 
 @interface EducationReadingView : UIView
 @property (weak, nonatomic) IBOutlet UILabel *ResumeTitle;
+@property (weak, nonatomic) IBOutlet UIButton *bitianxiang;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;

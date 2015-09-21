@@ -195,7 +195,6 @@
             _model.sdate = cell.StartTime.titleLabel.text;
             _model.edate = cell.endTime.titleLabel.text;
             
-            
         }else
         {
             WriteResumeCell * cell = self.jobArray[i];
@@ -234,7 +233,7 @@
     NSDictionary * param = @{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"department":_model.department,@"title":_model.title,@"content":_model.content};
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
     [[WriteResumeRequest uploadWorkExperienceWithSucc:^(NSDictionary * dataDic) {
-        WorkExReadingVC * workreading = [[WorkExReadingVC alloc] init];
+        WorkExReadingVC *workreading = [[WorkExReadingVC alloc] init];
         workreading.model = _model;
         [self.navigationController pushViewController:workreading animated:YES];
     } WithResumeParam:param] addNotifaction:hub];

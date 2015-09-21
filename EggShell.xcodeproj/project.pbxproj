@@ -1315,10 +1315,10 @@
 				940032A41B840CC3001EB666 /* EducationExperience */,
 				940032AB1B840CC3001EB666 /* ProfessionalSkill */,
 				940032B21B840CC3001EB666 /* ProjectExperience */,
-				940032B91B840CC3001EB666 /* SelfEvaluation */,
 				940032BC1B840CC3001EB666 /* SubViews */,
 				940032C31B840CC3001EB666 /* TrainExperience */,
 				940032C61B840CC3001EB666 /* WorkExperience */,
+				940032B91B840CC3001EB666 /* SelfEvaluation */,
 			);
 			path = ResumeDetail;
 			sourceTree = "<group>";
@@ -1525,8 +1525,8 @@
 			isa = PBXGroup;
 			children = (
 				940EDEEA1B9701B100376D37 /* EducationReadingView.h */,
-				940EDEED1B9701BF00376D37 /* EducationReading.xib */,
 				940EDEEB1B9701B100376D37 /* EducationReadingView.m */,
+				940EDEED1B9701BF00376D37 /* EducationReading.xib */,
 				94EED7F81B99286300049934 /* EducationReadVC.h */,
 				94EED7F91B99286300049934 /* EducationReadVC.m */,
 			);
@@ -1903,12 +1903,12 @@
 			isa = PBXGroup;
 			children = (
 				94CB5BA91B763AAC00B23B9D /* TH_FindJobVC.h */,
+				94CB5BAA1B763AAC00B23B9D /* TH_FindJobVC.m */,
 				F05440B21B7870B800127A9B /* jobTableViewCell.h */,
+				F05440B31B7870B800127A9B /* jobTableViewCell.m */,
 				F05440B81B788DAB00127A9B /* findjobtest.plist */,
 				F05440BA1B788FE000127A9B /* jobModel.h */,
 				F05440BB1B788FE000127A9B /* jobModel.m */,
-				F05440B31B7870B800127A9B /* jobTableViewCell.m */,
-				94CB5BAA1B763AAC00B23B9D /* TH_FindJobVC.m */,
 				04A0CD3F1B7A0FFE00EBCF01 /* SearchJob */,
 				94E3EAE41B95489A007A699E /* FindJobModel */,
 				940032DA1B840DCC001EB666 /* JobScreening */,
@@ -2067,8 +2067,8 @@
 				94E761B11BA27DBF00B4C544 /* TrainReadVC.h */,
 				94E761B21BA27DBF00B4C544 /* TrainReadVC.m */,
 				94E761B41BA27DEB00B4C544 /* TrainReadView.h */,
-				94E761B71BA27E0400B4C544 /* trainRead.xib */,
 				94E761B51BA27DEB00B4C544 /* TrainReadView.m */,
+				94E761B71BA27E0400B4C544 /* trainRead.xib */,
 			);
 			name = trainReading;
 			path = ../SelfEvaluation/trainReading;
@@ -2080,8 +2080,8 @@
 				94E761CF1BA2C1FB00B4C544 /* ProfessonSkillVC.h */,
 				94E761D01BA2C1FB00B4C544 /* ProfessonSkillVC.m */,
 				94E761D21BA2C21E00B4C544 /* ProfessonSkillReadView.h */,
-				94E761D51BA2C23200B4C544 /* ProfessonSkillRead.xib */,
 				94E761D31BA2C21E00B4C544 /* ProfessonSkillReadView.m */,
+				94E761D51BA2C23200B4C544 /* ProfessonSkillRead.xib */,
 			);
 			path = ProfessionSkillRead;
 			sourceTree = "<group>";
@@ -2090,10 +2090,10 @@
 			isa = PBXGroup;
 			children = (
 				94E761BB1BA2AC5800B4C544 /* ProjectExperienceVC.h */,
-				94E761C11BA2AC8A00B4C544 /* ProjectExperience.xib */,
 				94E761BC1BA2AC5800B4C544 /* ProjectExperienceVC.m */,
 				94E761C31BA2B0F800B4C544 /* ProjectExpReadView.h */,
 				94E761C41BA2B0F800B4C544 /* ProjectExpReadView.m */,
+				94E761C11BA2AC8A00B4C544 /* ProjectExperience.xib */,
 			);
 			path = ProjectExpRead;
 			sourceTree = "<group>";
@@ -2102,10 +2102,10 @@
 			isa = PBXGroup;
 			children = (
 				94E761C71BA2B7F300B4C544 /* CertificateReadVC.h */,
-				94E761CA1BA2B82B00B4C544 /* CertificateReadView.h */,
-				94E761CD1BA2B83700B4C544 /* CertificateRead.xib */,
-				94E761CB1BA2B82B00B4C544 /* CertificateReadView.m */,
 				94E761C81BA2B7F300B4C544 /* CertificateReadVC.m */,
+				94E761CA1BA2B82B00B4C544 /* CertificateReadView.h */,
+				94E761CB1BA2B82B00B4C544 /* CertificateReadView.m */,
+				94E761CD1BA2B83700B4C544 /* CertificateRead.xib */,
 			);
 			path = CertificateRead;
 			sourceTree = "<group>";
@@ -2418,7 +2418,6 @@
 				TargetAttributes = {
 					041650301B4D7141008C78BE = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = M3BN6VM63R;
 					};
 					041650491B4D7142008C78BE = {
 						CreatedOnToolsVersion = 6.1.1;
