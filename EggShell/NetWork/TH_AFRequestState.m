@@ -66,6 +66,10 @@
     {
     userUid = @"";
     }
+    if([[df objectForKey:@"md5_token"] length]==0)
+    {
+    tokenStr = @"";
+    }
     NSDictionary *param = @{@"id":numid,@"pid":numpid,@"uid":userUid,@"token":tokenStr};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/details",base_Url] param:param succ:succ fail:fail resp:resp];
     

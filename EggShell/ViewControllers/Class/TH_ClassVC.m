@@ -361,7 +361,7 @@
         
         if (self.dataArray.count > 0)
         {
-            [cell.coverView sd_setImageWithURL:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"vimage"] placeholderImage:[UIImage imageNamed:@"视频推荐默认图"]];
+            [cell.coverView sd_setImageWithURL:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"vimage"] placeholderImage:[UIImage imageNamed:@"视频默认图"]];
             
 //            cell.nameLab.text = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"];
 

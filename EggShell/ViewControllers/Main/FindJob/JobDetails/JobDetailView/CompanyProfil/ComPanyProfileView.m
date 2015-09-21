@@ -38,12 +38,12 @@
     self.textSize = [self.detailLable.text sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
     self.detailLable = detailLalbe;
     detailLalbe.font = [UIFont systemFontOfSize:13];
-    detailLalbe.numberOfLines = 6;
-//    detailLalbe.backgroundColor = [UIColor redColor];
+    detailLalbe.numberOfLines = 5;
     [self addSubview:detailLalbe];
     
     UIButton * selectBtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH-100)/2.0, self.height-45, 100, 30)];
     [selectBtn setBackgroundImage:[UIImage imageNamed:@"anniukuang"] forState:UIControlStateNormal];
+
     [selectBtn setTitle:@"查看全部" forState:UIControlStateNormal];
     [selectBtn setTitle:@"点击收起" forState:UIControlStateSelected];
     [selectBtn setImage:[UIImage imageNamed:@"chakan"] forState:UIControlStateNormal ];
