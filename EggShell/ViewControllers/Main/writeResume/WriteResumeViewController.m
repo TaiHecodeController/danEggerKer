@@ -439,6 +439,7 @@
     
     if(!self.isEdit)
     {
+        //新建简历的时候，不需要传简历id
         NSDictionary * param = @{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"name":_model.resumeName,@"hy":_model.industry,@"job_classid":_model.exceptJob,@"salary":_model.exceptSalary,@"type":_model.jobNature,@"report":_model.arriveTime,@"jobstatus":_model.findState,@"uname":_model.userName,@"birthday":_model.userBirthday,@"edu":_model.academic,@"exp":_model.workExperience,@"telphone":_model.phoneNum,@"email":_model.email,@"address":_model.address,@"provinceid":[NSString stringWithFormat:@"%d",proviceId],@"cityid":[NSString stringWithFormat:@"%d",cityId],@"three_cityid":[NSString stringWithFormat:@"%d",threecityId],@"sex":_model.sex};
         
         MBProgressHUD * hub = [MBProgressHUD mbHubShow];
@@ -455,6 +456,7 @@
 
     }else
     {
+        //从新编辑简历的时候，需要传简历id
         NSDictionary * param = @{@"token":tokenStr, @"uid":[AppDelegate instance].userId,@"name":_model.resumeName,@"hy":_model.industry,@"job_classid":_model.exceptJob,@"salary":_model.exceptSalary,@"type":_model.jobNature,@"report":_model.arriveTime,@"jobstatus":_model.findState,@"uname":_model.userName,@"birthday":_model.userBirthday,@"edu":_model.academic,@"exp":_model.workExperience,@"telphone":_model.phoneNum,@"email":_model.email,@"address":_model.address,@"provinceid":[NSString stringWithFormat:@"%d",proviceId],@"cityid":[NSString stringWithFormat:@"%d",cityId],@"three_cityid":[NSString stringWithFormat:@"%d",threecityId],@"eid":self.resumeId,@"sex":_model.sex};
         
         MBProgressHUD * hub = [MBProgressHUD mbHubShow];

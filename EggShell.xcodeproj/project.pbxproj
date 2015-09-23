@@ -1016,14 +1016,14 @@
 				041650DE1B4D795B008C78BE /* AFAppRequest.m */,
 				04237D8E1B66456F00768FAD /* LoginAndRegisterRequest.h */,
 				04237D8F1B66456F00768FAD /* LoginAndRegisterRequest.m */,
-				F0D7C05F1B79EB3300836DD2 /* OpenClassVideoListRequest.h */,
-				F0D7C0601B79EB3300836DD2 /* OpenClassVideoListRequest.m */,
 				94EFC1C21B7D8F6900833068 /* TH_AFRequestState.h */,
 				94EFC1C31B7D8F6900833068 /* TH_AFRequestState.m */,
 				0454ACF21B962C7D004A70ED /* WriteResumeRequest.h */,
 				0454ACF31B962C7D004A70ED /* WriteResumeRequest.m */,
 				F083F81F1B9C32F700781C08 /* Me_Request.h */,
 				F083F8201B9C32F700781C08 /* Me_Request.m */,
+				F0D7C05F1B79EB3300836DD2 /* OpenClassVideoListRequest.h */,
+				F0D7C0601B79EB3300836DD2 /* OpenClassVideoListRequest.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";

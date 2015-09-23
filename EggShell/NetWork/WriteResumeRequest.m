@@ -12,11 +12,9 @@
 //简历列表
 +(AFRequestState *)getResumeListWithSucc:(void(^)(NSArray * DataArray))succ WithUserId:(NSString *)userId resp:(Class)resp;
 {
-    
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * tokenStr = [df objectForKey:@"md5_token"];
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_manager",base_Url] param:@{@"uid":[df objectForKey:@"uid"],@"token":tokenStr} succ:succ resp:resp];
-    
 }
 
 //搜索职位筛选列表

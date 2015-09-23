@@ -24,6 +24,7 @@
 @property (strong,nonatomic)NSMutableArray * dataArray;
 @property (strong,nonatomic)NSMutableArray * cellArray;
 @property (nonatomic, strong) ResumeCell *varCell;
+@property (nonatomic, strong) NSMutableString *deleteStr;
 
 @end
 
@@ -38,6 +39,7 @@
 {
     [MobClick beginLogPageView:@"manegerresumevc"];
     
+    [self.cellArray removeAllObjects];
     [self loadData];
 }
 
@@ -45,6 +47,7 @@
     [super viewDidLoad];
     self.title =  @"简历管理";
     self.ResumeList.tableFooterView = [[UIView alloc] init];
+    self.ResumeList.scrollEnabled = NO;
     _resume_model = [ResumeModel sharedResume];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
@@ -60,7 +63,11 @@
         if(self.dataArray.count == 0)
         {
             [MBProgressHUD creatembHub:@"暂时还没有简历,快来创建你的第一份简历吧"];
-        }else if (self.dataArray.count < 5)
+            self.resumeNumberLab.text = [NSString stringWithFormat:@"%lu个",(unsigned long)self.dataArray.count];
+            [self.ResumeList reloadData];
+            
+        }
+        else if (self.dataArray.count < 5)
         {
             ManagerResumeModel * model = self.dataArray[0];
             [AppDelegate instance].resumeId = model.rid;
@@ -68,9 +75,12 @@
 //            self.createNewResume.alpha = 0.5;
             [self.ResumeList reloadData];
             
+            self.resumeNumberLab.text = [NSString stringWithFormat:@"%lu个",(unsigned long)self.dataArray.count];
+            
         }
         else
         {
+            self.resumeNumberLab.text = [NSString stringWithFormat:@"%lu个",(unsigned long)self.dataArray.count];
             self.createNewResume.alpha = 0.5;
             [self.ResumeList reloadData];
         }
@@ -233,7 +243,6 @@
     }];
     
     
-    
 }
 
 -(void)okBtn
@@ -248,9 +257,9 @@
     [bgView removeFromSuperview];
 }
 
-
 #pragma mark -- respondEvent
 - (IBAction)delete:(id)sender {
+    int index = 0;
     if (self.dataArray.count == 0)
     {
         [MBProgressHUD creatembHub:@"请先创建简历"];
@@ -261,9 +270,18 @@
         ResumeCell * cell = self.cellArray[i];
         if(cell.iSSelect.selected)
         {
-            UIAlertView * aletview = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定删除" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"删除", nil];
-            aletview.delegate = self;
-            [aletview show];
+            if (index == 0)
+            {
+                UIAlertView * aletview = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定删除" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"删除", nil];
+                aletview.delegate = self;
+                [aletview show];
+                index++;
+            }
+            else
+            {
+                
+            }
+            
         }else
         {
             [MBProgressHUD creatembHub:@"请选择要删除的简历"];
@@ -283,9 +301,9 @@
             WriteResumeViewController * vc = [[WriteResumeViewController alloc] init];
             vc.resumeId = cell.resumeId;
             vc.isEdit = YES;
+            [AppDelegate instance].resumeId = cell.resumeId;
             [self.navigationController pushViewController:vc animated:YES];
         }
-        
     }
     if (self.dataArray.count == 0)
     {
@@ -323,26 +341,46 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) {
+    int index = 1;
+    self.deleteStr = [[NSMutableString alloc]init];
+    if (buttonIndex == 1)
+    {
         for(int i = 0;i < self.dataArray.count;i++)
         {
-            ResumeCell * cell = self.cellArray[i];
+            ResumeCell *cell = self.cellArray[i];
             if(cell.iSSelect.selected)
             {
-                MBProgressHUD * hub = [MBProgressHUD mbHubShow];
-                
-                [[WriteResumeRequest deleteResumeWithSucc:^(NSDictionary *dataDic) {
-                    [MBProgressHUD creatembHub:@"删除成功"];
-                    [self.dataArray removeObjectAtIndex:i];
-                    [self.cellArray removeAllObjects];
-
-                    self.createNewResume.alpha = 1;
-                    [self.ResumeList reloadData];
-
-                } WithResumeParam:@{@"eid":cell.resumeId}] addNotifaction:hub];
+                if (index == 1)
+                {
+                    [self.deleteStr appendFormat:[NSString stringWithFormat:@"%@",cell.resumeId]];
+                    index++;
+                }
+                else
+                {
+                     [self.deleteStr appendFormat:[NSString stringWithFormat:@",%@",cell.resumeId]];
+                }
                 
             }
         }
+        
+        NSLog(@"%@",self.deleteStr);
+         MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+        
+        [[WriteResumeRequest deleteResumeWithSucc:^(NSDictionary *dataDic) {
+            [MBProgressHUD creatembHub:@"删除成功"];
+            
+            [self.dataArray removeAllObjects];
+            [self.cellArray removeAllObjects];
+            self.deleteStr = [[NSMutableString alloc]init];;
+            
+            [self loadData];
+            
+            self.createNewResume.alpha = 1;
+//            [self.ResumeList reloadData];
+            
+//            self.resumeNumberLab.text = [NSString stringWithFormat:@"%lu个",(unsigned long)self.dataArray.count];
+            
+        } WithResumeParam:@{@"eid":self.deleteStr}] addNotifaction:hub];
         
     }
 }

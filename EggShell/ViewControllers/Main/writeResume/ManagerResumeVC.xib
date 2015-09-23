@@ -9,6 +9,7 @@
                 <outlet property="ResumeList" destination="vcq-0j-cl0" id="F6d-I2-xyZ"/>
                 <outlet property="createNewResume" destination="Z8y-zf-rFu" id="3in-EL-ttA"/>
                 <outlet property="edit" destination="Nbh-yI-5TU" id="8IA-0m-oyF"/>
+                <outlet property="resumeNumberLab" destination="wj5-9G-Usv" id="ZbO-rg-g0B"/>
                 <outlet property="useResume" destination="xer-fW-hGf" id="6bR-T5-pi9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,7 +26,7 @@
                         <constraint firstAttribute="height" constant="18" id="ZD1-QF-oyB"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbh-yI-5TU">
@@ -85,6 +86,12 @@
                         <action selector="delete:" destination="-1" eventType="touchUpInside" id="4sj-9e-KsM"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wj5-9G-Usv">
+                    <rect key="frame" x="94" y="13" width="53" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
