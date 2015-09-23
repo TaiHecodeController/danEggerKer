@@ -25,15 +25,7 @@
     [super viewDidLoad];
 
 
-    _resume_model = [ResumeModel sharedResume];
-    WorkExReadingView * workingView =[WorkExReadingView setView];
-    workingView.frame = CGRectMake(0, 0, WIDETH, 317);
-    workingView.resumTitle.text = [NSString stringWithFormat:@"%@-证书",_resume_model.resumeName];
-    workingView.descriptionTextView.userInteractionEnabled = NO;
-    //发送网络请求，配置根据数组的[i]配置数据，布局。
-    [workingView config:self.model];
-    [self.view addSubview:workingView];
-
+   
     
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     self.scro = scro;

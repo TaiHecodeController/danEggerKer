@@ -39,6 +39,7 @@
 +(AFRequestState *)uploadWorkExperienceWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_work",base_Url] param:param succ:succ];
+
 }
 
 /*简历预览**/
