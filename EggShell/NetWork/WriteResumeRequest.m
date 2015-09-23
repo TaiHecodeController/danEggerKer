@@ -84,4 +84,10 @@
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_del",base_Url] param:param succ:succ];
 }
 
+//使用简历
++(AFRequestState *)user_resumeWithSucc:(void(^)(NSDictionary *dataDic))succ withParam:(NSDictionary *)param
+{
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_use",base_Url] param:param succ:succ];
+}
+
 @end

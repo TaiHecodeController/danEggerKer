@@ -37,6 +37,8 @@
 +(AFRequestState *)deleteResumeWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param;
 //搜索职位筛选列表
 +(AFRequestState *)getSearchJobMessageListWithSucc:(void(^)(NSDictionary * DataDic))succ;
+//使用简历
++(AFRequestState *)user_resumeWithSucc:(void(^)(NSDictionary *dataDic))succ withParam:(NSDictionary *)param;
 
 
 @end

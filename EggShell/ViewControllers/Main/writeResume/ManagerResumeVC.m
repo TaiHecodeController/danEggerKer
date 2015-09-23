@@ -320,22 +320,61 @@
     }
     else
     {
-        if (_varCell)
+//        if (_varCell)
+//        {
+//            if (_varCell.iSSelect.selected == YES)
+//            {
+//                [MBProgressHUD creatembHub:@"使用成功"];
+//                _varCell.resumeId;
+//                
+//                NSLog(@"%@",_varCell.resumeId);
+//                
+//            }
+//            else
+//            {
+//                [MBProgressHUD creatembHub:@"请先选择简历"];
+//            }
+//        }
+//        else
+//        {
+//            return;
+//        }
+        //用来判定选择的是否是一个简历
+        int index = 0;
+        NSString *resumeid;
+        for(int i = 0;i < self.dataArray.count;i++)
         {
-            if (_varCell.iSSelect.selected == YES)
+            ResumeCell *cell = self.cellArray[i];
+            if(cell.iSSelect.selected)
             {
-                [MBProgressHUD creatembHub:@"使用成功"];
+//                NSLog(@"%@",cell.resumeId);
+                index++;
+                resumeid = cell.resumeId;
             }
-            else
-            {
-                [MBProgressHUD creatembHub:@"请先选择简历"];
-            }
+            
+        }
+        
+        if (index == 1)
+        {
+            NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+            NSDictionary *param = @{@"eid":resumeid,@"uid":[df objectForKey:@"uid"]};
+            
+            [WriteResumeRequest user_resumeWithSucc:^(NSDictionary *dataDic) {
+                
+                NSLog(@"%@",dataDic);
+                
+            } withParam:param];
         }
         else
         {
-            return;
+            [MBProgressHUD creatembHub:@"请选择一份简历"];
         }
+
+
     }
+    
+    
+    
 }
 
 
