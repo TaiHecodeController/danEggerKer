@@ -232,6 +232,8 @@
     NSString * tokenStr = [df objectForKey:@"md5_token"];
     NSDictionary * param = @{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"department":_model.department,@"title":_model.title,@"content":_model.content};
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    
+    
     [[WriteResumeRequest uploadWorkExperienceWithSucc:^(NSDictionary * dataDic) {
         WorkExReadingVC *workreading = [[WorkExReadingVC alloc] init];
 //        workreading.model = _model;

@@ -147,11 +147,11 @@
             }
         }
     };
-    if(indexPath.row == 0)
-    {
-        cell.iSSelect.selected = YES;
-        _varCell = cell;
-    }
+//    if(indexPath.row == 0)
+//    {
+//        cell.iSSelect.selected = YES;
+//        _varCell = cell;
+//    }
     [self.cellArray addObject:cell];
     return cell;
 }
@@ -362,6 +362,7 @@
             [WriteResumeRequest user_resumeWithSucc:^(NSDictionary *dataDic) {
                 
                 NSLog(@"%@",dataDic);
+                [MBProgressHUD creatembHub:@"使用成功"];
                 
             } withParam:param];
         }
