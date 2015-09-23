@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *IssuanceLable;
 @property (weak, nonatomic) IBOutlet UILabel *IssuedByLable;
 @property (weak, nonatomic) IBOutlet UITextView *certificContent;
--(void)configValue:(WriteRusumeModel2*)model;
+@property (weak, nonatomic) IBOutlet UIButton *selectBtn;
+
+-(void)configValue:(NSDictionary*)model;
 +(CertificateReadView*)setCertificateReadView;
 @end

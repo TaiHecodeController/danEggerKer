@@ -19,6 +19,8 @@
     
     
 }
+@property(nonatomic,strong)NSArray * dataArray;
+@property(nonatomic,strong)UIScrollView * scro;
 @end
 
 @implementation ProjectExperienceVC
@@ -26,25 +28,52 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _resume_model = [ResumeModel sharedResume];
-    [self createView];
+   
+    [self loadData];
+    
+    
     // Do any additional setup after loading the view.
 }
+-(void)loadData
+{
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
+    NSString * userUid = [df objectForKey:@"uid"];
+    NSDictionary * param = @{@"eid":[AppDelegate instance].resumeId, @"uid":userUid ,@"token":tokenStr};
+    
+    [[WriteResumeRequest projectExperienceReadingWithSucc:^(NSDictionary *dataDic) {
+        self.dataArray = [NSArray arrayWithArray:dataDic[@"data"]];
+        [self createView];
+    } projectExperienceReadingParam:param] addNotifaction:[MBProgressHUD mbHubShow]];
+}
+
+
 -(void)createView
 {
+    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
+    self.scro = scro;
+    [self.view addSubview:scro];
+    for (int i ; i < self.dataArray.count; i++) {
+        
     ProjectExpReadView * project =[ProjectExpReadView setProjectExperienceView];
-    project.frame = CGRectMake(0, 0, WIDETH, 317);
-    [project configValue:self.model];
-    project.resumTitle.text = [NSString stringWithFormat:@"%@-证书",_resume_model.resumeName];
-    [self.view addSubview:project];
+    project.frame = CGRectMake(0, 215*i, WIDETH,215);
+    [project configValue:self.dataArray[i]];
+    project.resumTitle.text = [NSString stringWithFormat:@"%@-项目经验%d",_resume_model.resumeName,i];
+    [self.scro addSubview:project];
+        if (i>0) {
+            project.selectBtn.hidden = YES;
+        }
     /*继续添加**/
-    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 317, 150, 30)];
+    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 215*self.dataArray.count+35, 150, 30)];
     [button addTarget:self action:@selector(addbUttonClick) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
     [button setTitle:@"继续添加" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.view addSubview:button];
+    [self.scro addSubview:button];
+        self.scro.contentSize = CGSizeMake(WIDETH, 215*self.dataArray.count+150);
     /***/
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+    }
 }
 #pragma mark --继续添加
 -(void)addbUttonClick

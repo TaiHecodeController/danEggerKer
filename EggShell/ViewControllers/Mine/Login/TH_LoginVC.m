@@ -50,12 +50,12 @@
     tapGestureRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
-    /*显示键盘**/
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
-    
-    //    /*收回键盘**/
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
-
+//    /*显示键盘**/
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
+//    
+//    //    /*收回键盘**/
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
+//
     
     
     // Do any additional setup after loading the view.
@@ -292,23 +292,57 @@
     [self.view endEditing:YES];
 }
 
--(void)showKeyBoard:(NSNotification*)notification
+//-(void)showKeyBoard:(NSNotification*)notification
+//{
+//    
+////    /*获取键盘的高度**/
+////    NSDictionary *userInfo = [notification userInfo];
+////    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+////    CGRect keyboardRect = [aValue CGRectValue];
+////    int height = keyboardRect.size.height;
+////    NSLog(@"%d",height);
+////    self.scro.contentSize = CGSizeMake(WIDETH, 450+height);
+////    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+height) animated:YES];
+//    
+//}
+//-(void)hideKeyBoard:(NSNotification*)notification
+//{
+//    self.scro.contentSize = CGSizeMake(WIDETH, 450+10);
+//    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
+//}
+//开始编辑，向上滚动
+-(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    
-    /*获取键盘的高度**/
-    NSDictionary *userInfo = [notification userInfo];
-    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [aValue CGRectValue];
-    int height = keyboardRect.size.height;
-    NSLog(@"%d",height);
-    self.scro.contentSize = CGSizeMake(WIDETH, 450+height);
-    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+height) animated:YES];
-    
-}
--(void)hideKeyBoard:(NSNotification*)notification
+    if(textField.tag >= 400)
+    {
+        if(HEIGHT == 480)
+        {
+            self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 150);
+            [self.scro scrollRectToVisible:CGRectMake(0, 450, WIDETH, HEIGHT) animated:YES];
+        }else
+        {
+            self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 150);
+            [self.scro scrollRectToVisible:CGRectMake(0, 450, WIDETH, HEIGHT) animated:YES];
+        }
+        
+    }
+   }
+//结束编辑，恢复原位
+-(void)textFieldDidEndEditing:(UITextField *)textField
 {
-    self.scro.contentSize = CGSizeMake(WIDETH, 450+10);
-    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
+    if(textField.tag >= 400)
+    {
+        if(HEIGHT == 480)
+        {
+            self.scro.contentSize = CGSizeMake(WIDETH / 2, 400+ 64 + 150);
+            [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
+        }else
+        {
+            self.scro.contentSize = CGSizeMake(WIDETH / 2, 400+ 64 + 150);
+            [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
+        }
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

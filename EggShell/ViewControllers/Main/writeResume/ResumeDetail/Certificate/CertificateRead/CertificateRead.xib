@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CertificateReadView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人简历001-工作经历" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8l-tC-hOs">
@@ -60,12 +60,6 @@
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gs-Pl-Ahv">
-                            <rect key="frame" x="15" y="158" width="65" height="13"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="颁发单位：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snl-9T-zg1">
                             <rect key="frame" x="15" y="61" width="65" height="13"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -105,26 +99,30 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jqu-ih-kVA">
-                    <rect key="frame" x="0.0" y="130" width="320" height="157"/>
+                    <rect key="frame" x="0.0" y="130" width="320" height="70"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns5-Bt-TBp">
-                            <rect key="frame" x="0.0" y="156.5" width="320" height="0.5"/>
+                            <rect key="frame" x="0.0" y="69" width="320" height="0.5"/>
                             <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="0.5" id="GIf-z7-S21"/>
+                                <constraint firstAttribute="height" constant="0.5" id="pRJ-k1-YB5"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="证书内容" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPR-5v-eh5">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="证书内容" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPR-5v-eh5">
                             <rect key="frame" x="15" y="10" width="60" height="13"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="Bb1-Qw-1il"/>
+                                <constraint firstAttribute="height" constant="13" id="U94-KT-nSN"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="证书描述" translatesAutoresizingMaskIntoConstraints="NO" id="ibk-OE-JPo">
-                            <rect key="frame" x="15" y="23" width="290" height="133"/>
+                            <rect key="frame" x="15" y="23" width="290" height="45"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="133" id="oNW-Hs-qoi"/>
+                                <constraint firstAttribute="height" constant="45" id="qyh-dp-BlB"/>
                             </constraints>
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -133,13 +131,15 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="ns5-Bt-TBp" firstAttribute="leading" secondItem="Jqu-ih-kVA" secondAttribute="leading" id="87r-VC-24n"/>
-                        <constraint firstAttribute="height" constant="157" id="8J6-7n-a6A"/>
-                        <constraint firstAttribute="trailing" secondItem="ns5-Bt-TBp" secondAttribute="trailing" id="BoX-7K-R9l"/>
-                        <constraint firstItem="ibk-OE-JPo" firstAttribute="leading" secondItem="Jqu-ih-kVA" secondAttribute="leading" constant="15" id="di3-Ge-Q0H"/>
-                        <constraint firstAttribute="trailing" secondItem="ibk-OE-JPo" secondAttribute="trailing" constant="15" id="g1e-v5-qdP"/>
-                        <constraint firstItem="ns5-Bt-TBp" firstAttribute="top" secondItem="ibk-OE-JPo" secondAttribute="bottom" constant="0.5" id="kbe-Mu-v2I"/>
-                        <constraint firstAttribute="bottom" secondItem="ns5-Bt-TBp" secondAttribute="bottom" id="ub2-BR-zdq"/>
+                        <constraint firstItem="ibk-OE-JPo" firstAttribute="top" secondItem="zPR-5v-eh5" secondAttribute="bottom" id="AS6-v0-Wg9"/>
+                        <constraint firstAttribute="trailing" secondItem="ns5-Bt-TBp" secondAttribute="trailing" id="FCb-tf-kxS"/>
+                        <constraint firstItem="zPR-5v-eh5" firstAttribute="top" secondItem="Jqu-ih-kVA" secondAttribute="top" constant="10" id="LKn-iZ-dNO"/>
+                        <constraint firstAttribute="height" constant="70" id="LZc-VV-SgR"/>
+                        <constraint firstAttribute="trailing" secondItem="ibk-OE-JPo" secondAttribute="trailing" constant="15" id="SMk-kl-A7Z"/>
+                        <constraint firstItem="ns5-Bt-TBp" firstAttribute="top" secondItem="ibk-OE-JPo" secondAttribute="bottom" constant="1" id="e0t-uR-Yj5"/>
+                        <constraint firstItem="ibk-OE-JPo" firstAttribute="leading" secondItem="Jqu-ih-kVA" secondAttribute="leading" constant="15" id="gsQ-Ki-n24"/>
+                        <constraint firstItem="zPR-5v-eh5" firstAttribute="leading" secondItem="Jqu-ih-kVA" secondAttribute="leading" constant="15" id="oIU-9x-dJw"/>
+                        <constraint firstItem="ns5-Bt-TBp" firstAttribute="leading" secondItem="Jqu-ih-kVA" secondAttribute="leading" id="vwE-li-8ng"/>
                     </constraints>
                 </view>
             </subviews>
@@ -148,13 +148,13 @@
                 <constraint firstItem="pHV-VS-sSF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="83f-Ey-bGD"/>
                 <constraint firstItem="pHV-VS-sSF" firstAttribute="leading" secondItem="Q8l-tC-hOs" secondAttribute="trailing" constant="8" id="AfX-Td-o0N"/>
                 <constraint firstItem="Q8l-tC-hOs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="KEk-am-RI2"/>
-                <constraint firstAttribute="trailing" secondItem="Jqu-ih-kVA" secondAttribute="trailing" id="Kx9-Iq-L1b"/>
                 <constraint firstItem="zDr-Do-t0H" firstAttribute="top" secondItem="pHV-VS-sSF" secondAttribute="bottom" constant="8" id="Phj-iM-LOJ"/>
+                <constraint firstItem="Jqu-ih-kVA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="W57-M1-flg"/>
+                <constraint firstItem="Jqu-ih-kVA" firstAttribute="top" secondItem="zDr-Do-t0H" secondAttribute="bottom" id="Xwk-Wr-b0h"/>
                 <constraint firstAttribute="trailing" secondItem="zDr-Do-t0H" secondAttribute="trailing" id="eoA-1t-FxL"/>
                 <constraint firstItem="Q8l-tC-hOs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="mES-bn-2bJ"/>
-                <constraint firstItem="Jqu-ih-kVA" firstAttribute="top" secondItem="zDr-Do-t0H" secondAttribute="bottom" id="nQo-yt-FbQ"/>
                 <constraint firstItem="zDr-Do-t0H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qir-QU-cMG"/>
-                <constraint firstItem="Jqu-ih-kVA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="w9T-QG-vhS"/>
+                <constraint firstAttribute="trailing" secondItem="Jqu-ih-kVA" secondAttribute="trailing" id="s0t-Xn-X67"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -163,6 +163,7 @@
                 <outlet property="TrainingTitleLable" destination="oYZ-QR-BaZ" id="a9q-rN-0hm"/>
                 <outlet property="certificContent" destination="ibk-OE-JPo" id="19c-NX-owY"/>
                 <outlet property="resumNameTitle" destination="Q8l-tC-hOs" id="L4V-NB-Hkr"/>
+                <outlet property="selectBtn" destination="pHV-VS-sSF" id="aIt-N5-Mho"/>
             </connections>
             <point key="canvasLocation" x="325" y="213"/>
         </view>

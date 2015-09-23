@@ -42,6 +42,7 @@
 #import "AppDelegate.h"
 #import "IQKeyboardManager.h"
 #import "MobClick.h"
+#import "WriteResumeRequest.h"
 #define NUMBERS @"0123456789\n"
 
 

@@ -311,7 +311,7 @@
             NSLog(@"skdfjbc");
             
             if (![AppDelegate instance].doubleUpdateVersion>[AppDelegate instance].doubleCurrentVersion) {
-                [MBProgressHUD creatembHub:@"暂无新版本"];
+//                [MBProgressHUD creatembHub:@"暂无新版本"];
             }else
             {
             VersionUpdateView * view =[[[NSBundle mainBundle] loadNibNamed:@"VersionUpdate" owner:self options:nil] lastObject];

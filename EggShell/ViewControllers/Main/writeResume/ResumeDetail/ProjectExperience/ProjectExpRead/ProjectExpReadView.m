@@ -14,12 +14,12 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"ProjectExperience" owner:self options:nil] lastObject];
 }
--(void)configValue:(WriteRusumeModel2*)model
+-(void)configValue:(NSDictionary*)model
 {
-    self.projectNameLable.text = model.name;
-    self.SchoolTimeLable.text = [model.sdate stringByAppendingFormat:@"-%@",model.edate];
-    self.ProjectEnvironmentLable.text = model.projectPath;
-    self.holdOfficeLable .text = model.position;
-    self.ProjectContentLable.text = model.content;
+    self.projectNameLable.text = model[@"name"];
+    self.SchoolTimeLable.text = [model[@"sdate"] stringByAppendingFormat:@"-%@",model[@"edate"]];
+    self.ProjectEnvironmentLable.text = model[@"sys"];
+    self.holdOfficeLable .text = model[@"title"];
+    self.ProjectContentLable.text = model[@"content"];
 }
 @end

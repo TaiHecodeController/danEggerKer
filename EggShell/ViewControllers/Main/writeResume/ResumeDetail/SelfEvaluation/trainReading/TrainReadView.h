@@ -16,5 +16,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *trailTimeLable;
 @property (weak, nonatomic) IBOutlet UILabel *TrainingDirectionLable;
 @property (weak, nonatomic) IBOutlet UITextView *trainingContentLable;
--(void)configValue:(WriteRusumeModel2*)model;
+-(void)configValue:(NSDictionary*)model;
 @end

@@ -213,12 +213,12 @@
 {
             if(HEIGHT == 568)
         {
-            self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 200);
-            [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT+80) animated:YES];
+            self.scro.contentSize = CGSizeMake(WIDETH, 400+ 64 + 150);
+            [self.scro scrollRectToVisible:CGRectMake(0, 450, WIDETH, HEIGHT+80) animated:YES];
         }else
         {
-            self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 200);
-            [self.scro scrollRectToVisible:CGRectMake(0, 500, WIDETH, HEIGHT+80) animated:YES];
+            self.scro.contentSize = CGSizeMake(WIDETH,  400+ 64 + 150);
+            [self.scro scrollRectToVisible:CGRectMake(0, 450, WIDETH, HEIGHT+80) animated:YES];
             
         }
 

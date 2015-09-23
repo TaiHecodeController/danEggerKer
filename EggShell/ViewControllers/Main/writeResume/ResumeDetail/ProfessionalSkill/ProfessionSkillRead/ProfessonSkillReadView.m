@@ -16,12 +16,12 @@
     return [[[NSBundle mainBundle] loadNibNamed:@"ProfessonSkillRead" owner:self options:nil] lastObject];
 }
 
--(void)configValue:(WriteRusumeModel2*)model
+-(void)configValue:(NSDictionary*)model
 {
-    self.SkillNameLable.text = model.name;
-    self.SkillTypeLable.text = model.skillType;
-    self.ProficiencyLable.text = model.skillDegree;
-    self.MasterTimeLable.text = model.skillTime;
+    self.SkillNameLable.text = model[@"name"];
+    self.SkillTypeLable.text = model[@"ing"];
+    self.ProficiencyLable.text = model[@"skill"];
+    self.MasterTimeLable.text = model[@"longtime"];
 
 
 }

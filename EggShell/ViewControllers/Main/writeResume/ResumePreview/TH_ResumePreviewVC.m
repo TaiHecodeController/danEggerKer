@@ -126,8 +126,8 @@
         skill.frame = CGRectMake(0, professionalSkillViewY, WIDETH, zH);
         [self.scro addSubview:skill];
     }
+    
     y = y + zH *  ((NSArray *)self.dataDic[@"skill"]).count;
-   
     /*项目经验**/
     CGFloat xH = 140;
     for (int i = 0; i < ((NSArray *)self.dataDic[@"project"]).count; i++)

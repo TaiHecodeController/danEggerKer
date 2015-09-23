@@ -19,7 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *DepartmentLable;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UILabel *OfficeLable;
+@property (weak, nonatomic) IBOutlet UIButton *workBtn;
 
--(void)config:(WriteRusumeModel2 *)model;
+-(void)config:(NSDictionary *)dic;
 
 @end

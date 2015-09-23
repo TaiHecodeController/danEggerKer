@@ -14,11 +14,11 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"CertificateRead" owner:self options:nil] lastObject];
 }
--(void)configValue:(WriteRusumeModel2 *)model
+-(void)configValue:(NSDictionary *)model
 {
-    self.TrainingTitleLable.text = model.name;
-    self.IssuanceLable.text = model.sdate;
-    self.IssuedByLable.text = model.position;
-    self.certificContent.text = model.content;
+    self.TrainingTitleLable.text = model[@"name"];
+    self.IssuanceLable.text = model[@"sdate"];
+    self.IssuedByLable.text = model[@"title"];
+    self.certificContent.text = model[@"content"];
 }
 @end

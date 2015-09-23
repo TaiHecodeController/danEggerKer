@@ -14,12 +14,12 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"trainRead" owner:self options:nil] lastObject];
 }
--(void)configValue:(WriteRusumeModel2*)model
+-(void)configValue:(NSDictionary*)model
 {
-    self.trainingCentreLalbe.text = model.name;
-    self.trailTimeLable.text = [model.sdate stringByAppendingFormat:@"-%@",model.edate];
-    self.TrainingDirectionLable.text = model.position;
-    self.trainingContentLable.text = model.content;
+    self.trainingCentreLalbe.text = model[@"name"];
+    self.trailTimeLable.text = [model[@"sdate"] stringByAppendingFormat:@"-%@",model[@"edate"]];
+    self.TrainingDirectionLable.text = model[@"title"];
+    self.trainingContentLable.text = model[@"content"];
 
 }
 @end

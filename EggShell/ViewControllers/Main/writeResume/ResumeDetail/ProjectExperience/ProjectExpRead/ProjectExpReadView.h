@@ -18,5 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *holdOfficeLable;
 
 @property (weak, nonatomic) IBOutlet UITextView *ProjectContentLable;
--(void)configValue:(WriteRusumeModel2*)model;
+
+@property (weak, nonatomic) IBOutlet UIButton *selectBtn;
+
+-(void)configValue:(NSDictionary*)model;
 @end

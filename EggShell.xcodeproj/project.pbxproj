@@ -1316,7 +1316,6 @@
 				940032AB1B840CC3001EB666 /* ProfessionalSkill */,
 				940032B21B840CC3001EB666 /* ProjectExperience */,
 				940032B91B840CC3001EB666 /* SelfEvaluation */,
-				940032BC1B840CC3001EB666 /* SubViews */,
 				940032C31B840CC3001EB666 /* TrainExperience */,
 				940032C61B840CC3001EB666 /* WorkExperience */,
 			);
@@ -1415,12 +1414,14 @@
 				940032C11B840CC3001EB666 /* WorkingTimeCell.m */,
 				940032C21B840CC3001EB666 /* WorkingTimeCell.xib */,
 			);
-			path = SubViews;
+			name = SubViews;
+			path = ../SubViews;
 			sourceTree = "<group>";
 		};
 		940032C31B840CC3001EB666 /* TrainExperience */ = {
 			isa = PBXGroup;
 			children = (
+				940032BC1B840CC3001EB666 /* SubViews */,
 				94E761B01BA27D8E00B4C544 /* trainReading */,
 				940032C41B840CC3001EB666 /* TH_TrainExperienceVC.h */,
 				940032C51B840CC3001EB666 /* TH_TrainExperienceVC.m */,
@@ -2418,7 +2419,7 @@
 				TargetAttributes = {
 					041650301B4D7141008C78BE = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = M3BN6VM63R;
+						DevelopmentTeam = B8W5YY9JPL;
 					};
 					041650491B4D7142008C78BE = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -2832,8 +2833,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2850,11 +2851,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "3fde5b0f-5d72-46f1-b91b-78e8c25cb380";
+				PROVISIONING_PROFILE = "31fa5308-3a15-4ff2-890b-0ca217d87b61";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2876,8 +2877,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2888,10 +2889,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "3fde5b0f-5d72-46f1-b91b-78e8c25cb380";
+				PROVISIONING_PROFILE = "31fa5308-3a15-4ff2-890b-0ca217d87b61";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2912,7 +2913,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EggShell/PrefixHeader.pch";
 				INFOPLIST_FILE = EggShell/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2943,7 +2944,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EggShell/PrefixHeader.pch";
 				INFOPLIST_FILE = EggShell/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2963,8 +2964,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2976,7 +2977,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "31fa5308-3a15-4ff2-890b-0ca217d87b61";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Debug;
@@ -2985,8 +2986,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2994,7 +2995,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "31fa5308-3a15-4ff2-890b-0ca217d87b61";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Release;

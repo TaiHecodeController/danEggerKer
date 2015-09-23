@@ -17,6 +17,9 @@
     
 
 }
+@property(nonatomic,strong)NSArray * dataArray;
+@property(nonatomic,strong)UIScrollView * scro;
+
 @end
 
 @implementation EducationReadVC
@@ -24,27 +27,48 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _resume_model = [ResumeModel sharedResume];
-    [self setView];
+    [self loadData];
     
-    // Do any additional setup after loading the view.
+    
 }
--(void)setView
+-(void)loadData
 {
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
+    NSString * userUid = [df objectForKey:@"uid"];
+    NSDictionary * param = @{@"eid":[AppDelegate instance].resumeId, @"uid":userUid ,@"token":tokenStr};
+    [[WriteResumeRequest rducationExperienceReadingWithSucc:^(NSDictionary *dataDic) {
+        self.dataArray =[NSArray arrayWithArray:dataDic[@"data"]];
+        [self createView];
+        
+    } educationExperienceReadingParam:param] addNotifaction:[MBProgressHUD mbHubShow]];
+}
+-(void)createView
+{
+    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
+    self.scro = scro;
+    [self.view addSubview:scro];
+    for (int i = 0; i < self.dataArray.count; i++) {
     EducationReadingView   * education = [EducationReadingView setView];
-    education.frame = CGRectMake(0, 0, WIDETH, 317);
+    education.frame = CGRectMake(0, 215*i, WIDETH,215);
     education.userInteractionEnabled = NO;
-    [education config:self.model];
-    education.ResumeTitle.text = [NSString stringWithFormat:@"%@-证书",_resume_model.resumeName];
-    [self.view addSubview:education];
+    [education config:self.dataArray[i]];
+    education.ResumeTitle.text = [NSString stringWithFormat:@"%@-教育经历%d",_resume_model.resumeName,i];
+    [self.scro addSubview:education];
+        if (i>0) {
+            education.logoBtn.hidden = YES;
+        }
     /*继续添加**/
-    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 317, 150, 30)];
+    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 215*self.dataArray.count+35, 150, 30)];
     [button addTarget:self action:@selector(addbUttonClick) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
     [button setTitle:@"继续添加" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.view addSubview:button];
-    /***/
+    [self.scro addSubview:button];
+        self.scro.contentSize = CGSizeMake(WIDETH, 215*self.dataArray.count+150);
+    /*通知返回**/
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+    }
 }
 #pragma mark --继续添加
 -(void)addbUttonClick

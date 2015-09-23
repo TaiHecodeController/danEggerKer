@@ -15,6 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *SkillTypeLable;
 @property (weak, nonatomic) IBOutlet UILabel *ProficiencyLable;
 @property (weak, nonatomic) IBOutlet UILabel *MasterTimeLable;
+
+@property (weak, nonatomic) IBOutlet UIButton *selectBtn;
+
 +(ProfessonSkillReadView*)setProfessonSkillReadView;
--(void)configValue:(WriteRusumeModel2*)model;
+-(void)configValue:(NSDictionary*)model;
 @end

@@ -17,7 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *dapartmentLab;
 @property (weak, nonatomic) IBOutlet UILabel *positionLab;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+@property (weak, nonatomic) IBOutlet UIButton *logoBtn;
 
 +(EducationReadingView*)setView;
--(void)config:(WriteRusumeModel2 *)model;
+-(void)config:(NSDictionary *)dic;
 @end

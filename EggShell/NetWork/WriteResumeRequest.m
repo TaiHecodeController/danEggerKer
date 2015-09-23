@@ -84,5 +84,39 @@
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_del",base_Url] param:param succ:succ];
 }
+/*写简历工作经历阅览**/
++(AFRequestState*)resumeWritingPreviewWithSucc:(void(^)(NSDictionary * dataDic))succ resumeWritingPreviewParam:(NSDictionary *)param
+{
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/work_list",base_Url] param:param succ:succ];
+}
+/*写简历教育经历阅览**/
++(AFRequestState*)rducationExperienceReadingWithSucc:(void(^)(NSDictionary * dataDic))succ educationExperienceReadingParam:(NSDictionary *)param
+{
+     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/edu_list",base_Url] param:param succ:succ];
+}
+/*写简历培训经历阅览**/
++(AFRequestState*)trainingExperienceReadingWithSucc:(void(^)(NSDictionary * dataDic))succ trainingExperienceReadingParam:(NSDictionary *)param
+{
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/training_list",base_Url] param:param succ:succ];
+}
+/*写简历专业技能阅览**/
++(AFRequestState*)readingSkillWithSucc:(void(^)(NSDictionary * dataDic))succ readingSkillgParam:(NSDictionary *)param
+{
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/skill_list",base_Url] param:param succ:succ];
+}
+
+/*写简历项目经验阅览**/
++(AFRequestState*)projectExperienceReadingWithSucc:(void(^)(NSDictionary * dataDic))succ projectExperienceReadingParam:(NSDictionary *)param
+{
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/project_list",base_Url] param:param succ:succ];
+}
+
+/*写简历证书阅览**/
++(AFRequestState*)certificatesReadingWithSucc:(void(^)(NSDictionary * dataDic))succ certificatesReadingParam:(NSDictionary *)param
+{
+return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/cert_list",base_Url] param:param succ:succ];
+}
+
+
 
 @end

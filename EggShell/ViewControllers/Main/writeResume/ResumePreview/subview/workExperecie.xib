@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -45,32 +46,32 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="工作内容" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eiy-pe-w6l">
-                    <rect key="frame" x="15" y="88" width="305" height="11"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="暂无" translatesAutoresizingMaskIntoConstraints="NO" id="5Nc-dv-5eQ">
-                    <rect key="frame" x="15" y="99" width="290" height="61"/>
+                    <rect key="frame" x="15" y="113" width="290" height="47"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="61" id="YBb-8h-2hm"/>
+                        <constraint firstAttribute="height" constant="47" id="6vx-le-Of1"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="工作内容" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eiy-pe-w6l">
+                    <rect key="frame" x="15" y="88" width="305" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Qb0-OH-mVY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BWo-Sq-55f"/>
+                <constraint firstAttribute="bottom" secondItem="5Nc-dv-5eQ" secondAttribute="bottom" id="F8J-SB-iUP"/>
                 <constraint firstItem="HhP-YX-6Ts" firstAttribute="top" secondItem="Qb0-OH-mVY" secondAttribute="bottom" constant="10" id="H9c-I7-a0g"/>
                 <constraint firstItem="Qb0-OH-mVY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="aEI-Uz-bzl"/>
-                <constraint firstAttribute="bottom" secondItem="5Nc-dv-5eQ" secondAttribute="bottom" id="clI-Dh-sgH"/>
-                <constraint firstItem="5Nc-dv-5eQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="ePy-QE-o69"/>
+                <constraint firstItem="5Nc-dv-5eQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="iMx-aN-N5N"/>
+                <constraint firstAttribute="trailing" secondItem="5Nc-dv-5eQ" secondAttribute="trailing" constant="15" id="iof-JD-D0P"/>
                 <constraint firstItem="HhP-YX-6Ts" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="r1K-iR-wO5"/>
                 <constraint firstAttribute="trailing" secondItem="HhP-YX-6Ts" secondAttribute="trailing" id="v7B-5W-RrY"/>
-                <constraint firstAttribute="trailing" secondItem="5Nc-dv-5eQ" secondAttribute="trailing" constant="15" id="wCU-NG-lyK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

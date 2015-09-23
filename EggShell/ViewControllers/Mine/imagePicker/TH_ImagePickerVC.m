@@ -24,15 +24,7 @@
     [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [MobClick beginLogPageView:@"imagepickervc"];
-}
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [MobClick endLogPageView:@"imagepickervc"];
 
-}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
