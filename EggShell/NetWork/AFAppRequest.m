@@ -157,7 +157,7 @@
          NSLog(@"Error: %@", error);
          NSLog ( @"operation: %@" , operation. responseString );
          
-         }];
+    }];
     [State start];
     return State;
 }
@@ -267,7 +267,6 @@
     }
     @catch(NSException * excep){
         fail(50000, nil);
-        
         
     }
     @finally{

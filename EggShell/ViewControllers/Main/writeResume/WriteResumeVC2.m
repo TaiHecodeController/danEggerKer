@@ -75,6 +75,7 @@
 //    [self.navigationController popToViewController:manager animated:YES];
     
 }
+
 -(void)createData
 {
     self.nameArray = @[@"工作经历",@"教育经历",@"培训经历",@"专业技能",@"项目经验",@"证书",@"自我评价"];

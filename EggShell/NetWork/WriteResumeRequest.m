@@ -12,11 +12,9 @@
 //简历列表
 +(AFRequestState *)getResumeListWithSucc:(void(^)(NSArray * DataArray))succ WithUserId:(NSString *)userId resp:(Class)resp;
 {
-    
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * tokenStr = [df objectForKey:@"md5_token"];
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_manager",base_Url] param:@{@"uid":[df objectForKey:@"uid"],@"token":tokenStr} succ:succ resp:resp];
-    
 }
 
 //搜索职位筛选列表
@@ -79,6 +77,7 @@
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_other",base_Url] param:param succ:succ];
 }
+
 //删除简历
 +(AFRequestState *)deleteResumeWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
@@ -118,5 +117,11 @@ return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/cert_list"
 }
 
 
+
+//使用简历
++(AFRequestState *)user_resumeWithSucc:(void(^)(NSDictionary *dataDic))succ withParam:(NSDictionary *)param
+{
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_use",base_Url] param:param succ:succ];
+}
 
 @end

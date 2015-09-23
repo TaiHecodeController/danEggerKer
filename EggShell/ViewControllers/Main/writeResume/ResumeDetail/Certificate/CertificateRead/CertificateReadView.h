@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WriteRusumeModel2.h"
 @interface CertificateReadView : UIView
+@property (weak, nonatomic) IBOutlet UIButton *bixuanxiang;
 @property (weak, nonatomic) IBOutlet UILabel *resumNameTitle;
 
 @property (weak, nonatomic) IBOutlet UILabel *TrainingTitleLable;

@@ -24,6 +24,7 @@
 @property(nonatomic,strong)NSMutableArray * cellArray;
 /*类别的选择**/
 @property(nonatomic,strong)NSDictionary * categaryDic;
+@property (nonatomic, strong)UITextField *keywordTextfield;
 @end
 
 @implementation TH_JobScreeningVC
@@ -153,15 +154,24 @@
     [bgView addSubview:contenLable];
     contenLable.delegate = self;
     
+//    fasdfasdf
+    _keywordTextfield = contenLable;
+    
 //    [SearchModelShare sharedInstance].keyword;
     
     UIImageView * imageView =[[UIImageView alloc] initWithFrame:CGRectMake(WIDETH-35, 12, 20, 20)];
-    imageView.image = [UIImage imageNamed:@"chashaixuan"];
+    imageView.image = [UIImage imageNamed:@"cha"];
     [bgView addSubview:imageView];
     bgView.backgroundColor = [UIColor whiteColor];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clearKeyWord)];
+    [imageView addGestureRecognizer:tap];
+    imageView.userInteractionEnabled = YES;
+    
     return bgView;
     
 }
+
+
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
 {
     return 42;
@@ -354,6 +364,12 @@
 //    cell.contentTextFiled.placeholder = keyWord;
 //    [SearchModelShare sharedInstance].job_post = Id;
 //}
+
+#pragma mark -- respondEvent
+- (void)clearKeyWord
+{
+    _keywordTextfield.text = @"";
+}
 
 #pragma mark -- SearchCityDelegate
 

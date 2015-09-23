@@ -46,8 +46,6 @@
     NSDictionary * param = @{@"username":username,@"password":password};
 
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@login",base_Url] param:param succ:succ ];
-    
-
 }
 
 /*忘记密码**/

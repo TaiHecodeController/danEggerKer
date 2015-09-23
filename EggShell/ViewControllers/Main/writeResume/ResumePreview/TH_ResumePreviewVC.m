@@ -89,7 +89,7 @@
     
     /*工作经历**/
     CGFloat y = 390;
-    CGFloat gH = 145;
+    CGFloat gH = 160;
     for (int i = 0; i < ((NSArray *)self.dataDic[@"work"]).count; i++)
     {
         CGFloat workingY = y + i * gH;

@@ -10,6 +10,8 @@
 #import "WriteRusumeModel2.h"
 
 @interface ProfessonSkillReadView : UIView
+@property (weak, nonatomic) IBOutlet UIButton *bixuanxiang;
+
 @property (weak, nonatomic) IBOutlet UILabel *resumTitleLable;
 @property (weak, nonatomic) IBOutlet UILabel *SkillNameLable;
 @property (weak, nonatomic) IBOutlet UILabel *SkillTypeLable;

@@ -37,6 +37,7 @@
 +(AFRequestState *)deleteResumeWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param;
 //搜索职位筛选列表
 +(AFRequestState *)getSearchJobMessageListWithSucc:(void(^)(NSDictionary * DataDic))succ;
+
 /*写简历工作经历阅览**/
 +(AFRequestState*)resumeWritingPreviewWithSucc:(void(^)(NSDictionary * dataDic))succ resumeWritingPreviewParam:(NSDictionary *)param;
 /*写简历教育经历阅览**/
@@ -51,6 +52,10 @@
 
 /*写简历证书阅览**/
 +(AFRequestState*)certificatesReadingWithSucc:(void(^)(NSDictionary * dataDic))succ certificatesReadingParam:(NSDictionary *)param;
+
+
+//使用简历
++(AFRequestState *)user_resumeWithSucc:(void(^)(NSDictionary *dataDic))succ withParam:(NSDictionary *)param;
 
 
 

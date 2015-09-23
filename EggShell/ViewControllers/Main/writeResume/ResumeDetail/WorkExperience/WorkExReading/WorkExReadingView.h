@@ -12,6 +12,7 @@
 @interface WorkExReadingView : UIView
 +(WorkExReadingView*)setView;
 @property (weak, nonatomic) IBOutlet UILabel *resumTitle;
+@property (weak, nonatomic) IBOutlet UIButton *bitianxiang;
 
 @property (weak, nonatomic) IBOutlet UILabel *companyNameLable;
 @property (weak, nonatomic) IBOutlet UILabel *HoldTimelable;
