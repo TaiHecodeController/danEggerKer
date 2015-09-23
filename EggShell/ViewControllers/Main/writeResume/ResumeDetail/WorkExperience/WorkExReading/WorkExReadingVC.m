@@ -33,7 +33,6 @@
     //发送网络请求，配置根据数组的[i]配置数据，布局。
     [workingView config:self.model];
     [self.view addSubview:workingView];
-
     
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     self.scro = scro;

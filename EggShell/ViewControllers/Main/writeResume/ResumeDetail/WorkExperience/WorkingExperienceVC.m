@@ -234,7 +234,7 @@
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
     [[WriteResumeRequest uploadWorkExperienceWithSucc:^(NSDictionary * dataDic) {
         WorkExReadingVC *workreading = [[WorkExReadingVC alloc] init];
-        workreading.model = _model;
+//        workreading.model = _model;
         [self.navigationController pushViewController:workreading animated:YES];
     } WithResumeParam:param] addNotifaction:hub];
 }
