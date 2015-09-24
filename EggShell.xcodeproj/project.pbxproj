@@ -274,6 +274,9 @@
 		F07F39011B993B7C002531CD /* CommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39001B993B7C002531CD /* CommonFunc.m */; };
 		F07F39051B996F65002531CD /* saveListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39041B996F65002531CD /* saveListModel.m */; };
 		F07F39091B998B62002531CD /* TeacherFCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39081B998B62002531CD /* TeacherFCModel.m */; };
+		F0829B611BB3F6DF00EA8B6F /* chazi.png in Resources */ = {isa = PBXBuildFile; fileRef = F0829B5E1BB3F6DF00EA8B6F /* chazi.png */; settings = {ASSET_TAGS = (); }; };
+		F0829B621BB3F6DF00EA8B6F /* chazi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0829B5F1BB3F6DF00EA8B6F /* chazi@2x.png */; settings = {ASSET_TAGS = (); }; };
+		F0829B631BB3F6DF00EA8B6F /* chazi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0829B601BB3F6DF00EA8B6F /* chazi@3x.png */; settings = {ASSET_TAGS = (); }; };
 		F083F8211B9C32F700781C08 /* Me_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F083F8201B9C32F700781C08 /* Me_Request.m */; };
 		F0B85A391BA11F83005799F5 /* SearchCity1_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */; };
 		F0B85A3C1BA11F97005799F5 /* SearchCity2_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */; };
@@ -788,6 +791,9 @@
 		F07F39041B996F65002531CD /* saveListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = saveListModel.m; sourceTree = "<group>"; };
 		F07F39071B998B62002531CD /* TeacherFCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherFCModel.h; sourceTree = "<group>"; };
 		F07F39081B998B62002531CD /* TeacherFCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherFCModel.m; sourceTree = "<group>"; };
+		F0829B5E1BB3F6DF00EA8B6F /* chazi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chazi.png; sourceTree = "<group>"; };
+		F0829B5F1BB3F6DF00EA8B6F /* chazi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chazi@2x.png"; sourceTree = "<group>"; };
+		F0829B601BB3F6DF00EA8B6F /* chazi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chazi@3x.png"; sourceTree = "<group>"; };
 		F083F81F1B9C32F700781C08 /* Me_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Me_Request.h; sourceTree = "<group>"; };
 		F083F8201B9C32F700781C08 /* Me_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Me_Request.m; sourceTree = "<group>"; };
 		F0B85A371BA11F83005799F5 /* SearchCity1_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCity1_ViewController.h; path = ../FindJob/SearchCity1_ViewController.h; sourceTree = "<group>"; };
@@ -1189,6 +1195,9 @@
 		04A483C11B74FDCE006FDB9D /* OpenClass */ = {
 			isa = PBXGroup;
 			children = (
+				F0829B5E1BB3F6DF00EA8B6F /* chazi.png */,
+				F0829B5F1BB3F6DF00EA8B6F /* chazi@2x.png */,
+				F0829B601BB3F6DF00EA8B6F /* chazi@3x.png */,
 				F0BC9D1E1BABE29700383EE3 /* 视频默认图.png */,
 				F0BC9D1F1BABE29700383EE3 /* 视频默认图@2x.png */,
 				F0BC9D201BABE29700383EE3 /* 视频默认图@3x.png */,
@@ -2471,6 +2480,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0829B611BB3F6DF00EA8B6F /* chazi.png in Resources */,
 				F0BC9D371BABE29700383EE3 /* 演讲口语语音训练1@2x.png in Resources */,
 				F0213AA61BA2AC450083AA81 /* you3@2x.png in Resources */,
 				94E2C95D1B86C112001E3FDD /* 蛋壳儿.doc in Resources */,
@@ -2520,11 +2530,13 @@
 				94E2C9E41B8B0BEE001E3FDD /* education.xib in Resources */,
 				94E2C9E81B8B1416001E3FDD /* project.xib in Resources */,
 				F0BC9D361BABE29700383EE3 /* 演讲口语语音训练1.png in Resources */,
+				F0829B621BB3F6DF00EA8B6F /* chazi@2x.png in Resources */,
 				949CAA141BB2540100284FFF /* EducationWriteCell.xib in Resources */,
 				94313DC21B7CAAED005D0A9A /* InformationDeskCell.xib in Resources */,
 				940EDEE51B96E38B00376D37 /* WorkExReading.xib in Resources */,
 				94313DBF1B7CAAED005D0A9A /* infDestDetailView.xib in Resources */,
 				94E2C9861B870F29001E3FDD /* JobDescription.xib in Resources */,
+				F0829B631BB3F6DF00EA8B6F /* chazi@3x.png in Resources */,
 				94E761C21BA2AC8A00B4C544 /* ProjectExperience.xib in Resources */,
 				F0BC9D311BABE29700383EE3 /* 视频推荐默认图@2x.png in Resources */,
 				F0BC9D351BABE29700383EE3 /* 销售时什么东东@3x.png in Resources */,
@@ -2984,13 +2996,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-
-				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
-
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -3002,11 +3009,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-
-				PROVISIONING_PROFILE = "7d350b64-6fdb-487c-8dc6-a8c6d567ac7b";
-
 				PROVISIONING_PROFILE = "";
-
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Debug;
@@ -3015,13 +3018,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-
-				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
-
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -3029,11 +3027,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-
-				PROVISIONING_PROFILE = "7d350b64-6fdb-487c-8dc6-a8c6d567ac7b";
-
 				PROVISIONING_PROFILE = "";
-
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Release;
