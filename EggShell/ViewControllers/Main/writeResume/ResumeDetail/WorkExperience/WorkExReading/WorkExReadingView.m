@@ -22,6 +22,5 @@
     self.DepartmentLable.text = dic[@"department"];
     self.descriptionTextView.text = dic[@"content"];
     self.OfficeLable.text = dic[@"title"];
-    
 }
 @end

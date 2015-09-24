@@ -24,14 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
-   
-    
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     self.scro = scro;
     [self.view addSubview:scro];
     [self loadData];
-    
     
     // Do any additional setup after loading the view.
 }
