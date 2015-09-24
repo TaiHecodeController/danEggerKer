@@ -53,7 +53,7 @@
     education.frame = CGRectMake(0, 215*i, WIDETH,215);
     education.userInteractionEnabled = NO;
     [education config:self.dataArray[i]];
-    education.ResumeTitle.text = [NSString stringWithFormat:@"%@-教育经历%d",_resume_model.resumeName,i];
+    education.ResumeTitle.text = [NSString stringWithFormat:@"%@-教育经历%d",_resume_model.resumeName,i+1];
     [self.scro addSubview:education];
         if (i>0) {
             education.logoBtn.hidden = YES;

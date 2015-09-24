@@ -55,7 +55,7 @@
    
     ProfessonSkillReadView  * prosion = [ProfessonSkillReadView setProfessonSkillReadView];
     prosion.frame = CGRectMake(0, 152*i, WIDETH, 152);
-    prosion.resumTitleLable.text  = [NSString stringWithFormat:@"%@-转技能%d",_resume_model.resumeName,i];
+    prosion.resumTitleLable.text  = [NSString stringWithFormat:@"%@-转技能%d",_resume_model.resumeName,i+1];
     [prosion configValue:self.dataArray[i]];
     [self.scro addSubview:prosion];
         if (i>0) {

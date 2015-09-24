@@ -58,7 +58,7 @@
     ProjectExpReadView * project =[ProjectExpReadView setProjectExperienceView];
     project.frame = CGRectMake(0, 215*i, WIDETH,215);
     [project configValue:self.dataArray[i]];
-    project.resumTitle.text = [NSString stringWithFormat:@"%@-项目经验%d",_resume_model.resumeName,i];
+    project.resumTitle.text = [NSString stringWithFormat:@"%@-项目经验%d",_resume_model.resumeName,i+1];
     [self.scro addSubview:project];
         if (i>0) {
             project.selectBtn.hidden = YES;

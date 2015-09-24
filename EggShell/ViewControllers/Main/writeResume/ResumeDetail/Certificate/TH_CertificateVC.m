@@ -13,11 +13,18 @@
 #import "AppDelegate.h"
 #import "ResumeModel.h"
 #import "CertificateReadVC.h"
+#import "CertifiCateTime.h"
 @interface TH_CertificateVC ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
 {
     WriteRusumeModel2 * _model;
     ResumeModel * _resume_model;
+    NSString * dateStr;
+    UIButton * record_btn;
+    UIView * backView;
+    UIButton * ok;
+    
 }
+@property (strong,nonatomic)UIDatePicker * dataPicker;
 @property (strong,nonatomic)UILabel * nameLab;
 @property (strong,nonatomic)UITextView * contentTextField;
 @property(strong,nonatomic)UILabel * placeHoderTextLable;
@@ -62,7 +69,9 @@
         
         if(i == 1)
         {
-             cell.placehoderTextfield.text = @"";
+            CertifiCateTime * cell = self.jobCellArr[i];
+            
+            cell.selectTime.selected = NO;
         }
         if(i == 2)
         {
@@ -75,7 +84,7 @@ self.contentTextField.text = @"";
 -(void)setData
 {
     self.nameArray = @[@"证书全称",@"颁发时间",@"颁发单位"];
-    self.holderArray = @[@"请填写证书全称",@"请填写颁发时间",@"请填写颁发单位"];
+    self.holderArray = @[@"请填写证书全称",@"",@"请填写颁发单位"];
 }
 -(void)createScro
 {self.view.backgroundColor = color(243, 243, 241);
@@ -155,6 +164,19 @@ self.contentTextField.text = @"";
     
     for(int i = 0;i < self.jobCellArr.count;i++)
     {
+        if(i == 1)
+        {
+            
+            CertifiCateTime * cell = self.jobCellArr[i];
+            if (!cell.selectTime.selected) {
+                [MBProgressHUD creatembHub:@"请选择时间"];
+                return;
+            }
+            _model.sdate = cell.selectTime.titleLabel.text;
+            
+            
+        }else
+        {
         projectTableViewCell * cell = self.jobCellArr[i];
         if([cell.placehoderTextfield.text isEqualToString:@""])
         {
@@ -167,13 +189,11 @@ self.contentTextField.text = @"";
             _model.name = cell.placehoderTextfield.text;
         }
         
-        if(i == 1)
-        {
-            _model.sdate = cell.placehoderTextfield.text;
-        }
+        
         if(i == 2)
         {
             _model.position = cell.placehoderTextfield.text;
+        }
         }
     }
     
@@ -223,6 +243,18 @@ self.contentTextField.text = @"";
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if (indexPath.row==1) {
+        
+        CertifiCateTime * cell =[tableView dequeueReusableCellWithIdentifier:@"timeid"];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"CertifiCateTime" owner:self options:nil] firstObject];
+        }
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [self.jobCellArr addObject:cell];
+        return cell;
+    }
     projectTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"projectTableViewCell" owner:self options:nil] lastObject];
@@ -263,19 +295,11 @@ self.contentTextField.text = @"";
     
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

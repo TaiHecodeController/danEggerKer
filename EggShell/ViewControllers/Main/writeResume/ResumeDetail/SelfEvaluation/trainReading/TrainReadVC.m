@@ -54,9 +54,12 @@
     traiView.frame = CGRectMake(0, 200*i, WIDETH,200);
     [traiView configValue:self.dataArray[i]];
     traiView.trainingContentLable.userInteractionEnabled = NO;
-    traiView.nameLable.text = [NSString stringWithFormat:@"%@-证书",_resume_model.resumeName];
-    
-    [self.scro addSubview:traiView];
+   traiView.nameLable.text = [NSString stringWithFormat:@"%@-培训经历%d",_resume_model.resumeName,i+1];    [self.scro addSubview:traiView];
+        if(i>0)
+        {
+            traiView.bitianxiang.hidden =  YES;
+         
+        }
     /*继续添加**/
     UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 200*self.dataArray.count+35, 150, 30)];
     [button addTarget:self action:@selector(addbUttonClick) forControlEvents:UIControlEventTouchUpInside];
