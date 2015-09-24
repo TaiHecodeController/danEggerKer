@@ -355,6 +355,7 @@ typedef NS_ENUM(NSInteger, GestureType){
     {
         return;
     }
+    
     self.state = [[OpenClassVideoListRequest requestWithSucc:^(NSArray *DataDic) {
       
         self.videoListArr = [NSMutableArray arrayWithArray:DataDic];
