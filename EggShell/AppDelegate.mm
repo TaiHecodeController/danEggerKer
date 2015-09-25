@@ -29,23 +29,17 @@
     
     //注册友盟统计
     [MobClick startWithAppkey:@"55f24438e0f55aa7af001c3d" reportPolicy:BATCH   channelId:nil];
-    NSUserDefaults * versionId = [NSUserDefaults standardUserDefaults];
-    [versionId setObject:@"" forKey:@"ver"];
-    [versionId synchronize];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-//   [self checkVersion];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSNumber *num = [NSNumber numberWithInt:0];
     [df setObject:num forKey:@"citytag"];
     [df synchronize];
 //     [self checkVersion];
-    //    self.window.rootViewController = [[WriteResumeViewController alloc] init];
     
-    //rk——test
-    /*键盘处理**/
     
-    [self keyBoard];
+    
     //初始化保利视频
     [self initPloyVideo];
     // 要使用百度地图，请先启动BaiduMapManager
@@ -89,7 +83,8 @@
     _locService.delegate = self;
     //启动LocationService
     [_locService startUserLocationService];
-
+    /*键盘处理**/
+    [self keyBoard];
     return YES;
     
 }

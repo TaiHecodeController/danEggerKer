@@ -85,6 +85,7 @@
     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
     [[WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
         self.editDic = DataDic[@"data"];
+        
         for(int i = 0;i < self.jobCellArray.count;i++)
         {
             WriteResumeCell * cell = self.jobCellArray[i];

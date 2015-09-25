@@ -13,6 +13,7 @@
 @interface TH_InformationDeskDetailVC ()
 @property(nonatomic,strong)UIScrollView * scro;
 @property (nonatomic,strong)AFRequestState * state;
+@property (assign) CGSize textSize;
 @end
 
 @implementation TH_InformationDeskDetailVC
@@ -58,21 +59,27 @@
    
     detail.frame = CGRectMake(0, 0, WIDETH, HEIGHT);
     detail.RouteLable.editable = NO;
-        detail.contactLable.userInteractionEnabled = NO;
-    detail.contentLable.scrollEnabled = YES;
+//        detail.contactLable.userInteractionEnabled = NO;
+//    detail.contentLable.scrollEnabled = YES;
 
     detail.contentLable.editable = NO;
-    detail.contentLable.userInteractionEnabled = NO;
-    detail.contentLable.scrollEnabled = YES;
+//    detail.contentLable.userInteractionEnabled = NO;
+//    detail.contentLable.scrollEnabled = YES;
     if (self.detaildic) {
         [detail setValues:self.detaildic];
         
+//         self.textSize = [self.detaildic.content sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+//        
     }if (self.informodel) {
         [detail setValuess:self.informodel];
+        
+//         self.textSize = [self.informodel.body sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
     }
     
     [self.scro addSubview:detail];
-    self.scro.contentSize = CGSizeMake(WIDETH, 568);
+    
+    
+//    self.scro.contentSize = CGSizeMake(WIDETH, HEIGHT);
     
     
 }

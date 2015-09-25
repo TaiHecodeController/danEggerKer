@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -11,11 +12,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koX-2M-YR8">
-                    <rect key="frame" x="15" y="341" width="290" height="207"/>
+                    <rect key="frame" x="15" y="341" width="290" height="228"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="207" id="B4K-eq-yaL"/>
-                    </constraints>
                     <string key="text">太和文化产业集团专注于教育文化产业的扛鼎之作，太和书院汇集了全国顶尖教育专家与团队，依托集团深厚的教育资源背景，逐步成长为中国最具特色的教育文化机构。我们致力于教育产业咨询管理及人才运营两大领域，拥有各类院校、科研机构、政府部门、信息机构、培训教育机构等各类用户和合作伙伴3万余家；建立并完善了包括CCTV-中学生校长联合会、名师汇、校园创就业服务中心等众多的平台，为广大教育产业群体提供最为精准的专有服务。</string>
                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -197,13 +195,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="koX-2M-YR8" secondAttribute="trailing" constant="15" id="4e0-jU-Jit"/>
-                <constraint firstItem="koX-2M-YR8" firstAttribute="top" secondItem="jkX-pn-uGb" secondAttribute="bottom" id="4vk-Ok-qSw"/>
                 <constraint firstAttribute="trailing" secondItem="iBA-x6-vZo" secondAttribute="trailing" id="5NA-b7-ztd"/>
                 <constraint firstItem="jkX-pn-uGb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="6KU-lm-V9F"/>
+                <constraint firstAttribute="bottom" secondItem="koX-2M-YR8" secondAttribute="bottom" constant="49" id="HMt-64-4v3"/>
+                <constraint firstItem="koX-2M-YR8" firstAttribute="top" secondItem="jkX-pn-uGb" secondAttribute="bottom" id="JSf-yU-qEG"/>
                 <constraint firstItem="8hW-ey-laz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="N76-63-7xH"/>
                 <constraint firstItem="jkX-pn-uGb" firstAttribute="top" secondItem="iBA-x6-vZo" secondAttribute="bottom" constant="8" id="Sqc-Jv-5Pb"/>
-                <constraint firstItem="koX-2M-YR8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="mDs-fV-iLQ"/>
+                <constraint firstAttribute="trailing" secondItem="koX-2M-YR8" secondAttribute="trailing" constant="15" id="afm-yY-hAh"/>
+                <constraint firstItem="koX-2M-YR8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="cEN-P6-c4c"/>
                 <constraint firstItem="iBA-x6-vZo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="p9M-ro-36M"/>
                 <constraint firstItem="8hW-ey-laz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pCK-aS-fdZ"/>
                 <constraint firstItem="iBA-x6-vZo" firstAttribute="top" secondItem="8hW-ey-laz" secondAttribute="bottom" id="rUA-Q5-o8F"/>
