@@ -63,7 +63,6 @@
 
 -(void)createScro
 {
-
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     [self.view addSubview:scro];
     self.scro.showsVerticalScrollIndicator = NO;

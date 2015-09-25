@@ -173,7 +173,8 @@
 {
     switch (button) {
         case THMineViewButtonTypeHeadPortraitBtn:
-        {    NSLog(@"编辑头像");
+        {
+            NSLog(@"编辑头像");
             NSUserDefaults * uid =[NSUserDefaults standardUserDefaults];
             //    NSString * uidStr = [uid objectForKey:@"uid"];
             //

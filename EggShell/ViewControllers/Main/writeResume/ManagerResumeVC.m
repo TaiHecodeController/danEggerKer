@@ -293,23 +293,42 @@
 
 - (IBAction)editClick:(UIButton *)sender {
     
+    int index = 0;
+    
+    NSString *resumeid;
     for(int i = 0;i < self.dataArray.count;i++)
     {
         ResumeCell * cell = self.cellArray[i];
         if(cell.iSSelect.selected)
         {
-            WriteResumeViewController * vc = [[WriteResumeViewController alloc] init];
-            vc.resumeId = cell.resumeId;
-            vc.isEdit = YES;
-            [AppDelegate instance].resumeId = cell.resumeId;
-            [self.navigationController pushViewController:vc animated:YES];
+            index++;
+            
+//            WriteResumeViewController * vc = [[WriteResumeViewController alloc] init];
+//            vc.resumeId = cell.resumeId;
+//            vc.isEdit = YES;
+//            [AppDelegate instance].resumeId = cell.resumeId;
+//            [self.navigationController pushViewController:vc animated:YES];
+            resumeid = cell.resumeId;
         }
     }
+    
+    if (index == 1)
+    {
+        WriteResumeViewController * vc = [[WriteResumeViewController alloc] init];
+        vc.resumeId = resumeid;
+        vc.isEdit = YES;
+        [AppDelegate instance].resumeId = resumeid;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        [MBProgressHUD creatembHub:@"只能选择一份简历进行编辑"];
+    }
+    
     if (self.dataArray.count == 0)
     {
         [MBProgressHUD creatembHub:@"请先创建简历"];
     }
-    
     
 }
 - (IBAction)userResume:(UIButton *)sender {

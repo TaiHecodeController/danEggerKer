@@ -11,7 +11,7 @@
 @interface OpenClassVideoListRequest : AFAppRequest
 /*公开课页面**/
 +(AFRequestState *)requestWithSucc:(void(^)(NSDictionary * DataDic))succ resp:(Class)resp paramPage:(NSString *)page Pagesize:(NSString *)pageSie;
-
+//课程列表
 +(AFRequestState *)requestWithSucc:(void(^)(NSArray * DataDic))suc resp:(Class)resp paramWithId:(NSString *)id;
 
 /*名师风采**/

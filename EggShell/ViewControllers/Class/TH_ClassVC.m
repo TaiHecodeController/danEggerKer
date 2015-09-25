@@ -187,17 +187,17 @@
     
 }
 
-- (void)querTeacherFCVideo
-{
-
-    [OpenClassVideoListRequest requestTeacherWithSucc:^(NSArray *DataDic) {
-        
-        NSLog(@"%@",DataDic);
-        _teacherArr = [NSMutableArray arrayWithArray:DataDic];
-        
-        
-    } resp:[NSObject class] paramPage:@"1" Pagesize:@"1"];
-}
+//- (void)querTeacherFCVideo
+//{
+//
+//    [OpenClassVideoListRequest requestTeacherWithSucc:^(NSArray *DataDic) {
+//        
+//        NSLog(@"%@",DataDic);
+//        _teacherArr = [NSMutableArray arrayWithArray:DataDic];
+//        
+//        
+//    } resp:[NSObject class] paramPage:@"1" Pagesize:@"1"];
+//}
 
 - (void)initSegView
 {
