@@ -1130,7 +1130,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/NetWork/OpenClassVideoListRequest.m"
-            timestampString = "464841348.081403"
+            timestampString = "464863457.482381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
@@ -1226,12 +1226,12 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Class/TH_ClassVC.m"
-                  timestampString = "464853212.829695"
+                  timestampString = "464863983.578392"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "114"
                   endingLineNumber = "114"
-                  offsetFromSymbolStart = "189">
+                  offsetFromSymbolStart = "294">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1241,12 +1241,12 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Class/TH_ClassVC.m"
-                  timestampString = "464853212.830045"
+                  timestampString = "464863983.578516"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "114"
                   endingLineNumber = "114"
-                  offsetFromSymbolStart = "39">
+                  offsetFromSymbolStart = "22">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1258,11 +1258,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/NetWork/OpenClassVideoListRequest.m"
-            timestampString = "464845355.872701"
+            timestampString = "464863457.482381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "+requestTeacherWithSucc:resp:paramPage:Pagesize:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1274,11 +1274,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/NetWork/OpenClassVideoListRequest.m"
-            timestampString = "464845363.892782"
+            timestampString = "464863457.482381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "@implementation OpenClassVideoListRequest"
             landmarkType = "3">
          </BreakpointContent>

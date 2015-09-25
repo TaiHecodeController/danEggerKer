@@ -155,7 +155,7 @@
          //查原始数据 responseObject
          [State setEnd];
          NSLog(@"Error: %@", error);
-         NSLog ( @"operation: %@" , operation. responseString );
+         NSLog ( @"operation: %@" , operation.responseString );
          
     }];
     [State start];
