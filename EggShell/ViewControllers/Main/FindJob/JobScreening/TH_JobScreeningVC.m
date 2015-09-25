@@ -160,7 +160,7 @@
 //    [SearchModelShare sharedInstance].keyword;
     
     UIImageView * imageView =[[UIImageView alloc] initWithFrame:CGRectMake(WIDETH-35, 12, 20, 20)];
-    imageView.image = [UIImage imageNamed:@"cha"];
+    imageView.image = [UIImage imageNamed:@"xincha"];
     [bgView addSubview:imageView];
     bgView.backgroundColor = [UIColor whiteColor];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clearKeyWord)];

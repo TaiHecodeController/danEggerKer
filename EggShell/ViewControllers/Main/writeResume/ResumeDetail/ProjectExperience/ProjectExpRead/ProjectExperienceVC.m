@@ -51,6 +51,7 @@
 -(void)createView
 {
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
+    scro.showsVerticalScrollIndicator = NO;
     self.scro = scro;
     [self.view addSubview:scro];
     for (int i ; i < self.dataArray.count; i++) {
