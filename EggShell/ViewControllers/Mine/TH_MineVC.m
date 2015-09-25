@@ -165,8 +165,7 @@
 //              minVew.frame = CGRectMake(0, 0, WIDETH, 490);
           } completion:nil];
     self.scro.contentSize = CGSizeMake(WIDETH,450+110);
-    
-    
+
 }
 #pragma mark-- homeView delegate
 -(void)homeView:(MineVeiw *)mineView DidClickButton:(THMineViewButtonType)button

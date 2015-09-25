@@ -25,7 +25,6 @@
 @property (strong,nonatomic)NSMutableArray * cellArray;
 @property (nonatomic, strong) ResumeCell *varCell;
 @property (nonatomic, strong) NSMutableString *deleteStr;
-
 @end
 
 @implementation ManagerResumeVC
@@ -298,11 +297,15 @@
         ResumeCell * cell = self.cellArray[i];
         if(cell.iSSelect.selected)
         {
+            
             WriteResumeViewController * vc = [[WriteResumeViewController alloc] init];
             vc.resumeId = cell.resumeId;
             vc.isEdit = YES;
             [AppDelegate instance].resumeId = cell.resumeId;
             [self.navigationController pushViewController:vc animated:YES];
+        }else
+        {
+            [MBProgressHUD creatembHub:@"请选择要编辑的简历"];
         }
     }
     if (self.dataArray.count == 0)
