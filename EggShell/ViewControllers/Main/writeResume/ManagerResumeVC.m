@@ -41,7 +41,6 @@
     [self.cellArray removeAllObjects];
     [self loadData];
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =  @"简历管理";
