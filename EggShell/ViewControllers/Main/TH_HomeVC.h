@@ -11,6 +11,7 @@
 
 
 @interface TH_HomeVC : TH_BaseVC
+
 @property (strong,nonatomic)MJRefreshFooterView * footer;
 @property (strong,nonatomic)MJRefreshHeaderView * header;
 
