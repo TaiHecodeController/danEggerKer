@@ -373,10 +373,10 @@
                 cell.nameLab.text = tearName[0];
             }
             
-            [cell.redXinBtn setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
-            [cell.redXinBtn setTitle:[NSString stringWithFormat:@"%@",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_obvious"]] forState:UIControlStateNormal];
-            [cell.priceBtn setImage:[UIImage imageNamed:@"qian"] forState:UIControlStateNormal];
-            [cell.priceBtn setTitle:[NSString stringWithFormat:@"%@元",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"status"]] forState:UIControlStateNormal];
+//            [cell.redXinBtn setImage:[UIImage imageNamed:@"zan"] forState:UIControlStateNormal];
+//            [cell.redXinBtn setTitle:[NSString stringWithFormat:@"%@",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_obvious"]] forState:UIControlStateNormal];
+//            [cell.priceBtn setImage:[UIImage imageNamed:@"qian"] forState:UIControlStateNormal];
+//            [cell.priceBtn setTitle:[NSString stringWithFormat:@"%@元",self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"status"]] forState:UIControlStateNormal];
 
              NSArray *tearName = [self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_teacher"] componentsSeparatedByString:@"-"];
             cell.nameLab.text = tearName[0];

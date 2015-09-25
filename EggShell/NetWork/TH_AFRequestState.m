@@ -143,6 +143,7 @@
     NSDictionary *param = @{@"uid":[df objectForKey:@"uid"],@"job_id":job_id,@"token":tokenStr};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/getPosition",base_Url] param:param succ:succ fail:fail resp:resp];
 }
+
 /*轮播图**/
 +(AFRequestState*)CarouselFigureRequestWithSucc:(void(^)(NSDictionary *arr))succ withfail:(void(^)(int errCode, NSError *err))fail
 {

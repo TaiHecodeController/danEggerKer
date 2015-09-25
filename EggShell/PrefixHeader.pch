@@ -47,7 +47,7 @@
 
 
 #define base_Url @"http://ceshi.tiahel.com/eggker/interface/index.php/"
-//#define base_Url @"http://195.198.1.120/eggker/interface/index.php/"
+//#define base_Url @"http://195.198.1.211/eggker/interface/index.php/"
 
 #define WIDETH  [UIScreen mainScreen].bounds.size.width
 #define HEIGHT   [UIScreen mainScreen].bounds.size.height

@@ -47,7 +47,7 @@
     
     [self keyBoard];
     //初始化保利视频
-        [self initPloyVideo];
+    [self initPloyVideo];
     // 要使用百度地图，请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc]init];
     BOOL ret = [_mapManager start:@"VETGQ5nQXBXtGt0VHhIetQuh" generalDelegate:self];
@@ -78,6 +78,7 @@
     {
         NSLog(@"已登陆");
     }
+
     //设置定位精确度，默认：kCLLocationAccuracyBest
     [BMKLocationService setLocationDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
     //指定最小距离更新(米)，默认：kCLDistanceFilterNone
