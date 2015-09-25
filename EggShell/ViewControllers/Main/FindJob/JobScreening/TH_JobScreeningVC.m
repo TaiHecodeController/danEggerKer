@@ -25,6 +25,7 @@
 /*类别的选择**/
 @property(nonatomic,strong)NSDictionary * categaryDic;
 @property (nonatomic, strong)UITextField *keywordTextfield;
+@property(nonatomic,strong)UITextField * contenLable;
 @end
 
 @implementation TH_JobScreeningVC
@@ -152,6 +153,7 @@
     lineView.backgroundColor = UIColorFromRGB(0xDDDDDD);
     [bgView addSubview:lineView];
     [bgView addSubview:contenLable];
+    self.contenLable = contenLable;
     contenLable.delegate = self;
     
     _keywordTextfield = contenLable;
@@ -370,6 +372,9 @@
 - (void)clearKeyWord
 {
     _keywordTextfield.text = @"";
+    self.contenLable.placeholder = @"";
+    [_keywordTextfield becomeFirstResponder];
+    
 }
 
 #pragma mark -- SearchCityDelegate
@@ -389,7 +394,6 @@
     
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

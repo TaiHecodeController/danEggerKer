@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -541,20 +542,20 @@
                             <rect key="frame" x="0.0" y="41" width="320" height="0.5"/>
                             <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="0.5" id="ECM-oa-LVN"/>
+                                <constraint firstAttribute="height" constant="0.5" id="mez-rM-asP"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTk-VN-ekl">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="0.5"/>
                             <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="0.40000000000000002" id="Z5L-rS-6Ck"/>
+                                <constraint firstAttribute="height" constant="0.5" id="Ypx-h2-HlY"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltt-z5-6v9">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="42" id="7qG-Fy-Fgx"/>
+                                <constraint firstAttribute="height" constant="42" id="aTo-tI-KCX"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <state key="normal" title="退出登录">
@@ -568,16 +569,16 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="TTk-VN-ekl" firstAttribute="leading" secondItem="d0F-7p-Hfz" secondAttribute="leading" id="Apq-CY-Xbz"/>
-                        <constraint firstItem="TTk-VN-ekl" firstAttribute="top" secondItem="d0F-7p-Hfz" secondAttribute="top" id="Ecg-Wf-u6a"/>
-                        <constraint firstItem="f8i-si-QHa" firstAttribute="leading" secondItem="d0F-7p-Hfz" secondAttribute="leading" id="GWJ-GE-Y9c"/>
-                        <constraint firstItem="Ltt-z5-6v9" firstAttribute="top" secondItem="d0F-7p-Hfz" secondAttribute="top" id="KIm-Ur-LNr"/>
-                        <constraint firstAttribute="trailing" secondItem="Ltt-z5-6v9" secondAttribute="trailing" id="dQq-9c-LWm"/>
-                        <constraint firstAttribute="trailing" secondItem="f8i-si-QHa" secondAttribute="trailing" id="fSa-wM-XAq"/>
-                        <constraint firstAttribute="height" constant="42" id="hbP-nA-20n"/>
-                        <constraint firstItem="Ltt-z5-6v9" firstAttribute="leading" secondItem="d0F-7p-Hfz" secondAttribute="leading" id="led-Oo-qZX"/>
-                        <constraint firstItem="f8i-si-QHa" firstAttribute="top" secondItem="TTk-VN-ekl" secondAttribute="bottom" constant="41" id="orH-BR-66T"/>
-                        <constraint firstAttribute="trailing" secondItem="TTk-VN-ekl" secondAttribute="trailing" id="zdS-gr-Gb9"/>
+                        <constraint firstAttribute="height" constant="42" id="8gJ-Cn-Aml"/>
+                        <constraint firstAttribute="trailing" secondItem="Ltt-z5-6v9" secondAttribute="trailing" id="Sez-J3-Xjy"/>
+                        <constraint firstItem="TTk-VN-ekl" firstAttribute="top" secondItem="d0F-7p-Hfz" secondAttribute="top" id="VZS-V3-SxC"/>
+                        <constraint firstItem="TTk-VN-ekl" firstAttribute="leading" secondItem="d0F-7p-Hfz" secondAttribute="leading" id="auo-Cc-r8m"/>
+                        <constraint firstItem="Ltt-z5-6v9" firstAttribute="top" secondItem="d0F-7p-Hfz" secondAttribute="top" id="d8O-cM-R3n"/>
+                        <constraint firstAttribute="trailing" secondItem="f8i-si-QHa" secondAttribute="trailing" id="tsy-w3-Jq6"/>
+                        <constraint firstItem="Ltt-z5-6v9" firstAttribute="leading" secondItem="d0F-7p-Hfz" secondAttribute="leading" id="v9S-kt-yMX"/>
+                        <constraint firstItem="f8i-si-QHa" firstAttribute="leading" secondItem="d0F-7p-Hfz" secondAttribute="leading" id="vQO-I7-YWY"/>
+                        <constraint firstAttribute="bottom" secondItem="f8i-si-QHa" secondAttribute="bottom" constant="0.5" id="vsk-tu-MkE"/>
+                        <constraint firstAttribute="trailing" secondItem="TTk-VN-ekl" secondAttribute="trailing" id="yfR-x7-9UT"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M18-In-Pd0">
@@ -623,20 +624,20 @@
             <constraints>
                 <constraint firstItem="Mgx-3U-4Co" firstAttribute="top" secondItem="Wyt-eJ-KOw" secondAttribute="bottom" id="1y5-Zb-I6J"/>
                 <constraint firstAttribute="trailing" secondItem="fUq-M4-FyE" secondAttribute="trailing" id="3mR-0s-2vf"/>
+                <constraint firstItem="d0F-7p-Hfz" firstAttribute="top" secondItem="fUq-M4-FyE" secondAttribute="bottom" id="Agc-W9-jbc"/>
                 <constraint firstItem="fUq-M4-FyE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CwZ-dq-WD5"/>
                 <constraint firstItem="Mgx-3U-4Co" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FiX-fI-iSs"/>
                 <constraint firstAttribute="trailing" secondItem="Coz-98-Byh" secondAttribute="trailing" id="GQa-OD-Kgz"/>
                 <constraint firstItem="fUq-M4-FyE" firstAttribute="top" secondItem="Coz-98-Byh" secondAttribute="bottom" id="Gif-gp-2bT"/>
                 <constraint firstAttribute="trailing" secondItem="Wyt-eJ-KOw" secondAttribute="trailing" id="K56-mo-DsA"/>
-                <constraint firstAttribute="trailing" secondItem="d0F-7p-Hfz" secondAttribute="trailing" id="MtU-cp-1Hz"/>
                 <constraint firstAttribute="trailing" secondItem="M18-In-Pd0" secondAttribute="trailing" id="OTF-HU-vfd"/>
                 <constraint firstItem="Coz-98-Byh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ru5-hf-pR0"/>
                 <constraint firstItem="M18-In-Pd0" firstAttribute="top" secondItem="Mgx-3U-4Co" secondAttribute="bottom" id="TNx-Io-TMQ"/>
-                <constraint firstItem="d0F-7p-Hfz" firstAttribute="top" secondItem="fUq-M4-FyE" secondAttribute="bottom" id="ThG-8O-y9r"/>
                 <constraint firstItem="M18-In-Pd0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZH7-rc-xdD"/>
                 <constraint firstItem="Coz-98-Byh" firstAttribute="top" secondItem="M18-In-Pd0" secondAttribute="bottom" id="a2l-Ap-JKR"/>
                 <constraint firstAttribute="trailing" secondItem="Mgx-3U-4Co" secondAttribute="trailing" id="fNj-IV-tIQ"/>
-                <constraint firstItem="d0F-7p-Hfz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gVT-Ka-Bnb"/>
+                <constraint firstItem="d0F-7p-Hfz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="frF-ep-u8v"/>
+                <constraint firstAttribute="trailing" secondItem="d0F-7p-Hfz" secondAttribute="trailing" id="n3k-Eo-h6Z"/>
                 <constraint firstItem="Wyt-eJ-KOw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="r2G-Mt-H9W"/>
                 <constraint firstItem="Wyt-eJ-KOw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rCc-7m-2Kd"/>
             </constraints>

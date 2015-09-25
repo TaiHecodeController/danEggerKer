@@ -99,7 +99,7 @@
 {
     NSLog(@"didUpdateUserLocation lat %0.2f,long %0.2f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     _longitude = userLocation.location.coordinate.longitude;
-    _latitude = userLocation.location.coordinate.latitude;
+    _latitude  = userLocation.location.coordinate.latitude;
     
 }
 #pragma mark -- 键盘收回处理
