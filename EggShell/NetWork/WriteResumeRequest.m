@@ -72,6 +72,7 @@
 +(AFRequestState *)uploadCertificateWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_cert",base_Url] param:param succ:succ];
+    
 }
 //自我评价
 +(AFRequestState *)uploadSelfEvaluationWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param

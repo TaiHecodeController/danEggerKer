@@ -155,7 +155,7 @@
     
         [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5
               initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-                  minVew.frame = CGRectMake(0, 0, WIDETH, 440);
+                  minVew.frame = CGRectMake(0, 0, WIDETH, 490);
               } completion:nil];
         self.scro.contentSize = CGSizeMake(WIDETH,450+60);
     
@@ -165,8 +165,7 @@
 //              minVew.frame = CGRectMake(0, 0, WIDETH, 490);
           } completion:nil];
     self.scro.contentSize = CGSizeMake(WIDETH,450+110);
-    
-    
+
 }
 #pragma mark-- homeView delegate
 -(void)homeView:(MineVeiw *)mineView DidClickButton:(THMineViewButtonType)button
@@ -313,7 +312,7 @@
             NSLog(@"skdfjbc");
             
             if (![AppDelegate instance].doubleUpdateVersion>[AppDelegate instance].doubleCurrentVersion) {
-//                [MBProgressHUD creatembHub:@"暂无新版本"];
+//              [MBProgressHUD creatembHub:@"暂无新版本"];
             }else
             {
             VersionUpdateView * view =[[[NSBundle mainBundle] loadNibNamed:@"VersionUpdate" owner:self options:nil] lastObject];

@@ -51,6 +51,8 @@
 }
 
 - (IBAction)mineViewBtnClick:(UIButton*)sender {
+    
+    
     if ([self.mineDelegate respondsToSelector:@selector(homeView:DidClickButton:)]) {
     [self.mineDelegate homeView:self DidClickButton:(THMineViewButtonType)sender.tag];
         NSLog(@"sjdhfbg");

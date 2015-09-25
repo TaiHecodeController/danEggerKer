@@ -25,6 +25,7 @@
 /*类别的选择**/
 @property(nonatomic,strong)NSDictionary * categaryDic;
 @property (nonatomic, strong)UITextField *keywordTextfield;
+@property(nonatomic,strong)UITextField * contenLable;
 @end
 
 @implementation TH_JobScreeningVC
@@ -152,14 +153,17 @@
     lineView.backgroundColor = UIColorFromRGB(0xDDDDDD);
     [bgView addSubview:lineView];
     [bgView addSubview:contenLable];
+    self.contenLable = contenLable;
     contenLable.delegate = self;
     
     _keywordTextfield = contenLable;
     
 //    [SearchModelShare sharedInstance].keyword;
+
     UIImage *img = [UIImage imageNamed:@"chazi"];
     UIImageView * imageView =[[UIImageView alloc] initWithFrame:CGRectMake(WIDETH-35, 12, img.size.width, img.size.height)];
     imageView.image = img;
+
     [bgView addSubview:imageView];
     bgView.backgroundColor = [UIColor whiteColor];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clearKeyWord)];
@@ -368,6 +372,9 @@
 - (void)clearKeyWord
 {
     _keywordTextfield.text = @"";
+    self.contenLable.placeholder = @"";
+    [_keywordTextfield becomeFirstResponder];
+    
 }
 
 #pragma mark -- SearchCityDelegate
@@ -387,7 +394,6 @@
     
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

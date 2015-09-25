@@ -274,9 +274,9 @@
 		F07F39011B993B7C002531CD /* CommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39001B993B7C002531CD /* CommonFunc.m */; };
 		F07F39051B996F65002531CD /* saveListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39041B996F65002531CD /* saveListModel.m */; };
 		F07F39091B998B62002531CD /* TeacherFCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39081B998B62002531CD /* TeacherFCModel.m */; };
-		F0829B611BB3F6DF00EA8B6F /* chazi.png in Resources */ = {isa = PBXBuildFile; fileRef = F0829B5E1BB3F6DF00EA8B6F /* chazi.png */; settings = {ASSET_TAGS = (); }; };
-		F0829B621BB3F6DF00EA8B6F /* chazi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0829B5F1BB3F6DF00EA8B6F /* chazi@2x.png */; settings = {ASSET_TAGS = (); }; };
-		F0829B631BB3F6DF00EA8B6F /* chazi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0829B601BB3F6DF00EA8B6F /* chazi@3x.png */; settings = {ASSET_TAGS = (); }; };
+		F0829B611BB3F6DF00EA8B6F /* chazi.png in Resources */ = {isa = PBXBuildFile; fileRef = F0829B5E1BB3F6DF00EA8B6F /* chazi.png */; };
+		F0829B621BB3F6DF00EA8B6F /* chazi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0829B5F1BB3F6DF00EA8B6F /* chazi@2x.png */; };
+		F0829B631BB3F6DF00EA8B6F /* chazi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0829B601BB3F6DF00EA8B6F /* chazi@3x.png */; };
 		F083F8211B9C32F700781C08 /* Me_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F083F8201B9C32F700781C08 /* Me_Request.m */; };
 		F0B85A391BA11F83005799F5 /* SearchCity1_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */; };
 		F0B85A3C1BA11F97005799F5 /* SearchCity2_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */; };
@@ -2957,7 +2957,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7d350b64-6fdb-487c-8dc6-a8c6d567ac7b";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -2989,7 +2989,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7d350b64-6fdb-487c-8dc6-a8c6d567ac7b";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
@@ -3011,7 +3011,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7d350b64-6fdb-487c-8dc6-a8c6d567ac7b";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Debug;
@@ -3029,7 +3029,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7d350b64-6fdb-487c-8dc6-a8c6d567ac7b";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Release;

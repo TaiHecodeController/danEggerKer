@@ -29,14 +29,12 @@
     
     //注册友盟统计
     [MobClick startWithAppkey:@"55f24438e0f55aa7af001c3d" reportPolicy:BATCH   channelId:nil];
-    
     NSUserDefaults * versionId = [NSUserDefaults standardUserDefaults];
     [versionId setObject:@"" forKey:@"ver"];
     [versionId synchronize];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
 //   [self checkVersion];
-    
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSNumber *num = [NSNumber numberWithInt:0];
     [df setObject:num forKey:@"citytag"];
@@ -46,6 +44,7 @@
     
     //rk——test
     /*键盘处理**/
+    
     [self keyBoard];
     //初始化保利视频
     [self initPloyVideo];
@@ -59,7 +58,6 @@
     
     [self.window makeKeyAndVisible];
 //    sleep(0);
-
     NSString *key = @"CFBundleVersion";
     NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:kBundleVersion];
     NSString *currentVersion = [NSBundle mainBundle].infoDictionary[kBundleVersion];
@@ -80,7 +78,7 @@
     {
         NSLog(@"已登陆");
     }
-    
+
     //设置定位精确度，默认：kCLLocationAccuracyBest
     [BMKLocationService setLocationDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
     //指定最小距离更新(米)，默认：kCLDistanceFilterNone
@@ -101,7 +99,8 @@
 {
     NSLog(@"didUpdateUserLocation lat %0.2f,long %0.2f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     _longitude = userLocation.location.coordinate.longitude;
-    _latitude = userLocation.location.coordinate.latitude;
+    _latitude  = userLocation.location.coordinate.latitude;
+    
 }
 #pragma mark -- 键盘收回处理
 -(void)keyBoard
@@ -114,9 +113,10 @@
     [[IQKeyboardManager sharedManager] setCanAdjustTextView:YES];
     [[IQKeyboardManager sharedManager] setShouldShowTextFieldPlaceholder:YES];
 
-    IQTitleBarButtonItem * done =[[IQTitleBarButtonItem alloc] initWithFrame:CGRectMake(WIDETH-60, 0, 440, 40) Title:@"完成"];
-        
+//    IQTitleBarButtonItem * done =[[IQTitleBarButtonItem alloc] initWithFrame:CGRectMake(WIDETH-60, 0, 440, 40) Title:@"完成"];
+    
 }
+
 ////版本检测
 //-(void)checkVersion
 //{
@@ -191,7 +191,6 @@
         return UIInterfaceOrientationMaskPortrait;
     }
 }
-
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
