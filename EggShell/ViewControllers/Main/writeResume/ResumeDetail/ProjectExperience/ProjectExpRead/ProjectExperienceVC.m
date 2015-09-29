@@ -54,10 +54,12 @@
     scro.showsVerticalScrollIndicator = NO;
     self.scro = scro;
     [self.view addSubview:scro];
-    for (int i ; i < self.dataArray.count; i++) {
+    for (int i=0 ; i < self.dataArray.count; i++) {
         
     ProjectExpReadView * project =[ProjectExpReadView setProjectExperienceView];
     project.frame = CGRectMake(0, 215*i, WIDETH,215);
+        project.ProjectContentLable.editable = NO;
+        project.ProjectContentLable.showsVerticalScrollIndicator = NO;
     [project configValue:self.dataArray[i]];
     project.resumTitle.text = [NSString stringWithFormat:@"%@-项目经验%d",_resume_model.resumeName,i+1];
     [self.scro addSubview:project];

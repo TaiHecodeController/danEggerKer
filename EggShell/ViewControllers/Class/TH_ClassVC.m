@@ -143,7 +143,7 @@
                      nameLab.text = arr[0][@"video_name"];
                 }
             }
-            iconView.image = [UIImage imageNamed:@"演讲口语语音训练1"];
+            iconView.image = [UIImage imageNamed:@"课程"];
 //            [iconView sd_setImageWithURL:[NSURL URLWithString:arr[0][@"vimage"]] placeholderImage:nil];
            
         }

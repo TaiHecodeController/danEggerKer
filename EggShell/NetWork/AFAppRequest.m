@@ -305,7 +305,6 @@
             return;
         }
         
-        
         id data = [Gson fromObj:[responseObject objectForKey:@"teacher"] Cls:resp];
         
         if(data == nil && resp == [NSNull class])

@@ -46,8 +46,8 @@
 #define NUMBERS @"0123456789\n"
 
 
-//#define base_Url @"http://ceshi.tiahel.com/eggker/interface/index.php/"
-#define base_Url @"http://www.eggker.cn/interface_ios/index.php/"
+#define base_Url @"http://ceshi.tiahel.com/eggker/interface/index.php/"
+//#define base_Url @"http://www.eggker.cn/interface_ios/index.php/"
 
 #define WIDETH  [UIScreen mainScreen].bounds.size.width
 #define HEIGHT   [UIScreen mainScreen].bounds.size.height

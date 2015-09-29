@@ -53,7 +53,7 @@
         workingView.frame = CGRectMake(0, 215*i, WIDETH, 215);
         workingView.resumTitle.text = [NSString stringWithFormat:@"%@-工作经历%d",_resume_model.resumeName,i+1];
         [workingView.descriptionTextView setEditable:NO];
-        workingView.descriptionTextView.userInteractionEnabled = NO;
+        workingView.descriptionTextView.showsVerticalScrollIndicator  = NO;
         workingView.descriptionTextView.scrollEnabled = YES;
         
         [workingView config:self.dataArray[i]];

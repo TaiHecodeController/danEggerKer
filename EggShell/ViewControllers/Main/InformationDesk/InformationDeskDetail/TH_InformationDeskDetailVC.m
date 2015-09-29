@@ -14,6 +14,7 @@
 @property(nonatomic,strong)UIScrollView * scro;
 @property (nonatomic,strong)AFRequestState * state;
 @property (assign) CGSize textSize;
+@property(nonatomic,strong)UILabel * contentLable;
 @end
 
 @implementation TH_InformationDeskDetailVC
@@ -29,6 +30,8 @@
 }
 
 - (void)viewDidLoad {
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     [self createSco];
     [self registerView];
     
@@ -50,36 +53,58 @@
 {
 
     UIScrollView * scro =[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
-    [self.view addSubview:scro];
-    self.scro.showsVerticalScrollIndicator = NO;
     self.scro = scro;
-}
+    self.scro.backgroundColor = [UIColor whiteColor];
+    self.scro.showsVerticalScrollIndicator = NO;
+
+    [self.view addSubview:scro];
+      }
 -(void)registerView
 { infDestDetailView * detail = [[[NSBundle mainBundle] loadNibNamed:@"infDestDetailView" owner:self options:nil] lastObject];
    
-    detail.frame = CGRectMake(0, 0, WIDETH, HEIGHT);
+    detail.frame = CGRectMake(0, 0, WIDETH, 340);
     detail.RouteLable.editable = NO;
-//        detail.contactLable.userInteractionEnabled = NO;
-//    detail.contentLable.scrollEnabled = YES;
+    detail.RouteLable.showsVerticalScrollIndicator = NO;
 
-    detail.contentLable.editable = NO;
-//    detail.contentLable.userInteractionEnabled = NO;
-//    detail.contentLable.scrollEnabled = YES;
+    [self.scro addSubview:detail];
     if (self.detaildic) {
         [detail setValues:self.detaildic];
         
-//         self.textSize = [self.detaildic.content sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
-//        
+         self.textSize = [self.detaildic.content sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+        UILabel * contentLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
+//        contentLable.text =self.detaildic.content;
+        NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[self.detaildic.content dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        contentLable.attributedText = comAttributedString;
+        
+
+        self.contentLable = contentLable;
+        self.contentLable.numberOfLines = 0;
+        self.contentLable.textColor = UIColorFromRGB(0x646464);
+        self.contentLable.font = [UIFont systemFontOfSize:13];
+        [self.scro addSubview:contentLable];
+        
+        
     }if (self.informodel) {
         [detail setValuess:self.informodel];
         
-//         self.textSize = [self.informodel.body sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+         self.textSize = [self.informodel.body sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+        UILabel * contentLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
+        self.contentLable = contentLable;
+        [self.scro addSubview:contentLable];
+        self.contentLable.numberOfLines = 0;
+         self.contentLable.textColor = UIColorFromRGB(0x646464);
+        self.contentLable.font = [UIFont systemFontOfSize:13];
+//        contentLable.text =self.informodel.body;
+        NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[self.informodel.body dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        contentLable.attributedText = comAttributedString;
+
+        
+        
+
     }
     
-    [self.scro addSubview:detail];
     
-    
-//    self.scro.contentSize = CGSizeMake(WIDETH, HEIGHT);
+  self.scro.contentSize = CGSizeMake(WIDETH, 350+self.textSize.height+30);
     
     
 }

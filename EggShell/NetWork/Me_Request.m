@@ -24,11 +24,7 @@
     if ([userId length]==0) {
         userId = @"";
         
-    }
-//    NSDictionary *param = @{@"uid":userId,@"page":nspage,@"limit":nslimit};
-//    return [self postRequestWithUrl:@"http://195.198.1.120/eggker/interface/Position/getPositionlist" param:param succ:succ fail:fail resp:resp];
-//=======
-    
+    }    
     NSDictionary *param = @{@"token":tokenStr, @"uid":userId,@"page":nspage,@"limit":nslimit};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/getPositionlist",base_Url] param:param succ:succ resp:resp];
 

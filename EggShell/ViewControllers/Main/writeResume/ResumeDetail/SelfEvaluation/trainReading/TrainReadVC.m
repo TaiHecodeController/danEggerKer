@@ -53,6 +53,8 @@
     for (int i = 0 ; i < self.dataArray.count; i++) {
     TrainReadView * traiView     = [TrainReadView settrinView];
     traiView.frame = CGRectMake(0, 200*i, WIDETH,200);
+        traiView.trainingContentLable.editable = NO;
+        traiView.trainingContentLable.showsVerticalScrollIndicator = NO;
     [traiView configValue:self.dataArray[i]];
     traiView.trainingContentLable.userInteractionEnabled = NO;
    traiView.nameLable.text = [NSString stringWithFormat:@"%@-培训经历%d",_resume_model.resumeName,i+1];    [self.scro addSubview:traiView];

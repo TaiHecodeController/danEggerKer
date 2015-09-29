@@ -15,8 +15,8 @@
     PolyvSettings *polyvSettings;
 
 }
-@property(nonatomic,assign)int ori_flag;
 @property (strong, nonatomic) UIWindow *window;
+@property(nonatomic,assign)int ori_flag;
 @property(nonatomic,strong)TH_MainTabBarController * mainTabBar;
 @property (strong,nonatomic)NSString * userId;
 @property (strong,nonatomic)NSString * resumeId;

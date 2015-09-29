@@ -53,8 +53,10 @@
 {
 
     CertificateReadView * certific = [CertificateReadView setCertificateReadView];
-    certific.certificContent.userInteractionEnabled = NO;
+   
     [certific configValue:self.dataArray[i]];
+     certific.certificContent.editable = NO;
+    certific.certificContent.showsVerticalScrollIndicator = NO;
     certific.resumNameTitle.text = [NSString stringWithFormat:@"%@-证书%d",_resume_model.resumeName,i+1];
     certific.frame = CGRectMake(0, 200*i, WIDETH, 200);
     [self.scro addSubview:certific];

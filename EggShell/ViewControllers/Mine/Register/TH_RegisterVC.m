@@ -176,7 +176,7 @@
 #pragma mark -- 获取验证码
 -(void)securityCodeBtnClick:(UIButton *)sender
 {
-     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    
     if ([self.phoneTextField.text length]==0) {
         [MBProgressHUD creatembHub:@"电话号码为空"];
         return;
@@ -188,7 +188,8 @@
     [[LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
         
         NSLog(@"获取验证码");
-    } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCode:@""] addNotifaction:hub];
+    } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCode:@""] addNotifaction:[MBProgressHUD mbHubShow]];
+   
     [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后重发",(long)self.count] forState:UIControlStateNormal];
     self.securityCodeBtn.userInteractionEnabled = NO;
     self.securityCodeBtn.alpha = 0.5;

@@ -27,11 +27,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    //注册友盟统计
-    [MobClick startWithAppkey:@"55f24438e0f55aa7af001c3d" reportPolicy:BATCH   channelId:nil];
-    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
+        //注册友盟统计
+    [MobClick startWithAppkey:@"55f24438e0f55aa7af001c3d" reportPolicy:BATCH   channelId:nil];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSNumber *num = [NSNumber numberWithInt:0];
     [df setObject:num forKey:@"citytag"];
@@ -50,7 +49,7 @@
         NSLog(@"配置成功");
     }
     
-    [self.window makeKeyAndVisible];
+    
 //    sleep(0);
     NSString *key = @"CFBundleVersion";
     NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:kBundleVersion];
@@ -58,14 +57,18 @@
     
     if ([currentVersion isEqualToString:lastVersion])
     {
-        self.mainTabBar = [[TH_MainTabBarController alloc] init];
+        
+        
+    self.mainTabBar = [[TH_MainTabBarController alloc] init];
+        
         self.window.rootViewController = self.mainTabBar;
         
     }else
     {
-        self.window.rootViewController = [[TH_featureVC alloc] init];
         [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        self.window.rootViewController = [[TH_featureVC alloc] init];
+        
     }
     self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
     if(self.userId)
@@ -85,6 +88,8 @@
     [_locService startUserLocationService];
     /*键盘处理**/
     [self keyBoard];
+    [self.window makeKeyAndVisible];
+
     return YES;
     
 }

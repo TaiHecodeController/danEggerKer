@@ -88,7 +88,9 @@
 - (IBAction)createNewResume:(UIButton *)sender {
     if(self.dataArray.count  < 5)
     {
-        
+        WriteResumeViewController * write = [[WriteResumeViewController alloc] init];
+        write.isEdit = NO;
+        [self.navigationController pushViewController:write animated:YES];
     }
     else
     {
@@ -96,9 +98,7 @@
         [MBProgressHUD creatembHub:@"当前只能创建五份简历"];
         return;
     }
-    WriteResumeViewController * write = [[WriteResumeViewController alloc] init];
-    write.isEdit = NO;
-    [self.navigationController pushViewController:write animated:YES];
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -145,11 +145,11 @@
             }
         }
     };
-//    if(indexPath.row == 0)
-//    {
-//        cell.iSSelect.selected = YES;
-//        _varCell = cell;
-//    }
+    if(indexPath.row == 0)
+    {
+        cell.iSSelect.selected = YES;
+        _varCell = cell;
+    }
     [self.cellArray addObject:cell];
     return cell;
 }

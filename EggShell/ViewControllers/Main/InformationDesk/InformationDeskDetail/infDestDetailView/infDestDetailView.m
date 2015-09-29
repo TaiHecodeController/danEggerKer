@@ -20,9 +20,9 @@
     self.MeetingPlaceLable.text = model.address;
 //    self.contentLable.text = model.content;
     
-    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[model.content dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-    self.contentLable.attributedText = comAttributedString;
-
+//    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[model.content dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+//    self.contentLable.attributedText = comAttributedString;
+//
 [self.logoImage sd_setImageWithURL:[NSURL URLWithString:model.logo] placeholderImage:[UIImage imageNamed:@"tu001"]];
 }
 -(void)setValuess:(informantionModel*)model
@@ -33,9 +33,9 @@
     self.contactPesonLable.text = model.user;
     self.RouteLable.text = model.traffic;
     self.MeetingPlaceLable.text = model.address;
-    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[model.body dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-    self.contentLable.attributedText = comAttributedString;
-
+//    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[model.body dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+//    self.contentLable.attributedText = comAttributedString;
+//
    [self.logoImage sd_setImageWithURL:[NSURL URLWithString:model.logo] placeholderImage:[UIImage imageNamed:@"tu001"]];
 }
 @end

@@ -81,7 +81,7 @@
     [bgView addSubview:self.contentTextField];
     /*显示隐藏内容**/
     UILabel * placeHoderTextLable =[[UILabel alloc] initWithFrame:CGRectMake(10, 10, WIDETH - 121, 30)];
-    placeHoderTextLable.text = @"请填写培训内容";
+    placeHoderTextLable.text = @"请填写评价内容";
     placeHoderTextLable.textColor = color(203, 203, 203);
     self.placeHoderTextLable = placeHoderTextLable;
     [self.contentTextField addSubview:placeHoderTextLable];
@@ -117,6 +117,7 @@
     NSString * tokenStr = [df objectForKey:@"md5_token"];
     [[WriteResumeRequest uploadSelfEvaluationWithSucc:^(NSDictionary *dataDic) {
         [MBProgressHUD creatembHub:@"保存成功"];
+        [self.navigationController popViewControllerAnimated:YES];
     } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"content":_model.content}] addNotifaction:hub];
     
 }

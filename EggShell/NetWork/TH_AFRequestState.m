@@ -148,6 +148,7 @@
 +(AFRequestState*)CarouselFigureRequestWithSucc:(void(^)(NSDictionary *arr))succ withfail:(void(^)(int errCode, NSError *err))fail
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@lunbo",base_Url] param:nil succ:succ fail:fail];
+    
 }
 /*信息台**/
 +(AFRequestState*)InformationDeskRequestWithSucc:(void(^)(NSArray * arr))succ  resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type;

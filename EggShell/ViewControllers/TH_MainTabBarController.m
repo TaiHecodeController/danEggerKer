@@ -23,8 +23,6 @@
     [self createViewcontrollers];
     [self createTabBarItems];
 
-    
-    // Do any additional setup after loading the view.
 }
 
 -(void)createViewcontrollers
@@ -42,7 +40,6 @@
     THCustomNavigationController * nc4 = [[THCustomNavigationController alloc] initWithRootViewController:mine_vc];
     
     self.viewControllers = @[nc1,nc2,nc3,nc4];
-    [self createTabBarItems];
     
 }
 
@@ -68,15 +65,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -51,9 +51,9 @@
 @property (nonatomic,strong)AFRequestState * state;
 @property(nonatomic,strong)NSDictionary * dataDic;
 @property(nonatomic,strong)NSArray *imageArr;
-@property(nonatomic,assign)NSString * str1;
-@property(nonatomic,assign)NSString * str2;
-@property(nonatomic,assign)NSString * str3;
+@property(nonatomic,copy)NSString * str1;
+@property(nonatomic,copy)NSString * str2;
+@property(nonatomic,copy)NSString * str3;
 @property(nonatomic,strong)AFRequestState * enterState;
 @property(nonatomic,strong)NSArray * enterArray;
 @property(nonatomic,strong)HomeView * homeView;
@@ -95,17 +95,7 @@
     [self createHomeView];
     //名企推荐
     [self loadData];
-//    [self ll ];
-    
-    //    NSUserDefaults * versionId = [NSUserDefaults standardUserDefaults];
-    //    NSString * str = [versionId objectForKey:@"ver"];
-    //    if ([str isEqualToString:@""]) {
-    //        [self versionNew];
-    //        [versionId setObject:@"dd" forKey:@"ver"];
-    //
-    //
-    //        [versionId synchronize];
-    //    }
+
     
     
 }
@@ -135,18 +125,6 @@
     [view showVersonView];
     
 }
--(void)ll
-
-{
-    [self.homeView.first setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
-    [self.homeView.second setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
-    [self.homeView.three setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
-    [self.homeView.fourth  setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
-    [self.homeView.five  setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
-    [self.homeView.six  setButtonImageWithUrl:@"http://s13.mogujie.cn/b7/bao/131012/vud8_kqywordekfbgo2dwgfjeg5sckzsew_310x426.jpg_200x999.jpg"];
-    
-    
-}
 #pragma mark - - 搜素
 -(void)createSearch
 {
@@ -157,10 +135,11 @@
     _searchView.searchTextField.enabled = NO;
     [_searchView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
     
+    __weak typeof(self) weakSelf = self;
     _searchView.searchClick = ^
     {
-        self.navigationController.navigationBarHidden = NO;
-        [self.navigationController pushViewController:[[SearchJobVC alloc] init] animated:YES];
+        weakSelf.navigationController.navigationBarHidden = NO;
+        [weakSelf.navigationController pushViewController:[[SearchJobVC alloc] init] animated:YES];
     };
     _searChBgView = [[UIView alloc] initWithFrame:_searchView.bounds];
     _searChBgView.backgroundColor = [UIColor colorWithRed:40 / 255.0 green:42 / 255.0 blue:48 / 255.0 alpha:1];
@@ -758,14 +737,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

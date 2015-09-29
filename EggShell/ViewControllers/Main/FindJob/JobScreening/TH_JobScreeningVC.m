@@ -143,7 +143,7 @@
 //    lineView.backgroundColor = UIColorFromRGB(0xDDDDDD);
 //    [bgView addSubview:lineView];
 //    [bgView addSubview:contenLable];
-    UITextField * contenLable =[[UITextField alloc] initWithFrame:CGRectMake(100, 15, WIDETH-165, 26)];
+    UITextField * contenLable =[[UITextField alloc] initWithFrame:CGRectMake(100, 8, WIDETH-165, 26)];
 //    contenLable.text = [SearchModelShare sharedInstance].keyword;
     contenLable.font =[UIFont systemFontOfSize:13];
     contenLable.placeholder = @"输入关键字，例:工程师";
@@ -161,7 +161,7 @@
 //    [SearchModelShare sharedInstance].keyword;
 
     UIImage *img = [UIImage imageNamed:@"chazi"];
-    UIImageView * imageView =[[UIImageView alloc] initWithFrame:CGRectMake(WIDETH-35, 12, img.size.width, img.size.height)];
+    UIImageView * imageView =[[UIImageView alloc] initWithFrame:CGRectMake(WIDETH-35, 8, img.size.width, img.size.height)];
     imageView.image = img;
 
     [bgView addSubview:imageView];

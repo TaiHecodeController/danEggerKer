@@ -90,12 +90,12 @@
     
     self.comPanyView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 355)];
     self.comPanyView.backgroundColor = [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:241 / 255.0 alpha:1];
-    UIView * logoBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 140)];
+    UIView * logoBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 80)];
 //    logoBackView.backgroundColor = [UIColor redColor];
     [self.comPanyView addSubview:logoBackView];
     
     //上部logo
-    UIImageView * logoView = [[UIImageView alloc] initWithFrame:CGRectMake(WIDETH / 2 - 50,20, 100, 30)];
+    UIImageView * logoView = [[UIImageView alloc] initWithFrame:CGRectMake((WIDETH -150)/ 2.0 ,15, 150, 50)];
     logoView.image = [UIImage imageNamed:@"logomorentu"];
     self.logoView = logoView;
     [logoBackView addSubview:logoView];
@@ -119,10 +119,10 @@
                 record_SelfView = self.CMview.frame;
                 record_ShowAll = self.CMview.showAllBtn.frame;
                 record_headerView = self.comPanyView.frame;
-                self.CMview.frame = CGRectMake(0, self.CMview.frame.origin.y, WIDETH, self.CMview.frame.size.height + self.CMview.textSize.height -180);
-                self.comPanyView.frame = CGRectMake(0, self.comPanyView.origin.y, WIDETH, self.comPanyView.height + self.CMview.textSize.height - 180);
+                self.CMview.frame = CGRectMake(0, self.CMview.frame.origin.y, WIDETH, self.CMview.frame.size.height + self.CMview.textSize.height -160);
+                self.comPanyView.frame = CGRectMake(0, self.comPanyView.origin.y, WIDETH, self.comPanyView.height + self.CMview.textSize.height - 160);
                 
-                self.CMview.showAllBtn.frame = CGRectMake(self.CMview.showAllBtn.origin.x,self.CMview.frame.size.height - 33 , 100, 30);
+                self.CMview.showAllBtn.frame = CGRectMake(self.CMview.showAllBtn.origin.x,self.CMview.frame.size.height - 38 , 100, 30);
                 self.CMview.companyMessage.frame = CGRectMake(self.CMview.companyMessage.origin.x, self.CMview.companyMessage.origin.y , self.CMview.companyMessage.frame.size.width, self.CMview.textSize.height-60);
                 self.CMview.companyMessage.numberOfLines = 0;
                 _tableView.tableHeaderView = self.comPanyView;

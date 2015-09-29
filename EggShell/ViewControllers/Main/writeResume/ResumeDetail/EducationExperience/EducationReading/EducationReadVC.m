@@ -52,7 +52,8 @@
     for (int i = 0; i < self.dataArray.count; i++) {
     EducationReadingView   * education = [EducationReadingView setView];
     education.frame = CGRectMake(0, 215*i, WIDETH,215);
-    education.userInteractionEnabled = NO;
+    education.contentTextView.editable = NO;
+        education.contentTextView.showsVerticalScrollIndicator= NO;
     [education config:self.dataArray[i]];
     education.ResumeTitle.text = [NSString stringWithFormat:@"%@-教育经历%d",_resume_model.resumeName,i+1];
     [self.scro addSubview:education];

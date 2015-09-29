@@ -21,8 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setContent];
-    // Do any additional setup after loading the view, typically from a nib.
-}
+    }
 - (void)setContent
 {
     UIScrollView *scrollView = [[UIScrollView alloc] init];
@@ -34,8 +33,8 @@
     scrollView.delegate = self;
     scrollView.bounces = NO;
     scrollView.delegate = self;
-    [self.view addSubview:scrollView];
     self.scrollView = scrollView;
+    [self.view addSubview:scrollView];
     
     CGFloat scrollW = scrollView.width;
     CGFloat scrollH = scrollView.height;
@@ -113,10 +112,10 @@
 }
 - (void)startClick
 {
-    TH_MainTabBarController * mainTabBar = [[TH_MainTabBarController alloc] init];
-    
-    [UIApplication sharedApplication].keyWindow.rootViewController = mainTabBar;
-    
+    //    TH_MainTabBarController * mainTabBar = [[TH_MainTabBarController alloc] init];
+    AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
+    [UIApplication sharedApplication].keyWindow.rootViewController = appDelegate.mainTabBar;
     
 }
 #pragma mark -UIScrollViewDelegate

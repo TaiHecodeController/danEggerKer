@@ -95,7 +95,8 @@
         CGFloat workingY = y + i * gH;
         WorkExperienceView * working = [WorkExperienceView setWorkExperienceView];
         [working configVulue:self.dataDic[@"work"] withArrIndex:i];
-        working.workContent.userInteractionEnabled = NO;
+        working.workContent.editable = NO;
+        working.workContent.showsVerticalScrollIndicator = NO;
         working.frame = CGRectMake(0, workingY, WIDETH, gH);
         [self.scro  addSubview: working];
     }
@@ -108,7 +109,8 @@
         CGFloat educationY = y + i * jH;
         EducationExperienceView * education  = [EducationExperienceView setEducationExperienceView];
         education.frame = CGRectMake(0, educationY, WIDETH, jH);
-        education.departmentIntroduce.userInteractionEnabled = NO;
+        education.departmentIntroduce.editable = NO;
+        education.departmentIntroduce.showsVerticalScrollIndicator = NO;
         [education configVulue:self.dataDic[@"jy"] withArrIndex:i];
         [self.scro addSubview:education];
         
@@ -122,6 +124,7 @@
         
         CGFloat professionalSkillViewY = y + i*zH;
         professionalSkillView * skill = [professionalSkillView setprofessionalSkillView];
+        
         [skill conFigValue:self.dataDic[@"skill"] withArrIndex:i];
         skill.frame = CGRectMake(0, professionalSkillViewY, WIDETH, zH);
         [self.scro addSubview:skill];
@@ -135,7 +138,8 @@
         CGFloat projectY = y + i * xH;
         ProjectExperienceView * project =[ProjectExperienceView setProjectExperienceView];
         project.frame = CGRectMake(0, projectY, WIDETH, xH);
-        project.proIntroduce.userInteractionEnabled = NO;
+        project.proIntroduce.editable = NO;
+        project.proIntroduce.showsVerticalScrollIndicator = NO;
         [project configValue:self.dataDic[@"project"] withArrIndex:i];
         [self.scro addSubview:project];
     }
@@ -147,7 +151,8 @@
     {
         CGFloat certificY = y + i * ZSh;
         CertificateView * certific = [CertificateView setCertificateView];
-        certific.certificateIntroduce.userInteractionEnabled = NO;
+        certific.certificateIntroduce.editable = NO;
+        certific.certificateIntroduce.showsVerticalScrollIndicator = NO;
         [certific configValue:self.dataDic[@"cert"] withArrIndex:i];
         certific.frame = CGRectMake(0, certificY, WIDETH, ZSh);
         [self.scro addSubview:certific];
@@ -161,7 +166,8 @@
         CGFloat trainY = y + i * Ph;
         trainingExperienceView * train = [trainingExperienceView settrainingExperienceView];
         train.frame = CGRectMake(0,trainY, WIDETH, Ph);
-        train.trainIntroduce.userInteractionEnabled = NO;
+        train.trainIntroduce.editable = NO;
+        train.trainIntroduce.showsVerticalScrollIndicator = NO;
         [train configValue:self.dataDic[@"training"] withArrIndex:i];
         [self.scro addSubview:train];
     }
@@ -172,7 +178,8 @@
     SelfEvaluationView * selfevaluat =[SelfEvaluationView setSelfEvaluationView];
 //    selfevaluat.frame = CGRectMake(0, 810+135+205+200+200, WIDETH, 100);
     selfevaluat.frame = CGRectMake(0, y, WIDETH, ZWH);
-    selfevaluat.selfEvaluation.userInteractionEnabled = NO;
+    selfevaluat.selfEvaluation.editable = NO;
+    selfevaluat.selfEvaluation.showsVerticalScrollIndicator = NO;
     [selfevaluat configValue:self.dataDic[@"other"]];
     [self.scro addSubview:selfevaluat];
     
