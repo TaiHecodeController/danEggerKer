@@ -492,7 +492,7 @@
         case THHomeViewButtonTypeEstate:
         {NSLog(@"3..6");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"创业专员";
+            home.title = @"创意专员";
             [SearchModelShare sharedInstance].job_post = @"507";
             [self.navigationController pushViewController:home animated:YES];
             

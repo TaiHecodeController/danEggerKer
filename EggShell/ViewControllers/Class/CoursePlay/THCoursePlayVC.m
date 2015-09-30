@@ -187,6 +187,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 //    _searchBtn = searchBtn;
     //    [MobClick beginLogPageView:@"视频播放"];
     
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -444,6 +445,7 @@ typedef NS_ENUM(NSInteger, GestureType){
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
      playListModel *plModel = self.videoListArr[indexPath.row];
     
      _titleLable.text = plModel.video_name;

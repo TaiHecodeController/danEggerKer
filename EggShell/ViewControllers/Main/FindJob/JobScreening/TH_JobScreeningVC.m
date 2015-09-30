@@ -158,7 +158,7 @@
     
     _keywordTextfield = contenLable;
     
-//    [SearchModelShare sharedInstance].keyword;
+//  [SearchModelShare sharedInstance].keyword;
 
     UIImage *img = [UIImage imageNamed:@"chazi"];
     UIImageView * imageView =[[UIImageView alloc] initWithFrame:CGRectMake(WIDETH-35, 8, img.size.width, img.size.height)];
@@ -390,7 +390,7 @@
 /*查询**/
 -(void)inqireClick
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"TJsearch" object:nil];;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TJsearch" object:nil];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -403,7 +403,6 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     [SearchModelShare sharedInstance].keyword = textField.text;
-   
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

@@ -51,7 +51,7 @@
                 <outlet property="logoImage" destination="MT4-Y9-2h6" id="4OC-5L-IIt"/>
                 <outlet property="titleLable" destination="cml-Tl-IHI" id="HZG-LV-Epg"/>
             </connections>
-            <point key="canvasLocation" x="197" y="152"/>
+            <point key="canvasLocation" x="23" y="168"/>
         </tableViewCell>
     </objects>
     <resources>

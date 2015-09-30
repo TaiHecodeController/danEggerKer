@@ -81,7 +81,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2018年：至今" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9G0-2e-9jd">
-                            <rect key="frame" x="80" y="38" width="150" height="13"/>
+                            <rect key="frame" x="80" y="38" width="232" height="13"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -178,7 +178,7 @@
                 <outlet property="resumTitle" destination="f3z-ev-HWw" id="UAd-CG-rMN"/>
                 <outlet property="selectBtn" destination="AeE-fb-otj" id="Bdi-Tk-nCA"/>
             </connections>
-            <point key="canvasLocation" x="382" y="213"/>
+            <point key="canvasLocation" x="382" y="212.5"/>
         </view>
     </objects>
     <resources>

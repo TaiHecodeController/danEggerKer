@@ -31,7 +31,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2015-02-09 至今" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-J3-4ok">
-                            <rect key="frame" x="80" y="38" width="150" height="13"/>
+                            <rect key="frame" x="80" y="38" width="240" height="13"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -179,7 +179,7 @@
                 <outlet property="positionLab" destination="mdh-P8-Xfo" id="mLS-4b-PAJ"/>
                 <outlet property="timeLab" destination="dYD-J3-4ok" id="wQ9-oQ-gdg"/>
             </connections>
-            <point key="canvasLocation" x="410" y="292"/>
+            <point key="canvasLocation" x="410" y="291.5"/>
         </view>
     </objects>
     <resources>
