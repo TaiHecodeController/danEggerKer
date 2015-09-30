@@ -13,7 +13,6 @@
 - (void)chooseWord3_SearchCity:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id;
 
 @end
-
 @interface SearchCity3_ViewController : UIViewController
 
 @property(nonatomic,copy)NSString * titleText;

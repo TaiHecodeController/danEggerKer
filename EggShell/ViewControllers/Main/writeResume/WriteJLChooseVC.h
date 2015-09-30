@@ -21,6 +21,6 @@
 @property (nonatomic, strong) NSIndexPath *cellIndex;
 @property (nonatomic, assign) NSInteger tableViewTagIndex;
 @property (nonatomic, weak) id<writeJLChooseVCDelegate>delegete;
-@property(nonatomic,strong)NSArray * DataArray;
+@property(nonatomic,strong)NSMutableArray * DataArray;
 
 @end

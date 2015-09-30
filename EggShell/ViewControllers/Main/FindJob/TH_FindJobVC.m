@@ -191,7 +191,7 @@
     //工作性质
     [SearchModelShare sharedInstance].type = @"";
 //    [SearchModelShare sharedInstance].job1 = @"";
-    [SearchModelShare sharedInstance].keyword = @"";
+//   [SearchModelShare sharedInstance].keyword = @"";
     
     //全城回调
     if ([SearchModelShare sharedInstance].longitude.length == 0)

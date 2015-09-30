@@ -155,11 +155,11 @@
     [bgView addSubview:contenLable];
     self.contenLable = contenLable;
     contenLable.delegate = self;
-    
     _keywordTextfield = contenLable;
     
-//  [SearchModelShare sharedInstance].keyword;
-
+ 
+    
+    
     UIImage *img = [UIImage imageNamed:@"chazi"];
     UIImageView * imageView =[[UIImageView alloc] initWithFrame:CGRectMake(WIDETH-35, 8, img.size.width, img.size.height)];
     imageView.image = img;
@@ -244,6 +244,19 @@
             _writeJLChooseVC.cellIndex = indexPath;
             _writeJLChooseVC.tableViewTagIndex = 1555;
             _writeJLChooseVC.DataArray = self.categaryDic[@"three_cityid"];
+            
+            _writeJLChooseVC.DataArray = [NSMutableArray arrayWithCapacity:0];
+            
+            NSNumber *  keyid = [NSNumber numberWithInt:52];
+            NSDictionary * dic = @{@"name":@"全城",@"keyid":keyid};
+            [_writeJLChooseVC.DataArray addObject:dic];
+            for (int i = 0; i < [self.categaryDic[@"three_cityid"]count]; i++) {
+                
+                [_writeJLChooseVC.DataArray addObject:self.categaryDic[@"three_cityid"][i]];
+            }
+            
+            
+            
             [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
             break;
         }
@@ -390,6 +403,10 @@
 /*查询**/
 -(void)inqireClick
 {
+    [SearchModelShare sharedInstance].keyword = _keywordTextfield.text;
+    
+    
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TJsearch" object:nil];
     
     [self.navigationController popViewControllerAnimated:YES];
