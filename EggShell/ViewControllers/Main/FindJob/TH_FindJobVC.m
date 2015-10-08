@@ -713,11 +713,11 @@
             //errCode = 2, 全部都投递过了
             if (errCode == 1)
             {
-                [MBProgressHUD creatembHub:@"请先创建一份简历"];
+                [MBProgressHUD creatembHub:@"请先使用简历"];
             }
             if (errCode == 2)
             {
-                [MBProgressHUD creatembHub:@"您已经投递过了，一周之内不能投递"];
+                [MBProgressHUD creatembHub:@"您已申请过了,一周内不得重复申请"];
             }
 //            //投递成功的职位为0
 //            _TDSuccNum = 0;

@@ -156,7 +156,14 @@
             
         } withfail:^(int errCode, NSError *err) {
             
-            [MBProgressHUD creatembHub:@"您已申请过了,一周内不得重复申请"];
+            if (errCode == 1)
+            {
+                [MBProgressHUD creatembHub:@"请先使用简历"];
+            }
+            if (errCode == 2)
+            {
+               [MBProgressHUD creatembHub:@"您已申请过了,一周内不得重复申请"];
+            }
             
         } withUid:nil job_id:_model.cj_id resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
         
