@@ -51,5 +51,6 @@ typedef enum {
 - (id)initLocalMoviePlayerViewControllerWithURLList:(NSArray *)urlList movieTitle:(NSString *)movieTitle;
 
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *video_id;
 
 @end

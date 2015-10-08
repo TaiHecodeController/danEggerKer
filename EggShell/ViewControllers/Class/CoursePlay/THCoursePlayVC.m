@@ -367,7 +367,17 @@ typedef NS_ENUM(NSInteger, GestureType){
         {
             playListModel *plModel = self.videoListArr[i];
             
-            if ([_name isEqual:plModel.video_name])
+//            if ([_name isEqual:plModel.video_name])
+//            {
+//                
+//                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+//                _position = i * 35;
+//                
+//                [self.tableView scrollRectToVisible:CGRectMake(0, _position, WIDETH, HEIGHT - 211-64) animated:NO];
+//                
+//                [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+//            }
+            if ([_video_id isEqual:plModel.video_id])
             {
                 
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];

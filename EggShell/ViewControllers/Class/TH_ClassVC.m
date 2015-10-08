@@ -441,12 +441,13 @@
         return;
     }
     NSString *str = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"plist"];
-   NSArray *arr = [str componentsSeparatedByString:@","];
+    NSArray *arr = [str componentsSeparatedByString:@","];
 
     THCoursePlayVC *moviePlayer =    [[THCoursePlayVC alloc] initNetworkMoviePlayerViewControllerWithURL:Url movieTitle:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_name"]];
     moviePlayer.classId = arr.lastObject;
-    moviePlayer.name = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_name"];
     
+    moviePlayer.name = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_name"];
+    moviePlayer.video_id = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_id"];
 //    polyNewViewController *moviePlayer = [[polyNewViewController alloc]init];
 //    moviePlayer.vid = [NSString stringWithFormat:@"%@",Url];
     //    [self.navigationController presentViewController:moviePlayer animated:YES completion:nil];
@@ -524,6 +525,7 @@
     THCoursePlayVC *moviePlayer =    [[THCoursePlayVC alloc] initNetworkMoviePlayerViewControllerWithURL:Url movieTitle:name];
     moviePlayer.classId = arr.lastObject;
     moviePlayer.name = name;
+    moviePlayer.video_id = [NSString stringWithFormat:@"%@",Url];
     //    [self.navigationController presentViewController:moviePlayer animated:YES completion:nil];
     [self.navigationController pushViewController:moviePlayer animated:YES];
 
