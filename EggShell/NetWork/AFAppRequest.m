@@ -156,6 +156,10 @@
          [State setEnd];
          NSLog(@"Error: %@", error);
          NSLog ( @"operation: %@" , operation.responseString );
+         if ((int)errcode==404) {
+             [MBProgressHUD creatembHub:@"网络异常"];
+
+         }
          
     }];
     [State start];
