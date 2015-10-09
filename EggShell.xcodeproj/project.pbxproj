@@ -1123,13 +1123,13 @@
 			isa = PBXGroup;
 			children = (
 				04A0CD401B7A104900EBCF01 /* SearchJobVC.h */,
+				04A0CD411B7A104900EBCF01 /* SearchJobVC.m */,
 				F0B85A3D1BA11FA7005799F5 /* SearchCity3_ViewController.h */,
 				F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */,
 				F0B85A3A1BA11F97005799F5 /* SearchCity2_ViewController.h */,
 				F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */,
 				F0B85A371BA11F83005799F5 /* SearchCity1_ViewController.h */,
 				F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */,
-				04A0CD411B7A104900EBCF01 /* SearchJobVC.m */,
 				F0F2B4801B9AE45600F7A261 /* SearchParamSingle */,
 				04A0CD431B7A10F800EBCF01 /* SubViews */,
 			);

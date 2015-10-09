@@ -33,7 +33,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [MobClick beginLogPageView:@"jobscreeningvc"];
-
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -43,6 +43,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self clearParam];
+    
     self.cellArray = [NSMutableArray arrayWithCapacity:0];
     [self createSco];
     [self setData];
@@ -51,6 +54,30 @@
     [self InquireBtn];
     
     [self loadData];
+}
+
+- (void)clearParam
+{
+    //进入页面，清空所有筛选条件，防止上一次的筛选条件，影响下一次筛选结果
+    [SearchModelShare sharedInstance].keyword = @"";
+    
+    [SearchModelShare sharedInstance].hy = @"";
+    
+    [SearchModelShare sharedInstance].job_post = @"";
+    
+    [SearchModelShare sharedInstance].cityid = @"";
+    
+    [SearchModelShare sharedInstance].salary = @"";
+    
+    [SearchModelShare sharedInstance].edu = @"";
+    
+    [SearchModelShare sharedInstance].exp = @"";
+    
+    //清空工作性质，防止从首页进来，type有值，但是筛选页面没有选type值，首页的type值就会影响筛选结果
+    [SearchModelShare sharedInstance].type = @"";
+    
+    [SearchModelShare sharedInstance].sdate = @"";
+
 }
 
 -(void)loadData
@@ -338,13 +365,15 @@
         JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
         cell.contentTextFiled.text = keyWord;
     NSLog(@"%ld",(long)cellIndex.row);
+    
     if (cellIndex.row == 0)
     {
-        [SearchModelShare sharedInstance].job1 = Id;
+//        [SearchModelShare sharedInstance].job1 = Id;
+        [SearchModelShare sharedInstance].hy = Id;
     }
     else if (cellIndex.row == 1)
     {
-//        [SearchModelShare sharedInstance].job_post = Id;
+        [SearchModelShare sharedInstance].job_post = Id;
     }
     else if (cellIndex.row == 2)
     {
@@ -370,6 +399,7 @@
     {
         [SearchModelShare sharedInstance].sdate = Id;
     }
+    
     
 
 }

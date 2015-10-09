@@ -488,7 +488,6 @@
         _currentIndex = 1;
         //        [self._gridView reloadData];
         
-
     }
 }
 

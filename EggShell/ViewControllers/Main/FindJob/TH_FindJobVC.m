@@ -188,10 +188,9 @@
 #pragma mark -- 条件筛选刷新
 - (void)TJsearch
 {
-    //工作性质
-    [SearchModelShare sharedInstance].type = @"";
-//    [SearchModelShare sharedInstance].job1 = @"";
-//   [SearchModelShare sharedInstance].keyword = @"";
+    
+    //清空首页由互联网、金融银行、广告媒体添加的job1参数，防止由首页一级行业类别进入筛选页面携带job1参数
+    [SearchModelShare sharedInstance].job1 = @"";
     
     //全城回调
     if ([SearchModelShare sharedInstance].longitude.length == 0)
@@ -294,7 +293,6 @@
     
     self.state = [[TH_AFRequestState searchJobWithSucc:^(NSArray *DataArr) {
         
-
         if (DataArr.count > 0)
         {
             [self.jobArr addObjectsFromArray:DataArr];
