@@ -173,7 +173,8 @@ typedef NS_ENUM(NSInteger, GestureType){
 #pragma mark -- viewLifeCircle
 - (void)viewWillAppear:(BOOL)animated
 {
-       [AppDelegate instance].ori_flag = 1;
+//    [AppDelegate instance].ori_flag = 1;
+    
     _systemBrightness = [UIScreen mainScreen].brightness;
     
     [MobClick beginLogPageView:@"courseplayvc"];
@@ -187,7 +188,6 @@ typedef NS_ENUM(NSInteger, GestureType){
 //    _searchBtn = searchBtn;
     //    [MobClick beginLogPageView:@"视频播放"];
     
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -199,7 +199,8 @@ typedef NS_ENUM(NSInteger, GestureType){
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    //    [AppDelegate instance].ori_flag = 0;
+//    [AppDelegate instance].ori_flag = 0;
+    
     [super viewWillDisappear:YES];
     
     [MobClick endLogPageView:@"courseplayvc"];
