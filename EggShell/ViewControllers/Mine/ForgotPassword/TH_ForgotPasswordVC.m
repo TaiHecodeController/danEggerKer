@@ -146,11 +146,12 @@
 #pragma mark -- 获取验证码
 -(void)securityCodeBtnClick:(UIButton *)sender
 {
-    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
-    if ([self.phoneTextField.text length]==0) {
-        [MBProgressHUD creatembHub:@"电话号码为空"];
+   
+    if ([self.phoneTextField.text length]!=11) {
+        [MBProgressHUD creatembHub:@"电话号码不合法"];
         return;
     }
+    
     [[LoginAndRegisterRequest forgitRequestWithPhoneNum:self.phoneTextField.text withSucc:^(NSDictionary * dic) {
          NSLog(@"获取验证码成功");
         [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld后可重发",(long)self.count] forState:UIControlStateNormal];
@@ -158,7 +159,7 @@
         self.securityCodeBtn.alpha = 0.5;
         self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
     [MBProgressHUD creatembHub:@"获取验证码成功"];
-    }] addNotifaction:hub];
+    }] addNotifaction:[MBProgressHUD mbHubShow]];
     }
 
 - (void)reduceTime

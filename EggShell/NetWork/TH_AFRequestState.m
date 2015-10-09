@@ -236,7 +236,7 @@
         cityid = @"";
     }
 
-    NSDictionary *param = @{@"longitude":longitude,@"dimensionality":dimensionality,@"keyword":keyword,@"page":page,@"hy":hy,@"job_post":job_post,@"salary":salary,@"edu":edu,@"exp":exp,@"type":type,@"sdate":sdate,@"job1":job1,@"three_cityid":cityid};
+    NSDictionary *param = @{@"longitude":longitude,@"dimensionality":dimensionality,@"keyword":keyword,@"page":page,@"hy":hy,@"job_post":job_post,@"salary":salary,@"edu":edu,@"exp":exp,@"type":type,@"fbtime":sdate,@"job1":job1,@"three_cityid":cityid};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/nearbycompany",base_Url] param:param succ:succ fail:fail resp:resp];
 
 }

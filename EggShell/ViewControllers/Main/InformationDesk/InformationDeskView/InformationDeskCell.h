@@ -14,5 +14,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLable;
 @property (weak, nonatomic) IBOutlet UILabel *homeLable;
 @property (weak, nonatomic) IBOutlet UILabel *timeLable;
+@property (weak, nonatomic) IBOutlet UIImageView *addressView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *holdView;
+
+@property (weak, nonatomic) IBOutlet UILabel *detailLable;
+
 -(void)setValue:(informantionModel *)model;
+-(void)setValues:(informantionModel *)model;
+
 @end

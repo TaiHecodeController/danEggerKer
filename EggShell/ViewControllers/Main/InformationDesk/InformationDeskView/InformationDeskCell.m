@@ -21,14 +21,32 @@
 }
 -(void)setValue:(informantionModel *)model
 {
-
+    self.detailLable.hidden = YES;
+    
     self.name.text = model.title;
     [self.logoImage sd_setImageWithURL:[NSURL URLWithString:model.logo]placeholderImage:[UIImage imageNamed:@"tu"]];
     self.addressLable.text = model.address;
     self.homeLable.text = model.organizers;
 //    self.timeLable.text = model.starttime;
-    NSString * dateStr = model.starttime;
-    self.timeLable.text = [dateStr substringFromIndex:5];
+//    NSString * dateStr = model.starttime;
+//    self.timeLable.text = [dateStr substringFromIndex:5];
+    
+}
+-(void)setValues:(informantionModel *)model
+{
+    self.addressView.hidden = YES;
+    self.holdView.hidden = YES;
+    self.addressLable.hidden = YES;
+//    self.timeLable.hidden = YES;
+    self.homeLable.hidden = YES;
+    
+    self.name.text = model.title;
+    [self.logoImage sd_setImageWithURL:[NSURL URLWithString:model.logo]placeholderImage:[UIImage imageNamed:@"tu"]];
+//    self.addressLable.text = [NSString stringWithFormat:@"%@~%@",model.starttime,model.endtime];
+   self.detailLable.text = [NSString stringWithFormat:@"%@~%@",model.starttime,model.endtime];
+    //    self.timeLable.text = model.starttime;
+//    NSString * dateStr = model.starttime;
+//    self.timeLable.text = [dateStr substringFromIndex:5];
     
 }
 @end

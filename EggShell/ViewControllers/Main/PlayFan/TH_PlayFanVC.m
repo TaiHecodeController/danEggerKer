@@ -157,8 +157,14 @@
     
     if(self.dataArray.count >0)
     {
-    informantionModel * model = self.dataArray[indexPath.row];
-    [InforCell setValue:model];
+        if (_currentIndex == 0) {
+            informantionModel * model = self.dataArray[indexPath.row];
+            [InforCell setValue:model];
+        }if (_currentIndex==1) {
+            informantionModel * model = self.dataArray[indexPath.row];
+            [InforCell setValues:model];
+        }
+    
     }
     
     //    NSLog(@"%@",model.endtime);

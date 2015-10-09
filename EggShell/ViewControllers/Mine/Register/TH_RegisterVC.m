@@ -177,8 +177,8 @@
 -(void)securityCodeBtnClick:(UIButton *)sender
 {
     
-    if ([self.phoneTextField.text length]==0) {
-        [MBProgressHUD creatembHub:@"电话号码为空"];
+    if ([self.phoneTextField.text length]!=11) {
+        [MBProgressHUD creatembHub:@"电话号码不合法"];
         return;
     }else if([self.passwordTextField.text length] < 6)
     {
