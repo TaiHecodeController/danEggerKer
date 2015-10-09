@@ -133,7 +133,7 @@ static NSString *SG_FOCUS_ITEM_ASS_KEY = @"loopScrollview";
         HomePageModel *item = [imageItems objectAtIndex:i];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * _scrollView.frame.size.width+space, space, _scrollView.frame.size.width-space*2, _scrollView.frame.size.height-2*space-size.height)];
         //加载图片
-       [imageView setImage:[UIImage imageNamed:@"lunbo3"]];
+      [imageView setImage:[UIImage imageNamed:@"lunbotu0"]];
         //设置banner图片
         [imageView sd_setImageWithURL:[NSURL URLWithString:item.photo] placeholderImage:[UIImage imageNamed:@"lunbotu0"]];
         [_scrollView addSubview:imageView];

@@ -188,12 +188,15 @@
     [[LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
         
         NSLog(@"获取验证码");
+        [MBProgressHUD creatembHub:@"获取验证码成功"];
+        [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld后重发",(long)self.count] forState:UIControlStateNormal];
+        self.securityCodeBtn.userInteractionEnabled = NO;
+        self.securityCodeBtn.alpha = 0.5;
+        self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
+        
     } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCode:@""] addNotifaction:[MBProgressHUD mbHubShow]];
    
-    [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后重发",(long)self.count] forState:UIControlStateNormal];
-    self.securityCodeBtn.userInteractionEnabled = NO;
-    self.securityCodeBtn.alpha = 0.5;
-    self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
+    
     
 }
 #pragma mark - 注册
@@ -241,7 +244,6 @@
                 NSUserDefaults * userId =[NSUserDefaults standardUserDefaults];
                 [userId setObject:self.registDic[@"data"][@"telphone"] forKey:@"loginPhone"];
                 [userId synchronize];
-                
                 [self.navigationController popViewControllerAnimated:YES];
             }
             
@@ -255,7 +257,7 @@
 - (void)reduceTime
 {
     self.count--;
-    [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后重发",(long)self.count] forState:UIControlStateNormal];
+    [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld后重发",(long)self.count] forState:UIControlStateNormal];
     if (self.count == 0)
     {
         [self.paintingTimer invalidate];

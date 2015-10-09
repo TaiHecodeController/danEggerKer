@@ -327,6 +327,7 @@
     }
     
 }
+#pragma mark -- 使用简历
 - (IBAction)userResume:(UIButton *)sender {
     
     if (self.dataArray.count == 0)

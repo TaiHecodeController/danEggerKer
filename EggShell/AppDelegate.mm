@@ -35,7 +35,7 @@
     NSNumber *num = [NSNumber numberWithInt:0];
     [df setObject:num forKey:@"citytag"];
     [df synchronize];
-//     [self checkVersion];
+//   [self checkVersion];
     
     
     
@@ -123,6 +123,7 @@
 //    //1.同步请求json数据
 //    NSError * error;
 //    NSString * urlStr = [NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",APPID];
+//    
 //    NSURL * url = [NSURL URLWithString:urlStr];
 //    NSData * response = [NSURLConnection sendSynchronousRequest:[[NSURLRequest alloc] initWithURL:url] returningResponse:nil error:nil];
 //    NSDictionary * appInfoDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error:&error];
@@ -153,7 +154,7 @@
 //    self.doubleUpdateVersion = [latestVersion doubleValue];
 //    
 //    //两个点的，最后那个是无效的
-//    if(!_doubleUpdateVersion > _doubleCurrentVersion)
+//    if(self.doubleCurrentVersion > self.doubleUpdateVersion)
 //    {
 //        NSString * titleStr = [NSString stringWithFormat:@"检查更新:%@",trackName];
 //        NSString * messageStr = [NSString stringWithFormat:@"发现版本(%@),是否升级?",latestVersion];
@@ -162,12 +163,14 @@
 //    }
 //    
 //}
-
+//
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1)
     {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_trackViewUrl]];
+         
+        
     }
     
 }

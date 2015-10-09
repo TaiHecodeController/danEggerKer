@@ -15,7 +15,7 @@
 @property(nonatomic,strong)UIButton * securityCodeBtn;
 @property(nonatomic,strong)UITextField * phoneTextField;
 @property(nonatomic,strong)UITextField * securiedTextField;
-@property(nonatomic,assign)int * count;
+@property(nonatomic,assign)int count;
 @property (nonatomic, strong) NSTimer *paintingTimer;
 
 @end
@@ -130,19 +130,19 @@
     [self.scro addSubview:nextButton];
    
 }
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    if (textField == self.phoneTextField) {
-        [self.securiedTextField becomeFirstResponder];
-    }
-    
-    [self loginRequest];
-    return YES;
-}
--(void)loginRequest{
-    
-
-}
+//-(BOOL)textFieldShouldReturn:(UITextField *)textField
+//{
+//    if (textField == self.phoneTextField) {
+//        [self.securiedTextField becomeFirstResponder];
+//    }
+//    
+//    [self loginRequest];
+//    return YES;
+//}
+//-(void)loginRequest{
+//    
+//
+//}
 #pragma mark -- 获取验证码
 -(void)securityCodeBtnClick:(UIButton *)sender
 {
@@ -151,21 +151,20 @@
         [MBProgressHUD creatembHub:@"电话号码为空"];
         return;
     }
-    [self loginRequest];
     [[LoginAndRegisterRequest forgitRequestWithPhoneNum:self.phoneTextField.text withSucc:^(NSDictionary * dic) {
          NSLog(@"获取验证码成功");
-        
+        [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld后可重发",(long)self.count] forState:UIControlStateNormal];
+        self.securityCodeBtn.userInteractionEnabled = NO;
+        self.securityCodeBtn.alpha = 0.5;
+        self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
     [MBProgressHUD creatembHub:@"获取验证码成功"];
     }] addNotifaction:hub];
-    [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后可重发",(long)self.count] forState:UIControlStateNormal];
-    self.securityCodeBtn.userInteractionEnabled = NO;
-    self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
-    
-}
+    }
+
 - (void)reduceTime
 {
     self.count--;
-    [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld'后可重发",(long)self.count] forState:UIControlStateNormal];
+    [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld后可重发",(long)self.count] forState:UIControlStateNormal];
     if (self.count == 0)
     {
         [self.paintingTimer invalidate];

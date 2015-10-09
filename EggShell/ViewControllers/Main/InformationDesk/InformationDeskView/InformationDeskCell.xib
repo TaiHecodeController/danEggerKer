@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tu" translatesAutoresizingMaskIntoConstraints="NO" id="h0I-Tw-I5e">
@@ -24,7 +24,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="太和招聘会" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXE-IR-Fla">
                         <rect key="frame" x="149" y="15" width="121" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="16" id="Sf2-Wv-pre"/>
+                            <constraint firstAttribute="height" constant="16" id="8ml-f2-fed"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.95686274509803926" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -63,10 +63,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07-09" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8T-3K-H46">
-                        <rect key="frame" x="272" y="19.5" width="33" height="8.5"/>
+                        <rect key="frame" x="272" y="20" width="35" height="9"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="8.5" id="ibs-dW-AnC"/>
-                            <constraint firstAttribute="width" constant="33" id="wE9-BV-jXi"/>
+                            <constraint firstAttribute="height" constant="8.5" id="4XF-sO-4hK"/>
+                            <constraint firstAttribute="width" constant="35" id="clT-Pb-iff"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -74,24 +74,24 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="J8T-3K-H46" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19.5" id="0Bn-hs-SqT"/>
                     <constraint firstItem="dWf-zs-nLw" firstAttribute="top" secondItem="pYd-r2-DNV" secondAttribute="bottom" constant="10" id="0QK-yG-Zs7"/>
                     <constraint firstItem="wu6-Kg-TQK" firstAttribute="top" secondItem="7fY-lF-5p5" secondAttribute="bottom" constant="11" id="3Q0-cL-PHG"/>
-                    <constraint firstItem="7fY-lF-5p5" firstAttribute="top" secondItem="NXE-IR-Fla" secondAttribute="bottom" constant="15" id="4Po-tU-Sqk"/>
                     <constraint firstItem="dWf-zs-nLw" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="5og-o6-ziP"/>
                     <constraint firstAttribute="bottomMargin" secondItem="h0I-Tw-I5e" secondAttribute="bottom" constant="6.5" id="5q0-7R-9eH"/>
                     <constraint firstItem="wu6-Kg-TQK" firstAttribute="leading" secondItem="h0I-Tw-I5e" secondAttribute="trailing" constant="10" id="7xB-zc-2jD"/>
                     <constraint firstItem="pYd-r2-DNV" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="8U9-ML-LdR"/>
                     <constraint firstItem="h0I-Tw-I5e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="Ajy-OQ-uha"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="J8T-3K-H46" secondAttribute="trailing" constant="7" id="IYg-hJ-I9o"/>
-                    <constraint firstItem="J8T-3K-H46" firstAttribute="leading" secondItem="NXE-IR-Fla" secondAttribute="trailing" constant="2" id="RsW-1f-gW0"/>
+                    <constraint firstItem="NXE-IR-Fla" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="L6h-rn-uEQ"/>
+                    <constraint firstItem="NXE-IR-Fla" firstAttribute="leading" secondItem="h0I-Tw-I5e" secondAttribute="trailing" constant="10" id="T6a-zl-Wvw"/>
+                    <constraint firstItem="pYd-r2-DNV" firstAttribute="top" secondItem="NXE-IR-Fla" secondAttribute="bottom" constant="15" id="U0i-oi-Qt9"/>
+                    <constraint firstItem="J8T-3K-H46" firstAttribute="leading" secondItem="NXE-IR-Fla" secondAttribute="trailing" constant="2" id="XoP-fR-nhi"/>
                     <constraint firstItem="h0I-Tw-I5e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="ev4-wY-AX8"/>
-                    <constraint firstItem="J8T-3K-H46" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="11.5" id="k8x-Xu-WzB"/>
                     <constraint firstItem="dWf-zs-nLw" firstAttribute="leading" secondItem="wu6-Kg-TQK" secondAttribute="trailing" constant="12" id="ndL-fo-JvF"/>
-                    <constraint firstItem="NXE-IR-Fla" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="p2O-Uv-5a2"/>
                     <constraint firstItem="pYd-r2-DNV" firstAttribute="leading" secondItem="7fY-lF-5p5" secondAttribute="trailing" constant="10" id="pCr-ut-I1P"/>
-                    <constraint firstItem="pYd-r2-DNV" firstAttribute="top" secondItem="NXE-IR-Fla" secondAttribute="bottom" constant="15" id="rLg-HK-LMY"/>
+                    <constraint firstItem="pYd-r2-DNV" firstAttribute="top" secondItem="7fY-lF-5p5" secondAttribute="top" id="qlk-1j-LmB"/>
                     <constraint firstItem="7fY-lF-5p5" firstAttribute="leading" secondItem="h0I-Tw-I5e" secondAttribute="trailing" constant="10" id="yUg-xm-drr"/>
-                    <constraint firstItem="NXE-IR-Fla" firstAttribute="leading" secondItem="h0I-Tw-I5e" secondAttribute="trailing" constant="10" id="zGb-rZ-E8U"/>
+                    <constraint firstAttribute="trailing" secondItem="J8T-3K-H46" secondAttribute="trailing" constant="13" id="zOJ-fv-XPp"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

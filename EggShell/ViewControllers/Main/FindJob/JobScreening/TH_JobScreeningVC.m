@@ -347,6 +347,9 @@
             _writeJLChooseVC.cellIndex = indexPath;
             _writeJLChooseVC.tableViewTagIndex = 1555;
             _writeJLChooseVC.DataArray = self.categaryDic[@"fbtime"];
+            
+            
+            
             [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
 
             break;
@@ -398,6 +401,9 @@
     else if (cellIndex.row == 7)
     {
         [SearchModelShare sharedInstance].sdate = Id;
+        
+        
+        
     }
     
     
