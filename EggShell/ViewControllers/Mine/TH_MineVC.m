@@ -97,39 +97,53 @@
     [[LoginAndRegisterRequest getImagewithSucc:^(NSDictionary * succ) {
        
         
-        if (![succ[@"data"][@"name"]length]==0) {
-            
-            self.mineView.phoneLable.text =succ[@"data"][@"name"];
-        }else{
+        if ([succ[@"data"][@"name"]length]==0) {
             self.mineView.phoneLable.text =[user objectForKey:@"loginPhone"];
+            
+        }else{
+            self.mineView.phoneLable.text =succ[@"data"][@"name"];
         }
-        [self.mineView.headPotrait setButtonImageWithUrl:succ[@"data"][@"resume_photo"]];
+        
+        
+        if ([succ[@"data"][@"favjob"] length]==0) {
+            self.mineView.DeliveryJobNum.text = [NSString stringWithFormat:@"(%d)",0];
+
+        }else{
         self.mineView.DeliveryJobNum.text = [NSString stringWithFormat:@"(%@)",succ[@"data"][@"favjob"]];
+        }
+        
+        if ([succ[@"data"][@"usejob"] length]==0) {
+            self.mineView.FavoriteJobNum.text = [NSString stringWithFormat:@"(%d)",0];
+        }else
+        {
         self.mineView.FavoriteJobNum.text = [NSString stringWithFormat:@"(%@)",succ[@"data"][@"usejob"]];
+        }if ([succ[@"data"][@"expect"]length]==0) {
+            self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%d)",0];
+        }else
+        {
         self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%@)",succ[@"data"][@"expect"]];
+        }
         if ([succ[@"data"][@"description"]length]==0) {
             self.mineView.userLable.text = @"学习是一种信仰";
         }else
         {
         self.mineView.userLable.text = succ[@"data"][@"description"];
         }
+        //获取照片
+        [self.mineView.headPotrait setButtonImageWithUrl:succ[@"data"][@"resume_photo"]];
         self.mineView.lginBtn.hidden = YES;
         
     } withUid:dic withFail:^(int errCode, NSError *err) {
-//        if (errCode ==1017) {
-//            [MBProgressHUD creatembHub:@"用户不存在"];
-//        }
-//        self.mineView.lginBtn.userInteractionEnabled = YES;
-//        [self.mineView.lginBtn setTitle:@"点击登录" forState:UIControlStateNormal];
-////        self.mineView.userLable.text = @"";
-//        self.mineView.DeliveryJobNum.text = @"";
-//        self.mineView.FavoriteJobNum.text = @"";
-//        self.mineView.ResumeNum.text = @"";
-//        [self.mineView.loginBgview removeFromSuperview];
-//        [self.mineView.phoneLable removeFromSuperview];
-//        [self.mineView.userLable removeFromSuperview];
-//
-    }] addNotifaction:[MBProgressHUD mbHubShow]];
+        if (errCode ==1017) {
+            self.mineView.DeliveryJobNum.text = [NSString stringWithFormat:@"(%d)",0];
+            self.mineView.DeliveryJobNum.text = [NSString stringWithFormat:@"(%d)",0];
+             self.mineView.FavoriteJobNum.text = [NSString stringWithFormat:@"(%d)",0];
+             self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%d)",0];
+            self.mineView.userLable.text = @"学习是一种信仰";
+            [MBProgressHUD creatembHub:@"用户不存在"];
+            
+        }
+           }] addNotifaction:[MBProgressHUD mbHubShow]];
 }
 -(void)createScro
 {
