@@ -152,6 +152,7 @@ typedef NS_ENUM(NSInteger, GestureType){
         _movieTitle = movieTitle;
         _itemTimeList = [[NSMutableArray alloc]initWithCapacity:5];
         _mode = MoviePlayerViewControllerModeLocal;
+        
     }
     return self;
 }
