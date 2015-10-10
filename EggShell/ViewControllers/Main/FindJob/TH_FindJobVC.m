@@ -740,6 +740,10 @@
     if(buttonIndex == 1)
     {
         TH_LoginVC * login =[[TH_LoginVC alloc] init];
+        login.loginBlock = ^()
+        {
+            [self apllyBtnClick];
+        };
         login.findJobApplications = @"findJobApplications";
         [self.navigationController pushViewController:login animated:YES];
 

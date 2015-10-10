@@ -12,4 +12,5 @@
 @property(nonatomic,copy)NSString * jobWilstRegist;
 @property(nonatomic,copy)NSString * findJobApplications;
 @property(nonatomic,copy)NSString * findJobDetailApplication;
+@property(nonatomic,copy)void((^loginBlock)());
 @end

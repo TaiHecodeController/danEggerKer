@@ -35,12 +35,8 @@
                                     <rect key="frame" x="95.5" y="0.0" width="0.5" height="80"/>
                                     <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXC-Id-fEK">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXC-Id-fEK">
                                     <rect key="frame" x="38" y="20" width="20" height="25"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="090-rL-kYq"/>
-                                        <constraint firstAttribute="width" constant="20" id="c6i-K2-Y07"/>
-                                    </constraints>
                                     <state key="normal" image="hulianwang">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -48,12 +44,8 @@
                                         <action selector="InternetBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="JCm-O0-CHe"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="互联网" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98M-36-CsF">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="互联网" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98M-36-CsF">
                                     <rect key="frame" x="18" y="48" width="60" height="12"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="60" id="hxy-Fs-dSt"/>
-                                        <constraint firstAttribute="height" constant="12" id="vti-YB-1L8"/>
-                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -61,11 +53,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="SXC-Id-fEK" firstAttribute="top" secondItem="Usf-Tu-t4U" secondAttribute="top" constant="20" id="5eN-Ff-ZlA"/>
-                                <constraint firstItem="98M-36-CsF" firstAttribute="top" secondItem="SXC-Id-fEK" secondAttribute="bottom" constant="3" id="5oB-33-rOq"/>
-                                <constraint firstItem="SXC-Id-fEK" firstAttribute="leading" secondItem="Usf-Tu-t4U" secondAttribute="leading" constant="38" id="Xjl-6e-zfe"/>
                                 <constraint firstAttribute="width" constant="96" id="Yaa-xh-ean"/>
-                                <constraint firstItem="98M-36-CsF" firstAttribute="leading" secondItem="Usf-Tu-t4U" secondAttribute="leading" constant="18" id="aa8-Wn-cif"/>
                                 <constraint firstAttribute="height" constant="80" id="je3-eb-R9V"/>
                             </constraints>
                         </view>
@@ -177,21 +165,6 @@
                                                 <action selector="InternetBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="0Hf-VU-tab"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bu0-qZ-TfT">
-                                            <rect key="frame" x="93" y="0.0" width="92" height="39"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="92" id="A47-4q-ym9"/>
-                                                <constraint firstAttribute="height" constant="39" id="Vyv-VG-dlz"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="网站编辑">
-                                                <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="InternetBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="2QC-ef-XhU"/>
-                                            </connections>
-                                        </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXs-0j-7pv">
                                             <rect key="frame" x="92.5" y="0.0" width="0.5" height="39"/>
                                             <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -220,6 +193,21 @@
                                             </state>
                                             <connections>
                                                 <action selector="InternetBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ekJ-NH-bZw"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bu0-qZ-TfT">
+                                            <rect key="frame" x="93" y="0.0" width="92" height="39"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="92" id="A47-4q-ym9"/>
+                                                <constraint firstAttribute="height" constant="39" id="Vyv-VG-dlz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <state key="normal" title="网站编辑">
+                                                <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="InternetBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="2QC-ef-XhU"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -297,24 +285,12 @@
                                 <constraint firstAttribute="height" constant="0.5" id="EXF-Af-OSw"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TJ-vA-O2y">
-                            <rect key="frame" x="137" y="54" width="85" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="K1d-jz-5sb"/>
-                            </constraints>
-                            <state key="normal" image="02">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="450-yE-RG9"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXl-WN-vt2">
                             <rect key="frame" x="264" y="52" width="85" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="KAW-N8-yF5"/>
                             </constraints>
-                            <state key="normal" image="03">
+                            <state key="normal" image="qiyemorentu">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -326,7 +302,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="W03-06-9b3"/>
                             </constraints>
-                            <state key="normal" image="04">
+                            <state key="normal" image="qiyemorentu">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -338,7 +314,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="BCw-wF-yYK"/>
                             </constraints>
-                            <state key="normal" image="01">
+                            <state key="normal" image="qiyemorentu">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -350,7 +326,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="Cm1-aZ-JTr"/>
                             </constraints>
-                            <state key="normal" image="05">
+                            <state key="normal" image="qiyemorentu">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -362,11 +338,23 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="Tl9-et-WxR"/>
                             </constraints>
-                            <state key="normal" image="06">
+                            <state key="normal" image="qiyemorentu">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="GcI-qR-77v"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TJ-vA-O2y">
+                            <rect key="frame" x="137" y="54" width="85" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="K1d-jz-5sb"/>
+                            </constraints>
+                            <state key="normal" image="qiyemorentu">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="450-yE-RG9"/>
                             </connections>
                         </button>
                     </subviews>
@@ -474,20 +462,6 @@
                                                 <constraint firstAttribute="height" constant="0.5" id="d1h-WT-uC5"/>
                                             </constraints>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaZ-Tj-7Dl">
-                                            <rect key="frame" x="0.0" y="0.0" width="92" height="39"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="39" id="KH5-oW-eyZ"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="银行柜员">
-                                                <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="FinancialBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="gvF-nG-OU7"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBo-BB-5lI">
                                             <rect key="frame" x="186" y="0.0" width="94" height="39"/>
                                             <constraints>
@@ -500,6 +474,20 @@
                                             </state>
                                             <connections>
                                                 <action selector="FinancialBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="4Oi-Oa-pnC"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaZ-Tj-7Dl">
+                                            <rect key="frame" x="0.0" y="0.0" width="92" height="39"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="39" id="KH5-oW-eyZ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <state key="normal" title="银行柜员">
+                                                <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="FinancialBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="gvF-nG-OU7"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -937,14 +925,9 @@
         </view>
     </objects>
     <resources>
-        <image name="01" width="65" height="13"/>
-        <image name="02" width="41" height="22"/>
-        <image name="03" width="75" height="18"/>
-        <image name="04" width="28" height="28"/>
-        <image name="05" width="64" height="17"/>
-        <image name="06" width="89" height="12"/>
         <image name="guanggaomeiti" width="20" height="24"/>
         <image name="hulianwang" width="20" height="24"/>
         <image name="jinrongxinhang" width="22" height="22"/>
+        <image name="qiyemorentu" width="85" height="30"/>
     </resources>
 </document>

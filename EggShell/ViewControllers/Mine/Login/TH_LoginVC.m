@@ -257,9 +257,11 @@
              [self.navigationController popViewControllerAnimated:YES];
                 
             }else if ([self.findJobApplications isEqualToString:@"findJobApplications"]) {
+                self.loginBlock();
                   [self.navigationController popViewControllerAnimated:YES];
             }else if ([self.findJobDetailApplication isEqualToString:@"findJobDetailApplication"])
             {
+                self.loginBlock();
                 [self.navigationController popViewControllerAnimated:YES];
             }else
               {
