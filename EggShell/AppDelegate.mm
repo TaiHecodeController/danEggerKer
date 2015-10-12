@@ -49,7 +49,6 @@
         NSLog(@"配置成功");
     }
     
-    
 //    sleep(0);
     NSString *key = @"CFBundleVersion";
     NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:kBundleVersion];
@@ -58,8 +57,7 @@
     if ([currentVersion isEqualToString:lastVersion])
     {
         
-        
-    self.mainTabBar = [[TH_MainTabBarController alloc] init];
+        self.mainTabBar = [[TH_MainTabBarController alloc] init];
         
         self.window.rootViewController = self.mainTabBar;
         
