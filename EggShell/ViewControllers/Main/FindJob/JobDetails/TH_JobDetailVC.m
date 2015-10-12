@@ -427,6 +427,8 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
     NSString *comHtmlString = [CommonFunc textFromBase64String:model.content];
     NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[comHtmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     _companyprofileView.detailLable.attributedText = comAttributedString;
+    
+    
 }
 
 #pragma mark- - 收藏

@@ -111,7 +111,7 @@
     
     [securityCodeBtn setBackgroundImage:[UIImage imageNamed:@"hongniu"] forState:UIControlStateNormal];
     
-    securityCodeBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    securityCodeBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     securityCodeBtn.titleLabel.textColor = color(255, 255, 255);
     [securityCodeBtn addTarget:self action:@selector(securityCodeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.securityCodeBtn = securityCodeBtn;
@@ -154,7 +154,7 @@
     
     [[LoginAndRegisterRequest forgitRequestWithPhoneNum:self.phoneTextField.text withSucc:^(NSDictionary * dic) {
          NSLog(@"获取验证码成功");
-        [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld后可重发",(long)self.count] forState:UIControlStateNormal];
+        [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld秒重发",(long)self.count] forState:UIControlStateNormal];
         self.securityCodeBtn.userInteractionEnabled = NO;
         self.securityCodeBtn.alpha = 0.5;
         self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
@@ -165,7 +165,7 @@
 - (void)reduceTime
 {
     self.count--;
-    [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld后可重发",(long)self.count] forState:UIControlStateNormal];
+    [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld秒后重发",(long)self.count] forState:UIControlStateNormal];
     if (self.count == 0)
     {
         [self.paintingTimer invalidate];

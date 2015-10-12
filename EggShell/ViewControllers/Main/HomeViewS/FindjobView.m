@@ -247,7 +247,7 @@
     InformationDeskLable.textAlignment = NSTextAlignmentCenter;
     self.InformationDeskLable = InformationDeskLable;
     [self addSubview:InformationDeskLable];
-    
+
     //写简历
     UIButton * fesumeWritingBtn = [[UIButton alloc] initWithFrame:CGRectMake(fesumeWritingBtnX*MyWideth, fesumeWritingBtnY*MyHeight, fesumeWritingBtnWideth*MyWideth, fesumeWritingBtnHeight*MyWideth)];
     
@@ -258,6 +258,7 @@
     [self addSubview:fesumeWritingBtn];
     UILabel * fesumeWritingLable = [[UILabel alloc] initWithFrame:CGRectMake(fesumeWritingLableX*MyWideth, fesumeWritingLableY*MyHeight, fesumeWritingLableWideth*MyWideth, fesumeWritingLableHeight)];
     fesumeWritingLable.text = @"写简历";
+   
     fesumeWritingLable.textColor = UIColorFromRGB(0x646464);
     fesumeWritingLable.textAlignment = NSTextAlignmentCenter;
     fesumeWritingLable.font = [UIFont systemFontOfSize:12];
