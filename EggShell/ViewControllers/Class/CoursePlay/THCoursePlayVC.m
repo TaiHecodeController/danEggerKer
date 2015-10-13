@@ -210,12 +210,13 @@ typedef NS_ENUM(NSInteger, GestureType){
 
 
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-//    [_searchBtn removeFromSuperview];
+//- (void)viewDidDisappear:(BOOL)animated
+//{
+//    [super viewWillDisappear:animated];
+////    [_searchBtn removeFromSuperview];
+//
+//}
 
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     //监听父类的play停止动作
@@ -230,7 +231,7 @@ typedef NS_ENUM(NSInteger, GestureType){
         [MBProgressHUD creatembHub:@"您当前处于4G状态"];
     }
       else {
-        NSLog(@"当前是3G或wifi状态");
+        NSLog(@"当前是4G或wifi状态");
         [MBProgressHUD creatembHub:@"您当前处于wifi状态"];
     }
     

@@ -56,7 +56,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [MobClick beginLogPageView:@"jobdetailvc"];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backRoot:) name:@"jb_detail" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backRoot) name:@"jb_detail" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -66,8 +66,8 @@
 }
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:NO];
-  [[NSNotificationCenter defaultCenter]removeObserver:self name:@"jb_detail" object:nil];
+//    [super viewWillDisappear:NO];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"jb_detail" object:nil];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -86,7 +86,7 @@
     
     
 }
--(void)backRoot:(NSNotification*)notion
+-(void)backRoot
 {
     [self.navigationController popViewControllerAnimated:NO];
     TH_FindJobVC * findJob = [[TH_FindJobVC alloc] init];
