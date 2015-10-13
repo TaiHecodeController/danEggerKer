@@ -5,7 +5,6 @@
 //  Created by mac on 15/7/8.
 //  Copyright (c) 2015年 wsd. All rights reserved.
 //
-
 #import "AppDelegate.h"
 #import "TH_MainTabBarController.h"
 #import "LoginAndRegisterRequest.h"
@@ -20,7 +19,6 @@
     BMKMapManager* _mapManager;
       BMKLocationService * _locService;
 }
-
 @end
 
 @implementation AppDelegate
@@ -30,6 +28,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
         //注册友盟统计
+    [self.window makeKeyAndVisible];
     [MobClick startWithAppkey:@"55f24438e0f55aa7af001c3d" reportPolicy:BATCH   channelId:nil];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSNumber *num = [NSNumber numberWithInt:0];
@@ -86,7 +85,7 @@
     [_locService startUserLocationService];
     /*键盘处理**/
     [self keyBoard];
-    [self.window makeKeyAndVisible];
+    
 
     return YES;
     

@@ -28,7 +28,15 @@
 @end
 
 @implementation TH_ProfessionalSkillVC
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(removeClick:) name:@"removeMessage" object:nil];
+}
+-(void)viewDidDisappear:(BOOL)animated
+{ [super viewWillDisappear:NO];
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"removeMessage" object:nil];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     /*隐藏键盘**/
@@ -41,7 +49,7 @@
     [self createScro];
     [self createView];
     [self setData];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(removeClick:) name:@"removeMessage" object:nil];
+    
 }
 -(void)keyboardHide:(UITapGestureRecognizer*)tap
 {

@@ -20,6 +20,17 @@
 @end
 
 @implementation WorkExReadingVC
+-(void)viewWillAppear:(BOOL)animated
+{
+    /***/
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:NO];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -69,7 +80,7 @@
         [addButtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [addButtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
         [self.scro addSubview:addButtn];
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+       
         
         self.scro.contentSize = CGSizeMake(WIDETH, self.dataArray.count*215+150);
     }

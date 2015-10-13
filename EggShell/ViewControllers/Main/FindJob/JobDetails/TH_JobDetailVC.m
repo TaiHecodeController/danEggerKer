@@ -18,7 +18,8 @@
 #import "JobDetailModel.h"
 #import "CommonFunc.h"
 #import "TH_LoginVC.h"
-
+#import "TH_FindJobVC.h"
+#import "findJobModel.h"
 @interface TH_JobDetailVC ()<UITableViewDataSource,UITableViewDelegate,companyProfileViewDelegate,MJRefreshBaseViewDelegate>
 {
     //纪录展开之前的frame
@@ -55,13 +56,19 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [MobClick beginLogPageView:@"jobdetailvc"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backRoot:) name:@"jb_detail" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [MobClick endLogPageView:@"jobdetailvc"];
+    
 }
-
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:NO];
+  [[NSNotificationCenter defaultCenter]removeObserver:self name:@"jb_detail" object:nil];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
         self.title = @"职位详情";
@@ -79,7 +86,13 @@
     
     
 }
-
+-(void)backRoot:(NSNotification*)notion
+{
+    [self.navigationController popViewControllerAnimated:NO];
+    TH_FindJobVC * findJob = [[TH_FindJobVC alloc] init];
+    [self.navigationController  popToViewController:findJob animated:YES];
+    
+}
 -(void)loadData:(id)notify page:(int)num
 {
     if(_state.running)
@@ -358,9 +371,15 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
     _pid = [liModel.id intValue];
    
     /*数据请求**/
-    _mbPro = [MBProgressHUD mbHubShow];
-    [self loadData:_mbPro page:0];
-    
+//    _mbPro = [MBProgressHUD mbHubShow];
+//    [self loadData:_mbPro page:0];
+        TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
+    findJobModel *fjmodel = self.listArr[indexPath.row];
+    detail.uid = [fjmodel.uid intValue];
+    detail.pid = [fjmodel.job_id intValue];
+    detail.saveBOOL = 1;
+
+   [self.navigationController pushViewController:detail animated:YES];
 }
 
 -(void)setStatus
@@ -496,14 +515,5 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

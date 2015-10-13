@@ -66,7 +66,7 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:@"writeStep2BackClick" object:nil];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"findJobBackClick" object:nil];
     
-
+[[NSNotificationCenter defaultCenter]postNotificationName:@"jb_detail" object:nil];
     [self popViewControllerAnimated:YES];
      }
 - (UIStatusBarStyle)preferredStatusBarStyle

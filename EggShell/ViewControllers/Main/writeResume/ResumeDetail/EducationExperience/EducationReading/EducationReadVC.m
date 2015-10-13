@@ -23,6 +23,17 @@
 @end
 
 @implementation EducationReadVC
+-(void)viewWillAppear:(BOOL)animated
+{
+    /***/
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:NO];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -68,9 +79,7 @@
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.scro addSubview:button];
         self.scro.contentSize = CGSizeMake(WIDETH, 215*self.dataArray.count+150);
-    /*通知返回**/
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
-    }
+        }
 }
 #pragma mark --继续添加
 -(void)addbUttonClick

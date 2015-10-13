@@ -227,7 +227,7 @@ typedef NS_ENUM(NSInteger, GestureType){
         
     }else if([MMNetWorkType getNetWorkType] ==WWAN)
     {
-        [MBProgressHUD creatembHub:@"您当前处于3G状态"];
+        [MBProgressHUD creatembHub:@"您当前处于4G状态"];
     }
       else {
         NSLog(@"当前是3G或wifi状态");
@@ -1163,11 +1163,12 @@ typedef NS_ENUM(NSInteger, GestureType){
 - (void)dealloc{
     NSLog(@"dealloc");
     [_player.currentItem removeObserver:self forKeyPath:@"status"];
-//    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:MPMoviePlayerLoadStateDidChangeNotification];
+//   [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:MPMoviePlayerLoadStateDidChangeNotification];
 //    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:MPMoviePlayerPlaybackStateDidChangeNotification];
 //    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:MPMoviePlayerDidEnterFullscreenNotification];
-//    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:MPMoviePlayerDidExitFullscreenNotification];
-//    [[NSNotificationCenter defaultCenter]removeObserver:self];
+//   [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:MPMoviePlayerDidExitFullscreenNotification];
+//  [[NSNotificationCenter defaultCenter]removeObserver:self];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:@"videoClose"];
 }
 @end
 

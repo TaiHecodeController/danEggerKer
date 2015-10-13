@@ -730,7 +730,11 @@
     [MobClick endLogPageView:@"homevc"];
 }
 
-
+-(void)dealloc
+{
+    [_header free];
+    [_footer free];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

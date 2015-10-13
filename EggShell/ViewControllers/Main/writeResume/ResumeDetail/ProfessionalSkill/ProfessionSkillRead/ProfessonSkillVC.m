@@ -24,12 +24,22 @@
 @end
 
 @implementation ProfessonSkillVC
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    /***/
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"removeMessage" object:self];
+}
+-(void)viewDidDisappear:(BOOL)animated
+{ [super viewWillDisappear:NO];
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
      _resume_model = [ResumeModel sharedResume];
     [self loadData];
-    
+   
     
 }
 -(void)loadData
@@ -70,17 +80,18 @@
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.scro addSubview:button];
         self.scro.contentSize = CGSizeMake(WIDETH, 152*self.dataArray.count+150);
-    /***/
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+    
     }
 }
+
 #pragma mark --继续添加
 -(void)addbUttonClick
 {
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"removeMessage" object:self];
+    
    [self.navigationController popViewControllerAnimated:YES];
     
 }
+
 -(void)backToResume
 {
     [self.navigationController popViewControllerAnimated:NO];

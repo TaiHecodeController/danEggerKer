@@ -168,7 +168,6 @@
     _tableView.tableFooterView = [[UIView alloc] init];
     _tableView.tableHeaderView = self.comPanyView;
     _tableView.backgroundColor = [UIColor whiteColor];
-    
     [self.view addSubview:_tableView];
     
     _header = [MJRefreshHeaderView header];
@@ -179,7 +178,6 @@
     _footer.scrollView = _tableView;
     _footer.delegate = self;
 }
-
 -(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
     if(refreshView == _header)
@@ -217,6 +215,7 @@
      TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
     detail.uid = [self.listArray[indexPath.row][@"uid"]intValue];
     detail.pid = [self.listArray[indexPath.row][@"id"]intValue];
+    
     
     [self.navigationController pushViewController:detail animated:YES];
 }

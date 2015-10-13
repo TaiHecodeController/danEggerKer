@@ -302,9 +302,6 @@
             index++;
             resumeid = cell.resumeId;
 
-        }else
-        {
-            [MBProgressHUD creatembHub:@"请选择要编辑的简历"];
         }
     }
     
@@ -319,6 +316,10 @@
     else
     {
         [MBProgressHUD creatembHub:@"只能选择一份简历进行编辑"];
+    }if (index==0) {
+        
+            [MBProgressHUD creatembHub:@"请选择要编辑的简历"];
+        
     }
     
     if (self.dataArray.count == 0)

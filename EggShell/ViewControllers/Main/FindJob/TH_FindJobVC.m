@@ -128,7 +128,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backRootController:) name:@"findJobBackClick" object:nil];
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyWordRefresh) name:@"keyWord" object:nil];
     
@@ -379,7 +379,7 @@
     _allSelected = [[UIButton alloc]init];
 //    CGFloat allSelectedW =  90;
 //    CGFloat allSelectedH =  27.5;
-    _allSelected.frame = CGRectMake( 2 *margin, 8, 40, 40);
+    _allSelected.frame = CGRectMake( 2 *margin, 50, 40, 40);
 //    [_allSelected setTitle:@"全选" forState:UIControlStateNormal];
     [_allSelected setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _allSelected.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -395,7 +395,7 @@
     UILabel *quanxuanLab = [[UILabel alloc]init];
     quanxuanLab.text = @"全选";
     quanxuanLab.font = [UIFont systemFontOfSize:13];
-    quanxuanLab.frame = CGRectMake(CGRectGetMaxX(_allSelected.frame)+3, 15, 40, 22.5);
+    quanxuanLab.frame = CGRectMake(CGRectGetMaxX(_allSelected.frame)+3, 57, 40, 22.5);
     [_bottomView addSubview:quanxuanLab];
     
 }
@@ -784,14 +784,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

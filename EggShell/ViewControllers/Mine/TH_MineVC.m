@@ -325,33 +325,36 @@
         {
             NSLog(@"skdfjbc");
             
-            if (![AppDelegate instance].doubleUpdateVersion>[AppDelegate instance].doubleCurrentVersion) {
-//              [MBProgressHUD creatembHub:@"暂无新版本"];
-            }else
-            {
-            VersionUpdateView * view =[[[NSBundle mainBundle] loadNibNamed:@"VersionUpdate" owner:self options:nil] lastObject];
-            ;
-            view.frame = CGRectMake(0, 0, 250, 151);
-                [UIView animateWithDuration:0.5 animations:^{
-                    view.center = self.view.center;
-                }];
-            
-            view.layer.cornerRadius = 5;
-            view.layer.masksToBounds = YES;
-            [self.view addSubview:view];
-            [view showVersonView];
-            
-            view.currentBlock = ^(UIView * backView)
-            {
-               
-                [view removeFromSuperview];
-                [backView removeFromSuperview];
-            } ;
-            view.updataBlock = ^(UIView*view)
-            { [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[AppDelegate instance].trackViewUrl]];
-               
-            };
-            }
+//            if (!([AppDelegate instance].doubleUpdateVersion>[AppDelegate instance].doubleCurrentVersion)) {
+//                
+//                
+//                
+////              [MBProgressHUD creatembHub:@"暂无新版本"];
+//            }else
+//            {
+//            VersionUpdateView * view =[[[NSBundle mainBundle] loadNibNamed:@"VersionUpdate" owner:self options:nil] lastObject];
+//            ;
+//            view.frame = CGRectMake(0, 0, 250, 151);
+//                [UIView animateWithDuration:0.5 animations:^{
+//                    view.center = self.view.center;
+//                }];
+//            
+//            view.layer.cornerRadius = 5;
+//            view.layer.masksToBounds = YES;
+//            [self.view addSubview:view];
+//            [view showVersonView];
+//            
+//            view.currentBlock = ^(UIView * backView)
+//            {
+//               
+//                [view removeFromSuperview];
+//                [backView removeFromSuperview];
+//            } ;
+//            view.updataBlock = ^(UIView*view)
+//            { [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[AppDelegate instance].trackViewUrl]];
+//               
+//            };
+//            }
             
             break;
         }

@@ -49,7 +49,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
