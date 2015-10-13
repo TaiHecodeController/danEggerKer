@@ -127,7 +127,7 @@
     [headView addSubview:lineView];
     
     y += headView.frame.size.height;
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, y, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - y - 66 - bottomH )];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, y, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - y - 66 - bottomH+33 )];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.tableFooterView = [[UIView alloc] init];
@@ -146,7 +146,7 @@
 
     
     _bottomView = [[UIView alloc]init];
-    _bottomView.frame = CGRectMake(0, HEIGHT - bottomH - 66, WIDETH, bottomH);
+    _bottomView.frame = CGRectMake(0, HEIGHT - bottomH - 33, WIDETH, bottomH);
     _bottomView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_bottomView];
     
@@ -159,7 +159,7 @@
     CGFloat applyX = 80;
     CGFloat applyBtnH = 30;
     CGFloat applyBtnW = ((WIDETH - applyX * 2) - 15) / 2;
-    _apllyBtn.frame = CGRectMake(applyX, 50, applyBtnW, applyBtnH);
+    _apllyBtn.frame = CGRectMake(applyX, 50-33, applyBtnW, applyBtnH);
     [_apllyBtn setTitle:@"申请职位" forState:UIControlStateNormal];
     [_apllyBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_apllyBtn addTarget:self action:@selector(apllyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -173,7 +173,7 @@
     CGFloat removeX = applyX + applyBtnW + 15;
     CGFloat removeBtnH = 30;
     CGFloat removeBtnW = ((WIDETH - applyX * 2) - 15) / 2;
-    _removeBtn.frame = CGRectMake(removeX, 50, removeBtnW, removeBtnH);
+    _removeBtn.frame = CGRectMake(removeX, 50-33, removeBtnW, removeBtnH);
     [_removeBtn setTitle:@"删除职位" forState:UIControlStateNormal];
     [_removeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_removeBtn addTarget:self action:@selector(removeBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -187,7 +187,7 @@
     _allSelected = [[UIButton alloc]init];
     CGFloat allSelectedW =  90;
     CGFloat allSelectedH =  20;
-    _allSelected.frame = CGRectMake(0, 15, allSelectedW, allSelectedH);
+    _allSelected.frame = CGRectMake(0, 57-33, allSelectedW, allSelectedH);
     [_allSelected setTitle:@"全选" forState:UIControlStateNormal];
     [_allSelected setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _allSelected.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);

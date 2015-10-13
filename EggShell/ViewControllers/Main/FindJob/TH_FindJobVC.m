@@ -337,7 +337,7 @@
     [self.view addSubview:_segmentedControl];
     
     y += _segmentedControl.frame.size.height;
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, y, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -  66 - 40 - bottomH )];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, y, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -  66 - 40 - bottomH +33)];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.backgroundColor = [UIColor clearColor];
@@ -354,10 +354,9 @@
     _footer.scrollView = self.tableView;
     _footer.delegate = self;
     _bottomView = [[UIView alloc]init];
-    _bottomView.frame = CGRectMake(0, HEIGHT - bottomH - 66, WIDETH, bottomH);
+    _bottomView.frame = CGRectMake(0, HEIGHT - bottomH -33, WIDETH, bottomH);
     _bottomView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_bottomView];
-    
     UIView *bottomLine = [[UIView alloc]init];
     bottomLine.frame = CGRectMake(0, 0, WIDETH, 1);
     bottomLine.backgroundColor = color(221, 221, 221);
@@ -366,7 +365,7 @@
     _apllyBtn = [[UIButton alloc]init];
     CGFloat applyBtnH = 30;
     CGFloat applyBtnW = 150;
-    _apllyBtn.frame = CGRectMake(0.3 * WIDETH, 50, applyBtnW, applyBtnH);
+    _apllyBtn.frame = CGRectMake(0.3 * WIDETH, 50-30, applyBtnW, applyBtnH);
     [_apllyBtn setTitle:@"申请职位" forState:UIControlStateNormal];
     [_apllyBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_apllyBtn addTarget:self action:@selector(apllyBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -379,7 +378,7 @@
     _allSelected = [[UIButton alloc]init];
 //    CGFloat allSelectedW =  90;
 //    CGFloat allSelectedH =  27.5;
-    _allSelected.frame = CGRectMake( 2 *margin, 50, 40, 40);
+    _allSelected.frame = CGRectMake( 2 *margin, 50-33, 40, 40);
 //    [_allSelected setTitle:@"全选" forState:UIControlStateNormal];
     [_allSelected setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _allSelected.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -395,7 +394,7 @@
     UILabel *quanxuanLab = [[UILabel alloc]init];
     quanxuanLab.text = @"全选";
     quanxuanLab.font = [UIFont systemFontOfSize:13];
-    quanxuanLab.frame = CGRectMake(CGRectGetMaxX(_allSelected.frame)+3, 57, 40, 22.5);
+    quanxuanLab.frame = CGRectMake(CGRectGetMaxX(_allSelected.frame)+3, 57-33, 40, 22.5);
     [_bottomView addSubview:quanxuanLab];
     
 }
