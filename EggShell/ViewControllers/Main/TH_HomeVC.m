@@ -79,7 +79,7 @@
         
     }else if([MMNetWorkType getNetWorkType] ==WWAN)
     {
-        [MBProgressHUD creatembHub:@"您当前处于3G状态"];
+        [MBProgressHUD creatembHub:@"您当前处于4G状态"];
     }else{
         NSLog(@"当前是wifi状态");
         [MBProgressHUD creatembHub:@"您当前处于wifi状态"];
@@ -90,7 +90,7 @@
     [self createScro];
     //初始化轮播图
     [self configBannerView];
-    [self quereData];
+  [self quereData];
     //注册XIB
     [self createHomeView];
     //名企推荐
@@ -632,33 +632,38 @@
 #pragma mark -- banner数据请求
 - (void)quereData
 {
-    self.dataDic = [NSMutableDictionary dictionaryWithCapacity:0 ];
+    NSArray * imsgeArray = @[@"lunbo2",@"lunbo3",@"lunbotu0"];
     
-    [TH_AFRequestState CarouselFigureRequestWithSucc:^(NSDictionary * arr) {
-        
-        self.dataDic = arr[@"data"];
-        if (is3_5Inch||is4Inch) {
-            self.str1 = self.dataDic[@"lunbo1.2"];
-            self.str2 =self.dataDic[@"lunbo1.3"];
-            self.str3 = self.dataDic[@"lunbo1"];
-        }else if (is4_7Inch)
-        {
-            self.str1 = self.dataDic[@"lunbo2.2"];
-            self.str2 =self.dataDic[@"lunbo2.3"];
-            self.str3 = self.dataDic[@"lunbo2"];
-        }else if (is5_5Inch)
-        {
-            self.str1 = self.dataDic[@"lunbo3.2"];
-            self.str2 =self.dataDic[@"lunbo3.3"];
-            self.str3 = self.dataDic[@"lunbo3"];
-        }
-        
-        self.imageArr = [NSArray arrayWithObjects:@{@"photo":self.str1},@{@"photo":self.str2},@{@"photo":self.str3}, nil];
-        
-        [_bannerView setImageURLs:self.imageArr];
-    } withfail:^(int errCode, NSError *err) {
-        
-    }];
+    NSArray *imageArr = [NSArray arrayWithObjects:@{@"photo":imsgeArray[0]},@{@"photo":imsgeArray[1]},@{@"photo":imsgeArray[2]}, nil];
+    //加载数据
+    [_bannerView setImageURLs:imageArr];
+//    self.dataDic = [NSMutableDictionary dictionaryWithCapacity:0 ];
+//    
+//    [TH_AFRequestState CarouselFigureRequestWithSucc:^(NSDictionary * arr) {
+//        
+//        self.dataDic = arr[@"data"];
+//        if (is3_5Inch||is4Inch) {
+//            self.str1 = self.dataDic[@"lunbo1.2"];
+//            self.str2 =self.dataDic[@"lunbo1.3"];
+//            self.str3 = self.dataDic[@"lunbo1"];
+//        }else if (is4_7Inch)
+//        {
+//            self.str1 = self.dataDic[@"lunbo2.2"];
+//            self.str2 =self.dataDic[@"lunbo2.3"];
+//            self.str3 = self.dataDic[@"lunbo2"];
+//        }else if (is5_5Inch)
+//        {
+//            self.str1 = self.dataDic[@"lunbo3.2"];
+//            self.str2 =self.dataDic[@"lunbo3.3"];
+//            self.str3 = self.dataDic[@"lunbo3"];
+//        }
+//        
+//        self.imageArr = [NSArray arrayWithObjects:@{@"photo":self.str1},@{@"photo":self.str2},@{@"photo":self.str3}, nil];
+//        
+//        [_bannerView setImageURLs:self.imageArr];
+//    } withfail:^(int errCode, NSError *err) {
+//        
+//    }];
 }
 
 /*
