@@ -91,8 +91,8 @@
     [self.navigationController popViewControllerAnimated:NO];
     TH_FindJobVC * findJob = [[TH_FindJobVC alloc] init];
     [self.navigationController  popToViewController:findJob animated:YES];
-    
 }
+
 -(void)loadData:(id)notify page:(int)num
 {
     if(_state.running)
