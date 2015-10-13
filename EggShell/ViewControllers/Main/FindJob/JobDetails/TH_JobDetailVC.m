@@ -296,7 +296,6 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
     _footer.scrollView = self.tableView;
 }
 
-
 -(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
     if(refreshView == _header)
@@ -373,13 +372,21 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
     /*数据请求**/
 //    _mbPro = [MBProgressHUD mbHubShow];
 //    [self loadData:_mbPro page:0];
-        TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
-    findJobModel *fjmodel = self.listArr[indexPath.row];
-    detail.uid = [fjmodel.uid intValue];
-    detail.pid = [fjmodel.job_id intValue];
+//        TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
+//    findJobModel *fjmodel = self.listArr[indexPath.row];
+//    detail.uid = [fjmodel.uid intValue];
+//    detail.pid = [fjmodel.job_id intValue];
+//    detail.saveBOOL = 1;
+//
+//   [self.navigationController pushViewController:detail animated:YES];
+    TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
+//    record_index = indexPath;
+    detail.uid = _uid;
+    detail.pid =  _pid;
     detail.saveBOOL = 1;
-
-   [self.navigationController pushViewController:detail animated:YES];
+    //        NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    //        NSLog(@"uid%@",[df objectForKey:@"uid"]);
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 -(void)setStatus
