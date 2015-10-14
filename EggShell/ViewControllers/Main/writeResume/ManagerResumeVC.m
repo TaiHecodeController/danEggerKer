@@ -291,6 +291,7 @@
 
 - (IBAction)editClick:(UIButton *)sender {
     
+    //index用来记录是否勾选了简历 index=1时，是选择了一份简历；index=0时，是没有选择简历；index大于1时，是选择了多份简历；依据index做出相应提示。
     int index = 0;
     
     NSString *resumeid;
@@ -305,21 +306,26 @@
         }
     }
     
-    if (index == 1)
+    
+    if (index != 0)
     {
-        WriteResumeViewController * vc = [[WriteResumeViewController alloc] init];
-        vc.resumeId = resumeid;
-        vc.isEdit = YES;
-        [AppDelegate instance].resumeId = resumeid;
-        [self.navigationController pushViewController:vc animated:YES];
+        if (index == 1)
+        {
+            WriteResumeViewController * vc = [[WriteResumeViewController alloc] init];
+            vc.resumeId = resumeid;
+            vc.isEdit = YES;
+            [AppDelegate instance].resumeId = resumeid;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else
+        {
+            [MBProgressHUD creatembHub:@"只能选择一份简历进行编辑"];
+        }
     }
-    else
-    {
-        [MBProgressHUD creatembHub:@"只能选择一份简历进行编辑"];
-    }if (index==0) {
+    
+    if (index==0) {
         
             [MBProgressHUD creatembHub:@"请选择要编辑的简历"];
-        
     }
     
     if (self.dataArray.count == 0)

@@ -31,11 +31,13 @@
     [self.window makeKeyAndVisible];
     //注册友盟统计
     [MobClick startWithAppkey:@"55f24438e0f55aa7af001c3d" reportPolicy:BATCH   channelId:nil];
+    
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSNumber *num = [NSNumber numberWithInt:0];
     [df setObject:num forKey:@"citytag"];
     [df synchronize];
-  [self checkVersion];
+    
+   [self checkVersion];
     
     
     //初始化保利视频
