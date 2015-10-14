@@ -124,11 +124,11 @@
     double page = scrollView.contentOffset.x / scrollView.width;
     self.pageControl.currentPage = (int)(page + 0.5);
 }
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-    
-}
+//- (UIStatusBarStyle)preferredStatusBarStyle
+//{
+//    return UIStatusBarStyleLightContent;
+//    
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

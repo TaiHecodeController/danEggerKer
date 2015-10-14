@@ -26,7 +26,10 @@
 
     // Do any additional setup after loading the view
 }
-
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
 
 
 - (void)addRightBtn2_NormalImageName:(NSString *)nIcon hightImageName:(NSString *)hIcon action:(SEL)action target:(id)target

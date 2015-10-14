@@ -27,15 +27,15 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-        //注册友盟统计
+    
     [self.window makeKeyAndVisible];
+    //注册友盟统计
     [MobClick startWithAppkey:@"55f24438e0f55aa7af001c3d" reportPolicy:BATCH   channelId:nil];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSNumber *num = [NSNumber numberWithInt:0];
     [df setObject:num forKey:@"citytag"];
     [df synchronize];
   [self checkVersion];
-    
     
     
     //初始化保利视频
@@ -48,7 +48,6 @@
         NSLog(@"配置成功");
     }
     
-//    sleep(0);
     NSString *key = @"CFBundleVersion";
     NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:kBundleVersion];
     NSString *currentVersion = [NSBundle mainBundle].infoDictionary[kBundleVersion];
@@ -123,12 +122,17 @@
     
     NSURL * url = [NSURL URLWithString:urlStr];
     NSData * response = [NSURLConnection sendSynchronousRequest:[[NSURLRequest alloc] initWithURL:url] returningResponse:nil error:nil];
+    
+    if (!response) {
+        return;
+    }
+    
     NSDictionary * appInfoDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error:&error];
-//    if(error)
-//    {
-//        NSLog(@"版本检测数据error,message:%@",error);
-//        return;
-//    }
+    if(!appInfoDic) {
+        return;
+    }
+    
+    
     NSArray * resultsArray = [appInfoDic objectForKeyedSubscript:@"results"];
     if(!resultsArray.count)
     {

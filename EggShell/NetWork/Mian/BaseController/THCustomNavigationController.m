@@ -68,10 +68,10 @@
 [[NSNotificationCenter defaultCenter]postNotificationName:@"jb_detail" object:nil];
     [self popViewControllerAnimated:YES];
      }
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
+//- (UIStatusBarStyle)preferredStatusBarStyle
+//{
+//    return UIStatusBarStyleBlackOpaque;
+//}
 
 /*
 #pragma mark - Navigation

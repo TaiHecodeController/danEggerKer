@@ -85,7 +85,7 @@
         [MBProgressHUD creatembHub:@"您当前处于wifi状态"];
     }
     //状态栏
-    [self setStatus];
+//    [self setStatus];
     //ScroView
     [self createScro];
     //初始化轮播图
@@ -98,6 +98,10 @@
 
     
     
+}
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 -(void)loadData
 {
@@ -674,12 +678,12 @@
     NSLog(@"在此处进行跳转%@",item.extend);
 }
 
-#pragma mark - - 状态栏
--(void)setStatus
-{
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
-}
+//#pragma mark - - 状态栏
+//-(void)setStatus
+//{
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    
+//}
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -714,7 +718,7 @@
 //隐藏导航栏,创建搜索视图
 -(void)viewWillAppear:(BOOL)animated
 {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
     self.navigationController.navigationBarHidden = YES;
     //搜索
     [self createSearch];
