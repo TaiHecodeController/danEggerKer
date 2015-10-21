@@ -160,7 +160,6 @@
     vc.pushType = 0;
     [self.navigationController pushViewController:vc animated:YES];
 }
-
 #pragma mark - - scorView
 -(void)createScro
 {

@@ -162,7 +162,6 @@
     {
         NSString * titleStr = [NSString stringWithFormat:@"检查更新:%@",trackName];
 //        NSString * messageStr = [NSString stringWithFormat:@"发现新版本(%@),是否升级?",latestVersion];
-        
         NSString * releaseNotes = appInfoDic[@"results"][0][@"releaseNotes"];
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:titleStr message:releaseNotes delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"升级", nil];
         [alert show];
