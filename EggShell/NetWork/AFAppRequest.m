@@ -244,29 +244,36 @@
             return;
         }
         
+        //没有返回类型，直接返回字典数据
         if(!resp)
         {
             succ(responseObject);
             return;
         }
         
+        //有返回类型，用Gson返回模型类型
         id data = [Gson fromObj:[responseObject objectForKey:@"data"] Cls:resp];
         
+        //没有返回类型，没有返回数据，返回空
         if(data == nil && resp == [NSNull class])
         {
             succ(nil);
             return;
         }
         
+        //有返回类型，但没返回数据，返回fail
         if( data == nil && resp != [NSNull class] )
         {
             fail(10001, nil);
             return;
         }
+        
         if(succ == nil)
         {
             return;
         }
+        
+        //返回正确数据
         succ(data);
     }
     @catch(GsonException * excep){

@@ -14,8 +14,9 @@
 @end
 
 @interface Gson : NSObject
-
+//返回值为模型，json为数据库的数据，cls为自定义模型
 +(id)fromJson:(NSString*)json Cls:(Class)cls;
+//返回值为模型，json为数据库的数据，cls为自定义模型
 +(id)fromObj:(id)json Cls:(Class)cls;
 
 @end

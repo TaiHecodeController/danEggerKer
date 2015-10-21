@@ -96,8 +96,6 @@
     //名企推荐
     [self loadData];
 
-    
-    
 }
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -110,7 +108,6 @@
         
         self.enterArray  = arr[@"data"];
           [self.homeView config:self.enterArray];
-        
         
     } ];
     
@@ -639,6 +636,7 @@
     NSArray * imsgeArray = @[@"lunbo2",@"lunbo3",@"lunbotu0"];
     
     NSArray *imageArr = [NSArray arrayWithObjects:@{@"photo":imsgeArray[0]},@{@"photo":imsgeArray[1]},@{@"photo":imsgeArray[2]}, nil];
+    
     //加载数据
     [_bannerView setImageURLs:imageArr];
 //    self.dataDic = [NSMutableDictionary dictionaryWithCapacity:0 ];
