@@ -27,7 +27,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    
+    self.window.rootViewController = [UIViewController new];
     [self.window makeKeyAndVisible];
     //注册友盟统计
     [MobClick startWithAppkey:@"55f24438e0f55aa7af001c3d" reportPolicy:BATCH   channelId:nil];
@@ -130,11 +130,10 @@
     }
     
     NSDictionary * appInfoDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error:&error];
+
     if(!appInfoDic) {
         return;
     }
-    
-    
     NSArray * resultsArray = [appInfoDic objectForKeyedSubscript:@"results"];
     if(!resultsArray.count)
     {
@@ -160,13 +159,13 @@
     if(self.doubleUpdateVersion > self.doubleCurrentVersion)
     {
         NSString * titleStr = [NSString stringWithFormat:@"检查更新:%@",trackName];
-        NSString * messageStr = [NSString stringWithFormat:@"发现新版本(%@),是否升级?",latestVersion];
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:titleStr message:messageStr delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"升级", nil];
+//        NSString * messageStr = [NSString stringWithFormat:@"发现新版本(%@),是否升级?",latestVersion];
+        
+        NSString * releaseNotes = appInfoDic[@"results"][0][@"releaseNotes"];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:titleStr message:releaseNotes delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"升级", nil];
         [alert show];
     }
-    
 }
-
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1)
@@ -206,7 +205,6 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
-
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }

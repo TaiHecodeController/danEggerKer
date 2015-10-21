@@ -157,7 +157,6 @@
 -(void)createView
 {
     MineVeiw * minVew = [MineVeiw RegisterMineView];
-    
     [minVew mineViewSetButtonTag];
     minVew.mineDelegate = self;
     
