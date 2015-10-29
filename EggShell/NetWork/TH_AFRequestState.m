@@ -149,7 +149,6 @@
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@lunbo",base_Url] param:nil succ:succ fail:fail];
     
-    
 }
 /*信息台**/
 +(AFRequestState*)InformationDeskRequestWithSucc:(void(^)(NSArray * arr))succ  resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type;
@@ -161,11 +160,13 @@
 
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Infos/index",base_Url]param:param succ:succ resp:resp];
 }
+
 /*名企推荐**/
 +(AFRequestState*)PrivateRecommendationWithSucc:(void(^)(NSDictionary * arr))succ
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/recommend_company",base_Url] param:nil succ:succ];
 }
+
 //名企详情
 +(AFRequestState*)famousEnterprisesDetailWithSucc:(void(^)(NSDictionary * arr))succ withd:(NSDictionary*)dic
 {

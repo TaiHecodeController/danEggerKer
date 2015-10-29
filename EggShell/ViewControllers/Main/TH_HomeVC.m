@@ -73,6 +73,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    
     //网络判断
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
         [MBProgressHUD creatembHub:@"当前处于无网络"];
@@ -199,7 +201,7 @@
     self.findView.homeViewDelegate = self;
     [self.scro addSubview:self.findView];
     //注册HomeViews
-    HomeView * homeView   = [HomeView homeViewFinJob] ;
+    HomeView * homeView   = [HomeView homeViewFinJob];
     homeView.frame  = CGRectMake(0*WIDETH, MyHeight * 326, WIDETH, 436);
     
     homeView.famousDelegate = self;
