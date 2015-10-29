@@ -116,6 +116,7 @@
 +(AFRequestState*)certificatesReadingWithSucc:(void(^)(NSDictionary * dataDic))succ certificatesReadingParam:(NSDictionary *)param
 {
 return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/cert_list",base_Url] param:param succ:succ];
+    
 }
 
 
