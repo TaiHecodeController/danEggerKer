@@ -39,7 +39,6 @@
     
    [self checkVersion];
     
-    
     //初始化保利视频
     [self initPloyVideo];
     // 要使用百度地图，请先启动BaiduMapManager
@@ -86,7 +85,6 @@
     [_locService startUserLocationService];
     /*键盘处理**/
     [self keyBoard];
-    
     
     
 

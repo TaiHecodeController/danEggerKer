@@ -52,6 +52,7 @@
     
     headView = [[[NSBundle mainBundle] loadNibNamed:@"HeadView" owner:self options:nil] firstObject];
     headView.frame = CGRectMake(0, 64, WIDETH, 58);
+    
     __weak typeof(self) weakSelf = self;
     headView.searchClick = ^(NSString * text)
     {
@@ -77,7 +78,6 @@
             //从职位列表来，返回职位列表
              [weakSelf.navigationController popViewControllerAnimated:YES];
         }
-        
        
     };
     [self.view addSubview:headView];
@@ -114,8 +114,6 @@
         [SearchModelShare sharedInstance].keyword = sender.titleLabel.text;
          [self.db insertDB:sender.titleLabel.text];
     }
-    
-    
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
     

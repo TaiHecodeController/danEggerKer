@@ -278,6 +278,7 @@
 		F0829B621BB3F6DF00EA8B6F /* chazi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0829B5F1BB3F6DF00EA8B6F /* chazi@2x.png */; };
 		F0829B631BB3F6DF00EA8B6F /* chazi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0829B601BB3F6DF00EA8B6F /* chazi@3x.png */; };
 		F083F8211B9C32F700781C08 /* Me_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F083F8201B9C32F700781C08 /* Me_Request.m */; };
+		F08EF6E61BDA058B00565B7D /* MBProgressHUD+rk.m in Sources */ = {isa = PBXBuildFile; fileRef = F08EF6E51BDA058B00565B7D /* MBProgressHUD+rk.m */; settings = {ASSET_TAGS = (); }; };
 		F0B85A391BA11F83005799F5 /* SearchCity1_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */; };
 		F0B85A3C1BA11F97005799F5 /* SearchCity2_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */; };
 		F0B85A3F1BA11FA7005799F5 /* SearchCity3_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */; };
@@ -796,6 +797,8 @@
 		F0829B601BB3F6DF00EA8B6F /* chazi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chazi@3x.png"; sourceTree = "<group>"; };
 		F083F81F1B9C32F700781C08 /* Me_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Me_Request.h; sourceTree = "<group>"; };
 		F083F8201B9C32F700781C08 /* Me_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Me_Request.m; sourceTree = "<group>"; };
+		F08EF6E41BDA058B00565B7D /* MBProgressHUD+rk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+rk.h"; sourceTree = "<group>"; };
+		F08EF6E51BDA058B00565B7D /* MBProgressHUD+rk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+rk.m"; sourceTree = "<group>"; };
 		F0B85A371BA11F83005799F5 /* SearchCity1_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCity1_ViewController.h; path = ../FindJob/SearchCity1_ViewController.h; sourceTree = "<group>"; };
 		F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCity1_ViewController.m; path = ../FindJob/SearchCity1_ViewController.m; sourceTree = "<group>"; };
 		F0B85A3A1BA11F97005799F5 /* SearchCity2_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCity2_ViewController.h; path = ../FindJob/SearchCity2_ViewController.h; sourceTree = "<group>"; };
@@ -1017,6 +1020,8 @@
 				041650A51B4D730F008C78BE /* MBProgressHUD+Show.m */,
 				041650A61B4D730F008C78BE /* MBProgressHUD.h */,
 				041650A71B4D730F008C78BE /* MBProgressHUD.m */,
+				F08EF6E41BDA058B00565B7D /* MBProgressHUD+rk.h */,
+				F08EF6E51BDA058B00565B7D /* MBProgressHUD+rk.m */,
 			);
 			path = MBProgressHUD;
 			sourceTree = "<group>";
@@ -2779,6 +2784,7 @@
 				94313DF71B7CB610005D0A9A /* TH_HomeVC.m in Sources */,
 				94E761D11BA2C1FB00B4C544 /* ProfessonSkillVC.m in Sources */,
 				9400330F1B8415B4001EB666 /* TH_AboutEggshellVC.m in Sources */,
+				F08EF6E61BDA058B00565B7D /* MBProgressHUD+rk.m in Sources */,
 				94E2C9871B870F29001E3FDD /* JobDescriptionlView.m in Sources */,
 				940032D01B840CC3001EB666 /* projectTableViewCell.m in Sources */,
 				F01787AF1B959456005FF9C4 /* JobDetailModel_Arr4.m in Sources */,
