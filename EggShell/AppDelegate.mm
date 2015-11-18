@@ -126,17 +126,18 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
-    //app在前台时，展示推送消息
+    
+    if (application.applicationState == UIApplicationStateActive) {
+       //app在前台时，展示推送消息
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"通知" message:userInfo[@"aps"][@"alert"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
     [alert show];
     alert.tag = 1001;
+    }
     // IOS 7 Support Required
     [APService handleRemoteNotification:userInfo];
     
     completionHandler(UIBackgroundFetchResultNewData);
-    if (application.applicationState == UIApplicationStateActive) {
     }
-}
 
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
