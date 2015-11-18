@@ -220,9 +220,9 @@
         {
             //跳转到需要的控制器
 //            TH_PlayFanVC *vc = [[TH_PlayFanVC alloc]init];
-//            self.window.rootViewController.navigationController.navigationBarHidden = NO;
-//            [self.mainTabBar.selectedViewController pushViewController:vc animated:YES];
-            
+////            self.window.rootViewController.navigationController.navigationBarHidden = NO;
+////            [self.mainTabBar.selectedViewController pushViewController:vc animated:YES];
+//            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
             ;
         }
     }
