@@ -14,7 +14,7 @@
 #import "IQTitleBarButtonItem.h"
 #import "MobClick.h"
 #import "APService.h"
-@interface AppDelegate ()<BMKGeneralDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate>
+@interface AppDelegate ()<BMKGeneralDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,UIAlertViewDelegate>
 {
     NSString * _trackViewUrl;
     BMKMapManager* _mapManager;
@@ -117,21 +117,23 @@
     [APService registerDeviceToken:deviceToken];
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    
-    // Required
-    [APService handleRemoteNotification:userInfo];
-}
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+//    
+//    // Required
+//    [APService handleRemoteNotification:userInfo];
+//}
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
+    //app在前台时，展示推送消息
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"通知" message:userInfo[@"aps"][@"alert"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+    [alert show];
+    alert.tag = 1001;
     
     // IOS 7 Support Required
     [APService handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
 }
-
-
 
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
@@ -208,11 +210,21 @@
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(buttonIndex == 1)
+    if (alertView.tag == 1001)
     {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_trackViewUrl]];
-        
-        
+        if (buttonIndex == 0)
+        {
+            
+        }
+    }
+    else
+    {
+        if(buttonIndex == 1)
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_trackViewUrl]];
+            
+            
+        }
     }
     
 } 
@@ -246,15 +258,15 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     //设置jPush后台badge为0
-    [APService setBadge:0];
+//    [APService setBadge:0];
     [APService resetBadge];
 }
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
      [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     //设置jPush后台badge为0
-    [APService setBadge:0];
+//    [APService setBadge:0];
     [APService resetBadge];
 }
 
