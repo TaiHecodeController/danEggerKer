@@ -86,6 +86,7 @@
         NSLog(@"当前是wifi状态");
         [MBProgressHUD creatembHub:@"您当前处于wifi状态"];
     }
+    
     //状态栏
 //    [self setStatus];
     //ScroView
@@ -99,10 +100,12 @@
     [self loadData];
 
 }
+
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
 }
+
 -(void)loadData
 {
     self.enterArray =[NSArray array];
@@ -188,6 +191,7 @@
 {
     [refreshView endRefreshing];
 }
+
 #pragma mark - - 创建HomeView
 -(void)createHomeView
 {
@@ -280,6 +284,8 @@
     
     
 }
+
+#pragma mark --
 -(void)myselfView:(HomeView*)selfView didClickInterneButton:(THHomeViewButtonItType)buttonType
 {self.navigationController.navigationBarHidden = NO;
     switch (buttonType) {
@@ -293,6 +299,7 @@
             [self.navigationController pushViewController:home animated:YES];
             break;
         }
+            
         case THHomeViewButtonTypeSitePlanning:
         {
             NSLog(@"1..2");
@@ -438,6 +445,7 @@
     
     NSLog(@"222");
 }
+
 -(void)myselfView:(HomeView*)selfView didClickAdvertisinButton:(THHomeViewButtonAdType)buttonType
 {self.navigationController.navigationBarHidden = NO;
     switch (buttonType) {
@@ -469,7 +477,6 @@
             
             break;
         }
-            
             
         case THHomeViewButtonTypeBusiness:
         {NSLog(@"3..\4");

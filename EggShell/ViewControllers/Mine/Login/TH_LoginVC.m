@@ -79,6 +79,12 @@
         imageView.frame = CGRectMake((WIDETH-80)/2.0, 10, 80,90);
     } completion:nil];
     
+    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:20 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+    
     UIView * loginView = [[UIView alloc] initWithFrame:CGRectMake(0, 110, WIDETH, 90)];
     loginView.backgroundColor = color(255, 255, 255);
     [self.scro addSubview:loginView];

@@ -61,9 +61,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  self.dataArray =[NSMutableArray arrayWithCapacity:0];
+    self.dataArray =[NSMutableArray arrayWithCapacity:0];
     self.view.backgroundColor =[UIColor whiteColor];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
     
 //    self.page = 0;

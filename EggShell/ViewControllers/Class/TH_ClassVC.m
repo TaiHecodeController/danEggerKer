@@ -127,6 +127,7 @@
 
 - (void)setHeadImageArr:(NSMutableArray *)arr
 {
+    
     for (UIImageView *iconView in self._gridView.headerView.subviews) {
         
         if (iconView.tag == 1000)

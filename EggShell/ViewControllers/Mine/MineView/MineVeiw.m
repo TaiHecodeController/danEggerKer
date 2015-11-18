@@ -41,7 +41,6 @@
     self.Feedback.tag = THMineViewButtonTypeFeedback;
     self.chatNewVersion.tag = THMineViewButtonTypeversion;
    
-   
 }
 
 +(MineVeiw*)RegisterMineView

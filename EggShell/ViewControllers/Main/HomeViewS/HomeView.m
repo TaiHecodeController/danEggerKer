@@ -16,9 +16,9 @@
     return [[[NSBundle mainBundle] loadNibNamed:@"HomeViews" owner:self options:nil] lastObject];
 
 }
+
 -(void)setHomeViewItBtn
 {
-
     self.InternetBtn.tag = THHomeViewButtonTypeInternet;
     self.PlanningBtn.tag = THHomeViewButtonTypeSitePlanning;
     self.WebsiteEditorBtn.tag = THHomeViewButtonTypeWebsiteEditor;
@@ -29,6 +29,7 @@
     self.niceBtn.tag = THHomeViewButtonTypenice;
 
 }
+
 -(void)setHomeViewFcBtn
 {
 //    THHomeViewButtonTypeFinancial,
@@ -71,7 +72,11 @@
 #pragma mark - - 企业
 - (IBAction)btnClick:(UIButton *)sender {
     
-    [self.famousDelegate homeViewFindJob:self withTag:sender.tag];
+    if ([self.famousDelegate respondsToSelector:@selector(homeViewFindJob:withTag:)])
+    {
+        [self.famousDelegate homeViewFindJob:self withTag:sender.tag];
+    }
+    
 }
 #pragma mark -- 互联网
 

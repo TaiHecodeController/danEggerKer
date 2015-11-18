@@ -69,14 +69,13 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    jobListCell * cell = self.cellArray[record_index.row];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [self.tableView reloadData];
+//    jobListCell * cell = self.cellArray[record_index.row];
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    [self.tableView reloadData];
     
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     self.view.backgroundColor =[UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];

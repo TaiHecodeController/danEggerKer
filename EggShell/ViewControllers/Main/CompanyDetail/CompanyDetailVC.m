@@ -113,7 +113,9 @@
             
             
        [UIView animateWithDuration:0.1 animations:^{
-                
+           
+           
+           //
                 record_Message = self.CMview.companyMessage.frame;
                 
                 record_SelfView = self.CMview.frame;

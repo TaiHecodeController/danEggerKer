@@ -182,7 +182,9 @@
 - (void) pinchView:(UIPinchGestureRecognizer *)pinchGestureRecognizer
 {
     UIView *view = self.showImgView;
-    if (pinchGestureRecognizer.state == UIGestureRecognizerStateBegan || pinchGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+    if (pinchGestureRecognizer.state == UIGestureRecognizerStateBegan || pinchGestureRecognizer.state == UIGestureRecognizerStateChanged)
+    {
+        //CGAffineTransformScale是在原来的基础上进行缩放
         view.transform = CGAffineTransformScale(view.transform, pinchGestureRecognizer.scale, pinchGestureRecognizer.scale);
         pinchGestureRecognizer.scale = 1;
     }

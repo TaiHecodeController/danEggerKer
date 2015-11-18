@@ -18,6 +18,7 @@
     }
     return self;
 }
+
 -(void)makeUI
 {
 //    //宽高

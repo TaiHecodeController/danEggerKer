@@ -17,15 +17,12 @@
 #import "MJRefresh.h"
 #import "SearchModelShare.h"
 
-
 /*数据请求**/
 #import "AFAppRequest.h"
 #import "findJobModel.h"
 #define bottomH 107
 #import "AppDelegate.h"
 #import "TH_LoginVC.h"
-
-
 
 @interface TH_FindJobVC ()<UITableViewDataSource,UITableViewDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,MJRefreshBaseViewDelegate>
 {
@@ -129,7 +126,6 @@
     [super viewDidLoad];
     
 
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyWordRefresh) name:@"keyWord" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TJsearch) name:@"TJsearch" object:nil];
@@ -662,6 +658,13 @@
 #pragma mark  -- 职位申请按钮
 - (void)apllyBtnClick
 {
+    
+    if (self.jobArr.count == 0)
+    {
+        [MBProgressHUD creatembHub:@"请选择你要"];
+        return;
+    }
+    
     [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
     
     if([AppDelegate instance].userId)
@@ -701,8 +704,7 @@
                             [self addAlertView];
             }
             
-
-            
+           
         } withfail:^(int errCode, NSError *err) {
             
             NSLog(@"%d",errCode);

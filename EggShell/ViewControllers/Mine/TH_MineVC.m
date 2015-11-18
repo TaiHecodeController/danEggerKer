@@ -154,6 +154,7 @@
     self.scro = sro;
     self.scro.showsVerticalScrollIndicator = NO;
 }
+
 -(void)createView
 {
     MineVeiw * minVew = [MineVeiw RegisterMineView];
@@ -171,7 +172,6 @@
                   minVew.frame = CGRectMake(0, 0, WIDETH, 490);
               } completion:nil];
         self.scro.contentSize = CGSizeMake(WIDETH,450+60);
-    
     
     [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5
           initialSpringVelocity:10 options:UIViewAnimationOptionAllowUserInteraction animations:^{
@@ -366,7 +366,8 @@
 #pragma mark -- 退出登录
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (alertView.tag == 100) {
+    if (alertView.tag == 100)
+    {
         if (buttonIndex == 1) {
 
             TH_LoginVC * login = [[TH_LoginVC alloc] init];
@@ -376,7 +377,8 @@
         }
     }
     
-    if (alertView.tag == 101) {
+    if (alertView.tag == 101)
+    {
         if (buttonIndex ==1 ) {
             TH_LoginVC * login = [[TH_LoginVC alloc] init];
             login.jobWilstRegist = @"jobWilstRegist";
@@ -384,7 +386,8 @@
         }
     }
     
-    if (alertView.tag ==103) {
+    if (alertView.tag ==103)
+    {
         if (buttonIndex ==1) {
             TH_LoginVC * login = [[TH_LoginVC alloc] init];
           login.jobWilstRegist = @"jobWilstRegist";
@@ -392,7 +395,8 @@
         }
     }
     
-    if (alertView.tag == 104) {
+    if (alertView.tag == 104)
+    {
         if (buttonIndex == 1) {
             TH_LoginVC * login = [[TH_LoginVC alloc] init];
             login.jobWilstRegist = @"jobWilstRegist";
@@ -400,7 +404,8 @@
 
         }
     }
-    if (alertView.tag == 105) {
+    if (alertView.tag == 105)
+    {
         if (buttonIndex == 1) {
             NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
             

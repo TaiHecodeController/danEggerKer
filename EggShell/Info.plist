@@ -37,6 +37,10 @@
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>百度地图</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string></string>
 	<key>UIRequiredDeviceCapabilities</key>

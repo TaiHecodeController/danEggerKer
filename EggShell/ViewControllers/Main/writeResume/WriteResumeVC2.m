@@ -62,7 +62,8 @@
 }
 -(void)backClick
 {
-    for(UIViewController *controller in self.navigationController.viewControllers) {
+    for(UIViewController *controller in self.navigationController.viewControllers)
+    {
        [self.navigationController popViewControllerAnimated:NO];
         if([controller isKindOfClass:[ManagerResumeVC class]]){
             ManagerResumeVC*owr = (ManagerResumeVC *)controller;

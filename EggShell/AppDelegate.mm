@@ -13,6 +13,7 @@
 #import <BaiduMapAPI/BMKMapManager.h>
 #import "IQTitleBarButtonItem.h"
 #import "MobClick.h"
+#import "APService.h"
 @interface AppDelegate ()<BMKGeneralDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate>
 {
     NSString * _trackViewUrl;
@@ -29,6 +30,26 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [UIViewController new];
     [self.window makeKeyAndVisible];
+    
+    /************************/
+    // Required
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        //可以添加自定义categories
+        [APService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+                                                       UIUserNotificationTypeSound |
+                                                       UIUserNotificationTypeAlert)
+                                           categories:nil];
+    } else {
+        //categories 必须为nil
+        [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                       UIRemoteNotificationTypeSound |
+                                                       UIRemoteNotificationTypeAlert)
+                                           categories:nil];
+    }
+    
+    // Required
+    [APService setupWithOption:launchOptions];
+    
     //注册友盟统计
     [MobClick startWithAppkey:@"55f24438e0f55aa7af001c3d" reportPolicy:BATCH   channelId:nil];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
@@ -88,6 +109,29 @@
     return YES;
     
 }
+
+//远程通知回调
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    // Required
+    [APService registerDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    // Required
+    [APService handleRemoteNotification:userInfo];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    
+    // IOS 7 Support Required
+    [APService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+
 
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation

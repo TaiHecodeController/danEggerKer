@@ -33,6 +33,7 @@
 
 
     NSString *path = [[NSBundle mainBundle] pathForResource:@"蛋壳儿" ofType:@"doc"];
+//     NSString *path = [[NSBundle mainBundle] pathForResource:@"工作总结" ofType:@"pdf"];
     NSURL *url = [NSURL fileURLWithPath:path];
     
     self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(-45, -50, WIDETH+90, HEIGHT)];
