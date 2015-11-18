@@ -56,7 +56,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [MobClick beginLogPageView:@"jobdetailvc"];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backRoot) name:@"jb_detail" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backRoot) name:@"jb_detail" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
