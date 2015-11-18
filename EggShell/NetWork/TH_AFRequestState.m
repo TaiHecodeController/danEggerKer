@@ -50,7 +50,6 @@
     
 
 }
-
 /*职位详情**/
 +(AFRequestState* )jobDetailsRequestWithSucc:(void(^)(NSDictionary *DataArr))succ withfail:(void(^)(int errCode, NSError *err))fail withId:(int)id pid:(int)pid page:(int)page resp:(Class)resp
 {

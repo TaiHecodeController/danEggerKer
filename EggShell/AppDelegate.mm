@@ -215,7 +215,7 @@
         
     }
     
-}
+} 
 
 - (void)initPloyVideo
 {

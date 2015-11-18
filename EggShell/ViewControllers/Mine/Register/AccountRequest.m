@@ -21,8 +21,6 @@
     
     return manager;
 }
-
-
 //注册
 +(void)RegisterRequestWithUserName:(NSString *)username PassWord:(NSString *)password withAccountName:(NSString *)accountName succ:(void (^)(NSDictionary *))succ
 {

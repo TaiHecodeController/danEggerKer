@@ -28,6 +28,8 @@
 {
     self.HeadPortraitBtn.layer.cornerRadius  = 25;
     self.HeadPortraitBtn.layer.masksToBounds = YES;
+    self.HeadPortraitBtn.layer.borderWidth = 1;
+    self.HeadPortraitBtn.layer.borderColor = [UIColor whiteColor].CGColor;
     
     self.HeadPortraitBtn.tag  = THMineViewButtonTypeHeadPortraitBtn;
     self.EditInformationBtn.tag = THMineViewButtonTypeEditInformationBtn;
@@ -54,7 +56,7 @@
     
     if ([self.mineDelegate respondsToSelector:@selector(homeView:DidClickButton:)]) {
     [self.mineDelegate homeView:self DidClickButton:(THMineViewButtonType)sender.tag];
-        NSLog(@"sjdhfbg");
+        NSLog(@"");
         
         }
 }

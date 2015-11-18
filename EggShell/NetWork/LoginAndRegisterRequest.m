@@ -85,6 +85,7 @@ NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
     NSDictionary * param = @{@"token":tokenStr, @"uid":uid,@"photo":encodedImageStr} ;
     
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@basicdata/head",base_Url] param:param succ:succ];
+    
 }
 /*获取个人资料**/
 +(AFRequestState *)getImagewithSucc:(void (^)(NSDictionary *))succ withUid:(NSDictionary*)dic withFail:(void(^)(int errCode, NSError *err))fail
