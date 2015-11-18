@@ -14,6 +14,7 @@
 #import "IQTitleBarButtonItem.h"
 #import "MobClick.h"
 #import "APService.h"
+#import "TH_PlayFanVC.h"
 @interface AppDelegate ()<BMKGeneralDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,UIAlertViewDelegate>
 {
     NSString * _trackViewUrl;
@@ -214,7 +215,12 @@
     {
         if (buttonIndex == 0)
         {
+            //跳转到需要的控制器
+//            TH_PlayFanVC *vc = [[TH_PlayFanVC alloc]init];
+//            self.window.rootViewController.navigationController.navigationBarHidden = NO;
+//            [self.mainTabBar.selectedViewController pushViewController:vc animated:YES];
             
+            ;
         }
     }
     else
