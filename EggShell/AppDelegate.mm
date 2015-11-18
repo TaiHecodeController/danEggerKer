@@ -124,11 +124,12 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    
-    
     // IOS 7 Support Required
     [APService handleRemoteNotification:userInfo];
+    
     completionHandler(UIBackgroundFetchResultNewData);
+    if (application.applicationState == UIApplicationStateActive) {
+    }
 }
 
 
