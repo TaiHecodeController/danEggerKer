@@ -278,7 +278,6 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     //设置jPush后台badge为0
-//    [APService setBadge:0];
     [APService resetBadge];
 }
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -286,7 +285,6 @@
      [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 //    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     //设置jPush后台badge为0
-//    [APService setBadge:0];
     [APService resetBadge];
 }
 
