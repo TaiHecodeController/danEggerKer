@@ -35,7 +35,8 @@
 #import "AFAppRequest.h"
 #import "SearchModelShare.h"
 #import "homedel.h"
-
+/*企业**/
+#import "EnterpriseDetailVC.h"
 @interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate>
 {
     UIView * _navBackView;
@@ -73,7 +74,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(test:) name:@"jgPush" object:nil];
     
     //网络判断
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
@@ -105,7 +106,17 @@
 {
     return UIStatusBarStyleLightContent;
 }
+-(void)test:(NSNotification*)notification
+{
+    
+    NSDictionary * dic = notification.userInfo;
+    
+    
+    self.navigationController.navigationBarHidden = NO;
+    EnterpriseDetailVC * enter = [[EnterpriseDetailVC alloc] init];
+    [self.navigationController pushViewController:enter animated:YES];
 
+}
 -(void)loadData
 {
     self.enterArray =[NSArray array];
@@ -597,11 +608,12 @@
             
             //            CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
             //            [self.navigationController pushViewController:detail animated:YES];
-            self.navigationController.navigationBarHidden = YES;
-            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"正在建设中,敬请期待" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
-            [alertView show];
+//            self.navigationController.navigationBarHidden = YES;
+//            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"正在建设中,敬请期待" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+//            [alertView show];
             
-            
+            EnterpriseDetailVC * enter = [[EnterpriseDetailVC alloc] init];
+            [self.navigationController pushViewController:enter animated:YES];
             break;
         }
         case THHomeViewButtonTypeOpenClass:

@@ -127,6 +127,7 @@
 		9470069A1B85CA6000DEC289 /* MineEditInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 947006911B85CA6000DEC289 /* MineEditInfoCell.m */; };
 		9470069B1B85CA6000DEC289 /* MineEditInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947006921B85CA6000DEC289 /* MineEditInfoCell.xib */; };
 		947008C81B85FF0100DEC289 /* TH_ImagePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947008C71B85FF0100DEC289 /* TH_ImagePickerVC.m */; };
+		947330381BFD6A5800688587 /* EnterpriseDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947330371BFD6A5800688587 /* EnterpriseDetailVC.m */; };
 		947564A81B9D7B710087BA56 /* homedel.m in Sources */ = {isa = PBXBuildFile; fileRef = 947564A71B9D7B710087BA56 /* homedel.m */; };
 		949CAA0F1BB253AA00284FFF /* WorkingTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CAA0D1BB253AA00284FFF /* WorkingTimeCell.m */; };
 		949CAA101BB253AA00284FFF /* WorkingTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949CAA0E1BB253AA00284FFF /* WorkingTimeCell.xib */; };
@@ -549,6 +550,8 @@
 		947006921B85CA6000DEC289 /* MineEditInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineEditInfoCell.xib; sourceTree = "<group>"; };
 		947008C61B85FF0100DEC289 /* TH_ImagePickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_ImagePickerVC.h; sourceTree = "<group>"; };
 		947008C71B85FF0100DEC289 /* TH_ImagePickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_ImagePickerVC.m; sourceTree = "<group>"; };
+		947330361BFD6A5800688587 /* EnterpriseDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterpriseDetailVC.h; sourceTree = "<group>"; };
+		947330371BFD6A5800688587 /* EnterpriseDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterpriseDetailVC.m; sourceTree = "<group>"; };
 		947564A61B9D7B710087BA56 /* homedel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homedel.h; sourceTree = "<group>"; };
 		947564A71B9D7B710087BA56 /* homedel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homedel.m; sourceTree = "<group>"; };
 		949CAA011BB2515A00284FFF /* EducationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationTimeCell.h; sourceTree = "<group>"; };
@@ -1180,6 +1183,7 @@
 		04A483B11B74FCE2006FDB9D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				947330351BFD6A2C00688587 /* Enterprise */,
 				04A483B51B74FD4D006FDB9D /* Home */,
 				94313DAC1B7CAAB5005D0A9A /* PlayFan */,
 				04A483C11B74FDCE006FDB9D /* OpenClass */,
@@ -1821,6 +1825,15 @@
 				947008C71B85FF0100DEC289 /* TH_ImagePickerVC.m */,
 			);
 			path = imagePicker;
+			sourceTree = "<group>";
+		};
+		947330351BFD6A2C00688587 /* Enterprise */ = {
+			isa = PBXGroup;
+			children = (
+				947330361BFD6A5800688587 /* EnterpriseDetailVC.h */,
+				947330371BFD6A5800688587 /* EnterpriseDetailVC.m */,
+			);
+			path = Enterprise;
 			sourceTree = "<group>";
 		};
 		947564A51B9D7B550087BA56 /* homeModel */ = {
@@ -2696,6 +2709,7 @@
 				94CB5B7E1B74CC0600B23B9D /* MJFoundation.m in Sources */,
 				041650CA1B4D730F008C78BE /* MBProgressHUD+Show.m in Sources */,
 				F05B80131B8AC34400DC0A1D /* UIColor+RK_Color.m in Sources */,
+				947330381BFD6A5800688587 /* EnterpriseDetailVC.m in Sources */,
 				94E2C9881B870F29001E3FDD /* moreJobTableViewCell.m in Sources */,
 				045DEC511B8E14EB00E37C4D /* MyMD5.m in Sources */,
 				041650DF1B4D795B008C78BE /* AFAppRequest.m in Sources */,

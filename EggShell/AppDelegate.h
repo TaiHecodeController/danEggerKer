@@ -25,6 +25,7 @@
 @property(nonatomic,copy)NSString * trackViewUrl;
 @property (nonatomic, assign) double longitude;
 @property (nonatomic, assign) double latitude;
+@property(nonatomic,strong)NSDictionary * pushDic;
 +(AppDelegate*)instance;
 
 

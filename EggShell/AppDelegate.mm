@@ -15,6 +15,7 @@
 #import "MobClick.h"
 #import "APService.h"
 #import "TH_PlayFanVC.h"
+#import "EnterpriseDetailVC.h"
 @interface AppDelegate ()<BMKGeneralDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,UIAlertViewDelegate>
 {
     NSString * _trackViewUrl;
@@ -125,18 +126,23 @@
 //}
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    
+    // IOS 7 Support Required
+    [APService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
     
     if (application.applicationState == UIApplicationStateActive) {
        //app在前台时，展示推送消息
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"通知" message:userInfo[@"aps"][@"alert"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        NSString * str = [NSString stringWithFormat:@"收到新消息%@",userInfo[@"aps"][@"alert"]];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:str delegate:self cancelButtonTitle:@"点击查看" otherButtonTitles: nil];
     [alert show];
+        self.pushDic = userInfo;
     alert.tag = 1001;
-    }
-    // IOS 7 Support Required
-    [APService handleRemoteNotification:userInfo];
+    }else
+    {
     
-    completionHandler(UIBackgroundFetchResultNewData);
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"jgPush" object:self userInfo:userInfo];
+        
+    }
     }
 
 //处理位置坐标更新
@@ -218,6 +224,8 @@
     {
         if (buttonIndex == 0)
         {
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"jgPush" object:self userInfo:self.pushDic];
+            
             //跳转到需要的控制器
 //            TH_PlayFanVC *vc = [[TH_PlayFanVC alloc]init];
 ////            self.window.rootViewController.navigationController.navigationBarHidden = NO;
