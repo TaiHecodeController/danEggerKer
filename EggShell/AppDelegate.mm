@@ -127,6 +127,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
     
+    NSLog(@"userinfo%@",userInfo);
     if (application.applicationState == UIApplicationStateActive) {
        //app在前台时，展示推送消息
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"通知" message:userInfo[@"aps"][@"alert"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
@@ -218,12 +219,8 @@
     {
         if (buttonIndex == 0)
         {
-            //跳转到需要的控制器
-//            TH_PlayFanVC *vc = [[TH_PlayFanVC alloc]init];
-////            self.window.rootViewController.navigationController.navigationBarHidden = NO;
-////            [self.mainTabBar.selectedViewController pushViewController:vc animated:YES];
-//            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
-            ;
+ 
+            
         }
     }
     else
