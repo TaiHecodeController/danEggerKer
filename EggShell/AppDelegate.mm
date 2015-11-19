@@ -130,6 +130,7 @@
     [APService handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
     
+    NSLog(@"userinfo%@",userInfo);
     if (application.applicationState == UIApplicationStateActive) {
        //app在前台时，展示推送消息
         NSString * str = [NSString stringWithFormat:@"收到新消息%@",userInfo[@"aps"][@"alert"]];
@@ -224,6 +225,7 @@
     {
         if (buttonIndex == 0)
         {
+
             [[NSNotificationCenter defaultCenter]postNotificationName:@"jgPush" object:self userInfo:self.pushDic];
             
             //跳转到需要的控制器
@@ -232,6 +234,7 @@
 ////            [self.mainTabBar.selectedViewController pushViewController:vc animated:YES];
 //            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
             ;
+
         }
     }
     else
