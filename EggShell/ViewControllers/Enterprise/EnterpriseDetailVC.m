@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    self.title = @"企业";
+
 }
 
 - (void)didReceiveMemoryWarning {

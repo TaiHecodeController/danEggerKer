@@ -37,6 +37,8 @@
 #import "homedel.h"
 /*企业**/
 #import "EnterpriseDetailVC.h"
+/*V达人**/
+#import "TH_VtalentVC.h"
 @interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate>
 {
     UIView * _navBackView;
@@ -149,6 +151,7 @@
     _searchView = [[[NSBundle mainBundle] loadNibNamed:@"SearchView" owner:self options:nil] firstObject];
     _searchView.frame = CGRectMake(0, 0, WIDETH, 64);
     [self.tabBarController.view addSubview:_searchView];
+    [_searchView.goEnterFaceBtn addTarget:self action:@selector(gointerBtnClick) forControlEvents:UIControlEventTouchUpInside];
     _searchView.searchTextField.enabled = NO;
     [_searchView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
     
@@ -167,6 +170,14 @@
     //    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
     //    [self.tabBarController.view addGestureRecognizer:tap];
     
+}
+-(void)gointerBtnClick
+{
+
+    self.navigationController.navigationBarHidden = NO;
+    EnterpriseDetailVC * enter = [[EnterpriseDetailVC alloc] init];
+    [self.navigationController pushViewController:enter animated:YES];
+
 }
 //取消textField编辑状态，收回键盘
 -(void)tap
@@ -612,8 +623,8 @@
 //            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"正在建设中,敬请期待" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
 //            [alertView show];
             
-            EnterpriseDetailVC * enter = [[EnterpriseDetailVC alloc] init];
-            [self.navigationController pushViewController:enter animated:YES];
+            TH_VtalentVC * talent = [[TH_VtalentVC alloc] init];
+            [self.navigationController pushViewController:talent animated:YES];
             break;
         }
         case THHomeViewButtonTypeOpenClass:

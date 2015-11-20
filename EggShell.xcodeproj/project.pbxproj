@@ -128,6 +128,7 @@
 		9470069B1B85CA6000DEC289 /* MineEditInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947006921B85CA6000DEC289 /* MineEditInfoCell.xib */; };
 		947008C81B85FF0100DEC289 /* TH_ImagePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947008C71B85FF0100DEC289 /* TH_ImagePickerVC.m */; };
 		947330381BFD6A5800688587 /* EnterpriseDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947330371BFD6A5800688587 /* EnterpriseDetailVC.m */; };
+		9473303C1BFF186000688587 /* TH_VtalentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9473303B1BFF186000688587 /* TH_VtalentVC.m */; };
 		947564A81B9D7B710087BA56 /* homedel.m in Sources */ = {isa = PBXBuildFile; fileRef = 947564A71B9D7B710087BA56 /* homedel.m */; };
 		949CAA0F1BB253AA00284FFF /* WorkingTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CAA0D1BB253AA00284FFF /* WorkingTimeCell.m */; };
 		949CAA101BB253AA00284FFF /* WorkingTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949CAA0E1BB253AA00284FFF /* WorkingTimeCell.xib */; };
@@ -552,6 +553,8 @@
 		947008C71B85FF0100DEC289 /* TH_ImagePickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_ImagePickerVC.m; sourceTree = "<group>"; };
 		947330361BFD6A5800688587 /* EnterpriseDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterpriseDetailVC.h; sourceTree = "<group>"; };
 		947330371BFD6A5800688587 /* EnterpriseDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterpriseDetailVC.m; sourceTree = "<group>"; };
+		9473303A1BFF186000688587 /* TH_VtalentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_VtalentVC.h; sourceTree = "<group>"; };
+		9473303B1BFF186000688587 /* TH_VtalentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_VtalentVC.m; sourceTree = "<group>"; };
 		947564A61B9D7B710087BA56 /* homedel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homedel.h; sourceTree = "<group>"; };
 		947564A71B9D7B710087BA56 /* homedel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homedel.m; sourceTree = "<group>"; };
 		949CAA011BB2515A00284FFF /* EducationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationTimeCell.h; sourceTree = "<group>"; };
@@ -1198,6 +1201,7 @@
 		04A483B51B74FD4D006FDB9D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				947330391BFF181300688587 /* Vtalent */,
 				94313DF51B7CB610005D0A9A /* TH_HomeVC.m */,
 				94313DF61B7CB610005D0A9A /* TH_HomeVC.h */,
 				94CB5BA81B763A8100B23B9D /* FindJob */,
@@ -1834,6 +1838,15 @@
 				947330371BFD6A5800688587 /* EnterpriseDetailVC.m */,
 			);
 			path = Enterprise;
+			sourceTree = "<group>";
+		};
+		947330391BFF181300688587 /* Vtalent */ = {
+			isa = PBXGroup;
+			children = (
+				9473303A1BFF186000688587 /* TH_VtalentVC.h */,
+				9473303B1BFF186000688587 /* TH_VtalentVC.m */,
+			);
+			path = Vtalent;
 			sourceTree = "<group>";
 		};
 		947564A51B9D7B550087BA56 /* homeModel */ = {
@@ -2687,6 +2700,7 @@
 				94CB30591BA5169700577FE6 /* IQSegmentedNextPrevious.m in Sources */,
 				94CB30581BA5169700577FE6 /* IQNSArray+Sort.m in Sources */,
 				94E761D41BA2C21E00B4C544 /* ProfessonSkillReadView.m in Sources */,
+				9473303C1BFF186000688587 /* TH_VtalentVC.m in Sources */,
 				041650EE1B4D7C4E008C78BE /* MJRefreshFooterView.m in Sources */,
 				94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */,
 				04A483D71B751E77006FDB9D /* Utils.m in Sources */,

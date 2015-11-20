@@ -128,8 +128,8 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     // IOS 7 Support Required
     [APService handleRemoteNotification:userInfo];
-    completionHandler(UIBackgroundFetchResultNewData);
     
+    self.window.rootViewController = self.mainTabBar;
     NSLog(@"userinfo%@",userInfo);
     if (application.applicationState == UIApplicationStateActive) {
        //app在前台时，展示推送消息
@@ -140,6 +140,9 @@
     alert.tag = 1001;
     }else
     {
+//        self.mainTabBar = [[TH_MainTabBarController alloc] init];
+//        
+//        self.window.rootViewController = self.mainTabBar;
     
     [[NSNotificationCenter defaultCenter]postNotificationName:@"jgPush" object:self userInfo:userInfo];
         

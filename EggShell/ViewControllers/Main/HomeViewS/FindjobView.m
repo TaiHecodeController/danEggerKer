@@ -211,7 +211,7 @@
     [FindPartTimeBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:FindPartTimeBtn];
     UILabel * FindPartTimeLable = [[UILabel alloc] initWithFrame:CGRectMake(FindPartTimeLableX*MyWideth, FindPartTimeLableY*MyHeight, FindPartTimeLableWideth*MyWideth, FindPartTimeLableHeight)];
-    FindPartTimeLable.text = @"找兼职";
+    FindPartTimeLable.text = @"求兼职";
     FindPartTimeLable.textColor = UIColorFromRGB(0x646464);
     FindPartTimeLable.font = [UIFont systemFontOfSize:12];
     FindPartTimeLable.textAlignment = NSTextAlignmentCenter;
@@ -226,7 +226,7 @@
     [self addSubview:InternshipSearchBtn];
     
     UILabel * InternshipSearchLable = [[UILabel alloc] initWithFrame:CGRectMake(InternshipSearchLableX*MyWideth, InternshipSearchLableY*MyHeight, InternshipSearchLableWideth*MyWideth, InternshipSearchLableHeight)];
-    InternshipSearchLable.text = @"找实习";
+    InternshipSearchLable.text = @"实习生";
     InternshipSearchLable.textColor = UIColorFromRGB(0x646464);
     InternshipSearchLable.font = [UIFont systemFontOfSize:12];
     InternshipSearchLable.textAlignment = NSTextAlignmentCenter;
@@ -241,7 +241,7 @@
     [InformationDeskBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:InformationDeskBtn];
     UILabel * InformationDeskLable = [[UILabel alloc] initWithFrame:CGRectMake(InformationDeskLableX*MyWideth, InformationDeskLableY*MyHeight, InformationDeskLableWideth*MyWideth, InformationDeskLableHeight)];
-    InformationDeskLable.text = @"信息台";
+    InformationDeskLable.text = @"社交圈";
     InformationDeskLable.textColor = UIColorFromRGB(0x646464);
 
     InformationDeskLable.font =  [UIFont systemFontOfSize:12];
@@ -290,7 +290,7 @@
     [MicroSocialBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:MicroSocialBtn];
     UILabel * MicroSocialLable = [[UILabel alloc] initWithFrame:CGRectMake(MicroSocialLableX*MyWideth, MicroSocialLableY*MyHeight, MicroSocialLableWideth*MyWideth, MicroSocialLableHeight)];
-    MicroSocialLable.text = @"微社交";
+    MicroSocialLable.text = @"V达人";
     MicroSocialLable.textColor = UIColorFromRGB(0x646464);
     MicroSocialLable.textAlignment= NSTextAlignmentCenter;
     MicroSocialLable.font = [UIFont systemFontOfSize:12];
