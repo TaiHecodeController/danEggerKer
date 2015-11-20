@@ -194,6 +194,7 @@
         NSLog(@"版本检测数据error,resultsArray==nil");
         return;
     }
+    
     NSDictionary * infoDic = [resultsArray objectAtIndex:0];
     //2.需要version,trackViewUrl,trackName三个数据
     NSString * latestVersion = [infoDic objectForKey:@"version"];

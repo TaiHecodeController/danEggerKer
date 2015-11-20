@@ -445,6 +445,7 @@
     NSArray *arr = [str componentsSeparatedByString:@","];
 
     THCoursePlayVC *moviePlayer =    [[THCoursePlayVC alloc] initNetworkMoviePlayerViewControllerWithURL:Url movieTitle:self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_name"]];
+    //一套课程的id
     moviePlayer.classId = arr.lastObject;
     
     moviePlayer.name = self.dataArray[indexPath.rowIndex][indexPath.columnIndex][@"video_name"];
