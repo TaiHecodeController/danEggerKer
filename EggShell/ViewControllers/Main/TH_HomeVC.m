@@ -584,7 +584,7 @@
         {
             NSLog(@"信息台");
             TH_InformationDeskVC * information = [[TH_InformationDeskVC alloc] init];
-            information.title = @"信息台";
+            information.title = @"社交圈";
             [self.navigationController pushViewController:information animated:YES];
             break;
         }

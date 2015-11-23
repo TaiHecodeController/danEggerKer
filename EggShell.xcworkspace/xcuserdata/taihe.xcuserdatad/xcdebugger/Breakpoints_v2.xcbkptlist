@@ -1098,11 +1098,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Mine/Login/TH_LoginVC.m"
-            timestampString = "469956247.402664"
+            timestampString = "469957176.105764"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "-loginView"
             landmarkType = "5">
          </BreakpointContent>
@@ -1114,12 +1114,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Mine/Login/TH_LoginVC.m"
-            timestampString = "469956672.323962"
+            timestampString = "469957176.105764"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
-            landmarkName = "-wwwClick"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+            landmarkName = "-companyClick"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

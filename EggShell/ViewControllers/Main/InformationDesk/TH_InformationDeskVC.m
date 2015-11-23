@@ -12,6 +12,7 @@
 #import "TH_InformationDeskDetailVC.h"
 #import "AFAppRequest.h"
 #import "informantionModel.h"
+#import "SocialCircleCell.h"
 @interface TH_InformationDeskVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
     MBProgressHUD * _mbPro;
@@ -50,14 +51,50 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataArray = [NSMutableArray arrayWithCapacity:0];
-    self.limitNum = 10;
-    self.page = 0;
-    [self createView];
-    [self createTableView];
-    [self hySegmentedControlSelectAtIndex:0];
+  /*信息台**/
+//    self.dataArray = [NSMutableArray arrayWithCapacity:0];
+//    self.limitNum = 10;
+//    self.page = 0;
+//    [self createView];
+//    [self createTableView];
+//    [self hySegmentedControlSelectAtIndex:0];
+    
+    //社交圈
+    [self createSocialCircleTableView];
     
 }
+-(void)createSocialCircleTableView
+{
+    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT - 64-49) style:UITableViewStylePlain];
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    self.tableView = tableView;
+    self.tableView.tableFooterView =[[UIView alloc] init];
+    tableView.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:tableView];
+
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    NSString * identerId = @"indenterId";
+    
+    SocialCircleCell * cell = [tableView dequeueReusableCellWithIdentifier:identerId];
+    if (!cell) {
+        cell = [[SocialCircleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identerId];
+    }
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
+}
+/*
 -(void)loadData:(id)notify page:(int)num pageTye:(int)type
 {
     if(_state.running)
@@ -213,14 +250,5 @@
 }
 
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
+*/
 @end

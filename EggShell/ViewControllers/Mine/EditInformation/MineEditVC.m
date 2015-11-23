@@ -438,11 +438,11 @@
     {
         if(HEIGHT == 480)
         {
-            backView.contentSize = CGSizeMake(WIDETH / 2, HEIGHT + 60);
+            backView.contentSize = CGSizeMake(WIDETH, HEIGHT + 60);
             [backView scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
         }else
         {
-            backView.contentSize = CGSizeMake(WIDETH / 2, HEIGHT + 60);
+            backView.contentSize = CGSizeMake(WIDETH, HEIGHT + 60);
             [backView scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
         }
         

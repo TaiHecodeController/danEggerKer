@@ -131,6 +131,14 @@
 		9473303C1BFF186000688587 /* TH_VtalentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9473303B1BFF186000688587 /* TH_VtalentVC.m */; };
 		947330451C02ACD800688587 /* EnterpriseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 947330441C02ACD800688587 /* EnterpriseView.m */; };
 		947330471C02AD1800688587 /* Enterprise.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947330461C02AD1800688587 /* Enterprise.xib */; };
+		9473304F1C02BCB200688587 /* TH_OutDatePosionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9473304E1C02BCB200688587 /* TH_OutDatePosionVC.m */; };
+		947330521C02BCF000688587 /* TH_RecruitmentPositionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947330511C02BCF000688587 /* TH_RecruitmentPositionVC.m */; };
+		947330551C02BD1B00688587 /* TH_AllPositionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947330541C02BD1B00688587 /* TH_AllPositionVC.m */; };
+		947330581C02BD6E00688587 /* TH_TalentPoolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947330571C02BD6D00688587 /* TH_TalentPoolVC.m */; };
+		9473305B1C02BD9100688587 /* TH_ReceiveResumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9473305A1C02BD9100688587 /* TH_ReceiveResumeVC.m */; };
+		947330631C02C20000688587 /* SocialCircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 947330621C02C20000688587 /* SocialCircleCell.m */; };
+		947330681C02E93600688587 /* EnterpriseFoegetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947330671C02E93600688587 /* EnterpriseFoegetVC.m */; };
+		9473306B1C02E98000688587 /* TH_EnterpriseResetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9473306A1C02E98000688587 /* TH_EnterpriseResetPasswordVC.m */; };
 		947564A81B9D7B710087BA56 /* homedel.m in Sources */ = {isa = PBXBuildFile; fileRef = 947564A71B9D7B710087BA56 /* homedel.m */; };
 		949CAA0F1BB253AA00284FFF /* WorkingTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CAA0D1BB253AA00284FFF /* WorkingTimeCell.m */; };
 		949CAA101BB253AA00284FFF /* WorkingTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949CAA0E1BB253AA00284FFF /* WorkingTimeCell.xib */; };
@@ -560,6 +568,22 @@
 		947330431C02ACD800688587 /* EnterpriseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterpriseView.h; sourceTree = "<group>"; };
 		947330441C02ACD800688587 /* EnterpriseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterpriseView.m; sourceTree = "<group>"; };
 		947330461C02AD1800688587 /* Enterprise.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Enterprise.xib; sourceTree = "<group>"; };
+		9473304D1C02BCB200688587 /* TH_OutDatePosionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_OutDatePosionVC.h; sourceTree = "<group>"; };
+		9473304E1C02BCB200688587 /* TH_OutDatePosionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_OutDatePosionVC.m; sourceTree = "<group>"; };
+		947330501C02BCF000688587 /* TH_RecruitmentPositionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_RecruitmentPositionVC.h; sourceTree = "<group>"; };
+		947330511C02BCF000688587 /* TH_RecruitmentPositionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_RecruitmentPositionVC.m; sourceTree = "<group>"; };
+		947330531C02BD1B00688587 /* TH_AllPositionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_AllPositionVC.h; sourceTree = "<group>"; };
+		947330541C02BD1B00688587 /* TH_AllPositionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_AllPositionVC.m; sourceTree = "<group>"; };
+		947330561C02BD6D00688587 /* TH_TalentPoolVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_TalentPoolVC.h; sourceTree = "<group>"; };
+		947330571C02BD6D00688587 /* TH_TalentPoolVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_TalentPoolVC.m; sourceTree = "<group>"; };
+		947330591C02BD9100688587 /* TH_ReceiveResumeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_ReceiveResumeVC.h; sourceTree = "<group>"; };
+		9473305A1C02BD9100688587 /* TH_ReceiveResumeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_ReceiveResumeVC.m; sourceTree = "<group>"; };
+		947330611C02C20000688587 /* SocialCircleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialCircleCell.h; sourceTree = "<group>"; };
+		947330621C02C20000688587 /* SocialCircleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialCircleCell.m; sourceTree = "<group>"; };
+		947330661C02E93600688587 /* EnterpriseFoegetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterpriseFoegetVC.h; sourceTree = "<group>"; };
+		947330671C02E93600688587 /* EnterpriseFoegetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterpriseFoegetVC.m; sourceTree = "<group>"; };
+		947330691C02E98000688587 /* TH_EnterpriseResetPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_EnterpriseResetPasswordVC.h; sourceTree = "<group>"; };
+		9473306A1C02E98000688587 /* TH_EnterpriseResetPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_EnterpriseResetPasswordVC.m; sourceTree = "<group>"; };
 		947564A61B9D7B710087BA56 /* homedel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homedel.h; sourceTree = "<group>"; };
 		947564A71B9D7B710087BA56 /* homedel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homedel.m; sourceTree = "<group>"; };
 		949CAA011BB2515A00284FFF /* EducationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationTimeCell.h; sourceTree = "<group>"; };
@@ -1279,6 +1303,7 @@
 		04A483C71B74FDF5006FDB9D /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				947330651C02E8FB00688587 /* EnterpriseForeget */,
 				941F100B1B7B3BCC00719F5B /* JobWishlist */,
 				9470069C1B85FEC500DEC289 /* imagePicker */,
 				947006821B85CA6000DEC289 /* EditInformation */,
@@ -1743,6 +1768,8 @@
 				94313DB91B7CAAED005D0A9A /* InformationDeskCell.h */,
 				94313DBA1B7CAAED005D0A9A /* InformationDeskCell.m */,
 				94313DBB1B7CAAED005D0A9A /* InformationDeskCell.xib */,
+				947330611C02C20000688587 /* SocialCircleCell.h */,
+				947330621C02C20000688587 /* SocialCircleCell.m */,
 			);
 			path = InformationDeskView;
 			sourceTree = "<group>";
@@ -1839,6 +1866,11 @@
 		947330351BFD6A2C00688587 /* Enterprise */ = {
 			isa = PBXGroup;
 			children = (
+				9473304C1C02BC3700688587 /* OutDatePosion */,
+				9473304B1C02BC2500688587 /* RecruitPosition */,
+				9473304A1C02BC0200688587 /* AllPosition */,
+				947330491C02BBEE00688587 /* TalentPool */,
+				947330481C02BBD200688587 /* ReceiveResume */,
 				947330361BFD6A5800688587 /* EnterpriseDetailVC.h */,
 				947330371BFD6A5800688587 /* EnterpriseDetailVC.m */,
 				947330431C02ACD800688587 /* EnterpriseView.h */,
@@ -1855,6 +1887,62 @@
 				9473303B1BFF186000688587 /* TH_VtalentVC.m */,
 			);
 			path = Vtalent;
+			sourceTree = "<group>";
+		};
+		947330481C02BBD200688587 /* ReceiveResume */ = {
+			isa = PBXGroup;
+			children = (
+				947330591C02BD9100688587 /* TH_ReceiveResumeVC.h */,
+				9473305A1C02BD9100688587 /* TH_ReceiveResumeVC.m */,
+			);
+			path = ReceiveResume;
+			sourceTree = "<group>";
+		};
+		947330491C02BBEE00688587 /* TalentPool */ = {
+			isa = PBXGroup;
+			children = (
+				947330561C02BD6D00688587 /* TH_TalentPoolVC.h */,
+				947330571C02BD6D00688587 /* TH_TalentPoolVC.m */,
+			);
+			path = TalentPool;
+			sourceTree = "<group>";
+		};
+		9473304A1C02BC0200688587 /* AllPosition */ = {
+			isa = PBXGroup;
+			children = (
+				947330531C02BD1B00688587 /* TH_AllPositionVC.h */,
+				947330541C02BD1B00688587 /* TH_AllPositionVC.m */,
+			);
+			path = AllPosition;
+			sourceTree = "<group>";
+		};
+		9473304B1C02BC2500688587 /* RecruitPosition */ = {
+			isa = PBXGroup;
+			children = (
+				947330501C02BCF000688587 /* TH_RecruitmentPositionVC.h */,
+				947330511C02BCF000688587 /* TH_RecruitmentPositionVC.m */,
+			);
+			path = RecruitPosition;
+			sourceTree = "<group>";
+		};
+		9473304C1C02BC3700688587 /* OutDatePosion */ = {
+			isa = PBXGroup;
+			children = (
+				9473304D1C02BCB200688587 /* TH_OutDatePosionVC.h */,
+				9473304E1C02BCB200688587 /* TH_OutDatePosionVC.m */,
+			);
+			path = OutDatePosion;
+			sourceTree = "<group>";
+		};
+		947330651C02E8FB00688587 /* EnterpriseForeget */ = {
+			isa = PBXGroup;
+			children = (
+				947330661C02E93600688587 /* EnterpriseFoegetVC.h */,
+				947330671C02E93600688587 /* EnterpriseFoegetVC.m */,
+				947330691C02E98000688587 /* TH_EnterpriseResetPasswordVC.h */,
+				9473306A1C02E98000688587 /* TH_EnterpriseResetPasswordVC.m */,
+			);
+			path = EnterpriseForeget;
 			sourceTree = "<group>";
 		};
 		947564A51B9D7B550087BA56 /* homeModel */ = {
@@ -2703,6 +2791,7 @@
 				94E8F4F41B85797900088658 /* WriteResumeCell.m in Sources */,
 				94CB5B801B74CC0600B23B9D /* MJMember.m in Sources */,
 				94CB5B821B74CC0600B23B9D /* MJType.m in Sources */,
+				9473304F1C02BCB200688587 /* TH_OutDatePosionVC.m in Sources */,
 				94E2C9DC1B8AFA0D001E3FDD /* SelfEvaluationView.m in Sources */,
 				94E761CC1BA2B82B00B4C544 /* CertificateReadView.m in Sources */,
 				94EFC1C41B7D8F6900833068 /* TH_AFRequestState.m in Sources */,
@@ -2724,6 +2813,7 @@
 				94EDD4F41B7831DA00A00A78 /* ZXImagePickerVC.m in Sources */,
 				947006931B85CA6000DEC289 /* EditAddressVC.m in Sources */,
 				94C320561B9B0CB000ACF07D /* UIButton+Extension.m in Sources */,
+				9473305B1C02BD9100688587 /* TH_ReceiveResumeVC.m in Sources */,
 				F083F8211B9C32F700781C08 /* Me_Request.m in Sources */,
 				94E216301BA951DD00D96B67 /* MTSpecailtyListPointItem.m in Sources */,
 				94E2C9681B870EED001E3FDD /* CompanyDetailVC.m in Sources */,
@@ -2792,6 +2882,7 @@
 				94CB5BA71B76345D00B23B9D /* TH_MineVC.m in Sources */,
 				94E3EAE01B918CBE007A699E /* AccountRequest.m in Sources */,
 				94EDD4F01B7831BB00A00A78 /* ZXButton.m in Sources */,
+				947330551C02BD1B00688587 /* TH_AllPositionVC.m in Sources */,
 				047454F41B9C640500CE880A /* ExceptModel.m in Sources */,
 				940032931B83969B001EB666 /* FindjobView.m in Sources */,
 				940032D81B840CC3001EB666 /* TH_TrainExperienceVC.m in Sources */,
@@ -2816,6 +2907,7 @@
 				048F30B81B7A4537004AA9B2 /* FMDatabaseAdditions.m in Sources */,
 				F05B80031B8AAD5E00DC0A1D /* UIScrollView+touchBegan.m in Sources */,
 				94E2C9C41B8AF827001E3FDD /* Basicnformation.m in Sources */,
+				9473306B1C02E98000688587 /* TH_EnterpriseResetPasswordVC.m in Sources */,
 				0416503A1B4D7141008C78BE /* AppDelegate.mm in Sources */,
 				94CB305C1BA5169700577FE6 /* IQToolbar.m in Sources */,
 				F0E700131B9FED7900788B17 /* ChooseCity_2ViewController.m in Sources */,
@@ -2835,6 +2927,7 @@
 				0454ACEC1B945F20004A70ED /* ResumeCell.m in Sources */,
 				94E761B61BA27DEB00B4C544 /* TrainReadView.m in Sources */,
 				94313DAF1B7CAAB5005D0A9A /* TH_PlayFanVC.m in Sources */,
+				947330631C02C20000688587 /* SocialCircleCell.m in Sources */,
 				94CB305E1BA5169700577FE6 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				0416506A1B4D7240008C78BE /* Gson.m in Sources */,
 				9400329B1B840736001EB666 /* VersionUpdateView.m in Sources */,
@@ -2845,6 +2938,7 @@
 				94E7DCFA1B841D510093C39B /* Course PlayCell.m in Sources */,
 				94CB5B8A1B74CC0600B23B9D /* readme.md in Sources */,
 				04A0CD421B7A104900EBCF01 /* SearchJobVC.m in Sources */,
+				947330521C02BCF000688587 /* TH_RecruitmentPositionVC.m in Sources */,
 				941F100A1B7B3BBD00719F5B /* TH_DeliveryJobVC.m in Sources */,
 				94EDD4F11B7831BB00A00A78 /* ZXLabel.m in Sources */,
 				947006971B85CA6000DEC289 /* MineEditVC.m in Sources */,
@@ -2868,6 +2962,7 @@
 				94E761D11BA2C1FB00B4C544 /* ProfessonSkillVC.m in Sources */,
 				9400330F1B8415B4001EB666 /* TH_AboutEggshellVC.m in Sources */,
 				94E2C9871B870F29001E3FDD /* JobDescriptionlView.m in Sources */,
+				947330581C02BD6E00688587 /* TH_TalentPoolVC.m in Sources */,
 				940032D01B840CC3001EB666 /* projectTableViewCell.m in Sources */,
 				F01787AF1B959456005FF9C4 /* JobDetailModel_Arr4.m in Sources */,
 				047454F11B9C638600CE880A /* InfoModel.m in Sources */,
@@ -2879,6 +2974,7 @@
 				94E2C9CA1B8AF884001E3FDD /* WorkExperienceView.m in Sources */,
 				F0D7C06D1B79F92300836DD2 /* OpenClassModel.m in Sources */,
 				F05B7FFE1B8AACA600DC0A1D /* WriteJLChooseVC.m in Sources */,
+				947330681C02E93600688587 /* EnterpriseFoegetVC.m in Sources */,
 				94CB5B871B74CC0600B23B9D /* SGFocusImageFrame.m in Sources */,
 				041650EF1B4D7C4E008C78BE /* MJRefreshHeaderView.m in Sources */,
 				9400329F1B840B47001EB666 /* TH_ResumePreviewVC.m in Sources */,

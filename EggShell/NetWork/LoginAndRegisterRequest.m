@@ -107,4 +107,20 @@ NSDictionary * param = @{@"telphone":phone,@"newpwd":newCode};
 
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@basicdata",base_Url] param:uid succ:succ];
 }
+/*企业忘记密码**/
++(AFRequestState *)enterpriseForgitRequestWithResumeParam:(NSDictionary *)param withSucc:(void(^)(NSDictionary*))succ
+{
+return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/except",base_Url] param:param succ:succ];
+
+}
+/*企业忘记密码下一步**/
++(AFRequestState *)enterpriseForgitNextRequestWithResumeParam:(NSDictionary *)param withSucc:(void(^)(NSDictionary*))succ
+{
+return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/except",base_Url] param:param succ:succ];
+}
+/*企业重置密码**/
++(AFRequestState *)enterpriseResetPasswordRequestWithResumeParam:(NSDictionary *)param withSucc:(void(^)(NSDictionary*))succ
+{
+return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/except",base_Url] param:param succ:succ];
+}
 @end

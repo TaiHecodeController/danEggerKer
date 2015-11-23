@@ -17,8 +17,8 @@
 #import "TH_MineVC.h"
 #import "TH_JobWishlistVC.h"
 #import "TH_FindJobVC.h"
-#import "HYSegmentedControl.h"
 
+#import "EnterpriseFoegetVC.h"
 @interface TH_LoginVC ()<UITextFieldDelegate>
 @property (strong,nonatomic)UIButton * loginBtn;
 
