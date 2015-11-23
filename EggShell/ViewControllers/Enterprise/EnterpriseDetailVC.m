@@ -22,12 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     /*去个人**/
-    
-    UIButton * perseonBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64, 44)];
+    UIButton * perseonBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 67, 44)];
     [perseonBtn setTitle:@"去个人" forState:UIControlStateNormal];
-    [perseonBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    
+    [perseonBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [perseonBtn addTarget:self action:@selector(perseonBtn) forControlEvents:UIControlEventTouchUpInside];
+    perseonBtn.titleLabel.font = [UIFont systemFontOfSize:14];
    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:perseonBtn];
+    UIImageView * backImageView = [[UIImageView alloc] initWithFrame:CGRectMake(62, 12, 5, 10)];
+    backImageView.image = [UIImage imageNamed:@"qugeren"];
+    [perseonBtn addSubview:backImageView];
    self.title = @"蛋壳招聘";
     [self createEnterView];
 

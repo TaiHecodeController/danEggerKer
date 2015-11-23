@@ -367,26 +367,6 @@
 -(void)loginRequest
 {
 
-//    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
-//    [[LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text usertype:@1 withSucc:^(NSDictionary * dic) {
-//        if ([dic[@"code"] integerValue]==0) {
-//            [MBProgressHUD creatembHub:dic[@"message"]];
-//            NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
-//            [user setObject:dic[@"data"] forKey:@"uidAndToken"];
-//            [user setObject:dic[@"data"][@"telphone"] forKey:@"loginPhone"];
-//            [user setObject:dic[@"data"][@"uid"] forKey:@"uid"];
-//            NSString * uid = dic[@"data"][@"uid"];
-//            NSString * token = dic[@"data"][@"token"];
-//            NSString * tokenSerit = [NSString stringWithFormat:@"%@%@",token,uid];
-//            NSString* mymd5_token  = [MyMD5 md5:tokenSerit];
-//            [user setObject:mymd5_token forKey:@"md5_token"];
-//            
-//            
-//            [user synchronize];
-    
-//            if ([self.jobWilstRegist isEqualToString:@"jobWilstRegist"]) {
-//             [self.navigationController popViewControllerAnimated:YES];
-
     if (self.personOrCompany == 0)
     {
         NSLog(@"个人登录");

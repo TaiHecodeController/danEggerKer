@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tabBar.tintColor = [UIColor whiteColor];
+    self.tabBar.tintColor = UIColorFromRGB(0xF44336);
     [self createViewcontrollers];
     [self createTabBarItems];
 
@@ -46,10 +46,10 @@
 -(void)createTabBarItems
 {
     self.tabBar.backgroundImage = [UIImage imageNamed:@"矩形-8-拷贝-3"];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0xF44336)} forState:UIControlStateSelected];
     NSArray * titleArray = @[@"首页",@"玩出范",@"公开课",@"我的"];
-    NSArray * unSelectArray = @[@"home", @"wanchufan", @"gongkaike00",@"wode"];
-    NSArray * selectArray = @[@"home01",@"wanchufan01",@"gongkaike01",@"wode01"];
+    NSArray * unSelectArray = @[@"home1", @"playFan1", @"gongkaiketab1",@"mine1"];
+    NSArray * selectArray = @[@"home11",@"playFan11",@"gongkaiketab11",@"mine11"];
     
     NSArray * items = self.tabBar.items;
     for(int i = 0;i < items.count;i++)
