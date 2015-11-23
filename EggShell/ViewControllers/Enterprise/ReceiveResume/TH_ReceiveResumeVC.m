@@ -6,7 +6,10 @@
 //  Created by 李李贤军 on 15/11/23.
 //  Copyright © 2015年 wsd. All rights reserved.
 //
-
+/*
+ 收到简历
+ *
+ */
 #import "TH_ReceiveResumeVC.h"
 
 @interface TH_ReceiveResumeVC ()
