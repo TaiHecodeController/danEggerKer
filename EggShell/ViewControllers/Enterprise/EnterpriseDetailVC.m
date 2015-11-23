@@ -19,6 +19,12 @@
 
 @implementation EnterpriseDetailVC
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationItem.leftBarButtonItem = nil;
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     /*去个人**/
