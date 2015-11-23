@@ -39,6 +39,9 @@
 @property (nonatomic, strong) UIButton *registBtn;
 @property (nonatomic, strong) UILabel *wwwLab;
 
+//判断个人或是企业 0 个人 1 企业
+@property (nonatomic) int personOrCompany;
+
 @end
 
 @implementation TH_LoginVC
@@ -125,8 +128,8 @@
 
     UIButton *personBtn = [[UIButton alloc]init];
     [personBtn setTitle:@"个人用户" forState:UIControlStateNormal];
-    [personBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [personBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+    [personBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [personBtn setBackgroundColor:[UIColor whiteColor]];
     personBtn.layer.borderColor = [UIColorFromRGB(0xDDDDDD) CGColor];
     personBtn.frame = CGRectMake(53, CGRectGetMaxY(pingtaiLab.frame) + 20, (WIDETH - 2 * 53) / 2, 45) ;
     personBtn.layer.borderWidth = 1;
@@ -144,7 +147,6 @@
      [companyBtn addTarget:self action:@selector(companyClick) forControlEvents:UIControlEventTouchUpInside];
     [self.scro addSubview:companyBtn];
     _companyBtn = companyBtn;
-    
     
     UIView * loginView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(personBtn.frame) + 15, WIDETH, 90)];
     loginView.backgroundColor = color(255, 255, 255);
@@ -187,7 +189,7 @@
     NSString * userPassword = [user objectForKey:@"userPassword"];
     UITextField * phonetextField = [[UITextField alloc] initWithFrame:CGRectMake(-WIDETH - 80, 0, WIDETH - 80, 45)];
     phonetextField.placeholder = @"请输入手机号码";
-    phonetextField.keyboardType = UIKeyboardTypeNumberPad;
+//    phonetextField.keyboardType = UIKeyboardTypeNumberPad;
     phonetextField.delegate = self;
     phonetextField.returnKeyType = UIReturnKeyNext;
     phonetextField.textColor = color(200, 200, 200);
@@ -287,6 +289,8 @@
 
 - (void)personClick
 {
+    self.personOrCompany = 0;
+    
     [_personBtn setBackgroundColor:[UIColor whiteColor]];
     [_personBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     
@@ -303,6 +307,8 @@
 
 - (void)companyClick
 {
+    self.personOrCompany = 1;
+    
     [_companyBtn setBackgroundColor:[UIColor whiteColor]];
     [_companyBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     
@@ -346,7 +352,8 @@
 
 #pragma mark-- 登录
 -(void)loginBtbClick
-{NSLog(@"登录");
+{
+    NSLog(@"登录");
 
       [[NSNotificationCenter defaultCenter] postNotificationName:@"loginNotice" object:self];
     if ([self.phonetextField.text length]==0) {
@@ -361,51 +368,100 @@
 }
 -(void)loginRequest
 {
-    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
-    [[LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text usertype:@1 withSucc:^(NSDictionary * dic) {
-        if ([dic[@"code"] integerValue]==0) {
-            [MBProgressHUD creatembHub:dic[@"message"]];
-            NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
-            [user setObject:dic[@"data"] forKey:@"uidAndToken"];
-            [user setObject:dic[@"data"][@"telphone"] forKey:@"loginPhone"];
-            [user setObject:dic[@"data"][@"uid"] forKey:@"uid"];
-            NSString * uid = dic[@"data"][@"uid"];
-            NSString * token = dic[@"data"][@"token"];
-            NSString * tokenSerit = [NSString stringWithFormat:@"%@%@",token,uid];
-            NSString* mymd5_token  = [MyMD5 md5:tokenSerit];
-            [user setObject:mymd5_token forKey:@"md5_token"];
-            
-            
-            [user synchronize];
-            
-            if ([self.jobWilstRegist isEqualToString:@"jobWilstRegist"]) {
-             [self.navigationController popViewControllerAnimated:YES];
+
+//    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+//    [[LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text usertype:@1 withSucc:^(NSDictionary * dic) {
+//        if ([dic[@"code"] integerValue]==0) {
+//            [MBProgressHUD creatembHub:dic[@"message"]];
+//            NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+//            [user setObject:dic[@"data"] forKey:@"uidAndToken"];
+//            [user setObject:dic[@"data"][@"telphone"] forKey:@"loginPhone"];
+//            [user setObject:dic[@"data"][@"uid"] forKey:@"uid"];
+//            NSString * uid = dic[@"data"][@"uid"];
+//            NSString * token = dic[@"data"][@"token"];
+//            NSString * tokenSerit = [NSString stringWithFormat:@"%@%@",token,uid];
+//            NSString* mymd5_token  = [MyMD5 md5:tokenSerit];
+//            [user setObject:mymd5_token forKey:@"md5_token"];
+//            
+//            
+//            [user synchronize];
+    
+//            if ([self.jobWilstRegist isEqualToString:@"jobWilstRegist"]) {
+//             [self.navigationController popViewControllerAnimated:YES];
+
+    if (self.personOrCompany == 0)
+    {
+        NSLog(@"个人登录");
+        MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+        [[LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text usertype:1 withSucc:^(NSDictionary * dic) {
+            if ([dic[@"code"] integerValue]==0) {
+                [MBProgressHUD creatembHub:dic[@"message"]];
+                NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+                [user setObject:dic[@"data"] forKey:@"uidAndToken"];
+                [user setObject:dic[@"data"][@"telphone"] forKey:@"loginPhone"];
+                [user setObject:dic[@"data"][@"uid"] forKey:@"uid"];
+                NSString * uid = dic[@"data"][@"uid"];
+                NSString * token = dic[@"data"][@"token"];
+                NSString * tokenSerit = [NSString stringWithFormat:@"%@%@",token,uid];
+                NSString* mymd5_token  = [MyMD5 md5:tokenSerit];
+                [user setObject:mymd5_token forKey:@"md5_token"];
                 
-            }else if ([self.findJobApplications isEqualToString:@"findJobApplications"]) {
-                self.loginBlock();
-                  [self.navigationController popViewControllerAnimated:YES];
-            }else if ([self.findJobDetailApplication isEqualToString:@"findJobDetailApplication"])
-            {
-                self.loginBlock();
-                [self.navigationController popViewControllerAnimated:YES];
-            }else
-              {
-            self.navigationController.navigationBarHidden = YES;
-            AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-            appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
-            appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
-//           appDelegate.userId = dic[@"data"][@"uid"];
-            [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
+                
+                [user synchronize];
+
+                
+                if ([self.jobWilstRegist isEqualToString:@"jobWilstRegist"]) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }else if ([self.findJobApplications isEqualToString:@"findJobApplications"]) {
+                    self.loginBlock();
+                    [self.navigationController popViewControllerAnimated:YES];
+                }else if ([self.findJobDetailApplication isEqualToString:@"findJobDetailApplication"])
+                {
+                    self.loginBlock();
+                    [self.navigationController popViewControllerAnimated:YES];
+                }else
+                {
+                    self.navigationController.navigationBarHidden = YES;
+                    AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                    appDelegate.mainTabBar = [[TH_MainTabBarController alloc] init];
+                    appDelegate.mainTabBar.modalTransitionStyle = UIModalPresentationPageSheet;
+                    //           appDelegate.userId = dic[@"data"][@"uid"];
+                    [self presentViewController:appDelegate.mainTabBar animated:YES completion:nil];
+                }
             }
-        }
-    } ] addNotifaction:hub];
+        } ] addNotifaction:hub];
+    }
+    else
+    {
+        NSLog(@"企业登录");
+        MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+        [[LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text usertype:2 withSucc:^(NSDictionary * dic) {
+            
+            NSLog(@"企业登录：%@",dic);
+            
+        } ] addNotifaction:hub];
+        
+    }
+    
+    
 }
 -(void)ForgotPasswordClick
 {
-    TH_ForgotPasswordVC * forgot = [[TH_ForgotPasswordVC alloc] init];
-    forgot.title = @"找回密码";
-    [self.navigationController pushViewController:forgot animated:YES];
     
+    if (self.personOrCompany == 0)
+    {
+        TH_ForgotPasswordVC * forgot = [[TH_ForgotPasswordVC alloc] init];
+        forgot.title = @"找回密码";
+        [self.navigationController pushViewController:forgot animated:YES];
+    }
+    else
+    {
+        EnterpriseFoegetVC * enterpriseFoeget = [[EnterpriseFoegetVC alloc] init];
+        [self.navigationController pushViewController:enterpriseFoeget animated:YES];
+    }
+   
+
 }
 -(void)registClick
 {
