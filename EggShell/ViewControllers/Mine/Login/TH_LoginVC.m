@@ -189,7 +189,7 @@
     NSString * userPassword = [user objectForKey:@"userPassword"];
     UITextField * phonetextField = [[UITextField alloc] initWithFrame:CGRectMake(-WIDETH - 80, 0, WIDETH - 80, 45)];
     phonetextField.placeholder = @"请输入手机号码";
-    phonetextField.keyboardType = UIKeyboardTypeNumberPad;
+//    phonetextField.keyboardType = UIKeyboardTypeNumberPad;
     phonetextField.delegate = self;
     phonetextField.returnKeyType = UIReturnKeyNext;
     phonetextField.textColor = color(200, 200, 200);
@@ -372,7 +372,7 @@
     {
         NSLog(@"个人登录");
         MBProgressHUD * hub = [MBProgressHUD mbHubShow];
-        [[LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text  withSucc:^(NSDictionary * dic) {
+        [[LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text usertype:1 withSucc:^(NSDictionary * dic) {
             if ([dic[@"code"] integerValue]==0) {
                 [MBProgressHUD creatembHub:dic[@"message"]];
                 NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
@@ -413,6 +413,12 @@
     else
     {
         NSLog(@"企业登录");
+        MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+        [[LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text usertype:2 withSucc:^(NSDictionary * dic) {
+            
+            NSLog(@"企业登录：%@",dic);
+            
+        } ] addNotifaction:hub];
         
     }
     
@@ -433,6 +439,7 @@
         [self.navigationController pushViewController:enterpriseFoeget animated:YES];
     }
    
+
 }
 -(void)registClick
 {
