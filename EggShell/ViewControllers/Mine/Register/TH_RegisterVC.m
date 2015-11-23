@@ -45,20 +45,30 @@
     tapGestureRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
-    /*显示键盘**/
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
-    
-    //    /*收回键盘**/
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
+//    /*显示键盘**/
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
+//    
+//    //    /*收回键盘**/
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyBoard:) name:UIKeyboardWillHideNotification object:nil];
     }
 #pragma mark -- 创建UI
 -(void)createScro{
     UIScrollView * scro= [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
-    [self.view addSubview:scro];
-    self.scro.backgroundColor = color(243, 241, 241);
     self.scro = scro;
+    self.scro.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:scro];
     
-    UIView  * phoneBgView = [[UIView alloc] initWithFrame:CGRectMake(15, 15, WIDETH - 30, 45)];
+    self.scro.backgroundColor = color(243, 241, 241);
+    
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(-72, 15, 80, 90)];
+    imageView.image = [UIImage imageNamed:@"logo"];
+    [self.scro addSubview:imageView];
+    [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:20 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        imageView.frame = CGRectMake((WIDETH-80)/2.0, 10, 80,90);
+    } completion:nil];
+
+    
+    UIView  * phoneBgView = [[UIView alloc] initWithFrame:CGRectMake(15, 135, WIDETH - 30, 45)];
     phoneBgView.backgroundColor = color(255, 255, 255);
     phoneBgView.layer.borderWidth = 0.5;
     phoneBgView.layer.borderColor = color(221, 221, 221).CGColor;
@@ -88,7 +98,7 @@
 
     [self.scro addSubview:phoneBgView];
     //密码
-    UIView * passwordBgView = [[UIView alloc] initWithFrame:CGRectMake(15, 70, WIDETH- 30, 45)];
+    UIView * passwordBgView = [[UIView alloc] initWithFrame:CGRectMake(15, 190, WIDETH- 30, 45)];
     passwordBgView.backgroundColor = color(255, 255, 255);
     passwordBgView.layer.borderWidth = 0.5;
     passwordBgView.layer.borderColor = color(221, 221, 221).CGColor;
@@ -117,7 +127,7 @@
     [self.scro addSubview:passwordBgView];
     
     /*验证码**/
-    UIView *securityCodeBgView = [[UIView alloc] initWithFrame:CGRectMake(15, 125, (WIDETH - 40)/4.0*3-10, 45)];
+    UIView *securityCodeBgView = [[UIView alloc] initWithFrame:CGRectMake(15, 245, (WIDETH - 40)/4.0*3-10, 45)];
     securityCodeBgView.backgroundColor = color(255, 255, 255);
     securityCodeBgView.layer.borderColor = color(221, 221, 221).CGColor;
     securityCodeBgView.layer.borderWidth = 0.5;
@@ -145,7 +155,7 @@
     
     [self.scro addSubview:securityCodeBgView];
     
-    UIView * securityCodeRightBgView = [[UIView alloc] initWithFrame:CGRectMake(WIDETH-((WIDETH - 40)/4.0+25), 125, (WIDETH - 40)/4.0*1+10, 45)];
+    UIView * securityCodeRightBgView = [[UIView alloc] initWithFrame:CGRectMake(WIDETH-((WIDETH - 40)/4.0+25), 245, (WIDETH - 40)/4.0*1+10, 45)];
     securityCodeRightBgView.backgroundColor = UIColorFromRGB(0xf44336);
     securityCodeRightBgView.layer.cornerRadius = 3;
     securityCodeRightBgView.layer.masksToBounds = YES;
@@ -162,7 +172,7 @@
     [securityCodeRightBgView addSubview:securityCodeBtn];
     [self.scro addSubview:securityCodeRightBgView];
     
-    UIButton * registerBtn =[[UIButton alloc] initWithFrame:CGRectMake(15, 185, WIDETH - 30, 45)];
+    UIButton * registerBtn =[[UIButton alloc] initWithFrame:CGRectMake(15, 305, WIDETH - 30, 45)];
     [registerBtn setTitle:@"立即注册" forState:UIControlStateNormal];
     [registerBtn setBackgroundImage:[UIImage imageNamed:@"lane"] forState:UIControlStateNormal];
     registerBtn.titleLabel.textColor = color(255, 255, 255);
@@ -274,42 +284,49 @@
     [self.view endEditing:YES];
 }
 
--(void)showKeyBoard:(NSNotification*)notification
-{
-    
-    /*获取键盘的高度**/
-    NSDictionary *userInfo = [notification userInfo];
-    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [aValue CGRectValue];
-    int height = keyboardRect.size.height;
-    NSLog(@"%d",height);
-    self.scro.contentSize = CGSizeMake(WIDETH, 450+height);
-    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+40) animated:YES];
-    
-    
-    
-    
-}
--(void)hideKeyBoard:(NSNotification*)notification
-{
-    self.scro.contentSize = CGSizeMake(WIDETH, 450);
-    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
-}
+//-(void)showKeyBoard:(NSNotification*)notification
+//{
+//    
+//    /*获取键盘的高度**/
+//    NSDictionary *userInfo = [notification userInfo];
+//    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+//    CGRect keyboardRect = [aValue CGRectValue];
+//    int height = keyboardRect.size.height;
+//    NSLog(@"%d",height);
+//    self.scro.contentSize = CGSizeMake(WIDETH, 450+height);
+//    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+40) animated:YES];
+//    
+//    
+//    
+//    
+//}
+//-(void)hideKeyBoard:(NSNotification*)notification
+//{
+//    self.scro.contentSize = CGSizeMake(WIDETH, 450);
+//    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
+//}
 
+//结束编辑，恢复原位
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField.tag >= 400)
+    {
+        if(HEIGHT == 480)
+        {
+            self.scro.contentSize = CGSizeMake(WIDETH , HEIGHT + 250);
+            [self.scro scrollRectToVisible:CGRectMake(0, 320, WIDETH, HEIGHT) animated:YES];
+        }else
+        {
+            self.scro.contentSize = CGSizeMake(WIDETH, HEIGHT + 250);
+            [self.scro scrollRectToVisible:CGRectMake(0, 320, WIDETH, HEIGHT) animated:YES];
+        }
+        
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

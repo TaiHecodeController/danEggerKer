@@ -33,5 +33,10 @@
 +(AFRequestState *)EditInformationWithSucc:(void(^)(NSDictionary*))succ withParam:(NSDictionary*)dic;
 /*编辑资料预览**/
 +(AFRequestState *)EditInformationWithSucc:(void(^)(NSDictionary*))succ withuid:(NSDictionary*)uid;
-
+/*企业忘记密码**/
++(AFRequestState *)enterpriseForgitRequestWithResumeParam:(NSDictionary *)param withSucc:(void(^)(NSDictionary*))succ;
+/*企业忘记密码下一步**/
++(AFRequestState *)enterpriseForgitNextRequestWithResumeParam:(NSDictionary *)param withSucc:(void(^)(NSDictionary*))succ;
+/*企业重置密码**/
++(AFRequestState *)enterpriseResetPasswordRequestWithResumeParam:(NSDictionary *)param withSucc:(void(^)(NSDictionary*))succ;
 @end

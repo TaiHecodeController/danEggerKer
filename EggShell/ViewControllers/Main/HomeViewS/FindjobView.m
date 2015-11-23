@@ -235,7 +235,7 @@
     [self addSubview:InternshipSearchLable];
     //信息台
     UIButton * InformationDeskBtn = [[UIButton alloc] initWithFrame:CGRectMake(InformationDeskBtnX*MyWideth, InformationDeskBtnY*MyHeight, InformationDeskBtnWideth*MyWideth   , InformationDeskBtnHeight*MyWideth)];
-    [InformationDeskBtn setImage:[UIImage imageNamed:@"xinxitai"] forState:UIControlStateNormal];
+    [InformationDeskBtn setImage:[UIImage imageNamed:@"shejiaoquan1"] forState:UIControlStateNormal];
     self.InformationDeskBtn = InformationDeskBtn;
     InformationDeskBtn.tag = THHomeViewButtonTypeInformationDesk;
     [InformationDeskBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -267,7 +267,7 @@
     [self addSubview:fesumeWritingLable];
     //玩出范
     UIButton * PlayFanBtn = [[UIButton alloc] initWithFrame:CGRectMake(PlayFanBtnX*MyWideth, PlayFanBtnY*MyHeight, PlayFanBtnWideth *MyWideth  , PlayFanBtnHeight*MyWideth)];
-    [PlayFanBtn setImage:[UIImage imageNamed:@"wanchufan03"] forState:UIControlStateNormal];
+    [PlayFanBtn setImage:[UIImage imageNamed:@"wanchufan1"] forState:UIControlStateNormal];
     self.PlayFanBtn = PlayFanBtn;
     PlayFanBtn.tag = THHomeViewButtonTypePlayFan;
     [PlayFanBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -284,7 +284,7 @@
     
    //微社交
     UIButton * MicroSocialBtn = [[UIButton alloc] initWithFrame:CGRectMake(MicroSocialBtnX*MyWideth, MicroSocialBtnY*MyHeight, MicroSocialBtnWideth*MyWideth, MicroSocialBtnHeight*MyWideth)];
-    [MicroSocialBtn setImage:[UIImage imageNamed:@"weishejiao"] forState:UIControlStateNormal];
+    [MicroSocialBtn setImage:[UIImage imageNamed:@"vdaren1"] forState:UIControlStateNormal];
     self.MicroSocialBtn = MicroSocialBtn;
     MicroSocialBtn.tag = THHomeViewButtonTypeMicroSocial;
     [MicroSocialBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -298,7 +298,7 @@
     [self addSubview:MicroSocialLable];
     //公开课
     UIButton * openClassBtn = [[UIButton alloc] initWithFrame:CGRectMake(openClassBtnX*MyWideth, openClassBtnY*MyHeight, openClassBtnWideth*MyWideth, openClassBtnHeight*MyWideth)];
-    [openClassBtn setImage:[UIImage imageNamed:@"gongkaike"] forState:UIControlStateNormal];
+    [openClassBtn setImage:[UIImage imageNamed:@"gongkaike1"] forState:UIControlStateNormal];
     self.openClassBtn = openClassBtn;
     openClassBtn.tag = THHomeViewButtonTypeOpenClass;
     [openClassBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
