@@ -104,9 +104,7 @@
     pingtaiLab.textColor = color(102, 102, 102);
     CGSize pingtaiSize = [pingtaiLab.text sizeWithFont:pingtaiLab.font];
     pingtaiLab.frame = CGRectMake((WIDETH - pingtaiSize.width) / 2, CGRectGetMaxY(imageView.frame) + 10, pingtaiSize.width, pingtaiSize.height);
-    [self.view addSubview:pingtaiLab];
-    
-    
+    [self.scro addSubview:pingtaiLab];
     
     [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:20 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         
