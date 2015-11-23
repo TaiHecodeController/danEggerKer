@@ -41,10 +41,10 @@
 }
 
 //登录
-+(AFRequestState *)loginRequestWithusername:(NSString * )username WithPassword:(NSString *)password withSucc:(void(^)(NSDictionary*))succ
++(AFRequestState *)loginRequestWithusername:(NSString * )username WithPassword:(NSString *)password usertype:(int)usertype withSucc:(void(^)(NSDictionary*))succ
 {
-    NSDictionary * param = @{@"username":username,@"password":password};
-
+    NSNumber * userType = [NSNumber numberWithInt:usertype];
+       NSDictionary * param = @{@"username":username,@"password":password,@"usertype":userType};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@login",base_Url] param:param succ:succ ];
 }
 

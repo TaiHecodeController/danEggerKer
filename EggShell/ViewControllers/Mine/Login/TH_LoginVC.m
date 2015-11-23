@@ -405,6 +405,7 @@
     TH_ForgotPasswordVC * forgot = [[TH_ForgotPasswordVC alloc] init];
     forgot.title = @"找回密码";
     [self.navigationController pushViewController:forgot animated:YES];
+    
 }
 -(void)registClick
 {
