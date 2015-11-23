@@ -33,24 +33,24 @@
     self.window.rootViewController = [UIViewController new];
     [self.window makeKeyAndVisible];
     
-    /************************/
-    // Required
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
-        //可以添加自定义categories
-        [APService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
-                                                       UIUserNotificationTypeSound |
-                                                       UIUserNotificationTypeAlert)
-                                           categories:nil];
-    } else {
-        //categories 必须为nil
-        [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-                                                       UIRemoteNotificationTypeSound |
-                                                       UIRemoteNotificationTypeAlert)
-                                           categories:nil];
-    }
-    
-    // Required
-    [APService setupWithOption:launchOptions];
+//    /************************/
+//    // Required
+//    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+//        //可以添加自定义categories
+//        [APService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+//                                                       UIUserNotificationTypeSound |
+//                                                       UIUserNotificationTypeAlert)
+//                                           categories:nil];
+//    } else {
+//        //categories 必须为nil
+//        [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+//                                                       UIRemoteNotificationTypeSound |
+//                                                       UIRemoteNotificationTypeAlert)
+//                                           categories:nil];
+//    }
+//    
+//    // Required
+//    [APService setupWithOption:launchOptions];
     
     //注册友盟统计
     [MobClick startWithAppkey:@"55f24438e0f55aa7af001c3d" reportPolicy:BATCH   channelId:nil];
@@ -59,10 +59,10 @@
     [df setObject:num forKey:@"citytag"];
     [df synchronize];
     
-   [self checkVersion];
+//   [self checkVersion];
     
     //初始化保利视频
-    [self initPloyVideo];
+//    [self initPloyVideo];
     // 要使用百度地图，请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc]init];
     BOOL ret = [_mapManager start:@"VETGQ5nQXBXtGt0VHhIetQuh" generalDelegate:self];

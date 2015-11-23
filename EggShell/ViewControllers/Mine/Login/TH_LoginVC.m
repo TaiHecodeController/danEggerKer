@@ -17,12 +17,28 @@
 #import "TH_MineVC.h"
 #import "TH_JobWishlistVC.h"
 #import "TH_FindJobVC.h"
+#import "HYSegmentedControl.h"
+
 @interface TH_LoginVC ()<UITextFieldDelegate>
 @property (strong,nonatomic)UIButton * loginBtn;
-@property(nonatomic,strong)UITextField * phonetextField;
+
+
 @property(nonatomic,strong)UITextField * passwordTextFiled;
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)NSString * phoneNum;
+
+@property (nonatomic, strong) UIButton *personBtn;
+@property (nonatomic, strong) UIButton *companyBtn;
+
+
+@property (nonatomic, strong) UILabel *phoneLable;
+@property(nonatomic,strong)UITextField * phonetextField;
+
+//切换用户时，需要隐藏的视图
+@property (nonatomic, strong) UILabel *registerLable;
+@property (nonatomic, strong) UIButton *registBtn;
+@property (nonatomic, strong) UILabel *wwwLab;
+
 @end
 
 @implementation TH_LoginVC
@@ -79,13 +95,58 @@
         imageView.frame = CGRectMake((WIDETH-80)/2.0, 10, 80,90);
     } completion:nil];
     
+    UILabel *pingtaiLab = [[UILabel alloc]init];
+    pingtaiLab.text = @"一个具有圈子的就业规划平台";
+    pingtaiLab.font = [UIFont systemFontOfSize:13];
+    pingtaiLab.textColor = color(102, 102, 102);
+    CGSize pingtaiSize = [pingtaiLab.text sizeWithFont:pingtaiLab.font];
+    pingtaiLab.frame = CGRectMake((WIDETH - pingtaiSize.width) / 2, CGRectGetMaxY(imageView.frame) + 10, pingtaiSize.width, pingtaiSize.height);
+    [self.view addSubview:pingtaiLab];
+    
+    
+    
     [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:20 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         
     } completion:^(BOOL finished) {
         
     }];
     
-    UIView * loginView = [[UIView alloc] initWithFrame:CGRectMake(0, 110, WIDETH, 90)];
+//    NSArray *arr = @[@"个人用户",@"企业用户"];
+//    UISegmentedControl *seg = [[UISegmentedControl alloc]initWithItems:arr];
+//    
+//    seg.layer.borderColor = [color(102, 102, 102) CGColor];
+//    [self.view addSubview:seg];
+//    [seg addTarget:self action:@selector(segClick:) forControlEvents:UIControlEventValueChanged];
+//    _seg = seg;
+    
+//    _seg = [[HYSegmentedControl alloc] initWithOriginY:0 Titles:@[@"个人用户", @"企业用户"]  IconNames:nil delegate:self] ;
+////    _seg.frame = CGRectMake(0, CGRectGetMaxY(pingtaiLab.frame) + 20, WIDETH - 2 * 52, 45);
+//    [self.view addSubview:_seg];
+
+    UIButton *personBtn = [[UIButton alloc]init];
+    [personBtn setTitle:@"个人用户" forState:UIControlStateNormal];
+    [personBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [personBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+    personBtn.layer.borderColor = [UIColorFromRGB(0xDDDDDD) CGColor];
+    personBtn.frame = CGRectMake(53, CGRectGetMaxY(pingtaiLab.frame) + 20, (WIDETH - 2 * 53) / 2, 45) ;
+    personBtn.layer.borderWidth = 1;
+    [personBtn addTarget:self action:@selector(personClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.scro addSubview:personBtn];
+    _personBtn = personBtn;
+    
+    UIButton *companyBtn = [[UIButton alloc]init];
+    [companyBtn setTitle:@"企业用户" forState:UIControlStateNormal];
+    [companyBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [companyBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+     companyBtn.layer.borderColor = [UIColorFromRGB(0xDDDDDD) CGColor];
+    companyBtn.layer.borderWidth = 1;
+    companyBtn.frame = CGRectMake(CGRectGetMaxX(personBtn.frame), CGRectGetMaxY(pingtaiLab.frame) + 20, (WIDETH - 2 * 53) / 2, 45);
+     [companyBtn addTarget:self action:@selector(companyClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.scro addSubview:companyBtn];
+    _companyBtn = companyBtn;
+    
+    
+    UIView * loginView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(personBtn.frame) + 15, WIDETH, 90)];
     loginView.backgroundColor = color(255, 255, 255);
     [self.scro addSubview:loginView];
     UIView * linefirstView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 0.5)];
@@ -105,6 +166,7 @@
     phoneLable.textColor = [UIColor blackColor];
     phoneLable.font = [UIFont systemFontOfSize:15];
     [loginView addSubview:phoneLable];
+    _phoneLable = phoneLable;
     
     [UIView animateWithDuration:1 delay:0.5 usingSpringWithDamping:0.5 initialSpringVelocity:20 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         phoneLable.frame = CGRectMake(15, 16, 45, 15);
@@ -169,7 +231,7 @@
         _passwordTextFiled.text = userPassword;
     }
     //登录
-    loginBtn =[[UIButton alloc] initWithFrame:CGRectMake(15,215 + 30, WIDETH - 30, 45)];
+    loginBtn =[[UIButton alloc] initWithFrame:CGRectMake(15,CGRectGetMaxY(loginView.frame) + 15, WIDETH - 30, 45)];
     
     [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
     [loginBtn setBackgroundImage:[UIImage imageNamed:@"hongniu"] forState:UIControlStateNormal];
@@ -179,24 +241,39 @@
     [self.scro addSubview:loginBtn];
     
     [UIView animateWithDuration:3 delay:0.85 usingSpringWithDamping:0.1 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        loginBtn.frame = CGRectMake(15, 215, WIDETH - 30, 45);
+        loginBtn.frame = CGRectMake(15, CGRectGetMaxY(loginView.frame) + 15, WIDETH - 30, 45);
         self.loginBtn.alpha = 1;
         
     } completion:nil];
     
-    UILabel * registerLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 275, 70, 12)];
+    UILabel * registerLable = [[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(loginBtn.frame) + 15, 70, 12)];
     registerLable.text = @"还没有账号?";
     registerLable.font = [UIFont systemFontOfSize:12];
     [self.scro addSubview:registerLable];
-    UIButton * registBtn = [[UIButton alloc] initWithFrame:CGRectMake(80, 275, 60, 12)];
+    _registerLable = registerLable;
+    
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:@"访问eggker.cn注册企业账号"];
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(2, 10)];
+    _wwwLab = [[UILabel alloc]init];
+    _wwwLab.frame = CGRectMake(15, CGRectGetMaxY(loginBtn.frame) + 15, 200, 12);
+    _wwwLab.attributedText = str;
+    _wwwLab.font = [UIFont systemFontOfSize:12];
+    [self.scro addSubview:_wwwLab];
+    _wwwLab.hidden = YES;
+    _wwwLab.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(wwwClick)];
+    [_wwwLab addGestureRecognizer:tap];
+    
+    UIButton *registBtn = [[UIButton alloc] initWithFrame:CGRectMake(80, CGRectGetMaxY(loginBtn.frame) + 15, 60, 12)];
     [registBtn addTarget:self action:@selector(registClick) forControlEvents:UIControlEventTouchUpInside];
     [registBtn setTitle:@"立即注册!" forState:UIControlStateNormal];
     [registBtn setTitleColor:color(244, 67, 54) forState:UIControlStateNormal];
     registBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [self.scro addSubview:registBtn];
+    _registBtn = registBtn;
     
     //忘记密码
-    UIButton * forgetBtn =[[UIButton alloc] initWithFrame:CGRectMake(WIDETH-70, 275, 55, 12)];
+    UIButton * forgetBtn =[[UIButton alloc] initWithFrame:CGRectMake(WIDETH-70, CGRectGetMaxY(loginBtn.frame) + 15, 55, 12)];
     [forgetBtn setTitle:@"忘记密码?" forState:UIControlStateNormal];
     [forgetBtn setTitleColor:color(244, 67, 54) forState:UIControlStateNormal];
     forgetBtn.titleLabel.font =[UIFont systemFontOfSize:12];
@@ -207,6 +284,48 @@
     
     
 }
+
+- (void)personClick
+{
+    [_personBtn setBackgroundColor:[UIColor whiteColor]];
+    [_personBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    
+    [_companyBtn setBackgroundColor:[UIColor clearColor]];
+    [_companyBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    _phoneLable.text = @"手机号";
+    _phonetextField.placeholder = @"请输入用手机号";
+    
+    _registerLable.hidden = NO;
+    _registBtn.hidden = NO;
+    _wwwLab.hidden = YES;
+}
+
+- (void)companyClick
+{
+    [_companyBtn setBackgroundColor:[UIColor whiteColor]];
+    [_companyBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    
+    [_personBtn setBackgroundColor:[UIColor clearColor]];
+    [_personBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    //用户名 请输入用户名
+    _phoneLable.text = @"用户名";
+    _phonetextField.placeholder = @"请输入用户名";
+    
+    _registerLable.hidden = YES;
+    _registBtn.hidden = YES;
+    _wwwLab.hidden = NO;
+
+}
+
+- (void)wwwClick
+{
+    NSURL *url = [NSURL URLWithString:@"http://www.eggker.cn/"];
+    [[UIApplication sharedApplication] openURL:url];
+    
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     
