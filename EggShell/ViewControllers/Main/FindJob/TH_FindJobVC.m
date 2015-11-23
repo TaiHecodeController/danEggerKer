@@ -101,7 +101,6 @@
     
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backRootController:) name:@"findJobBackClick" object:nil];
 }
-
 -(void)viewDidAppear:(BOOL)animated
 { self.cellArray = [NSMutableArray arrayWithCapacity:0];
     //    jobTableViewCell * cell = self.cellArray[record_index.row];

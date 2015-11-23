@@ -129,6 +129,8 @@
 		947008C81B85FF0100DEC289 /* TH_ImagePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947008C71B85FF0100DEC289 /* TH_ImagePickerVC.m */; };
 		947330381BFD6A5800688587 /* EnterpriseDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947330371BFD6A5800688587 /* EnterpriseDetailVC.m */; };
 		9473303C1BFF186000688587 /* TH_VtalentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9473303B1BFF186000688587 /* TH_VtalentVC.m */; };
+		947330451C02ACD800688587 /* EnterpriseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 947330441C02ACD800688587 /* EnterpriseView.m */; };
+		947330471C02AD1800688587 /* Enterprise.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947330461C02AD1800688587 /* Enterprise.xib */; };
 		947564A81B9D7B710087BA56 /* homedel.m in Sources */ = {isa = PBXBuildFile; fileRef = 947564A71B9D7B710087BA56 /* homedel.m */; };
 		949CAA0F1BB253AA00284FFF /* WorkingTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CAA0D1BB253AA00284FFF /* WorkingTimeCell.m */; };
 		949CAA101BB253AA00284FFF /* WorkingTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949CAA0E1BB253AA00284FFF /* WorkingTimeCell.xib */; };
@@ -555,6 +557,9 @@
 		947330371BFD6A5800688587 /* EnterpriseDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterpriseDetailVC.m; sourceTree = "<group>"; };
 		9473303A1BFF186000688587 /* TH_VtalentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_VtalentVC.h; sourceTree = "<group>"; };
 		9473303B1BFF186000688587 /* TH_VtalentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_VtalentVC.m; sourceTree = "<group>"; };
+		947330431C02ACD800688587 /* EnterpriseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterpriseView.h; sourceTree = "<group>"; };
+		947330441C02ACD800688587 /* EnterpriseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterpriseView.m; sourceTree = "<group>"; };
+		947330461C02AD1800688587 /* Enterprise.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Enterprise.xib; sourceTree = "<group>"; };
 		947564A61B9D7B710087BA56 /* homedel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homedel.h; sourceTree = "<group>"; };
 		947564A71B9D7B710087BA56 /* homedel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homedel.m; sourceTree = "<group>"; };
 		949CAA011BB2515A00284FFF /* EducationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationTimeCell.h; sourceTree = "<group>"; };
@@ -1836,6 +1841,9 @@
 			children = (
 				947330361BFD6A5800688587 /* EnterpriseDetailVC.h */,
 				947330371BFD6A5800688587 /* EnterpriseDetailVC.m */,
+				947330431C02ACD800688587 /* EnterpriseView.h */,
+				947330441C02ACD800688587 /* EnterpriseView.m */,
+				947330461C02AD1800688587 /* Enterprise.xib */,
 			);
 			path = Enterprise;
 			sourceTree = "<group>";
@@ -2556,6 +2564,7 @@
 				F0829B611BB3F6DF00EA8B6F /* chazi.png in Resources */,
 				F0BC9D371BABE29700383EE3 /* 演讲口语语音训练1@2x.png in Resources */,
 				F0213AA61BA2AC450083AA81 /* you3@2x.png in Resources */,
+				947330471C02AD1800688587 /* Enterprise.xib in Resources */,
 				94E2C95D1B86C112001E3FDD /* 蛋壳儿.doc in Resources */,
 				94E2C9891B870F29001E3FDD /* moreJobTableViewCell.xib in Resources */,
 				949CAA101BB253AA00284FFF /* WorkingTimeCell.xib in Resources */,
@@ -2763,6 +2772,7 @@
 				940032F11B840DCD001EB666 /* JobScreeningCell.m in Sources */,
 				F06F72EF1B9694D200989489 /* playListModel.m in Sources */,
 				94E7DCFC1B841D510093C39B /* THCoursePlayVC.m in Sources */,
+				947330451C02ACD800688587 /* EnterpriseView.m in Sources */,
 				041650CB1B4D730F008C78BE /* MBProgressHUD.m in Sources */,
 				0470291E1B974C4300565BC4 /* ManagerResumeModel.m in Sources */,
 				04A0CD481B7A111D00EBCF01 /* HeadView.m in Sources */,

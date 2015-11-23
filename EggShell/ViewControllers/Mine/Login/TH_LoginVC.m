@@ -298,25 +298,6 @@
 {
     [self.view endEditing:YES];
 }
-
-//-(void)showKeyBoard:(NSNotification*)notification
-//{
-//    
-////    /*获取键盘的高度**/
-////    NSDictionary *userInfo = [notification userInfo];
-////    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-////    CGRect keyboardRect = [aValue CGRectValue];
-////    int height = keyboardRect.size.height;
-////    NSLog(@"%d",height);
-////    self.scro.contentSize = CGSizeMake(WIDETH, 450+height);
-////    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT+height) animated:YES];
-//    
-//}
-//-(void)hideKeyBoard:(NSNotification*)notification
-//{
-//    self.scro.contentSize = CGSizeMake(WIDETH, 450+10);
-//    [self.scro scrollRectToVisible:CGRectMake(0, 0, WIDETH, HEIGHT) animated:YES];
-//}
 //开始编辑，向上滚动
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
@@ -357,14 +338,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
