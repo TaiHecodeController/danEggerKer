@@ -13,6 +13,7 @@
 #import "TH_AllPositionVC.h"
 #import "TH_RecruitmentPositionVC.h"
 #import "TH_OutDatePosionVC.h"
+#import "TH_LoginVC.h"
 @interface EnterpriseDetailVC ()<THEnterprisedDelegate>
 
 @end
@@ -21,8 +22,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.navigationController.navigationItem.leftBarButtonItem = nil;
-
+    self.navigationController.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewDidLoad {
@@ -35,7 +35,7 @@
     [perseonBtn addTarget:self action:@selector(perseonBtn) forControlEvents:UIControlEventTouchUpInside];
     perseonBtn.titleLabel.font = [UIFont systemFontOfSize:14];
    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:perseonBtn];
-    UIImageView * backImageView = [[UIImageView alloc] initWithFrame:CGRectMake(62, 12, 5, 10)];
+    UIImageView * backImageView = [[UIImageView alloc] initWithFrame:CGRectMake(62, 17, 5, 10)];
     backImageView.image = [UIImage imageNamed:@"qugeren"];
     [perseonBtn addSubview:backImageView];
    self.title = @"蛋壳招聘";
@@ -50,13 +50,21 @@
 -(void)createEnterView
 {
     EnterpriseView  * enterPrise =[EnterpriseView setEnterpriseView];
+    enterPrise.frame = CGRectMake(0, 0, WIDETH, HEIGHT);
     [enterPrise setEnterpriseValue];
     enterPrise.enterDelegate = self;
+    [enterPrise.ExitSignBtn addTarget:self action:@selector(ExitSignBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:enterPrise];
 
 
 }
+-(void)ExitSignBtn:(UIButton*)sender
+{
+    sender.selected = !sender.selected;
+//    TH_LoginVC * login = [[TH_LoginVC alloc] init];
+//    [self.navigationController pushViewController:login animated:YES];
 
+}
 -(void)enterprise:(EnterpriseView *)Enterprise DidClickButton:(THEnterpriseType)buttonType
 {
     switch (buttonType) {
