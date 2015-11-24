@@ -51,7 +51,10 @@
 +(AFRequestState*)PrivateRecommendationWithSucc:(void(^)(NSDictionary * arr))succ ;
 //名企详情
 +(AFRequestState*)famousEnterprisesDetailWithSucc:(void(^)(NSDictionary * arr))succ withd:(NSDictionary*)dic;
-
+//V达人
++(AFRequestState*)eggshellAmbassadorWithSucc:(void(^)(NSDictionary * arr))succ withd:(NSDictionary*)dic;
+//社交圈
++(AFRequestState*)socialCircleWithSucc:(void(^)(NSDictionary * arr))succ withd:(NSDictionary*)dic;
 //+(AFRequestState*)InformationDeskRequestWithSucc:(void(^)(NSDictionary * arr))succ  resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type;
 
 

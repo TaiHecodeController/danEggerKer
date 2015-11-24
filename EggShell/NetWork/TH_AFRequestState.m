@@ -244,4 +244,15 @@
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/nearbycompany",base_Url] param:param succ:succ fail:fail resp:resp];
 
 }
+//V达人
++(AFRequestState*)eggshellAmbassadorWithSucc:(void(^)(NSDictionary * arr))succ withd:(NSDictionary*)dic
+{
+return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Vtalent",base_Url] param:dic succ:succ];
+}
+//社交圈
++(AFRequestState*)socialCircleWithSucc:(void(^)(NSDictionary * arr))succ withd:(NSDictionary*)dic
+{
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Cricle",base_Url] param:dic succ:succ];
+
+}
 @end

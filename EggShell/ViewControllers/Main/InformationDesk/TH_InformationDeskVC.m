@@ -52,9 +52,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   /*信息台**/
-//    self.dataArray = [NSMutableArray arrayWithCapacity:0];
-//    self.limitNum = 10;
-//    self.page = 0;
+    self.dataArray = [NSMutableArray arrayWithCapacity:0];
+    self.limitNum = 4;
+    self.page = 1;
 //    [self createView];
 //    [self createTableView];
 //    [self hySegmentedControlSelectAtIndex:0];
@@ -62,21 +62,46 @@
     //社交圈
     [self createSocialCircleTableView];
     
+    [self loadData:self.limitNum page:self.page notif:[MBProgressHUD mbHubShow]];
+}
+-(void)loadData:(int)limitNum page:(int)page notif:(id)notif
+{
+    if(_state.running)
+    {
+        return;
+    }
+
+    NSNumber *pages  = [NSNumber numberWithInt:page];
+    NSNumber  *limitNums = [NSNumber numberWithInt:limitNum];
+    NSDictionary * param = @{@"page":pages,@"limit":limitNums};
+   self.state = [[TH_AFRequestState socialCircleWithSucc:^(NSDictionary *arr) {
+    
+     [self.dataArray addObjectsFromArray:arr[@"data"]];
+     [self.tableView reloadData];
+ } withd:param] addNotifaction:notif];
 }
 -(void)createSocialCircleTableView
 {
-    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT - 64-49) style:UITableViewStylePlain];
+    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT - 64)];
     tableView.dataSource = self;
     tableView.delegate = self;
     self.tableView = tableView;
     self.tableView.tableFooterView =[[UIView alloc] init];
     tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:tableView];
-
+    //下拉刷新
+    _header = [MJRefreshHeaderView header];
+    _header.scrollView = self.tableView;
+    _header.delegate = self;
+    
+    _footer = [MJRefreshFooterView footer];
+    _footer.scrollView = self.tableView;
+    _footer.delegate = self;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.dataArray.count;
+    
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -87,13 +112,32 @@
     if (!cell) {
         cell = [[SocialCircleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identerId];
     }
+    NSDictionary * dic = self.dataArray[indexPath.row];
+    [cell configValue:dic];
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 90*MyHeight;
 }
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    if( refreshView == _header ){
+        _page = 1;
+        [self.dataArray removeAllObjects];
+        [self loadData:self.limitNum page:_page notif:refreshView];
+    }
+    else{
+        self.page++;
+    
+        THLog(@"上拉加载更多");
+        [self loadData:self.limitNum page:self.page notif:refreshView];
+    }
+}
+
+
+
 /*
 -(void)loadData:(id)notify page:(int)num pageTye:(int)type
 {

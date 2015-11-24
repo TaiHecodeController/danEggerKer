@@ -228,7 +228,7 @@ typedef NS_ENUM(NSInteger, GestureType){
         
     }else if([MMNetWorkType getNetWorkType] ==WWAN)
     {
-        [MBProgressHUD creatembHub:@"您当前处于4G状态"];
+        [MBProgressHUD creatembHub:@"您当前处于非wifi状态"];
     }
       else {
         NSLog(@"当前是4G或wifi状态");

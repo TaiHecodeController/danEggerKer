@@ -84,7 +84,7 @@
         
     }else if([MMNetWorkType getNetWorkType] ==WWAN)
     {
-        [MBProgressHUD creatembHub:@"您当前处于4G状态"];
+        [MBProgressHUD creatembHub:@"您当前处于非wifi状态"];
     }else{
         NSLog(@"当前是wifi状态");
         [MBProgressHUD creatembHub:@"您当前处于wifi状态"];

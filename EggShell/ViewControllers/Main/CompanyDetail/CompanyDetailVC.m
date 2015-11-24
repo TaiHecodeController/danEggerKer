@@ -84,7 +84,6 @@
     } withd:dic] addNotifaction:notify];
     
 }
-
 -(void)createHeaderView
 {
     

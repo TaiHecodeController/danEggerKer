@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SocialCircleCell : UITableViewCell
-
+@property(nonatomic,strong)UIImageView * logoImageView;
+@property(nonatomic,strong)UILabel * groupNoLable;
+-(void)configValue:(NSDictionary*)dic;
 @end

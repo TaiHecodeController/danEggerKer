@@ -15,7 +15,7 @@
 #import "TH_OutDatePosionVC.h"
 #import "TH_LoginVC.h"
 @interface EnterpriseDetailVC ()<THEnterprisedDelegate>
-
+@property(nonatomic,strong)UIScrollView * scro;
 @end
 
 @implementation EnterpriseDetailVC
@@ -27,6 +27,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-64)];
+    self.scro.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:self.scro];
     /*去个人**/
     UIButton * perseonBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 67, 44)];
     [perseonBtn setTitle:@"去个人" forState:UIControlStateNormal];
@@ -50,11 +53,12 @@
 -(void)createEnterView
 {
     EnterpriseView  * enterPrise =[EnterpriseView setEnterpriseView];
-    enterPrise.frame = CGRectMake(0, 0, WIDETH, HEIGHT);
+    enterPrise.frame = CGRectMake(0, 0, WIDETH, 430);
     [enterPrise setEnterpriseValue];
     enterPrise.enterDelegate = self;
     [enterPrise.ExitSignBtn addTarget:self action:@selector(ExitSignBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:enterPrise];
+    [self.scro addSubview:enterPrise];
+    self.scro.contentSize = CGSizeMake(WIDETH, 480);
 
 
 }

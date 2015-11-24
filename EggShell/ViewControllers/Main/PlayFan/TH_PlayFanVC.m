@@ -94,8 +94,8 @@
     UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, WIDETH, 0.5)];
     bgView.backgroundColor = color(221, 221, 221);
     [self.view addSubview:bgView];
-    NSArray *iconArr = @[@[@"high1",@"high"],@[@"fuli",@"fuli1"]];
-    _segmentedControl = [[HYSegmentedControl alloc] initWithOriginY:0 Titles:@[@"蛋粉High翻天", @"蛋壳儿送福利"]  IconNames:iconArr delegate:self] ;
+    NSArray *iconArr = @[@[@"huogu0",@"huogu1"],@[@"huodong0",@"huodong1"]];
+    _segmentedControl = [[HYSegmentedControl alloc] initWithOriginY:0 Titles:@[@"蛋客活动", @"往期回顾"]  IconNames:iconArr delegate:self] ;
     [self.view addSubview:_segmentedControl];
     
 }
