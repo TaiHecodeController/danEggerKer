@@ -315,6 +315,10 @@
 		F0BC9D391BABE29700383EE3 /* 组-4-拷贝.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D2A1BABE29700383EE3 /* 组-4-拷贝.png */; };
 		F0BC9D3A1BABE29700383EE3 /* 组-4-拷贝@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D2B1BABE29700383EE3 /* 组-4-拷贝@2x.png */; };
 		F0BC9D3B1BABE29700383EE3 /* 组-4-拷贝@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC9D2C1BABE29700383EE3 /* 组-4-拷贝@3x.png */; };
+		F0C067831C03FD7B00D1B22B /* TableViewCell_1.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C067821C03FD7B00D1B22B /* TableViewCell_1.m */; };
+		F0C067871C03FDA900D1B22B /* TableViewCell_2.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C067861C03FDA900D1B22B /* TableViewCell_2.m */; };
+		F0C0678B1C03FDDB00D1B22B /* TableViewCell_3.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C0678A1C03FDDB00D1B22B /* TableViewCell_3.m */; };
+		F0C0678F1C03FDF000D1B22B /* TableViewCell_4.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C0678E1C03FDF000D1B22B /* TableViewCell_4.m */; };
 		F0D554891BF5B16300213311 /* test.pages in Resources */ = {isa = PBXBuildFile; fileRef = F0D554881BF5B16300213311 /* test.pages */; };
 		F0D5548B1BF5B1BE00213311 /* 工作总结.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F0D5548A1BF5B1BE00213311 /* 工作总结.pdf */; };
 		F0D7C02B1B7994DB00836DD2 /* OpenClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */; };
@@ -869,6 +873,14 @@
 		F0BC9D2A1BABE29700383EE3 /* 组-4-拷贝.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "组-4-拷贝.png"; sourceTree = "<group>"; };
 		F0BC9D2B1BABE29700383EE3 /* 组-4-拷贝@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "组-4-拷贝@2x.png"; sourceTree = "<group>"; };
 		F0BC9D2C1BABE29700383EE3 /* 组-4-拷贝@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "组-4-拷贝@3x.png"; sourceTree = "<group>"; };
+		F0C067811C03FD7B00D1B22B /* TableViewCell_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell_1.h; sourceTree = "<group>"; };
+		F0C067821C03FD7B00D1B22B /* TableViewCell_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell_1.m; sourceTree = "<group>"; };
+		F0C067851C03FDA900D1B22B /* TableViewCell_2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell_2.h; sourceTree = "<group>"; };
+		F0C067861C03FDA900D1B22B /* TableViewCell_2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell_2.m; sourceTree = "<group>"; };
+		F0C067891C03FDDB00D1B22B /* TableViewCell_3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell_3.h; sourceTree = "<group>"; };
+		F0C0678A1C03FDDB00D1B22B /* TableViewCell_3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell_3.m; sourceTree = "<group>"; };
+		F0C0678D1C03FDF000D1B22B /* TableViewCell_4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell_4.h; sourceTree = "<group>"; };
+		F0C0678E1C03FDF000D1B22B /* TableViewCell_4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell_4.m; sourceTree = "<group>"; };
 		F0D554881BF5B16300213311 /* test.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.pages; sourceTree = "<group>"; };
 		F0D5548A1BF5B1BE00213311 /* 工作总结.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "工作总结.pdf"; sourceTree = "<group>"; };
 		F0D7C0291B7994DB00836DD2 /* OpenClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenClassCell.h; sourceTree = "<group>"; };
@@ -1892,6 +1904,10 @@
 		947330481C02BBD200688587 /* ReceiveResume */ = {
 			isa = PBXGroup;
 			children = (
+				F0C0678C1C03FDE100D1B22B /* tableview4 */,
+				F0C067881C03FDBE00D1B22B /* tableview3 */,
+				F0C067841C03FD9A00D1B22B /* tableview2 */,
+				F0C067801C03FBDC00D1B22B /* tableVIew1 */,
 				947330591C02BD9100688587 /* TH_ReceiveResumeVC.h */,
 				9473305A1C02BD9100688587 /* TH_ReceiveResumeVC.m */,
 			);
@@ -2520,6 +2536,42 @@
 			path = "保利新页面";
 			sourceTree = "<group>";
 		};
+		F0C067801C03FBDC00D1B22B /* tableVIew1 */ = {
+			isa = PBXGroup;
+			children = (
+				F0C067811C03FD7B00D1B22B /* TableViewCell_1.h */,
+				F0C067821C03FD7B00D1B22B /* TableViewCell_1.m */,
+			);
+			name = tableVIew1;
+			sourceTree = "<group>";
+		};
+		F0C067841C03FD9A00D1B22B /* tableview2 */ = {
+			isa = PBXGroup;
+			children = (
+				F0C067851C03FDA900D1B22B /* TableViewCell_2.h */,
+				F0C067861C03FDA900D1B22B /* TableViewCell_2.m */,
+			);
+			name = tableview2;
+			sourceTree = "<group>";
+		};
+		F0C067881C03FDBE00D1B22B /* tableview3 */ = {
+			isa = PBXGroup;
+			children = (
+				F0C067891C03FDDB00D1B22B /* TableViewCell_3.h */,
+				F0C0678A1C03FDDB00D1B22B /* TableViewCell_3.m */,
+			);
+			name = tableview3;
+			sourceTree = "<group>";
+		};
+		F0C0678C1C03FDE100D1B22B /* tableview4 */ = {
+			isa = PBXGroup;
+			children = (
+				F0C0678D1C03FDF000D1B22B /* TableViewCell_4.h */,
+				F0C0678E1C03FDF000D1B22B /* TableViewCell_4.m */,
+			);
+			name = tableview4;
+			sourceTree = "<group>";
+		};
 		F0D7C04A1B79C7B400836DD2 /* libpolyvSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -2801,6 +2853,7 @@
 				9473303C1BFF186000688587 /* TH_VtalentVC.m in Sources */,
 				041650EE1B4D7C4E008C78BE /* MJRefreshFooterView.m in Sources */,
 				94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */,
+				F0C0678F1C03FDF000D1B22B /* TableViewCell_4.m in Sources */,
 				04A483D71B751E77006FDB9D /* Utils.m in Sources */,
 				94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */,
 				94E761BD1BA2AC5800B4C544 /* ProjectExperienceVC.m in Sources */,
@@ -2839,6 +2892,7 @@
 				F05B80101B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.m in Sources */,
 				94313D7B1B7C1F2A005D0A9A /* TH_ForgotPasswordVC.m in Sources */,
 				048F30B71B7A4537004AA9B2 /* FMDatabase.m in Sources */,
+				F0C067831C03FD7B00D1B22B /* TableViewCell_1.m in Sources */,
 				947008C81B85FF0100DEC289 /* TH_ImagePickerVC.m in Sources */,
 				04EC1F0F1B78F5510009292E /* SearchView.m in Sources */,
 				940032C91B840CC3001EB666 /* TH_CertificateVC.m in Sources */,
@@ -2846,6 +2900,7 @@
 				94CB30571BA5169700577FE6 /* IQKeyboardManager.m in Sources */,
 				94313DF11B7CB5C9005D0A9A /* WriteResumeCell2.m in Sources */,
 				94313DC01B7CAAED005D0A9A /* TH_InformationDeskDetailVC.m in Sources */,
+				F0C067871C03FDA900D1B22B /* TableViewCell_2.m in Sources */,
 				F0B85A431BA16124005799F5 /* polyNewViewController.m in Sources */,
 				940EDEE01B96E35800376D37 /* WorkExReadingVC.m in Sources */,
 				946EBAC51B84659800CD6AC9 /* jobListCell.m in Sources */,
@@ -2977,6 +3032,7 @@
 				947330681C02E93600688587 /* EnterpriseFoegetVC.m in Sources */,
 				94CB5B871B74CC0600B23B9D /* SGFocusImageFrame.m in Sources */,
 				041650EF1B4D7C4E008C78BE /* MJRefreshHeaderView.m in Sources */,
+				F0C0678B1C03FDDB00D1B22B /* TableViewCell_3.m in Sources */,
 				9400329F1B840B47001EB666 /* TH_ResumePreviewVC.m in Sources */,
 				94313DBE1B7CAAED005D0A9A /* infDestDetailView.m in Sources */,
 				04A483B41B74FD1B006FDB9D /* TH_MainTabBarController.m in Sources */,

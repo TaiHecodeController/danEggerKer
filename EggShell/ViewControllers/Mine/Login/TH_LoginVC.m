@@ -104,7 +104,7 @@
     pingtaiLab.textColor = color(102, 102, 102);
     CGSize pingtaiSize = [pingtaiLab.text sizeWithFont:pingtaiLab.font];
     pingtaiLab.frame = CGRectMake((WIDETH - pingtaiSize.width) / 2, CGRectGetMaxY(imageView.frame) + 10, pingtaiSize.width, pingtaiSize.height);
-    [self.scro addSubview:pingtaiLab];
+//    [self.scro addSubview:pingtaiLab];
     
     [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:20 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         
@@ -132,8 +132,8 @@
     personBtn.frame = CGRectMake(53, CGRectGetMaxY(pingtaiLab.frame) + 20, (WIDETH - 2 * 53) / 2, 45) ;
     personBtn.layer.borderWidth = 1;
     [personBtn addTarget:self action:@selector(personClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.scro addSubview:personBtn];
-    _personBtn = personBtn;
+//    [self.scro addSubview:personBtn];
+//    _personBtn = personBtn;
     
     UIButton *companyBtn = [[UIButton alloc]init];
     [companyBtn setTitle:@"企业用户" forState:UIControlStateNormal];
@@ -143,10 +143,11 @@
     companyBtn.layer.borderWidth = 1;
     companyBtn.frame = CGRectMake(CGRectGetMaxX(personBtn.frame), CGRectGetMaxY(pingtaiLab.frame) + 20, (WIDETH - 2 * 53) / 2, 45);
      [companyBtn addTarget:self action:@selector(companyClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.scro addSubview:companyBtn];
-    _companyBtn = companyBtn;
+//    [self.scro addSubview:companyBtn];
+//    _companyBtn = companyBtn;
     
-    UIView * loginView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(personBtn.frame) + 15, WIDETH, 90)];
+//    UIView * loginView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(personBtn.frame) + 15, WIDETH, 90)];
+    UIView * loginView = [[UIView alloc] initWithFrame:CGRectMake(0,CGRectGetMaxY(imageView.frame) + 10, WIDETH, 90)];
     loginView.backgroundColor = color(255, 255, 255);
     [self.scro addSubview:loginView];
     UIView * linefirstView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 0.5)];
