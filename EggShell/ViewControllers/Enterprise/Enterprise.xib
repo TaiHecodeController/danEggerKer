@@ -83,7 +83,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QgC-Sv-XiL" userLabel="leftBgView">
                             <rect key="frame" x="0.0" y="35" width="106.5" height="95"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NCh-Us-ugw">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="组-7" translatesAutoresizingMaskIntoConstraints="NO" id="NCh-Us-ugw">
                                     <rect key="frame" x="51" y="40" width="37" height="27"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="全部职位" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmm-QQ-K6p">
@@ -125,7 +125,7 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ziL-X3-42i">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="组-8" translatesAutoresizingMaskIntoConstraints="NO" id="ziL-X3-42i">
                                     <rect key="frame" x="40" y="40" width="37" height="27"/>
                                 </imageView>
                             </subviews>
@@ -147,7 +147,7 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TNv-o3-rfo">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="组-12" translatesAutoresizingMaskIntoConstraints="NO" id="TNv-o3-rfo">
                                     <rect key="frame" x="40" y="40" width="37" height="27"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wH-Ts-Row">
@@ -213,7 +213,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxD-oG-8jW">
                             <rect key="frame" x="0.0" y="35" width="160" height="133"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VmR-l5-D4h">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="file" translatesAutoresizingMaskIntoConstraints="NO" id="VmR-l5-D4h">
                                     <rect key="frame" x="86" y="40" width="25" height="31"/>
                                     <animations/>
                                 </imageView>
@@ -252,7 +252,7 @@
                                         <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="f6d-Rr-drh"/>
                                     </connections>
                                 </button>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ffm-Is-9sY">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="file-box" translatesAutoresizingMaskIntoConstraints="NO" id="Ffm-Is-9sY">
                                     <rect key="frame" x="75" y="40" width="29" height="29"/>
                                     <animations/>
                                 </imageView>
@@ -330,7 +330,12 @@
         </view>
     </objects>
     <resources>
+        <image name="file" width="25" height="31"/>
+        <image name="file-box" width="29" height="27"/>
         <image name="lanniu2" width="100" height="30"/>
         <image name="touxiang1" width="50" height="50"/>
+        <image name="组-12" width="38" height="30"/>
+        <image name="组-7" width="37" height="27"/>
+        <image name="组-8" width="38" height="28"/>
     </resources>
 </document>
