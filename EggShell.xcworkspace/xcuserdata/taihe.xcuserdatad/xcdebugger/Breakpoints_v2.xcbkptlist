@@ -922,12 +922,12 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/CompanyDetail/CompanyDetailVC.m"
-                  timestampString = "469961057.002217"
+                  timestampString = "470020192.81349"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "115"
                   endingLineNumber = "115"
-                  offsetFromSymbolStart = "124">
+                  offsetFromSymbolStart = "111">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -937,12 +937,12 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/CompanyDetail/CompanyDetailVC.m"
-                  timestampString = "469961057.002458"
+                  timestampString = "470020192.813708"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "115"
                   endingLineNumber = "115"
-                  offsetFromSymbolStart = "42">
+                  offsetFromSymbolStart = "15">
                </Location>
             </Locations>
          </BreakpointContent>

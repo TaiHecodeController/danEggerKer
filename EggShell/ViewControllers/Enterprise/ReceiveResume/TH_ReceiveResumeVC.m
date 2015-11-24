@@ -22,7 +22,9 @@
     [super viewDidLoad];
     
     self.title = @"收到简历";
-   }
+    
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
