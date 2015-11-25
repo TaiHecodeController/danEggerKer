@@ -149,12 +149,22 @@
     
 }
 
+
+
 - (void)btn3Click
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"buheshi" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"buheshi" object:nil userInfo:@{@"cellSelf":self}];
 }
 
 
+- (void)config:(cpy_ReciveResumeListMode *)model
+{
+    self.nameLab.text = model.name;
+    self.positionLab.text = model.job_name;
+    self.expLab.text = model.exp;
+    self.timeLab.text = model.datetime;
+    self.salaryLab.text = model.salary;
+}
 
 - (void)awakeFromNib {
     // Initialization code

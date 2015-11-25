@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "cpy_ReciveResumeListMode.h"
 //已查看
 
 @interface TableViewCell_2 : UITableViewCell
@@ -18,5 +19,7 @@
 @property (nonatomic, strong) UILabel *timeLab;
 @property (nonatomic, strong) UILabel *salaryLab;
 @property (nonatomic) CGFloat cellHeight;
+
+- (void)config:(cpy_ReciveResumeListMode *)model;
 
 @end

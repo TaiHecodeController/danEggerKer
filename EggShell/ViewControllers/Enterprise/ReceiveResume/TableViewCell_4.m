@@ -148,6 +148,15 @@
     
 }
 
+- (void)config:(cpy_ReciveResumeListMode *)model
+{
+    self.nameLab.text = model.name;
+    self.positionLab.text = model.job_name;
+    self.expLab.text = model.exp;
+    self.timeLab.text = model.datetime;
+    self.salaryLab.text = model.salary;
+}
+
 
 - (void)awakeFromNib {
     // Initialization code

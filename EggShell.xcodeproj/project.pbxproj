@@ -320,6 +320,8 @@
 		F0C067871C03FDA900D1B22B /* TableViewCell_2.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C067861C03FDA900D1B22B /* TableViewCell_2.m */; };
 		F0C0678B1C03FDDB00D1B22B /* TableViewCell_3.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C0678A1C03FDDB00D1B22B /* TableViewCell_3.m */; };
 		F0C0678F1C03FDF000D1B22B /* TableViewCell_4.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C0678E1C03FDF000D1B22B /* TableViewCell_4.m */; };
+		F0C067921C0545D200D1B22B /* enterPriseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C067911C0545D200D1B22B /* enterPriseRequest.m */; };
+		F0C067951C05589800D1B22B /* cpy_ReciveResumeListMode.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C067941C05589800D1B22B /* cpy_ReciveResumeListMode.m */; };
 		F0D554891BF5B16300213311 /* test.pages in Resources */ = {isa = PBXBuildFile; fileRef = F0D554881BF5B16300213311 /* test.pages */; };
 		F0D5548B1BF5B1BE00213311 /* 工作总结.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F0D5548A1BF5B1BE00213311 /* 工作总结.pdf */; };
 		F0D7C02B1B7994DB00836DD2 /* OpenClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */; };
@@ -884,6 +886,10 @@
 		F0C0678A1C03FDDB00D1B22B /* TableViewCell_3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell_3.m; sourceTree = "<group>"; };
 		F0C0678D1C03FDF000D1B22B /* TableViewCell_4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell_4.h; sourceTree = "<group>"; };
 		F0C0678E1C03FDF000D1B22B /* TableViewCell_4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell_4.m; sourceTree = "<group>"; };
+		F0C067901C0545D200D1B22B /* enterPriseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = enterPriseRequest.h; sourceTree = "<group>"; };
+		F0C067911C0545D200D1B22B /* enterPriseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = enterPriseRequest.m; sourceTree = "<group>"; };
+		F0C067931C05589800D1B22B /* cpy_ReciveResumeListMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpy_ReciveResumeListMode.h; sourceTree = "<group>"; };
+		F0C067941C05589800D1B22B /* cpy_ReciveResumeListMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cpy_ReciveResumeListMode.m; sourceTree = "<group>"; };
 		F0D554881BF5B16300213311 /* test.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.pages; sourceTree = "<group>"; };
 		F0D5548A1BF5B1BE00213311 /* 工作总结.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "工作总结.pdf"; sourceTree = "<group>"; };
 		F0D7C0291B7994DB00836DD2 /* OpenClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenClassCell.h; sourceTree = "<group>"; };
@@ -1113,6 +1119,8 @@
 				F083F8201B9C32F700781C08 /* Me_Request.m */,
 				F0D7C05F1B79EB3300836DD2 /* OpenClassVideoListRequest.h */,
 				F0D7C0601B79EB3300836DD2 /* OpenClassVideoListRequest.m */,
+				F0C067901C0545D200D1B22B /* enterPriseRequest.h */,
+				F0C067911C0545D200D1B22B /* enterPriseRequest.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -1909,6 +1917,7 @@
 		947330481C02BBD200688587 /* ReceiveResume */ = {
 			isa = PBXGroup;
 			children = (
+				F0C067961C0558A400D1B22B /* Model */,
 				F0C0678C1C03FDE100D1B22B /* tableview4 */,
 				F0C067881C03FDBE00D1B22B /* tableview3 */,
 				F0C067841C03FD9A00D1B22B /* tableview2 */,
@@ -2577,6 +2586,15 @@
 			name = tableview4;
 			sourceTree = "<group>";
 		};
+		F0C067961C0558A400D1B22B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F0C067931C05589800D1B22B /* cpy_ReciveResumeListMode.h */,
+				F0C067941C05589800D1B22B /* cpy_ReciveResumeListMode.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		F0D7C04A1B79C7B400836DD2 /* libpolyvSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -2855,6 +2873,7 @@
 				94CB30591BA5169700577FE6 /* IQSegmentedNextPrevious.m in Sources */,
 				94CB30581BA5169700577FE6 /* IQNSArray+Sort.m in Sources */,
 				94E761D41BA2C21E00B4C544 /* ProfessonSkillReadView.m in Sources */,
+				F0C067921C0545D200D1B22B /* enterPriseRequest.m in Sources */,
 				9473303C1BFF186000688587 /* TH_VtalentVC.m in Sources */,
 				041650EE1B4D7C4E008C78BE /* MJRefreshFooterView.m in Sources */,
 				94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */,
@@ -2978,6 +2997,7 @@
 				94CB5B7F1B74CC0600B23B9D /* MJIvar.m in Sources */,
 				940033011B840FC6001EB666 /* MineVeiw.m in Sources */,
 				94E3EA911B8EB520007A699E /* MMNetWorkType.m in Sources */,
+				F0C067951C05589800D1B22B /* cpy_ReciveResumeListMode.m in Sources */,
 				94E761C51BA2B0F800B4C544 /* ProjectExpReadView.m in Sources */,
 				F01787AC1B95938A005FF9C4 /* jobDetailModel_Arr3.m in Sources */,
 				94E761B31BA27DBF00B4C544 /* TrainReadVC.m in Sources */,

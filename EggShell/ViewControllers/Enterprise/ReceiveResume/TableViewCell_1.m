@@ -8,6 +8,7 @@
 
 #import "TableViewCell_1.h"
 
+
 #define btnWidth 53
 #define btnHeight 23
 
@@ -35,8 +36,9 @@
     {
         self.backgroundColor = [UIColor whiteColor];
         
-        _selIcon = [[UIImageView alloc]init];
-        _selIcon.image  = [UIImage imageNamed:@"xuankuang"];
+        _selIcon = [[UIButton alloc]init];
+        [_selIcon setBackgroundImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
+        [_selIcon setBackgroundImage:[UIImage imageNamed:@"duihao"] forState:UIControlStateSelected];
         [self addSubview:_selIcon];
         
         _nameLab = [[UILabel alloc]init];
@@ -116,6 +118,15 @@
 {
     [super layoutSubviews];
     
+    if ([_icon_seleted isEqualToString:@"0"])
+    {
+        _selIcon.selected = NO;
+    }
+    else
+    {
+        _selIcon.selected = YES;
+    }
+
     _selIcon.frame = CGRectMake(20, 28.5, 20, 20);
     
     CGSize nameSize = [_nameLab.text sizeWithFont:_nameLab.font];
@@ -151,17 +162,26 @@
 
 - (void)btn1Click
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"yichakan" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"yichakan" object:nil userInfo:@{@"cellSelf":self}];
 }
 
 - (void)btn2Click
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"daitongzhi" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"daitongzhi" object:nil userInfo:@{@"cellSelf":self}];
 }
 
 - (void)btn3Click
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"buheshi" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"buheshi" object:nil userInfo:@{@"cellSelf":self}];
+}
+
+- (void)config:(cpy_ReciveResumeListMode *)model
+{
+    self.nameLab.text = model.name;
+    self.positionLab.text = model.job_name;
+    self.expLab.text = model.exp;
+    self.timeLab.text = model.datetime;
+    self.salaryLab.text = model.salary;
 }
 
 - (void)awakeFromNib {
