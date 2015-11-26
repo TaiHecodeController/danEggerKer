@@ -119,9 +119,24 @@ for (int i = 0 ; i < titileArray.count; i++) {
                 //            _mailingNumBer++;
                 [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
                 
+            }else
+            {
+                job_idStr = nil;
             }
             
         }
+        if (job_idStr == nil) {
+            MBProgressHUD* mLoadView1 = [[MBProgressHUD alloc] initWithView:self.view];
+            [self.view addSubview:mLoadView1];
+            
+            mLoadView1.mode = MBProgressHUDModeCustomView;
+            mLoadView1.labelText = @"操作职位不能为空";
+            [mLoadView1 show:YES];
+            [mLoadView1 hide:YES afterDelay:2];
+            mLoadView1 = nil;
+        }else
+        {
+
         NSLog(@"cj_id:%@",job_idStr);
         NSLog(@"cj_id:%@",job_idStr);
         NSString * uid = [NSString stringWithFormat:@"%d",1869];
@@ -132,7 +147,7 @@ for (int i = 0 ; i < titileArray.count; i++) {
             
         } withParam:param];
 
-        
+        }
     }
 }
 #pragma mark   延期时间选择
@@ -206,10 +221,24 @@ for (int i = 0 ; i < titileArray.count; i++) {
         {
             [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
             
+        }else
+        {
+            job_idStr = nil;
         }
         
     }
-    
+    if (job_idStr == nil) {
+        MBProgressHUD* mLoadView1 = [[MBProgressHUD alloc] initWithView:self.view];
+        [self.view addSubview:mLoadView1];
+        
+        mLoadView1.mode = MBProgressHUDModeCustomView;
+        mLoadView1.labelText = @"操作职位不能为空";
+        [mLoadView1 show:YES];
+        [mLoadView1 hide:YES afterDelay:2];
+        mLoadView1 = nil;
+    }else
+    {
+
     NSLog(@"cj_id:%@",job_idStr);
     NSString * uid = [NSString stringWithFormat:@"%d",1869];
     NSString * changeStatus = [NSString stringWithFormat:@"%d",3];
@@ -219,7 +248,7 @@ for (int i = 0 ; i < titileArray.count; i++) {
        
         
     } withParam:param];
-
+    }
 }
 -(void)dataChanged:(UIDatePicker *)sender
 {

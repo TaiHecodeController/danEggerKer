@@ -318,7 +318,7 @@
             NSLog(@"1..1");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"教育培训";
-            [SearchModelShare sharedInstance].job1 = @"88";
+            [SearchModelShare sharedInstance].job1 = @"958";
             //            home.jobId  = [NSString stringWithFormat:@"%d",35];
             [self.navigationController pushViewController:home animated:YES];
             break;

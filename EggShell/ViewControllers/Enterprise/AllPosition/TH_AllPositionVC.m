@@ -108,6 +108,8 @@
 }
 -(void)electBtnClick:(UIButton*)sender
 {
+   
+    
     if (sender.tag == 0) {
         NSLog(@"暂停招聘");
     NSMutableString *job_idStr = [[NSMutableString alloc]init];
@@ -118,11 +120,24 @@
 //            _mailingNumBer++;
             [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
             
+        }else
+        {
+        job_idStr = nil;
         }
         
     }
-    NSLog(@"cj_id:%@",job_idStr);
         NSLog(@"cj_id:%@",job_idStr);
+        if (job_idStr == nil) {
+            MBProgressHUD* mLoadView1 = [[MBProgressHUD alloc] initWithView:self.view];
+            [self.view addSubview:mLoadView1];
+            
+            mLoadView1.mode = MBProgressHUDModeCustomView;
+            mLoadView1.labelText = @"操作职位不能为空";
+            [mLoadView1 show:YES];
+            [mLoadView1 hide:YES afterDelay:2];
+            mLoadView1 = nil;
+        }else
+        {
         NSString * uid = [NSString stringWithFormat:@"%d",1869];
         NSString * changeStatus = [NSString stringWithFormat:@"%d",0];
         
@@ -130,6 +145,7 @@
         [enterPriseRequest FulltimeJobsPauseResumeWithSucc:^(NSDictionary *DataDic) {
             
         } withParam:param];
+        }
     }if (sender.tag == 1) {
         
         NSLog(@"职位刷新");
@@ -141,10 +157,24 @@
                 
                 [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
                 
+            }else
+            {
+                job_idStr = nil;
             }
             
         }
          NSLog(@"cj_id:%@",job_idStr);
+        if (job_idStr == nil) {
+            MBProgressHUD* mLoadView1 = [[MBProgressHUD alloc] initWithView:self.view];
+                                    [self.view addSubview:mLoadView1];
+            
+                                    mLoadView1.mode = MBProgressHUDModeCustomView;
+                                    mLoadView1.labelText = @"操作职位不能为空";
+                                    [mLoadView1 show:YES];
+                                    [mLoadView1 hide:YES afterDelay:2];
+                                    mLoadView1 = nil;
+        }else
+        {
         NSString * uid = [NSString stringWithFormat:@"%d",1869];
         NSString * changeStatus = [NSString stringWithFormat:@"%d",1];
 
@@ -153,7 +183,7 @@
             
             
         } withParam:param];
-
+        }
     } if (sender.tag == 2) {
         NSLog(@"删除");
         NSMutableString *job_idStr = [[NSMutableString alloc]init];
@@ -163,17 +193,32 @@
             {
                 [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
                 
+            }else
+            {
+                job_idStr = nil;
             }
             
         }
 
         NSLog(@"cj_id:%@",job_idStr);
+        if (job_idStr == nil) {
+            MBProgressHUD* mLoadView1 = [[MBProgressHUD alloc] initWithView:self.view];
+            [self.view addSubview:mLoadView1];
+            
+            mLoadView1.mode = MBProgressHUDModeCustomView;
+            mLoadView1.labelText = @"操作职位不能为空";
+            [mLoadView1 show:YES];
+            [mLoadView1 hide:YES afterDelay:2];
+            mLoadView1 = nil;
+        }else
+        {
         NSString * uid = [NSString stringWithFormat:@"%d",1869];
         NSString * changeStatus = [NSString stringWithFormat:@"%d",2];
         NSDictionary * param = @{@"uid":uid,@"jobId":job_idStr,@"changestatus":changeStatus};
         [enterPriseRequest FulltimeJobsPauseResumeWithSucc:^(NSDictionary *DataDic) {
             
         } withParam:param];
+        }
     }
     
 }

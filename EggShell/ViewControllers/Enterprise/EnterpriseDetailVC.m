@@ -16,6 +16,7 @@
 #import "TH_LoginVC.h"
 @interface EnterpriseDetailVC ()<THEnterprisedDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
+@property(nonatomic,strong)EnterpriseView  * enterPrise;
 @end
 
 @implementation EnterpriseDetailVC
@@ -57,6 +58,7 @@
     enterPrise.frame = CGRectMake(0, 0, WIDETH, 430);
     [enterPrise setEnterpriseValue];
     enterPrise.enterDelegate = self;
+    self.enterPrise = enterPrise;
     [enterPrise.ExitSignBtn addTarget:self action:@selector(ExitSignBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.scro addSubview:enterPrise];
     self.scro.contentSize = CGSizeMake(WIDETH, 480);
@@ -66,6 +68,16 @@
 -(void)ExitSignBtn:(UIButton*)sender
 {
     sender.selected = !sender.selected;
+    if (sender.selected) {
+        self.enterPrise.headPortraitImageView.image = [UIImage imageNamed:@"dashi"];
+self.enterPrise.companyNameLable.hidden = NO;
+        self.enterPrise.companyNameLable.text = @"北京太和天下投资控股有限公司";
+        self.enterPrise.CheckStatusImageView.image = [UIImage imageNamed:@"yishenhe"];
+    }else
+    {
+        self.enterPrise.headPortraitImageView.image = [UIImage imageNamed:@"touxiang1"];
+        self.enterPrise.companyNameLable.hidden = YES;        self.enterPrise.CheckStatusImageView.image = [UIImage imageNamed:@"daishenhe"];
+    }
 //    TH_LoginVC * login = [[TH_LoginVC alloc] init];
 //    [self.navigationController pushViewController:login animated:YES];
 

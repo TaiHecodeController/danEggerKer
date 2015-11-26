@@ -82,7 +82,8 @@
     NSString * detaildicStr = self.dataDic[@"content"];
     //足迹内容
     self.textSize = [detaildicStr sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
-    UITextView * contentLable = [[UITextView alloc] initWithFrame:CGRectMake(15, 131*MyWideth+10*MyWideth+15*MyWideth+10*MyWideth, WIDETH-30, self.textSize.height)];
+    UITextView * contentLable = [[UITextView alloc] initWithFrame:CGRectMake(6, 131*MyWideth+10*MyWideth+15*MyWideth+10*MyWideth, WIDETH-12, self.textSize.height)];
+    contentLable.editable = NO;
     self.contentLable = contentLable;
     NSString *htmlString = [CommonFunc textFromBase64String:detaildicStr];
    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];

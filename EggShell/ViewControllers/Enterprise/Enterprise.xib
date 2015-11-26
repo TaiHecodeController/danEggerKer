@@ -23,16 +23,20 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDK-5Z-mQJ">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                     <subviews>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9dg-TQ-u7Y">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dg-TQ-u7Y">
                             <rect key="frame" x="10" y="10" width="100" height="90"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="touxiang1" translatesAutoresizingMaskIntoConstraints="NO" id="ZpS-F5-O1r">
-                                    <rect key="frame" x="8" y="0.0" width="76" height="82"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="90"/>
                                     <animations/>
                                 </imageView>
                             </subviews>
                             <animations/>
                             <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="UoC-Mz-SNB"/>
+                                <constraint firstAttribute="height" constant="90" id="hFa-GQ-FWy"/>
+                            </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNc-BB-1gI">
                             <rect key="frame" x="257" y="77" width="55" height="23"/>
@@ -53,13 +57,30 @@
                                 <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京太和天下投资控股有限公司" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOn-BR-zfG">
+                            <rect key="frame" x="118" y="20" width="194" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="GLJ-c5-Gvy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="daishenhe" translatesAutoresizingMaskIntoConstraints="NO" id="ALp-U6-yhB">
+                            <rect key="frame" x="118" y="85" width="53" height="15"/>
+                        </imageView>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="9dg-TQ-u7Y" firstAttribute="leading" secondItem="iDK-5Z-mQJ" secondAttribute="leading" constant="10" id="1pX-fm-XTt"/>
                         <constraint firstAttribute="height" constant="110" id="56b-iV-0LC"/>
+                        <constraint firstItem="IOn-BR-zfG" firstAttribute="leading" secondItem="9dg-TQ-u7Y" secondAttribute="trailing" constant="8" id="9jn-LS-Khb"/>
+                        <constraint firstAttribute="trailing" secondItem="IOn-BR-zfG" secondAttribute="trailing" constant="8" id="OZQ-44-jOD"/>
                         <constraint firstAttribute="trailing" secondItem="sNc-BB-1gI" secondAttribute="trailing" constant="8" id="W8p-EQ-mFD"/>
+                        <constraint firstItem="IOn-BR-zfG" firstAttribute="top" secondItem="iDK-5Z-mQJ" secondAttribute="top" constant="20" id="XSC-zF-2tR"/>
                         <constraint firstItem="sNc-BB-1gI" firstAttribute="top" secondItem="iDK-5Z-mQJ" secondAttribute="top" constant="77" id="nrS-hH-f2c"/>
+                        <constraint firstItem="9dg-TQ-u7Y" firstAttribute="top" secondItem="iDK-5Z-mQJ" secondAttribute="top" constant="10" id="tnC-of-rA1"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poz-rG-8DF">
@@ -427,9 +448,12 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="CheckStatusImageView" destination="ALp-U6-yhB" id="QB5-94-xda"/>
                 <outlet property="ExitSignBtn" destination="sNc-BB-1gI" id="gnr-XK-0tk"/>
                 <outlet property="ReceiveResumeLable" destination="LXH-2p-Lym" id="ZDc-4x-SEW"/>
                 <outlet property="allPositionBtn" destination="i9u-CE-JQ6" id="mGg-yk-TOC"/>
+                <outlet property="companyNameLable" destination="IOn-BR-zfG" id="bt7-4C-YJF"/>
+                <outlet property="headPortraitImageView" destination="ZpS-F5-O1r" id="QH0-dK-MAl"/>
                 <outlet property="outDatePosionBtn" destination="1wH-Ts-Row" id="WmL-e7-1u9"/>
                 <outlet property="recruitmentPositionBtn" destination="2JC-IQ-ART" id="0a9-Ka-k8z"/>
                 <outlet property="talentPoolBtn" destination="jp1-RD-6n5" id="yjY-Xl-iPg"/>
@@ -441,6 +465,7 @@
         <image name="address-book" width="45" height="45"/>
         <image name="archive" width="45" height="45"/>
         <image name="clipboard-3" width="45" height="45"/>
+        <image name="daishenhe" width="54" height="15"/>
         <image name="lanniu2" width="100" height="30"/>
         <image name="touxiang1" width="50" height="50"/>
         <image name="v-card-2" width="45" height="45"/>

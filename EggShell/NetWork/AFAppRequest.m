@@ -215,6 +215,12 @@
     }if (errCode ==1014) {
         [MBProgressHUD creatembHub:@"抱歉，由于未知原因，你的建议我们没有收到，请重试"];
     }
+    if (errCode ==1016) {
+        [MBProgressHUD creatembHub:@"已操作"];
+    }
+    if (errCode ==1017) {
+        [MBProgressHUD creatembHub:@"参数不对"];
+    }
 
 }
 

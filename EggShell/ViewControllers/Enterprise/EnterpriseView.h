@@ -28,6 +28,9 @@ typedef enum
 @property (weak, nonatomic) IBOutlet UIButton *allPositionBtn;
 @property (weak, nonatomic) IBOutlet UIButton *recruitmentPositionBtn;
 @property (weak, nonatomic) IBOutlet UIButton *outDatePosionBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *headPortraitImageView;
+@property (weak, nonatomic) IBOutlet UILabel *companyNameLable;
+@property (weak, nonatomic) IBOutlet UIImageView *CheckStatusImageView;
 
 @property(nonatomic,weak)id <THEnterprisedDelegate>enterDelegate;
 +(EnterpriseView*)setEnterpriseView;
