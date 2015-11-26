@@ -16,4 +16,6 @@
 @property(nonatomic,copy)NSString * jobhits;
 @property(nonatomic,copy)NSString * lastupdate;
 @property(nonatomic,copy)NSString * status;
+@property(nonatomic,copy)NSString *cellselected;
+
 @end

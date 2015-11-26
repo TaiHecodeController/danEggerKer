@@ -2,11 +2,10 @@
 //  TalentPoolCell.m
 //  EggShell
 //
-//  Created by 太和 on 15/11/26.
-//  Copyright © 2015年 wsd. All rights reserved.
 //
 
 #import "TalentPoolCell.h"
+
 
 #define btnWidth 53
 #define btnHeight 23
@@ -160,14 +159,5 @@
 }
 
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end

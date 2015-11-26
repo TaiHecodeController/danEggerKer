@@ -28,6 +28,9 @@
 //结束时间
 @property(nonatomic,strong)UILabel * endTimeLable;
 @property(nonatomic,strong)UIImageView * endTimeImageView;
-@property (strong,nonatomic)void(^isSelectBlock)(NSInteger);
+@property (strong,nonatomic)void(^isSelectBlock)(int);
+
+@property (nonatomic, copy) NSString *jobSelected;
+
 -(void)configValue:(AllPosionModel*)model;
 @end

@@ -117,6 +117,7 @@
 		94313DF31B7CB5C9005D0A9A /* WriteResumeVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */; };
 		94313DF41B7CB5C9005D0A9A /* WriteResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */; };
 		94313DF71B7CB610005D0A9A /* TH_HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DF51B7CB610005D0A9A /* TH_HomeVC.m */; };
+		943A9AAA1C06CA4E001CC76D /* TalentPoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A9AA91C06CA4E001CC76D /* TalentPoolCell.m */; };
 		943F41801B9A8766000FC299 /* informantionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 943F417F1B9A8766000FC299 /* informantionModel.m */; };
 		946EBAC51B84659800CD6AC9 /* jobListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946EBAC41B84659800CD6AC9 /* jobListCell.m */; };
 		947006931B85CA6000DEC289 /* EditAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947006851B85CA6000DEC289 /* EditAddressVC.m */; };
@@ -555,6 +556,8 @@
 		94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeViewController.m; sourceTree = "<group>"; };
 		94313DF51B7CB610005D0A9A /* TH_HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_HomeVC.m; sourceTree = "<group>"; };
 		94313DF61B7CB610005D0A9A /* TH_HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_HomeVC.h; sourceTree = "<group>"; };
+		943A9AA81C06CA4E001CC76D /* TalentPoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalentPoolCell.h; sourceTree = "<group>"; };
+		943A9AA91C06CA4E001CC76D /* TalentPoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalentPoolCell.m; sourceTree = "<group>"; };
 		943F417E1B9A8766000FC299 /* informantionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = informantionModel.h; sourceTree = "<group>"; };
 		943F417F1B9A8766000FC299 /* informantionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = informantionModel.m; sourceTree = "<group>"; };
 		946EBAC31B84659800CD6AC9 /* jobListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobListCell.h; sourceTree = "<group>"; };
@@ -1947,6 +1950,8 @@
 				F021E94C1C06CED100994015 /* View */,
 				947330561C02BD6D00688587 /* TH_TalentPoolVC.h */,
 				947330571C02BD6D00688587 /* TH_TalentPoolVC.m */,
+				943A9AA81C06CA4E001CC76D /* TalentPoolCell.h */,
+				943A9AA91C06CA4E001CC76D /* TalentPoolCell.m */,
 			);
 			path = TalentPool;
 			sourceTree = "<group>";

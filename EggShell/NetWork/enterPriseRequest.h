@@ -24,6 +24,9 @@
 
 /*删除简历**/
 +(AFRequestState *)requestDeletResumeWithSucc:(void(^)(NSDictionary * DataDic))succ eid:(NSString *)eid job_id:(NSString *)job_id com_id:(int)com_id;
+/*全职职位暂停招聘刷新删除**/
++(AFRequestState *)FulltimeJobsPauseResumeWithSucc:(void(^)(NSDictionary * DataDic))succ withParam:(NSDictionary *)param;
+
 
 /*人才库**/
 +(AFRequestState *)requestTanlentLibWithSucc:(void(^)(NSArray * DataDic))succ com_id:(int)com_id pageIndex:(int)pageIndex page:(int)page resp:(Class)resp;

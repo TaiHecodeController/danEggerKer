@@ -29,7 +29,6 @@
     UIButton *   marqueeBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 10*MyWideth, 38*MyWideth, 38*MyWideth)];
     [marqueeBtn setImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
     [marqueeBtn setImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
-    [marqueeBtn addTarget:self action:@selector(markqueeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.marqueeBtn = marqueeBtn;
     [self.contentView addSubview:marqueeBtn];
     //职位名称
@@ -124,12 +123,21 @@
 
 
 }
--(void)markqueeBtnClick:(UIButton*)sender
+
+- (void)layoutSubviews
 {
-    sender.selected = !sender.selected;
-    if (sender.selected) {
-        self.isSelectBlock(self.tag);
+    [super layoutSubviews];
+    
+    if ([_jobSelected isEqualToString:@"0"])
+    {
+        _marqueeBtn.selected = NO;
     }
+    else
+    {
+        _marqueeBtn.selected = YES;
+    }
+
+    
 }
 -(void)configValue:(AllPosionModel*)model
 {

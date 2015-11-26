@@ -2,11 +2,9 @@
 //  TalentPoolCell.h
 //  EggShell
 //
-//  Created by 太和 on 15/11/26.
-//  Copyright © 2015年 wsd. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
+
 //#import "cpy_ReciveResumeListMode.h"
 #import "TalentModel.h"
 
@@ -24,3 +22,4 @@
 - (void)config:(TalentModel *)model;
 
 @end
+
