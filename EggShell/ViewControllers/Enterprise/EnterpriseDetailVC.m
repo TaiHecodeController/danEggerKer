@@ -80,7 +80,8 @@
             break;
         }
         case THEnterpriseTypeTalentPoolBtn:
-        {[self.navigationController pushViewController:[[TH_TalentPoolVC alloc]init] animated:YES];
+        {
+            [self.navigationController pushViewController:[[TH_TalentPoolVC alloc]init] animated:YES];
             
             NSLog(@"人才库");
             

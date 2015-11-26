@@ -1092,87 +1092,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-            timestampString = "470195620.540937"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "659"
-            endingLineNumber = "659"
-            landmarkName = "-daitongzhi:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-            timestampString = "470195620.540937"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "665"
-            endingLineNumber = "665"
-            landmarkName = "-daitongzhi:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TH_ReceiveResumeVC daitongzhi:]"
-                  moduleName = "EggShell"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-                  timestampString = "470138425.116218"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "666"
-                  endingLineNumber = "666"
-                  offsetFromSymbolStart = "359">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__33-[TH_ReceiveResumeVC daitongzhi:]_block_invoke"
-                  moduleName = "EggShell"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-                  timestampString = "470138425.116423"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "666"
-                  endingLineNumber = "666"
-                  offsetFromSymbolStart = "43">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-            timestampString = "470195620.540937"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "667"
-            endingLineNumber = "667"
-            landmarkName = "-daitongzhi:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-            timestampString = "470195620.540937"
+            timestampString = "470202439.725261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "674"
@@ -1188,27 +1108,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-            timestampString = "470195620.540937"
+            timestampString = "470202439.725261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "684"
-            endingLineNumber = "684"
-            landmarkName = "-daitongzhi:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-            timestampString = "470195620.540937"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "689"
-            endingLineNumber = "689"
+            startingLineNumber = "680"
+            endingLineNumber = "680"
             landmarkName = "-daitongzhi:"
             landmarkType = "5">
             <Locations>
@@ -1220,27 +1124,27 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-                  timestampString = "470138425.120515"
+                  timestampString = "470202495.850151"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "690"
-                  endingLineNumber = "690"
-                  offsetFromSymbolStart = "1310">
+                  startingLineNumber = "680"
+                  endingLineNumber = "680"
+                  offsetFromSymbolStart = "424">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__33-[TH_ReceiveResumeVC daitongzhi:]_block_invoke276"
+                  symbolName = "__33-[TH_ReceiveResumeVC daitongzhi:]_block_invoke"
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-                  timestampString = "470138425.120737"
+                  timestampString = "470202495.850547"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "690"
-                  endingLineNumber = "690"
-                  offsetFromSymbolStart = "43">
+                  startingLineNumber = "680"
+                  endingLineNumber = "680"
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1252,11 +1156,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-            timestampString = "470195620.540937"
+            timestampString = "470202439.725261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "692"
-            endingLineNumber = "692"
+            startingLineNumber = "682"
+            endingLineNumber = "682"
             landmarkName = "-daitongzhi:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1268,11 +1172,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-            timestampString = "470195620.540937"
+            timestampString = "470202439.725261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "698"
-            endingLineNumber = "698"
+            startingLineNumber = "689"
+            endingLineNumber = "689"
             landmarkName = "-daitongzhi:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1284,11 +1188,107 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-            timestampString = "470195620.540937"
+            timestampString = "470202439.725261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "527"
-            endingLineNumber = "527"
+            startingLineNumber = "699"
+            endingLineNumber = "699"
+            landmarkName = "-daitongzhi:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+            timestampString = "470202439.725261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "704"
+            endingLineNumber = "704"
+            landmarkName = "-daitongzhi:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TH_ReceiveResumeVC daitongzhi:]"
+                  moduleName = "EggShell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+                  timestampString = "470202495.914873"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "704"
+                  endingLineNumber = "704"
+                  offsetFromSymbolStart = "1418">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__33-[TH_ReceiveResumeVC daitongzhi:]_block_invoke283"
+                  moduleName = "EggShell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+                  timestampString = "470202495.915937"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "704"
+                  endingLineNumber = "704"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+            timestampString = "470202439.725261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "707"
+            endingLineNumber = "707"
+            landmarkName = "-daitongzhi:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+            timestampString = "470202439.725261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "713"
+            endingLineNumber = "713"
+            landmarkName = "-daitongzhi:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+            timestampString = "470202439.725261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "542"
+            endingLineNumber = "542"
             landmarkName = "-refreshViewBeginRefreshing:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1300,11 +1300,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-            timestampString = "470195620.540937"
+            timestampString = "470202439.725261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "757"
-            endingLineNumber = "757"
+            startingLineNumber = "772"
+            endingLineNumber = "772"
             landmarkName = "-buheshi:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1316,11 +1316,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-            timestampString = "470195620.540937"
+            timestampString = "470202439.725261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "812"
-            endingLineNumber = "812"
+            startingLineNumber = "827"
+            endingLineNumber = "827"
             landmarkName = "-buheshi:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1332,11 +1332,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-            timestampString = "470195620.540937"
+            timestampString = "470202439.725261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "810"
-            endingLineNumber = "810"
+            startingLineNumber = "825"
+            endingLineNumber = "825"
             landmarkName = "-buheshi:"
             landmarkType = "5">
             <Locations>
@@ -1348,27 +1348,27 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-                  timestampString = "470138425.126681"
+                  timestampString = "470202496.03029"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "811"
-                  endingLineNumber = "811"
-                  offsetFromSymbolStart = "2053">
+                  startingLineNumber = "825"
+                  endingLineNumber = "825"
+                  offsetFromSymbolStart = "2174">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__30-[TH_ReceiveResumeVC buheshi:]_block_invoke297"
+                  symbolName = "__30-[TH_ReceiveResumeVC buheshi:]_block_invoke304"
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-                  timestampString = "470138425.126934"
+                  timestampString = "470202496.030666"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "811"
-                  endingLineNumber = "811"
-                  offsetFromSymbolStart = "43">
+                  startingLineNumber = "825"
+                  endingLineNumber = "825"
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1418,6 +1418,214 @@
             startingLineNumber = "153"
             endingLineNumber = "153"
             landmarkName = "+postRequestWithUrl:param:succ:fail:resp:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+            timestampString = "470199268.695977"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "-querDataWithNoti:uid:browse:pageIndex:page:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TH_ReceiveResumeVC querDataWithNoti:uid:browse:pageIndex:page:]"
+                  moduleName = "EggShell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+                  timestampString = "470202496.06844"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "134">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__65-[TH_ReceiveResumeVC querDataWithNoti:uid:browse:pageIndex:page:]_block_invoke"
+                  moduleName = "EggShell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+                  timestampString = "470202496.068716"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+            timestampString = "470199276.198447"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "-querDataWithNoti:uid:browse:pageIndex:page:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+            timestampString = "470202439.725261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "961"
+            endingLineNumber = "961"
+            landmarkName = "-deletBtnClick"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+            timestampString = "470202439.725261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "986"
+            endingLineNumber = "986"
+            landmarkName = "-deletBtnClick"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+            timestampString = "470202439.725261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1007"
+            endingLineNumber = "1007"
+            landmarkName = "-deletBtnClick"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TH_ReceiveResumeVC deletBtnClick]"
+                  moduleName = "EggShell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+                  timestampString = "470202496.102648"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1007"
+                  endingLineNumber = "1007"
+                  offsetFromSymbolStart = "1742">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__35-[TH_ReceiveResumeVC deletBtnClick]_block_invoke339"
+                  moduleName = "EggShell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+                  timestampString = "470202496.10301"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1007"
+                  endingLineNumber = "1007"
+                  offsetFromSymbolStart = "54">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+            timestampString = "470202439.725261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1010"
+            endingLineNumber = "1010"
+            landmarkName = "-deletBtnClick"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
+            timestampString = "470202439.725261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1016"
+            endingLineNumber = "1016"
+            landmarkName = "-deletBtnClick"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Main/writeResume/SubViews/ResumeCell.m"
+            timestampString = "470202243.507285"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "-iSSelectClick:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Main/writeResume/SubViews/ResumeCell.m"
+            timestampString = "470202246.719062"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-lookResumeClick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

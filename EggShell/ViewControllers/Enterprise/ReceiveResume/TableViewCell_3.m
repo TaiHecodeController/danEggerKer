@@ -36,9 +36,9 @@
     {
         self.backgroundColor = [UIColor whiteColor];
         
-        _selIcon = [[UIImageView alloc]init];
-                _selIcon.image  = [UIImage imageNamed:@"xuankuang"];
-//        _selIcon.backgroundColor = [UIColor redColor];
+        _selIcon = [[UIButton alloc]init];
+        [_selIcon setBackgroundImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
+        [_selIcon setBackgroundImage:[UIImage imageNamed:@"duihao"] forState:UIControlStateSelected];
         [self addSubview:_selIcon];
         
         _nameLab = [[UILabel alloc]init];
@@ -115,6 +115,16 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    if ([_icon_seleted isEqualToString:@"0"])
+    {
+        _selIcon.selected = NO;
+    }
+    else
+    {
+        _selIcon.selected = YES;
+    }
+
     
     _selIcon.frame = CGRectMake(20, 28.5, 20, 20);
     

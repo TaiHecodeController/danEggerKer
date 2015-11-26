@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -17,6 +17,7 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dA8-u5-eQx">
                         <rect key="frame" x="23" y="15" width="17" height="17"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="17" id="4Z1-4g-y0c"/>
                             <constraint firstAttribute="height" constant="17" id="4um-dZ-faz"/>
@@ -31,6 +32,7 @@
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人简历001" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Slg-nM-KZV">
                         <rect key="frame" x="48" y="13" width="64" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="64" id="AvT-xi-Neb"/>
                             <constraint firstAttribute="height" constant="21" id="s0w-Qd-n8G"/>
@@ -41,6 +43,7 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFg-4Q-ETw">
                         <rect key="frame" x="259" y="12" width="53" height="23"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="53" id="cqh-xu-gFC"/>
                             <constraint firstAttribute="height" constant="23" id="wqa-J4-zN2"/>
@@ -55,6 +58,7 @@
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-08-13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylw-Cd-aN9">
                         <rect key="frame" x="112" y="13" width="134" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="7dg-gR-Tsj"/>
                         </constraints>
@@ -63,6 +67,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="Ylw-Cd-aN9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="9er-0I-i2E"/>
                     <constraint firstItem="YFg-4Q-ETw" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Aj6-id-z5I"/>
@@ -75,6 +80,7 @@
                     <constraint firstItem="Slg-nM-KZV" firstAttribute="leading" secondItem="dA8-u5-eQx" secondAttribute="trailing" constant="8" id="yKc-1z-xRe"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="ResumeName" destination="Slg-nM-KZV" id="948-LP-mr8"/>
                 <outlet property="createDate" destination="Ylw-Cd-aN9" id="1zg-kx-zGK"/>

@@ -18,7 +18,7 @@
 #import "MJRefresh.h"
 #import "enterPriseRequest.h"
 #import "cpy_ReciveResumeListMode.h"
-
+#import "TH_ResumePreviewVC.h"
 #define bottomHeight 48
 //每页显示的条数
 #define pageNum 10
@@ -143,7 +143,7 @@
     
     _mbPro = [MBProgressHUD mbHubShow];
     _page = 1;
-    [self querDataWithNoti:_mbPro uid:@"137" browse:1 pageIndex:_page page:pageNum];
+    [self querDataWithNoti:_mbPro uid:@"72" browse:1 pageIndex:_page page:pageNum];
 }
 
 - (void)querDataWithNoti:(id)noti uid:(NSString *)uid browse:(int)browse pageIndex:(int)pageIndex page:(int)page
@@ -263,8 +263,6 @@
 {
     NSLog(@"tag:%ld",(long)tableView.tag);
     
-    
-   
         if (tableView.tag == 1001)
         {
             static NSString *str = @"identifile_1";
@@ -296,7 +294,11 @@
             {
                 cpy_ReciveResumeListMode *model = self.resumeList[indexPath.row];
                 [cell config:model];
+                cell.icon_seleted = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
+                [cell.selIcon addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
+                [cell layoutSubviews];
             }
+
             return cell;
         }
         else if (tableView.tag == 1003)
@@ -311,6 +313,9 @@
             {
                 cpy_ReciveResumeListMode *model = self.resumeList[indexPath.row];
                 [cell config:model];
+                cell.icon_seleted = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
+                [cell.selIcon addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
+                [cell layoutSubviews];
             }
             
             return cell;
@@ -327,6 +332,9 @@
             {
                 cpy_ReciveResumeListMode *model = self.resumeList[indexPath.row];
                 [cell config:model];
+                cell.icon_seleted = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
+                [cell.selIcon addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
+                [cell layoutSubviews];
             }
             
             return cell;
@@ -342,6 +350,13 @@
 {
    cpy_ReciveResumeListMode *model = self.resumeList[indexPath.row];
 
+    
+    TH_ResumePreviewVC  * presum = [[TH_ResumePreviewVC alloc] init];
+//    presum.title = @"简历预览";
+    presum.resumeId = model.eid;
+//    presum.resumeName = self.ResumeName.text;
+    [self.navigationController pushViewController:presum animated:YES];
+    
     
     
 }
@@ -418,7 +433,7 @@
     _page = 1;
     _tableViewTag = 1001;
     [self.resumeList removeAllObjects];
-    [self querDataWithNoti:_mbPro uid:@"137" browse:1 pageIndex:_page page:pageNum];
+    [self querDataWithNoti:_mbPro uid:@"72" browse:1 pageIndex:_page page:pageNum];
     
 }
 
@@ -443,7 +458,7 @@
     _page = 1;
     _tableViewTag = 1002;
     [self.resumeList removeAllObjects];
-    [self querDataWithNoti:_mbPro uid:@"137" browse:2 pageIndex:_page page:pageNum];
+    [self querDataWithNoti:_mbPro uid:@"72" browse:2 pageIndex:_page page:pageNum];
 
 }
 
@@ -468,7 +483,7 @@
     _page = 1;
     _tableViewTag = 1003;
     [self.resumeList removeAllObjects];
-    [self querDataWithNoti:_mbPro uid:@"137" browse:3 pageIndex:_page page:pageNum];
+    [self querDataWithNoti:_mbPro uid:@"72" browse:3 pageIndex:_page page:pageNum];
 
 }
 
@@ -493,7 +508,7 @@
     _page = 1;
     _tableViewTag = 1004;
     [self.resumeList removeAllObjects];
-    [self querDataWithNoti:_mbPro uid:@"137" browse:4 pageIndex:_page page:pageNum];
+    [self querDataWithNoti:_mbPro uid:@"72" browse:4 pageIndex:_page page:pageNum];
 
 }
 
@@ -504,21 +519,21 @@
         [self.resumeList removeAllObjects];
         if (_tableViewTag == 1001)
         {
-           [self querDataWithNoti:refreshView uid:@"137" browse:1 pageIndex:_page page:pageNum];
+           [self querDataWithNoti:refreshView uid:@"72" browse:1 pageIndex:_page page:pageNum];
             
         }
         else if (_tableViewTag == 1002)
         {
             
-            [self querDataWithNoti:refreshView uid:@"137" browse:2 pageIndex:_page page:pageNum];
+            [self querDataWithNoti:refreshView uid:@"72" browse:2 pageIndex:_page page:pageNum];
         }
         else if (_tableViewTag == 1003)
         {
-            [self querDataWithNoti:refreshView uid:@"137" browse:3 pageIndex:_page page:pageNum];
+            [self querDataWithNoti:refreshView uid:@"72" browse:3 pageIndex:_page page:pageNum];
         }
         else
         {
-            [self querDataWithNoti:refreshView uid:@"137" browse:4 pageIndex:_page page:pageNum];
+            [self querDataWithNoti:refreshView uid:@"72" browse:4 pageIndex:_page page:pageNum];
         }
         
     }
@@ -527,21 +542,21 @@
         _page++;
         if (_tableViewTag == 1001)
         {
-            [self querDataWithNoti:refreshView uid:@"137" browse:1 pageIndex:_page page:pageNum];
+            [self querDataWithNoti:refreshView uid:@"72" browse:1 pageIndex:_page page:pageNum];
             
         }
         else if (_tableViewTag == 1002)
         {
             
-            [self querDataWithNoti:refreshView uid:@"137" browse:2 pageIndex:_page page:pageNum];
+            [self querDataWithNoti:refreshView uid:@"72" browse:2 pageIndex:_page page:pageNum];
         }
         else if (_tableViewTag == 1003)
         {
-            [self querDataWithNoti:refreshView uid:@"137" browse:3 pageIndex:_page page:pageNum];
+            [self querDataWithNoti:refreshView uid:@"72" browse:3 pageIndex:_page page:pageNum];
         }
         else
         {
-            [self querDataWithNoti:refreshView uid:@"137" browse:4 pageIndex:_page page:pageNum];
+            [self querDataWithNoti:refreshView uid:@"72" browse:4 pageIndex:_page page:pageNum];
         }
 
     }
@@ -569,12 +584,12 @@
                 
                 _page = 1;
                 [self.resumeList removeAllObjects];
-                [self querDataWithNoti:_mbPro uid:@"137" browse:1 pageIndex:_page page:pageNum];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:1 pageIndex:_page page:pageNum];
                 
             }
             
             
-        } eid:[model.eid  intValue] job_id:[model.job_id intValue] com_id:137] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid  intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
 
     }
     else if (_tableViewTag == 1002)
@@ -592,11 +607,11 @@
                 
                 _page = 1;
                 [self.resumeList removeAllObjects];
-                [self querDataWithNoti:_mbPro uid:@"137" browse:2 pageIndex:_page page:pageNum];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:2 pageIndex:_page page:pageNum];
                 
             }
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue]com_id:137] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue]com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
 
     }
     else if (_tableViewTag == 1003)
@@ -614,12 +629,12 @@
                 
                 _page = 1;
                 [self.resumeList removeAllObjects];
-                [self querDataWithNoti:_mbPro uid:@"137" browse:3 pageIndex:_page page:pageNum];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:3 pageIndex:_page page:pageNum];
                 
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:137] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
 
     }
     else
@@ -637,12 +652,12 @@
                 
                 _page = 1;
                 [self.resumeList removeAllObjects];
-                [self querDataWithNoti:_mbPro uid:@"137" browse:4 pageIndex:_page page:pageNum];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:4 pageIndex:_page page:pageNum];
                 
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:137] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
 
     }
 
@@ -671,12 +686,12 @@
                 
                 _page = 1;
                 [self.resumeList removeAllObjects];
-                [self querDataWithNoti:_mbPro uid:@"137" browse:1 pageIndex:_page page:pageNum];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:1 pageIndex:_page page:pageNum];
                 
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:137] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
         
     }
     else if (_tableViewTag == 1002)
@@ -695,12 +710,12 @@
                 
                 _page = 1;
                 [self.resumeList removeAllObjects];
-                [self querDataWithNoti:_mbPro uid:@"137" browse:2 pageIndex:_page page:pageNum];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:2 pageIndex:_page page:pageNum];
                 
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:137] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
     }
     else if (_tableViewTag == 1003)
     {
@@ -718,12 +733,12 @@
                 
                 _page = 1;
                 [self.resumeList removeAllObjects];
-                [self querDataWithNoti:_mbPro uid:@"137" browse:3 pageIndex:_page page:pageNum];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:3 pageIndex:_page page:pageNum];
                 
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:137] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
     }
     else
     {
@@ -741,11 +756,11 @@
                 
                 _page = 1;
                 [self.resumeList removeAllObjects];
-                [self querDataWithNoti:_mbPro uid:@"137" browse:4 pageIndex:_page page:pageNum];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:4 pageIndex:_page page:pageNum];
                 
             }
 
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:137] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
     }
 
 }
@@ -769,12 +784,12 @@
                 
                 _page = 1;
                 [self.resumeList removeAllObjects];
-                [self querDataWithNoti:_mbPro uid:@"137" browse:1 pageIndex:_page page:pageNum];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:1 pageIndex:_page page:pageNum];
                 
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:137] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
         
     }
     else if (_tableViewTag == 1002)
@@ -792,12 +807,12 @@
                 
                 _page = 1;
                 [self.resumeList removeAllObjects];
-                [self querDataWithNoti:_mbPro uid:@"137" browse:2 pageIndex:_page page:pageNum];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:2 pageIndex:_page page:pageNum];
                 
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:137] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
 
         
     }
@@ -816,11 +831,11 @@
                 
                 _page = 1;
                 [self.resumeList removeAllObjects];
-                [self querDataWithNoti:_mbPro uid:@"137" browse:3 pageIndex:_page page:pageNum];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:3 pageIndex:_page page:pageNum];
                 
             }
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:137] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
 
     }
     else
@@ -838,11 +853,11 @@
                 
                 _page = 1;
                 [self.resumeList removeAllObjects];
-                [self querDataWithNoti:_mbPro uid:@"137" browse:4 pageIndex:_page page:pageNum];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:4 pageIndex:_page page:pageNum];
                 
             }
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:137] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
     
     }
 
@@ -863,7 +878,24 @@
             model.cellselected = @"1";
         }
         
-        [_tableview_1 reloadData];
+        if (_tableViewTag == 1001)
+        {
+            [_tableview_1 reloadData];
+        }
+        else if (_tableViewTag == 1002)
+        {
+            [_tableview_2 reloadData];
+        }
+        else if (_tableViewTag == 1003)
+        {
+            [_tableview_3 reloadData];
+        }
+        else
+        {
+            [_tableview_4 reloadData];
+        }
+        
+        
         
     }
     else
@@ -877,7 +909,23 @@
             //            _jobArr[i][@"selected"] = @"1";
             model.cellselected = @"0";
         }
-        [_tableview_1 reloadData];
+        if (_tableViewTag == 1001)
+        {
+            [_tableview_1 reloadData];
+        }
+        else if (_tableViewTag == 1002)
+        {
+            [_tableview_2 reloadData];
+        }
+        else if (_tableViewTag == 1003)
+        {
+            [_tableview_3 reloadData];
+        }
+        else
+        {
+            [_tableview_4 reloadData];
+        }
+
     }
 }
 
@@ -934,11 +982,82 @@
     }
     NSLog(@"eidstr%@",jobidstr);
 
-    [[enterPriseRequest requestDeletResumeWithSucc:^(NSDictionary *DataDic) {
+    
+    if (_tableViewTag == 1001)
+    {
         
-        NSLog(@"%@",DataDic);
+        [[enterPriseRequest requestDeletResumeWithSucc:^(NSDictionary *DataDic) {
+            
+            //        NSLog(@"%@",DataDic);
+            if ([DataDic[@"code"] intValue] == 0)
+            {
+                [MBProgressHUD creatembHub:@"删除成功"];
+                
+                _page = 1;
+                [self.resumeList removeAllObjects];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:1 pageIndex:_page page:pageNum];
+                
+            }
+            
+        } eid:eidstr job_id:jobidstr com_id:72] addNotifaction:_mbPro];
+    }
+    else if (_tableViewTag == 1002)
+    {
         
-    } eid:eidstr job_id:jobidstr com_id:137] addNotifaction:_mbPro];
+        [[enterPriseRequest requestDeletResumeWithSucc:^(NSDictionary *DataDic) {
+            
+            //        NSLog(@"%@",DataDic);
+            if ([DataDic[@"code"] intValue] == 0)
+            {
+                [MBProgressHUD creatembHub:@"删除成功"];
+                
+                _page = 1;
+                [self.resumeList removeAllObjects];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:2 pageIndex:_page page:pageNum];
+                
+            }
+            
+        } eid:eidstr job_id:jobidstr com_id:72] addNotifaction:_mbPro];
+    }
+    else if (_tableViewTag == 1003)
+    {
+        
+        
+        [[enterPriseRequest requestDeletResumeWithSucc:^(NSDictionary *DataDic) {
+            
+            //        NSLog(@"%@",DataDic);
+            if ([DataDic[@"code"] intValue] == 0)
+            {
+                [MBProgressHUD creatembHub:@"删除成功"];
+                
+                _page = 1;
+                [self.resumeList removeAllObjects];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:3 pageIndex:_page page:pageNum];
+                
+            }
+            
+        } eid:eidstr job_id:jobidstr com_id:72] addNotifaction:_mbPro];
+    }
+    else
+    {
+        
+        [[enterPriseRequest requestDeletResumeWithSucc:^(NSDictionary *DataDic) {
+            
+            //        NSLog(@"%@",DataDic);
+            if ([DataDic[@"code"] intValue] == 0)
+            {
+                [MBProgressHUD creatembHub:@"删除成功"];
+                
+                _page = 1;
+                [self.resumeList removeAllObjects];
+                [self querDataWithNoti:_mbPro uid:@"72" browse:4 pageIndex:_page page:pageNum];
+                
+            }
+            
+        } eid:eidstr job_id:jobidstr com_id:72] addNotifaction:_mbPro];
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
