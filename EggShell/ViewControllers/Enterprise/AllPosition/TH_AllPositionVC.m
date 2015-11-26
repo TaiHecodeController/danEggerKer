@@ -12,6 +12,7 @@
 #import "TH_AllPositionVC.h"
 #import "AllPosionCell.h"
 #import "AllPosionModel.h"
+#import "enterPriseRequest.h"
 @interface TH_AllPositionVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
  MBProgressHUD * _mbPro;
@@ -107,6 +108,8 @@
 }
 -(void)electBtnClick:(UIButton*)sender
 {
+    if (sender.tag == 0) {
+        NSLog(@"暂停招聘");
     NSMutableString *job_idStr = [[NSMutableString alloc]init];
     for (AllPosionModel *model in self.dataArray)
     {
@@ -119,12 +122,60 @@
         
     }
     NSLog(@"cj_id:%@",job_idStr);
+        NSLog(@"cj_id:%@",job_idStr);
+        NSString * uid = [NSString stringWithFormat:@"%d",1869];
+        NSString * changeStatus = [NSString stringWithFormat:@"%d",0];
+        
+        NSDictionary * param = @{@"uid":uid,@"jobid":job_idStr,@"changestatus":changeStatus};
+        [enterPriseRequest FulltimeJobsPauseResumeWithSucc:^(NSDictionary *DataDic) {
+            
+        } withParam:param];
+    }if (sender.tag == 1) {
+        
+        NSLog(@"职位刷新");
+        NSMutableString *job_idStr = [[NSMutableString alloc]init];
+        for (AllPosionModel *model in self.dataArray)
+        {
+            if ([model.cellselected isEqualToString: @"1"])
+            {
+                
+                [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
+                
+            }
+            
+        }
+         NSLog(@"cj_id:%@",job_idStr);
+        NSString * uid = [NSString stringWithFormat:@"%d",1869];
+        NSString * changeStatus = [NSString stringWithFormat:@"%d",1];
 
+        NSDictionary * param = @{@"uid":uid,@"jobid":job_idStr,@"changestatus":changeStatus};
+        [enterPriseRequest FulltimeJobsPauseResumeWithSucc:^(NSDictionary *DataDic) {
+            
+            
+        } withParam:param];
+
+    } if (sender.tag == 2) {
+        NSLog(@"删除");
+        NSMutableString *job_idStr = [[NSMutableString alloc]init];
+        for (AllPosionModel *model in self.dataArray)
+        {
+            if ([model.cellselected isEqualToString: @"1"])
+            {
+                [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
+                
+            }
+            
+        }
+
+        NSLog(@"cj_id:%@",job_idStr);
+        NSString * uid = [NSString stringWithFormat:@"%d",1869];
+        NSString * changeStatus = [NSString stringWithFormat:@"%d",2];
+        NSDictionary * param = @{@"uid":uid,@"jobId":job_idStr,@"changestatus":changeStatus};
+        [enterPriseRequest FulltimeJobsPauseResumeWithSucc:^(NSDictionary *DataDic) {
+            
+        } withParam:param];
+    }
     
-    //暂停
-//    if (sender.tag == 0) {
-//        
-//    }
 }
 #pragma mark --- 全选点击事件
 -(void)marqueeBtnClck:(UIButton*)sender
@@ -172,10 +223,7 @@
         [cell layoutSubviews];
     }
     
-//    cell.isSelectBlock = ^(int tag)
-//    {
-////        [self single_Click:cell.marqueeBtn];
-//    };
+
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

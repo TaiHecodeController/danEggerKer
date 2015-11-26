@@ -12,6 +12,7 @@
 #import "TH_OutDatePosionVC.h"
 #import "AllPosionCell.h"
 #import "AllPosionModel.h"
+#import "enterPriseRequest.h"
 @interface TH_OutDatePosionVC ()<UITableViewDataSource,UITableViewDelegate
 ,MJRefreshBaseViewDelegate>
 {
@@ -118,7 +119,28 @@ self.view.backgroundColor = color(240, 240, 237);
         record_btn = sender;
         [self createDataPickView];
     }if (sender.tag == 1) {
+        NSMutableString *job_idStr = [[NSMutableString alloc]init];
+        for (AllPosionModel *model in self.dataArray)
+        {
+            if ([model.cellselected isEqualToString: @"1"])
+            {
+                //            _mailingNumBer++;
+                [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
+                
+            }
+            
+        }
+        NSLog(@"cj_id:%@",job_idStr);
+        NSLog(@"cj_id:%@",job_idStr);
+        NSString * uid = [NSString stringWithFormat:@"%d",1869];
+        NSString * changeStatus = [NSString stringWithFormat:@"%d",2];
         
+        NSDictionary * param = @{@"uid":uid,@"jobid":job_idStr,@"changestatus":changeStatus};
+        [enterPriseRequest FulltimeJobsPauseResumeWithSucc:^(NSDictionary *DataDic) {
+            
+            
+        } withParam:param];
+
     }
 }
 #pragma mark   延期时间选择
@@ -181,6 +203,31 @@ self.view.backgroundColor = color(240, 240, 237);
     self.extensionDateStr = dateStr;
     
     dateStr = nil;
+    //数据请求
+    [self request];
+}
+-(void)request
+{
+    NSMutableString *job_idStr = [[NSMutableString alloc]init];
+    for (AllPosionModel *model in self.dataArray)
+    {
+        if ([model.cellselected isEqualToString: @"1"])
+        {
+            [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
+            
+        }
+        
+    }
+    
+    NSLog(@"cj_id:%@",job_idStr);
+    NSString * uid = [NSString stringWithFormat:@"%d",1869];
+    NSString * changeStatus = [NSString stringWithFormat:@"%d",3];
+    NSDictionary * param = @{@"uid":uid,@"jobid":job_idStr,@"changestatus":changeStatus,@"totime":self.extensionDateStr};
+    [enterPriseRequest FulltimeJobsPauseResumeWithSucc:^(NSDictionary *DataDic) {
+        
+        
+    } withParam:param];
+    
 }
 
 -(void)dataChanged:(UIDatePicker *)sender
@@ -195,8 +242,42 @@ self.view.backgroundColor = color(240, 240, 237);
 #pragma mark --- 全选点击事件
 -(void)marqueeBtnClck:(UIButton*)sender
 {
-    sender.selected = !sender.selected;
+//    sender.selected = !sender.selected;
+    [self allClick:sender];
 }
+#pragma mark -- respondEvent
+- (void)allClick:(UIButton *)sender
+{
+    if (sender.selected == NO)
+    {
+        sender.selected = YES;
+        //选中所有
+        for (int i = 0; i<self.dataArray.count; i++) {
+            //            NSLog(@"_jobarr[%d]=%@", i, _jobArr[i]);
+            AllPosionModel *model = self.dataArray[i];
+            //            _jobArr[i][@"selected"] = @"1";
+            model.cellselected = @"1";
+        }
+        
+        [_tableView reloadData];
+        
+    }
+    else
+    {
+        sender.selected = NO;
+        //失选所有
+        for (int i = 0; i<self.dataArray.count; i++)
+        {
+            //            NSLog(@"_jobarr[%d]=%@", i, _jobArr[i]);
+            AllPosionModel *model = self.dataArray[i];
+            //            _jobArr[i][@"selected"] = @"1";
+            model.cellselected = @"0";
+        }
+        [_tableView reloadData];
+    }
+}
+
+
 -(void)createTableView
 {
     UITableView *  tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT - 64-50)];
@@ -230,6 +311,9 @@ self.view.backgroundColor = color(240, 240, 237);
     if (self.dataArray.count !=0) {
         AllPosionModel * model = self.dataArray[indexPath.row];
         [cell configValue:model];
+        cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
+        [cell.marqueeBtn addTarget:self action:@selector(single_Click:) forControlEvents:UIControlEventTouchUpInside];
+        [cell layoutSubviews];
     }
     return cell;
 }
@@ -252,6 +336,31 @@ self.view.backgroundColor = color(240, 240, 237);
     }
 }
 
+- (void)single_Click:(UIButton *)sender
+{
+    if (sender.selected == NO)
+    {
+        sender.selected = YES;
+        
+        AllPosionCell *cell = (AllPosionCell *)[sender superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        AllPosionModel *fjModel = self.dataArray[indexPath.row];
+        fjModel.cellselected = @"1";
+        //        [_cellIndeSet addIndex:indexPath.row];
+        
+    }
+    else
+    {
+        sender.selected = NO;
+        
+        AllPosionCell *cell = (AllPosionCell *)[sender superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        AllPosionModel *fjModel = self.dataArray[indexPath.row];
+        fjModel.cellselected = @"0";
+        //        [_cellIndeSet removeIndex:indexPath.row];
+    }
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

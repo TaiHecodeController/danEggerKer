@@ -57,6 +57,12 @@
     NSDictionary * param = @{@"eid":eid,@"job_id":job_id,@"com_id":numcomid};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Company/deleteResume",base_Url] param:param succ:succ];
 }
+/*全职职位暂停招聘刷新删除**/
++(AFRequestState *)FulltimeJobsPauseResumeWithSucc:(void(^)(NSDictionary * DataDic))succ withParam:(NSDictionary *)param
+{
+return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Company/operatereleasejob",base_Url] param:param succ:succ];
+}
+
 
 
 
