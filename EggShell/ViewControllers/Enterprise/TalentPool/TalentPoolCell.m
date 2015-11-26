@@ -1,17 +1,17 @@
 //
-//  TableViewCell_3.m
+//  TalentPoolCell.m
 //  EggShell
 //
-//  Created by 太和 on 15/11/24.
+//  Created by 太和 on 15/11/26.
 //  Copyright © 2015年 wsd. All rights reserved.
 //
 
-#import "TableViewCell_3.h"
+#import "TalentPoolCell.h"
 
 #define btnWidth 53
 #define btnHeight 23
 
-@interface TableViewCell_3 ()
+@interface TalentPoolCell ()
 
 @property (nonatomic, strong) UIImageView *clockIcon;
 @property (nonatomic, strong) UIView *line;
@@ -25,8 +25,7 @@
 
 @end
 
-
-@implementation TableViewCell_3
+@implementation TalentPoolCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -43,14 +42,14 @@
         
         _nameLab = [[UILabel alloc]init];
         _nameLab.textColor = [UIColor blackColor];
-        _nameLab.text = @"张三丰";
+//        _nameLab.text = @"张三丰";
         _nameLab.font = [UIFont systemFontOfSize:16 * MyWideth];
         [self addSubview:_nameLab];
         
         _positionLab = [[UILabel alloc]init];
         _positionLab.textColor = UIColorFromRGB(0x646464);
-        _positionLab.text = @"张三丰";
-        _positionLab.font = [UIFont systemFontOfSize:13* MyWideth];
+//        _positionLab.text = @"UI设计师";
+        _positionLab.font = [UIFont systemFontOfSize:13 * MyWideth];
         [self addSubview:_positionLab];
         
         _clockIcon = [[UIImageView alloc]init];
@@ -58,53 +57,50 @@
         [self addSubview:_clockIcon];
         
         _expLab = [[UILabel alloc]init];
-        _expLab.textColor = UIColorFromRGB(0x646464);
-        _expLab.text = @"一年以下";
-        _expLab.font = [UIFont systemFontOfSize:13* MyWideth];
+        _expLab.textColor =UIColorFromRGB(0x646464);
+        //        _expLab.text = @"一年以下";
+        _expLab.font = [UIFont systemFontOfSize:13 * MyWideth];
         [self addSubview:_expLab];
         
         _timeLab = [[UILabel alloc]init];
-        _timeLab.textColor = UIColorFromRGB(0x646464);
-        _timeLab.text = @"2015.11.23";
-        _timeLab.font = [UIFont systemFontOfSize:13* MyWideth];
+        _timeLab.textColor = UIColorFromRGB(0x646464);;
+//        _timeLab.text = @"2015.11.23";
+        _timeLab.font = [UIFont systemFontOfSize:13 * MyWideth];
         [self addSubview:_timeLab];
         
         _salaryLab = [[UILabel alloc]init];
         _salaryLab.textColor = [UIColor redColor];
-        _salaryLab.text = @"¥4000-16000";
-        _salaryLab.font = [UIFont systemFontOfSize:13* MyWideth];
+//        _salaryLab.text = @"¥4000-16000";
+        _salaryLab.font = [UIFont systemFontOfSize:13 * MyWideth];
         [self addSubview:_salaryLab];
         
         _line = [[UIView alloc]init];
         _line.backgroundColor = color(215, 215, 215);
-        [self addSubview:_line];
+//        [self addSubview:_line];
         
         _btn1 = [[UIButton alloc]init];
         [_btn1 setTitle:@"已查看" forState:UIControlStateNormal];
         _btn1.layer.borderWidth = 1;
         _btn1.layer.borderColor = [color(215, 215, 215) CGColor];
         [_btn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        _btn1.titleLabel.font = [UIFont systemFontOfSize:13* MyWideth];
-        [_btn1 addTarget:self action:@selector(btn1Click) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:_btn1];
+        _btn1.titleLabel.font = [UIFont systemFontOfSize:13 * MyWideth];
+        //        [self addSubview:_btn1];
         
         _btn2 = [[UIButton alloc]init];
         [_btn2 setTitle:@"待通知" forState:UIControlStateNormal];
         _btn2.layer.borderWidth = 1;
         _btn2.layer.borderColor = [color(215, 215, 215) CGColor];
         [_btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        _btn2.titleLabel.font = [UIFont systemFontOfSize:13* MyWideth];
-        [_btn2 addTarget:self action:@selector(btn2Click) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:_btn2];
+        _btn2.titleLabel.font = [UIFont systemFontOfSize:13 * MyWideth];
+        //        [self addSubview:_btn2];
         
         _btn3 = [[UIButton alloc]init];
         [_btn3 setTitle:@"不合适" forState:UIControlStateNormal];
         _btn3.layer.borderWidth = 1;
         _btn3.layer.borderColor = [color(215, 215, 215) CGColor];
         [_btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        _btn3.titleLabel.font = [UIFont systemFontOfSize:13* MyWideth];
-        [_btn3 addTarget:self action:@selector(btn3Click) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:_btn3];
+        _btn3.titleLabel.font = [UIFont systemFontOfSize:13 * MyWideth];
+        //        [self addSubview:_btn3];
         
         _bottomView = [[UIView alloc]init];
         _bottomView.backgroundColor = color(240, 240, 237);
@@ -126,9 +122,8 @@
     {
         _selIcon.selected = YES;
     }
-
     
-    _selIcon.frame = CGRectMake(20, 28.5, 20, 20);
+    _selIcon.frame = CGRectMake(20, 32, 20, 20);
     
     CGSize nameSize = [_nameLab.text sizeWithFont:_nameLab.font];
     _nameLab.frame = CGRectMake(CGRectGetMaxX(_selIcon.frame) + 20, 10, nameSize.width, nameSize.height);
@@ -136,10 +131,10 @@
     CGSize positionSize = [_positionLab.text sizeWithFont:_positionLab.font];
     _positionLab.frame = CGRectMake(60, CGRectGetMaxY(_nameLab.frame) + 8, positionSize.width, positionSize.height);
     
-    _clockIcon.frame = CGRectMake(160* MyWideth, 32, 20, 20);
+    _clockIcon.frame = CGRectMake(165 * MyWideth, 32, 20, 20);
     
     CGSize expSize = [_expLab.text sizeWithFont:_expLab.font];
-    _expLab.frame = CGRectMake(CGRectGetMaxX(_clockIcon.frame), CGRectGetMinY(_clockIcon.frame), expSize.width, expSize.height);
+    _expLab.frame = CGRectMake(CGRectGetMaxX(_clockIcon.frame), CGRectGetMinY(_positionLab.frame), expSize.width, expSize.height);
     
     CGSize timeSize = [_timeLab.text sizeWithFont:_timeLab.font];
     _timeLab.frame = CGRectMake(WIDETH - 20 - timeSize.width, 15, timeSize.width, timeSize.height);
@@ -148,35 +143,22 @@
     _salaryLab.frame = CGRectMake(WIDETH - 20 - salarySize.width, CGRectGetMaxY(_timeLab.frame) + 10, salarySize.width, salarySize.height);
     
     _line.frame = CGRectMake(10, CGRectGetMaxY(_positionLab.frame) + 10, WIDETH - 10, 1);
-    
-    _btn1.frame = CGRectMake(WIDETH - 10 * 3 - btnWidth * 3, CGRectGetMaxY(_line.frame) + 10, btnWidth, btnHeight);
-    
-    _btn2.frame = CGRectMake(CGRectGetMaxX(_btn1.frame) + 10, CGRectGetMaxY(_line.frame) + 10,btnWidth, btnHeight);
-    
-    _btn3.frame = CGRectMake(CGRectGetMaxX(_btn2.frame) + 10,  CGRectGetMaxY(_line.frame) + 10, btnWidth, btnHeight);
-    
-    _bottomView.frame = CGRectMake(0, CGRectGetMaxY(_btn3.frame) + 10, WIDETH, 10);
+        
+    _bottomView.frame = CGRectMake(0, CGRectGetMaxY(_line.frame), WIDETH, 10);
     
     _cellHeight = CGRectGetMaxY(_bottomView.frame);
     
 }
 
-
-
-- (void)btn3Click
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"buheshi" object:nil userInfo:@{@"cellSelf":self}];
-}
-
-
-- (void)config:(cpy_ReciveResumeListMode *)model
+- (void)config:(TalentModel *)model
 {
     self.nameLab.text = model.name;
-    self.positionLab.text = model.job_name;
+    self.positionLab.text = model.hopeprofess;
     self.expLab.text = model.exp;
-    self.timeLab.text = model.datetime;
+    self.timeLab.text = model.ctime;
     self.salaryLab.text = model.salary;
 }
+
 
 - (void)awakeFromNib {
     // Initialization code

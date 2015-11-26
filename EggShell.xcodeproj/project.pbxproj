@@ -281,6 +281,8 @@
 		F0213AAB1BA2AC450083AA81 /* zuo1.png in Resources */ = {isa = PBXBuildFile; fileRef = F0213AA21BA2AC450083AA81 /* zuo1.png */; };
 		F0213AAC1BA2AC450083AA81 /* zuo1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0213AA31BA2AC450083AA81 /* zuo1@2x.png */; };
 		F0213AAD1BA2AC450083AA81 /* zuo1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0213AA41BA2AC450083AA81 /* zuo1@3x.png */; };
+		F021E94F1C06CEFF00994015 /* TalentPoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F021E94E1C06CEFF00994015 /* TalentPoolCell.m */; };
+		F021E9521C06E6DC00994015 /* TalentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F021E9511C06E6DC00994015 /* TalentModel.m */; };
 		F05440B11B7848B000127A9B /* HYSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F05440B01B7848B000127A9B /* HYSegmentedControl.m */; };
 		F05440B41B7870B800127A9B /* jobTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F05440B31B7870B800127A9B /* jobTableViewCell.m */; };
 		F05440B71B7885F500127A9B /* UIBarButtonItem+DC.m in Sources */ = {isa = PBXBuildFile; fileRef = F05440B61B7885F500127A9B /* UIBarButtonItem+DC.m */; };
@@ -829,6 +831,10 @@
 		F0213AA21BA2AC450083AA81 /* zuo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zuo1.png; sourceTree = "<group>"; };
 		F0213AA31BA2AC450083AA81 /* zuo1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zuo1@2x.png"; sourceTree = "<group>"; };
 		F0213AA41BA2AC450083AA81 /* zuo1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zuo1@3x.png"; sourceTree = "<group>"; };
+		F021E94D1C06CEFF00994015 /* TalentPoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalentPoolCell.h; sourceTree = "<group>"; };
+		F021E94E1C06CEFF00994015 /* TalentPoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalentPoolCell.m; sourceTree = "<group>"; };
+		F021E9501C06E6DC00994015 /* TalentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalentModel.h; sourceTree = "<group>"; };
+		F021E9511C06E6DC00994015 /* TalentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalentModel.m; sourceTree = "<group>"; };
 		F05440AF1B7848B000127A9B /* HYSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYSegmentedControl.h; sourceTree = "<group>"; };
 		F05440B01B7848B000127A9B /* HYSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYSegmentedControl.m; sourceTree = "<group>"; };
 		F05440B21B7870B800127A9B /* jobTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobTableViewCell.h; sourceTree = "<group>"; };
@@ -1937,6 +1943,8 @@
 		947330491C02BBEE00688587 /* TalentPool */ = {
 			isa = PBXGroup;
 			children = (
+				F021E9531C06E6E300994015 /* Mode */,
+				F021E94C1C06CED100994015 /* View */,
 				947330561C02BD6D00688587 /* TH_TalentPoolVC.h */,
 				947330571C02BD6D00688587 /* TH_TalentPoolVC.m */,
 			);
@@ -2484,6 +2492,24 @@
 			path = JobDetailModel;
 			sourceTree = "<group>";
 		};
+		F021E94C1C06CED100994015 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F021E94D1C06CEFF00994015 /* TalentPoolCell.h */,
+				F021E94E1C06CEFF00994015 /* TalentPoolCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F021E9531C06E6E300994015 /* Mode */ = {
+			isa = PBXGroup;
+			children = (
+				F021E9501C06E6DC00994015 /* TalentModel.h */,
+				F021E9511C06E6DC00994015 /* TalentModel.m */,
+			);
+			name = Mode;
+			sourceTree = "<group>";
+		};
 		F05440AE1B7848B000127A9B /* HYSegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -3009,6 +3035,7 @@
 				94E3EA911B8EB520007A699E /* MMNetWorkType.m in Sources */,
 				F0C067951C05589800D1B22B /* cpy_ReciveResumeListMode.m in Sources */,
 				94E761C51BA2B0F800B4C544 /* ProjectExpReadView.m in Sources */,
+				F021E94F1C06CEFF00994015 /* TalentPoolCell.m in Sources */,
 				F01787AC1B95938A005FF9C4 /* jobDetailModel_Arr3.m in Sources */,
 				94E761B31BA27DBF00B4C544 /* TrainReadVC.m in Sources */,
 				94CB305D1BA5169700577FE6 /* IQUIView+Hierarchy.m in Sources */,
@@ -3063,6 +3090,7 @@
 				041650EC1B4D7C4E008C78BE /* MJRefreshBaseView.m in Sources */,
 				F05440B71B7885F500127A9B /* UIBarButtonItem+DC.m in Sources */,
 				94E2C9CA1B8AF884001E3FDD /* WorkExperienceView.m in Sources */,
+				F021E9521C06E6DC00994015 /* TalentModel.m in Sources */,
 				F0D7C06D1B79F92300836DD2 /* OpenClassModel.m in Sources */,
 				F05B7FFE1B8AACA600DC0A1D /* WriteJLChooseVC.m in Sources */,
 				947330681C02E93600688587 /* EnterpriseFoegetVC.m in Sources */,

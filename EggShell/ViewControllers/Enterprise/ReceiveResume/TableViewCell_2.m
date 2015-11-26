@@ -44,36 +44,35 @@
         _nameLab = [[UILabel alloc]init];
         _nameLab.textColor = [UIColor blackColor];
         _nameLab.text = @"张三丰";
-        _nameLab.font = [UIFont systemFontOfSize:16];
+        _nameLab.font = [UIFont systemFontOfSize:16 * MyWideth];
         [self addSubview:_nameLab];
         
         _positionLab = [[UILabel alloc]init];
-        _positionLab.textColor = [UIColor blackColor];
+        _positionLab.textColor = UIColorFromRGB(0x646464);
         _positionLab.text = @"张三丰";
-        _positionLab.font = [UIFont systemFontOfSize:13];
+        _positionLab.font = [UIFont systemFontOfSize:13* MyWideth];
         [self addSubview:_positionLab];
         
         _clockIcon = [[UIImageView alloc]init];
-                _clockIcon.image = [UIImage imageNamed:@"company_clock"];
-//        _clockIcon.backgroundColor = [UIColor redColor];
+        _clockIcon.image = [UIImage imageNamed:@"company_clock"];
         [self addSubview:_clockIcon];
         
         _expLab = [[UILabel alloc]init];
-        _expLab.textColor = [UIColor blackColor];
+        _expLab.textColor = UIColorFromRGB(0x646464);
         _expLab.text = @"一年以下";
-        _expLab.font = [UIFont systemFontOfSize:14];
+        _expLab.font = [UIFont systemFontOfSize:13* MyWideth];
         [self addSubview:_expLab];
         
         _timeLab = [[UILabel alloc]init];
-        _timeLab.textColor = [UIColor blackColor];
+        _timeLab.textColor = UIColorFromRGB(0x646464);
         _timeLab.text = @"2015.11.23";
-        _timeLab.font = [UIFont systemFontOfSize:13];
+        _timeLab.font = [UIFont systemFontOfSize:13* MyWideth];
         [self addSubview:_timeLab];
         
         _salaryLab = [[UILabel alloc]init];
         _salaryLab.textColor = [UIColor redColor];
         _salaryLab.text = @"¥4000-16000";
-        _salaryLab.font = [UIFont systemFontOfSize:13];
+        _salaryLab.font = [UIFont systemFontOfSize:13* MyWideth];
         [self addSubview:_salaryLab];
         
         _line = [[UIView alloc]init];
@@ -85,15 +84,16 @@
         _btn1.layer.borderWidth = 1;
         _btn1.layer.borderColor = [color(215, 215, 215) CGColor];
         [_btn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        _btn1.titleLabel.font = [UIFont systemFontOfSize:13];
-//        [self addSubview:_btn1];
+        _btn1.titleLabel.font = [UIFont systemFontOfSize:13* MyWideth];
+        [_btn1 addTarget:self action:@selector(btn1Click) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_btn1];
         
         _btn2 = [[UIButton alloc]init];
         [_btn2 setTitle:@"待通知" forState:UIControlStateNormal];
         _btn2.layer.borderWidth = 1;
         _btn2.layer.borderColor = [color(215, 215, 215) CGColor];
         [_btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        _btn2.titleLabel.font = [UIFont systemFontOfSize:13];
+        _btn2.titleLabel.font = [UIFont systemFontOfSize:13* MyWideth];
         [_btn2 addTarget:self action:@selector(btn2Click) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_btn2];
         
@@ -102,14 +102,13 @@
         _btn3.layer.borderWidth = 1;
         _btn3.layer.borderColor = [color(215, 215, 215) CGColor];
         [_btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        _btn3.titleLabel.font = [UIFont systemFontOfSize:13];
+        _btn3.titleLabel.font = [UIFont systemFontOfSize:13* MyWideth];
         [_btn3 addTarget:self action:@selector(btn3Click) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_btn3];
         
         _bottomView = [[UIView alloc]init];
         _bottomView.backgroundColor = color(240, 240, 237);
         [self addSubview:_bottomView];
-        
     }
     return self;
 }
@@ -139,7 +138,7 @@
     _clockIcon.frame = CGRectMake(160* MyWideth, 32, 20, 20);
     
     CGSize expSize = [_expLab.text sizeWithFont:_expLab.font];
-    _expLab.frame = CGRectMake(CGRectGetMaxX(_clockIcon.frame), CGRectGetMinY(_clockIcon.frame), expSize.width, expSize.height);
+    _expLab.frame = CGRectMake(CGRectGetMaxX(_clockIcon.frame), CGRectGetMinY(_positionLab.frame), expSize.width, expSize.height);
     
     CGSize timeSize = [_timeLab.text sizeWithFont:_timeLab.font];
     _timeLab.frame = CGRectMake(WIDETH - 20 - timeSize.width, 15, timeSize.width, timeSize.height);

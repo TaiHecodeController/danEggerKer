@@ -58,6 +58,22 @@
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Company/deleteResume",base_Url] param:param succ:succ];
 }
 
++(AFRequestState *)requestTanlentLibWithSucc:(void(^)(NSArray * DataDic))succ com_id:(int)com_id pageIndex:(int)pageIndex page:(int)page resp:(Class)resp
+{
+    NSNumber *numcomid = [NSNumber numberWithInt:com_id];
+    NSNumber *numPageIndex = [NSNumber numberWithInt:pageIndex];
+    NSNumber *numPage = [NSNumber numberWithInt:page];
+    
+    NSDictionary * param = @{@"com_id":numcomid,@"pageIndex":numPageIndex,@"page":numPage};
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Company/getRencaiLibList",base_Url] param:param succ:succ resp:resp];
+}
 
++(AFRequestState *)requestDeletTanlentWithSucc:(void(^)(NSDictionary * DataDic))succ com_id:(int)com_id eid:(NSString *)eid
+{
+    NSNumber *numcomid = [NSNumber numberWithInt:com_id];
+//    NSNumber *numeid = [NSNumber numberWithInt:eid];
+    NSDictionary * param = @{@"com_id":numcomid,@"eid":eid};
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Company/deleteResumeFromRencaiLib",base_Url] param:param succ:succ ];
+}
 
 @end

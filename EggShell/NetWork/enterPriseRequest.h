@@ -25,4 +25,10 @@
 /*删除简历**/
 +(AFRequestState *)requestDeletResumeWithSucc:(void(^)(NSDictionary * DataDic))succ eid:(NSString *)eid job_id:(NSString *)job_id com_id:(int)com_id;
 
+/*人才库**/
++(AFRequestState *)requestTanlentLibWithSucc:(void(^)(NSArray * DataDic))succ com_id:(int)com_id pageIndex:(int)pageIndex page:(int)page resp:(Class)resp;
+
+/*人才库删除简历**/
++(AFRequestState *)requestDeletTanlentWithSucc:(void(^)(NSDictionary * DataDic))succ com_id:(int)com_id eid:(NSString *)eid;
+
 @end

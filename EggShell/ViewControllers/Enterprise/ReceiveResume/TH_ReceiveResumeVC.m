@@ -193,14 +193,14 @@
 {
     _bottomView = [[UIView alloc]init];
     _bottomView.backgroundColor = [UIColor whiteColor];
-    _bottomView.frame = CGRectMake(0, HEIGHT - 20 - 44 - bottomHeight, WIDETH , bottomHeight * MyWideth);
+    _bottomView.frame = CGRectMake(0, HEIGHT - 20 - 44 - bottomHeight * MyWideth, WIDETH , bottomHeight * MyWideth);
     [self.view addSubview:_bottomView];
     
     _deletBtn = [[UIButton alloc]init];
     [_deletBtn setTitle:@"删除" forState:UIControlStateNormal];
     [_deletBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_deletBtn setBackgroundColor:[UIColor redColor]];
-    _deletBtn.frame = CGRectMake((WIDETH - 195) / 2, 9, 195 * MyWideth, 30 * MyWideth);
+    _deletBtn.frame = CGRectMake((WIDETH - 195 * MyWideth) / 2, 9, 195 * MyWideth, 30 * MyWideth);
     [_deletBtn addTarget:self action:@selector(deletBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [_bottomView addSubview:_deletBtn];
     
@@ -370,6 +370,7 @@
     [_btn1 addTarget:self action:@selector(btn1Click) forControlEvents:UIControlEventTouchUpInside];
     [_btn1 setTitle:@"未查看" forState:UIControlStateNormal];
     [_btn1 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    _btn1.titleLabel.font = [UIFont systemFontOfSize:13 * MyWideth];
     [self.view addSubview:_btn1];
     
     UIView *line1 = [[UIView alloc]init];
@@ -383,6 +384,7 @@
     [_btn2 addTarget:self action:@selector(btn2Click) forControlEvents:UIControlEventTouchUpInside];
     [_btn2 setTitle:@"已查看" forState:UIControlStateNormal];
     [_btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+     _btn2.titleLabel.font = [UIFont systemFontOfSize:13 * MyWideth];
     [self.view addSubview:_btn2];
     
     UIView *line2 = [[UIView alloc]init];
@@ -396,6 +398,7 @@
     [_btn3 addTarget:self action:@selector(btn3Click) forControlEvents:UIControlEventTouchUpInside];
     [_btn3 setTitle:@"待通知" forState:UIControlStateNormal];
     [_btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+     _btn3.titleLabel.font = [UIFont systemFontOfSize:13 * MyWideth];
     [self.view addSubview:_btn3];
     
     UIView *line3 = [[UIView alloc]init];
@@ -409,6 +412,7 @@
     [_btn4 addTarget:self action:@selector(btn4Click) forControlEvents:UIControlEventTouchUpInside];
     [_btn4 setTitle:@"不合适" forState:UIControlStateNormal];
     [_btn4 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+     _btn4.titleLabel.font = [UIFont systemFontOfSize:13 * MyWideth];
     [self.view addSubview:_btn4];
 }
 
