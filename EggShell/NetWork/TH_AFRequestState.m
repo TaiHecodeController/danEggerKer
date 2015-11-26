@@ -255,4 +255,9 @@ return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Vtalent",base_Url
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Cricle",base_Url] param:dic succ:succ];
 
 }
+//企业全部职位列表
++(AFRequestState*)EnterpriseFullPositionWithSucc:(void(^)( NSArray * dic))succ withd:(NSDictionary*)dic resp:(Class)resp
+{
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Company/releasejob",base_Url] param:dic succ:succ resp:resp];
+}
 @end

@@ -10,7 +10,7 @@
 
 @interface TH_VtalentDetailVC ()
 @property (assign) CGSize textSize;
-@property(nonatomic,strong)UILabel * contentLable;
+@property(nonatomic,strong)UITextView * contentLable;
 @property(nonatomic,strong)UIScrollView * scro;
 @end
 
@@ -18,8 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);
     
+    self.title = @"V达人";
+    self.view.backgroundColor = [UIColor whiteColor];
     UIScrollView * scro =[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     self.scro =scro;
     self.scro.showsVerticalScrollIndicator = NO;
@@ -57,7 +58,7 @@
    addressLabel.text = self.dataDic[@"cityname"];
     [titileBgView addSubview:addressLabel];
     //性质
-    UILabel * natureLable  = [[UILabel alloc] initWithFrame:CGRectMake(10+135*MyWideth+10, 53*MyWideth+15*MyWideth+24*MyWideth, 150, 12*MyWideth)];
+    UILabel * natureLable  = [[UILabel alloc] initWithFrame:CGRectMake(10+135*MyWideth+10, 53*MyWideth+15*MyWideth+24*MyWideth, WIDETH - (10+135*MyWideth+10), 12*MyWideth)];
     natureLable.font =[ UIFont systemFontOfSize:12*MyWideth];
     natureLable.textColor = UIColorFromRGB(0x646464);
 //    natureLable.text = @"学习是一种信仰";
@@ -71,7 +72,7 @@
 //    UIView *rememberBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 131*MyWideth+10*MyWideth,WIDETH, 100 )];
 //    [self.view addSubview:rememberBgView];
     //精英足记
-    UILabel * rememberLable = [[UILabel alloc]initWithFrame:CGRectMake(10, 131*MyWideth+10*MyWideth, WIDETH-10, 15*MyWideth)];
+    UILabel * rememberLable = [[UILabel alloc]initWithFrame:CGRectMake(10, 131*MyWideth+10*MyWideth+10*MyWideth, WIDETH-10, 15*MyWideth)];
     rememberLable.text = @"精英足迹";
 //    rememberLable.backgroundColor = [UIColor whiteColor ];
     rememberLable.font = [UIFont systemFontOfSize:15*MyWideth];
@@ -81,19 +82,18 @@
     NSString * detaildicStr = self.dataDic[@"content"];
     //足迹内容
     self.textSize = [detaildicStr sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
-    UILabel * contentLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 131*MyWideth+10*MyWideth+15*MyWideth+10*MyWideth, WIDETH-30, self.textSize.height)];
+    UITextView * contentLable = [[UITextView alloc] initWithFrame:CGRectMake(15, 131*MyWideth+10*MyWideth+15*MyWideth+10*MyWideth, WIDETH-30, self.textSize.height)];
     self.contentLable = contentLable;
     NSString *htmlString = [CommonFunc textFromBase64String:detaildicStr];
    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-//    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     self.contentLable.attributedText = attributedString;
     self.contentLable = contentLable;
-    self.contentLable.numberOfLines = 0;
-    self.contentLable.textColor = UIColorFromRGB(0x646464);
-    self.contentLable.font = [UIFont systemFontOfSize:13];
+    self.contentLable.backgroundColor = [UIColor whiteColor];
+//   self.contentLable.numberOfLines = 0;
+self.contentLable.font = [UIFont systemFontOfSize:13];
     [self.scro addSubview:self.contentLable];
     
-    self.scro.contentSize = CGSizeMake(WIDETH, 131*MyWideth+10*MyWideth+15*MyWideth+10*MyWideth+self.textSize.height);
+    self.scro.contentSize = CGSizeMake(WIDETH, 131*MyWideth+10*MyWideth+15*MyWideth+10*MyWideth+self.textSize.height-450);
 
 }
 - (void)didReceiveMemoryWarning {

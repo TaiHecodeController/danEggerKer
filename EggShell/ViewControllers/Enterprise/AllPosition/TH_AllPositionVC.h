@@ -9,5 +9,5 @@
 #import "TH_BaseVC.h"
 
 @interface TH_AllPositionVC : TH_BaseVC
-
+@property(nonatomic,weak)
 @end

@@ -128,6 +128,8 @@
 		9470069B1B85CA6000DEC289 /* MineEditInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947006921B85CA6000DEC289 /* MineEditInfoCell.xib */; };
 		947008C81B85FF0100DEC289 /* TH_ImagePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947008C71B85FF0100DEC289 /* TH_ImagePickerVC.m */; };
 		947269AC1C04015900A79A7A /* TH_VtalentDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947269AB1C04015900A79A7A /* TH_VtalentDetailVC.m */; };
+		947269AF1C0560A800A79A7A /* AllPosionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 947269AE1C0560A800A79A7A /* AllPosionCell.m */; };
+		947269B21C05A8A000A79A7A /* AllPosionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 947269B11C05A8A000A79A7A /* AllPosionModel.m */; };
 		947330381BFD6A5800688587 /* EnterpriseDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947330371BFD6A5800688587 /* EnterpriseDetailVC.m */; };
 		9473303C1BFF186000688587 /* TH_VtalentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9473303B1BFF186000688587 /* TH_VtalentVC.m */; };
 		947330451C02ACD800688587 /* EnterpriseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 947330441C02ACD800688587 /* EnterpriseView.m */; };
@@ -570,6 +572,10 @@
 		947008C71B85FF0100DEC289 /* TH_ImagePickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_ImagePickerVC.m; sourceTree = "<group>"; };
 		947269AA1C04015900A79A7A /* TH_VtalentDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_VtalentDetailVC.h; sourceTree = "<group>"; };
 		947269AB1C04015900A79A7A /* TH_VtalentDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_VtalentDetailVC.m; sourceTree = "<group>"; };
+		947269AD1C0560A800A79A7A /* AllPosionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllPosionCell.h; sourceTree = "<group>"; };
+		947269AE1C0560A800A79A7A /* AllPosionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllPosionCell.m; sourceTree = "<group>"; };
+		947269B01C05A8A000A79A7A /* AllPosionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllPosionModel.h; sourceTree = "<group>"; };
+		947269B11C05A8A000A79A7A /* AllPosionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllPosionModel.m; sourceTree = "<group>"; };
 		947330361BFD6A5800688587 /* EnterpriseDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterpriseDetailVC.h; sourceTree = "<group>"; };
 		947330371BFD6A5800688587 /* EnterpriseDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterpriseDetailVC.m; sourceTree = "<group>"; };
 		9473303A1BFF186000688587 /* TH_VtalentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_VtalentVC.h; sourceTree = "<group>"; };
@@ -1942,6 +1948,10 @@
 			children = (
 				947330531C02BD1B00688587 /* TH_AllPositionVC.h */,
 				947330541C02BD1B00688587 /* TH_AllPositionVC.m */,
+				947269AD1C0560A800A79A7A /* AllPosionCell.h */,
+				947269AE1C0560A800A79A7A /* AllPosionCell.m */,
+				947269B01C05A8A000A79A7A /* AllPosionModel.h */,
+				947269B11C05A8A000A79A7A /* AllPosionModel.m */,
 			);
 			path = AllPosition;
 			sourceTree = "<group>";
@@ -3067,6 +3077,7 @@
 				048426F51B8B1E6D009C597A /* VPImageCropperViewController.m in Sources */,
 				940032CD1B840CC3001EB666 /* ProfessionalCell.m in Sources */,
 				94CB5B9B1B7632E800B23B9D /* TH_BaseVC.m in Sources */,
+				947269AF1C0560A800A79A7A /* AllPosionCell.m in Sources */,
 				940032F31B840DCD001EB666 /* TH_JobScreeningVC.m in Sources */,
 				0454ACF41B962C7D004A70ED /* WriteResumeRequest.m in Sources */,
 				F0E700161B9FEDE200788B17 /* ChooseCity_3ViewController.m in Sources */,
@@ -3079,6 +3090,7 @@
 				041650681B4D7240008C78BE /* GArrayAdapter.m in Sources */,
 				941F10181B7B3BCC00719F5B /* JobWishlistHeadView.m in Sources */,
 				F07F39051B996F65002531CD /* saveListModel.m in Sources */,
+				947269B21C05A8A000A79A7A /* AllPosionModel.m in Sources */,
 				F05B80071B8ABE2200DC0A1D /* MTGridView.m in Sources */,
 				94E761C91BA2B7F300B4C544 /* CertificateReadVC.m in Sources */,
 			);

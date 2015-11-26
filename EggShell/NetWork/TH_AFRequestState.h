@@ -57,5 +57,6 @@
 +(AFRequestState*)socialCircleWithSucc:(void(^)(NSDictionary * arr))succ withd:(NSDictionary*)dic;
 //+(AFRequestState*)InformationDeskRequestWithSucc:(void(^)(NSDictionary * arr))succ  resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type;
 
-
+//企业全部职位列表
++(AFRequestState*)EnterpriseFullPositionWithSucc:(void(^)(NSArray * dic))succ withd:(NSDictionary*)dic resp:(Class)resp;
 @end

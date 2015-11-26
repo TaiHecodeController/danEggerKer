@@ -53,7 +53,7 @@
     [super viewDidLoad];
   /*信息台**/
     self.dataArray = [NSMutableArray arrayWithCapacity:0];
-    self.limitNum = 4;
+    self.limitNum = 8;
     self.page = 1;
 //    [self createView];
 //    [self createTableView];
@@ -88,6 +88,7 @@
     self.tableView = tableView;
     self.tableView.tableFooterView =[[UIView alloc] init];
     tableView.showsVerticalScrollIndicator = NO;
+    tableView.separatorColor = [UIColor colorWithRed:221 / 255.0 green:221 / 255.0 blue:221 / 255.0 alpha:1];
     [self.view addSubview:tableView];
     //下拉刷新
     _header = [MJRefreshHeaderView header];
@@ -112,8 +113,11 @@
     if (!cell) {
         cell = [[SocialCircleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identerId];
     }
-    NSDictionary * dic = self.dataArray[indexPath.row];
-    [cell configValue:dic];
+    if (self.dataArray.count !=0) {
+        NSDictionary * dic = self.dataArray[indexPath.row];
+        [cell configValue:dic];
+    }
+    
     return cell;
 }
 

@@ -84,10 +84,10 @@
         
     }else if([MMNetWorkType getNetWorkType] ==WWAN)
     {
-        [MBProgressHUD creatembHub:@"您当前处于非wifi状态"];
+        [MBProgressHUD creatembHub:@"您当前处于非wifi网络"];
     }else{
         NSLog(@"当前是wifi状态");
-        [MBProgressHUD creatembHub:@"您当前处于wifi状态"];
+        [MBProgressHUD creatembHub:@"您当前处于wifi网络"];
     }
     
     //状态栏
@@ -317,8 +317,8 @@
         {
             NSLog(@"1..1");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"互联网";
-            [SearchModelShare sharedInstance].job1 = @"35";
+            home.title = @"教育培训";
+            [SearchModelShare sharedInstance].job1 = @"88";
             //            home.jobId  = [NSString stringWithFormat:@"%d",35];
             [self.navigationController pushViewController:home animated:YES];
             break;
@@ -328,8 +328,8 @@
         {
             NSLog(@"1..2");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"网站策划";
-            [SearchModelShare sharedInstance].job_post = @"131";
+            home.title = @"市场专员";
+            [SearchModelShare sharedInstance].job_post = @"953";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -338,8 +338,8 @@
         case THHomeViewButtonTypeWebsiteEditor:
         {NSLog(@"1..3");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"网站编辑";
-            [SearchModelShare sharedInstance].job_post = @"132";
+            home.title = @"咨询销售";
+            [SearchModelShare sharedInstance].job_post = @"954";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -348,8 +348,8 @@
         case THHomeViewButtonTypeOperationsCommissioner:
         {NSLog(@"1..4");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"运营专员";
-            [SearchModelShare sharedInstance].job_post = @"125";
+            home.title = @"培训讲师";
+            [SearchModelShare sharedInstance].job_post = @"698";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -358,8 +358,8 @@
         case THHomeViewButtonTypeSEO:
         {NSLog(@"1..5");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"SEM专员";
-            [SearchModelShare sharedInstance].job_post = @"141";
+            home.title = @"教学管理";
+            [SearchModelShare sharedInstance].job_post = @"955";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -368,8 +368,8 @@
         case THHomeViewButtonTypeUIDesigner:
         {NSLog(@"1..6");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"UI设计师";
-            [SearchModelShare sharedInstance].job_post = @"127";
+            home.title = @"教质管理";
+            [SearchModelShare sharedInstance].job_post = @"956";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -378,8 +378,8 @@
         case THHomeViewButtonTypenice:
         {NSLog(@"1..7");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"美工";
-            [SearchModelShare sharedInstance].job_post = @"133";
+            home.title = @"就业专员";
+            [SearchModelShare sharedInstance].job_post = @"957";
             [self.navigationController pushViewController:home animated:YES];
             
             break;
