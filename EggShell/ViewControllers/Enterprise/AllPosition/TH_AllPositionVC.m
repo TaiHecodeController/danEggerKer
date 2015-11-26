@@ -144,7 +144,7 @@
         [cell configValue:model];
     }
     
-    cell.isSelectBlock = ^(NSInteger tag)
+    cell.isSelectBlock = ^(int tag)
     {
         
     };
