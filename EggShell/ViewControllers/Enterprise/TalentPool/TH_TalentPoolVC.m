@@ -10,17 +10,15 @@
  *
  */
 #import "TH_TalentPoolVC.h"
-
+#import "TalentPoolCell.h"
 #define bottomHeight 48
-
-
-@interface TH_TalentPoolVC ()
+@interface TH_TalentPoolVC ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UIView *bottomView;
 @property (nonatomic, strong) UIButton *deletBtn;
 @property (nonatomic, strong) UIButton *kuangIcon;
 @property (nonatomic, strong) UILabel *allSelLab;
-
+@property(nonatomic,strong)UITableView  * tableView;
 @end
 
 @implementation TH_TalentPoolVC
@@ -29,9 +27,36 @@
     [super viewDidLoad];
     self.title = @"人才库";
     
-    
+    [self createTableView];
     [self addBottomView];
    
+}
+-(void)createTableView
+{
+    UITableView *  tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT - 64-bottomHeight)];
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    self.tableView = tableView;
+    tableView.backgroundColor = color(240, 240, 237);
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:tableView];
+    
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{   TalentPoolCell * cell =[tableView dequeueReusableCellWithIdentifier:@"ID"];
+    if (!cell) {
+        cell = [[TalentPoolCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ID"];
+    }
+    
+    return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 67* MyWideth;
 }
 
 - (void)addBottomView

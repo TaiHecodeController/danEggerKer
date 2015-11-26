@@ -29,9 +29,10 @@
     UIButton *   marqueeBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 10*MyWideth, 38*MyWideth, 38*MyWideth)];
     [marqueeBtn setImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
     [marqueeBtn setImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
-    [marqueeBtn addTarget:self action:@selector(markqueeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [marqueeBtn addTarget:self action:@selector(markqueeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.marqueeBtn = marqueeBtn;
     [self.contentView addSubview:marqueeBtn];
+    
     //职位名称
     UILabel *   posionNameLable = [[UILabel alloc] initWithFrame:CGRectMake(10*MyWideth+38*MyWideth+10, 10*MyWideth+12*MyWideth, WIDETH-(10*MyWideth+38*MyWideth+10*MyWideth-55*MyWideth), 16*MyWideth)];
     posionNameLable.text = @"PHP开发工程师";
@@ -124,13 +125,29 @@
 
 
 }
--(void)markqueeBtnClick:(UIButton*)sender
+
+- (void)layoutSubviews
 {
-    sender.selected = !sender.selected;
-    if (sender.selected) {
-        self.isSelectBlock(self.tag);
+    [super layoutSubviews];
+    
+    if ([_jobSelected isEqualToString:@"0"])
+    {
+        _marqueeBtn.selected = NO;
     }
+    else
+    {
+        _marqueeBtn.selected = YES;
+    }
+
+    
 }
+//-(void)markqueeBtnClick:(UIButton*)sender
+//{
+//    sender.selected = !sender.selected;
+//    if (sender.selected) {
+//        self.isSelectBlock(self.tag);
+//    }
+//}
 -(void)configValue:(AllPosionModel*)model
 {
    

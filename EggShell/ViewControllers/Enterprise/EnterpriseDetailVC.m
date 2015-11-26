@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = color(240, 240, 237);
     self.scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-64)];
     self.scro.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.scro];
