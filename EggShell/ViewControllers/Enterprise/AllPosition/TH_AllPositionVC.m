@@ -128,14 +128,7 @@
     }
         NSLog(@"cj_id:%@",job_idStr);
         if (job_idStr == nil) {
-            MBProgressHUD* mLoadView1 = [[MBProgressHUD alloc] initWithView:self.view];
-            [self.view addSubview:mLoadView1];
-            
-            mLoadView1.mode = MBProgressHUDModeCustomView;
-            mLoadView1.labelText = @"操作职位不能为空";
-            [mLoadView1 show:YES];
-            [mLoadView1 hide:YES afterDelay:2];
-            mLoadView1 = nil;
+            [MBProgressHUD creatembHub:@"请选择要暂停的职位"];
         }else
         {
         NSString * uid = [NSString stringWithFormat:@"%d",1869];
@@ -143,7 +136,7 @@
         
         NSDictionary * param = @{@"uid":uid,@"jobid":job_idStr,@"changestatus":changeStatus};
         [enterPriseRequest FulltimeJobsPauseResumeWithSucc:^(NSDictionary *DataDic) {
-            
+            [MBProgressHUD creatembHub:@"暂停招聘成功"];
         } withParam:param];
         }
     }if (sender.tag == 1) {
@@ -165,14 +158,7 @@
         }
          NSLog(@"cj_id:%@",job_idStr);
         if (job_idStr == nil) {
-            MBProgressHUD* mLoadView1 = [[MBProgressHUD alloc] initWithView:self.view];
-                                    [self.view addSubview:mLoadView1];
-            
-                                    mLoadView1.mode = MBProgressHUDModeCustomView;
-                                    mLoadView1.labelText = @"操作职位不能为空";
-                                    [mLoadView1 show:YES];
-                                    [mLoadView1 hide:YES afterDelay:2];
-                                    mLoadView1 = nil;
+            [MBProgressHUD creatembHub:@"请选择要刷新的职位"];
         }else
         {
         NSString * uid = [NSString stringWithFormat:@"%d",1869];
@@ -180,7 +166,7 @@
 
         NSDictionary * param = @{@"uid":uid,@"jobid":job_idStr,@"changestatus":changeStatus};
         [enterPriseRequest FulltimeJobsPauseResumeWithSucc:^(NSDictionary *DataDic) {
-            
+             [MBProgressHUD creatembHub:@"职位刷新成功"];
             
         } withParam:param];
         }
@@ -202,21 +188,15 @@
 
         NSLog(@"cj_id:%@",job_idStr);
         if (job_idStr == nil) {
-            MBProgressHUD* mLoadView1 = [[MBProgressHUD alloc] initWithView:self.view];
-            [self.view addSubview:mLoadView1];
-            
-            mLoadView1.mode = MBProgressHUDModeCustomView;
-            mLoadView1.labelText = @"操作职位不能为空";
-            [mLoadView1 show:YES];
-            [mLoadView1 hide:YES afterDelay:2];
-            mLoadView1 = nil;
+           [MBProgressHUD creatembHub:@"请选择要删除的职位"];
         }else
         {
         NSString * uid = [NSString stringWithFormat:@"%d",1869];
         NSString * changeStatus = [NSString stringWithFormat:@"%d",2];
         NSDictionary * param = @{@"uid":uid,@"jobId":job_idStr,@"changestatus":changeStatus};
         [enterPriseRequest FulltimeJobsPauseResumeWithSucc:^(NSDictionary *DataDic) {
-            
+             [MBProgressHUD creatembHub:@"删除职位成功"];
+            [self.dataArray removeAllObjects];
         } withParam:param];
         }
     }

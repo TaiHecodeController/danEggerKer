@@ -24,7 +24,7 @@
     self.logoImageView = logoImageView;
     logoImageView.image = [UIImage imageNamed:@"HR交流圈"];
     [self.contentView addSubview:logoImageView];
-    UILabel * groupNoLable = [[UILabel alloc] initWithFrame:CGRectMake(182*MyWideth, 38*MyHeight, WIDETH - 182, 16)];
+    UILabel * groupNoLable = [[UILabel alloc] initWithFrame:CGRectMake(162*MyWideth, 38*MyHeight, WIDETH - 182, 16)];
     self.groupNoLable = groupNoLable;
     groupNoLable.font = [UIFont systemFontOfSize:16];
     groupNoLable.textColor = UIColorFromRGB(0x666666);

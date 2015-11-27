@@ -52,7 +52,7 @@
         [eliteBgVieW addSubview:eliteBtn];
         [eliteBtn addTarget:self action:@selector(eliteBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         //精英头像
-        UIImageView * eliteImageVeiw = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, eliteBgVieW.frame.size.width, 62*MyWideth)];
+        UIImageView * eliteImageVeiw = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, eliteBgVieW.frame.size.width, 63*MyWideth)];
 //         eliteImageVeiw.image =[UIImage imageNamed:@"dashi"];
         [eliteImageVeiw sd_setImageWithURL:[NSURL URLWithString:self.elitearray[i][@"studentsphoto"]] placeholderImage:[UIImage imageNamed:@"dashi"]];
         [eliteBgVieW addSubview:eliteImageVeiw];
@@ -94,7 +94,7 @@
         ambassadorButton.tag = 10+i;
         [ambassadorView addSubview:ambassadorButton];
         //大使头像
-        UIImageView * ambassadorImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ambassadorView.frame.size.width, 95*MyWideth)];
+        UIImageView * ambassadorImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ambassadorView.frame.size.width, 96*MyWideth)];
 //        ambassadorImageView.image =[UIImage imageNamed:@"dashi"];
         [ambassadorImageView sd_setImageWithURL:[NSURL URLWithString:self.ambassadorArray[i][@"studentsphoto"]] placeholderImage:[UIImage imageNamed:@"dashi"]];
         [ambassadorView addSubview:ambassadorImageView];

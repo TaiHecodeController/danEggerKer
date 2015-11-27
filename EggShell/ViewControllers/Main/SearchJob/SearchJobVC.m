@@ -21,6 +21,7 @@
     HotSearch * hotSearch;
 }
 @property (strong,nonatomic)NSMutableArray * dataArray;
+@property(nonatomic,strong)UITableViewCell * cell;
 @property (strong,nonatomic)DataBase * db;
 @end
 
@@ -169,7 +170,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ID"];
     }
     if(indexPath.row == 0)
-    {
+    {cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = @"搜索历史";
         cell.textLabel.textColor = [UIColor colorWithRed:122 / 255.0 green:122 / 255.0 blue:122 / 255.0 alpha:1];
         cell.textLabel.font = [UIFont systemFontOfSize:13];
@@ -179,13 +180,19 @@
         cell.textLabel.text = self.dataArray[indexPath.row - 1];
         cell.textLabel.textColor = [UIColor colorWithRed:57 / 255.0 green:57 / 255.0 blue:57 / 255.0 alpha:1];
     }
+    self.cell = cell;
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 0) {
+        self.cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return;
+    }else
+    {
     [SearchModelShare sharedInstance].keyword = self.dataArray[indexPath.row - 1];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
-    
+   
     if (_pushType == 0)
     {
         //从首页来的，跳到职位列表页
@@ -197,7 +204,7 @@
         //从职位列表来，返回职位列表
         [self.navigationController popViewControllerAnimated:YES];
     }
-
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated

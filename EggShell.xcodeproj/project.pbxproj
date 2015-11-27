@@ -117,7 +117,6 @@
 		94313DF31B7CB5C9005D0A9A /* WriteResumeVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */; };
 		94313DF41B7CB5C9005D0A9A /* WriteResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */; };
 		94313DF71B7CB610005D0A9A /* TH_HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DF51B7CB610005D0A9A /* TH_HomeVC.m */; };
-		943A9AAA1C06CA4E001CC76D /* TalentPoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A9AA91C06CA4E001CC76D /* TalentPoolCell.m */; };
 		943F41801B9A8766000FC299 /* informantionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 943F417F1B9A8766000FC299 /* informantionModel.m */; };
 		946EBAC51B84659800CD6AC9 /* jobListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946EBAC41B84659800CD6AC9 /* jobListCell.m */; };
 		947006931B85CA6000DEC289 /* EditAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947006851B85CA6000DEC289 /* EditAddressVC.m */; };
@@ -2735,7 +2734,7 @@
 					};
 					041650491B4D7142008C78BE = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = B8W5YY9JPL;
+						DevelopmentTeam = 9HU449MP5R;
 						TestTargetID = 041650301B4D7141008C78BE;
 					};
 				};
@@ -3199,7 +3198,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "31fa5308-3a15-4ff2-890b-0ca217d87b61";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3237,7 +3236,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "31fa5308-3a15-4ff2-890b-0ca217d87b61";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

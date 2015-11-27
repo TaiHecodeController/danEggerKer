@@ -34,8 +34,8 @@
     titileBgView.backgroundColor = [UIColor whiteColor ];
     [self.scro addSubview:titileBgView];
  //蛋壳儿精英
-    UILabel * eliteLable = [[UILabel alloc]initWithFrame:CGRectMake(10, 10*MyWideth, WIDETH - 10, 15*MyWideth)];
-    eliteLable.text = @"蛋壳儿精英";
+    UILabel * eliteLable = [[UILabel alloc]initWithFrame:CGRectMake(10, 10*MyWideth, WIDETH - 10, 16*MyWideth)];
+    eliteLable.text = @"蛋壳精英";
     eliteLable.font = [UIFont systemFontOfSize:15*MyWideth];
     eliteLable.textColor = UIColorFromRGB(0x323232);
     [titileBgView addSubview:eliteLable];
@@ -90,11 +90,11 @@
     self.contentLable.attributedText = attributedString;
     self.contentLable = contentLable;
     self.contentLable.backgroundColor = [UIColor whiteColor];
-//   self.contentLable.numberOfLines = 0;
-self.contentLable.font = [UIFont systemFontOfSize:13];
+    self.contentLable.textColor = UIColorFromRGB(0x646464);
+      self.contentLable.font = [UIFont systemFontOfSize:12];
     [self.scro addSubview:self.contentLable];
     
-    self.scro.contentSize = CGSizeMake(WIDETH, 131*MyWideth+10*MyWideth+15*MyWideth+10*MyWideth+self.textSize.height-450);
+    self.scro.contentSize = CGSizeMake(WIDETH, 131*MyWideth+10*MyWideth+15*MyWideth+10*MyWideth+self.textSize.height-700);
 
 }
 - (void)didReceiveMemoryWarning {

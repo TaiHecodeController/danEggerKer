@@ -95,7 +95,7 @@
     bgView.backgroundColor = color(221, 221, 221);
     [self.view addSubview:bgView];
     NSArray *iconArr = @[@[@"huogu0",@"huogu1"],@[@"huodong0",@"huodong1"]];
-    _segmentedControl = [[HYSegmentedControl alloc] initWithOriginY:0 Titles:@[@"蛋客活动", @"往期回顾"]  IconNames:iconArr delegate:self] ;
+    _segmentedControl = [[HYSegmentedControl alloc] initWithOriginY:0 Titles:@[@"蛋壳活动", @"往期回顾"]  IconNames:iconArr delegate:self] ;
     [self.view addSubview:_segmentedControl];
     
 }

@@ -205,7 +205,6 @@
     else
     {
         sender.selected = NO;
-        
         TalentPoolCell *cell = (TalentPoolCell *)[sender superview];
         NSIndexPath *indexPath = [_tableview_1 indexPathForCell:cell];
         TalentModel *fjModel = self.resumeList[indexPath.row];

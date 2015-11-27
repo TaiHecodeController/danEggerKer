@@ -126,14 +126,7 @@ for (int i = 0 ; i < titileArray.count; i++) {
             
         }
         if (job_idStr == nil) {
-            MBProgressHUD* mLoadView1 = [[MBProgressHUD alloc] initWithView:self.view];
-            [self.view addSubview:mLoadView1];
-            
-            mLoadView1.mode = MBProgressHUDModeCustomView;
-            mLoadView1.labelText = @"操作职位不能为空";
-            [mLoadView1 show:YES];
-            [mLoadView1 hide:YES afterDelay:2];
-            mLoadView1 = nil;
+            [MBProgressHUD creatembHub:@"请选择要刷新的职位"];
         }else
         {
 
@@ -144,7 +137,7 @@ for (int i = 0 ; i < titileArray.count; i++) {
         
         NSDictionary * param = @{@"uid":uid,@"jobid":job_idStr,@"changestatus":changeStatus};
         [enterPriseRequest FulltimeJobsPauseResumeWithSucc:^(NSDictionary *DataDic) {
-            
+             [MBProgressHUD creatembHub:@"职位刷新成功"];
         } withParam:param];
 
         }
@@ -228,14 +221,7 @@ for (int i = 0 ; i < titileArray.count; i++) {
         
     }
     if (job_idStr == nil) {
-        MBProgressHUD* mLoadView1 = [[MBProgressHUD alloc] initWithView:self.view];
-        [self.view addSubview:mLoadView1];
-        
-        mLoadView1.mode = MBProgressHUDModeCustomView;
-        mLoadView1.labelText = @"操作职位不能为空";
-        [mLoadView1 show:YES];
-        [mLoadView1 hide:YES afterDelay:2];
-        mLoadView1 = nil;
+        [MBProgressHUD creatembHub:@"请选择要延期的职位"];
     }else
     {
 
@@ -246,7 +232,7 @@ for (int i = 0 ; i < titileArray.count; i++) {
     
     [enterPriseRequest FulltimeJobsPauseResumeWithSucc:^(NSDictionary *DataDic) {
        
-        
+         [MBProgressHUD creatembHub:@"职位延期成功"];
     } withParam:param];
     }
 }
