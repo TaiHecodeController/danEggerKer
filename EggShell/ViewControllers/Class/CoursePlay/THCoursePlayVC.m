@@ -103,6 +103,9 @@ typedef NS_ENUM(NSInteger, GestureType){
 @property (nonatomic, strong) UIButton *Pbtn;
 @property (nonatomic, assign) CGFloat position;
 
+//播放按钮
+@property (nonatomic, strong) UIButton *RKplayBtn;
+
 @end
 
 @implementation THCoursePlayVC
@@ -491,14 +494,29 @@ typedef NS_ENUM(NSInteger, GestureType){
 - (void)createAvPlayer{
     
     CGRect playerFrame = CGRectMake(0, 0, self.view.layer.bounds.size.height, self.view.layer.bounds.size.width);
-    self.PLvideoPlayer = [[PLVMoviePlayerController alloc]initWithVid:[NSString stringWithFormat:@"%@",_movieURL]];
+    self.PLvideoPlayer = [[PLVMoviePlayerController alloc]initWithVid:[NSString stringWithFormat:@""]];
+//    self.PLvideoPlayer = [[PLVMoviePlayerController alloc]initWithVid:[NSString stringWithFormat:@"%@",_movieURL]];
     [self.view addSubview:self.PLvideoPlayer.view];
     //    [self.PLvideoPlayer.view setFrame:CGRectMake(0,0,[UIScreen mainScreen].bounds.size.height,[UIScreen mainScreen].bounds.size.width)];
     [self.PLvideoPlayer.view setFrame:CGRectMake(0,0,[UIScreen mainScreen].bounds.size.width,211)];
-    //直接播放
-    [self.PLvideoPlayer play];
     
+    UIButton *playBtn = [[UIButton alloc]init];
+    [playBtn setBackgroundImage:[UIImage imageNamed:@"openClass_play"] forState:UIControlStateNormal];
+    playBtn.frame = CGRectMake((WIDETH - 60) / 2 , (211 - 60) / 2, 60, 60);
+    [playBtn addTarget:self action:@selector(playBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.PLvideoPlayer.view addSubview:playBtn];
+    _RKplayBtn = playBtn;
+    //直接播放
+//    [self.PLvideoPlayer play];
+//    [MBProgressHUD showHUDAddedTo:self.PLvideoPlayer.view animated:YES];
+}
+
+- (void)playBtnClick
+{
+    _RKplayBtn.hidden = YES;
+    [self.PLvideoPlayer setVid:[NSString stringWithFormat:@"%@",_movieURL]];
     [MBProgressHUD showHUDAddedTo:self.PLvideoPlayer.view animated:YES];
+    [self.PLvideoPlayer play];
 }
 
 
