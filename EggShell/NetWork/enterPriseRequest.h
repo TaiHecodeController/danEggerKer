@@ -34,4 +34,7 @@
 /*人才库删除简历**/
 +(AFRequestState *)requestDeletTanlentWithSucc:(void(^)(NSDictionary * DataDic))succ com_id:(int)com_id eid:(NSString *)eid;
 
+/*获取简历数**/
++(AFRequestState *)requestGetResumeNumberWithSucc:(void(^)(NSDictionary * DataDic))succ uid:(NSString *)uid;
+
 @end

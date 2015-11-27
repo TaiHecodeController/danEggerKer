@@ -32,6 +32,8 @@ typedef enum
 @property (weak, nonatomic) IBOutlet UILabel *companyNameLable;
 @property (weak, nonatomic) IBOutlet UIImageView *CheckStatusImageView;
 
+@property (weak, nonatomic) IBOutlet UILabel *ResumeLab;
+
 @property(nonatomic,weak)id <THEnterprisedDelegate>enterDelegate;
 +(EnterpriseView*)setEnterpriseView;
 -(void)setEnterpriseValue;

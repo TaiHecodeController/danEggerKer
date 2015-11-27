@@ -14,9 +14,14 @@
 #import "TH_RecruitmentPositionVC.h"
 #import "TH_OutDatePosionVC.h"
 #import "TH_LoginVC.h"
+#import "enterPriseRequest.h"
 @interface EnterpriseDetailVC ()<THEnterprisedDelegate>
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)EnterpriseView  * enterPrise;
+
+
+
+
 @end
 
 @implementation EnterpriseDetailVC
@@ -24,6 +29,18 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationItem.hidesBackButton = YES;
+    
+    [self querData];
+}
+
+- (void)querData
+{
+     [enterPriseRequest requestGetResumeNumberWithSucc:^(NSDictionary *DataDic) {
+         
+         NSLog(@"%@",DataDic);
+         _enterPrise.ResumeLab.text = [NSString stringWithFormat:@"已收到%@个", DataDic[@"data"][@"resume"]];
+         
+    } uid:@"1869"];
 }
 
 - (void)viewDidLoad {

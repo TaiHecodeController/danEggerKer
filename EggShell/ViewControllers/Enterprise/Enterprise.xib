@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -59,6 +59,7 @@
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京太和天下投资控股有限公司" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOn-BR-zfG">
                             <rect key="frame" x="118" y="20" width="194" height="21"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="GLJ-c5-Gvy"/>
                             </constraints>
@@ -68,6 +69,7 @@
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="daishenhe" translatesAutoresizingMaskIntoConstraints="NO" id="ALp-U6-yhB">
                             <rect key="frame" x="118" y="85" width="53" height="15"/>
+                            <animations/>
                         </imageView>
                     </subviews>
                     <animations/>
@@ -118,6 +120,7 @@
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FbO-Ah-fut">
                                     <rect key="frame" x="106" y="15" width="0.5" height="90"/>
+                                    <animations/>
                                     <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="0.5" id="QKt-ZU-ZJ7"/>
@@ -171,6 +174,7 @@
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3U-x4-2kF">
                                     <rect key="frame" x="106" y="15" width="0.5" height="90"/>
+                                    <animations/>
                                     <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="0.5" id="Mfw-ak-c7k"/>
@@ -311,16 +315,9 @@
                                         <constraint firstAttribute="height" constant="45" id="nt4-le-KY8"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXH-2p-Lym">
-                                    <rect key="frame" x="0.0" y="0.0" width="160" height="133"/>
-                                    <animations/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <connections>
-                                        <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="mhr-MB-IlE"/>
-                                    </connections>
-                                </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZY-zV-WVB">
                                     <rect key="frame" x="159.5" y="16" width="0.5" height="100"/>
+                                    <animations/>
                                     <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="0.5" id="Rw8-rP-uGl"/>
@@ -336,6 +333,14 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXH-2p-Lym">
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="133"/>
+                                    <animations/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <connections>
+                                        <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="mhr-MB-IlE"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -451,6 +456,7 @@
                 <outlet property="CheckStatusImageView" destination="ALp-U6-yhB" id="QB5-94-xda"/>
                 <outlet property="ExitSignBtn" destination="sNc-BB-1gI" id="gnr-XK-0tk"/>
                 <outlet property="ReceiveResumeLable" destination="LXH-2p-Lym" id="ZDc-4x-SEW"/>
+                <outlet property="ResumeLab" destination="56l-8c-i2C" id="SLS-py-Xvp"/>
                 <outlet property="allPositionBtn" destination="i9u-CE-JQ6" id="mGg-yk-TOC"/>
                 <outlet property="companyNameLable" destination="IOn-BR-zfG" id="bt7-4C-YJF"/>
                 <outlet property="headPortraitImageView" destination="ZpS-F5-O1r" id="QH0-dK-MAl"/>

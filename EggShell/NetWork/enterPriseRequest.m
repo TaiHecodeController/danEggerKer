@@ -82,4 +82,10 @@ return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Company/operatere
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Company/deleteResumeFromRencaiLib",base_Url] param:param succ:succ ];
 }
 
++(AFRequestState *)requestGetResumeNumberWithSucc:(void(^)(NSDictionary * DataDic))succ uid:(NSString *)uid
+{
+    NSDictionary * param = @{@"uid":uid};
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Company",base_Url] param:param succ:succ];
+}
+
 @end

@@ -78,7 +78,7 @@
 
     _page = 1;
     _mbPro = [MBProgressHUD mbHubShow];
-    [self querDataWithcomid:1861 pageIndex:_page page:pageNum noti:_mbPro];
+    [self querDataWithcomid:1869 pageIndex:_page page:pageNum noti:_mbPro];
 }
 
 - (void)querDataWithcomid:(int)com_id pageIndex:(int)pageIndex page:(int)page noti:(id)noti
@@ -234,9 +234,9 @@
         
         _page = 1;
         [self.resumeList removeAllObjects];
-        [self querDataWithcomid:1861 pageIndex:pageNum page:_page noti:_mbPro];
+        [self querDataWithcomid:1869 pageIndex:_page page:pageNum noti:_mbPro];
         
-    } com_id:1861 eid:eidstr] addNotifaction:_mbPro];
+    } com_id:1869 eid:eidstr] addNotifaction:_mbPro];
     
 }
 
@@ -246,14 +246,14 @@
     {
         _page = 1;
         [self.resumeList removeAllObjects];
-        [self querDataWithcomid:1861 pageIndex:_page page:pageNum noti:refreshView];
+        [self querDataWithcomid:1869 pageIndex:_page page:pageNum noti:refreshView];
         
     }
     else
     {
         
         _page++;
-        [self querDataWithcomid:1861 pageIndex:_page page:pageNum noti:refreshView];
+        [self querDataWithcomid:1869 pageIndex:_page page:pageNum noti:refreshView];
     }
 }
 
