@@ -39,6 +39,10 @@
          
          NSLog(@"%@",DataDic);
          _enterPrise.ResumeLab.text = [NSString stringWithFormat:@"已收到%@个", DataDic[@"data"][@"resume"]];
+//         NSMutableAttributedString *markLabelStr = [[NSMutableAttributedString alloc] initWithString:_enterPrise.ResumeLab.text];
+//         [markLabelStr addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0xF44336) range:NSMakeRange(3,4)];
+//         _enterPrise.ResumeLab.attributedText = markLabelStr;
+//
          
     } uid:@"1869"];
 }

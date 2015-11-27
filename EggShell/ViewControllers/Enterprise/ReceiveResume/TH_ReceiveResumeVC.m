@@ -199,7 +199,9 @@
     _deletBtn = [[UIButton alloc]init];
     [_deletBtn setTitle:@"删除" forState:UIControlStateNormal];
     [_deletBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_deletBtn setBackgroundColor:[UIColor redColor]];
+    [_deletBtn setBackgroundColor:UIColorFromRGB(0xF44336)];
+    _deletBtn.layer.cornerRadius = 3;
+    _deletBtn.layer.masksToBounds = YES;
     _deletBtn.frame = CGRectMake((WIDETH - 195 * MyWideth) / 2, 9, 195 * MyWideth, 30 * MyWideth);
     [_deletBtn addTarget:self action:@selector(deletBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [_bottomView addSubview:_deletBtn];
@@ -213,9 +215,9 @@
     
     _allSelLab = [[UILabel alloc]init];
     _allSelLab.text = @"全选";
-    _allSelLab.font = [UIFont systemFontOfSize:13 * MyWideth];
+    _allSelLab.font = [UIFont systemFontOfSize:12 * MyWideth];
     CGSize allSelSize = [_allSelLab.text sizeWithFont:_allSelLab.font];
-    _allSelLab.frame = CGRectMake(CGRectGetMaxX(_kuangIcon.frame), 17.5, allSelSize.width, allSelSize.height);
+    _allSelLab.frame = CGRectMake(CGRectGetMaxX(_kuangIcon.frame), (_bottomView.frame.size.height-allSelSize.height)/2.0, allSelSize.width, allSelSize.height);
     [_bottomView addSubview:_allSelLab];
 
 }

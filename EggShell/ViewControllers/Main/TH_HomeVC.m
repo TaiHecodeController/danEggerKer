@@ -153,7 +153,8 @@
     [self.tabBarController.view addSubview:_searchView];
     
     //企业端按钮
-    [_searchView.goEnterFaceBtn addTarget:self action:@selector(gointerBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+//    [_searchView.goEnterFaceBtn addTarget:self action:@selector(gointerBtnClick) forControlEvents:UIControlEventTouchUpInside];
     _searchView.searchTextField.enabled = NO;
     [_searchView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
     

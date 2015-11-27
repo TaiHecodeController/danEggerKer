@@ -127,15 +127,13 @@ self.view.backgroundColor = color(240, 240, 237);
                 //            _mailingNumBer++;
                 [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
                 
-            }else
-            {
-                job_idStr = nil;
             }
             
         }
         if (job_idStr == nil) {
            
              [MBProgressHUD creatembHub:@"请选择要删除的职位"];
+            
         }else
         {
 
@@ -224,13 +222,11 @@ self.view.backgroundColor = color(240, 240, 237);
         {
             [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
             
-        }else{
-            job_idStr = nil;
         }
-        
     }
     if (job_idStr == nil) {
         [MBProgressHUD creatembHub:@"请选择要延期的职位"];
+        
     }else
     {
 

@@ -51,8 +51,6 @@
 		04A0CD481B7A111D00EBCF01 /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0CD471B7A111D00EBCF01 /* HeadView.m */; };
 		04A483B41B74FD1B006FDB9D /* TH_MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A483B31B74FD1B006FDB9D /* TH_MainTabBarController.m */; };
 		04A483D71B751E77006FDB9D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A483D61B751E77006FDB9D /* Utils.m */; };
-		04EC1F0F1B78F5510009292E /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC1F0D1B78F5510009292E /* SearchView.m */; };
-		04EC1F101B78F5510009292E /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EC1F0E1B78F5510009292E /* SearchView.xib */; };
 		940032931B83969B001EB666 /* FindjobView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9400328F1B83969B001EB666 /* FindjobView.m */; };
 		940032941B83969B001EB666 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032911B83969B001EB666 /* HomeView.m */; };
 		940032951B83969B001EB666 /* HomeViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940032921B83969B001EB666 /* HomeViews.xib */; };
@@ -225,6 +223,8 @@
 		94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EA991B8EB758007A699E /* Reachability.m */; };
 		94E3EAE01B918CBE007A699E /* AccountRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EADF1B918CBE007A699E /* AccountRequest.m */; };
 		94E3EAE71B954947007A699E /* findJobModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3EAE61B954947007A699E /* findJobModel.m */; };
+		94E5E5EC1C085A6800CF60A0 /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E5E5EA1C085A6800CF60A0 /* SearchView.m */; };
+		94E5E5ED1C085A6800CF60A0 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E5E5EB1C085A6800CF60A0 /* SearchView.xib */; };
 		94E761B31BA27DBF00B4C544 /* TrainReadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761B21BA27DBF00B4C544 /* TrainReadVC.m */; };
 		94E761B61BA27DEB00B4C544 /* TrainReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E761B51BA27DEB00B4C544 /* TrainReadView.m */; };
 		94E761B81BA27E0400B4C544 /* trainRead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E761B71BA27E0400B4C544 /* trainRead.xib */; };
@@ -440,9 +440,6 @@
 		04A483B31B74FD1B006FDB9D /* TH_MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_MainTabBarController.m; path = ../../../ViewControllers/TH_MainTabBarController.m; sourceTree = "<group>"; };
 		04A483D51B751E77006FDB9D /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		04A483D61B751E77006FDB9D /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		04EC1F0C1B78F5510009292E /* SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
-		04EC1F0D1B78F5510009292E /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
-		04EC1F0E1B78F5510009292E /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		37454D869BE49FA62A71A04C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C8CB3344C41F9F3DBAC076 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9400328E1B83969B001EB666 /* FindjobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindjobView.h; sourceTree = "<group>"; };
@@ -745,6 +742,9 @@
 		94E3EADF1B918CBE007A699E /* AccountRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRequest.m; sourceTree = "<group>"; };
 		94E3EAE51B954947007A699E /* findJobModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findJobModel.h; sourceTree = "<group>"; };
 		94E3EAE61B954947007A699E /* findJobModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = findJobModel.m; sourceTree = "<group>"; };
+		94E5E5E91C085A6800CF60A0 /* SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
+		94E5E5EA1C085A6800CF60A0 /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
+		94E5E5EB1C085A6800CF60A0 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		94E761B11BA27DBF00B4C544 /* TrainReadVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainReadVC.h; sourceTree = "<group>"; };
 		94E761B21BA27DBF00B4C544 /* TrainReadVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainReadVC.m; sourceTree = "<group>"; };
 		94E761B41BA27DEB00B4C544 /* TrainReadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainReadView.h; sourceTree = "<group>"; };
@@ -1370,7 +1370,7 @@
 		04A483D81B78AE00006FDB9D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				04A483DC1B78AE77006FDB9D /* Mine */,
+				94E5E5E81C085A6800CF60A0 /* Mine */,
 				04A483D91B78AE19006FDB9D /* Home */,
 			);
 			path = Views;
@@ -1381,16 +1381,6 @@
 			children = (
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		04A483DC1B78AE77006FDB9D /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-				04EC1F0C1B78F5510009292E /* SearchView.h */,
-				04EC1F0D1B78F5510009292E /* SearchView.m */,
-				04EC1F0E1B78F5510009292E /* SearchView.xib */,
-			);
-			path = Mine;
 			sourceTree = "<group>";
 		};
 		9400328D1B83969B001EB666 /* HomeViewS */ = {
@@ -2292,6 +2282,16 @@
 			path = FindJobModel;
 			sourceTree = "<group>";
 		};
+		94E5E5E81C085A6800CF60A0 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				94E5E5E91C085A6800CF60A0 /* SearchView.h */,
+				94E5E5EA1C085A6800CF60A0 /* SearchView.m */,
+				94E5E5EB1C085A6800CF60A0 /* SearchView.xib */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
 		94E761B01BA27D8E00B4C544 /* trainReading */ = {
 			isa = PBXGroup;
 			children = (
@@ -2788,7 +2788,6 @@
 				940032CB1B840CC3001EB666 /* EducationTimeCell.xib in Resources */,
 				F0BC9D391BABE29700383EE3 /* 组-4-拷贝.png in Resources */,
 				F0213AAC1BA2AC450083AA81 /* zuo1@2x.png in Resources */,
-				04EC1F101B78F5510009292E /* SearchView.xib in Resources */,
 				940033021B840FC6001EB666 /* MineView.xib in Resources */,
 				94E8F4F31B85797900088658 /* NameAndSexCell.xib in Resources */,
 				94E7DCFB1B841D510093C39B /* Course PlayCell.xib in Resources */,
@@ -2833,6 +2832,7 @@
 				94E761CE1BA2B83700B4C544 /* CertificateRead.xib in Resources */,
 				940032951B83969B001EB666 /* HomeViews.xib in Resources */,
 				04A0CD451B7A110B00EBCF01 /* HeadView.xib in Resources */,
+				94E5E5ED1C085A6800CF60A0 /* SearchView.xib in Resources */,
 				94313D351B7B46C2005D0A9A /* LoginView.xib in Resources */,
 				F0213AA71BA2AC450083AA81 /* you3@3x.png in Resources */,
 				F0D554891BF5B16300213311 /* test.pages in Resources */,
@@ -2925,6 +2925,7 @@
 				94CB5B8B1B74CC0600B23B9D /* SMPageControl.m in Sources */,
 				94EFC1C11B7D046F00833068 /* TH_featureVC.m in Sources */,
 				940032CC1B840CC3001EB666 /* TH_EducationExperienceVC.m in Sources */,
+				94E5E5EC1C085A6800CF60A0 /* SearchView.m in Sources */,
 				94E2C9D01B8AF92F001E3FDD /* professionalSkillView.m in Sources */,
 				94EDD4E81B78319A00A00A78 /* UIBarButtonItem+Extension.m in Sources */,
 				94EDD4F41B7831DA00A00A78 /* ZXImagePickerVC.m in Sources */,
@@ -2958,7 +2959,6 @@
 				048F30B71B7A4537004AA9B2 /* FMDatabase.m in Sources */,
 				F0C067831C03FD7B00D1B22B /* TableViewCell_1.m in Sources */,
 				947008C81B85FF0100DEC289 /* TH_ImagePickerVC.m in Sources */,
-				04EC1F0F1B78F5510009292E /* SearchView.m in Sources */,
 				940032C91B840CC3001EB666 /* TH_CertificateVC.m in Sources */,
 				F07F39011B993B7C002531CD /* CommonFunc.m in Sources */,
 				94CB30571BA5169700577FE6 /* IQKeyboardManager.m in Sources */,
@@ -3175,8 +3175,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Song xie (ZY7745VUT5)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3198,7 +3198,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "e6091413-2193-4bca-95a6-90c6897fb6ee";
+				PROVISIONING_PROFILE = "ed303722-9b59-4864-8025-11e90ad165a8";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3220,8 +3220,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Song xie (ZY7745VUT5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Mac Developer: Song xie (ZY7745VUT5)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3236,7 +3236,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "e6091413-2193-4bca-95a6-90c6897fb6ee";
+				PROVISIONING_PROFILE = "ed303722-9b59-4864-8025-11e90ad165a8";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3327,7 +3327,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e6091413-2193-4bca-95a6-90c6897fb6ee";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Debug;
@@ -3345,7 +3345,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e6091413-2193-4bca-95a6-90c6897fb6ee";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Release;

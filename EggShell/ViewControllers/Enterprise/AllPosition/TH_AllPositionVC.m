@@ -120,15 +120,15 @@
 //            _mailingNumBer++;
             [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
             
-        }else
-        {
-        job_idStr = nil;
+            
         }
         
     }
         NSLog(@"cj_id:%@",job_idStr);
         if (job_idStr == nil) {
             [MBProgressHUD creatembHub:@"请选择要暂停的职位"];
+            
+            
         }else
         {
         NSString * uid = [NSString stringWithFormat:@"%d",1869];
@@ -150,15 +150,13 @@
                 
                 [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
                 
-            }else
-            {
-                job_idStr = nil;
             }
             
         }
          NSLog(@"cj_id:%@",job_idStr);
         if (job_idStr == nil) {
             [MBProgressHUD creatembHub:@"请选择要刷新的职位"];
+            
         }else
         {
         NSString * uid = [NSString stringWithFormat:@"%d",1869];
@@ -179,9 +177,6 @@
             {
                 [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
                 
-            }else
-            {
-                job_idStr = nil;
             }
             
         }
@@ -189,6 +184,7 @@
         NSLog(@"cj_id:%@",job_idStr);
         if (job_idStr == nil) {
            [MBProgressHUD creatembHub:@"请选择要删除的职位"];
+            
         }else
         {
         NSString * uid = [NSString stringWithFormat:@"%d",1869];
@@ -248,7 +244,6 @@
         [cell layoutSubviews];
     }
     
-
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -314,11 +309,11 @@
         fjModel.cellselected = @"1";
         //        [_cellIndeSet addIndex:indexPath.row];
         
+        
     }
     else
     {
         sender.selected = NO;
-        
         AllPosionCell *cell = (AllPosionCell *)[sender superview];
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         AllPosionModel *fjModel = self.dataArray[indexPath.row];

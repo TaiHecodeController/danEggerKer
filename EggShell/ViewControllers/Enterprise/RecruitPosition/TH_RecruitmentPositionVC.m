@@ -119,14 +119,12 @@ for (int i = 0 ; i < titileArray.count; i++) {
                 //            _mailingNumBer++;
                 [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
                 
-            }else
-            {
-                job_idStr = nil;
             }
             
         }
         if (job_idStr == nil) {
             [MBProgressHUD creatembHub:@"请选择要刷新的职位"];
+            
         }else
         {
 
@@ -214,14 +212,11 @@ for (int i = 0 ; i < titileArray.count; i++) {
         {
             [job_idStr appendString:[NSString stringWithFormat:@"%@,",model.cj_id]];
             
-        }else
-        {
-            job_idStr = nil;
-        }
-        
+        }        
     }
     if (job_idStr == nil) {
         [MBProgressHUD creatembHub:@"请选择要延期的职位"];
+        
     }else
     {
 
