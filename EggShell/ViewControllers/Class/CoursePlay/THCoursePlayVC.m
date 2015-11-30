@@ -225,19 +225,7 @@ typedef NS_ENUM(NSInteger, GestureType){
     //监听父类的play停止动作
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popView) name:@"videoClose" object:nil];
     
-        //网络判断
-    if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
-        [MBProgressHUD creatembHub:@"当前处于无网络"];
-        
-    }else if([MMNetWorkType getNetWorkType] ==WWAN)
-    {
-        [MBProgressHUD creatembHub:@"您当前处于非wifi网络"];
-    }
-      else {
-        NSLog(@"当前是4G或wifi状态");
-        [MBProgressHUD creatembHub:@"您当前处于wifi网络"];
-    }
-    
+ 
      MBProgressHUD *mb = [MBProgressHUD mbHubShow];
     [self loadDataWithMB:mb classid:_classId];
     
@@ -262,8 +250,42 @@ typedef NS_ENUM(NSInteger, GestureType){
     [self createAvPlayer];
     
     [self createTopView];
-//    [self createBottomView];
     
+//    //网络判断
+//        if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
+////            [MBProgressHUD creatembHub:@"当前处于无网络"];
+//            MBProgressHUD* mLoadView1 = [[MBProgressHUD alloc] initWithView:_topView];
+//            [_topView addSubview:mLoadView1];
+//            mLoadView1.mode = MBProgressHUDModeCustomView;
+//            mLoadView1.labelText = @"当前处于无网络";
+//            [mLoadView1 show:YES];
+//            [mLoadView1 hide:YES afterDelay:2];
+//            mLoadView1 = nil;
+//    
+//        }else if([MMNetWorkType getNetWorkType] ==WWAN)
+//        {
+////            [MBProgressHUD creatembHub:@"您当前处于非wifi网络"];
+//            MBProgressHUD* mLoadView1 = [[MBProgressHUD alloc] initWithView:_topView];
+//            [_topView addSubview:mLoadView1];
+//            mLoadView1.mode = MBProgressHUDModeCustomView;
+//            mLoadView1.labelText = @"您当前处于非wifi网络";
+//            [mLoadView1 show:YES];
+//            [mLoadView1 hide:YES afterDelay:2];
+//            mLoadView1 = nil;
+//        }
+//          else {
+//            NSLog(@"当前是wifi状态");
+////            [MBProgressHUD creatembHub:@"您当前处于wifi网络"];
+//              MBProgressHUD* mLoadView1 = [[MBProgressHUD alloc] initWithView:_topView];
+//              [_topView addSubview:mLoadView1];
+//              mLoadView1.mode = MBProgressHUDModeCustomView;
+//              mLoadView1.labelText = @"您当前处于wifi网络";
+//              [mLoadView1 show:YES];
+//              [mLoadView1 hide:YES afterDelay:2];
+//              mLoadView1 = nil;
+//        }
+//
+//    [self createBottomView];
 //    [self createBrightnessView];
 //    [self createProgressTimeLable];
 //    [self performSelector:@selector(hidenControlBar) withObject:nil afterDelay:3];

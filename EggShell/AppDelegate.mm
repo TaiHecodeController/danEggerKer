@@ -16,11 +16,12 @@
 #import "APService.h"
 #import "TH_PlayFanVC.h"
 #import "EnterpriseDetailVC.h"
+
 @interface AppDelegate ()<BMKGeneralDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,UIAlertViewDelegate>
 {
     NSString * _trackViewUrl;
     BMKMapManager* _mapManager;
-      BMKLocationService * _locService;
+    BMKLocationService * _locService;
 }
 @end
 

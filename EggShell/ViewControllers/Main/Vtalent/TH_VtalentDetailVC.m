@@ -88,7 +88,6 @@
     NSString *htmlString = [CommonFunc textFromBase64String:detaildicStr];
    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     self.contentLable.attributedText = attributedString;
-    self.contentLable = contentLable;
     self.contentLable.backgroundColor = [UIColor whiteColor];
     self.contentLable.textColor = UIColorFromRGB(0x646464);
       self.contentLable.font = [UIFont systemFontOfSize:12];

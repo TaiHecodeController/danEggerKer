@@ -144,6 +144,7 @@
     _mbPro = [MBProgressHUD mbHubShow];
     _page = 1;
     [self querDataWithNoti:_mbPro uid:@"72" browse:1 pageIndex:_page page:pageNum];
+    
 }
 
 - (void)querDataWithNoti:(id)noti uid:(NSString *)uid browse:(int)browse pageIndex:(int)pageIndex page:(int)page

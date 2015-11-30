@@ -21,7 +21,7 @@
     mbHud.mode = MBProgressHUDModeText;
     
     [mbHud showAnimated:YES whileExecutingBlock:^{
-        sleep(1);
+        sleep(1.2);
         
     } completionBlock:^{
         [mbHud removeFromSuperview];
@@ -39,9 +39,5 @@
     [mbHud show:YES];
     return mbHud;
 }
-
-
-
-
 
 @end

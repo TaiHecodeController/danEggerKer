@@ -25,7 +25,6 @@
 @property(nonatomic,assign)int page;
 @property(nonatomic,assign)int limitNum;
 @end
-
 @implementation TH_AllPositionVC
 -(void)dealloc
 {

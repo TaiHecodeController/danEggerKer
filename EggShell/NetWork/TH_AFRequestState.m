@@ -87,6 +87,7 @@
     }
     NSDictionary *param = @{@"job_id":jobid,@"uid":userId,@"token":tokenStr};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/collect",base_Url]param:param succ:succ fail:fail resp:resp];
+    
 }
 
 /*收藏职位列表**/

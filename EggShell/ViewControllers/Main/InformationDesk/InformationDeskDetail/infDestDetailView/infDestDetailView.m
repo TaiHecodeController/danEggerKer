@@ -27,6 +27,8 @@
 }
 -(void)setValuess:(informantionModel*)model
 {
+    
+    
     self.holdLable.text = model.organizers;
     self.timelLable.text = model.endtime;
     self.contactLable.text = model.phone;

@@ -113,6 +113,7 @@
     if (!cell) {
         cell = [[SocialCircleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identerId];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (self.dataArray.count !=0) {
         NSDictionary * dic = self.dataArray[indexPath.row];
         [cell configValue:dic];

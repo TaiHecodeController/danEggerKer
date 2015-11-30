@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -62,10 +63,11 @@
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时长" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75S-0E-aZ9">
-                            <rect key="frame" x="255" y="5" width="30" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时长" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75S-0E-aZ9">
+                            <rect key="frame" x="230" y="5" width="70" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="a5w-vn-KvH"/>
+                                <constraint firstAttribute="height" constant="21" id="LxM-y1-23F"/>
+                                <constraint firstAttribute="width" constant="70" id="NgP-ew-4cA"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -74,16 +76,15 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="75S-0E-aZ9" secondAttribute="trailing" constant="35" id="6Ft-HT-Ykb"/>
                         <constraint firstItem="hUB-o7-fSf" firstAttribute="leading" secondItem="lJG-La-LDM" secondAttribute="leading" constant="15" id="7h8-LV-pix"/>
                         <constraint firstAttribute="bottom" secondItem="mcc-hA-5IB" secondAttribute="bottom" constant="9" id="7t7-Mf-M9e"/>
                         <constraint firstAttribute="height" constant="31" id="J72-8Z-Hz2"/>
-                        <constraint firstAttribute="bottom" secondItem="75S-0E-aZ9" secondAttribute="bottom" constant="5" id="Ngs-sg-vJQ"/>
                         <constraint firstItem="mcc-hA-5IB" firstAttribute="leading" secondItem="hUB-o7-fSf" secondAttribute="trailing" constant="12" id="S26-ZG-2Yh"/>
                         <constraint firstAttribute="bottom" secondItem="hUB-o7-fSf" secondAttribute="bottom" constant="9" id="Wkh-4X-PTF"/>
+                        <constraint firstAttribute="trailing" secondItem="75S-0E-aZ9" secondAttribute="trailing" constant="20" id="Wo8-dK-VQr"/>
                         <constraint firstItem="mcc-hA-5IB" firstAttribute="top" secondItem="lJG-La-LDM" secondAttribute="top" constant="10" id="Z24-45-2yp"/>
-                        <constraint firstItem="75S-0E-aZ9" firstAttribute="top" secondItem="lJG-La-LDM" secondAttribute="top" constant="5" id="d9Z-UQ-Mbg"/>
                         <constraint firstItem="hUB-o7-fSf" firstAttribute="top" secondItem="lJG-La-LDM" secondAttribute="top" constant="10" id="eik-0d-i6D"/>
+                        <constraint firstItem="75S-0E-aZ9" firstAttribute="top" secondItem="lJG-La-LDM" secondAttribute="top" constant="5" id="tra-1P-UOx"/>
                     </constraints>
                 </view>
             </subviews>
@@ -100,9 +101,4 @@
             <point key="canvasLocation" x="324" y="254"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

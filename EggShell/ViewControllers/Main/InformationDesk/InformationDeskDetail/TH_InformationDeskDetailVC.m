@@ -60,7 +60,8 @@
     [self.view addSubview:scro];
       }
 -(void)registerView
-{ infDestDetailView * detail = [[[NSBundle mainBundle] loadNibNamed:@"infDestDetailView" owner:self options:nil] lastObject];
+{
+    infDestDetailView * detail = [[[NSBundle mainBundle] loadNibNamed:@"infDestDetailView" owner:self options:nil] lastObject];
    
     detail.frame = CGRectMake(0, 0, WIDETH, 340);
     detail.RouteLable.editable = NO;
@@ -72,39 +73,54 @@
         
          self.textSize = [self.detaildic.content sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
         UILabel * contentLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
+        contentLable.backgroundColor = [UIColor whiteColor];
 //        contentLable.text =self.detaildic.content;
         NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[self.detaildic.content dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
         contentLable.attributedText = comAttributedString;
-        
-
         self.contentLable = contentLable;
         self.contentLable.numberOfLines = 0;
         self.contentLable.textColor = UIColorFromRGB(0x646464);
         self.contentLable.font = [UIFont systemFontOfSize:13];
         [self.scro addSubview:contentLable];
         
-        
-    }if (self.informodel) {
-        [detail setValuess:self.informodel];
-        
-         self.textSize = [self.informodel.body sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
-        UILabel * contentLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
-        self.contentLable = contentLable;
-        [self.scro addSubview:contentLable];
-        self.contentLable.numberOfLines = 0;
-         self.contentLable.textColor = UIColorFromRGB(0x646464);
-        self.contentLable.font = [UIFont systemFontOfSize:13];
-//        contentLable.text =self.informodel.body;
-        NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[self.informodel.body dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-        contentLable.attributedText = comAttributedString;
+       
+        //足迹内容
+//         NSString * detaildicStr = self.detaildic.content;
+//        self.textSize = [self.detaildic.content sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+//        UITextView * contentLable = [[UITextView alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
+//        contentLable.editable = NO;
+//        
+//        self.contentLable = contentLable;
+//        NSString *htmlString = [CommonFunc textFromBase64String:self.detaildic.content];
+//        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+//        self.contentLable.attributedText = attributedString;
+////        self.contentLable.backgroundColor = [UIColor whiteColor];
+//        self.contentLable.textColor = UIColorFromRGB(0x646464);
+//        self.contentLable.font = [UIFont systemFontOfSize:13];
+//        [self.scro addSubview:self.contentLable];
+  }
+    self.scro.contentSize = CGSizeMake(WIDETH, 350+self.textSize.height);
 
-        
-        
-
-    }
+//        if (self.informodel) {
+//        [detail setValuess:self.informodel];
+//        
+//         self.textSize = [self.informodel.body sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+//        UILabel * contentLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
+//        self.contentLable = contentLable;
+//        [self.scro addSubview:contentLable];
+//        self.contentLable.numberOfLines = 0;
+//         self.contentLable.textColor = UIColorFromRGB(0x646464);
+//        self.contentLable.font = [UIFont systemFontOfSize:13];
+////        contentLable.text =self.informodel.body;
+//        NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[self.informodel.body dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+//        contentLable.attributedText = comAttributedString;
+//
+//        
+//        
+//
+//    }
     
     
-  self.scro.contentSize = CGSizeMake(WIDETH, 350+self.textSize.height+30);
     
     
 }

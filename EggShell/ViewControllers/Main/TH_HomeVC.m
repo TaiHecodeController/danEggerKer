@@ -89,7 +89,6 @@
         NSLog(@"当前是wifi状态");
         [MBProgressHUD creatembHub:@"您当前处于wifi网络"];
     }
-    
     //状态栏
 //    [self setStatus];
     //ScroView
@@ -153,7 +152,7 @@
     [self.tabBarController.view addSubview:_searchView];
     
     //企业端按钮
-    
+//    _searchView.rightView.hidden = YES;
 //    [_searchView.goEnterFaceBtn addTarget:self action:@selector(gointerBtnClick) forControlEvents:UIControlEventTouchUpInside];
     _searchView.searchTextField.enabled = NO;
     [_searchView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
@@ -658,7 +657,7 @@
 - (void)configBannerView
 {
     //建立banner图
-    _bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0*MyWideth, -20, WIDETH, 180*MyHeight)];
+    _bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0*MyWideth, -20, WIDETH, 182*MyHeight)];
     _bannerView.isAutoPlay = YES;
     _bannerView.delegate = self;
     _bannerView.changeFocusImageInterval = 2;
@@ -667,7 +666,7 @@
 #pragma mark -- banner数据请求
 - (void)quereData
 {
-    NSArray * imsgeArray = @[@"lunbo2",@"lunbo3",@"lunbotu0"];
+    NSArray * imsgeArray = @[@"lunbo21",@"lunbo31",@"lunbo11"];
     
     NSArray *imageArr = [NSArray arrayWithObjects:@{@"photo":imsgeArray[0]},@{@"photo":imsgeArray[1]},@{@"photo":imsgeArray[2]}, nil];
     
