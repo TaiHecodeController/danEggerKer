@@ -441,8 +441,6 @@
 {
     [SearchModelShare sharedInstance].keyword = _keywordTextfield.text;
     
-    
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TJsearch" object:nil];
     
     [self.navigationController popViewControllerAnimated:YES];
