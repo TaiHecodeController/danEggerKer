@@ -2734,7 +2734,7 @@
 					};
 					041650491B4D7142008C78BE = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 9HU449MP5R;
+						DevelopmentTeam = B8W5YY9JPL;
 						TestTargetID = 041650301B4D7141008C78BE;
 					};
 				};
