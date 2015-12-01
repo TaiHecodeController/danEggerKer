@@ -14,7 +14,7 @@
 @property(nonatomic,strong)UIScrollView * scro;
 @property (nonatomic,strong)AFRequestState * state;
 @property (assign) CGSize textSize;
-@property(nonatomic,strong)UILabel * contentLable;
+@property(nonatomic,strong)UITextView * contentLable;
 @end
 
 @implementation TH_InformationDeskDetailVC
@@ -70,36 +70,36 @@
     [self.scro addSubview:detail];
     if (self.detaildic) {
         [detail setValues:self.detaildic];
-        
-         self.textSize = [self.detaildic.content sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
-        UILabel * contentLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
-        contentLable.backgroundColor = [UIColor whiteColor];
-//        contentLable.text =self.detaildic.content;
-        NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[self.detaildic.content dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-        contentLable.attributedText = comAttributedString;
-        self.contentLable = contentLable;
-        self.contentLable.numberOfLines = 0;
-        self.contentLable.textColor = UIColorFromRGB(0x646464);
-        self.contentLable.font = [UIFont systemFontOfSize:13];
-        [self.scro addSubview:contentLable];
-        
-       
-        //足迹内容
-//         NSString * detaildicStr = self.detaildic.content;
-//        self.textSize = [self.detaildic.content sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
-//        UITextView * contentLable = [[UITextView alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
-//        contentLable.editable = NO;
 //        
+//         self.textSize = [self.detaildic.content sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+//        UILabel * contentLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
+//        contentLable.backgroundColor = [UIColor whiteColor];
+////        contentLable.text =self.detaildic.content;
+//        NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[self.detaildic.content dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+//        contentLable.attributedText = comAttributedString;
 //        self.contentLable = contentLable;
-//        NSString *htmlString = [CommonFunc textFromBase64String:self.detaildic.content];
-//        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-//        self.contentLable.attributedText = attributedString;
-////        self.contentLable.backgroundColor = [UIColor whiteColor];
+//        self.contentLable.numberOfLines = 0;
 //        self.contentLable.textColor = UIColorFromRGB(0x646464);
 //        self.contentLable.font = [UIFont systemFontOfSize:13];
-//        [self.scro addSubview:self.contentLable];
+//        [self.scro addSubview:contentLable];
+//        
+       
+        //足迹内容
+         NSString * detaildicStr = self.detaildic.content;
+        self.textSize = [self.detaildic.content sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+        UITextView * contentLable = [[UITextView alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
+        contentLable.editable = NO;
+        
+        self.contentLable = contentLable;
+        NSString *htmlString = [CommonFunc textFromBase64String:self.detaildic.content];
+        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        self.contentLable.attributedText = attributedString;
+//        self.contentLable.backgroundColor = [UIColor whiteColor];
+        self.contentLable.textColor = UIColorFromRGB(0x646464);
+        self.contentLable.font = [UIFont systemFontOfSize:13];
+        [self.scro addSubview:self.contentLable];
   }
-    self.scro.contentSize = CGSizeMake(WIDETH, 350+self.textSize.height);
+    self.scro.contentSize = CGSizeMake(WIDETH, 350+self.contentLable.text.length+200);
 
 //        if (self.informodel) {
 //        [detail setValuess:self.informodel];
