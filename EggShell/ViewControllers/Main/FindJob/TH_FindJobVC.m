@@ -253,7 +253,7 @@
         [SearchModelShare sharedInstance].dimensionality = @"";
         
         /*数据请求**/
-        _mbPro = [MBProgressHUD mbHubShow];
+        _mbPro = [MBProgressHUD mbHubShowControllerView:self];
         [self loadData:_mbPro page:self.page];
     }
     else
@@ -269,7 +269,7 @@
         
 //        [SearchModelShare sharedInstance].job_post = @"132";
         /*数据请求**/
-        _mbPro = [MBProgressHUD mbHubShow];
+        _mbPro = [MBProgressHUD mbHubShowControllerView:self];
         [self loadData:_mbPro page:self.page];
     }
 }
@@ -722,7 +722,7 @@
 //            [self addCoverView];
 //            [self addAlertView];
             
-        } withUid:nil job_id:job_idStr resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
+        } withUid:nil job_id:job_idStr resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
     
     }
     else

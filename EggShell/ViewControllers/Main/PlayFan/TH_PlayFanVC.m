@@ -107,7 +107,7 @@
         _currentIndex = 0;
         NSLog(@"蛋粉High翻天");
         _page = 1;
-        _mbPro = [MBProgressHUD mbHubShow];
+        _mbPro = [MBProgressHUD mbHubShowControllerView:self];
         [self loadData:_mbPro page:_page pageTye:2];
         [self.tableView reloadData];
         
@@ -118,7 +118,7 @@
         _currentIndex = 1;
         NSLog(@"蛋壳儿送福利");
         _page = 1;
-        _mbPro = [MBProgressHUD mbHubShow];
+        _mbPro = [MBProgressHUD mbHubShowControllerView:self];
         [self loadData:_mbPro page:_page pageTye:1];
         [self.tableView reloadData];
         

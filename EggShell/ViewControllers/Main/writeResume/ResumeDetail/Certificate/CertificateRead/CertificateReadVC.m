@@ -49,7 +49,7 @@
        self.dataArray =[NSArray arrayWithArray:dataDic[@"data"]];
        [self createView];
        
-   } certificatesReadingParam:param] addNotifaction:[MBProgressHUD mbHubShow]];
+   } certificatesReadingParam:param] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
 }
 -(void)createView
 

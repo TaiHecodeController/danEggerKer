@@ -53,7 +53,7 @@
         self.dataArray =[NSArray arrayWithArray:dataDic[@"data"]];
         [self createView];
         
-    } trainingExperienceReadingParam:param] addNotifaction:[MBProgressHUD mbHubShow]];
+    } trainingExperienceReadingParam:param] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
 }
 -(void)createView
 {

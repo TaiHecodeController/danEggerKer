@@ -130,13 +130,13 @@
     natureLab.text = [NSString stringWithFormat:@"%@",dic[@"pr"]];
      scaleLab.text = [NSString stringWithFormat:@"%@",dic[@"gm"]];
    addressLab.text = [NSString stringWithFormat:@"%@",dic[@"address"]];
-    if (addressLab.text.length >22) {
-        addressLab.frame = CGRectMake(50, 90, WIDETH - 60, 30);
-    }else
-    {
-        addressLab.frame = CGRectMake(50, 90, WIDETH - 60, 13);
-
-    }
+//    if (addressLab.text.length >22) {
+//        addressLab.frame = CGRectMake(50, 90, WIDETH - 60, 30);
+//    }else
+//    {
+//        addressLab.frame = CGRectMake(50, 90, WIDETH - 60, 13);
+//
+//    }
     
     
     //公司简介

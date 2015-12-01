@@ -52,7 +52,7 @@
         self.dataArray =[NSArray arrayWithArray:dataDic[@"data"]];
         [self createView];
         
-    } readingSkillgParam:param] addNotifaction:[MBProgressHUD mbHubShow]];
+    } readingSkillgParam:param] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
 }
 
 -(void)createView

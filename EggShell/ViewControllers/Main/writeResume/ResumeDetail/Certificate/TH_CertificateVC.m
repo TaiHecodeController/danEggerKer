@@ -205,7 +205,7 @@ self.contentTextField.text = @"";
     {
         _model.content = self.contentTextField.text;
     }
-    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * tokenStr = [df objectForKey:@"md5_token"];
     [[WriteResumeRequest uploadCertificateWithSucc:^(NSDictionary *dataDic) {
