@@ -12,6 +12,13 @@
 
 #define EGURL @"http://195.198.1.195/index.php?m=api"
 
+@interface UploadImgResp : NSObject<Expose>
+@property (nonatomic, strong) NSString * img;
+@end
+
+@implementation UploadImgResp
+@end
+
 @interface AFRequestState()
 @property NSMutableArray * NotfifyArray;
 
@@ -83,13 +90,6 @@
 
 @end
 
-@interface UploadImgResp : NSObject<Expose>
-@property (nonatomic, strong) NSString * img;
-@end
-
-@implementation UploadImgResp
-@end
-
 @implementation AFAppRequest
 
 +(AFHTTPRequestOperationManager *)sharedManager
@@ -104,17 +104,17 @@
     return _om;
 }
 
-+(AFAppRequest*)sharedClient
-{
-    static AFAppRequest* _AFRequest = nil;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        _AFRequest=[[AFAppRequest alloc]init];
-    });
-    
-    return _AFRequest;
-}
+//+(AFAppRequest*)sharedClient
+//{
+//    static AFAppRequest* _AFRequest = nil;
+//    static dispatch_once_t onceToken;
+//    
+//    dispatch_once(&onceToken, ^{
+//        _AFRequest=[[AFAppRequest alloc]init];
+//    });
+//    
+//    return _AFRequest;
+//}
 
 +(AFRequestState *)postRequestWithUrl:(NSString *)url param:(NSDictionary *)param succ:(void (^)(id))succ
 {
@@ -146,7 +146,6 @@
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation * operation, id responseObject)
      {
 
-        
          [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
@@ -229,7 +228,8 @@
 {
     @try
     {
-        //
+        //1、首先判断请求是否成功，成功的话就会有数据返回：有数据直接解析，返回succ，没数据，直接返回fail，给一个自定义的错误码
+        //判断返回的数据是否是二进制流，如果是，就转换成JSON。
         if([responseObject isKindOfClass:[NSData class]])
         {
             responseObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -240,6 +240,7 @@
             return;
         }
         
+        //2.请求成功后，判断返回的数据是否是自己想要的。这里我们规定responseObject字典中，code=0时，数据是我们想要的，code！=0时，数据是错误的，执行fail回调函数，别忘记return，不然会继续以下方法。
         int error_code = [[responseObject objectForKey:@"code"] intValue];
         
         if( error_code != 0)
@@ -248,14 +249,14 @@
             return;
         }
         
-        //没有返回类型，直接返回字典数据
+        //3、判断是否有返回类型规定：没有返回类型，直接返回字典数据
         if(!resp)
         {
             succ(responseObject);
             return;
         }
         
-        //有返回类型，用Gson返回模型类型
+        //有返回类型，Gson返回列表模型（Gson作用是不需要写字典转模型的实现，只定义字段就可以了，利用了运行时机制）
         id data = [Gson fromObj:[responseObject objectForKey:@"data"] Cls:resp];
         
         //没有返回类型，没有返回数据，返回空
@@ -265,18 +266,17 @@
             return;
         }
         
-        //有返回类型，但没返回数据，返回fail
+        //规定了返回类型，但没返回数据，说明返回类型不是统一的格式，（例如列表是统一的）
         if( data == nil && resp != [NSNull class] )
         {
             fail(10001, nil);
             return;
         }
-        
+        //这块没明白
         if(succ == nil)
         {
             return;
         }
-        
         //返回正确数据
         succ(data);
     }
@@ -291,116 +291,5 @@
         [State setEnd];
     }
 }
-
-//对象转换＋异常捕获（防崩溃）
-+(void)handleResponseForTeacher:(id)responseObject Succ:(void (^)(id data))succ Fail:(void (^)(int errCode, NSError * err))fail Resp:(Class)resp State:(AFRequestState *)State;
-{
-    
-    @try
-    {
-        if([responseObject isKindOfClass:[NSData class]])
-        {
-            responseObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        }
-        
-        if( responseObject == nil )
-        {
-            fail(10002, nil);
-            return;
-        }
-        
-        int error_code = [[responseObject objectForKey:@"code"] intValue];
-        
-        if( error_code != 0)
-        {
-            fail(error_code, nil);
-            return;
-        }
-        
-        if(!resp)
-        {
-            succ(responseObject);
-            return;
-        }
-        
-        id data = [Gson fromObj:[responseObject objectForKey:@"teacher"] Cls:resp];
-        
-        if(data == nil && resp == [NSNull class])
-        {
-            succ(nil);
-            return;
-        }
-        
-        if( data == nil && resp != [NSNull class] )
-        {
-            fail(10001, nil);
-            return;
-        }
-        if(succ == nil)
-        {
-            return;
-        }
-        succ(data);
-    }
-    @catch(GsonException * excep){
-        fail(10000, nil);
-    }
-    @catch(NSException * excep){
-        fail(50000, nil);
-    }
-    @finally{
-        [State setEnd];
-    }
-}
-
-//+(AFRequestState *)postImageFlag:(BOOL)flag url:(NSString *)url succ:(void(^)(id img))succ WithData:(NSDictionary *)data withImg:(UIImage *)img fail:(void (^)(int errCode, NSError * err))fail
-//{
-//    
-//    
-//    AFHTTPRequestOperationManager*manager=[self sharedClient];
-//    
-////        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    
-//    
-//    AFRequestState * State = [AFRequestState new];
-//    
-//    [manager POST:url parameters:data constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
-//     
-//     {
-//         NSData * data = UIImagePNGRepresentation(img);
-//         
-//         NSString *encodedImageStr = [data base64EncodedStringWithOptions:0];
-//         
-////        NSData* xmlData = [encodedImageStr dataUsingEncoding:NSASCIIStringEncoding];
-//         
-////         NSString * dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-////
-////        NSString * baseStr = [CommonFunc base64StringFromText:dataStr];
-////         
-////       NSData * dataimage = [[NSData alloc] initWithBase64EncodedString:encodedImageStr options:NSDataBase64DecodingIgnoreUnknownCharacters];
-////
-////      [formData appendPartWithFileData:xmlData  name:@"photo" fileName:@"upload.png" mimeType:@"image/png"];
-//         
-////         for (int i =0; i<[[data objectForKey:@"feedcontent_pic"]  count]; i++) {
-//             
-////             
-////             [formData appendPartWithFileData: UIImagePNGRepresentation([[data objectForKey:@"feedcontent_pic"] objectAtIndex:i]) name:[NSString stringWithFormat: @"Filedata" ] fileName:@"upload.png" mimeType:@"image/png"];
-////         }
-//     
-//     } success:^(AFHTTPRequestOperation *operation, id responseObject)
-//     {
-//         
-//         
-//         
-//     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
-//     {
-//         fail(10010,nil);
-//         [State setEnd];
-//     }];
-//    
-//    [State start];
-//    return State;
-//}
-//
 
 @end
