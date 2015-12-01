@@ -47,7 +47,7 @@
 
     //    [_header beginRefreshing];
     /*数据请求**/
-    _mbPro = [MBProgressHUD mbHubShow];
+    _mbPro = [MBProgressHUD mbHubShowControllerView:self];
     _page = 1;
     [self loadData:_mbPro Page:_page];
     

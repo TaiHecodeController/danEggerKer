@@ -77,9 +77,13 @@
     addressLable.text  = @"地址:";
     addressLable.font = [UIFont systemFontOfSize:13];
     [self addSubview:addressLable];
-    addressLab = [[UILabel alloc] initWithFrame:CGRectMake(50, 90, WIDETH - 30, 13)];
-    addressLab.text = @"北京市朝阳区建国路112号中国惠普大厦";
-    addressLab.font = [UIFont systemFontOfSize:13];
+    addressLab = [[UILabel alloc] initWithFrame:CGRectMake(50, 90, WIDETH - 60, 15)];
+    
+    addressLab.text = @"北京市朝阳区建国路2号中国惠普大厦";
+//    addressLab.adjustsFontSizeToFitWidth = YES;
+    addressLab.contentMode = UIViewContentModeTop;
+    addressLab.font = [UIFont systemFontOfSize:12];
+    addressLab.numberOfLines = 0;
     [self addSubview:addressLab];
 
     UIView * companyView = [[UIView alloc] initWithFrame:CGRectMake(15, 121, 2, 13)];
@@ -125,7 +129,15 @@
     industryLab.text = [NSString stringWithFormat:@"%@",dic[@"hy"]];
     natureLab.text = [NSString stringWithFormat:@"%@",dic[@"pr"]];
      scaleLab.text = [NSString stringWithFormat:@"%@",dic[@"gm"]];
-    addressLab.text = [NSString stringWithFormat:@"%@",dic[@"address"]];
+   addressLab.text = [NSString stringWithFormat:@"%@",dic[@"address"]];
+    if (addressLab.text.length >22) {
+        addressLab.frame = CGRectMake(50, 90, WIDETH - 60, 30);
+    }else
+    {
+        addressLab.frame = CGRectMake(50, 90, WIDETH - 60, 13);
+
+    }
+    
     
     //公司简介
 //    NSString *comHtmlString = [CommonFunc textFromBase64String:dic[@"content"]];

@@ -27,6 +27,20 @@
         [mbHud removeFromSuperview];
     }];
 }
++(void)creatembHub:(NSString *)message ControllerView:(UIViewController*)controllerView
+{
+    MBProgressHUD * mbHud = [[MBProgressHUD alloc] initWithView:controllerView.view];
+    [controllerView.view addSubview:mbHud];
+    mbHud.labelText = message;
+    mbHud.mode = MBProgressHUDModeText;
+     mbHud.dimBackground = NO;
+    [mbHud showAnimated:YES whileExecutingBlock:^{
+        sleep(1.2);
+        
+    } completionBlock:^{
+        [mbHud removeFromSuperview];
+    }];
+}
 
 +(MBProgressHUD *)mbHubShow
 {
@@ -35,9 +49,17 @@
     MBProgressHUD * mbHud = [[MBProgressHUD alloc]initWithWindow:window];
     mbHud.labelText = @"正在加载";
     [window addSubview:mbHud];
-    mbHud.dimBackground = YES;
+    mbHud.dimBackground = NO;
     [mbHud show:YES];
     return mbHud;
 }
-
++(MBProgressHUD *)mbHubShowControllerView:(UIViewController*)controllerView
+{
+    MBProgressHUD * mbHud = [[MBProgressHUD alloc]initWithView:controllerView.view];
+    mbHud.labelText = @"正在加载";
+    [controllerView.view addSubview:mbHud];
+    mbHud.dimBackground = NO;
+    [mbHud show:YES];
+    return mbHud;
+}
 @end

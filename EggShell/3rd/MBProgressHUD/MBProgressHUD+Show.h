@@ -11,6 +11,9 @@
 @interface MBProgressHUD (Show)
 @property (strong,nonatomic)MBProgressHUD * mbHud2;
 +(void)creatembHub:(NSString *)message;
++(void)creatembHub:(NSString *)message ControllerView:(UIViewController*)controllerView;
+
 +(MBProgressHUD *)mbHubShow;
++(MBProgressHUD *)mbHubShowControllerView:(UIViewController*)controllerView;
 
 @end
