@@ -175,7 +175,6 @@
 }
 -(void)gointerBtnClick
 {
-
     self.navigationController.navigationBarHidden = NO;
     EnterpriseDetailVC * enter = [[EnterpriseDetailVC alloc] init];
     [self.navigationController pushViewController:enter animated:YES];

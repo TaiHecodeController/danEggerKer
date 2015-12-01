@@ -27,6 +27,7 @@
     NSNumber * typeNum =[NSNumber numberWithBool:type];
     NSNumber  * classID = [NSNumber numberWithInt:classId];
     NSDictionary * param = @{@"type":typeNum,@"id":classID};
+    
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/details",base_Url] param:param succ:succ];
 }
 

@@ -20,6 +20,7 @@
 #import "TH_LoginVC.h"
 #import "TH_FindJobVC.h"
 #import "findJobModel.h"
+
 @interface TH_JobDetailVC ()<UITableViewDataSource,UITableViewDelegate,companyProfileViewDelegate,MJRefreshBaseViewDelegate>
 {
     //纪录展开之前的frame
@@ -440,9 +441,13 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
     {
         _jobDescription.workNature.text = @"全职";
     }
-    else
+    else if ([model.type isEqualToString:@"56"])
     {
         _jobDescription.workNature.text = @"兼职";
+    }
+    else
+    {
+        _jobDescription.workNature.text = @"实习";
     }
     
     _jobDescription.workPlace.text = model.address;

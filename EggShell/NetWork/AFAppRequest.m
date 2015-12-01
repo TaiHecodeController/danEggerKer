@@ -229,11 +229,11 @@
 {
     @try
     {
+        //
         if([responseObject isKindOfClass:[NSData class]])
         {
             responseObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         }
-        
         if( responseObject == nil )
         {
             fail(10002, nil);
