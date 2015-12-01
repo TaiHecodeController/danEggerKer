@@ -82,7 +82,7 @@
 //加载之前保存到服务器上的数据
 -(void)loadOriginalData
 {
-    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
     [[WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
         self.editDic = DataDic[@"data"];
         
@@ -336,7 +336,8 @@
             
             if([cell.contentTextField.text isEqualToString:@""])
             {
-                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
+//                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
+                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text] ControllerView:self];
                 return;
             }else
             {
@@ -354,12 +355,14 @@
             
             if(proviceId == 0)
             {
-                [MBProgressHUD creatembHub:@"请填写省份"];
+//                [MBProgressHUD creatembHub:@"请填写省份"];
+                [MBProgressHUD creatembHub:@"请填写省份" ControllerView:self];
                 return;
             }
             if (cityId == 0)
             {
-                [MBProgressHUD creatembHub:@"请填写城市"];
+//                [MBProgressHUD creatembHub:@"请填写城市"];
+                [MBProgressHUD creatembHub:@"请填写城市" ControllerView:self];
                 return;
             }
 //            if(threecityId == 0)
@@ -379,7 +382,8 @@
             NameAndSexCell * cell = self.jobCellArray2[i];
             if([cell.contentTextField.text isEqualToString:@""])
             {
-                [MBProgressHUD creatembHub:@"请填写您的姓名"];
+//                [MBProgressHUD creatembHub:@"请填写您的姓名"];
+                [MBProgressHUD creatembHub:@"请填写您的姓名" ControllerView:self];
                 return;
             }else
             {
@@ -400,7 +404,8 @@
             WriteResumeCell * cell = self.jobCellArray2[i];
             if([cell.contentTextField.text isEqualToString:@""])
             {
-                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
+//                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
+                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text] ControllerView:self];
                 return;
             }else
             {
@@ -408,7 +413,8 @@
                 {
                     if(![Utils checkTel:cell.contentTextField.text])
                     {
-                        [MBProgressHUD creatembHub:@"请输入正确的手机号"];
+//                        [MBProgressHUD creatembHub:@"请输入正确的手机号"];
+                        [MBProgressHUD creatembHub:@"请输入正确的手机号" ControllerView:self];
                         return;
                     }
                 }
@@ -417,7 +423,8 @@
                 {
                     if(![Utils validateEmail:cell.contentTextField.text])
                     {
-                        [MBProgressHUD creatembHub:@"邮箱格式不正确"];
+//                        [MBProgressHUD creatembHub:@"邮箱格式不正确"];
+                        [MBProgressHUD creatembHub:@"邮箱格式不正确" ControllerView:self];
                         return;
                     }
                 }

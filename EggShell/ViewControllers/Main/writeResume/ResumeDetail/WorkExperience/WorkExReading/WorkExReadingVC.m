@@ -49,11 +49,11 @@
     NSString * tokenStr = [df objectForKey:@"md5_token"];
     NSString * userUid = [df objectForKey:@"uid"];
     NSDictionary * param = @{@"eid":[AppDelegate instance].resumeId, @"uid":userUid ,@"token":tokenStr};
-    [WriteResumeRequest resumeWritingPreviewWithSucc:^(NSDictionary *dataDic) {
+    [[WriteResumeRequest resumeWritingPreviewWithSucc:^(NSDictionary *dataDic) {
         self.dataArray = [NSArray arrayWithArray:dataDic[@"data"]];
         [self createView];
         
-    } resumeWritingPreviewParam:param];
+    } resumeWritingPreviewParam:param] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
 }
 
 -(void)createView

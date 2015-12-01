@@ -220,7 +220,7 @@
         [MBProgressHUD creatembHub:@"请输入至少15个字符"];
         return;
     }
-    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * tokenStr = [df objectForKey:@"md5_token"];
     [[WriteResumeRequest uploadProjectExperienceWithSucc:^(NSDictionary *dataDic) {

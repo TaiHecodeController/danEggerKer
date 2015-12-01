@@ -226,7 +226,7 @@
     }
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * tokenStr = [df objectForKey:@"md5_token"];
-    MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+    MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
     [[WriteResumeRequest uploadEducationWithSucc:^(NSDictionary *dataDic) {
         EducationReadVC * eduCation =[[EducationReadVC alloc] init];
         eduCation.model = _model;

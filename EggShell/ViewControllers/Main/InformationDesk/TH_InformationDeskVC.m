@@ -62,7 +62,7 @@
     //社交圈
     [self createSocialCircleTableView];
     
-    [self loadData:self.limitNum page:self.page notif:[MBProgressHUD mbHubShow]];
+    [self loadData:self.limitNum page:self.page notif:[MBProgressHUD mbHubShowControllerView:self]];
 }
 -(void)loadData:(int)limitNum page:(int)page notif:(id)notif
 {

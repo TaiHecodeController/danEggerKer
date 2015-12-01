@@ -30,7 +30,7 @@
     
      self.dataDic = arr[@"data"];
      [self createEggerElite];
-} withd:nil]addNotifaction:[MBProgressHUD mbHubShow] ];
+} withd:nil]addNotifaction:[MBProgressHUD mbHubShowControllerView:self] ];
     
 
 }

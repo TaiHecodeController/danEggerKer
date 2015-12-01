@@ -82,7 +82,7 @@
     
     self.page = 1;
     /*数据请求**/
-    _mbPro = [MBProgressHUD mbHubShow];
+    _mbPro = [MBProgressHUD mbHubShowControllerView:self];
     [self loadData:_mbPro page:1];
     
     
@@ -165,21 +165,21 @@
     if([AppDelegate instance].userId)
     {
       self.state=  [[TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
-            
-            [MBProgressHUD creatembHub:@"申请成功"];
+          
+          [MBProgressHUD creatembHub:@"申请成功" ControllerView:self];
             
         } withfail:^(int errCode, NSError *err) {
             
             if (errCode == 1)
             {
-                [MBProgressHUD creatembHub:@"请先使用简历"];
+                [MBProgressHUD creatembHub:@"请先使用简历" ControllerView:self];
             }
             if (errCode == 2)
             {
-               [MBProgressHUD creatembHub:@"您已申请过了,一周内不得重复申请"];
+                [MBProgressHUD creatembHub:@"您已申请过了,一周内不得重复申请" ControllerView:self];
             }
             
-        } withUid:nil job_id:_model.cj_id resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
+        } withUid:nil job_id:_model.cj_id resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
         
     }
     else
@@ -477,27 +477,27 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
             self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
                 
                 NSLog(@"%@",DataArr);
-                [MBProgressHUD creatembHub:@"收藏成功"];
+            [MBProgressHUD creatembHub:@"收藏成功" ControllerView:self];
                 
             } withFail:^(int errCode, NSError *err) {
                 
                 NSLog(@"%@",err);
                 
-            } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
+            } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
         }
         else if(sender.selected == NO)
         {
             self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
                 
                 NSLog(@"%@",DataArr);
-                [MBProgressHUD creatembHub:@"取消收藏"];
+                [MBProgressHUD creatembHub:@"取消收藏" ControllerView:self];
                 
             } withFail:^(int errCode, NSError *err)
                            {
                                
                                NSLog(@"%@",err);
                                
-                           } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShow]];
+                           } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
         }
 
                 

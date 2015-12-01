@@ -55,7 +55,7 @@
     [[WriteResumeRequest projectExperienceReadingWithSucc:^(NSDictionary *dataDic) {
         self.dataArray = [NSArray arrayWithArray:dataDic[@"data"]];
         [self createView];
-    } projectExperienceReadingParam:param] addNotifaction:[MBProgressHUD mbHubShow]];
+    } projectExperienceReadingParam:param] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
 }
 
 
