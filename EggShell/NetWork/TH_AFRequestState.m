@@ -172,7 +172,6 @@
 +(AFRequestState*)famousEnterprisesDetailWithSucc:(void(^)(NSDictionary * arr))succ withd:(NSDictionary*)dic
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/company_detail",base_Url] param:dic succ:succ];
-
 }
 
 /*职位搜索**/

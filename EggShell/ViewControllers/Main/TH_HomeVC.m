@@ -100,6 +100,8 @@
     [self createHomeView];
     //名企推荐
     [self loadData];
+    
+//    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
 }
 
