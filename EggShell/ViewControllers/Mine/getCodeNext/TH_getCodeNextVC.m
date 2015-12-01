@@ -123,12 +123,12 @@
     
     
     if ([self.newsPasswordTextFied .text length]<6||[self.confirmPasswordTextField.text length]<6) {
-        [MBProgressHUD creatembHub:@"密码不能少于6位"];
+        [MBProgressHUD creatembHub:@"密码不能少于6位" ControllerView:self];
         return;
     }
     if(![self.newsPasswordTextFied .text isEqualToString:self.confirmPasswordTextField.text])
     {
-    [MBProgressHUD creatembHub:@"两次密码不一致"];
+    [MBProgressHUD creatembHub:@"两次密码不一致" ControllerView:self];
         return;
     }
     else
@@ -136,14 +136,14 @@
         [[LoginAndRegisterRequest resetPasswordRequestWithPhoneNum:self.forgetPhoneNum withNewCode:self.newsPasswordTextFied.text withSucc:^(NSDictionary * dic) {
             if ([dic[@"code"] integerValue]==0) {
                 TH_LoginVC * login = [[TH_LoginVC alloc] init];
-                [MBProgressHUD creatembHub:@"重置密码成功"];
+                [MBProgressHUD creatembHub:@"重置密码成功" ControllerView:self];
                 //             self.navigationController.navigationBarHidden =  YES ;
                 //                TH_MainTabBarController * home = [[TH_MainTabBarController alloc] init];
                 //                home.modalTransitionStyle = UIModalPresentationPageSheet;
                 //                [self presentViewController:login animated:YES completion:nil];
                 [self.navigationController pushViewController:login animated:YES];
             }
-        }] addNotifaction:[MBProgressHUD mbHubShow]];
+        }] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
         
         //    [AccountRequest resetPasswordRequestWithPhoneNum:self.phoneNum withNewCode:self.newsPasswordTextFied.text  withSucc:^(NSDictionary * dic) {
         //        if ([dic[@"code"] integerValue]==0) {

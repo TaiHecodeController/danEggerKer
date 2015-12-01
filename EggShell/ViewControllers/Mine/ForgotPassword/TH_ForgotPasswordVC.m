@@ -148,7 +148,7 @@
 {
    
     if ([self.phoneTextField.text length]!=11) {
-        [MBProgressHUD creatembHub:@"电话号码不合法"];
+        [MBProgressHUD creatembHub:@"电话号码不合法" ControllerView:self];
         return;
     }
     
@@ -158,8 +158,8 @@
         self.securityCodeBtn.userInteractionEnabled = NO;
         self.securityCodeBtn.alpha = 0.5;
         self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
-    [MBProgressHUD creatembHub:@"获取验证码成功"];
-    }] addNotifaction:[MBProgressHUD mbHubShow]];
+    [MBProgressHUD creatembHub:@"获取验证码成功" ControllerView:self];
+    }] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
     }
 
 - (void)reduceTime
@@ -189,10 +189,10 @@
 //        }
 //
 //    }];
-     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+     MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
     [[LoginAndRegisterRequest forgitNextRequestWithPhoneNum:self.phoneTextField.text withSecurityCode:self.securiedTextField.text withSucc:^(NSDictionary * dic) {
         if ([dic[@"code"] integerValue]==0) {
-            [MBProgressHUD creatembHub:@"点击下一步重置密码"];
+            [MBProgressHUD creatembHub:@"点击下一步重置密码" ControllerView:self];
             TH_getCodeNextVC * getNext = [[TH_getCodeNextVC alloc] init];
             getNext.title = @"找回密码";
             getNext.forgetPhoneNum = self.phoneTextField.text;

@@ -356,11 +356,11 @@
 
       [[NSNotificationCenter defaultCenter] postNotificationName:@"loginNotice" object:self];
     if ([self.phonetextField.text length]==0) {
-        [MBProgressHUD creatembHub:@"电话号码为空"];
+        [MBProgressHUD creatembHub:@"电话号码为空" ControllerView:self];
         return;
     }else if([self.passwordTextFiled.text length]==0)
     {
-        [MBProgressHUD creatembHub:@"密码不能够为空"];
+        [MBProgressHUD creatembHub:@"密码不能够为空" ControllerView:self];
         return;
     }
     [self loginRequest];
@@ -371,10 +371,10 @@
     if (self.personOrCompany == 0)
     {
         NSLog(@"个人登录");
-        MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+        MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
         [[LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text usertype:1 withSucc:^(NSDictionary * dic) {
             if ([dic[@"code"] integerValue]==0) {
-                [MBProgressHUD creatembHub:dic[@"message"]];
+                [MBProgressHUD creatembHub:dic[@"message"] ControllerView:self];
                 NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
                 [user setObject:dic[@"data"] forKey:@"uidAndToken"];
                 [user setObject:dic[@"data"][@"telphone"] forKey:@"loginPhone"];
@@ -414,7 +414,7 @@
     else
     {
         NSLog(@"企业登录");
-        MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+        MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
         [[LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text usertype:2 withSucc:^(NSDictionary * dic) {
             
             NSLog(@"企业登录：%@",dic);

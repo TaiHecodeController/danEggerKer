@@ -27,8 +27,7 @@
         [mbHud removeFromSuperview];
     }];
 }
-+(void)creatembHub:(NSString *)message ControllerView:(UIViewController*)controllerView
-{
+ {
     MBProgressHUD * mbHud = [[MBProgressHUD alloc] initWithView:controllerView.view];
     [controllerView.view addSubview:mbHud];
     mbHud.labelText = message;

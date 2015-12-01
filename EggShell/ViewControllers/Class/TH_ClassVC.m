@@ -115,7 +115,7 @@
         
                 [weakSelf.dataArray addObjectsFromArray:[weakSelf getArray:DataDic[@"list"] length:2]];
         if (![DataDic[@"list"] count]>0) {
-            [MBProgressHUD creatembHub:@"暂无更多数据"];
+            [MBProgressHUD creatembHub:@"暂无更多数据" ControllerView:self];
         }
                 [weakSelf._gridView reloadData];
         
@@ -480,7 +480,7 @@
         
         _currentIndex = 0;
         
-        MBProgressHUD * mub = [MBProgressHUD mbHubShow];
+        MBProgressHUD * mub = [MBProgressHUD mbHubShowControllerView:self];
         [self loadData:mub page:self.page];
         
 //        [self._gridView reloadData];

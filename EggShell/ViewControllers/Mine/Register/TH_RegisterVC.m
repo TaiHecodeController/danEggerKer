@@ -188,23 +188,23 @@
 {
     
     if ([self.phoneTextField.text length]!=11) {
-        [MBProgressHUD creatembHub:@"电话号码不合法"];
+        [MBProgressHUD creatembHub:@"电话号码不合法" ControllerView:self];
         return;
     }else if([self.passwordTextField.text length] < 6)
     {
-        [MBProgressHUD creatembHub:@"密码不能少于6位"];
+        [MBProgressHUD creatembHub:@"密码不能少于6位" ControllerView:self];
         return;
     }
     [[LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
         
         NSLog(@"获取验证码");
-        [MBProgressHUD creatembHub:@"获取验证码成功"];
+        [MBProgressHUD creatembHub:@"获取验证码成功" ControllerView:self];
         [self.securityCodeBtn setTitle:[NSString stringWithFormat:@"%ld秒后重发",(long)self.count] forState:UIControlStateNormal];
         self.securityCodeBtn.userInteractionEnabled = NO;
         self.securityCodeBtn.alpha = 0.5;
         self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
         
-    } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCode:@""] addNotifaction:[MBProgressHUD mbHubShow]];
+    } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCode:@""] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
    
     
     
@@ -213,15 +213,15 @@
 -(void)registerClick
 {
     if ([self.phoneTextField.text length]==0) {
-        [MBProgressHUD creatembHub:@"电话号码为空"];
+        [MBProgressHUD creatembHub:@"电话号码为空" ControllerView:self];
         return;
     }else if([self.passwordTextField.text length]==0)
     {
-        [MBProgressHUD creatembHub:@"密码不能够为空"];
+        [MBProgressHUD creatembHub:@"密码不能够为空" ControllerView:self];
         return;
     }else if ([self.securiedTextField.text length]==0)
     {
-        [MBProgressHUD creatembHub:@"验证码不能为空"];
+        [MBProgressHUD creatembHub:@"验证码不能为空" ControllerView:self];
         return;
     }
     [self loginRequest];
@@ -243,14 +243,14 @@
 -(void)loginRequest
 {
     self.registDic =[NSMutableDictionary dictionaryWithCapacity:0];
-     MBProgressHUD * hub = [MBProgressHUD mbHubShow];
+     MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
     if ([self.phoneTextField.text length]!=0&&[self.securiedTextField.text length]!=0&&[self.passwordTextField.text length]!=0) {
         [[LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
             [self.registDic setDictionary:DataDic];
             NSString * num = [NSString stringWithFormat:@"%d",0];
             if ([self.registDic[@"code"] isEqualToString:num]) {
                 NSLog(@"%@",self.registDic);
-                [MBProgressHUD creatembHub:self.registDic[@"message"]];
+                [MBProgressHUD creatembHub:self.registDic[@"message"] ControllerView:self];
                 NSUserDefaults * userId =[NSUserDefaults standardUserDefaults];
                 [userId setObject:self.registDic[@"data"][@"telphone"] forKey:@"loginPhone"];
                 [userId synchronize];

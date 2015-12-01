@@ -226,7 +226,7 @@ typedef NS_ENUM(NSInteger, GestureType){
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popView) name:@"videoClose" object:nil];
     
  
-     MBProgressHUD *mb = [MBProgressHUD mbHubShow];
+     MBProgressHUD *mb = [MBProgressHUD mbHubShowControllerView:self];
     [self loadDataWithMB:mb classid:_classId];
     
 //    //设置返回按钮

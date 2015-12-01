@@ -141,7 +141,7 @@
         self.securityCodeBtn.userInteractionEnabled = NO;
         self.securityCodeBtn.alpha = 0.5;
         self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
-        [MBProgressHUD creatembHub:@"获取验证码成功"];
+        [MBProgressHUD creatembHub:@"获取验证码成功" ControllerView:self];
     }];
 }
 
@@ -167,14 +167,14 @@
 
     [[LoginAndRegisterRequest enterpriseForgitNextRequestWithResumeParam:param withSucc:^(NSDictionary * dic) {
         if ([dic[@"code"] integerValue]==0) {
-            [MBProgressHUD creatembHub:@"点击下一步重置密码"];
+            [MBProgressHUD creatembHub:@"点击下一步重置密码" ControllerView:self];
             TH_EnterpriseResetPasswordVC * getEnterpriseResetPasswordNext = [[TH_EnterpriseResetPasswordVC alloc] init];
             getEnterpriseResetPasswordNext.title = @"企业忘记密码";
             
             getEnterpriseResetPasswordNext.forgetPhoneMailBox = self.phoneTextField.text;
             [self.navigationController pushViewController:getEnterpriseResetPasswordNext animated:YES];
         }
-    }] addNotifaction:[MBProgressHUD mbHubShow]];
+    }] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
     
 }
 

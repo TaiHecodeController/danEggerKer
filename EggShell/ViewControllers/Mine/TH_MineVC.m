@@ -140,10 +140,10 @@
              self.mineView.FavoriteJobNum.text = [NSString stringWithFormat:@"(%d)",0];
              self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%d)",0];
             self.mineView.userLable.text = @"学习是一种信仰";
-            [MBProgressHUD creatembHub:@"用户不存在"];
+            [MBProgressHUD creatembHub:@"用户不存在" ControllerView:self];
             
         }
-           }] addNotifaction:[MBProgressHUD mbHubShow]];
+           }] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
 }
 -(void)createScro
 {
@@ -192,7 +192,7 @@
             //
             self.uidStr = [uid objectForKey:@"uid"];
             if (!self.uidStr) {
-                [MBProgressHUD creatembHub:@"请先登录才能编辑头像"];
+                [MBProgressHUD creatembHub:@"请先登录才能编辑头像" ControllerView:self];
             }else
             {
             UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选择", nil];
@@ -533,10 +533,10 @@
     
     [[LoginAndRegisterRequest uploadImage:^(NSDictionary * dic) {
         
-        [MBProgressHUD creatembHub:@"上传图片成功"];
+        [MBProgressHUD creatembHub:@"上传图片成功" ControllerView:self];
          [self.mineView setIconImage:editedImage];
         
-    } :editedImage withUid:self.uidStr] addNotifaction:[MBProgressHUD  mbHubShow]];
+    } :editedImage withUid:self.uidStr] addNotifaction:[MBProgressHUD  mbHubShowControllerView:self]];
     
     [cropperViewController dismissViewControllerAnimated:YES completion:^{
         

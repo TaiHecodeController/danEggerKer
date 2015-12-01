@@ -89,7 +89,7 @@
     [self initView];
     _jobArr = [[NSMutableArray alloc]init];
     self.page = 1;
-    MBProgressHUD *mb = [MBProgressHUD mbHubShow];
+    MBProgressHUD *mb = [MBProgressHUD mbHubShowControllerView:self];
     [self loadData:mb page:self.page];
     
 }
@@ -482,7 +482,7 @@
 //            //总投递数-投递成功数
             if (( _mailingNumBer - [DataArr intValue] ) == 0)
             {
-                [MBProgressHUD creatembHub:@"投递成功"];
+                [MBProgressHUD creatembHub:@"投递成功" ControllerView:self];
             }
             else
             {
@@ -505,11 +505,11 @@
             
             if (errCode == 1)
             {
-                [MBProgressHUD creatembHub:@"请先使用简历"];
+                [MBProgressHUD creatembHub:@"请先使用简历" ControllerView:self];
             }
             if (errCode == 2)
             {
-                [MBProgressHUD creatembHub:@"您已申请过了,一周内不得重复申请"];
+                [MBProgressHUD creatembHub:@"您已申请过了,一周内不得重复申请" ControllerView:self];
             }
 
             //投递成功的职位为0
@@ -523,7 +523,7 @@
     }
     else
     {
-        [MBProgressHUD creatembHub:@"操作频率过高"];
+        [MBProgressHUD creatembHub:@"操作频率过高" ControllerView:self];
     }
     
     sender.selected = !sender.selected;
@@ -552,7 +552,7 @@
             
             _page = 1;
             [_jobArr removeAllObjects];
-            MBProgressHUD *mb = [MBProgressHUD mbHubShow];
+            MBProgressHUD *mb = [MBProgressHUD mbHubShowControllerView:self];
             [self loadData:mb page:_page];
             [self.tableView reloadData];
             
@@ -578,7 +578,7 @@
             
             _page = 1;
             [_jobArr removeAllObjects];
-            MBProgressHUD *mb = [MBProgressHUD mbHubShow];
+            MBProgressHUD *mb = [MBProgressHUD mbHubShowControllerView:self];
             [self loadData:mb page:_page];
             [self.tableView reloadData];
             

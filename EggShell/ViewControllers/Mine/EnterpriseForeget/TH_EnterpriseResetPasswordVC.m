@@ -112,14 +112,13 @@
     
     //    NSUserDefaults * phone = [NSUserDefaults standardUserDefaults];
     
-    
     if ([self.newsPasswordTextFied .text length]<6||[self.confirmPasswordTextField.text length]<6) {
-        [MBProgressHUD creatembHub:@"密码不能少于6位"];
+        [MBProgressHUD creatembHub:@"密码不能少于6位" ControllerView:self];
         return;
     }
     if(![self.newsPasswordTextFied .text isEqualToString:self.confirmPasswordTextField.text])
     {
-        [MBProgressHUD creatembHub:@"两次密码不一致"];
+        [MBProgressHUD creatembHub:@"两次密码不一致" ControllerView:self];
         return;
     }
     else
@@ -138,7 +137,7 @@
         NSDictionary * param = @{@"mailbox":self.forgetPhoneMailBox,@"newpwd":self.newsPasswordTextFied.text};
         [[LoginAndRegisterRequest enterpriseResetPasswordRequestWithResumeParam:param withSucc:^(NSDictionary * dic ) {
             
-        }] addNotifaction:[MBProgressHUD mbHubShow]];
+        }] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
         
     }
     

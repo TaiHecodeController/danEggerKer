@@ -480,7 +480,7 @@
                 self.telphone = ((MineEditInfoCell*)self.jobCellArray[0]).contentTextField.text;
                 if([((MineEditInfoCell*)self.jobCellArray[1]).contentTextField.text length]>16)
                 {
-                    [MBProgressHUD creatembHub:@"昵称不能超过16字"];
+                    [MBProgressHUD creatembHub:@"昵称不能超过16字" ControllerView:self];
                     return;
                 }
                 {
@@ -501,7 +501,7 @@
         
                 self.address = ((MineEditInfoCell*)self.jobCellArray[3]).contentTextField.text;
                 if ([((MineEditInfoCell*)self.jobCellArray[4]).contentTextField.text length]>15) {
-                    [MBProgressHUD creatembHub:@"简介不能超过15字"];
+                    [MBProgressHUD creatembHub:@"简介不能超过15字" ControllerView:self];
                     return;
                 }else
                 {
@@ -516,7 +516,7 @@
             for (int i = 0; i < self.birthdayCellArray.count; i ++) {
                 self.birthday = ((MineEditInfoCell*)self.birthdayCellArray[0]).contentTextField.text;
                 if (![self isValidateEmail:((MineEditInfoCell*)self.birthdayCellArray[1]).contentTextField.text]) {
-                    [MBProgressHUD creatembHub:@"请输入正确的邮箱"];
+                    [MBProgressHUD creatembHub:@"请输入正确的邮箱" ControllerView:self];
                     return;
                 }else
                 {
@@ -528,7 +528,7 @@
             NSDictionary * param = @{@"token":token ,@"uid":uisStr,@"telphone":self.telphone,@"name":self.name,@"sex":sexNum,@"address":self.address,@"description":self.descriptions,@"birthday":self.birthday,@"email":self.email};
             [LoginAndRegisterRequest EditInformationWithSucc:^(NSDictionary * dic) {
                 
-                [MBProgressHUD creatembHub:@"编辑资料成功"];
+                [MBProgressHUD creatembHub:@"编辑资料成功" ControllerView:self];
                 [self.navigationController popToRootViewControllerAnimated:YES];
                 
             } withParam:param];

@@ -156,19 +156,19 @@
     NSString  *emailText  = self.emailTextFiled.text;
 
     if ([self.textView.text length] ==0) {
-       [MBProgressHUD creatembHub:@"内容不能为空"];
+       [MBProgressHUD creatembHub:@"内容不能为空" ControllerView:self];
         return;
     }else if (![qqtext length]==0)
     {
         if ([qqtext length]<=6) {
-            [MBProgressHUD creatembHub:@"qq号不合法"];
+            [MBProgressHUD creatembHub:@"qq号不合法" ControllerView:self];
             return;
         }
     }
     else if (![self.emailTextFiled.text length]==0)
     {
         if (![self  isValidateEmail:self.emailTextFiled.text]) {
-            [MBProgressHUD creatembHub:@"邮箱不正确"];
+            [MBProgressHUD creatembHub:@"邮箱不正确" ControllerView:self];
             return;
         }
        
@@ -177,10 +177,10 @@
        
        [self.dic addEntriesFromDictionary:DataDic];
        self.textView.text = DataDic[@"data"][@"opinion"];
-      [MBProgressHUD creatembHub:@"反馈成功"];
+      [MBProgressHUD creatembHub:@"反馈成功" ControllerView:self];
        
        [self.navigationController popToRootViewControllerAnimated:YES];
-   } withSource:2 withOpinion:textView withqq:qqtext withEmail:emailText ] addNotifaction:[MBProgressHUD mbHubShow]];
+   } withSource:2 withOpinion:textView withqq:qqtext withEmail:emailText ] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
 
 }
 -(BOOL)isValidateEmail:(NSString *)email {
