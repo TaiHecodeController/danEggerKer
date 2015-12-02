@@ -244,7 +244,6 @@
 {
     if (index == 0)
     {
-        
         _currentIndex = 0;
         [_jobArr removeAllObjects];
         [self.tableView reloadData];

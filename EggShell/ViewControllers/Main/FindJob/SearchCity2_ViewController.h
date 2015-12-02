@@ -8,11 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SearchCity2_VCDelegate2 <NSObject>
+
+- (void)chooseWord2_SearchCity:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id;
+@end
+
 @interface SearchCity2_ViewController : UIViewController
 
 @property(nonatomic,copy)NSString * titleText;
 @property (nonatomic, strong) NSIndexPath *cellIndex;
 @property (nonatomic, assign) NSInteger tableViewTagIndex;
+@property (nonatomic, weak) id<SearchCity2_VCDelegate2>delegete;
+
 //@property (nonatomic, weak) id<writeJLChooseVCDelegate1>delegete;
 @property(nonatomic,strong)NSArray * DataArray;
 

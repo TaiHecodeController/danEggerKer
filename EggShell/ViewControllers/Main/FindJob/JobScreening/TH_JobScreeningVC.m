@@ -13,9 +13,10 @@
 #import "WriteJLChooseVC.h"
 #import "SearchModelShare.h"
 #import "SearchCity1_ViewController.h"
+#import "SearchCity2_ViewController.h"
 #import "SearchCity3_ViewController.h"
 
-@interface TH_JobScreeningVC ()<UITableViewDataSource,UITableViewDelegate,writeJLChooseVCDelegate,SearchCity3_VCDelegate3,UITextFieldDelegate>
+@interface TH_JobScreeningVC ()<UITableViewDataSource,UITableViewDelegate,writeJLChooseVCDelegate,SearchCity3_VCDelegate3,UITextFieldDelegate,SearchCity2_VCDelegate2>
 @property(nonatomic,strong)NSArray * nameArray;
 @property(nonatomic,strong)NSArray * conrentArray;
 @property(nonatomic,strong)UITableView * tableView;
@@ -427,8 +428,15 @@
 }
 
 #pragma mark -- SearchCityDelegate
-
+//从三级分类返回数据
 - (void)chooseWord3_SearchCity:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
+{
+    JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
+    cell.contentTextFiled.text = keyWord;
+    [SearchModelShare sharedInstance].job_post = Id;
+}
+//当没有三级分类的时候，从二级分类返回数据
+- (void)chooseWord2_SearchCity:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
 {
     JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
     cell.contentTextFiled.text = keyWord;

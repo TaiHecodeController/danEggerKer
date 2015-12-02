@@ -99,7 +99,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    JobScreenDetailCell *cell = (JobScreenDetailCell *)[tableView cellForRowAtIndexPath:indexPath];
+    JobScreenDetailCell *cell = (JobScreenDetailCell *)[tableView cellForRowAtIndexPath:indexPath];
     
     SearchCity3_ViewController * _writeJLChooseVC = [[SearchCity3_ViewController alloc] init];
     //    _writeJLChooseVC.delegete = self;
@@ -126,7 +126,34 @@
         }
     }
     _writeJLChooseVC.DataArray = arr1;
-    [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+    
+    if (arr1.count > 0)
+    {
+        [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+    }
+    else
+    {
+        NSLog(@"返回这层的数据");
+        for (UIViewController *vc in self.navigationController.viewControllers)
+        {
+            if ([vc isKindOfClass:[TH_JobScreeningVC class]])
+            {
+                self.delegete = vc;
+                
+                if ([self.delegete  respondsToSelector:@selector(chooseWord2_SearchCity:cellIndex:tableViewTagIndex:withId:)])
+                {
+                    self.cellIndex = [NSIndexPath indexPathForRow:1 inSection:0];
+                    [self.delegete chooseWord2_SearchCity:cell.textLable.text  cellIndex:self.cellIndex tableViewTagIndex:self.tableViewTagIndex withId:self.DataArray[indexPath.row][@"id"]];
+                }
+                
+                [self.navigationController popToViewController:vc animated:YES];
+                
+                
+            }
+        }
+
+    }
+    
     
 }
 
