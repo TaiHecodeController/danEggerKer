@@ -413,8 +413,8 @@
                 {
                     if(![Utils checkTel:cell.contentTextField.text])
                     {
-//                        [MBProgressHUD creatembHub:@"请输入正确的手机号"];
-                        [MBProgressHUD creatembHub:@"请输入正确的手机号" ControllerView:self];
+                      [MBProgressHUD creatembHub:@"请输入正确的手机号"];
+                       
                         return;
                     }
                 }
