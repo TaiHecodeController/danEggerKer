@@ -73,7 +73,8 @@
     [SearchModelShare sharedInstance].edu = @"";
     
     [SearchModelShare sharedInstance].exp = @"";
-    
+    [SearchModelShare sharedInstance].provinceid = @"";
+
     //清空工作性质，防止从首页进来，type有值，但是筛选页面没有选type值，首页的type值就会影响筛选结果
     [SearchModelShare sharedInstance].type = @"";
     
@@ -276,14 +277,13 @@
             _writeJLChooseVC.DataArray = [NSMutableArray arrayWithCapacity:0];
             
             NSNumber *  keyid = [NSNumber numberWithInt:52];
-            NSDictionary * dic = @{@"name":@"全城",@"keyid":keyid};
+            NSNumber * province = [NSNumber numberWithInt:2];
+            NSDictionary * dic = @{@"name":@"全城",@"keyid":keyid,@"id":province};
             [_writeJLChooseVC.DataArray addObject:dic];
             for (int i = 0; i < [self.categaryDic[@"three_cityid"]count]; i++) {
                 
                 [_writeJLChooseVC.DataArray addObject:self.categaryDic[@"three_cityid"][i]];
             }
-            
-            
             
             [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
             break;
@@ -381,11 +381,24 @@
     }
     else if (cellIndex.row == 2)
     {
+        NSLog(@"%ld",(long)tableViewTagIndex);
+        
+        if ([keyWord isEqualToString:@"全城"])
+        {
+            [SearchModelShare sharedInstance].provinceid = Id;
+            
+        }else
+        {
         [SearchModelShare sharedInstance].cityid = Id;
+            
+            
+        }
     }
     else if (cellIndex.row == 3)
     {
+        
         [SearchModelShare sharedInstance].salary = Id;
+        
     }
     else if (cellIndex.row == 4)
     {

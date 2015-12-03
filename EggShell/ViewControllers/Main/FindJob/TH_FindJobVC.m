@@ -74,7 +74,7 @@
     [SearchModelShare sharedInstance].salary = @"";
     [SearchModelShare sharedInstance].edu = @"";
     [SearchModelShare sharedInstance].exp = @"";
-//    [SearchModelShare sharedInstance].type = @"";
+   [SearchModelShare sharedInstance].provinceid = @"";
 
     [SearchModelShare sharedInstance].sdate = @"";
     [SearchModelShare sharedInstance].job1 = @"";
@@ -209,6 +209,7 @@
         [SearchModelShare sharedInstance].edu = @"";
         [SearchModelShare sharedInstance].exp = @"";
         [SearchModelShare sharedInstance].type = @"";
+       [SearchModelShare sharedInstance].provinceid = @"";
     
 //        NSLog(@"_job_type%@",_job_type);
 //        if ([_job_type isEqual:@"0"])
@@ -299,7 +300,7 @@
         
     } withfail:^(int errCode, NSError *err) {
         
-    } withlongitude:[SearchModelShare sharedInstance].longitude dimensionality:[SearchModelShare sharedInstance].dimensionality keyword:[SearchModelShare sharedInstance].keyword page:numStr hy:[SearchModelShare sharedInstance].hy job_post:[SearchModelShare sharedInstance].job_post salary:[SearchModelShare sharedInstance].salary edu:[SearchModelShare sharedInstance].edu exp:[SearchModelShare sharedInstance].exp type:[SearchModelShare sharedInstance].type sdate:[SearchModelShare sharedInstance].sdate job1:[SearchModelShare sharedInstance].job1 cityid:[SearchModelShare sharedInstance].cityid resp:[findJobModel class]] addNotifaction:notify];
+    } withlongitude:[SearchModelShare sharedInstance].longitude dimensionality:[SearchModelShare sharedInstance].dimensionality keyword:[SearchModelShare sharedInstance].keyword page:numStr hy:[SearchModelShare sharedInstance].hy job_post:[SearchModelShare sharedInstance].job_post salary:[SearchModelShare sharedInstance].salary edu:[SearchModelShare sharedInstance].edu exp:[SearchModelShare sharedInstance].exp type:[SearchModelShare sharedInstance].type sdate:[SearchModelShare sharedInstance].sdate job1:[SearchModelShare sharedInstance].job1 cityid:[SearchModelShare sharedInstance].cityid provinceid:[SearchModelShare sharedInstance].provinceid  resp:[findJobModel class]] addNotifaction:notify];
 
 }
 

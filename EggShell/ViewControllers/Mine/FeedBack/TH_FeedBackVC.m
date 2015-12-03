@@ -177,7 +177,7 @@
        
        [self.dic addEntriesFromDictionary:DataDic];
        self.textView.text = DataDic[@"data"][@"opinion"];
-      [MBProgressHUD creatembHub:@"反馈成功" ControllerView:self];
+      [MBProgressHUD creatembHub:@"意见反馈成功"];
        
        [self.navigationController popToRootViewControllerAnimated:YES];
    } withSource:2 withOpinion:textView withqq:qqtext withEmail:emailText ] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
