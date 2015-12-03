@@ -134,7 +134,7 @@
 -(void)versionNew
 {
     VersionUpdateView * view =[[[NSBundle mainBundle] loadNibNamed:@"VersionUpdate" owner:self options:nil] lastObject];
-    ;
+    
     view.frame = CGRectMake(0, 0, 250, 151);
     //    [UIView animateWithDuration:0.5 animations:^{
     //        view.center = self.view.center;
@@ -560,6 +560,7 @@
             home.title = @"找工作";
             home.job_type = @"0";
             [SearchModelShare sharedInstance].type = @"55";
+            home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             break;
         }

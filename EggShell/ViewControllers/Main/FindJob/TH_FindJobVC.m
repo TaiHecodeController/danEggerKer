@@ -99,6 +99,19 @@
     [self.navigationController.navigationBar addSubview:searchBtn];
     _searchBtn = searchBtn;
     
+//    [self initView];
+    if (_rk_pushType == homePushType)
+    {
+        _bottomView.frame = CGRectMake(0, HEIGHT - bottomH -33 , WIDETH, bottomH);
+    }
+    else
+    {
+        _bottomView.frame = CGRectMake(0, HEIGHT - bottomH -33 - 40, WIDETH, bottomH);
+        //tabbar刷新页面
+        [self hySegmentedControlSelectAtIndex:0];
+    }
+
+    
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backRootController:) name:@"findJobBackClick" object:nil];
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -124,12 +137,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyWordRefresh) name:@"keyWord" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TJsearch) name:@"TJsearch" object:nil];
     
-    NSLog(@"_job_type%@",_job_type);
+//    NSLog(@"_job_type%@",_job_type);
     //全职过来
     if ([_job_type isEqual:@"0"])
     {
@@ -162,7 +174,15 @@
     
     //在此方法里请求数据
     self.page = 1;
-    [self hySegmentedControlSelectAtIndex:0];
+    if (_rk_pushType == homePushType)
+    {
+        [self hySegmentedControlSelectAtIndex:0];
+    }
+    else
+    {
+        //tabbar刷新页面
+    }
+
     
     //设置定位精确度，默认：kCLLocationAccuracyBest
     [BMKLocationService setLocationDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
@@ -346,8 +366,16 @@
     _footer = [MJRefreshFooterView footer];
     _footer.scrollView = self.tableView;
     _footer.delegate = self;
+    
     _bottomView = [[UIView alloc]init];
-    _bottomView.frame = CGRectMake(0, HEIGHT - bottomH -33, WIDETH, bottomH);
+    if (_rk_pushType == homePushType)
+    {
+        _bottomView.frame = CGRectMake(0, HEIGHT - bottomH -33 , WIDETH, bottomH);
+    }
+    else
+    {
+        _bottomView.frame = CGRectMake(0, HEIGHT - bottomH -33 - 40, WIDETH, bottomH);
+    }
     _bottomView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_bottomView];
     UIView *bottomLine = [[UIView alloc]init];

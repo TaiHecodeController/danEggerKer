@@ -63,7 +63,6 @@
         item = [items[i] initWithTitle:titleArray[i] image:[UIImage imageNamed:unSelectArray[i]] selectedImage:[UIImage imageNamed:selectArray[i]]];
         
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {
