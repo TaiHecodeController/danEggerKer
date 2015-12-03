@@ -146,6 +146,7 @@
 		949CAA141BB2540100284FFF /* EducationWriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949CAA111BB2540100284FFF /* EducationWriteCell.xib */; };
 		949CAA151BB2540100284FFF /* EducationWriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CAA121BB2540100284FFF /* EducationWriteCell.m */; };
 		94C320561B9B0CB000ACF07D /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C320551B9B0CB000ACF07D /* UIButton+Extension.m */; };
+		94C3E3501C1015200084C91C /* TH_SocialCircleQrcodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3E34F1C1015200084C91C /* TH_SocialCircleQrcodeVC.m */; };
 		94CB30561BA5169700577FE6 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94CB30411BA5169700577FE6 /* IQKeyboardManager.bundle */; };
 		94CB30571BA5169700577FE6 /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CB30431BA5169700577FE6 /* IQKeyboardManager.m */; };
 		94CB30581BA5169700577FE6 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CB30471BA5169700577FE6 /* IQNSArray+Sort.m */; };
@@ -611,6 +612,8 @@
 		949CAA131BB2540100284FFF /* EducationWriteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationWriteCell.h; sourceTree = "<group>"; };
 		94C320541B9B0CB000ACF07D /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
 		94C320551B9B0CB000ACF07D /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
+		94C3E34E1C1015200084C91C /* TH_SocialCircleQrcodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_SocialCircleQrcodeVC.h; sourceTree = "<group>"; };
+		94C3E34F1C1015200084C91C /* TH_SocialCircleQrcodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_SocialCircleQrcodeVC.m; sourceTree = "<group>"; };
 		94CB30411BA5169700577FE6 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		94CB30421BA5169700577FE6 /* IQKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManager.h; sourceTree = "<group>"; };
 		94CB30431BA5169700577FE6 /* IQKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQKeyboardManager.m; sourceTree = "<group>"; };
@@ -1739,6 +1742,8 @@
 				943F417D1B9A8749000FC299 /* informantionModel */,
 				94313DBC1B7CAAED005D0A9A /* TH_InformationDeskVC.h */,
 				94313DBD1B7CAAED005D0A9A /* TH_InformationDeskVC.m */,
+				94C3E34E1C1015200084C91C /* TH_SocialCircleQrcodeVC.h */,
+				94C3E34F1C1015200084C91C /* TH_SocialCircleQrcodeVC.m */,
 			);
 			path = InformationDesk;
 			sourceTree = "<group>";
@@ -3053,6 +3058,7 @@
 				94CB305D1BA5169700577FE6 /* IQUIView+Hierarchy.m in Sources */,
 				041650ED1B4D7C4E008C78BE /* MJRefreshConst.m in Sources */,
 				F01787A91B9592A0005FF9C4 /* companyInformationModel.m in Sources */,
+				94C3E3501C1015200084C91C /* TH_SocialCircleQrcodeVC.m in Sources */,
 				04237D901B66456F00768FAD /* LoginAndRegisterRequest.m in Sources */,
 				0454ACEC1B945F20004A70ED /* ResumeCell.m in Sources */,
 				94E761B61BA27DEB00B4C544 /* TrainReadView.m in Sources */,

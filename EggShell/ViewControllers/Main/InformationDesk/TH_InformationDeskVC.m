@@ -13,6 +13,7 @@
 #import "AFAppRequest.h"
 #import "informantionModel.h"
 #import "SocialCircleCell.h"
+#import "TH_SocialCircleQrcodeVC.h"
 @interface TH_InformationDeskVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
     MBProgressHUD * _mbPro;
@@ -141,7 +142,15 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
 
+    
+    TH_SocialCircleQrcodeVC * social = [[TH_SocialCircleQrcodeVC alloc] init];
+    social.title = self.dataArray[indexPath.row][@"name"];
+    social.qrCodeStr = self.dataArray[indexPath.row][@"photo"];
+    [self.navigationController pushViewController:social animated:YES];
+}
 
 /*
 -(void)loadData:(id)notify page:(int)num pageTye:(int)type
