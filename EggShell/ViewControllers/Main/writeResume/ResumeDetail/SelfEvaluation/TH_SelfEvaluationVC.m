@@ -124,7 +124,14 @@
 /*重置**/
 -(void)replaceBtnClick
 {
-    self.contentTextField.text = @"请填写自我评价";
+    self.contentTextField.text = @"";
+    /*显示隐藏内容**/
+    UILabel * placeHoderTextLable =[[UILabel alloc] initWithFrame:CGRectMake(10, 10, WIDETH - 121, 30)];
+    placeHoderTextLable.text = @"请填写评价内容";
+    placeHoderTextLable.textColor = color(203, 203, 203);
+    self.placeHoderTextLable = placeHoderTextLable;
+    [self.contentTextField addSubview:placeHoderTextLable];
+    self.placeHoderTextLable.font = [UIFont systemFontOfSize:13];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

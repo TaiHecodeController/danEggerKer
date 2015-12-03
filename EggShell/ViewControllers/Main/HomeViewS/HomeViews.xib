@@ -49,7 +49,7 @@
                                     </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jiaoyupeixun1" translatesAutoresizingMaskIntoConstraints="NO" id="Loc-jD-aV8">
-                                    <rect key="frame" x="38" y="19" width="20" height="25"/>
+                                    <rect key="frame" x="38" y="16" width="23" height="23"/>
                                     <animations/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="教育培训" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98M-36-CsF">
@@ -425,15 +425,15 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nA-ic-tG4" userLabel="FinancialLeftContaierView">
                             <rect key="frame" x="0.0" y="0.0" width="96" height="80"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="金融银行" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRg-ZF-Ifm">
-                                    <rect key="frame" x="26" y="42" width="54" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="互联网" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRg-ZF-Ifm">
+                                    <rect key="frame" x="23" y="42" width="54" height="21"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jinrongxinhang" translatesAutoresizingMaskIntoConstraints="NO" id="jE5-FW-eai">
-                                    <rect key="frame" x="34" y="21" width="29" height="19"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hulianwang" translatesAutoresizingMaskIntoConstraints="NO" id="jE5-FW-eai">
+                                    <rect key="frame" x="40" y="15" width="20" height="25"/>
                                     <animations/>
                                 </imageView>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="coR-xt-3fv">
@@ -498,7 +498,7 @@
                                                 <constraint firstAttribute="height" constant="39" id="KH5-oW-eyZ"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="银行柜员">
+                                            <state key="normal" title="网站策划">
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -513,7 +513,7 @@
                                                 <constraint firstAttribute="height" constant="39" id="N8k-WH-h4S"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="清算员">
+                                            <state key="normal" title="运营专员">
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -528,7 +528,7 @@
                                                 <constraint firstAttribute="height" constant="39" id="ch2-KZ-VHy"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="业务专员">
+                                            <state key="normal" title="网站编辑">
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -570,7 +570,7 @@
                                                 <constraint firstAttribute="height" constant="40" id="L4f-Bx-A5H"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="会计">
+                                            <state key="normal" title="UI设计师">
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -585,7 +585,7 @@
                                                 <constraint firstAttribute="height" constant="40" id="fyC-c1-7Fq"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="出纳员">
+                                            <state key="normal" title="美工">
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -618,7 +618,7 @@
                                                 <constraint firstAttribute="height" constant="40" id="ymA-Vb-dkv"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="资金专员">
+                                            <state key="normal" title="SEM专员">
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -691,7 +691,7 @@
                                     <animations/>
                                     <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="广告媒体" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOp-K9-aY7">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="金融银行" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOp-K9-aY7">
                                     <rect key="frame" x="23" y="43" width="51" height="21"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -708,8 +708,8 @@
                                         <action selector="AdvertisingBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="2Zd-Nz-Rey"/>
                                     </connections>
                                 </button>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="guanggaomeiti" translatesAutoresizingMaskIntoConstraints="NO" id="Juy-I0-3ae">
-                                    <rect key="frame" x="38" y="17" width="20" height="24"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jinrongxinhang" translatesAutoresizingMaskIntoConstraints="NO" id="Juy-I0-3ae">
+                                    <rect key="frame" x="30" y="18" width="31" height="21"/>
                                     <animations/>
                                 </imageView>
                             </subviews>
@@ -733,7 +733,7 @@
                                                 <constraint firstAttribute="height" constant="39" id="RTv-cl-83U"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="文案策划">
+                                            <state key="normal" title="银行柜员">
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
@@ -747,7 +747,7 @@
                                                 <constraint firstAttribute="height" constant="39" id="tkh-Fk-ZFc"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="企业策划">
+                                            <state key="normal" title="业务专员">
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -762,7 +762,7 @@
                                                 <constraint firstAttribute="height" constant="39" id="QcK-L7-M5p"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="活动策划">
+                                            <state key="normal" title="清算员">
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -830,7 +830,7 @@
                                                 <constraint firstAttribute="height" constant="40" id="yb7-9c-nJl"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="客户专员">
+                                            <state key="normal" title="资金专员">
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -845,7 +845,7 @@
                                                 <constraint firstAttribute="height" constant="40" id="tEK-ov-mKr"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="创意专员">
+                                            <state key="normal" title="会计">
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -860,7 +860,7 @@
                                                 <constraint firstAttribute="height" constant="40" id="lBp-A2-J2V"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="媒介专员">
+                                            <state key="normal" title="出纳员">
                                                 <color key="titleColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -1006,7 +1006,7 @@
         </view>
     </objects>
     <resources>
-        <image name="guanggaomeiti" width="20" height="24"/>
+        <image name="hulianwang" width="20" height="24"/>
         <image name="jiaoyupeixun1" width="24" height="23"/>
         <image name="jinrongxinhang" width="22" height="22"/>
         <image name="qiyemorentu" width="85" height="30"/>
