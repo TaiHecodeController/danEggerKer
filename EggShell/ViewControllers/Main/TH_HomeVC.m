@@ -603,6 +603,7 @@
             //            [SearchModelShare sharedInstance].keyword = @"兼职";
                         home.title = @"找兼职";
                         home.job_type = @"1";
+             home.rk_pushType = homePushType;
                         [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -615,7 +616,7 @@
                         [SearchModelShare sharedInstance].keyword = @"实习";
                         home.job_type = @"2";
                         home.title = @"找实习";
-            
+             home.rk_pushType = homePushType;
                         [self.navigationController pushViewController:home animated:YES];
                         break;
         }

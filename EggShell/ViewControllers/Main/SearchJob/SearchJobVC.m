@@ -72,6 +72,7 @@
             //从首页来的，跳到职位列表页
             TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
             vc.title = @"搜索结果";
+            vc.rk_pushType = homePushType;
             [weakSelf.navigationController pushViewController:vc animated:YES];
         }
         else
@@ -123,6 +124,7 @@
         //从首页来的，跳到职位列表页
         TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
         vc.title  = @"搜索结果";
+        vc.rk_pushType = homePushType;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else
@@ -197,6 +199,7 @@
     {
         //从首页来的，跳到职位列表页
         TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
+        vc.rk_pushType = homePushType;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else
