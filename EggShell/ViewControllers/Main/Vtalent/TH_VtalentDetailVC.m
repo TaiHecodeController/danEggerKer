@@ -41,7 +41,7 @@
     [titileBgView addSubview:eliteLable];
     //头像
     UIImageView * logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10*MyWideth+10*MyWideth+15*MyWideth, 135*MyWideth, 76*MyWideth)];
-    [logoImageView sd_setImageWithURL:[NSURL URLWithString:self.dataDic[@"studentsphoto"]] placeholderImage:[UIImage imageNamed:@"dashi"]];
+    [logoImageView sd_setImageWithURL:[NSURL URLWithString:self.dataDic[@"studentsphoto"]] placeholderImage:[UIImage imageNamed:@"tu"]];
     [titileBgView addSubview:logoImageView];
     //大使姓名
     UILabel * lableNameLable = [[UILabel alloc] initWithFrame:CGRectMake(10+135*MyWideth+10, 41*MyWideth, 150, 15*MyWideth)];

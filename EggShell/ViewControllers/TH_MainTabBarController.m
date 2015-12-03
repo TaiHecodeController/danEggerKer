@@ -12,6 +12,8 @@
 #import "TH_MineVC.h"
 #import "TH_HomeVC.h"
 #import "TH_PlayFanVC.h"
+#import "TH_FindJobVC.h"
+#import "SearchModelShare.h"
 @interface TH_MainTabBarController ()
 @end
 
@@ -33,8 +35,11 @@
     TH_PlayFanVC * acti_vc = [[TH_PlayFanVC alloc] init];
     THCustomNavigationController * nc2 = [[THCustomNavigationController alloc] initWithRootViewController:acti_vc];
     
-    TH_ClassVC * class_vc = [[TH_ClassVC alloc] init];
-    THCustomNavigationController * nc3 = [[THCustomNavigationController alloc] initWithRootViewController:class_vc];
+    TH_FindJobVC * find_vc = [[TH_FindJobVC alloc] init];
+     find_vc.title = @"找工作";
+     find_vc.job_type = @"0";
+    [SearchModelShare sharedInstance].type = @"55";
+    THCustomNavigationController * nc3 = [[THCustomNavigationController alloc] initWithRootViewController:find_vc];
     
     TH_MineVC * mine_vc = [[TH_MineVC alloc] init];
     THCustomNavigationController * nc4 = [[THCustomNavigationController alloc] initWithRootViewController:mine_vc];
@@ -47,7 +52,7 @@
 {
     self.tabBar.backgroundImage = [UIImage imageNamed:@"矩形-8-拷贝-3"];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0xF44336)} forState:UIControlStateSelected];
-    NSArray * titleArray = @[@"首页",@"玩出范",@"公开课",@"我的"];
+    NSArray * titleArray = @[@"首页",@"玩出范",@"找工作",@"我的"];
     NSArray * unSelectArray = @[@"home1", @"playFan1", @"gongkaiketab1",@"mine1"];
     NSArray * selectArray = @[@"home11",@"playFan11",@"gongkaiketab11",@"mine11"];
     

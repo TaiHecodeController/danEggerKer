@@ -63,7 +63,7 @@
         //精英头像
         UIImageView * eliteImageVeiw = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, eliteBgVieW.frame.size.width, 63*MyWideth)];
 //         eliteImageVeiw.image =[UIImage imageNamed:@"dashi"];
-        [eliteImageVeiw sd_setImageWithURL:[NSURL URLWithString:self.elitearray[i][@"studentsphoto"]] placeholderImage:[UIImage imageNamed:@"dashi"]];
+        [eliteImageVeiw sd_setImageWithURL:[NSURL URLWithString:self.elitearray[i][@"studentsphoto"]] placeholderImage:[UIImage imageNamed:@"tu"]];
         [eliteBgVieW addSubview:eliteImageVeiw];
         //精英姓名
         UILabel * eliteNameLable = [[UILabel alloc] initWithFrame:CGRectMake(0, eliteImageVeiw.frame.size.height +10*MyWideth, (WIDETH - 40)/3.0, 14*MyWideth)];
@@ -105,7 +105,7 @@
         //大使头像
         UIImageView * ambassadorImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ambassadorView.frame.size.width, 96*MyWideth)];
 //        ambassadorImageView.image =[UIImage imageNamed:@"dashi"];
-        [ambassadorImageView sd_setImageWithURL:[NSURL URLWithString:self.ambassadorArray[i][@"studentsphoto"]] placeholderImage:[UIImage imageNamed:@"dashi"]];
+        [ambassadorImageView sd_setImageWithURL:[NSURL URLWithString:self.ambassadorArray[i][@"studentsphoto"]] placeholderImage:[UIImage imageNamed:@"tu"]];
         [ambassadorView addSubview:ambassadorImageView];
         //大使姓名
         UILabel * ambassadorNameLable = [[UILabel alloc] initWithFrame:CGRectMake(0, ambassadorImageView.frame.size.height+10*MyWideth, (WIDETH-35)/2.0, 14*MyWideth)];

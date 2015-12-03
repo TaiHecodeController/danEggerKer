@@ -273,8 +273,6 @@
         [self loadData:_mbPro page:self.page];
     }
 }
-
-
 -(void)loadData:(id)notify page:(int)num
 {
     if(_state.running)

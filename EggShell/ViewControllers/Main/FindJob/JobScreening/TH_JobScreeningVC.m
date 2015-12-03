@@ -276,8 +276,9 @@
             
             _writeJLChooseVC.DataArray = [NSMutableArray arrayWithCapacity:0];
             
-            NSNumber *  keyid = [NSNumber numberWithInt:52];
-            NSNumber * province = [NSNumber numberWithInt:2];
+            NSString *  keyid = [[NSNumber numberWithInt:52] stringValue];
+            NSString * province = [[NSNumber numberWithInt:2] stringValue];
+            
             NSDictionary * dic = @{@"name":@"全城",@"keyid":keyid,@"id":province};
             [_writeJLChooseVC.DataArray addObject:dic];
             for (int i = 0; i < [self.categaryDic[@"three_cityid"]count]; i++) {
@@ -385,7 +386,7 @@
         
         if ([keyWord isEqualToString:@"全城"])
         {
-            [SearchModelShare sharedInstance].provinceid = Id;
+        [SearchModelShare sharedInstance].provinceid = Id;
             
         }else
         {
