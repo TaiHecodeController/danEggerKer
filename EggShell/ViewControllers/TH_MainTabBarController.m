@@ -53,8 +53,8 @@
     self.tabBar.backgroundImage = [UIImage imageNamed:@"矩形-8-拷贝-3"];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0xF44336)} forState:UIControlStateSelected];
     NSArray * titleArray = @[@"首页",@"玩出范",@"找工作",@"我的"];
-    NSArray * unSelectArray = @[@"home1", @"playFan1", @"gongkaiketab1",@"mine1"];
-    NSArray * selectArray = @[@"home11",@"playFan11",@"gongkaiketab11",@"mine11"];
+    NSArray * unSelectArray = @[@"home1", @"playFan1", @"zhaogongzuobottom11",@"mine1"];
+    NSArray * selectArray = @[@"home11",@"playFan11",@"zhaogongzuobottom1111",@"mine11"];
     
     NSArray * items = self.tabBar.items;
     for(int i = 0;i < items.count;i++)

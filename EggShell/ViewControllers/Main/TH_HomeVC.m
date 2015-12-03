@@ -552,9 +552,42 @@
 -(void)findViewFindJob:(FindjobView *)homeView DidClickButton:(THHomeViewButtonType)button
 {
     self.navigationController.navigationBarHidden = NO;
-    TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
     switch (button) {
         case THHomeViewButtonTypeFindJob:
+        {
+
+            NSLog(@"社交圈");
+            TH_InformationDeskVC * information = [[TH_InformationDeskVC alloc] init];
+            information.title = @"社交圈";
+            [self.navigationController pushViewController:information animated:YES];
+            break;
+        }
+        case THHomeViewButtonTypeFindPartTime:
+        {
+            NSLog(@"玩出范");
+            TH_PlayFanVC * play =[[ TH_PlayFanVC alloc] init];
+            play.title = @"玩出范";
+            [self.navigationController pushViewController:play animated:YES];
+
+            break;
+        }
+        case THHomeViewButtonTypeInternshipSearch:
+        {
+            NSLog(@"V达人");
+            
+            TH_VtalentVC * talent = [[TH_VtalentVC alloc] init];
+            [self.navigationController pushViewController:talent animated:YES];
+            break;
+        }
+        case THHomeViewButtonTypeInformationDesk:
+        {
+            NSLog(@"去学习");
+            TH_ClassVC * class =  [[TH_ClassVC alloc] init];
+            [self.navigationController pushViewController:class animated:YES];
+
+            break;
+        }
+        case THHomeViewButtonTypeResumeWriting:
         {
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"找工作";
@@ -564,77 +597,43 @@
             [self.navigationController pushViewController:home animated:YES];
             break;
         }
-        case THHomeViewButtonTypeFindPartTime:
-        {
-            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-//            [SearchModelShare sharedInstance].keyword = @"兼职";
-            home.title = @"找兼职";
-            home.job_type = @"1";
-            [self.navigationController pushViewController:home animated:YES];
-            break;
-        }
-        case THHomeViewButtonTypeInternshipSearch:
-        {
-            NSLog(@"找实习");
-            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            [SearchModelShare sharedInstance].keyword = @"实习";
-            home.job_type = @"2";
-            home.title = @"找实习";
-            
-            [self.navigationController pushViewController:home animated:YES];
-            break;
-        }
-        case THHomeViewButtonTypeInformationDesk:
-        {
-            NSLog(@"信息台");
-            TH_InformationDeskVC * information = [[TH_InformationDeskVC alloc] init];
-            information.title = @"社交圈";
-            [self.navigationController pushViewController:information animated:YES];
-            break;
-        }
-        case THHomeViewButtonTypeResumeWriting:
-        {
-            NSLog(@"写简历");
-            [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
-            if([AppDelegate instance].userId)
-            {
-                ManagerResumeVC * manaVC = [[ManagerResumeVC alloc] init];
-                [self.navigationController pushViewController:manaVC animated:YES];
-            }else
-            {
-                self.navigationController.navigationBarHidden = YES;
-                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
-                [alertView show];
-            }
-            
-            break;
-        }
         case THHomeViewButtonTypePlayFan:
         {
-            NSLog(@"玩出范");
-            TH_PlayFanVC * play =[[ TH_PlayFanVC alloc] init];
-            play.title = @"玩出范";
-            [self.navigationController pushViewController:play animated:YES];
+                        TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            //            [SearchModelShare sharedInstance].keyword = @"兼职";
+                        home.title = @"找兼职";
+                        home.job_type = @"1";
+                        [self.navigationController pushViewController:home animated:YES];
+            
             break;
         }
         case THHomeViewButtonTypeMicroSocial:
         {
-            NSLog(@"微社交");
             
-            //            CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
-            //            [self.navigationController pushViewController:detail animated:YES];
-//            self.navigationController.navigationBarHidden = YES;
-//            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"正在建设中,敬请期待" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
-//            [alertView show];
+            NSLog(@"找实习");
+                        TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+                        [SearchModelShare sharedInstance].keyword = @"实习";
+                        home.job_type = @"2";
+                        home.title = @"找实习";
             
-            TH_VtalentVC * talent = [[TH_VtalentVC alloc] init];
-            [self.navigationController pushViewController:talent animated:YES];
-            break;
+                        [self.navigationController pushViewController:home animated:YES];
+                        break;
         }
         case THHomeViewButtonTypeOpenClass:
-        {NSLog(@"公开课");
-            TH_ClassVC * class =  [[TH_ClassVC alloc] init];
-            [self.navigationController pushViewController:class animated:YES];
+        {
+           
+                        NSLog(@"写简历");
+                        [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+                        if([AppDelegate instance].userId)
+                        {
+                            ManagerResumeVC * manaVC = [[ManagerResumeVC alloc] init];
+                            [self.navigationController pushViewController:manaVC animated:YES];
+                        }else
+                        {
+                            self.navigationController.navigationBarHidden = YES;
+                            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
+                            [alertView show];
+                        }
             
             break;
         }

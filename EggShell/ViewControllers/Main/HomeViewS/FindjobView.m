@@ -189,59 +189,59 @@
         openClassLableWideth = 45;
         openClassLableHeight = 12;
 
-    //找工作
+    //社交圈
     UIButton * findjobBtn = [[UIButton alloc] initWithFrame:CGRectMake(findjobBtnX*MyWideth, findjobBtnY*MyHeight, findjobBtnWideth*MyWideth , findjobBtnHeight*MyWideth)];
     findjobBtn.tag = THHomeViewButtonTypeFindJob;
-    [findjobBtn setImage:[UIImage imageNamed:@"job"] forState:UIControlStateNormal];
+    [findjobBtn setImage:[UIImage imageNamed:@"weishejiao21"] forState:UIControlStateNormal];
     self.findjobBtn = findjobBtn;
     [findjobBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:findjobBtn];
     UILabel * findjobLable =[[UILabel alloc] initWithFrame:CGRectMake(findjobLableX*MyWideth, findjobLableY*MyHeight, findjobLableWideth*MyWideth, findjobLableHeight)];
-    findjobLable.text = @"找工作";
+    findjobLable.text = @"社交圈";
     findjobLable.font = [UIFont systemFontOfSize:12];
     findjobLable.textColor = UIColorFromRGB(0x646464);
     findjobLable.textAlignment = NSTextAlignmentCenter;
     self.findjobLable = findjobLable;
     [self addSubview:findjobLable];
-    //找兼职
+    //玩出范
     UIButton * FindPartTimeBtn = [[UIButton alloc] initWithFrame:CGRectMake(FindPartTimeBtnX*MyWideth, FindPartTimeBtnY*MyHeight, FindPartTimeBtnWideth*MyWideth, FindPartTimeBtnHeight*MyWideth)];
     FindPartTimeBtn.tag = THHomeViewButtonTypeFindPartTime;
-    [FindPartTimeBtn setImage:[UIImage imageNamed:@"jianzhi"] forState:UIControlStateNormal];
+    [FindPartTimeBtn setImage:[UIImage imageNamed:@"wanchufan21"] forState:UIControlStateNormal];
     self.FindPartTimeBtn = FindPartTimeBtn;
     [FindPartTimeBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:FindPartTimeBtn];
     UILabel * FindPartTimeLable = [[UILabel alloc] initWithFrame:CGRectMake(FindPartTimeLableX*MyWideth, FindPartTimeLableY*MyHeight, FindPartTimeLableWideth*MyWideth, FindPartTimeLableHeight)];
-    FindPartTimeLable.text = @"求兼职";
+    FindPartTimeLable.text = @"玩出范";
     FindPartTimeLable.textColor = UIColorFromRGB(0x646464);
     FindPartTimeLable.font = [UIFont systemFontOfSize:12];
     FindPartTimeLable.textAlignment = NSTextAlignmentCenter;
     self.FindPartTimeLable = FindPartTimeLable;
     [self addSubview:FindPartTimeLable];
-    //找实习
+//    V达人
     UIButton * InternshipSearchBtn =[[UIButton alloc] initWithFrame:CGRectMake(InternshipSearchBtnX*MyWideth, InternshipSearchBtnY*MyHeight, InformationDeskBtnWideth *MyWideth, InformationDeskBtnHeight*MyWideth)];
-    [InternshipSearchBtn setImage:[UIImage imageNamed:@"shixi"] forState:UIControlStateNormal];
+    [InternshipSearchBtn setImage:[UIImage imageNamed:@"Vdaren21"] forState:UIControlStateNormal];
     InternshipSearchBtn.tag = THHomeViewButtonTypeInternshipSearch;
     self.InternshipSearchBtn = InternshipSearchBtn;
     [InternshipSearchBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:InternshipSearchBtn];
     
     UILabel * InternshipSearchLable = [[UILabel alloc] initWithFrame:CGRectMake(InternshipSearchLableX*MyWideth, InternshipSearchLableY*MyHeight, InternshipSearchLableWideth*MyWideth, InternshipSearchLableHeight)];
-    InternshipSearchLable.text = @"实习生";
+    InternshipSearchLable.text = @"V达人";
     InternshipSearchLable.textColor = UIColorFromRGB(0x646464);
     InternshipSearchLable.font = [UIFont systemFontOfSize:12];
     InternshipSearchLable.textAlignment = NSTextAlignmentCenter;
     self.InternshipSearchLable = InternshipSearchLable;
     
     [self addSubview:InternshipSearchLable];
-    //信息台
+    // 去学习
     UIButton * InformationDeskBtn = [[UIButton alloc] initWithFrame:CGRectMake(InformationDeskBtnX*MyWideth, InformationDeskBtnY*MyHeight, InformationDeskBtnWideth*MyWideth   , InformationDeskBtnHeight*MyWideth)];
-    [InformationDeskBtn setImage:[UIImage imageNamed:@"shejiaoquan1"] forState:UIControlStateNormal];
+    [InformationDeskBtn setImage:[UIImage imageNamed:@"gongkaike21"] forState:UIControlStateNormal];
     self.InformationDeskBtn = InformationDeskBtn;
     InformationDeskBtn.tag = THHomeViewButtonTypeInformationDesk;
     [InformationDeskBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:InformationDeskBtn];
     UILabel * InformationDeskLable = [[UILabel alloc] initWithFrame:CGRectMake(InformationDeskLableX*MyWideth, InformationDeskLableY*MyHeight, InformationDeskLableWideth*MyWideth, InformationDeskLableHeight)];
-    InformationDeskLable.text = @"社交圈";
+    InformationDeskLable.text = @"去学习";
     InformationDeskLable.textColor = UIColorFromRGB(0x646464);
 
     InformationDeskLable.font =  [UIFont systemFontOfSize:12];
@@ -249,32 +249,34 @@
     self.InformationDeskLable = InformationDeskLable;
     [self addSubview:InformationDeskLable];
 
-    //写简历
+
+//    找工作
     UIButton * fesumeWritingBtn = [[UIButton alloc] initWithFrame:CGRectMake(fesumeWritingBtnX*MyWideth, fesumeWritingBtnY*MyHeight, fesumeWritingBtnWideth*MyWideth, fesumeWritingBtnHeight*MyWideth)];
     
-    [fesumeWritingBtn setImage:[UIImage imageNamed:@"xiejianli"] forState:UIControlStateNormal];
+    [fesumeWritingBtn setImage:[UIImage imageNamed:@"zhaogongzuo21"] forState:UIControlStateNormal];
     self.fesumeWritingBtn  = fesumeWritingBtn;
     fesumeWritingBtn.tag = THHomeViewButtonTypeResumeWriting;
     [fesumeWritingBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:fesumeWritingBtn];
     UILabel * fesumeWritingLable = [[UILabel alloc] initWithFrame:CGRectMake(fesumeWritingLableX*MyWideth, fesumeWritingLableY*MyHeight, fesumeWritingLableWideth*MyWideth, fesumeWritingLableHeight)];
-    fesumeWritingLable.text = @"写简历";
+    fesumeWritingLable.text = @"找工作";
    
     fesumeWritingLable.textColor = UIColorFromRGB(0x646464);
     fesumeWritingLable.textAlignment = NSTextAlignmentCenter;
     fesumeWritingLable.font = [UIFont systemFontOfSize:12];
     self.fesumeWritingLable = fesumeWritingLable;
     [self addSubview:fesumeWritingLable];
-    //玩出范
+    
+    //找兼职
     UIButton * PlayFanBtn = [[UIButton alloc] initWithFrame:CGRectMake(PlayFanBtnX*MyWideth, PlayFanBtnY*MyHeight, PlayFanBtnWideth *MyWideth  , PlayFanBtnHeight*MyWideth)];
-    [PlayFanBtn setImage:[UIImage imageNamed:@"wanchufan1"] forState:UIControlStateNormal];
+    [PlayFanBtn setImage:[UIImage imageNamed:@"zhaojianzhi21"] forState:UIControlStateNormal];
     self.PlayFanBtn = PlayFanBtn;
     PlayFanBtn.tag = THHomeViewButtonTypePlayFan;
     [PlayFanBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:PlayFanBtn];
     
     UILabel * PlayFanLable =[[UILabel alloc] initWithFrame:CGRectMake(PlayFanLableX*MyWideth, PlayFanLableY*MyHeight, PlayFanLableWideth*MyWideth, PlayFanLableHeight)];
-    PlayFanLable.text = @"玩出范";
+    PlayFanLable.text = @"找兼职";
     PlayFanLable.textColor = UIColorFromRGB(0x646464);
     PlayFanLable.textAlignment = NSTextAlignmentCenter;
     
@@ -282,29 +284,29 @@
     self.PlayFanLable = PlayFanLable;
     [self addSubview:PlayFanLable];
     
-   //微社交
+   //找实习
     UIButton * MicroSocialBtn = [[UIButton alloc] initWithFrame:CGRectMake(MicroSocialBtnX*MyWideth, MicroSocialBtnY*MyHeight, MicroSocialBtnWideth*MyWideth, MicroSocialBtnHeight*MyWideth)];
-    [MicroSocialBtn setImage:[UIImage imageNamed:@"vdaren1"] forState:UIControlStateNormal];
+    [MicroSocialBtn setImage:[UIImage imageNamed:@"zhaoshix21"] forState:UIControlStateNormal];
     self.MicroSocialBtn = MicroSocialBtn;
     MicroSocialBtn.tag = THHomeViewButtonTypeMicroSocial;
     [MicroSocialBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:MicroSocialBtn];
     UILabel * MicroSocialLable = [[UILabel alloc] initWithFrame:CGRectMake(MicroSocialLableX*MyWideth, MicroSocialLableY*MyHeight, MicroSocialLableWideth*MyWideth, MicroSocialLableHeight)];
-    MicroSocialLable.text = @"V达人";
+    MicroSocialLable.text = @"找实习";
     MicroSocialLable.textColor = UIColorFromRGB(0x646464);
     MicroSocialLable.textAlignment= NSTextAlignmentCenter;
     MicroSocialLable.font = [UIFont systemFontOfSize:12];
     self.MicroSocialLable = MicroSocialLable;
     [self addSubview:MicroSocialLable];
-    //公开课
+    //写简历
     UIButton * openClassBtn = [[UIButton alloc] initWithFrame:CGRectMake(openClassBtnX*MyWideth, openClassBtnY*MyHeight, openClassBtnWideth*MyWideth, openClassBtnHeight*MyWideth)];
-    [openClassBtn setImage:[UIImage imageNamed:@"gongkaike1"] forState:UIControlStateNormal];
+    [openClassBtn setImage:[UIImage imageNamed:@"xiejianli21"] forState:UIControlStateNormal];
     self.openClassBtn = openClassBtn;
     openClassBtn.tag = THHomeViewButtonTypeOpenClass;
     [openClassBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:openClassBtn];
     UILabel * openClassLable = [[UILabel alloc] initWithFrame:CGRectMake(openClassLableX*MyWideth, openClassLableY*MyHeight, openClassLableWideth*MyWideth, openClassLableHeight)];
-    openClassLable.text = @"公开课";
+    openClassLable.text = @"写简历";
      openClassLable.textColor = UIColorFromRGB(0x646464);
     openClassLable.textAlignment= NSTextAlignmentCenter;
     openClassLable.font = [UIFont systemFontOfSize:12];
