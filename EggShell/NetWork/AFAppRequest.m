@@ -136,6 +136,7 @@
 
 +(AFRequestState *)postRequestWithUrl:(NSString *)url param:(NSDictionary *)param succ:(void (^)(id))succ fail:(void (^)(int errCode, NSError * err))fail resp:(Class)resp;
 {
+    
     AFRequestState * State = [AFRequestState new];
     
     AFHTTPRequestOperationManager*manager=[self sharedManager];
