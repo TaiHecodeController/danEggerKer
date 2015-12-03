@@ -246,7 +246,8 @@
 
 #pragma mark -- 名企推荐
 -(void)homeViewFindJob:(HomeView *)homeView withTag:(NSInteger)setTag
-{    self.navigationController.navigationBarHidden = NO;
+{
+    self.navigationController.navigationBarHidden = NO;
     CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
     if (!self.enterArray.count>0) {
         [self.navigationController pushViewController:detail animated:YES];

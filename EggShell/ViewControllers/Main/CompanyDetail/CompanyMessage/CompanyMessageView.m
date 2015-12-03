@@ -141,13 +141,39 @@
     
     //公司简介
 //    NSString *comHtmlString = [CommonFunc textFromBase64String:dic[@"content"]];
-    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[dic[@"content"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-    self.companyMessage.attributedText = comAttributedString;
+//    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[dic[@"content"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    
+    
+//    self.companyMessage.attributedText = comAttributedString;
+//    self.companyMessage.text = [NSString stringWithFormat:@"%@",dic[@"content"]];
+//    self.companyMessage.text
+   NSString *str =  [self flattenHTML:[NSString stringWithFormat:@"%@",dic[@"content"]] trimWhiteSpace:YES];
+//   self.companyMessage.text = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet ]];
+    self.companyMessage.text = [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
     self.textSize = [self.companyMessage.text sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
     
 
 //    self.companyMessage.text = [NSString stringWithFormat:@"%@",dic[@"content"]];
 //    @"性质：中外合资";
 //    @"行业：计算机软件，IT服务，系统集成";
+}
+-(NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim
+{
+    NSScanner *theScanner = [NSScanner scannerWithString:html];
+    NSString *text = nil;
+    
+    while ([theScanner isAtEnd] == NO) {
+        // find start of tag
+        [theScanner scanUpToString:@"<" intoString:NULL] ;
+        // find end of tag
+        [theScanner scanUpToString:@">" intoString:&text] ;
+        // replace the found tag with a space
+        //(you can filter multi-spaces out later if you wish)
+        html = [html stringByReplacingOccurrencesOfString:
+                [ NSString stringWithFormat:@"%@>", text]
+                                               withString:@""];
+    }
+    
+    return trim ? [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : html;
 }
 @end
