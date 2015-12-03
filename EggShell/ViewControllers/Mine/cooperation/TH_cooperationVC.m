@@ -31,16 +31,16 @@
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     [self.view addSubview:scro];
     scro.showsVerticalScrollIndicator = NO;
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 30, WIDETH-30, 390)];
-    imageView.image = [UIImage  imageNamed:@"logotu"];
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 30, WIDETH-30, 520)];
+    imageView.image = [UIImage  imageNamed:@"hezuoqudao11"];
     [scro addSubview:imageView];
-    UILabel * lable = [[UILabel alloc] initWithFrame:CGRectMake((WIDETH-250)/2.0,480, 250, 11)];
+    UILabel * lable = [[UILabel alloc] initWithFrame:CGRectMake((WIDETH-250)/2.0,620, 250, 11)];
     lable.text = @"北京太和百富管理咨询有限公司  版权所有" ;
     lable.textColor = UIColorFromRGB(0x646464);
     lable.textAlignment = NSTextAlignmentCenter;
     lable.font =[UIFont systemFontOfSize:11];
     [scro addSubview:lable];
-    scro.contentSize = CGSizeMake(WIDETH, 590);
+    scro.contentSize = CGSizeMake(WIDETH, 740);
     
    
 }

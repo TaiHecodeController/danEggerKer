@@ -59,7 +59,10 @@
 //    [self createView];
 //    [self createTableView];
 //    [self hySegmentedControlSelectAtIndex:0];
-    
+    UIImageView * titleImageView    =[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 40)];
+    titleImageView.image = [UIImage imageNamed:@"扫描二维码进入社交圈"];
+    [self.view addSubview:titleImageView];
+
     //社交圈
     [self createSocialCircleTableView];
     
@@ -83,7 +86,7 @@
 }
 -(void)createSocialCircleTableView
 {
-    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT - 64)];
+    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT - 64-40)];
     tableView.dataSource = self;
     tableView.delegate = self;
     self.tableView = tableView;

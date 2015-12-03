@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "hezuoqudao.png",
+      "filename" : "扫描二维码进入社交圈.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "hezuoqudao@2x.png",
+      "filename" : "扫描二维码进入社交圈@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "hezuoqudao@3x.png",
+      "filename" : "扫描二维码进入社交圈@3x.png",
       "scale" : "3x"
     }
   ],
