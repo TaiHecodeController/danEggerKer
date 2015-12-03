@@ -133,7 +133,7 @@
     }
     else
     {
-        NSLog(@"返回这层的数据");
+//        NSLog(@"返回这层的数据");
         for (UIViewController *vc in self.navigationController.viewControllers)
         {
             if ([vc isKindOfClass:[TH_JobScreeningVC class]])
