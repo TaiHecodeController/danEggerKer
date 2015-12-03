@@ -91,7 +91,7 @@
 {
     [self.navigationController popViewControllerAnimated:NO];
     TH_FindJobVC * findJob = [[TH_FindJobVC alloc] init];
-     home.rk_pushType = homePushType;
+     findJob.rk_pushType = homePushType;
     [self.navigationController  popToViewController:findJob animated:YES];
 }
 
