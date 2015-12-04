@@ -277,7 +277,7 @@
 
     }
     companyView.selectBtn.selected = !companyView.selectBtn.selected;
-self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.height-10+self.textSize.height);
+
 }
 -(void)createTableView
 {

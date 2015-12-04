@@ -7,9 +7,7 @@
 //
 
 #import "OpenClassVideoListRequest.h"
-//#define video_url @"http://www.eggker.cn/interface_ios/api.php/"
-#define video_url @"http://101.200.186.14/eggker2/interface_ios/api.php/"
-
+#define video_url @"http://www.eggker.cn/interface_ios/api.php/"
 
 @implementation OpenClassVideoListRequest
 

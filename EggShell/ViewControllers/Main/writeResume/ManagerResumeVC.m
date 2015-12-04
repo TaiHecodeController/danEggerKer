@@ -290,10 +290,14 @@
 }
 
 - (IBAction)editClick:(UIButton *)sender {
-    
+   
+    if (self.dataArray.count == 0)
+    {
+        [MBProgressHUD creatembHub:@"请先创建简历"];
+    }else
+    {
     //index用来记录是否勾选了简历 index=1时，是选择了一份简历；index=0时，是没有选择简历；index大于1时，是选择了多份简历；依据index做出相应提示。
     int index = 0;
-    
     NSString *resumeid;
     for(int i = 0;i < self.dataArray.count;i++)
     {
@@ -328,9 +332,6 @@
             [MBProgressHUD creatembHub:@"请选择要编辑的简历"];
     }
     
-    if (self.dataArray.count == 0)
-    {
-        [MBProgressHUD creatembHub:@"请先创建简历"];
     }
     
 }
