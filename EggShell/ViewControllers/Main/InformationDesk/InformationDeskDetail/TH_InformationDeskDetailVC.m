@@ -85,42 +85,47 @@
 //        
        
         //足迹内容
-         NSString * detaildicStr = self.detaildic.content;
         self.textSize = [self.detaildic.content sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
         UITextView * contentLable = [[UITextView alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
         contentLable.editable = NO;
-        
         self.contentLable = contentLable;
+        //解密数据
         NSString *htmlString = [CommonFunc textFromBase64String:self.detaildic.content];
-        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-        self.contentLable.attributedText = attributedString;
-//        self.contentLable.backgroundColor = [UIColor whiteColor];
+        //去掉html标签
+        NSString *str =  [self flattenHTML:htmlString trimWhiteSpace:YES];
+       
+        self.textSize = [ [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+//        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+//        self.contentLable.attributedText = attributedString;
+        self.contentLable.text =  [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
         self.contentLable.textColor = UIColorFromRGB(0x646464);
         self.contentLable.font = [UIFont systemFontOfSize:13];
         [self.scro addSubview:self.contentLable];
   }
-    self.scro.contentSize = CGSizeMake(WIDETH, 350+self.contentLable.text.length+400);
-
-//        if (self.informodel) {
-//        [detail setValuess:self.informodel];
-//        
-//         self.textSize = [self.informodel.body sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
-//        UILabel * contentLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
-//        self.contentLable = contentLable;
-//        [self.scro addSubview:contentLable];
-//        self.contentLable.numberOfLines = 0;
-//         self.contentLable.textColor = UIColorFromRGB(0x646464);
-//        self.contentLable.font = [UIFont systemFontOfSize:13];
-////        contentLable.text =self.informodel.body;
-//        NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[self.informodel.body dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-//        contentLable.attributedText = comAttributedString;
-//
-//        
-//        
-//
-//    }
-
+//    self.scro.contentSize = CGSizeMake(WIDETH, 350+self.contentLable.text.length+400);
+    self.scro.contentSize = CGSizeMake(WIDETH, 400 + self.textSize.height);
 }
+
+-(NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim
+{
+    NSScanner *theScanner = [NSScanner scannerWithString:html];
+    NSString *text = nil;
+    
+    while ([theScanner isAtEnd] == NO) {
+        // find start of tag
+        [theScanner scanUpToString:@"<" intoString:NULL] ;
+        // find end of tag
+        [theScanner scanUpToString:@">" intoString:&text] ;
+        // replace the found tag with a space
+        //(you can filter multi-spaces out later if you wish)
+        html = [html stringByReplacingOccurrencesOfString:
+                [ NSString stringWithFormat:@"%@>", text]
+                                               withString:@""];
+    }
+    
+    return trim ? [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : html;
+}
+
 
 
 
