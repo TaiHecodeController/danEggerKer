@@ -150,12 +150,7 @@
    NSString *str =  [self flattenHTML:[NSString stringWithFormat:@"%@",dic[@"content"]] trimWhiteSpace:YES];
 //   self.companyMessage.text = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet ]];
     self.companyMessage.text = [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
-    self.textSize = [self.companyMessage.text sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
-    
-
-//    self.companyMessage.text = [NSString stringWithFormat:@"%@",dic[@"content"]];
-//    @"性质：中外合资";
-//    @"行业：计算机软件，IT服务，系统集成";
+    self.textSize = [self.companyMessage.text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
 }
 -(NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim
 {

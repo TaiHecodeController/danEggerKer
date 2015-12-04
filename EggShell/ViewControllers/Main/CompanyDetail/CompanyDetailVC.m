@@ -120,21 +120,28 @@
                 record_SelfView = self.CMview.frame;
                 record_ShowAll = self.CMview.showAllBtn.frame;
                 record_headerView = self.comPanyView.frame;
-                self.CMview.frame = CGRectMake(0, self.CMview.frame.origin.y, WIDETH, self.CMview.frame.size.height + self.CMview.textSize.height -100);
-                self.comPanyView.frame = CGRectMake(0, self.comPanyView.origin.y, WIDETH, self.comPanyView.height + self.CMview.textSize.height - 100);
-                
-                self.CMview.showAllBtn.frame = CGRectMake(self.CMview.showAllBtn.origin.x,self.CMview.frame.size.height - 38 , 100, 30);
+
+           //详情整个背景视图
+           self.CMview.frame = CGRectMake(0, self.CMview.frame.origin.y, WIDETH, self.CMview.frame.size.height + self.CMview.textSize.height - self.CMview.companyMessage.frame.size.height);
+            //公司详情视图（包括详情标题，详情lab，展开收起按钮）
+           self.comPanyView.frame = CGRectMake(0, self.comPanyView.origin.y, WIDETH, self.comPanyView.height + self.CMview.textSize.height - self.CMview.companyMessage.frame.size.height);
+           //展开收起按钮
+                self.CMview.showAllBtn.frame = CGRectMake(self.CMview.showAllBtn.origin.x,self.CMview.showAllBtn.frame.origin.y +  self.CMview.textSize.height - self.CMview.companyMessage.frame.size.height, 100, 30);
+           //详情lab
                 self.CMview.companyMessage.frame = CGRectMake(self.CMview.companyMessage.origin.x, self.CMview.companyMessage.origin.y , self.CMview.companyMessage.frame.size.width, self.CMview.textSize.height);
                 self.CMview.companyMessage.numberOfLines = 0;
                 _tableView.tableHeaderView = self.comPanyView;
-                //                for(int i = 0;i < 5;i++)
-                //                {
-                //                    dispatch_async(dispatch_get_main_queue(), ^{
-                //                        [_tableView beginUpdates];
-                //                        [_tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-                //                        [_tableView endUpdates];
-                //                    });
-                //                }
+           /*
+            Printing description of self->record_Message:
+            (CGRect) record_Message = (origin = (x = 15, y = 138), size = (width = 345, height = 80))
+            Printing description of self->record_SelfView:
+            (CGRect) record_SelfView = (origin = (x = 0, y = 80), size = (width = 375, height = 265))
+            Printing description of self->record_ShowAll:
+            (CGRect) record_ShowAll = (origin = (x = 137.5, y = 225), size = (width = 100, height = 30))
+            Printing description of self->record_headerView:
+            (CGRect) record_headerView = (origin = (x = 0, y = 0), size = (width = 375, height = 355))
+            **/
+           
             }];
             
             
