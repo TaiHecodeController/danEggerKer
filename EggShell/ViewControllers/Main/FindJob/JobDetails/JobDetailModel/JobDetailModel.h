@@ -48,6 +48,8 @@
 @property (nonatomic, copy) NSString *sdate;
 @property (nonatomic, copy) NSString *edate;
 @property (nonatomic, copy) NSString *iscollect;
+@property (nonatomic, copy) NSString *number;
+
 array_item_def(lists)
 @property (nonatomic, strong) NSArray *lists;
 //@property (nonatomic, copy) NSString *name;

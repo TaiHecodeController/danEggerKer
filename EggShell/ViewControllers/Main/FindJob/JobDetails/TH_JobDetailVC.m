@@ -418,7 +418,7 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
     _jobDescription.publicTime.text = model.sdate;
     _jobDescription.availTime.text = model.edate;
     _jobDescription.exprienceTime.text = model.exp;
-    _jobDescription.RecruitmentNum.text = model.hy;
+    _jobDescription.RecruitmentNum.text = model.number;
         
     if ([model.iscollect isEqual:@"0"])
     {
