@@ -122,7 +122,7 @@
         _teacherArr =[NSMutableArray arrayWithArray: DataDic[@"teacher"]];
         [self setHeadImageArr:_teacherArr];
         
-    } resp:[NSDictionary class] paramPage:page Pagesize:@"4"] addNotifaction:notify];
+    } resp:[NSDictionary class] paramPage:page Pagesize:@"6"] addNotifaction:notify];
 }
 
 - (void)setHeadImageArr:(NSMutableArray *)arr
