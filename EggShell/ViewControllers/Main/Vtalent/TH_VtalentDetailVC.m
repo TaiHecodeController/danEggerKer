@@ -85,17 +85,51 @@
     UITextView * contentLable = [[UITextView alloc] initWithFrame:CGRectMake(6, 131*MyWideth+10*MyWideth+15*MyWideth+10*MyWideth, WIDETH-12, self.textSize.height)];
     contentLable.editable = NO;
     self.contentLable = contentLable;
-    NSString *htmlString = [CommonFunc textFromBase64String:detaildicStr];
-   NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-    self.contentLable.attributedText = attributedString;
+   NSString *htmlString = [CommonFunc textFromBase64String:detaildicStr];
+    //去掉html标签
+    NSString *str =  [self flattenHTML:htmlString trimWhiteSpace:YES];
+
+//   NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+//    self.contentLable.attributedText = attributedString;
+    self.textSize = [ [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+    self.contentLable.text =  [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
     self.contentLable.backgroundColor = [UIColor whiteColor];
     self.contentLable.textColor = UIColorFromRGB(0x646464);
       self.contentLable.font = [UIFont systemFontOfSize:12];
     [self.scro addSubview:self.contentLable];
     
-    self.scro.contentSize = CGSizeMake(WIDETH, 131*MyWideth+10*MyWideth+15*MyWideth+10*MyWideth+self.contentLable.text.length+50);
+   
+    
+    
+    //        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    //        self.contentLable.attributedText = attributedString;
+    
+    
+    self.scro.contentSize = CGSizeMake(WIDETH, 131*MyWideth+10*MyWideth+15*MyWideth+10*MyWideth+self.textSize.height+60);
 
 }
+
+-(NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim
+{
+    NSScanner *theScanner = [NSScanner scannerWithString:html];
+    NSString *text = nil;
+    
+    while ([theScanner isAtEnd] == NO) {
+        // find start of tag
+        [theScanner scanUpToString:@"<" intoString:NULL] ;
+        // find end of tag
+        [theScanner scanUpToString:@">" intoString:&text] ;
+        // replace the found tag with a space
+        //(you can filter multi-spaces out later if you wish)
+        html = [html stringByReplacingOccurrencesOfString:
+                [ NSString stringWithFormat:@"%@>", text]
+                                               withString:@""];
+    }
+    
+    return trim ? [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : html;
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
   }

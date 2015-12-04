@@ -17,7 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-        
+    UIImageView * titleImageView    =[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 40)];
+    titleImageView.image = [UIImage imageNamed:@"shiyongxiangq"];
+    [self.view addSubview:titleImageView];
     UIImageView * qrCodeImageView = [[UIImageView alloc] initWithFrame:CGRectMake((WIDETH - 150)/2.0, (HEIGHT-150)/2.0-30, 150, 150)];
     [qrCodeImageView sd_setImageWithURL:[NSURL URLWithString:self.qrCodeStr] placeholderImage:[UIImage imageNamed:@"qrCode"]];
     [self.view addSubview:qrCodeImageView];

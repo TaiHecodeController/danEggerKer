@@ -103,7 +103,7 @@
         [self.scro addSubview:self.contentLable];
   }
 
-    self.scro.contentSize = CGSizeMake(WIDETH, 400 + self.textSize.height);
+    self.scro.contentSize = CGSizeMake(WIDETH, 410 + self.textSize.height);
 }
 
 -(NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim

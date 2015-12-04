@@ -709,7 +709,7 @@
                                     </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jinrongxinhang" translatesAutoresizingMaskIntoConstraints="NO" id="Juy-I0-3ae">
-                                    <rect key="frame" x="30" y="18" width="31" height="21"/>
+                                    <rect key="frame" x="30" y="18" width="30" height="20"/>
                                     <animations/>
                                 </imageView>
                             </subviews>
