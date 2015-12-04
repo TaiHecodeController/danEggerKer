@@ -35,9 +35,10 @@
     
     UILabel * detailLalbe = [[UILabel alloc] initWithFrame:CGRectMake(15, 45, WIDETH-30, 68)];
     detailLalbe.text = @"根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发的";
+    detailLalbe.font = [UIFont systemFontOfSize:13];
     self.textSize = [self.detailLable.text sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
     self.detailLable = detailLalbe;
-    detailLalbe.font = [UIFont systemFontOfSize:13];
+//    detailLalbe.font = [UIFont systemFontOfSize:13];
     detailLalbe.numberOfLines = 5;
     [self addSubview:detailLalbe];
     

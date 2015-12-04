@@ -130,28 +130,12 @@
     natureLab.text = [NSString stringWithFormat:@"%@",dic[@"pr"]];
      scaleLab.text = [NSString stringWithFormat:@"%@",dic[@"gm"]];
    addressLab.text = [NSString stringWithFormat:@"%@",dic[@"address"]];
-//    if (addressLab.text.length >22) {
-//        addressLab.frame = CGRectMake(50, 90, WIDETH - 60, 30);
-//    }else
-//    {
-//        addressLab.frame = CGRectMake(50, 90, WIDETH - 60, 13);
-//
-//    }
-    
-    
-    //公司简介
-//    NSString *comHtmlString = [CommonFunc textFromBase64String:dic[@"content"]];
-//    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[dic[@"content"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-    
-    
-//    self.companyMessage.attributedText = comAttributedString;
-//    self.companyMessage.text = [NSString stringWithFormat:@"%@",dic[@"content"]];
-//    self.companyMessage.text
-   NSString *str =  [self flattenHTML:[NSString stringWithFormat:@"%@",dic[@"content"]] trimWhiteSpace:YES];
-//   self.companyMessage.text = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet ]];
+
+    NSString *str =  [self flattenHTML:[NSString stringWithFormat:@"%@",dic[@"content"]] trimWhiteSpace:YES];
     self.companyMessage.text = [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
     self.textSize = [self.companyMessage.text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
 }
+//去掉html标签
 -(NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim
 {
     NSScanner *theScanner = [NSScanner scannerWithString:html];

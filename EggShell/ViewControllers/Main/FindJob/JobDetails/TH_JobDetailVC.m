@@ -512,17 +512,27 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
 
 }
 
-//#pragma mark -- alertViewDelegate
-//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-//{
-//    if(buttonIndex == 1)
-//    {
-//        self.navigationController.navigationBarHidden = NO;
-//        TH_LoginVC * lvc = [[TH_LoginVC alloc] init];
-//        [self.navigationController pushViewController:lvc animated:YES];
-//        
-//    }
-//}
+/*
+ company_recordFrame = companyView.frame;
+ //company的frame
+ //            companyView.frame = CGRectMake(0, 410, companyView.frame.size.width, companyView.frame.size.height + textSize.height - 100);
+ companyView.frame = CGRectMake(0, companyView.frame.origin.y, companyView.frame.size.width, companyView.frame.size.height + textSize.height - companyView.detailLable.frame.size.height);
+ 
+ //改变label的frame
+ lab_recordFrame = companyView.detailLable.frame;
+ companyView.detailLable.frame = CGRectMake(companyView.detailLable.frame.origin.x, companyView.detailLable.frame.origin.y-15, textSize.width, textSize.height);
+ companyView.detailLable.numberOfLines = 0;
+ //按钮的frame
+ btn_recordFrame = companyView.selectBtn.frame;
+ //            companyView.selectBtn.frame = CGRectMake(companyView.selectBtn.frame.origin.x, companyView.detailLable.frame.origin.y + companyView.detailLable.frame.size.height -10, companyView.selectBtn.frame.size.width, companyView.selectBtn.frame.size.height);
+ companyView.selectBtn.frame = CGRectMake(companyView.selectBtn.frame.origin.x, CGRectGetMaxY(companyView.detailLable.frame) + 10, companyView.selectBtn.frame.size.width, companyView.selectBtn.frame.size.height);
+ 
+ header_recordFrame = self.headerView.frame;
+ //            self.headerView.frame = CGRectMake(0, self.headerView.origin.y, WIDETH, self.headerView.origin.y + self.headerView.frame.size.height + textSize.height - 100);
+ //
+ self.headerView.frame = CGRectMake(0, self.headerView.origin.y, WIDETH, self.headerView.origin.y + self.headerView.frame.size.height + textSize.height - lab_recordFrame.size.height);
+ self.tableView.tableHeaderView = self.headerView;
+ **/
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
