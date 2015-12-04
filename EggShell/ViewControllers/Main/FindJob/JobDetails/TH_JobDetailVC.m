@@ -229,7 +229,7 @@
     
     companyprofileView.delegate = self;
     NSString * str = @"根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发的速度不可比拟是你是你.根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发的速度不可比拟是你是你.根据项目需求，项目经理要求完成相关应用的就与开发，保证IFA质量，并且在用和开发根据项目需求，项目经理要求完成相关应用的就与开发用的就与开发保证IFA质量";
-    [companyprofileView config:str];
+//    [companyprofileView config:str];
     _companyprofileView = companyprofileView;
     [self.headerView addSubview:companyprofileView];
 
@@ -239,25 +239,25 @@
     if (!companyView.selectBtn.isSelected) {
         
         NSString * description = companyView.detailLable.text;
-         CGSize textSize = [description sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(WIDETH-30, 2000)];
+         CGSize textSize = [description sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH-30, 2000)];
         self.textSize = textSize;
         [UIView animateWithDuration:0.1 animations:^{
             
             company_recordFrame = companyView.frame;
             //company的frame
-        companyView.frame = CGRectMake(0, 410, companyView.frame.size.width, companyView.frame.size.height + textSize.height - 100);
+        companyView.frame = CGRectMake(0, 410, companyView.frame.size.width, companyView.frame.size.height + textSize.height - 50);
             
             //改变label的frame
             lab_recordFrame = companyView.detailLable.frame;
-            companyView.detailLable.frame = CGRectMake(companyView.detailLable.frame.origin.x, companyView.detailLable.frame.origin.y-15, textSize.width, textSize.height);
+            companyView.detailLable.frame = CGRectMake(companyView.detailLable.frame.origin.x, companyView.detailLable.frame.origin.y, textSize.width, textSize.height);
             companyView.detailLable.numberOfLines = 0;
             
             
                         //按钮的frame
                 btn_recordFrame = companyView.selectBtn.frame;
-                companyView.selectBtn.frame = CGRectMake(companyView.selectBtn.frame.origin.x, companyView.detailLable.frame.origin.y + companyView.detailLable.frame.size.height -10, companyView.selectBtn.frame.size.width, companyView.selectBtn.frame.size.height);
+                companyView.selectBtn.frame = CGRectMake(companyView.selectBtn.frame.origin.x, companyView.detailLable.frame.origin.y + companyView.detailLable.frame.size.height+20 , companyView.selectBtn.frame.size.width, companyView.selectBtn.frame.size.height);
                 header_recordFrame = self.headerView.frame;
-                self.headerView.frame = CGRectMake(0, self.headerView.origin.y, WIDETH, self.headerView.origin.y + self.headerView.frame.size.height + textSize.height - 100);
+                self.headerView.frame = CGRectMake(0, self.headerView.origin.y, WIDETH, self.headerView.origin.y + self.headerView.frame.size.height + textSize.height - 50);
             self.tableView.tableHeaderView = self.headerView;
             }];
         
@@ -434,6 +434,9 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
     NSString *htmlString = [CommonFunc textFromBase64String:model.cj_description];
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     _jobDescription.jobDescriptionTextView.attributedText = attributedString;
+    
+    
+    
     if ([model.type isEqualToString:@"54"])
     {
         _jobDescription.workNature.text = @"不限";
@@ -455,12 +458,37 @@ self.scro.contentSize = CGSizeMake(WIDETH, 510+60+self.tableView.frame.size.heig
     _jobDescription.detailAdressLable.text = model.address;
     _jobDescription.knowledge.text = model.edu;
     _jobDescription.salary.text = model.salary;
-    //公司简介
+//    //公司简介
+//    NSString *comHtmlString = [CommonFunc textFromBase64String:model.content];
+//    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[comHtmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+//    _companyprofileView.detailLable.attributedText = comAttributedString;
     NSString *comHtmlString = [CommonFunc textFromBase64String:model.content];
-    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[comHtmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-    _companyprofileView.detailLable.attributedText = comAttributedString;
+  
+    NSString *str =  [self flattenHTML:comHtmlString trimWhiteSpace:YES];
     
+    self.textSize = [ [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+     _companyprofileView.detailLable.text =  [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
+
     
+}
+-(NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim
+{
+    NSScanner *theScanner = [NSScanner scannerWithString:html];
+    NSString *text = nil;
+    
+    while ([theScanner isAtEnd] == NO) {
+        // find start of tag
+        [theScanner scanUpToString:@"<" intoString:NULL] ;
+        // find end of tag
+        [theScanner scanUpToString:@">" intoString:&text] ;
+        // replace the found tag with a space
+        //(you can filter multi-spaces out later if you wish)
+        html = [html stringByReplacingOccurrencesOfString:
+                [ NSString stringWithFormat:@"%@>", text]
+                                               withString:@""];
+    }
+    
+    return trim ? [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : html;
 }
 
 #pragma mark- - 收藏
