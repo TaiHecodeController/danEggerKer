@@ -102,7 +102,7 @@
         self.contentLable.font = [UIFont systemFontOfSize:13];
         [self.scro addSubview:self.contentLable];
   }
-//    self.scro.contentSize = CGSizeMake(WIDETH, 350+self.contentLable.text.length+400);
+
     self.scro.contentSize = CGSizeMake(WIDETH, 400 + self.textSize.height);
 }
 
