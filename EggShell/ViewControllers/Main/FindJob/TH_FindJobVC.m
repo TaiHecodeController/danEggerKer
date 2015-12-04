@@ -112,7 +112,7 @@
     }
 
     
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backRootController:) name:@"findJobBackClick" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backRootController:) name:@"findJobBackClick" object:nil];
 }
 -(void)viewDidAppear:(BOOL)animated
 { self.cellArray = [NSMutableArray arrayWithCapacity:0];
