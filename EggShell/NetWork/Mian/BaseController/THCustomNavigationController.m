@@ -13,6 +13,7 @@
 @end
 
 @implementation THCustomNavigationController
+
 + (void)initialize
 {
     UINavigationBar *navigationBar = [UINavigationBar appearance];
@@ -25,13 +26,16 @@
     
 
 }
-- (void)viewDidLoad {
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // 滑动手势
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeAction:)];
     swipe.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipe];
 }
+
 - (void)swipeAction:(UISwipeGestureRecognizer *)gesture
 {
     if (self.viewControllers.count > 0)
@@ -40,10 +44,12 @@
         
     }
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
+
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     if (self.viewControllers.count > 0)
@@ -55,32 +61,26 @@
     
     [super pushViewController:viewController animated:animated];
 }
+
 #pragma mark -返回
 - (void)pop
 {
-    
-        [[NSNotificationCenter defaultCenter]postNotificationName:@"writeresum" object:nil];
-        [[NSNotificationCenter defaultCenter]postNotificationName:@"company" object:nil];
 
-      [[NSNotificationCenter defaultCenter] postNotificationName:@"videoClose" object:nil];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"writeresum" object:nil];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"company" object:nil];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"videoClose" object:nil];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"writeStep2BackClick" object:nil];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"findJobBackClick" object:nil];
-[[NSNotificationCenter defaultCenter]postNotificationName:@"jb_detail" object:nil];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"jb_detail" object:nil];
     [self popViewControllerAnimated:YES];
-     }
+
+}
 //- (UIStatusBarStyle)preferredStatusBarStyle
 //{
 //    return UIStatusBarStyleBlackOpaque;
 //}
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
