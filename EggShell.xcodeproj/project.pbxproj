@@ -248,6 +248,8 @@
 		94E8F4F31B85797900088658 /* NameAndSexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E8F4EC1B85797900088658 /* NameAndSexCell.xib */; };
 		94E8F4F41B85797900088658 /* WriteResumeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E8F4EE1B85797900088658 /* WriteResumeCell.m */; };
 		94E8F4F51B85797900088658 /* WriteResumeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E8F4EF1B85797900088658 /* WriteResumeCell.xib */; };
+		94E95EE31C16CFBC009FA049 /* FindJobcardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E95EE21C16CFBC009FA049 /* FindJobcardView.m */; };
+		94E95EE51C16CFD9009FA049 /* FindJobcardViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E95EE41C16CFD9009FA049 /* FindJobcardViews.xib */; };
 		94EAEAC31B78437A003C19DD /* TH_FindPracticeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EAEAC21B78437A003C19DD /* TH_FindPracticeVC.m */; };
 		94EDD4DF1B78302E00A00A78 /* THCustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EDD4DE1B78302E00A00A78 /* THCustomNavigationController.m */; };
 		94EDD4E81B78319A00A00A78 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EDD4E31B78319A00A00A78 /* UIBarButtonItem+Extension.m */; };
@@ -797,6 +799,9 @@
 		94E8F4ED1B85797900088658 /* WriteResumeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteResumeCell.h; sourceTree = "<group>"; };
 		94E8F4EE1B85797900088658 /* WriteResumeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeCell.m; sourceTree = "<group>"; };
 		94E8F4EF1B85797900088658 /* WriteResumeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WriteResumeCell.xib; sourceTree = "<group>"; };
+		94E95EE11C16CFBC009FA049 /* FindJobcardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindJobcardView.h; sourceTree = "<group>"; };
+		94E95EE21C16CFBC009FA049 /* FindJobcardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindJobcardView.m; sourceTree = "<group>"; };
+		94E95EE41C16CFD9009FA049 /* FindJobcardViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindJobcardViews.xib; sourceTree = "<group>"; };
 		94EAEAC11B78437A003C19DD /* TH_FindPracticeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_FindPracticeVC.h; sourceTree = "<group>"; };
 		94EAEAC21B78437A003C19DD /* TH_FindPracticeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_FindPracticeVC.m; sourceTree = "<group>"; };
 		94EDD4DD1B78302E00A00A78 /* THCustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCustomNavigationController.h; sourceTree = "<group>"; };
@@ -2145,6 +2150,7 @@
 		94CB5BA81B763A8100B23B9D /* FindJob */ = {
 			isa = PBXGroup;
 			children = (
+				94E95EE01C16CF9F009FA049 /* FindJobCard */,
 				94CB5BA91B763AAC00B23B9D /* TH_FindJobVC.h */,
 				94CB5BAA1B763AAC00B23B9D /* TH_FindJobVC.m */,
 				F05440B21B7870B800127A9B /* jobTableViewCell.h */,
@@ -2406,6 +2412,16 @@
 				0454ACEB1B945F20004A70ED /* ResumeCell.xib */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		94E95EE01C16CF9F009FA049 /* FindJobCard */ = {
+			isa = PBXGroup;
+			children = (
+				94E95EE11C16CFBC009FA049 /* FindJobcardView.h */,
+				94E95EE21C16CFBC009FA049 /* FindJobcardView.m */,
+				94E95EE41C16CFD9009FA049 /* FindJobcardViews.xib */,
+			);
+			path = FindJobCard;
 			sourceTree = "<group>";
 		};
 		94EAEAC01B784347003C19DD /* FindPractice */ = {
@@ -2880,6 +2896,7 @@
 				9406D6021BB394A600DAC1EC /* CertifiCateTime.xib in Resources */,
 				94E2C9DE1B8AFCF0001E3FDD /* BasicInformation.xib in Resources */,
 				F0E970DE1C0D439100FC21BC /* 组-4-拷贝@3x.png in Resources */,
+				94E95EE51C16CFD9009FA049 /* FindJobcardViews.xib in Resources */,
 				F0E970D41C0D439100FC21BC /* zhong2@2x.png in Resources */,
 				F0E970D71C0D439100FC21BC /* zuo1@2x.png in Resources */,
 				0454ACED1B945F20004A70ED /* ResumeCell.xib in Resources */,
@@ -3053,6 +3070,7 @@
 				94E2C9881B870F29001E3FDD /* moreJobTableViewCell.m in Sources */,
 				045DEC511B8E14EB00E37C4D /* MyMD5.m in Sources */,
 				041650DF1B4D795B008C78BE /* AFAppRequest.m in Sources */,
+				94E95EE31C16CFBC009FA049 /* FindJobcardView.m in Sources */,
 				F05440B11B7848B000127A9B /* HYSegmentedControl.m in Sources */,
 				94313DC31B7CAAED005D0A9A /* TH_InformationDeskVC.m in Sources */,
 				9406D6011BB394A600DAC1EC /* CertifiCateTime.m in Sources */,
