@@ -31,7 +31,7 @@
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     [self.view addSubview:scro];
     scro.showsVerticalScrollIndicator = NO;
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 30, WIDETH-30, 520)];
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 30, WIDETH-30, 520)];
     imageView.image = [UIImage  imageNamed:@"hezuoqudao11"];
     [scro addSubview:imageView];
     UILabel * lable = [[UILabel alloc] initWithFrame:CGRectMake((WIDETH-250)/2.0,620, 250, 11)];

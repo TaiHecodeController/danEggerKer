@@ -8,7 +8,6 @@
 
 #import "OpenClassVideoListRequest.h"
 #define video_url @"http://www.eggker.cn/interface_ios/api.php/"
-
 @implementation OpenClassVideoListRequest
 
 +(AFRequestState *)requestWithSucc:(void(^)(NSDictionary * DataDic))succ resp:(Class)resp paramPage:(NSString *)page Pagesize:(NSString *)pageSie

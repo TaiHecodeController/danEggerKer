@@ -644,6 +644,7 @@
                         TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
 //                        [SearchModelShare sharedInstance].keyword = @"实习";
                         home.job_type = @"2";
+            
                         home.title = @"找实习";
                         home.rk_pushType = homePushType;
                         [self.navigationController pushViewController:home animated:YES];

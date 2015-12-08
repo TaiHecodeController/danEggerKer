@@ -59,11 +59,10 @@
     NSNumber *num = [NSNumber numberWithInt:0];
     [df setObject:num forKey:@"citytag"];
     [df synchronize];
-    
-//   [self checkVersion];
-    
-    //初始化保利视频
-//    [self initPloyVideo];
+    //版本检测
+      [self checkVersion];
+//    初始化保利视频
+    [self initPloyVideo];
     // 要使用百度地图，请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc]init];
     BOOL ret = [_mapManager start:@"VETGQ5nQXBXtGt0VHhIetQuh" generalDelegate:self];
@@ -113,12 +112,12 @@
     
 }
 
-//远程通知回调
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    
-    // Required
-    [APService registerDeviceToken:deviceToken];
-}
+////远程通知回调
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+//    
+//    // Required
+//    [APService registerDeviceToken:deviceToken];
+//}
 
 //- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 //    
@@ -126,29 +125,29 @@
 //    [APService handleRemoteNotification:userInfo];
 //}
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    // IOS 7 Support Required
-    [APService handleRemoteNotification:userInfo];
-    
-    self.window.rootViewController = self.mainTabBar;
-    NSLog(@"userinfo%@",userInfo);
-    if (application.applicationState == UIApplicationStateActive) {
-       //app在前台时，展示推送消息
-        NSString * str = [NSString stringWithFormat:@"收到新消息%@",userInfo[@"aps"][@"alert"]];
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:str delegate:self cancelButtonTitle:@"点击查看" otherButtonTitles: nil];
-    [alert show];
-        self.pushDic = userInfo;
-    alert.tag = 1001;
-    }else
-    {
-//        self.mainTabBar = [[TH_MainTabBarController alloc] init];
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+//    // IOS 7 Support Required
+//    [APService handleRemoteNotification:userInfo];
+//    
+//    self.window.rootViewController = self.mainTabBar;
+//    NSLog(@"userinfo%@",userInfo);
+//    if (application.applicationState == UIApplicationStateActive) {
+//       //app在前台时，展示推送消息
+//        NSString * str = [NSString stringWithFormat:@"收到新消息%@",userInfo[@"aps"][@"alert"]];
+//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:str delegate:self cancelButtonTitle:@"点击查看" otherButtonTitles: nil];
+//    [alert show];
+//        self.pushDic = userInfo;
+//    alert.tag = 1001;
+//    }else
+//    {
+////        self.mainTabBar = [[TH_MainTabBarController alloc] init];
+////        
+////        self.window.rootViewController = self.mainTabBar;
+//    
+//    [[NSNotificationCenter defaultCenter]postNotificationName:@"jgPush" object:self userInfo:userInfo];
 //        
-//        self.window.rootViewController = self.mainTabBar;
-    
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"jgPush" object:self userInfo:userInfo];
-        
-    }
-    }
+//    }
+//    }
 
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
@@ -226,33 +225,40 @@
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (alertView.tag == 1001)
-    {
-        if (buttonIndex == 0)
-        {
-
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"jgPush" object:self userInfo:self.pushDic];
-            
-            //跳转到需要的控制器
-//            TH_PlayFanVC *vc = [[TH_PlayFanVC alloc]init];
-////            self.window.rootViewController.navigationController.navigationBarHidden = NO;
-////            [self.mainTabBar.selectedViewController pushViewController:vc animated:YES];
-//            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
-            ;
-
-        }
-    }
-    else
-    {
-        if(buttonIndex == 1)
-        {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_trackViewUrl]];
-            
-            
-        }
-    }
     
-} 
+    if(buttonIndex == 1)
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_trackViewUrl]];
+        
+        
+    }
+//    if (alertView.tag == 1001)
+//    {
+//        if (buttonIndex == 0)
+//        {
+//
+//            [[NSNotificationCenter defaultCenter]postNotificationName:@"jgPush" object:self userInfo:self.pushDic];
+//            
+//            //跳转到需要的控制器
+////            TH_PlayFanVC *vc = [[TH_PlayFanVC alloc]init];
+//////            self.window.rootViewController.navigationController.navigationBarHidden = NO;
+//////            [self.mainTabBar.selectedViewController pushViewController:vc animated:YES];
+////            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+//            
+//
+//        }
+//    }
+//    else
+//    {
+//        if(buttonIndex == 1)
+//        {
+//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_trackViewUrl]];
+//            
+//            
+//        }
+//    }
+//    
+}
 
 - (void)initPloyVideo
 {
