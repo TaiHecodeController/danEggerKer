@@ -20,6 +20,8 @@
 #import "TH_LoginVC.h"
 #import "TH_FindJobVC.h"
 #import "findJobModel.h"
+#import "TH_HomeVC.h"
+#import "TH_MainTabBarController.h"
 
 @interface TH_JobDetailVC ()<UITableViewDataSource,UITableViewDelegate,companyProfileViewDelegate,MJRefreshBaseViewDelegate>
 {
@@ -85,8 +87,37 @@
     _mbPro = [MBProgressHUD mbHubShowControllerView:self];
     [self loadData:_mbPro page:1];
     
+    UIButton *btn = [UIButton new];
+    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+    btn.frame = CGRectMake(100, 100, 100, 100);
+    btn.backgroundColor = [UIColor darkGrayColor];
+//    [self.view addSubview:btn];
+    
+    //    [self loadData];
     
 }
+
+- (void)btnClick
+{
+    
+//    [self.navigationController popToViewController:self.navigationController.visibleViewController animated:YES];
+    
+//    NSArray *arr = [NSArray arrayWithObjects:<#(nonnull id), ...#>, nil];
+//    [self.navigationController setViewControllers:arr animated:YES];
+//    NSArray *arr =  self.navigationController.viewControllers ;
+//    [arr removeLastObject];
+//    [arr removeObjectAtIndex:1];
+//    TH_HomeVC *vc = [[TH_HomeVC alloc]init];
+//    NSLog(@"%@",arr);
+//    [arr addObject:vc];
+//    [self.navigationController setViewControllers:arr animated:YES];
+//    [arr insertObject:vc atIndex:1];
+//    NSLog(@"%@",self.navigationController.viewControllers);
+//    [TH_MainTabBarController messagePush];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"messagePush" object:nil];
+    
+}
+
 -(void)backRoot
 {
     [self.navigationController popViewControllerAnimated:NO];

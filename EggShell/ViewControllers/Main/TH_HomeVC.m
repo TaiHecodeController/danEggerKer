@@ -39,6 +39,9 @@
 #import "EnterpriseDetailVC.h"
 /*V达人**/
 #import "TH_VtalentVC.h"
+#import "AllowedDirectionDemoViewController.h"
+#import "RKSwipeViewController.h"
+
 @interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate>
 {
     UIView * _navBackView;
@@ -612,12 +615,15 @@
         }
         case THHomeViewButtonTypeResumeWriting:
         {
-            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"找工作";
-            home.job_type = @"0";
-            [SearchModelShare sharedInstance].type = @"55";
-            home.rk_pushType = homePushType;
-            [self.navigationController pushViewController:home animated:YES];
+//            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+//            home.title = @"找工作";
+//            home.job_type = @"0";
+//            [SearchModelShare sharedInstance].type = @"55";
+//            home.rk_pushType = homePushType;
+//            [self.navigationController pushViewController:home animated:YES];
+            AllowedDirectionDemoViewController *vc = [[AllowedDirectionDemoViewController alloc]init];
+//            RKSwipeViewController *vc = [[RKSwipeViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
             break;
         }
         case THHomeViewButtonTypePlayFan:
@@ -626,7 +632,7 @@
             //            [SearchModelShare sharedInstance].keyword = @"兼职";
                         home.title = @"找兼职";
                         home.job_type = @"1";
-             home.rk_pushType = homePushType;
+                        home.rk_pushType = homePushType;
                         [self.navigationController pushViewController:home animated:YES];
             
             break;
@@ -636,10 +642,10 @@
             
             NSLog(@"找实习");
                         TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-                        [SearchModelShare sharedInstance].keyword = @"实习";
+//                        [SearchModelShare sharedInstance].keyword = @"实习";
                         home.job_type = @"2";
                         home.title = @"找实习";
-             home.rk_pushType = homePushType;
+                        home.rk_pushType = homePushType;
                         [self.navigationController pushViewController:home animated:YES];
                         break;
         }

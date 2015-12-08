@@ -50,7 +50,6 @@
 		04A0CD451B7A110B00EBCF01 /* HeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A0CD441B7A110B00EBCF01 /* HeadView.xib */; };
 		04A0CD481B7A111D00EBCF01 /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0CD471B7A111D00EBCF01 /* HeadView.m */; };
 		04A483B41B74FD1B006FDB9D /* TH_MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A483B31B74FD1B006FDB9D /* TH_MainTabBarController.m */; };
-		04A483D71B751E77006FDB9D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A483D61B751E77006FDB9D /* Utils.m */; };
 		940032931B83969B001EB666 /* FindjobView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9400328F1B83969B001EB666 /* FindjobView.m */; };
 		940032941B83969B001EB666 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032911B83969B001EB666 /* HomeView.m */; };
 		940032951B83969B001EB666 /* HomeViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940032921B83969B001EB666 /* HomeViews.xib */; };
@@ -285,6 +284,21 @@
 		F05B80071B8ABE2200DC0A1D /* MTGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B80061B8ABE2200DC0A1D /* MTGridView.m */; };
 		F05B80101B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B800F1B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.m */; };
 		F05B80131B8AC34400DC0A1D /* UIColor+RK_Color.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B80121B8AC34400DC0A1D /* UIColor+RK_Color.m */; };
+		F05FC66D1C167F7200F0A5BE /* AllowedDirectionDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC6501C167F7200F0A5BE /* AllowedDirectionDemoViewController.m */; };
+		F05FC66E1C167F7200F0A5BE /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC6521C167F7200F0A5BE /* CardView.m */; };
+		F05FC66F1C167F7200F0A5BE /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC6551C167F7200F0A5BE /* UIColor+FlatColors.m */; };
+		F05FC6701C167F7200F0A5BE /* DefaultDirectionInterpretor.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC6581C167F7200F0A5BE /* DefaultDirectionInterpretor.m */; };
+		F05FC6711C167F7200F0A5BE /* DefaultShouldSwipeDeterminator.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC65A1C167F7200F0A5BE /* DefaultShouldSwipeDeterminator.m */; };
+		F05FC6721C167F7200F0A5BE /* DefaultViewAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC65C1C167F7200F0A5BE /* DefaultViewAnimator.m */; };
+		F05FC6731C167F7200F0A5BE /* PanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC65E1C167F7200F0A5BE /* PanGestureRecognizer.m */; };
+		F05FC6741C167F7200F0A5BE /* Scheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC6601C167F7200F0A5BE /* Scheduler.m */; };
+		F05FC6751C167F7200F0A5BE /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC6621C167F7200F0A5BE /* Utils.m */; };
+		F05FC6761C167F7200F0A5BE /* ViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC6641C167F7200F0A5BE /* ViewManager.m */; };
+		F05FC6771C167F7200F0A5BE /* ZLSwipeableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC6661C167F7200F0A5BE /* ZLSwipeableView.m */; };
+		F05FC6781C167F7200F0A5BE /* ZLSwipeableViewMovement.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC6681C167F7200F0A5BE /* ZLSwipeableViewMovement.m */; };
+		F05FC6791C167F7200F0A5BE /* ZLSwipeableViewSwipeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC66A1C167F7200F0A5BE /* ZLSwipeableViewSwipeOptions.m */; };
+		F05FC67A1C167F7200F0A5BE /* ZLSwipeableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC66C1C167F7200F0A5BE /* ZLSwipeableViewController.m */; };
+		F05FC67D1C16AD2200F0A5BE /* RKSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC67C1C16AD2200F0A5BE /* RKSwipeViewController.m */; };
 		F06F72EF1B9694D200989489 /* playListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F06F72EE1B9694D200989489 /* playListModel.m */; };
 		F07F39011B993B7C002531CD /* CommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39001B993B7C002531CD /* CommonFunc.m */; };
 		F07F39051B996F65002531CD /* saveListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39041B996F65002531CD /* saveListModel.m */; };
@@ -439,8 +453,6 @@
 		04A0CD471B7A111D00EBCF01 /* HeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadView.m; sourceTree = "<group>"; };
 		04A483B21B74FD1B006FDB9D /* TH_MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TH_MainTabBarController.h; path = ../../../ViewControllers/TH_MainTabBarController.h; sourceTree = "<group>"; };
 		04A483B31B74FD1B006FDB9D /* TH_MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_MainTabBarController.m; path = ../../../ViewControllers/TH_MainTabBarController.m; sourceTree = "<group>"; };
-		04A483D51B751E77006FDB9D /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
-		04A483D61B751E77006FDB9D /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		37454D869BE49FA62A71A04C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C8CB3344C41F9F3DBAC076 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9400328E1B83969B001EB666 /* FindjobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindjobView.h; sourceTree = "<group>"; };
@@ -850,6 +862,36 @@
 		F05B800F1B8AC25C00DC0A1D /* NSIndexPath+RK_row_col.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+RK_row_col.m"; sourceTree = "<group>"; };
 		F05B80111B8AC34400DC0A1D /* UIColor+RK_Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RK_Color.h"; sourceTree = "<group>"; };
 		F05B80121B8AC34400DC0A1D /* UIColor+RK_Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RK_Color.m"; sourceTree = "<group>"; };
+		F05FC64F1C167F7200F0A5BE /* AllowedDirectionDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllowedDirectionDemoViewController.h; sourceTree = "<group>"; };
+		F05FC6501C167F7200F0A5BE /* AllowedDirectionDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllowedDirectionDemoViewController.m; sourceTree = "<group>"; };
+		F05FC6511C167F7200F0A5BE /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
+		F05FC6521C167F7200F0A5BE /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
+		F05FC6541C167F7200F0A5BE /* UIColor+FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatColors.h"; sourceTree = "<group>"; };
+		F05FC6551C167F7200F0A5BE /* UIColor+FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatColors.m"; sourceTree = "<group>"; };
+		F05FC6571C167F7200F0A5BE /* DefaultDirectionInterpretor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultDirectionInterpretor.h; sourceTree = "<group>"; };
+		F05FC6581C167F7200F0A5BE /* DefaultDirectionInterpretor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultDirectionInterpretor.m; sourceTree = "<group>"; };
+		F05FC6591C167F7200F0A5BE /* DefaultShouldSwipeDeterminator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultShouldSwipeDeterminator.h; sourceTree = "<group>"; };
+		F05FC65A1C167F7200F0A5BE /* DefaultShouldSwipeDeterminator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultShouldSwipeDeterminator.m; sourceTree = "<group>"; };
+		F05FC65B1C167F7200F0A5BE /* DefaultViewAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultViewAnimator.h; sourceTree = "<group>"; };
+		F05FC65C1C167F7200F0A5BE /* DefaultViewAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultViewAnimator.m; sourceTree = "<group>"; };
+		F05FC65D1C167F7200F0A5BE /* PanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanGestureRecognizer.h; sourceTree = "<group>"; };
+		F05FC65E1C167F7200F0A5BE /* PanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanGestureRecognizer.m; sourceTree = "<group>"; };
+		F05FC65F1C167F7200F0A5BE /* Scheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scheduler.h; sourceTree = "<group>"; };
+		F05FC6601C167F7200F0A5BE /* Scheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scheduler.m; sourceTree = "<group>"; };
+		F05FC6611C167F7200F0A5BE /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		F05FC6621C167F7200F0A5BE /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		F05FC6631C167F7200F0A5BE /* ViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewManager.h; sourceTree = "<group>"; };
+		F05FC6641C167F7200F0A5BE /* ViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewManager.m; sourceTree = "<group>"; };
+		F05FC6651C167F7200F0A5BE /* ZLSwipeableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSwipeableView.h; sourceTree = "<group>"; };
+		F05FC6661C167F7200F0A5BE /* ZLSwipeableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSwipeableView.m; sourceTree = "<group>"; };
+		F05FC6671C167F7200F0A5BE /* ZLSwipeableViewMovement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSwipeableViewMovement.h; sourceTree = "<group>"; };
+		F05FC6681C167F7200F0A5BE /* ZLSwipeableViewMovement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSwipeableViewMovement.m; sourceTree = "<group>"; };
+		F05FC6691C167F7200F0A5BE /* ZLSwipeableViewSwipeOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSwipeableViewSwipeOptions.h; sourceTree = "<group>"; };
+		F05FC66A1C167F7200F0A5BE /* ZLSwipeableViewSwipeOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSwipeableViewSwipeOptions.m; sourceTree = "<group>"; };
+		F05FC66B1C167F7200F0A5BE /* ZLSwipeableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSwipeableViewController.h; sourceTree = "<group>"; };
+		F05FC66C1C167F7200F0A5BE /* ZLSwipeableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSwipeableViewController.m; sourceTree = "<group>"; };
+		F05FC67B1C16AD2200F0A5BE /* RKSwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RKSwipeViewController.h; path = Vtalent/RKSwipeViewController.h; sourceTree = "<group>"; };
+		F05FC67C1C16AD2200F0A5BE /* RKSwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RKSwipeViewController.m; path = Vtalent/RKSwipeViewController.m; sourceTree = "<group>"; };
 		F06F72ED1B9694D200989489 /* playListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = playListModel.h; path = ../playListModel.h; sourceTree = "<group>"; };
 		F06F72EE1B9694D200989489 /* playListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = playListModel.m; path = ../playListModel.m; sourceTree = "<group>"; };
 		F07F38FF1B993B7C002531CD /* CommonFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFunc.h; sourceTree = "<group>"; };
@@ -1072,6 +1114,7 @@
 		0416505A1B4D71D4008C78BE /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				F05FC64E1C167F7200F0A5BE /* RKSwipeVC */,
 				F013B6921BFC08420032F232 /* lib */,
 				94CB30401BA5169700577FE6 /* IQKeyBoardManager */,
 				F07F38FE1B993B60002531CD /* Base64 */,
@@ -1271,8 +1314,10 @@
 			isa = PBXGroup;
 			children = (
 				947330391BFF181300688587 /* Vtalent */,
-				94313DF51B7CB610005D0A9A /* TH_HomeVC.m */,
 				94313DF61B7CB610005D0A9A /* TH_HomeVC.h */,
+				94313DF51B7CB610005D0A9A /* TH_HomeVC.m */,
+				F05FC67B1C16AD2200F0A5BE /* RKSwipeViewController.h */,
+				F05FC67C1C16AD2200F0A5BE /* RKSwipeViewController.m */,
 				94CB5BA81B763A8100B23B9D /* FindJob */,
 				94E2C9621B870EED001E3FDD /* CompanyDetail */,
 				94313DB01B7CAAED005D0A9A /* InformationDesk */,
@@ -1335,8 +1380,6 @@
 		04A483D41B751E5D006FDB9D /* tool */ = {
 			isa = PBXGroup;
 			children = (
-				04A483D51B751E77006FDB9D /* Utils.h */,
-				04A483D61B751E77006FDB9D /* Utils.m */,
 				048F30BF1B7A462C004AA9B2 /* DataBase.h */,
 				048F30C01B7A462C004AA9B2 /* DataBase.m */,
 			);
@@ -2515,6 +2558,57 @@
 			path = RKCustomTool;
 			sourceTree = "<group>";
 		};
+		F05FC64E1C167F7200F0A5BE /* RKSwipeVC */ = {
+			isa = PBXGroup;
+			children = (
+				F05FC64F1C167F7200F0A5BE /* AllowedDirectionDemoViewController.h */,
+				F05FC6501C167F7200F0A5BE /* AllowedDirectionDemoViewController.m */,
+				F05FC6511C167F7200F0A5BE /* CardView.h */,
+				F05FC6521C167F7200F0A5BE /* CardView.m */,
+				F05FC6531C167F7200F0A5BE /* UIColor+FlatColors */,
+				F05FC6561C167F7200F0A5BE /* ZLSwipeableView */,
+				F05FC66B1C167F7200F0A5BE /* ZLSwipeableViewController.h */,
+				F05FC66C1C167F7200F0A5BE /* ZLSwipeableViewController.m */,
+			);
+			path = RKSwipeVC;
+			sourceTree = "<group>";
+		};
+		F05FC6531C167F7200F0A5BE /* UIColor+FlatColors */ = {
+			isa = PBXGroup;
+			children = (
+				F05FC6541C167F7200F0A5BE /* UIColor+FlatColors.h */,
+				F05FC6551C167F7200F0A5BE /* UIColor+FlatColors.m */,
+			);
+			path = "UIColor+FlatColors";
+			sourceTree = "<group>";
+		};
+		F05FC6561C167F7200F0A5BE /* ZLSwipeableView */ = {
+			isa = PBXGroup;
+			children = (
+				F05FC6571C167F7200F0A5BE /* DefaultDirectionInterpretor.h */,
+				F05FC6581C167F7200F0A5BE /* DefaultDirectionInterpretor.m */,
+				F05FC6591C167F7200F0A5BE /* DefaultShouldSwipeDeterminator.h */,
+				F05FC65A1C167F7200F0A5BE /* DefaultShouldSwipeDeterminator.m */,
+				F05FC65B1C167F7200F0A5BE /* DefaultViewAnimator.h */,
+				F05FC65C1C167F7200F0A5BE /* DefaultViewAnimator.m */,
+				F05FC65D1C167F7200F0A5BE /* PanGestureRecognizer.h */,
+				F05FC65E1C167F7200F0A5BE /* PanGestureRecognizer.m */,
+				F05FC65F1C167F7200F0A5BE /* Scheduler.h */,
+				F05FC6601C167F7200F0A5BE /* Scheduler.m */,
+				F05FC6611C167F7200F0A5BE /* Utils.h */,
+				F05FC6621C167F7200F0A5BE /* Utils.m */,
+				F05FC6631C167F7200F0A5BE /* ViewManager.h */,
+				F05FC6641C167F7200F0A5BE /* ViewManager.m */,
+				F05FC6651C167F7200F0A5BE /* ZLSwipeableView.h */,
+				F05FC6661C167F7200F0A5BE /* ZLSwipeableView.m */,
+				F05FC6671C167F7200F0A5BE /* ZLSwipeableViewMovement.h */,
+				F05FC6681C167F7200F0A5BE /* ZLSwipeableViewMovement.m */,
+				F05FC6691C167F7200F0A5BE /* ZLSwipeableViewSwipeOptions.h */,
+				F05FC66A1C167F7200F0A5BE /* ZLSwipeableViewSwipeOptions.m */,
+			);
+			path = ZLSwipeableView;
+			sourceTree = "<group>";
+		};
 		F07E9C571BA90F4500495154 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -2918,6 +3012,7 @@
 				940032D21B840CC3001EB666 /* TH_ProjectExperienceVC.m in Sources */,
 				94E8F4F41B85797900088658 /* WriteResumeCell.m in Sources */,
 				94CB5B801B74CC0600B23B9D /* MJMember.m in Sources */,
+				F05FC66E1C167F7200F0A5BE /* CardView.m in Sources */,
 				94CB5B821B74CC0600B23B9D /* MJType.m in Sources */,
 				9473304F1C02BCB200688587 /* TH_OutDatePosionVC.m in Sources */,
 				94E2C9DC1B8AFA0D001E3FDD /* SelfEvaluationView.m in Sources */,
@@ -2931,7 +3026,6 @@
 				041650EE1B4D7C4E008C78BE /* MJRefreshFooterView.m in Sources */,
 				94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */,
 				F0C0678F1C03FDF000D1B22B /* TableViewCell_4.m in Sources */,
-				04A483D71B751E77006FDB9D /* Utils.m in Sources */,
 				94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */,
 				94E761BD1BA2AC5800B4C544 /* ProjectExperienceVC.m in Sources */,
 				943F41801B9A8766000FC299 /* informantionModel.m in Sources */,
@@ -2943,11 +3037,13 @@
 				94EDD4E81B78319A00A00A78 /* UIBarButtonItem+Extension.m in Sources */,
 				94EDD4F41B7831DA00A00A78 /* ZXImagePickerVC.m in Sources */,
 				947006931B85CA6000DEC289 /* EditAddressVC.m in Sources */,
+				F05FC67A1C167F7200F0A5BE /* ZLSwipeableViewController.m in Sources */,
 				94C320561B9B0CB000ACF07D /* UIButton+Extension.m in Sources */,
 				9473305B1C02BD9100688587 /* TH_ReceiveResumeVC.m in Sources */,
 				F083F8211B9C32F700781C08 /* Me_Request.m in Sources */,
 				94E216301BA951DD00D96B67 /* MTSpecailtyListPointItem.m in Sources */,
 				94E2C9681B870EED001E3FDD /* CompanyDetailVC.m in Sources */,
+				F05FC6721C167F7200F0A5BE /* DefaultViewAnimator.m in Sources */,
 				949CAA0F1BB253AA00284FFF /* WorkingTimeCell.m in Sources */,
 				94E2C9D61B8AF9B8001E3FDD /* CertificateView.m in Sources */,
 				94CB5B7E1B74CC0600B23B9D /* MJFoundation.m in Sources */,
@@ -2977,10 +3073,12 @@
 				94CB30571BA5169700577FE6 /* IQKeyboardManager.m in Sources */,
 				94313DF11B7CB5C9005D0A9A /* WriteResumeCell2.m in Sources */,
 				94313DC01B7CAAED005D0A9A /* TH_InformationDeskDetailVC.m in Sources */,
+				F05FC6771C167F7200F0A5BE /* ZLSwipeableView.m in Sources */,
 				F0C067871C03FDA900D1B22B /* TableViewCell_2.m in Sources */,
 				F0B85A431BA16124005799F5 /* polyNewViewController.m in Sources */,
 				940EDEE01B96E35800376D37 /* WorkExReadingVC.m in Sources */,
 				946EBAC51B84659800CD6AC9 /* jobListCell.m in Sources */,
+				F05FC66F1C167F7200F0A5BE /* UIColor+FlatColors.m in Sources */,
 				94CB5B831B74CC0600B23B9D /* MJTypeEncoding.m in Sources */,
 				9400330A1B8414B9001EB666 /* TH_cooperationVC.m in Sources */,
 				04718DA71B7CDA26008214CB /* ZCControl.m in Sources */,
@@ -2992,8 +3090,10 @@
 				041650691B4D7240008C78BE /* GObjAdapter.m in Sources */,
 				94CB305F1BA5169700577FE6 /* IQUIWindow+Hierarchy.m in Sources */,
 				940032F11B840DCD001EB666 /* JobScreeningCell.m in Sources */,
+				F05FC6751C167F7200F0A5BE /* Utils.m in Sources */,
 				F06F72EF1B9694D200989489 /* playListModel.m in Sources */,
 				94E7DCFC1B841D510093C39B /* THCoursePlayVC.m in Sources */,
+				F05FC6741C167F7200F0A5BE /* Scheduler.m in Sources */,
 				947330451C02ACD800688587 /* EnterpriseView.m in Sources */,
 				041650CB1B4D730F008C78BE /* MBProgressHUD.m in Sources */,
 				947269AC1C04015900A79A7A /* TH_VtalentDetailVC.m in Sources */,
@@ -3018,12 +3118,14 @@
 				947330551C02BD1B00688587 /* TH_AllPositionVC.m in Sources */,
 				047454F41B9C640500CE880A /* ExceptModel.m in Sources */,
 				940032931B83969B001EB666 /* FindjobView.m in Sources */,
+				F05FC6711C167F7200F0A5BE /* DefaultShouldSwipeDeterminator.m in Sources */,
 				940032D81B840CC3001EB666 /* TH_TrainExperienceVC.m in Sources */,
 				94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */,
 				94CB5B7D1B74CC0600B23B9D /* MJConst.m in Sources */,
 				9470069A1B85CA6000DEC289 /* MineEditInfoCell.m in Sources */,
 				94E3EAE71B954947007A699E /* findJobModel.m in Sources */,
 				048F30C11B7A462C004AA9B2 /* DataBase.m in Sources */,
+				F05FC6701C167F7200F0A5BE /* DefaultDirectionInterpretor.m in Sources */,
 				94E2C9D31B8AF98A001E3FDD /* ProjectExperienceView.m in Sources */,
 				F0D7C02B1B7994DB00836DD2 /* OpenClassCell.m in Sources */,
 				048F30BB1B7A4537004AA9B2 /* FMResultSet.m in Sources */,
@@ -3059,7 +3161,9 @@
 				041650ED1B4D7C4E008C78BE /* MJRefreshConst.m in Sources */,
 				F01787A91B9592A0005FF9C4 /* companyInformationModel.m in Sources */,
 				94C3E3501C1015200084C91C /* TH_SocialCircleQrcodeVC.m in Sources */,
+				F05FC67D1C16AD2200F0A5BE /* RKSwipeViewController.m in Sources */,
 				04237D901B66456F00768FAD /* LoginAndRegisterRequest.m in Sources */,
+				F05FC6731C167F7200F0A5BE /* PanGestureRecognizer.m in Sources */,
 				0454ACEC1B945F20004A70ED /* ResumeCell.m in Sources */,
 				94E761B61BA27DEB00B4C544 /* TrainReadView.m in Sources */,
 				94313DAF1B7CAAB5005D0A9A /* TH_PlayFanVC.m in Sources */,
@@ -3067,6 +3171,7 @@
 				94CB305E1BA5169700577FE6 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				0416506A1B4D7240008C78BE /* Gson.m in Sources */,
 				9400329B1B840736001EB666 /* VersionUpdateView.m in Sources */,
+				F05FC6761C167F7200F0A5BE /* ViewManager.m in Sources */,
 				94CB5B851B74CC0600B23B9D /* NSObject+MJKeyValue.m in Sources */,
 				941F10191B7B3BCC00719F5B /* TH_JobWishlistVC.m in Sources */,
 				F0B85A391BA11F83005799F5 /* SearchCity1_ViewController.m in Sources */,
@@ -3075,6 +3180,7 @@
 				94CB5B8A1B74CC0600B23B9D /* readme.md in Sources */,
 				04A0CD421B7A104900EBCF01 /* SearchJobVC.m in Sources */,
 				947330521C02BCF000688587 /* TH_RecruitmentPositionVC.m in Sources */,
+				F05FC6791C167F7200F0A5BE /* ZLSwipeableViewSwipeOptions.m in Sources */,
 				941F100A1B7B3BBD00719F5B /* TH_DeliveryJobVC.m in Sources */,
 				94EDD4F11B7831BB00A00A78 /* ZXLabel.m in Sources */,
 				947006971B85CA6000DEC289 /* MineEditVC.m in Sources */,
@@ -3086,6 +3192,7 @@
 				F05440B41B7870B800127A9B /* jobTableViewCell.m in Sources */,
 				94CB5B861B74CC0600B23B9D /* NSObject+MJMember.m in Sources */,
 				94EDD4F81B783FA700A00A78 /* TH_FindPartTimeVC.m in Sources */,
+				F05FC66D1C167F7200F0A5BE /* AllowedDirectionDemoViewController.m in Sources */,
 				94EDD4DF1B78302E00A00A78 /* THCustomNavigationController.m in Sources */,
 				F01787A61B958C15005FF9C4 /* JobDetailModel.m in Sources */,
 				94CB5B811B74CC0600B23B9D /* MJMethod.m in Sources */,
@@ -3116,6 +3223,7 @@
 				041650EF1B4D7C4E008C78BE /* MJRefreshHeaderView.m in Sources */,
 				F0C0678B1C03FDDB00D1B22B /* TableViewCell_3.m in Sources */,
 				9400329F1B840B47001EB666 /* TH_ResumePreviewVC.m in Sources */,
+				F05FC6781C167F7200F0A5BE /* ZLSwipeableViewMovement.m in Sources */,
 				94313DBE1B7CAAED005D0A9A /* infDestDetailView.m in Sources */,
 				04A483B41B74FD1B006FDB9D /* TH_MainTabBarController.m in Sources */,
 				F0D7C0611B79EB3300836DD2 /* OpenClassVideoListRequest.m in Sources */,

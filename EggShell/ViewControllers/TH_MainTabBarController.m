@@ -14,6 +14,8 @@
 #import "TH_PlayFanVC.h"
 #import "TH_FindJobVC.h"
 #import "SearchModelShare.h"
+#import "TH_FindJobVC.h"
+#import "TH_PlayFanVC.h"
 @interface TH_MainTabBarController ()
 @end
 
@@ -24,6 +26,8 @@
     self.tabBar.tintColor = UIColorFromRGB(0xF44336);
     [self createViewcontrollers];
     [self createTabBarItems];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messagePush) name:@"messagePush" object:nil];
 
 }
 
@@ -64,6 +68,42 @@
         
     }
 }
+
+- (void)messagePush
+{
+    //获取当前选项卡的根控制器
+//    UINavigationController *oldNavigationController = [self.viewControllers objectAtIndex:self.selectedIndex];
+//    
+//    for (int i = [oldNavigationController.viewControllers count] - 1; i >= 0; i--)
+//    {
+//        
+//        UIViewController *viewController = [oldNavigationController.viewControllers objectAtIndex:i];
+//        
+//        NSArray *array = [oldNavigationController popToViewController:viewController animated:NO];
+//        
+//    }
+//    
+//    if (0 != self.selectedIndex)
+//    {
+//        
+//        self.selectedIndex = 0;
+//        
+//    }
+    
+    //self.viewControllers 数组中4个对象 nc1 nc2 nc3 nc4 是四个被导航控制器包装好的TH_HomeVC，TH_PlayFanVC，TH_FindJobVC，TH_MineVC
+    UINavigationController *newNavigationController = [self.viewControllers objectAtIndex:0];
+    //newNavigationController.viewControllers 是选项卡index=0时的UINavigationController栈中所有控制器
+    UINavigationController *homeVc = [newNavigationController.viewControllers objectAtIndex:0];
+    
+//    NSLog(@"%@",[newNavigationController.viewControllers objectAtIndex:0]);
+
+    TH_FindJobVC *vc = [[TH_FindJobVC alloc] init];
+    [newNavigationController pushViewController:vc animated:NO];
+    
+//    [newNavigationController pushViewController:viewcontroller7 animated:NO];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

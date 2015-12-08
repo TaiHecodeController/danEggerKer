@@ -190,8 +190,11 @@
     if (indexPath.row == 0) {
         self.cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return;
-    }else
+    }
+    else
     {
+        UINavigationController *nv;
+        
     [SearchModelShare sharedInstance].keyword = self.dataArray[indexPath.row - 1];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
    

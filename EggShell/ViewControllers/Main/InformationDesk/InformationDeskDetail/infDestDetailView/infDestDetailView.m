@@ -23,7 +23,9 @@
 //    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[model.content dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
 //    self.contentLable.attributedText = comAttributedString;
 //
+    
 [self.logoImage sd_setImageWithURL:[NSURL URLWithString:model.logo] placeholderImage:[UIImage imageNamed:@"tu001"]];
+//    self.logoImage.contentMode = UIViewContentModeScaleAspectFill;
 }
 -(void)setValuess:(informantionModel*)model
 {

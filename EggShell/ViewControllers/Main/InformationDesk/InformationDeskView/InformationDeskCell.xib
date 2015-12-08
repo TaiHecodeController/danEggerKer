@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -17,12 +17,14 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tu" translatesAutoresizingMaskIntoConstraints="NO" id="h0I-Tw-I5e">
                         <rect key="frame" x="15" y="15" width="124" height="70"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="124" id="kmF-Yv-Ujd"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dizhi" translatesAutoresizingMaskIntoConstraints="NO" id="7fY-lF-5p5">
                         <rect key="frame" x="149" y="46" width="10" height="12"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="0Qj-pa-lJb"/>
                             <constraint firstAttribute="width" constant="10" id="ewZ-4l-WFi"/>
@@ -30,6 +32,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="会场地址" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYd-r2-DNV">
                         <rect key="frame" x="169" y="46" width="143" height="13"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="tpa-4k-fFe"/>
                         </constraints>
@@ -39,6 +42,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhubanfang" translatesAutoresizingMaskIntoConstraints="NO" id="wu6-Kg-TQK">
                         <rect key="frame" x="149" y="69" width="8" height="12"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="8" id="HKe-8q-227"/>
                             <constraint firstAttribute="height" constant="12" id="Lrr-ix-yKB"/>
@@ -46,6 +50,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主办方" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWf-zs-nLw">
                         <rect key="frame" x="169" y="69" width="143" height="13"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="DCz-DU-Omr"/>
                         </constraints>
@@ -55,6 +60,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uH-ts-EWz">
                         <rect key="frame" x="149" y="67" width="163" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="C5u-m8-597"/>
                         </constraints>
@@ -64,6 +70,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="太和招聘会" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXE-IR-Fla">
                         <rect key="frame" x="149" y="15" width="163" height="16"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="HU6-um-j2L"/>
                         </constraints>
@@ -72,6 +79,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="h0I-Tw-I5e" secondAttribute="bottom" constant="6.5" id="5q0-7R-9eH"/>
                     <constraint firstItem="pYd-r2-DNV" firstAttribute="top" secondItem="NXE-IR-Fla" secondAttribute="bottom" constant="15" id="8hH-SQ-cUJ"/>
@@ -94,6 +102,7 @@
                     <constraint firstAttribute="trailing" secondItem="pYd-r2-DNV" secondAttribute="trailing" constant="8" id="vmg-EL-TD3"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="addressLable" destination="pYd-r2-DNV" id="y5P-PS-zzD"/>
                 <outlet property="addressView" destination="7fY-lF-5p5" id="TAP-4H-oTW"/>

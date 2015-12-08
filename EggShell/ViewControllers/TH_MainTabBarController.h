@@ -10,4 +10,6 @@
 
 @interface TH_MainTabBarController : UITabBarController
 
+- (void)messagePush;
+
 @end

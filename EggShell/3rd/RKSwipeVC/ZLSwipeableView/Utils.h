@@ -1,12 +1,13 @@
 //
 //  Utils.h
-//  EggShell
+//  ZLSwipeableViewDemo
 //
-//  Created by mac on 15/8/8.
-//  Copyright (c) 2015年 wsd. All rights reserved.
+//  Created by Zhixuan Lai on 10/25/15.
+//  Copyright © 2015 Zhixuan Lai. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "ZLSwipeableView.h"
 //获得xib文件引用宏定义
 #define alloc_with_xib(xib_file) \
 +(id)alloc \
@@ -27,7 +28,20 @@ return obj; \
 
 #define APPID @"1037707953"
 
+CGVector CGVectorFromCGPoint(CGPoint point);
+
+CGFloat CGPointMagnitude(CGPoint point);
+
+CGPoint CGPointNormalized(CGPoint point);
+
+CGPoint CGPointMultiply(CGPoint point, CGFloat factor);
+
+ZLSwipeableViewDirection ZLSwipeableViewDirectionFromVector(CGVector directionVector);
+
+ZLSwipeableViewDirection ZLSwipeableViewDirectionFromPoint(CGPoint point);
+
 @interface Utils : NSObject
+
 //手机号检测
 +(BOOL)checkTel:(NSString *)str;
 //邮箱检测

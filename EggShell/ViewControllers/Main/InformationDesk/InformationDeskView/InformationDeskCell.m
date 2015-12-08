@@ -19,11 +19,13 @@
 
     // Configure the view for the selected state
 }
+
 -(void)setValue:(informantionModel *)model
 {
     self.detailLable.hidden = YES;
     
     self.name.text = model.title;
+    
     [self.logoImage sd_setImageWithURL:[NSURL URLWithString:model.logo]placeholderImage:[UIImage imageNamed:@"tu"]];
     self.addressLable.text = model.address;
     self.homeLable.text = model.organizers;

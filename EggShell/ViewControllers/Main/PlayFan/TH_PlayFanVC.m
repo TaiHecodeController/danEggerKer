@@ -13,6 +13,8 @@
 #import "playFanModel.h"
 #import "AFAppRequest.h"
 #import "informantionModel.h"
+#import "TH_MainTabBarController.h"
+
 @interface TH_PlayFanVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
     MBProgressHUD * _mbPro;
@@ -95,7 +97,7 @@
     bgView.backgroundColor = color(221, 221, 221);
     [self.view addSubview:bgView];
     NSArray *iconArr = @[@[@"huogu0",@"huogu1"],@[@"huodong0",@"huodong1"]];
-    _segmentedControl = [[HYSegmentedControl alloc] initWithOriginY:0 Titles:@[@"蛋壳活动", @"往期回顾"]  IconNames:iconArr delegate:self] ;
+    _segmentedControl = [[HYSegmentedControl alloc] initWithOriginY:0 Titles:@[@"蛋壳活动", @"往期回顾"]  IconNames:iconArr delegate:self];
     [self.view addSubview:_segmentedControl];
     
 }
@@ -186,7 +188,9 @@
         record_index = indexPath;
 
         [self.navigationController pushViewController:detail animated:YES];
-
+//[self.navigationController presentViewController:detail animated:YES completion:^{
+//    
+//}];
         
     }else if (_currentIndex==1)
     {

@@ -35,9 +35,19 @@
     [self createSco];
     [self registerView];
     
+    UIButton *btn = [UIButton new];
+    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+    btn.frame = CGRectMake(100, 100, 100, 100);
+    btn.backgroundColor = [UIColor darkGrayColor];
+    [self.view addSubview:btn];
     
 //    [self loadData];
     
+}
+
+- (void)btnClick
+{
+    [self.navigationController popToViewController:self.navigationController.topViewController animated:YES];
     
 }
 -(void)loadData
