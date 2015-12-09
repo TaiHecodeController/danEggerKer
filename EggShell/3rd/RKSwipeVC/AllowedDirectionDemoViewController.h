@@ -8,6 +8,9 @@
 
 #import "ZLSwipeableViewController.h"
 
+
 @interface AllowedDirectionDemoViewController : ZLSwipeableViewController
+
+//@property (nonatomic) pushType rk_pushType;
 
 @end

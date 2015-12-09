@@ -61,9 +61,11 @@
     self.minVelocityInPointPerSecond = 750;
 
     self.containerView = [[UIView alloc] initWithFrame:self.bounds];
+    self.containerView.backgroundColor = [UIColor greenColor];
     [self addSubview:self.containerView];
 
     self.miscContainerView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.miscContainerView.backgroundColor = [UIColor redColor];
     [self addSubview:self.miscContainerView];
 
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self];

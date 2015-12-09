@@ -20,4 +20,14 @@
 @property(nonatomic,copy)NSString * id;
 @property(nonatomic,copy)NSString *cellselected;
 @property (nonatomic, copy) NSString *com_id;
+
+@property (nonatomic, copy) NSString *com_logo;
+@property (nonatomic, copy) NSString *exp;
+@property (nonatomic, copy) NSString *marriage;
+@property (nonatomic, copy) NSString *number;
+@property (nonatomic, copy) NSString *report;
+@property (nonatomic, copy) NSString *sex;
+@property (nonatomic, copy) NSString *type;
+
+
 @end

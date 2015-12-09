@@ -24,18 +24,19 @@
                          action:@selector(segmentedControlAction:)
                forControlEvents:UIControlEventValueChanged];
     segmentedControl.selectedSegmentIndex = 7;
-    self.navigationItem.titleView = segmentedControl;
+//    self.navigationItem.titleView = segmentedControl;
 
-    self.directions = @[
-        @(ZLSwipeableViewDirectionNone),
-        @(ZLSwipeableViewDirectionLeft),
-        @(ZLSwipeableViewDirectionUp),
-        @(ZLSwipeableViewDirectionRight),
-        @(ZLSwipeableViewDirectionDown),
-        @(ZLSwipeableViewDirectionHorizontal),
-        @(ZLSwipeableViewDirectionVertical),
-        @(ZLSwipeableViewDirectionAll)
-    ];
+//    self.directions = @[
+//        @(ZLSwipeableViewDirectionNone),
+//        @(ZLSwipeableViewDirectionLeft),
+//        @(ZLSwipeableViewDirectionUp),
+//        @(ZLSwipeableViewDirectionRight),
+//        @(ZLSwipeableViewDirectionDown),
+//        @(ZLSwipeableViewDirectionHorizontal),
+//        @(ZLSwipeableViewDirectionVertical),
+//        @(ZLSwipeableViewDirectionAll)
+//    ];
+    
 }
 
 - (void)segmentedControlAction:(UISegmentedControl *)control {

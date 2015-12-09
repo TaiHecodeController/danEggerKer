@@ -13,6 +13,10 @@
 /*数据请求**/
 #import "AFAppRequest.h"
 #import "findJobModel.h"
+#import "FindJobcardView.h"
+#import "SearchJobVC.h"
+#import "TH_JobScreeningVC.h"
+#import "UIBarButtonItem+DC.h"
 
 #define tabbarHeight 46
 
@@ -40,20 +44,50 @@
 
 //取消图片
 @property (nonatomic, strong) UIImageView *cancelView;
+//感兴趣图片
+@property (nonatomic, strong) UIImageView *intestingView;
+@property (assign) float oldx;
+
+@property (nonatomic, strong) UIButton *searchBtn;
 
 @end
 
 @implementation ZLSwipeableViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    UIButton *searchBtn = [[UIButton alloc] init];
+    [searchBtn setImage:[UIImage imageNamed:@"sousuo001"] forState:UIControlStateNormal];
+    [searchBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
+    searchBtn.frame = CGRectMake(WIDETH - 10 - 50 - 20 - 10,0, 44, 44);
+    [searchBtn addTarget:self action:@selector(searchBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationController.navigationBar addSubview:searchBtn];
+    _searchBtn = searchBtn;
+}
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.toolbarHidden = NO;
-    self.view.clipsToBounds = YES;
-    self.view.backgroundColor = [UIColor whiteColor];
+    //隐藏toolbar
+    self.navigationController.toolbarHidden = YES;
+    self.title = @"找工作";
     
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem barBtnItemWithNormalImageName:@"liebiao" hightImageName:nil action:@selector(rightClick) target:self];
+//    self.view.clipsToBounds = YES;
+//    self.view.backgroundColor = [UIColor whiteColor];
+    
+    //不感兴趣图片
+    self.cancelView = [[UIImageView alloc]init];
     self.cancelView.image = [UIImage imageNamed:@"不感兴趣"];
-    
+    self.cancelView.frame = CGRectMake((WIDETH - 30 - 100) / 2, 100, 100, 100);
+    //收藏图片
+    self.intestingView = [[UIImageView alloc]init];
+    self.intestingView.image = [UIImage imageNamed:@"收藏"];
+    self.intestingView.frame = CGRectMake((WIDETH - 30 - 100) / 2, 100, 100, 100);
 
     //初始化职位数组，查询数据库
     self.jobArr = [[NSMutableArray alloc]init];
@@ -62,84 +96,84 @@
     [self loadData:_mbPro page:self.page];
     
     self.colorIndex = 0;
-    self.colors = @[
-        @"Turquoise",
-        @"Green Sea",
-        @"Emerald",
-        @"Nephritis",
-        @"Peter River",
-        @"Belize Hole",
-        @"Amethyst",
-        @"Wisteria",
-        @"Wet Asphalt",
-        @"Midnight Blue",
-        @"Sun Flower",
-        @"Orange",
-        @"Carrot",
-        @"Pumpkin",
-        @"Alizarin",
-        @"Pomegranate",
-        @"Clouds",
-        @"Silver",
-        @"Concrete",
-        @"Asbestos"
-    ];
+//    self.colors = @[
+//        @"Turquoise",
+//        @"Green Sea",
+//        @"Emerald",
+//        @"Nephritis",
+//        @"Peter River",
+//        @"Belize Hole",
+//        @"Amethyst",
+//        @"Wisteria",
+//        @"Wet Asphalt",
+//        @"Midnight Blue",
+//        @"Sun Flower",
+//        @"Orange",
+//        @"Carrot",
+//        @"Pumpkin",
+//        @"Alizarin",
+//        @"Pomegranate",
+//        @"Clouds",
+//        @"Silver",
+//        @"Concrete",
+//        @"Asbestos"
+//    ];
 
     
-    self.reloadBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reload"
-                                                                style:UIBarButtonItemStylePlain
-                                                               target:self
-                                                               action:@selector(handleReload:)];
-    self.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"←"
-                                                              style:UIBarButtonItemStylePlain
-                                                             target:self
-                                                             action:@selector(handleLeft:)];
-    self.upBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"↑"
-                                                            style:UIBarButtonItemStylePlain
-                                                           target:self
-                                                           action:@selector(handleUp:)];
-    self.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"→"
-                                                               style:UIBarButtonItemStylePlain
-                                                              target:self
-                                                              action:@selector(handleRight:)];
-    self.downBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"↓"
-                                                              style:UIBarButtonItemStylePlain
-                                                             target:self
-                                                             action:@selector(handleDown:)];
+//    self.reloadBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reload"
+//                                                                style:UIBarButtonItemStylePlain
+//                                                               target:self
+//                                                               action:@selector(handleReload:)];
+//    self.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"←"
+//                                                              style:UIBarButtonItemStylePlain
+//                                                             target:self
+//                                                             action:@selector(handleLeft:)];
+//    self.upBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"↑"
+//                                                            style:UIBarButtonItemStylePlain
+//                                                           target:self
+//                                                           action:@selector(handleUp:)];
+//    self.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"→"
+//                                                               style:UIBarButtonItemStylePlain
+//                                                              target:self
+//                                                              action:@selector(handleRight:)];
+//    self.downBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"↓"
+//                                                              style:UIBarButtonItemStylePlain
+//                                                             target:self
+//                                                             action:@selector(handleDown:)];
 
-    UIBarButtonItem *fixedSpace =
-        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                      target:nil
-                                                      action:nil];
-    UIBarButtonItem *flexibleSpace =
-        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                      target:nil
-                                                      action:nil];
-    self.toolbarItems = @[
-        fixedSpace,
-        _reloadBarButtonItem,
-        flexibleSpace,
-        _leftBarButtonItem,
-        flexibleSpace,
-        _upBarButtonItem,
-        flexibleSpace,
-        _rightBarButtonItem,
-        flexibleSpace,
-        _downBarButtonItem,
-        fixedSpace
-    ];
+//    UIBarButtonItem *fixedSpace =
+//        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+//                                                      target:nil
+//                                                      action:nil];
+//    UIBarButtonItem *flexibleSpace =
+//        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+//                                                      target:nil
+//                                                      action:nil];
+//    self.toolbarItems = @[
+//        fixedSpace,
+//        _reloadBarButtonItem,
+//        flexibleSpace,
+//        _leftBarButtonItem,
+//        flexibleSpace,
+//        _upBarButtonItem,
+//        flexibleSpace,
+//        _rightBarButtonItem,
+//        flexibleSpace,
+//        _downBarButtonItem,
+//        fixedSpace
+//    ];
 
     //添加卡片视图
     ZLSwipeableView *swipeableView = [[ZLSwipeableView alloc] initWithFrame:CGRectZero];
     self.swipeableView = swipeableView;
     self.swipeableView.allowedDirection = ZLSwipeableViewDirectionHorizontal;
-    
+        
     [self.view addSubview:self.swipeableView];
     //添加数据源代理，事件代理
-    // Required Data Source
     self.swipeableView.dataSource = self;
     // Optional Delegate
     self.swipeableView.delegate = self;
+    
     self.swipeableView.translatesAutoresizingMaskIntoConstraints = NO;
 
     //autolayout自动布局,布局swipeableView
@@ -159,6 +193,24 @@
                                                         views:NSDictionaryOfVariableBindings(
                                                                   swipeableView)]];
    
+}
+
+- (void)rightClick
+{
+    THLog(@"条件选择按钮被点击");
+    
+    TH_JobScreeningVC * job = [[TH_JobScreeningVC alloc] init];
+    job.title = @"职位搜索";
+    [self.navigationController pushViewController:job animated:YES];
+}
+
+
+- (void)searchBtnClick
+{
+    THLog(@"搜索被点击");
+    SearchJobVC * search = [[SearchJobVC alloc] init];
+    [self.navigationController pushViewController:search animated:YES];
+    
 }
 
 -(void)loadData:(id)notify page:(int)num
@@ -205,32 +257,32 @@
    [self.swipeableView loadViewsIfNeeded];
 }
 #pragma mark - Action
-
-- (void)handleLeft:(UIBarButtonItem *)sender {
-    [self.swipeableView swipeTopViewToLeft];
-}
-
-- (void)handleRight:(UIBarButtonItem *)sender {
-    [self.swipeableView swipeTopViewToRight];
-}
-
-- (void)handleUp:(UIBarButtonItem *)sender {
-    [self.swipeableView swipeTopViewToUp];
-}
-
-- (void)handleDown:(UIBarButtonItem *)sender {
-    [self.swipeableView swipeTopViewToDown];
-}
-
-- (void)handleReload:(UIBarButtonItem *)sender {
-    UIActionSheet *actionSheet =
-        [[UIActionSheet alloc] initWithTitle:@"Load Cards"
-                                    delegate:self
-                           cancelButtonTitle:@"Cancel"
-                      destructiveButtonTitle:nil
-                           otherButtonTitles:@"Programmatically", @"From Xib", nil];
-    [actionSheet showInView:self.view];
-}
+//
+//- (void)handleLeft:(UIBarButtonItem *)sender {
+//    [self.swipeableView swipeTopViewToLeft];
+//}
+//
+//- (void)handleRight:(UIBarButtonItem *)sender {
+//    [self.swipeableView swipeTopViewToRight];
+//}
+//
+//- (void)handleUp:(UIBarButtonItem *)sender {
+//    [self.swipeableView swipeTopViewToUp];
+//}
+//
+//- (void)handleDown:(UIBarButtonItem *)sender {
+//    [self.swipeableView swipeTopViewToDown];
+//}
+//
+//- (void)handleReload:(UIBarButtonItem *)sender {
+//    UIActionSheet *actionSheet =
+//        [[UIActionSheet alloc] initWithTitle:@"Load Cards"
+//                                    delegate:self
+//                           cancelButtonTitle:@"Cancel"
+//                      destructiveButtonTitle:nil
+//                           otherButtonTitles:@"Programmatically", @"From Xib", nil];
+//    [actionSheet showInView:self.view];
+//}
 
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -246,22 +298,27 @@
          didSwipeView:(UIView *)view
           inDirection:(ZLSwipeableViewDirection)direction {
         NSLog(@"did swipe in direction: %zd", direction);
-    NSLog(@"%ld",self.colorIndex);
-    
     
 }
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView didCancelSwipe:(UIView *)view {
     NSLog(@"did cancel swipe");
-//     NSLog(@"%ld",self.colorIndex);
 }
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
   didStartSwipingView:(UIView *)view
            atLocation:(CGPoint)location {
+    
+    
     NSLog(@"did start swiping at location: x %f, y %f", location.x, location.y);
-//     NSLog(@"%ld",self.colorIndex);
-//    //第8个开始滑动时，从新加载下一页数据
+    //开始，记录初始x,是oldx不为空
+    self.oldx = location.x;
+    [view addSubview:self.cancelView];
+    self.cancelView.hidden = YES;
+    [view addSubview:self.intestingView];
+    self.intestingView.hidden = YES;
+
+
 }
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
@@ -270,18 +327,21 @@
           translation:(CGPoint)translation {
     NSLog(@"swiping at location: x %f, y %f, translation: x %f, y %f", location.x, location.y,
           translation.x, translation.y);
-    float oldX;
-    if (oldX >= location.x)
-    {
-        NSLog(@"左滑动");
-    }else
-    {
-        NSLog(@"右滑动");
 
-    }
-    oldX = location.x;
-    
-//     NSLog(@"%ld",self.colorIndex);
+        if (self.oldx > location.x)
+        {
+            NSLog(@"左滑动");
+            self.intestingView.hidden = YES;
+            self.cancelView.hidden = NO;
+            self.oldx = location.x;
+        }
+        else if(self.oldx < location.x)
+        {
+            NSLog(@"右滑动");
+            self.cancelView.hidden = YES;
+            self.intestingView.hidden = NO;
+            self.oldx = location.x;
+        }
     
 }
 
@@ -289,8 +349,12 @@
     didEndSwipingView:(UIView *)view
            atLocation:(CGPoint)location {
     NSLog(@"did end swiping at location: x %f, y %f", location.x, location.y);
-//     NSLog(@"%ld",self.colorIndex);
+    [self.cancelView removeFromSuperview];
+    [self.intestingView removeFromSuperview];
+//    self.cancelView.hidden = YES;
+//    self.intestingView.hidden = YES;
 //    NSLog(@"didEndSwipingView %ld",self.colorIndex);
+//    self.oldx = 0;
     
 }
 
@@ -298,8 +362,8 @@
 
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView
 {
-    NSLog(@"colorIndex%ld",self.colorIndex);
-    NSLog(@"jobArr.count%ld",self.jobArr.count);
+//    NSLog(@"colorIndex%ld",self.colorIndex);
+//    NSLog(@"jobArr.count%ld",self.jobArr.count);
     
     CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
     
@@ -308,12 +372,12 @@
     {
         findJobModel * model = self.jobArr[self.colorIndex - 1];
         //添加一个标签试试
+        FindJobcardView *fjcV = [FindJobcardView setFindJobcardView];
+        fjcV.backgroundColor = [UIColor yellowColor];
+        [fjcV setValues:model];
         
-        UILabel *lab = [[UILabel alloc]init];
-        lab.frame = CGRectMake(0, 0, 100, 100);
-        lab.textColor = [UIColor blackColor];
-        lab.text = model.job_id;
-        [view addSubview:lab];
+        fjcV.frame = CGRectMake(0,0,view.frame.size.width,  view.frame.size.height);
+        [view addSubview:fjcV];
 
     }
     
@@ -332,7 +396,8 @@
 
     }
     
-    view.backgroundColor = [self colorForName:self.colors[self.colorIndex]];
+//    view.backgroundColor = [self colorForName:self.colors[self.colorIndex]];
+    view.backgroundColor = [UIColor grayColor];
     self.colorIndex++;
 
 //    if (self.loadCardFromXib) {
@@ -369,6 +434,8 @@
     }
    
 }
+
+
 
 #pragma mark - ()
 

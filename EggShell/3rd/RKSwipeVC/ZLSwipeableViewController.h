@@ -10,7 +10,7 @@
 #import "ZLSwipeableView.h"
 
 @interface ZLSwipeableViewController
-    : UIViewController <ZLSwipeableViewDataSource, ZLSwipeableViewDelegate, UIActionSheetDelegate>
+    : UIViewController <ZLSwipeableViewDataSource, ZLSwipeableViewDelegate, UIActionSheetDelegate,ZLSwipeableViewDirectionInterpretor>
 
 @property (nonatomic, strong) ZLSwipeableView *swipeableView;
 

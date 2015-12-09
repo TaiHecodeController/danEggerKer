@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "findJobModel.h"
 
 @interface FindJobcardView : UIView
 +(FindJobcardView*)setFindJobcardView;
@@ -23,5 +24,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *genderLable;
 @property (weak, nonatomic) IBOutlet UILabel *marriageLable;
 @property (weak, nonatomic) IBOutlet UILabel *dutyLable;
--(void)setValues:(NSDictionary*)dic;
+-(void)setValues:(findJobModel *)model;
 @end

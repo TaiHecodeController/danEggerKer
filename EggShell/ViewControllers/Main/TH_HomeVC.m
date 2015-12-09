@@ -41,6 +41,7 @@
 #import "TH_VtalentVC.h"
 #import "AllowedDirectionDemoViewController.h"
 #import "RKSwipeViewController.h"
+#import "ZLSwipeableViewController.h"
 
 @interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate>
 {
@@ -621,7 +622,10 @@
 //            [SearchModelShare sharedInstance].type = @"55";
 //            home.rk_pushType = homePushType;
 //            [self.navigationController pushViewController:home animated:YES];
-            AllowedDirectionDemoViewController *vc = [[AllowedDirectionDemoViewController alloc]init];
+//            AllowedDirectionDemoViewController *vc = [[AllowedDirectionDemoViewController alloc]init];
+            ZLSwipeableViewController *vc = [[ZLSwipeableViewController alloc]init];
+
+//            vc.rk_pushType = homePushType;
 //            RKSwipeViewController *vc = [[RKSwipeViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
             break;

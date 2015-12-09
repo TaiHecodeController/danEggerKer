@@ -99,7 +99,6 @@
     [self.navigationController.navigationBar addSubview:searchBtn];
     _searchBtn = searchBtn;
     
-//    [self initView];
     if (_rk_pushType == homePushType)
     {
         _bottomView.frame = CGRectMake(0, HEIGHT - bottomH -33 , WIDETH, bottomH);
@@ -115,7 +114,8 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backRootController:) name:@"findJobBackClick" object:nil];
 }
 -(void)viewDidAppear:(BOOL)animated
-{ self.cellArray = [NSMutableArray arrayWithCapacity:0];
+{
+    self.cellArray = [NSMutableArray arrayWithCapacity:0];
     //    jobTableViewCell * cell = self.cellArray[record_index.row];
     //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     //  [self.tableView reloadData];
@@ -141,7 +141,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TJsearch) name:@"TJsearch" object:nil];
     
-//    NSLog(@"_job_type%@",_job_type);
     //全职过来
     if ([_job_type isEqual:@"0"])
     {
