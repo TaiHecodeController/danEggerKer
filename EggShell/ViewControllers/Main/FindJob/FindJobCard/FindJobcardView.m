@@ -13,6 +13,18 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"FindJobcardViews" owner:self options:nil] lastObject];
 }
+-(id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self makeUI];
+    }
+    return self;
+}
+-(void)makeUI
+{
+
+}
 -(void)setValues:(NSDictionary*)dic
 {
     //职位图片
