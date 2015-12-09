@@ -51,6 +51,10 @@
 
 @property (nonatomic, strong) UIButton *searchBtn;
 
+//保存uid job_id
+@property (nonatomic, copy) NSString *rk_uid;
+@property (nonatomic, copy) NSString *rk_job_id;
+
 @end
 
 @implementation ZLSwipeableViewController
@@ -380,6 +384,10 @@
         fjcV.backgroundColor = [UIColor yellowColor];
         [fjcV setValues:model];
         
+        //保存uid job_id
+        self.rk_uid = [NSString stringWithFormat:@"%@",model.uid];
+        self.rk_job_id = [NSString stringWithFormat:@"%@",model.job_id];
+        
         fjcV.frame = CGRectMake(0,0,view.frame.size.width,  view.frame.size.height);
         [view addSubview:fjcV];
 
@@ -443,12 +451,9 @@
 {
     NSLog(@"职位详情");
     TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
-//    record_index = indexPath;
-//    detail.uid = [fjModel.uid intValue];
-//    detail.pid = [fjModel.job_id intValue];
-    detail.saveBOOL = 1;
-    //        NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-    //        NSLog(@"uid%@",[df objectForKey:@"uid"]);
+    detail.uid = [self.rk_uid intValue];
+    detail.pid = [self.rk_job_id intValue];
+//    detail.saveBOOL = 1;
     [self.navigationController pushViewController:detail animated:YES];
 
 }
