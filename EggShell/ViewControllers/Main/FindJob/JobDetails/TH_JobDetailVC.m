@@ -22,7 +22,7 @@
 #import "findJobModel.h"
 #import "TH_HomeVC.h"
 #import "TH_MainTabBarController.h"
-
+#import "findJobDetialScriptionViewS.h"
 @interface TH_JobDetailVC ()<UITableViewDataSource,UITableViewDelegate,companyProfileViewDelegate,MJRefreshBaseViewDelegate>
 {
     //纪录展开之前的frame
@@ -44,7 +44,7 @@
 @property(strong,nonatomic)UIView * headerView;
 @property(strong,nonatomic)AFRequestState * state;
 @property (nonatomic, strong) MBProgressHUD *mbPro;
-@property (nonatomic, strong)JobDescriptionlView *jobDescription;
+@property (nonatomic, strong)findJobDetialScriptionViewS *jobDescription;
 @property (nonatomic, strong)ComPanyProfileView *companyprofileView;
 @property (nonatomic, strong) NSMutableArray *listArr;
 @property (nonatomic, strong) JobDetailModel *model;
@@ -240,22 +240,24 @@
 
 -(void)createsheader
 {
-    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 510+60)];
+    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 645 + 100+60)];
     self.headerView.backgroundColor = UIColorFromRGB(0xF3F3F1);
     [self.view addSubview:self.headerView];
 }
 #pragma mark -- title
 -(void)createDetailView
 {
-    JobDescriptionlView * jobDescription = [JobDescriptionlView setJobDescriptionView];
-       jobDescription.frame = CGRectMake(0, 0, WIDETH, 410);
+//    JobDescriptionlView * jobDescription = [JobDescriptionlView setJobDescriptionView];
+//       jobDescription.frame = CGRectMake(0, 0, WIDETH, 410);
+    
+    findJobDetialScriptionViewS * jobDescription = [findJobDetialScriptionViewS setFindJobDetialScriptionView];
+    jobDescription.frame = CGRectMake(0, 0, WIDETH, 645);
    [self.headerView addSubview:jobDescription];
     
     _jobDescription = jobDescription;
-    [jobDescription.jobDescriptionTextView setEditable:NO];
-    jobDescription.jobDescriptionTextView.scrollEnabled = YES;
-//公司简介
-    ComPanyProfileView * companyprofileView = [[ComPanyProfileView alloc] initWithFrame:CGRectMake(0, 410, WIDETH, 160)];
+    [jobDescription.jobCroptionTextView setEditable:NO];
+  //公司简介
+    ComPanyProfileView * companyprofileView = [[ComPanyProfileView alloc] initWithFrame:CGRectMake(0, 645, WIDETH, 160)];
     companyprofileView.backgroundColor = [UIColor whiteColor];
     
     companyprofileView.delegate = self;
@@ -276,7 +278,7 @@
             
             company_recordFrame = companyView.frame;
             //company的frame
-        companyView.frame = CGRectMake(0, 410, companyView.frame.size.width, companyView.frame.size.height + textSize.height - 50);
+        companyView.frame = CGRectMake(0, 645, companyView.frame.size.width, companyView.frame.size.height + textSize.height - 50);
             
             //改变label的frame
             lab_recordFrame = companyView.detailLable.frame;
@@ -444,13 +446,38 @@
 #pragma set方法
 - (void)setHeaderModel:(JobDetailModel *)model
 {
-    _jobDescription.postionName.text = model.cj_name;
-    _jobDescription.companyName.text = model.com_name;
-    _jobDescription.publicTime.text = model.sdate;
-    _jobDescription.availTime.text = model.edate;
-    _jobDescription.exprienceTime.text = model.exp;
-    _jobDescription.RecruitmentNum.text = model.number;
-        
+    //    @property (weak, nonatomic) IBOutlet UIImageView *logoView;
+    //    @property (weak, nonatomic) IBOutlet UILabel *jobNameLable;
+    //    @property (weak, nonatomic) IBOutlet UILabel *companyNameLable;
+    //    @property (weak, nonatomic) IBOutlet UILabel *releaseTimeLable;
+    //    @property (weak, nonatomic) IBOutlet UILabel *closeTImeLable;
+    //    @property (weak, nonatomic) IBOutlet UILabel *salaryLable;
+    //    @property (weak, nonatomic) IBOutlet UILabel *workYearLable;
+    //    @property (weak, nonatomic) IBOutlet UILabel *studyLable;
+    //    @property (weak, nonatomic) IBOutlet UILabel *addressLable;
+    //    @property (weak, nonatomic) IBOutlet UILabel *natureLable;
+    //    @property (weak, nonatomic) IBOutlet UILabel *recruitLable;
+    //    @property (weak, nonatomic) IBOutlet UILabel *genderLable;
+    //    @property (weak, nonatomic) IBOutlet UILabel *marraigeLable;
+    //    @property (weak, nonatomic) IBOutlet UILabel *dutyLable;
+    //    @property (weak, nonatomic) IBOutlet UITextView *jobCroptionTextView;
+    //    @property (weak, nonatomic) IBOutlet UILabel *compayAddressLable;
+    [_jobDescription.logoView sd_setImageWithURL:[NSURL URLWithString:@"logo"] placeholderImage:[UIImage imageNamed:@"tu"]];
+    _jobDescription.jobNameLable.text = model.cj_name;
+    _jobDescription.companyNameLable.text = model.com_name;
+    _jobDescription.releaseTimeLable.text = model.sdate;
+    _jobDescription.closeTImeLable.text = model.edate;
+    _jobDescription.salaryLable.text = model.salary;
+    _jobDescription.workYearLable.text = model.exp;
+    _jobDescription.studyLable.text = model.edu;
+    _jobDescription.addressLable.text = model.address;
+    _jobDescription.natureLable.text = model.type;
+    _jobDescription.recruitLable.text = model.number;
+    _jobDescription.genderLable.text = model.sex;
+    _jobDescription.marraigeLable.text = model.marriage;
+    _jobDescription.dutyLable.text = model.edu;
+    _jobDescription.compayAddressLable.text = model.address;
+    
     if ([model.iscollect isEqual:@"0"])
     {
         _rightCollectBtn.selected = NO;
@@ -464,35 +491,29 @@
     
     NSString *htmlString = [CommonFunc textFromBase64String:model.cj_description];
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-    _jobDescription.jobDescriptionTextView.attributedText = attributedString;
+    _jobDescription.jobCroptionTextView.attributedText = attributedString;
     
     
     
     if ([model.type isEqualToString:@"54"])
     {
-        _jobDescription.workNature.text = @"不限";
+        _jobDescription.natureLable.text = @"不限";
     }
     else if ([model.type isEqualToString:@"55"])
     {
-        _jobDescription.workNature.text = @"全职";
+        _jobDescription.natureLable.text = @"全职";
     }
     else if ([model.type isEqualToString:@"56"])
     {
-        _jobDescription.workNature.text = @"兼职";
+        _jobDescription.natureLable.text = @"兼职";
     }
     else
     {
-        _jobDescription.workNature.text = @"实习";
+        _jobDescription.natureLable.text = @"实习";
     }
+
     
-    _jobDescription.workPlace.text = model.address;
-    _jobDescription.detailAdressLable.text = model.address;
-    _jobDescription.knowledge.text = model.edu;
-    _jobDescription.salary.text = model.salary;
-//    //公司简介
-//    NSString *comHtmlString = [CommonFunc textFromBase64String:model.content];
-//    NSAttributedString *comAttributedString = [[NSAttributedString alloc] initWithData:[comHtmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-//    _companyprofileView.detailLable.attributedText = comAttributedString;
+
     NSString *comHtmlString = [CommonFunc textFromBase64String:model.content];
   
     NSString *str =  [self flattenHTML:comHtmlString trimWhiteSpace:YES];

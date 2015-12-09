@@ -250,6 +250,8 @@
 		94E8F4F51B85797900088658 /* WriteResumeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E8F4EF1B85797900088658 /* WriteResumeCell.xib */; };
 		94E95EE31C16CFBC009FA049 /* FindJobcardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E95EE21C16CFBC009FA049 /* FindJobcardView.m */; };
 		94E95EE51C16CFD9009FA049 /* FindJobcardViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E95EE41C16CFD9009FA049 /* FindJobcardViews.xib */; };
+		94E95EEA1C17C0D8009FA049 /* findJobDetialScriptionViewS.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E95EE91C17C0D8009FA049 /* findJobDetialScriptionViewS.m */; };
+		94E95EEC1C17C1C7009FA049 /* findJobDetialScriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E95EEB1C17C1C7009FA049 /* findJobDetialScriptionView.xib */; };
 		94EAEAC31B78437A003C19DD /* TH_FindPracticeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EAEAC21B78437A003C19DD /* TH_FindPracticeVC.m */; };
 		94EDD4DF1B78302E00A00A78 /* THCustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EDD4DE1B78302E00A00A78 /* THCustomNavigationController.m */; };
 		94EDD4E81B78319A00A00A78 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EDD4E31B78319A00A00A78 /* UIBarButtonItem+Extension.m */; };
@@ -802,6 +804,9 @@
 		94E95EE11C16CFBC009FA049 /* FindJobcardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindJobcardView.h; sourceTree = "<group>"; };
 		94E95EE21C16CFBC009FA049 /* FindJobcardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindJobcardView.m; sourceTree = "<group>"; };
 		94E95EE41C16CFD9009FA049 /* FindJobcardViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindJobcardViews.xib; sourceTree = "<group>"; };
+		94E95EE81C17C0D8009FA049 /* findJobDetialScriptionViewS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findJobDetialScriptionViewS.h; sourceTree = "<group>"; };
+		94E95EE91C17C0D8009FA049 /* findJobDetialScriptionViewS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = findJobDetialScriptionViewS.m; sourceTree = "<group>"; };
+		94E95EEB1C17C1C7009FA049 /* findJobDetialScriptionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = findJobDetialScriptionView.xib; sourceTree = "<group>"; };
 		94EAEAC11B78437A003C19DD /* TH_FindPracticeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_FindPracticeVC.h; sourceTree = "<group>"; };
 		94EAEAC21B78437A003C19DD /* TH_FindPracticeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_FindPracticeVC.m; sourceTree = "<group>"; };
 		94EDD4DD1B78302E00A00A78 /* THCustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCustomNavigationController.h; sourceTree = "<group>"; };
@@ -2217,6 +2222,9 @@
 				94E2C9721B870F29001E3FDD /* CompanyProfile.xib */,
 				94E2C9731B870F29001E3FDD /* ComPanyProfileView.h */,
 				94E2C9741B870F29001E3FDD /* ComPanyProfileView.m */,
+				94E95EE81C17C0D8009FA049 /* findJobDetialScriptionViewS.h */,
+				94E95EEB1C17C1C7009FA049 /* findJobDetialScriptionView.xib */,
+				94E95EE91C17C0D8009FA049 /* findJobDetialScriptionViewS.m */,
 			);
 			path = CompanyProfil;
 			sourceTree = "<group>";
@@ -2958,6 +2966,7 @@
 				04A0CD451B7A110B00EBCF01 /* HeadView.xib in Resources */,
 				F0E970D11C0D439100FC21BC /* you3@2x.png in Resources */,
 				94E5E5ED1C085A6800CF60A0 /* SearchView.xib in Resources */,
+				94E95EEC1C17C1C7009FA049 /* findJobDetialScriptionView.xib in Resources */,
 				94313D351B7B46C2005D0A9A /* LoginView.xib in Resources */,
 				F0E970D21C0D439100FC21BC /* you3@3x.png in Resources */,
 				F0D554891BF5B16300213311 /* test.pages in Resources */,
@@ -3042,6 +3051,7 @@
 				9473303C1BFF186000688587 /* TH_VtalentVC.m in Sources */,
 				041650EE1B4D7C4E008C78BE /* MJRefreshFooterView.m in Sources */,
 				94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */,
+				94E95EEA1C17C0D8009FA049 /* findJobDetialScriptionViewS.m in Sources */,
 				F0C0678F1C03FDF000D1B22B /* TableViewCell_4.m in Sources */,
 				94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */,
 				94E761BD1BA2AC5800B4C544 /* ProjectExperienceVC.m in Sources */,

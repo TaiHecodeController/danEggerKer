@@ -17,6 +17,7 @@
 #import "SearchJobVC.h"
 #import "TH_JobScreeningVC.h"
 #import "UIBarButtonItem+DC.h"
+#import "TH_JobDetailVC.h"
 
 #define tabbarHeight 46
 
@@ -167,8 +168,11 @@
     ZLSwipeableView *swipeableView = [[ZLSwipeableView alloc] initWithFrame:CGRectZero];
     self.swipeableView = swipeableView;
     self.swipeableView.allowedDirection = ZLSwipeableViewDirectionHorizontal;
-        
     [self.view addSubview:self.swipeableView];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick)];
+    [self.swipeableView addGestureRecognizer:tap];
+    
     //添加数据源代理，事件代理
     self.swipeableView.dataSource = self;
     // Optional Delegate
@@ -433,6 +437,20 @@
          return nil;
     }
    
+}
+
+- (void)tapClick
+{
+    NSLog(@"职位详情");
+    TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
+//    record_index = indexPath;
+//    detail.uid = [fjModel.uid intValue];
+//    detail.pid = [fjModel.job_id intValue];
+    detail.saveBOOL = 1;
+    //        NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    //        NSLog(@"uid%@",[df objectForKey:@"uid"]);
+    [self.navigationController pushViewController:detail animated:YES];
+
 }
 
 
