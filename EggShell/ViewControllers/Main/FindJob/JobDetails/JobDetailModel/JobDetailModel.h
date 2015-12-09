@@ -49,7 +49,9 @@
 @property (nonatomic, copy) NSString *edate;
 @property (nonatomic, copy) NSString *iscollect;
 @property (nonatomic, copy) NSString *number;
-
+@property(nonatomic,copy)  NSString * sex;
+@property(nonatomic,copy)  NSString * marriage;
+@property(nonatomic,copy)NSString * report;
 array_item_def(lists)
 @property (nonatomic, strong) NSArray *lists;
 //@property (nonatomic, copy) NSString *name;
