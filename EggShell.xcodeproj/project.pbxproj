@@ -91,6 +91,7 @@
 		941A9EBE1C191751000FFA4D /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941A9EB81C191751000FFA4D /* HomeView.m */; };
 		941A9EBF1C191751000FFA4D /* HomeViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941A9EB91C191751000FFA4D /* HomeViews.xib */; };
 		941A9EC01C191751000FFA4D /* HotJobView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941A9EBB1C191751000FFA4D /* HotJobView.m */; };
+		941A9EC31C191CE3000FFA4D /* cardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941A9EC21C191CE3000FFA4D /* cardView.m */; };
 		941F100A1B7B3BBD00719F5B /* TH_DeliveryJobVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F10091B7B3BBD00719F5B /* TH_DeliveryJobVC.m */; };
 		941F10151B7B3BCC00719F5B /* JobWishList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941F100D1B7B3BCC00719F5B /* JobWishList.xib */; };
 		941F10161B7B3BCC00719F5B /* JobWishlistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F100F1B7B3BCC00719F5B /* JobWishlistCell.m */; };
@@ -310,6 +311,7 @@
 		F07F39051B996F65002531CD /* saveListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39041B996F65002531CD /* saveListModel.m */; };
 		F07F39091B998B62002531CD /* TeacherFCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39081B998B62002531CD /* TeacherFCModel.m */; };
 		F083F8211B9C32F700781C08 /* Me_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F083F8201B9C32F700781C08 /* Me_Request.m */; };
+		F0A8C52F1C192BC0002E6971 /* findJobCarViewS.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A8C52E1C192BC0002E6971 /* findJobCarViewS.m */; };
 		F0B85A391BA11F83005799F5 /* SearchCity1_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */; };
 		F0B85A3C1BA11F97005799F5 /* SearchCity2_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A3B1BA11F97005799F5 /* SearchCity2_ViewController.m */; };
 		F0B85A3F1BA11FA7005799F5 /* SearchCity3_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A3E1BA11FA7005799F5 /* SearchCity3_ViewController.m */; };
@@ -532,6 +534,8 @@
 		941A9EB91C191751000FFA4D /* HomeViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViews.xib; sourceTree = "<group>"; };
 		941A9EBA1C191751000FFA4D /* HotJobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotJobView.h; sourceTree = "<group>"; };
 		941A9EBB1C191751000FFA4D /* HotJobView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotJobView.m; sourceTree = "<group>"; };
+		941A9EC11C191CE3000FFA4D /* cardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cardView.h; sourceTree = "<group>"; };
+		941A9EC21C191CE3000FFA4D /* cardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cardView.m; sourceTree = "<group>"; };
 		941F10081B7B3BBD00719F5B /* TH_DeliveryJobVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_DeliveryJobVC.h; sourceTree = "<group>"; };
 		941F10091B7B3BBD00719F5B /* TH_DeliveryJobVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_DeliveryJobVC.m; sourceTree = "<group>"; };
 		941F100D1B7B3BCC00719F5B /* JobWishList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobWishList.xib; sourceTree = "<group>"; };
@@ -918,6 +922,8 @@
 		F07F39081B998B62002531CD /* TeacherFCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherFCModel.m; sourceTree = "<group>"; };
 		F083F81F1B9C32F700781C08 /* Me_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Me_Request.h; sourceTree = "<group>"; };
 		F083F8201B9C32F700781C08 /* Me_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Me_Request.m; sourceTree = "<group>"; };
+		F0A8C52D1C192BBA002E6971 /* findJobCarViewS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findJobCarViewS.h; sourceTree = "<group>"; };
+		F0A8C52E1C192BC0002E6971 /* findJobCarViewS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = findJobCarViewS.m; sourceTree = "<group>"; };
 		F0B85A371BA11F83005799F5 /* SearchCity1_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCity1_ViewController.h; path = ../FindJob/SearchCity1_ViewController.h; sourceTree = "<group>"; };
 		F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCity1_ViewController.m; path = ../FindJob/SearchCity1_ViewController.m; sourceTree = "<group>"; };
 		F0B85A3A1BA11F97005799F5 /* SearchCity2_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCity2_ViewController.h; path = ../FindJob/SearchCity2_ViewController.h; sourceTree = "<group>"; };
@@ -2435,6 +2441,10 @@
 		94E95EE01C16CF9F009FA049 /* FindJobCard */ = {
 			isa = PBXGroup;
 			children = (
+				F0A8C52D1C192BBA002E6971 /* findJobCarViewS.h */,
+				F0A8C52E1C192BC0002E6971 /* findJobCarViewS.m */,
+				941A9EC11C191CE3000FFA4D /* cardView.h */,
+				941A9EC21C191CE3000FFA4D /* cardView.m */,
 				94E95EE11C16CFBC009FA049 /* FindJobcardView.h */,
 				94E95EE21C16CFBC009FA049 /* FindJobcardView.m */,
 				94E95EE41C16CFD9009FA049 /* FindJobcardViews.xib */,
@@ -3046,6 +3056,7 @@
 			files = (
 				94EDD4EA1B78319A00A00A78 /* UIView+Extension.m in Sources */,
 				940032D21B840CC3001EB666 /* TH_ProjectExperienceVC.m in Sources */,
+				941A9EC31C191CE3000FFA4D /* cardView.m in Sources */,
 				94E8F4F41B85797900088658 /* WriteResumeCell.m in Sources */,
 				94CB5B801B74CC0600B23B9D /* MJMember.m in Sources */,
 				F05FC66E1C167F7200F0A5BE /* CardView.m in Sources */,
@@ -3272,6 +3283,7 @@
 				94CB5B9B1B7632E800B23B9D /* TH_BaseVC.m in Sources */,
 				947269AF1C0560A800A79A7A /* AllPosionCell.m in Sources */,
 				940032F31B840DCD001EB666 /* TH_JobScreeningVC.m in Sources */,
+				F0A8C52F1C192BC0002E6971 /* findJobCarViewS.m in Sources */,
 				941A9EC01C191751000FFA4D /* HotJobView.m in Sources */,
 				0454ACF41B962C7D004A70ED /* WriteResumeRequest.m in Sources */,
 				F0E700161B9FEDE200788B17 /* ChooseCity_3ViewController.m in Sources */,
