@@ -72,6 +72,13 @@
     _searchBtn = searchBtn;
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:YES];
+    
+    [_searchBtn removeFromSuperview];
+}
+
 
 
 - (void)viewDidLoad

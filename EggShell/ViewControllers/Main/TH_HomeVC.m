@@ -853,8 +853,9 @@
 //            [SearchModelShare sharedInstance].type = @"55";
 //            home.rk_pushType = homePushType;
 //            [self.navigationController pushViewController:home animated:YES];
-            AllowedDirectionDemoViewController *vc = [[AllowedDirectionDemoViewController alloc]init];
-//            RKSwipeViewController *vc = [[RKSwipeViewController alloc]init];
+//            AllowedDirectionDemoViewController *vc = [[AllowedDirectionDemoViewController alloc]init];
+//             RKSwipeViewController *vc = [[RKSwipeViewController alloc]init];
+            ZLSwipeableViewController *vc = [[ZLSwipeableViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }

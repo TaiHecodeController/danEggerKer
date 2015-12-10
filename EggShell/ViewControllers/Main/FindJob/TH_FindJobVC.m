@@ -74,7 +74,7 @@
     [SearchModelShare sharedInstance].salary = @"";
     [SearchModelShare sharedInstance].edu = @"";
     [SearchModelShare sharedInstance].exp = @"";
-   [SearchModelShare sharedInstance].provinceid = @"";
+    [SearchModelShare sharedInstance].provinceid = @"";
 
     [SearchModelShare sharedInstance].sdate = @"";
     [SearchModelShare sharedInstance].job1 = @"";
@@ -129,7 +129,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:NO];
+    [super viewDidDisappear:YES];
     [_searchBtn removeFromSuperview];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"findJobBackClick" object:nil];
 }

@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Main/FindJob/TH_FindJobVC.m"
-            timestampString = "471332522.60619"
+            timestampString = "471422017.616263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "678"
@@ -345,22 +345,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Main/FindJob/JobScreening/TH_JobScreeningVC.m"
-            timestampString = "470725535.413492"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Main/writeResume/ResumeDetail/SelfEvaluation/trainReading/TrainReadVC.m"
             timestampString = "464495818.554175"
             startingColumnNumber = "9223372036854775807"
@@ -400,22 +384,6 @@
             startingLineNumber = "17"
             endingLineNumber = "17"
             landmarkName = "+getResumeListWithSucc:WithUserId:resp:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/NetWork/WriteResumeRequest.m"
-            timestampString = "464580272.401008"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "+getSearchJobMessageListWithSucc:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -794,7 +762,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/FindJob/JobDetails/TH_JobDetailVC.m"
-                  timestampString = "471345928.752751"
+                  timestampString = "471422017.839901"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "199"
@@ -809,7 +777,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/FindJob/JobDetails/TH_JobDetailVC.m"
-                  timestampString = "471345928.753145"
+                  timestampString = "471422017.840114"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "199"
@@ -1076,7 +1044,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-                  timestampString = "471345928.786069"
+                  timestampString = "471422017.855087"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "687"
@@ -1091,7 +1059,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-                  timestampString = "471345928.786483"
+                  timestampString = "471422017.855306"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "687"
@@ -1236,7 +1204,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-                  timestampString = "471345928.80008"
+                  timestampString = "471422017.862696"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "832"
@@ -1251,7 +1219,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-                  timestampString = "471345928.800348"
+                  timestampString = "471422017.862912"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "832"
@@ -1348,7 +1316,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-                  timestampString = "471345928.805938"
+                  timestampString = "471422017.867021"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1014"
@@ -1363,7 +1331,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Enterprise/ReceiveResume/TH_ReceiveResumeVC.m"
-                  timestampString = "471345928.80617"
+                  timestampString = "471422017.867336"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1014"
@@ -1547,54 +1515,6 @@
             endingLineNumber = "50"
             landmarkName = "-btnClick"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Main/FindJob/TH_FindJobVC.m"
-            timestampString = "471332522.60619"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
-            landmarkName = "-loadData:page:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TH_FindJobVC loadData:page:]"
-                  moduleName = "EggShell"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/FindJob/TH_FindJobVC.m"
-                  timestampString = "471345928.826961"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "306"
-                  endingLineNumber = "306"
-                  offsetFromSymbolStart = "1639">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__30-[TH_FindJobVC loadData:page:]_block_invoke"
-                  moduleName = "EggShell"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/FindJob/TH_FindJobVC.m"
-                  timestampString = "471345928.827468"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "306"
-                  endingLineNumber = "306"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1828,7 +1748,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/3rd/RKSwipeVC/ZLSwipeableView/ZLSwipeableView.m"
-                  timestampString = "471345928.852222"
+                  timestampString = "471422017.888011"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "141"
@@ -1843,7 +1763,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/3rd/RKSwipeVC/ZLSwipeableView/ZLSwipeableView.m"
-                  timestampString = "471345928.852513"
+                  timestampString = "471422017.888223"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "141"
