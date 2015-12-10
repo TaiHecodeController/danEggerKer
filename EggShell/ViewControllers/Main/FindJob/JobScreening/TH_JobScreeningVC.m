@@ -457,7 +457,6 @@
     [SearchModelShare sharedInstance].job_post = Id;
 }
 
-
 /*查询**/
 -(void)inqireClick
 {

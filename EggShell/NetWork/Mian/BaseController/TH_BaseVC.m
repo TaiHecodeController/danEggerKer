@@ -18,18 +18,16 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor =[UIColor whiteColor];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    //translucent值设为NO，导航栏不是半透明的，view的布局屏幕的（0，66）是原点开始布局。
+    //而默认translucent为yes，导航栏半透明，view的布局是从屏幕的（0，0）是原点开始布局。
     self.navigationController.navigationBar.translucent = NO;
 
-   
-
-
-    // Do any additional setup after loading the view
 }
--(UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleDefault;
-}
+//-(UIStatusBarStyle)preferredStatusBarStyle
+//{
+//    return UIStatusBarStyleDefault;
+//}
 
 
 - (void)addRightBtn2_NormalImageName:(NSString *)nIcon hightImageName:(NSString *)hIcon action:(SEL)action target:(id)target

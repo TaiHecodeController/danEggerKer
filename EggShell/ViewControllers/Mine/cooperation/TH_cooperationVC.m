@@ -23,6 +23,8 @@
 {
     [MobClick endLogPageView:@"cooperationvc"];
     
+    
+    
 }
 
 - (void)viewDidLoad {
@@ -42,7 +44,17 @@
     [scro addSubview:lable];
     scro.contentSize = CGSizeMake(WIDETH, 740);
     
-   
+    //测试消息推送跳转用
+    UIButton *btn = [UIButton new];
+    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+    btn.frame = CGRectMake(100, 100, 100, 100);
+    btn.backgroundColor = [UIColor darkGrayColor];
+//  [self.view addSubview:btn];
+    
+}
+- (void)btnClick
+{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"messagePush" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {

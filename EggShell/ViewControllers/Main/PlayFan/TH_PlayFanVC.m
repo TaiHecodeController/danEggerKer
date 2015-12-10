@@ -43,8 +43,8 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    self.navigationController.navigationBar.translucent = NO;
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+//    self.navigationController.navigationBar.translucent = NO;
     
     [MobClick beginLogPageView:@"playfanvc"];
     
@@ -63,10 +63,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.dataArray =[NSMutableArray arrayWithCapacity:0];
     self.view.backgroundColor =[UIColor whiteColor];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    self.navigationController.navigationBar.translucent = NO;
+    
+//        self.navigationController.navigationBar.translucent = YES;
+//    [self.navigationController.navigationBar pushNavigationItem:item animated:YES];
+//    self.navigationController.navigationItem.title = @"sjfla";
+//    self.navigationController.navigationBar.topItem.prompt = @"sagasgsdgfag";
+//    self.navigationController.navigationBar.backItem.prompt = @"sagasgsdgfag";
     
 //    self.page = 0;
     self.limitNum = 10;

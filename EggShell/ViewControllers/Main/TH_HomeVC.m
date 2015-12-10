@@ -43,7 +43,7 @@
 #import "RKSwipeViewController.h"
 #import "ZLSwipeableViewController.h"
 
-@interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate>
+@interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate,UINavigationControllerDelegate>
 {
     UIView * _navBackView;
     SearchView * _searchView;
@@ -67,6 +67,37 @@
 @end
 @implementation TH_HomeVC
 
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    THLog(@"~~~~~%s %@ %@",__func__,viewController,navigationController);
+}
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    THLog(@"~~~~~%s",__func__);
+}
+
+//- (UIInterfaceOrientationMask)navigationControllerSupportedInterfaceOrientations:(UINavigationController *)navigationController
+//{
+//    return nil;
+//}
+//- (UIInterfaceOrientation)navigationControllerPreferredInterfaceOrientationForPresentation:(UINavigationController *)navigationController
+//{
+//    return nil;
+//}
+//
+//- (nullable id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
+//                                   interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController
+//{
+//    return nil;
+//}
+//
+//- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+//                                            animationControllerForOperation:(UINavigationControllerOperation)operation
+//                                                         fromViewController:(UIViewController *)fromVC
+//                                                           toViewController:(UIViewController *)toVC
+//{
+//    return nil;
+//}
 
 - (NSMutableArray *)arr
 {
@@ -80,7 +111,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(test:) name:@"jgPush" object:nil];
+     THLog(@"~~~~~%s",__func__);
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(test:) name:@"jgPush" object:nil];
     
     //网络判断
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink) {
@@ -104,6 +137,8 @@
     [self createHomeView];
     //名企推荐
     [self loadData];
+    
+    self.navigationController.delegate = self;
     
 //    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 

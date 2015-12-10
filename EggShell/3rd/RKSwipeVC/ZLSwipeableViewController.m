@@ -462,11 +462,11 @@
 
 #pragma mark - ()
 
-- (UIColor *)colorForName:(NSString *)name {
-    NSString *sanitizedName = [name stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSString *selectorString = [NSString stringWithFormat:@"flat%@Color", sanitizedName];
-    Class colorClass = [UIColor class];
-    return [colorClass performSelector:NSSelectorFromString(selectorString)];
-}
+//- (UIColor *)colorForName:(NSString *)name {
+//    NSString *sanitizedName = [name stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    NSString *selectorString = [NSString stringWithFormat:@"flat%@Color", sanitizedName];
+//    Class colorClass = [UIColor class];
+//    return [colorClass performSelector:NSSelectorFromString(selectorString)];
+//}
 
 @end

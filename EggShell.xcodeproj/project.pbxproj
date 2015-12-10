@@ -2125,11 +2125,11 @@
 		94CB5B921B758F0700B23B9D /* Mian */ = {
 			isa = PBXGroup;
 			children = (
+				94CB5B981B761F9A00B23B9D /* BaseController */,
+				94EDD4E01B78310900A00A78 /* CustomController */,
 				F0EEABC11BA7CB5D0023A075 /* UMAnalytics_Sdk_3.5.12 */,
 				F05B80041B8ABCC600DC0A1D /* RKCustomTool */,
-				94EDD4E01B78310900A00A78 /* CustomController */,
 				0416505A1B4D71D4008C78BE /* 3rd */,
-				94CB5B981B761F9A00B23B9D /* BaseController */,
 				04A483D41B751E5D006FDB9D /* tool */,
 			);
 			name = Mian;
@@ -2140,8 +2140,8 @@
 			isa = PBXGroup;
 			children = (
 				94EFC1BE1B7D044500833068 /* feature */,
-				04A483B31B74FD1B006FDB9D /* TH_MainTabBarController.m */,
 				04A483B21B74FD1B006FDB9D /* TH_MainTabBarController.h */,
+				04A483B31B74FD1B006FDB9D /* TH_MainTabBarController.m */,
 				94CB5B991B7632E800B23B9D /* TH_BaseVC.h */,
 				94CB5B9A1B7632E800B23B9D /* TH_BaseVC.m */,
 				94EDD4F21B7831DA00A00A78 /* ZXImagePickerVC.h */,

@@ -39,7 +39,7 @@
     [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     btn.frame = CGRectMake(100, 100, 100, 100);
     btn.backgroundColor = [UIColor darkGrayColor];
-    [self.view addSubview:btn];
+//    [self.view addSubview:btn];
     
 //    [self loadData];
     
