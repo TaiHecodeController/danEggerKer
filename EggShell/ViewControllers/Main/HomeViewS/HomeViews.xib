@@ -1002,7 +1002,7 @@
                 <outlet property="six" destination="jMN-YV-TN2" id="0YL-qN-0ka"/>
                 <outlet property="three" destination="sXl-WN-vt2" id="bdy-Lw-cnq"/>
             </connections>
-            <point key="canvasLocation" x="-214.5" y="129"/>
+            <point key="canvasLocation" x="-344.5" y="105"/>
         </view>
     </objects>
     <resources>

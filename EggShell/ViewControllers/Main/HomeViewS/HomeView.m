@@ -51,13 +51,7 @@
 }
 -(void)setHomeViewAdBtn
 {
-//    THHomeViewButtonTypeAdvertising,
-//    THHomeViewButtonTypeClient,
-//    THHomeViewButtonTypeCreative,
-//    THHomeViewButtonTypeBusiness,
-//    THHomeViewButtonTypePlan,
-//    THHomeViewButtonTypeEstate,
-//    THHomeViewButtonTyMap,
+
     self.AdvertisingBtn.tag = THHomeViewButtonTypeAdvertising;
     self.ClienBtn.tag = THHomeViewButtonTypeClient;
     self.CreativeBtn.tag = THHomeViewButtonTypeCreative;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,27 +13,23 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tu" translatesAutoresizingMaskIntoConstraints="NO" id="JDf-7h-4mG">
                     <rect key="frame" x="122" y="45" width="100" height="90"/>
-
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="bR5-Hf-Wge"/>
                         <constraint firstAttribute="height" constant="90" id="tvD-qp-r8d"/>
                     </constraints>
-
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大数据分析" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsa-y5-XpO">
                     <rect key="frame" x="0.0" y="150" width="345" height="20"/>
-
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="gOZ-CI-NDz"/>
                     </constraints>
-
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="苏宁消费金融公司" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfk-l8-rDU">
                     <rect key="frame" x="0.0" y="180" width="345" height="15"/>
-                   <constraints>
+                    <constraints>
                         <constraint firstAttribute="height" constant="15" id="t2z-EK-PR2"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -222,7 +218,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                           <color key="backgroundColor" red="0.94117647058823528" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.94117647058823528" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27" id="haq-42-PmQ"/>
                             </constraints>
@@ -245,7 +241,6 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-
                             <color key="backgroundColor" red="0.94117647059999998" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27" id="Frf-hg-UIN"/>
@@ -269,7 +264,6 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-
                             <color key="backgroundColor" red="0.94117647059999998" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27" id="oqK-U2-ETQ"/>
@@ -309,7 +303,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-
                     <color key="backgroundColor" red="0.94117647059999998" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="27" id="g21-lG-z2K"/>
@@ -333,7 +326,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                   <color key="backgroundColor" red="0.94117647059999998" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.94117647059999998" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="27" id="Pnr-XX-AjN"/>
                         <constraint firstAttribute="width" constant="85" id="Whf-G7-JHy"/>
