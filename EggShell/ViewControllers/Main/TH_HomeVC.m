@@ -41,9 +41,9 @@
 #import "TH_VtalentVC.h"
 #import "AllowedDirectionDemoViewController.h"
 #import "RKSwipeViewController.h"
-#import "ZLSwipeableViewController.h"
-
-@interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate>
+#import "HotJobView.h"
+#import "FamousRecommendedView.h"
+@interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate,HotJobViewDelegate,FamousRecommendedViewDelegate>
 {
     UIView * _navBackView;
     SearchView * _searchView;
@@ -64,6 +64,7 @@
 @property(nonatomic,strong)AFRequestState * enterState;
 @property(nonatomic,strong)NSArray * enterArray;
 @property(nonatomic,strong)HomeView * homeView;
+@property(nonatomic,strong)FamousRecommendedView * Famous;
 @end
 @implementation TH_HomeVC
 
@@ -130,7 +131,7 @@
     [TH_AFRequestState PrivateRecommendationWithSucc:^(NSDictionary *arr) {
         
         self.enterArray  = arr[@"data"];
-          [self.homeView config:self.enterArray];
+          [self.Famous configValue:self.enterArray];
         
     } ];
     
@@ -213,7 +214,7 @@
     _footer = [MJRefreshFooterView footer];
     _footer.delegate = self;
     _footer.scrollView = self.scro;
-    _footer.frame = CGRectMake(0, MyHeight * 326+400, WIDETH, 64);
+    _footer.frame = CGRectMake(0, MyWideth * 300+400+26, WIDETH, 64);
 }
 
 -(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
@@ -226,28 +227,218 @@
 {
     NSLog(@"%f",MyHeight*160);
     
-    self.findView = [[FindjobView alloc] initWithFrame:CGRectMake(0, 160*MyHeight, WIDETH,166*MyHeight)];
-    self.findView.frame = CGRectMake(0, 160*MyHeight, WIDETH, MyHeight * 166);
+    self.findView = [[FindjobView alloc] initWithFrame:CGRectMake(0, 160*MyWideth, WIDETH,140*MyWideth+26)];
+    self.findView.frame = CGRectMake(0, 160*MyWideth, WIDETH, MyWideth * 140+26);
     self.findView.backgroundColor = [UIColor whiteColor];
     NSLog(@"%f",self.findView.frame.size.height);
     
     self.findView.homeViewDelegate = self;
     [self.scro addSubview:self.findView];
-    //注册HomeViews
-    HomeView * homeView   = [HomeView homeViewFinJob];
-    homeView.frame  = CGRectMake(0*WIDETH, MyHeight * 326, WIDETH, 436);
+//    //注册HomeViews
+//    HomeView * homeView   = [HomeView homeViewFinJob];
+//    homeView.frame  = CGRectMake(0*WIDETH, MyHeight * 326, WIDETH, 436);
+//    
+//    homeView.famousDelegate = self;
+//    [homeView setHomeViewAdBtn];
+//    [homeView setHomeViewFcBtn];
+//    [homeView setHomeViewItBtn];
+//    self.homeView = homeView;
+//    
+//    [self.scro addSubview:homeView];
     
-    homeView.famousDelegate = self;
-    [homeView setHomeViewAdBtn];
-    [homeView setHomeViewFcBtn];
-    [homeView setHomeViewItBtn];
-    self.homeView = homeView;
+    HotJobView * hotView = [[HotJobView alloc] initWithFrame:CGRectMake(0, MyWideth * 300+26, WIDETH, 205)];
+    hotView.HotJobViewDelegate = self;
+    [hotView setBtnTag];
+    hotView.backgroundColor = [UIColor whiteColor];
+    [self.scro addSubview:hotView];
     
-    [self.scro addSubview:homeView];
-    
-    self.scro.contentSize = CGSizeMake(WIDETH, MyHeight * 326+416+25);
-}
+    FamousRecommendedView * Famous = [[FamousRecommendedView alloc] initWithFrame:CGRectMake(0, MyWideth * 300+205+26, WIDETH, 235)];
+    Famous.famousRecommendedViewDelegate = self;
+    self.Famous = Famous;
+     Famous.backgroundColor = [UIColor whiteColor];
+    [self.scro addSubview:Famous];
 
+//    self.scro.contentSize = CGSizeMake(WIDETH, MyHeight * 326+416+25);
+    self.scro.contentSize = CGSizeMake(WIDETH, MyWideth * 300+205+215+25+26);
+}
+#pragma mark -- 名企推荐
+-(void)FamousRecommendedViewJob:(FamousRecommendedView*)HotJobView DidClickButton:(int)tag
+{
+    
+    self.navigationController.navigationBarHidden = NO;
+     CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
+        homedel * data =(homedel *)[ Gson fromObj:self.enterArray[tag] Cls:[homedel class]];
+        detail.businessUid = data.uid;
+        detail.businessMid = data.mid;
+        [self.navigationController pushViewController:detail animated:YES];
+
+}
+#pragma mark --- 热门职位
+-(void)HotJobViewJob:(HotJobView*)HotJobView DidClickButton:(HotJobViewButtonType)button
+{
+
+    self.navigationController.navigationBarHidden = NO;
+    switch (button) {
+        case HotJobViewButtonTypeeducationTrainBtn:
+        {
+            NSLog(@"1..1");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"教育培训";
+            [SearchModelShare sharedInstance].hy = @"842";
+            home.rk_pushType = homePushType;
+            //            home.jobId  = [NSString stringWithFormat:@"%d",35];
+            [self.navigationController pushViewController:home animated:YES];
+            break;
+        }
+            
+        case HotJobViewButtonTypemarketingSpecialistBtn:
+        {
+            NSLog(@"1..2");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"市场专员";
+            [SearchModelShare sharedInstance].job_post = @"962";
+            home.rk_pushType = homePushType;
+            [self.navigationController pushViewController:home animated:YES];
+            
+            break;
+        }
+            
+        case HotJobViewButtonTypeonsultingSaleBtn:
+        {NSLog(@"1..3");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"咨询销售";
+            [SearchModelShare sharedInstance].job_post = @"994";
+            home.rk_pushType = homePushType;
+            [self.navigationController pushViewController:home animated:YES];
+            
+            break;
+        }
+            
+        case HotJobViewButtonTypetrainTeacherBtn:
+        {NSLog(@"1..4");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"培训讲师";
+            [SearchModelShare sharedInstance].job_post = @"988";
+            home.rk_pushType = homePushType;
+            [self.navigationController pushViewController:home animated:YES];
+            
+            break;
+        }
+            
+        case HotJobViewButtonTypeteachManagerBtn:
+        {NSLog(@"1..5");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"教学管理";
+            [SearchModelShare sharedInstance].job_post = @"986";
+            home.rk_pushType = homePushType;
+            [self.navigationController pushViewController:home animated:YES];
+            
+            break;
+        }
+            
+        case HotJobViewButtonTypeteachqualitBtn:
+        {NSLog(@"1..6");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"教质管理";
+            [SearchModelShare sharedInstance].job_post = @"995";
+            home.rk_pushType = homePushType;
+            [self.navigationController pushViewController:home animated:YES];
+            
+            break;
+        }
+            
+        case HotJobViewButtonTypeemploymentCommissionerBtn:
+        {NSLog(@"1..7");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"就业专员";
+            [SearchModelShare sharedInstance].job_post = @"996";
+            home.rk_pushType = homePushType;
+            [self.navigationController pushViewController:home animated:YES];
+            
+            break;
+        }
+            
+        case HotJobViewButtonTypeComplexBtn:
+        {NSLog(@"2..8");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"综合类";
+            [SearchModelShare sharedInstance].hy = @"0";
+            home.rk_pushType = homePushType;
+            [self.navigationController pushViewController:home animated:YES];
+            
+            break;
+        }
+        case HotJobViewButtonTypesitePlanBtn:
+        {NSLog(@"2..9");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"网站策划";
+            [SearchModelShare sharedInstance].job_post = @"131";
+            home.rk_pushType = homePushType;
+            [self.navigationController pushViewController:home animated:YES];
+            
+            break;
+        }
+        case HotJobViewButtonTypewebsiteEditorBtn:
+        {
+            NSLog(@"2..10");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"网站编辑";
+            [SearchModelShare sharedInstance].job_post = @"132";
+            home.rk_pushType = homePushType;
+            [self.navigationController pushViewController:home animated:YES];
+            
+            break;
+        }
+        case HotJobViewButtonTypeoperationsCommissionerBtn:
+        {
+            NSLog(@"2..11");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"运营专员";
+            [SearchModelShare sharedInstance].job_post = @"125";
+            home.rk_pushType = homePushType;
+            [self.navigationController pushViewController:home animated:YES];
+            
+            break;
+        }
+        case HotJobViewButtonTypebankTellerBtn:
+        {
+            NSLog(@"2..12");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"银行柜员";
+            [SearchModelShare sharedInstance].job_post = @"296";
+            home.rk_pushType = homePushType;
+            [self.navigationController pushViewController:home animated:YES];
+            
+            break;
+        }
+        case HotJobViewButtonTypeaccountingBtn:
+        {
+            NSLog(@"2..13");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"会计";
+            [SearchModelShare sharedInstance].job_post = @"251";
+            home.rk_pushType = homePushType;
+            [self.navigationController pushViewController:home animated:YES];
+            
+            break;
+        }
+        case HotJobViewButtonTypetellerBtn:
+        {
+            NSLog(@"2..14");
+            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+            home.title = @"出纳员";
+            [SearchModelShare sharedInstance].job_post = @"252";
+            home.rk_pushType = homePushType;
+            [self.navigationController pushViewController:home animated:YES];
+            
+            break;
+        }
+        default:
+            break;
+    }
+    NSLog(@"111");
+
+}
 #pragma mark -- 名企推荐
 -(void)homeViewFindJob:(HomeView *)homeView withTag:(NSInteger)setTag
 {
@@ -622,10 +813,7 @@
 //            [SearchModelShare sharedInstance].type = @"55";
 //            home.rk_pushType = homePushType;
 //            [self.navigationController pushViewController:home animated:YES];
-//            AllowedDirectionDemoViewController *vc = [[AllowedDirectionDemoViewController alloc]init];
-            ZLSwipeableViewController *vc = [[ZLSwipeableViewController alloc]init];
-
-//            vc.rk_pushType = homePushType;
+            AllowedDirectionDemoViewController *vc = [[AllowedDirectionDemoViewController alloc]init];
 //            RKSwipeViewController *vc = [[RKSwipeViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
@@ -693,7 +881,7 @@
 - (void)configBannerView
 {
     //建立banner图
-    _bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0*MyWideth, -20, WIDETH, 182*MyHeight)];
+    _bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0*MyWideth, -20, WIDETH, 182*MyWideth)];
     _bannerView.isAutoPlay = YES;
     _bannerView.delegate = self;
     _bannerView.changeFocusImageInterval = 2;

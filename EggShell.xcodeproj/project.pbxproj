@@ -50,9 +50,6 @@
 		04A0CD451B7A110B00EBCF01 /* HeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A0CD441B7A110B00EBCF01 /* HeadView.xib */; };
 		04A0CD481B7A111D00EBCF01 /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0CD471B7A111D00EBCF01 /* HeadView.m */; };
 		04A483B41B74FD1B006FDB9D /* TH_MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A483B31B74FD1B006FDB9D /* TH_MainTabBarController.m */; };
-		940032931B83969B001EB666 /* FindjobView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9400328F1B83969B001EB666 /* FindjobView.m */; };
-		940032941B83969B001EB666 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032911B83969B001EB666 /* HomeView.m */; };
-		940032951B83969B001EB666 /* HomeViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940032921B83969B001EB666 /* HomeViews.xib */; };
 		9400329A1B840736001EB666 /* VersionUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940032971B840736001EB666 /* VersionUpdate.xib */; };
 		9400329B1B840736001EB666 /* VersionUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032991B840736001EB666 /* VersionUpdateView.m */; };
 		9400329F1B840B47001EB666 /* TH_ResumePreviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9400329E1B840B47001EB666 /* TH_ResumePreviewVC.m */; };
@@ -88,6 +85,12 @@
 		940EDEE51B96E38B00376D37 /* WorkExReading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940EDEE41B96E38B00376D37 /* WorkExReading.xib */; };
 		940EDEEC1B9701B100376D37 /* EducationReadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 940EDEEB1B9701B100376D37 /* EducationReadingView.m */; };
 		940EDEEE1B9701BF00376D37 /* EducationReading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940EDEED1B9701BF00376D37 /* EducationReading.xib */; };
+		941A9EB11C1916CA000FFA4D /* TH_HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 941A9EB01C1916CA000FFA4D /* TH_HomeVC.m */; };
+		941A9EBC1C191751000FFA4D /* FamousRecommendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941A9EB41C191751000FFA4D /* FamousRecommendedView.m */; };
+		941A9EBD1C191751000FFA4D /* FindjobView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941A9EB61C191751000FFA4D /* FindjobView.m */; };
+		941A9EBE1C191751000FFA4D /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941A9EB81C191751000FFA4D /* HomeView.m */; };
+		941A9EBF1C191751000FFA4D /* HomeViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941A9EB91C191751000FFA4D /* HomeViews.xib */; };
+		941A9EC01C191751000FFA4D /* HotJobView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941A9EBB1C191751000FFA4D /* HotJobView.m */; };
 		941F100A1B7B3BBD00719F5B /* TH_DeliveryJobVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F10091B7B3BBD00719F5B /* TH_DeliveryJobVC.m */; };
 		941F10151B7B3BCC00719F5B /* JobWishList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941F100D1B7B3BCC00719F5B /* JobWishList.xib */; };
 		941F10161B7B3BCC00719F5B /* JobWishlistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F100F1B7B3BCC00719F5B /* JobWishlistCell.m */; };
@@ -113,7 +116,6 @@
 		94313DF21B7CB5C9005D0A9A /* WriteResumeCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94313DE41B7CB5C9005D0A9A /* WriteResumeCell2.xib */; };
 		94313DF31B7CB5C9005D0A9A /* WriteResumeVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */; };
 		94313DF41B7CB5C9005D0A9A /* WriteResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */; };
-		94313DF71B7CB610005D0A9A /* TH_HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DF51B7CB610005D0A9A /* TH_HomeVC.m */; };
 		943F41801B9A8766000FC299 /* informantionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 943F417F1B9A8766000FC299 /* informantionModel.m */; };
 		946EBAC51B84659800CD6AC9 /* jobListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946EBAC41B84659800CD6AC9 /* jobListCell.m */; };
 		947006931B85CA6000DEC289 /* EditAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947006851B85CA6000DEC289 /* EditAddressVC.m */; };
@@ -459,11 +461,6 @@
 		04A483B31B74FD1B006FDB9D /* TH_MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_MainTabBarController.m; path = ../../../ViewControllers/TH_MainTabBarController.m; sourceTree = "<group>"; };
 		37454D869BE49FA62A71A04C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C8CB3344C41F9F3DBAC076 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		9400328E1B83969B001EB666 /* FindjobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindjobView.h; sourceTree = "<group>"; };
-		9400328F1B83969B001EB666 /* FindjobView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindjobView.m; sourceTree = "<group>"; };
-		940032901B83969B001EB666 /* HomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
-		940032911B83969B001EB666 /* HomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
-		940032921B83969B001EB666 /* HomeViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViews.xib; sourceTree = "<group>"; };
 		940032971B840736001EB666 /* VersionUpdate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VersionUpdate.xib; sourceTree = "<group>"; };
 		940032981B840736001EB666 /* VersionUpdateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionUpdateView.h; sourceTree = "<group>"; };
 		940032991B840736001EB666 /* VersionUpdateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionUpdateView.m; sourceTree = "<group>"; };
@@ -524,6 +521,17 @@
 		940EDEEA1B9701B100376D37 /* EducationReadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationReadingView.h; sourceTree = "<group>"; };
 		940EDEEB1B9701B100376D37 /* EducationReadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationReadingView.m; sourceTree = "<group>"; };
 		940EDEED1B9701BF00376D37 /* EducationReading.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EducationReading.xib; sourceTree = "<group>"; };
+		941A9EAF1C1916CA000FFA4D /* TH_HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_HomeVC.h; sourceTree = "<group>"; };
+		941A9EB01C1916CA000FFA4D /* TH_HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_HomeVC.m; sourceTree = "<group>"; };
+		941A9EB31C191751000FFA4D /* FamousRecommendedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamousRecommendedView.h; sourceTree = "<group>"; };
+		941A9EB41C191751000FFA4D /* FamousRecommendedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamousRecommendedView.m; sourceTree = "<group>"; };
+		941A9EB51C191751000FFA4D /* FindjobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindjobView.h; sourceTree = "<group>"; };
+		941A9EB61C191751000FFA4D /* FindjobView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindjobView.m; sourceTree = "<group>"; };
+		941A9EB71C191751000FFA4D /* HomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
+		941A9EB81C191751000FFA4D /* HomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
+		941A9EB91C191751000FFA4D /* HomeViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViews.xib; sourceTree = "<group>"; };
+		941A9EBA1C191751000FFA4D /* HotJobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotJobView.h; sourceTree = "<group>"; };
+		941A9EBB1C191751000FFA4D /* HotJobView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotJobView.m; sourceTree = "<group>"; };
 		941F10081B7B3BBD00719F5B /* TH_DeliveryJobVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_DeliveryJobVC.h; sourceTree = "<group>"; };
 		941F10091B7B3BBD00719F5B /* TH_DeliveryJobVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_DeliveryJobVC.m; sourceTree = "<group>"; };
 		941F100D1B7B3BCC00719F5B /* JobWishList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobWishList.xib; sourceTree = "<group>"; };
@@ -567,8 +575,6 @@
 		94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeVC2.m; sourceTree = "<group>"; };
 		94313DE71B7CB5C9005D0A9A /* WriteResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteResumeViewController.h; sourceTree = "<group>"; };
 		94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeViewController.m; sourceTree = "<group>"; };
-		94313DF51B7CB610005D0A9A /* TH_HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_HomeVC.m; sourceTree = "<group>"; };
-		94313DF61B7CB610005D0A9A /* TH_HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_HomeVC.h; sourceTree = "<group>"; };
 		943A9AA81C06CA4E001CC76D /* TalentPoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalentPoolCell.h; sourceTree = "<group>"; };
 		943A9AA91C06CA4E001CC76D /* TalentPoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalentPoolCell.m; sourceTree = "<group>"; };
 		943F417E1B9A8766000FC299 /* informantionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = informantionModel.h; sourceTree = "<group>"; };
@@ -1323,9 +1329,10 @@
 		04A483B51B74FD4D006FDB9D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				941A9EB21C191751000FFA4D /* HomeViewS */,
+				941A9EAF1C1916CA000FFA4D /* TH_HomeVC.h */,
+				941A9EB01C1916CA000FFA4D /* TH_HomeVC.m */,
 				947330391BFF181300688587 /* Vtalent */,
-				94313DF61B7CB610005D0A9A /* TH_HomeVC.h */,
-				94313DF51B7CB610005D0A9A /* TH_HomeVC.m */,
 				F05FC67B1C16AD2200F0A5BE /* RKSwipeViewController.h */,
 				F05FC67C1C16AD2200F0A5BE /* RKSwipeViewController.m */,
 				94CB5BA81B763A8100B23B9D /* FindJob */,
@@ -1334,7 +1341,6 @@
 				940032961B840736001EB666 /* VersionUpdate */,
 				94313DD31B7CB5C9005D0A9A /* writeResume */,
 				947564A51B9D7B550087BA56 /* homeModel */,
-				9400328D1B83969B001EB666 /* HomeViewS */,
 				94EAEAC01B784347003C19DD /* FindPractice */,
 				94EDD4F51B783F7800A00A78 /* FindPartTime */,
 			);
@@ -1411,18 +1417,6 @@
 			children = (
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		9400328D1B83969B001EB666 /* HomeViewS */ = {
-			isa = PBXGroup;
-			children = (
-				9400328E1B83969B001EB666 /* FindjobView.h */,
-				9400328F1B83969B001EB666 /* FindjobView.m */,
-				940032901B83969B001EB666 /* HomeView.h */,
-				940032911B83969B001EB666 /* HomeView.m */,
-				940032921B83969B001EB666 /* HomeViews.xib */,
-			);
-			path = HomeViewS;
 			sourceTree = "<group>";
 		};
 		940032961B840736001EB666 /* VersionUpdate */ = {
@@ -1683,6 +1677,22 @@
 				94EED7F91B99286300049934 /* EducationReadVC.m */,
 			);
 			path = EducationReading;
+			sourceTree = "<group>";
+		};
+		941A9EB21C191751000FFA4D /* HomeViewS */ = {
+			isa = PBXGroup;
+			children = (
+				941A9EB31C191751000FFA4D /* FamousRecommendedView.h */,
+				941A9EB41C191751000FFA4D /* FamousRecommendedView.m */,
+				941A9EB51C191751000FFA4D /* FindjobView.h */,
+				941A9EB61C191751000FFA4D /* FindjobView.m */,
+				941A9EB71C191751000FFA4D /* HomeView.h */,
+				941A9EB81C191751000FFA4D /* HomeView.m */,
+				941A9EB91C191751000FFA4D /* HomeViews.xib */,
+				941A9EBA1C191751000FFA4D /* HotJobView.h */,
+				941A9EBB1C191751000FFA4D /* HotJobView.m */,
+			);
+			path = HomeViewS;
 			sourceTree = "<group>";
 		};
 		941F10071B7B3BBD00719F5B /* DeliveryJob */ = {
@@ -2934,6 +2944,7 @@
 				F0E970D61C0D439100FC21BC /* zuo1.png in Resources */,
 				94CB5B891B74CC0600B23B9D /* LICENSE in Resources */,
 				94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */,
+				941A9EBF1C191751000FFA4D /* HomeViews.xib in Resources */,
 				94E2C9E21B8B0876001E3FDD /* workExperecie.xib in Resources */,
 				F0E970CE1C0D439100FC21BC /* chazi@2x.png in Resources */,
 				94E8F4F51B85797900088658 /* WriteResumeCell.xib in Resources */,
@@ -2962,7 +2973,6 @@
 				94E2C9EC1B8B1A5E001E3FDD /* train.xib in Resources */,
 				041650EB1B4D7C4E008C78BE /* MJRefresh.bundle in Resources */,
 				94E761CE1BA2B83700B4C544 /* CertificateRead.xib in Resources */,
-				940032951B83969B001EB666 /* HomeViews.xib in Resources */,
 				04A0CD451B7A110B00EBCF01 /* HeadView.xib in Resources */,
 				F0E970D11C0D439100FC21BC /* you3@2x.png in Resources */,
 				94E5E5ED1C085A6800CF60A0 /* SearchView.xib in Resources */,
@@ -3115,6 +3125,7 @@
 				940EDEEC1B9701B100376D37 /* EducationReadingView.m in Sources */,
 				947006981B85CA6000DEC289 /* EditSexCell.m in Sources */,
 				940033221B841C2D001EB666 /* TH_ClassVC.m in Sources */,
+				941A9EBE1C191751000FFA4D /* HomeView.m in Sources */,
 				041650691B4D7240008C78BE /* GObjAdapter.m in Sources */,
 				94CB305F1BA5169700577FE6 /* IQUIWindow+Hierarchy.m in Sources */,
 				940032F11B840DCD001EB666 /* JobScreeningCell.m in Sources */,
@@ -3125,9 +3136,9 @@
 				947330451C02ACD800688587 /* EnterpriseView.m in Sources */,
 				041650CB1B4D730F008C78BE /* MBProgressHUD.m in Sources */,
 				947269AC1C04015900A79A7A /* TH_VtalentDetailVC.m in Sources */,
+				941A9EBD1C191751000FFA4D /* FindjobView.m in Sources */,
 				0470291E1B974C4300565BC4 /* ManagerResumeModel.m in Sources */,
 				04A0CD481B7A111D00EBCF01 /* HeadView.m in Sources */,
-				940032941B83969B001EB666 /* HomeView.m in Sources */,
 				94313DC11B7CAAED005D0A9A /* InformationDeskCell.m in Sources */,
 				041650671B4D7240008C78BE /* GAdapter.m in Sources */,
 				94CB5B7C1B74CC0600B23B9D /* MJArgument.m in Sources */,
@@ -3145,7 +3156,7 @@
 				94EDD4F01B7831BB00A00A78 /* ZXButton.m in Sources */,
 				947330551C02BD1B00688587 /* TH_AllPositionVC.m in Sources */,
 				047454F41B9C640500CE880A /* ExceptModel.m in Sources */,
-				940032931B83969B001EB666 /* FindjobView.m in Sources */,
+				941A9EB11C1916CA000FFA4D /* TH_HomeVC.m in Sources */,
 				F05FC6711C167F7200F0A5BE /* DefaultShouldSwipeDeterminator.m in Sources */,
 				940032D81B840CC3001EB666 /* TH_TrainExperienceVC.m in Sources */,
 				94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */,
@@ -3229,7 +3240,6 @@
 				940032D31B840CC3001EB666 /* TH_SelfEvaluationVC.m in Sources */,
 				947564A81B9D7B710087BA56 /* homedel.m in Sources */,
 				94CB5BA11B76342300B23B9D /* TH_SociallyVC.m in Sources */,
-				94313DF71B7CB610005D0A9A /* TH_HomeVC.m in Sources */,
 				94E761D11BA2C1FB00B4C544 /* ProfessonSkillVC.m in Sources */,
 				9400330F1B8415B4001EB666 /* TH_AboutEggshellVC.m in Sources */,
 				94E2C9871B870F29001E3FDD /* JobDescriptionlView.m in Sources */,
@@ -3255,12 +3265,14 @@
 				94313DBE1B7CAAED005D0A9A /* infDestDetailView.m in Sources */,
 				04A483B41B74FD1B006FDB9D /* TH_MainTabBarController.m in Sources */,
 				F0D7C0611B79EB3300836DD2 /* OpenClassVideoListRequest.m in Sources */,
+				941A9EBC1C191751000FFA4D /* FamousRecommendedView.m in Sources */,
 				94CB305B1BA5169700577FE6 /* IQTitleBarButtonItem.m in Sources */,
 				048426F51B8B1E6D009C597A /* VPImageCropperViewController.m in Sources */,
 				940032CD1B840CC3001EB666 /* ProfessionalCell.m in Sources */,
 				94CB5B9B1B7632E800B23B9D /* TH_BaseVC.m in Sources */,
 				947269AF1C0560A800A79A7A /* AllPosionCell.m in Sources */,
 				940032F31B840DCD001EB666 /* TH_JobScreeningVC.m in Sources */,
+				941A9EC01C191751000FFA4D /* HotJobView.m in Sources */,
 				0454ACF41B962C7D004A70ED /* WriteResumeRequest.m in Sources */,
 				F0E700161B9FEDE200788B17 /* ChooseCity_3ViewController.m in Sources */,
 				0454ACF11B94A257004A70ED /* ResumeModel.m in Sources */,
