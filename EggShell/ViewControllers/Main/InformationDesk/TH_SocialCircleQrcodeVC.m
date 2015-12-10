@@ -14,7 +14,8 @@
 
 @implementation TH_SocialCircleQrcodeVC
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     UIImageView * titleImageView    =[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 40)];
@@ -24,7 +25,13 @@
     [qrCodeImageView sd_setImageWithURL:[NSURL URLWithString:self.qrCodeStr] placeholderImage:[UIImage imageNamed:@"HR交流圈"]];
     [self.view addSubview:qrCodeImageView];
     
-    }
+    UITextView *detailView = [[UITextView alloc]init];
+    detailView.frame = CGRectMake((WIDETH - 150)/2.0, CGRectGetMaxY(qrCodeImageView.frame) + 10, 150, 200);
+    detailView.text = self.content;
+    [self.view addSubview:detailView];
+    
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

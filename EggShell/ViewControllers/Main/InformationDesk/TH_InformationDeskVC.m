@@ -152,6 +152,7 @@
     TH_SocialCircleQrcodeVC * social = [[TH_SocialCircleQrcodeVC alloc] init];
     social.title = self.dataArray[indexPath.row][@"name"];
     social.qrCodeStr = self.dataArray[indexPath.row][@"photo"];
+    social.content = self.dataArray[indexPath.row][@"content"];
     [self.navigationController pushViewController:social animated:YES];
 }
 

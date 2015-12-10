@@ -10,4 +10,5 @@
 
 @interface TH_SocialCircleQrcodeVC : TH_BaseVC
 @property(nonatomic,copy)NSString * qrCodeStr;
+@property (nonatomic, copy) NSString *content;
 @end
