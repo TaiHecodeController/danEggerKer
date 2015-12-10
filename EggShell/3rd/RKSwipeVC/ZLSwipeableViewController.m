@@ -84,6 +84,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     UIImageView * hideView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     hideView.image = [UIImage imageNamed:@"提示层"];
     hideView.userInteractionEnabled = YES;
@@ -101,16 +102,15 @@
     
     //不感兴趣图片
     self.cancelView = [[UIImageView alloc]init];
-    self.cancelView.image = [UIImage imageNamed:@"不感兴趣"];
-    self.cancelView.frame = CGRectMake((WIDETH - 30 - 100) / 2, 100, 100, 100);
-    //收藏图片
+    self.cancelView.image = [UIImage imageNamed:@"暂不考虑"];
+    self.cancelView.frame = CGRectMake(0, 0, WIDETH - 30, HEIGHT - 66 - 40 - 44);    //收藏图片
     self.intestingView = [[UIImageView alloc]init];
-    self.intestingView.image = [UIImage imageNamed:@"收藏"];
-    self.intestingView.frame = CGRectMake((WIDETH - 30 - 100) / 2, 100, 100, 100);
+    self.intestingView.image = [UIImage imageNamed:@"感兴趣"];
+    self.intestingView.frame = CGRectMake(0, 0, WIDETH - 30,  HEIGHT - 66 - 40 - 44);
 
     //初始化职位数组，查询数据库
     self.jobArr = [[NSMutableArray alloc]init];
-    _mbPro = [MBProgressHUD mbHubShowControllerView:self];
+    _mbPro = [MBProgressHUD mbHubShow];
     self.page = 1;
     [self loadData:_mbPro page:self.page];
     
@@ -215,6 +215,8 @@
                                                       metrics:metrics
                                                         views:NSDictionaryOfVariableBindings(
                                                                   swipeableView)]];
+    
+    
    
 }
 -(void)taphide
@@ -392,7 +394,7 @@
 //    NSLog(@"jobArr.count%ld",self.jobArr.count);
     
     CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
-    
+   
     //取出jobArr对应模型，对子控件进行赋值操作
     if (self.jobArr.count > 0 && self.colorIndex <= self.jobArr.count)
     {

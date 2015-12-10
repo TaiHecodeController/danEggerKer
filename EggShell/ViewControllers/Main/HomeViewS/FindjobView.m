@@ -118,7 +118,7 @@
     
    //找实习
     UIButton * MicroSocialBtn = [[UIButton alloc] initWithFrame:CGRectMake(27*MyWideth+(40.5*MyWideth)*2+(53*MyWideth)*2, 10*MyWideth+46.5*MyWideth+7*MyWideth+15*MyWideth+12, 40.5*MyWideth, 46.5*MyWideth)];
-    [MicroSocialBtn setImage:[UIImage imageNamed:@"wanchufan2.0"] forState:UIControlStateNormal];
+    [MicroSocialBtn setImage:[UIImage imageNamed:@"zhaoshixi2.0"] forState:UIControlStateNormal];
     self.MicroSocialBtn = MicroSocialBtn;
     MicroSocialBtn.tag = THHomeViewButtonTypeMicroSocial;
     [MicroSocialBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];

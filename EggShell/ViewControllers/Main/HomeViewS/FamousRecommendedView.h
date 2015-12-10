@@ -24,5 +24,15 @@
 @property(nonatomic,strong)UIButton * seven;
 @property(nonatomic,strong)UIButton * eight;
 @property(nonatomic,strong)UIButton * nine;
+
+@property(nonatomic,strong)UIImageView * firstImageView;
+@property(nonatomic,strong)UIImageView * secondImageView;
+@property(nonatomic,strong)UIImageView * threeImageView;
+@property(nonatomic,strong)UIImageView * fourthImageView;
+@property(nonatomic,strong)UIImageView * fiveImageView;
+@property(nonatomic,strong)UIImageView * sixImageView;
+@property(nonatomic,strong)UIImageView * sevenImageView;
+@property(nonatomic,strong)UIImageView * eightImageView;
+@property(nonatomic,strong)UIImageView * nineImageView;
 -(void)configValue:(NSArray*)array;
 @end

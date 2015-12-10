@@ -201,7 +201,7 @@
     {
         [MBProgressHUD creatembHub:@"开始时间和结束时间一致"];
     }if (errCode == 1012) {
-        [MBProgressHUD creatembHub:@"您还有登录"];
+//        [MBProgressHUD creatembHub:@"您还有登录"];
     }
     if(errCode == 3840)
     {

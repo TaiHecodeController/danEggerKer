@@ -307,6 +307,10 @@
     
     self.navigationController.navigationBarHidden = NO;
      CompanyDetailVC * detail = [[CompanyDetailVC alloc] init];
+    if (!self.enterArray.count>0) {
+        [self.navigationController pushViewController:detail animated:YES];
+        return;
+    }
         homedel * data =(homedel *)[ Gson fromObj:self.enterArray[tag] Cls:[homedel class]];
         detail.businessUid = data.uid;
         detail.businessMid = data.mid;

@@ -286,10 +286,18 @@
                 [SearchModelShare sharedInstance].longitude = [NSString stringWithFormat:@"%fd",app.longitude];
                 [SearchModelShare sharedInstance].dimensionality = [NSString stringWithFormat:@"%fd",app.latitude];
         
+        if ([[NSString stringWithFormat:@"%d",(int)app.longitude] isEqualToString:[NSString stringWithFormat:@"%d",0]]) {
+            
+            UIAlertView * alert =[[UIAlertView alloc] initWithTitle:@"提示" message:@"请到手机设置中开启允许蛋壳儿访问你的位置才能搜索附近职位" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            [alert show];
+            return;
+            
+        }
 //        [SearchModelShare sharedInstance].job_post = @"132";
         /*数据请求**/
         _mbPro = [MBProgressHUD mbHubShowControllerView:self];
         [self loadData:_mbPro page:self.page];
+        
     }
 }
 -(void)loadData:(id)notify page:(int)num
