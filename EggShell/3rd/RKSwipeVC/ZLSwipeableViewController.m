@@ -50,7 +50,7 @@
 @property (assign) float oldx;
 
 @property (nonatomic, strong) UIButton *searchBtn;
-
+@property(nonatomic,strong)UIImageView * hideView;
 //保存uid job_id
 @property (nonatomic, copy) NSString *rk_uid;
 @property (nonatomic, copy) NSString *rk_job_id;
@@ -77,13 +77,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIImageView * hideView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
+    hideView.image = [UIImage imageNamed:@"提示层"];
+    hideView.userInteractionEnabled = YES;
+    [[UIApplication sharedApplication].keyWindow addSubview:hideView];
+    UITapGestureRecognizer * taphide =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(taphide)];
+    self.hideView = hideView;
+    [hideView addGestureRecognizer:taphide];
     //隐藏toolbar
     self.navigationController.toolbarHidden = YES;
     self.title = @"找工作";
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barBtnItemWithNormalImageName:@"liebiao" hightImageName:nil action:@selector(rightClick) target:self];
 //    self.view.clipsToBounds = YES;
-//    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     //不感兴趣图片
     self.cancelView = [[UIImageView alloc]init];
@@ -171,6 +178,7 @@
     //添加卡片视图
     ZLSwipeableView *swipeableView = [[ZLSwipeableView alloc] initWithFrame:CGRectZero];
     self.swipeableView = swipeableView;
+    self.swipeableView.backgroundColor =[UIColor  whiteColor];
     self.swipeableView.allowedDirection = ZLSwipeableViewDirectionHorizontal;
     [self.view addSubview:self.swipeableView];
     
@@ -202,7 +210,10 @@
                                                                   swipeableView)]];
    
 }
-
+-(void)taphide
+{
+    self.hideView.hidden = YES;
+}
 - (void)rightClick
 {
     THLog(@"条件选择按钮被点击");
@@ -409,7 +420,7 @@
     }
     
 //    view.backgroundColor = [self colorForName:self.colors[self.colorIndex]];
-    view.backgroundColor = [UIColor grayColor];
+//    view.backgroundColor = [UIColor grayColor];
     self.colorIndex++;
 
 //    if (self.loadCardFromXib) {
@@ -461,7 +472,6 @@
 
 
 #pragma mark - ()
-
 - (UIColor *)colorForName:(NSString *)name {
     NSString *sanitizedName = [name stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *selectorString = [NSString stringWithFormat:@"flat%@Color", sanitizedName];
