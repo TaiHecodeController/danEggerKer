@@ -18,7 +18,7 @@
 #import "TH_JobScreeningVC.h"
 #import "UIBarButtonItem+DC.h"
 #import "TH_JobDetailVC.h"
-
+#import "findJobCarViewS.h"
 #define tabbarHeight 46
 
 @interface ZLSwipeableViewController ()
@@ -380,9 +380,9 @@
     {
         findJobModel * model = self.jobArr[self.colorIndex - 1];
         //添加一个标签试试
-        FindJobcardView *fjcV = [FindJobcardView setFindJobcardView];
-        fjcV.backgroundColor = [UIColor yellowColor];
-        [fjcV setValues:model];
+        findJobCarViewS *fjcV = [[findJobCarViewS alloc] initWithFrame:CGRectMake(0,0,view.frame.size.width,  view.frame.size.height)];
+      fjcV.backgroundColor = [UIColor whiteColor];
+        [fjcV setValueCar:model];
         
         //保存uid job_id
         self.rk_uid = [NSString stringWithFormat:@"%@",model.uid];

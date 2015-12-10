@@ -91,6 +91,8 @@
 		941A9EBE1C191751000FFA4D /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941A9EB81C191751000FFA4D /* HomeView.m */; };
 		941A9EBF1C191751000FFA4D /* HomeViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941A9EB91C191751000FFA4D /* HomeViews.xib */; };
 		941A9EC01C191751000FFA4D /* HotJobView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941A9EBB1C191751000FFA4D /* HotJobView.m */; };
+		941A9EC31C191CE3000FFA4D /* cardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941A9EC21C191CE3000FFA4D /* cardView.m */; };
+		941A9EC61C191EE5000FFA4D /* findJobCarViewS.m in Sources */ = {isa = PBXBuildFile; fileRef = 941A9EC51C191EE5000FFA4D /* findJobCarViewS.m */; };
 		941F100A1B7B3BBD00719F5B /* TH_DeliveryJobVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F10091B7B3BBD00719F5B /* TH_DeliveryJobVC.m */; };
 		941F10151B7B3BCC00719F5B /* JobWishList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941F100D1B7B3BCC00719F5B /* JobWishList.xib */; };
 		941F10161B7B3BCC00719F5B /* JobWishlistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F100F1B7B3BCC00719F5B /* JobWishlistCell.m */; };
@@ -532,6 +534,10 @@
 		941A9EB91C191751000FFA4D /* HomeViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViews.xib; sourceTree = "<group>"; };
 		941A9EBA1C191751000FFA4D /* HotJobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotJobView.h; sourceTree = "<group>"; };
 		941A9EBB1C191751000FFA4D /* HotJobView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotJobView.m; sourceTree = "<group>"; };
+		941A9EC11C191CE3000FFA4D /* cardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cardView.h; sourceTree = "<group>"; };
+		941A9EC21C191CE3000FFA4D /* cardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cardView.m; sourceTree = "<group>"; };
+		941A9EC41C191EE5000FFA4D /* findJobCarViewS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = findJobCarViewS.h; path = ../../../../../../danEggerKer1/EggShell/ViewControllers/Main/FindJob/FindJobCard/findJobCarViewS.h; sourceTree = "<group>"; };
+		941A9EC51C191EE5000FFA4D /* findJobCarViewS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = findJobCarViewS.m; path = ../../../../../../danEggerKer1/EggShell/ViewControllers/Main/FindJob/FindJobCard/findJobCarViewS.m; sourceTree = "<group>"; };
 		941F10081B7B3BBD00719F5B /* TH_DeliveryJobVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_DeliveryJobVC.h; sourceTree = "<group>"; };
 		941F10091B7B3BBD00719F5B /* TH_DeliveryJobVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_DeliveryJobVC.m; sourceTree = "<group>"; };
 		941F100D1B7B3BCC00719F5B /* JobWishList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobWishList.xib; sourceTree = "<group>"; };
@@ -2435,9 +2441,13 @@
 		94E95EE01C16CF9F009FA049 /* FindJobCard */ = {
 			isa = PBXGroup;
 			children = (
+				941A9EC11C191CE3000FFA4D /* cardView.h */,
+				941A9EC21C191CE3000FFA4D /* cardView.m */,
 				94E95EE11C16CFBC009FA049 /* FindJobcardView.h */,
 				94E95EE21C16CFBC009FA049 /* FindJobcardView.m */,
 				94E95EE41C16CFD9009FA049 /* FindJobcardViews.xib */,
+				941A9EC41C191EE5000FFA4D /* findJobCarViewS.h */,
+				941A9EC51C191EE5000FFA4D /* findJobCarViewS.m */,
 			);
 			path = FindJobCard;
 			sourceTree = "<group>";
@@ -3046,6 +3056,7 @@
 			files = (
 				94EDD4EA1B78319A00A00A78 /* UIView+Extension.m in Sources */,
 				940032D21B840CC3001EB666 /* TH_ProjectExperienceVC.m in Sources */,
+				941A9EC31C191CE3000FFA4D /* cardView.m in Sources */,
 				94E8F4F41B85797900088658 /* WriteResumeCell.m in Sources */,
 				94CB5B801B74CC0600B23B9D /* MJMember.m in Sources */,
 				F05FC66E1C167F7200F0A5BE /* CardView.m in Sources */,
@@ -3272,6 +3283,7 @@
 				94CB5B9B1B7632E800B23B9D /* TH_BaseVC.m in Sources */,
 				947269AF1C0560A800A79A7A /* AllPosionCell.m in Sources */,
 				940032F31B840DCD001EB666 /* TH_JobScreeningVC.m in Sources */,
+				941A9EC61C191EE5000FFA4D /* findJobCarViewS.m in Sources */,
 				941A9EC01C191751000FFA4D /* HotJobView.m in Sources */,
 				0454ACF41B962C7D004A70ED /* WriteResumeRequest.m in Sources */,
 				F0E700161B9FEDE200788B17 /* ChooseCity_3ViewController.m in Sources */,
