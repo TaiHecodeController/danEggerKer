@@ -98,7 +98,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    JobScreenDetailCell *cell = (JobScreenDetailCell *)[tableView cellForRowAtIndexPath:indexPath];
+    if ([self.DataArray[indexPath.row][@"name"] isEqualToString:@"综合类"]) {
+        
+  
+    JobScreenDetailCell *cell = (JobScreenDetailCell *)[tableView cellForRowAtIndexPath:indexPath];
     
     ChooseCity_3ViewController * _writeJLChooseVC = [[ChooseCity_3ViewController alloc] init];
     //    _writeJLChooseVC.delegete = self;
@@ -126,7 +129,35 @@
     }
     _writeJLChooseVC.DataArray = arr1;
     [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+    }else
+    {
+    JobScreenDetailCell *cell = (JobScreenDetailCell *)[tableView cellForRowAtIndexPath:indexPath];
     
+    //    if ([self.delegete respondsToSelector:@selector(chooseWord3:cellIndex:tableViewTagIndex:withId:)])
+    //    {
+    //        [self.delegete chooseWord3:cell.textLable.text cellIndex:self.cellIndex tableViewTagIndex:self.tableViewTagIndex withId:self.DataArray[indexPath.row][@"id"]];
+    //    }
+    
+    for (UIViewController *vc in self.navigationController.viewControllers)
+    {
+        if ([vc isKindOfClass:[WriteResumeViewController class]])
+        {
+            self.delegete = vc;
+            
+            if ([self.delegete respondsToSelector:@selector(chooseWord3:cellIndex:tableViewTagIndex:withId:)])
+            {
+                self.cellIndex = [NSIndexPath indexPathForRow:2 inSection:0];
+                [self.delegete chooseWord3:cell.textLable.text cellIndex:self.cellIndex tableViewTagIndex:self.tableViewTagIndex withId:self.DataArray[indexPath.row][@"id"]];
+            }
+            
+            [self.navigationController popToViewController:vc animated:YES];
+            
+            
+        }
+    }
+    
+
+    }
 }
 
 - (void)didReceiveMemoryWarning {

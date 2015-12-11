@@ -179,6 +179,7 @@
             [bgView addSubview:self.dutyLable];
         }
     }
+    
     //发布时间
     UILabel * releaseLable = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 55, self.frame.size.width, 15)];
     releaseLable.text = @"发布：2015-10-10";
@@ -187,6 +188,9 @@
     releaseLable.textColor = UIColorFromRGB(0x646464);
     self.releaseLable = releaseLable;
     [self addSubview:releaseLable];
+    if (HEIGHT == 480) {
+        self.releaseLable.hidden = YES;
+    }
 }
 -(void)setValueCar:(findJobModel *)model
 {
@@ -215,7 +219,7 @@
     //到岗
     self.dutyLable.text = model.report;
     //发布
-    self.releaseLable.text = [NSString stringWithFormat:@"发布：%@",model.lastupdate];
+    self.releaseLable.text = [NSString stringWithFormat:@"发布：%@",model.sdate];
     
 }
 

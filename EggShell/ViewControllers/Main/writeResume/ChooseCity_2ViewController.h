@@ -7,13 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol writeJLChooseVCDelegate3 <NSObject>
 
+- (void)chooseWord3:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id;
+
+@end
 @interface ChooseCity_2ViewController : UIViewController
 
+//@property(nonatomic,copy)NSString * titleText;
+//@property (nonatomic, strong) NSIndexPath *cellIndex;
+//@property (nonatomic, assign) NSInteger tableViewTagIndex;
+////@property (nonatomic, weak) id<writeJLChooseVCDelegate1>delegete;
+//@property(nonatomic,strong)NSArray * DataArray;
 @property(nonatomic,copy)NSString * titleText;
 @property (nonatomic, strong) NSIndexPath *cellIndex;
 @property (nonatomic, assign) NSInteger tableViewTagIndex;
-//@property (nonatomic, weak) id<writeJLChooseVCDelegate1>delegete;
+@property (nonatomic, weak) id<writeJLChooseVCDelegate3>delegete;
 @property(nonatomic,strong)NSArray * DataArray;
+
 
 @end

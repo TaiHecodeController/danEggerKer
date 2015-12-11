@@ -28,6 +28,7 @@
 @property (nonatomic, copy) NSString *report;
 @property (nonatomic, copy) NSString *sex;
 @property (nonatomic, copy) NSString *type;
+@property(nonatomic,strong)  NSString * sdate;
 
 
 @end
