@@ -553,10 +553,10 @@
 {
     if(buttonIndex == 1)
     {        TH_LoginVC * lvcs = [[TH_LoginVC alloc] init];
-        lvcs.findJobDetailApplication = @"findJobDetailApplication";
+        lvcs.findJobDetailApplication = @"swipeFindJobListVC";
         lvcs.loginBlock = ^()
         {
-            [self searchBtnClick];
+//            [self searchBtnClick];
         };
         [self.navigationController pushViewController:lvcs animated:YES];
         

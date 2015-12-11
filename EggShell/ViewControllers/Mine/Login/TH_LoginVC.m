@@ -399,7 +399,12 @@
                 {
                     self.loginBlock();
                     [self.navigationController popViewControllerAnimated:YES];
-                }else
+                }else if ([self.findJobDetailApplication isEqualToString:@"swipeFindJobListVC"])
+                {
+                    self.loginBlock();
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+                else
                 {
                     self.navigationController.navigationBarHidden = YES;
                     AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
