@@ -15,6 +15,7 @@
 #import "SearchCity1_ViewController.h"
 #import "SearchCity2_ViewController.h"
 #import "SearchCity3_ViewController.h"
+#import "TH_FindJobVC.h"
 
 @interface TH_JobScreeningVC ()<UITableViewDataSource,UITableViewDelegate,writeJLChooseVCDelegate,SearchCity3_VCDelegate3,UITextFieldDelegate,SearchCity2_VCDelegate2>
 @property(nonatomic,strong)NSArray * nameArray;
@@ -463,8 +464,16 @@
     [SearchModelShare sharedInstance].keyword = _keywordTextfield.text;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TJsearch" object:nil];
+    /**
+     返回上一层时，刷新列表
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"TJsearch" object:nil];
+     [self.navigationController popViewControllerAnimated:YES];
+     */
+   
+    TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
+    vc.rk_pushType = homePushType;
+    [self.navigationController pushViewController:vc animated:YES];
     
-    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
