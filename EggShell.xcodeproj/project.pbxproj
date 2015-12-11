@@ -305,7 +305,6 @@
 		F05FC6781C167F7200F0A5BE /* ZLSwipeableViewMovement.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC6681C167F7200F0A5BE /* ZLSwipeableViewMovement.m */; };
 		F05FC6791C167F7200F0A5BE /* ZLSwipeableViewSwipeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC66A1C167F7200F0A5BE /* ZLSwipeableViewSwipeOptions.m */; };
 		F05FC67A1C167F7200F0A5BE /* ZLSwipeableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC66C1C167F7200F0A5BE /* ZLSwipeableViewController.m */; };
-		F05FC67D1C16AD2200F0A5BE /* RKSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F05FC67C1C16AD2200F0A5BE /* RKSwipeViewController.m */; };
 		F06F72EF1B9694D200989489 /* playListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F06F72EE1B9694D200989489 /* playListModel.m */; };
 		F07F39011B993B7C002531CD /* CommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39001B993B7C002531CD /* CommonFunc.m */; };
 		F07F39051B996F65002531CD /* saveListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39041B996F65002531CD /* saveListModel.m */; };
@@ -361,6 +360,7 @@
 		F0E970E51C0D439100FC21BC /* 销售时什么东东.png in Resources */ = {isa = PBXBuildFile; fileRef = F0E970CA1C0D439100FC21BC /* 销售时什么东东.png */; };
 		F0E970E61C0D439100FC21BC /* 销售时什么东东@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0E970CB1C0D439100FC21BC /* 销售时什么东东@2x.png */; };
 		F0E970E71C0D439100FC21BC /* 销售时什么东东@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0E970CC1C0D439100FC21BC /* 销售时什么东东@3x.png */; };
+		F0E9E6281C1A69E400290CEA /* TH_SwipeFindJobListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E9E6271C1A69E400290CEA /* TH_SwipeFindJobListVC.m */; };
 		F0EEABC51BA7CB5D0023A075 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0EEABC21BA7CB5D0023A075 /* libMobClickLibrary.a */; };
 		F0F2B4831B9AE4DD00F7A261 /* SearchModelShare.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F2B4821B9AE4DD00F7A261 /* SearchModelShare.m */; };
 /* End PBXBuildFile section */
@@ -910,8 +910,6 @@
 		F05FC66A1C167F7200F0A5BE /* ZLSwipeableViewSwipeOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSwipeableViewSwipeOptions.m; sourceTree = "<group>"; };
 		F05FC66B1C167F7200F0A5BE /* ZLSwipeableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSwipeableViewController.h; sourceTree = "<group>"; };
 		F05FC66C1C167F7200F0A5BE /* ZLSwipeableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSwipeableViewController.m; sourceTree = "<group>"; };
-		F05FC67B1C16AD2200F0A5BE /* RKSwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RKSwipeViewController.h; path = Vtalent/RKSwipeViewController.h; sourceTree = "<group>"; };
-		F05FC67C1C16AD2200F0A5BE /* RKSwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RKSwipeViewController.m; path = Vtalent/RKSwipeViewController.m; sourceTree = "<group>"; };
 		F06F72ED1B9694D200989489 /* playListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = playListModel.h; path = ../playListModel.h; sourceTree = "<group>"; };
 		F06F72EE1B9694D200989489 /* playListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = playListModel.m; path = ../playListModel.m; sourceTree = "<group>"; };
 		F07F38FF1B993B7C002531CD /* CommonFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFunc.h; sourceTree = "<group>"; };
@@ -999,6 +997,8 @@
 		F0E970CA1C0D439100FC21BC /* 销售时什么东东.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "销售时什么东东.png"; sourceTree = "<group>"; };
 		F0E970CB1C0D439100FC21BC /* 销售时什么东东@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "销售时什么东东@2x.png"; sourceTree = "<group>"; };
 		F0E970CC1C0D439100FC21BC /* 销售时什么东东@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "销售时什么东东@3x.png"; sourceTree = "<group>"; };
+		F0E9E6261C1A69E400290CEA /* TH_SwipeFindJobListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TH_SwipeFindJobListVC.h; path = ../../3rd/RKSwipeVC/TH_SwipeFindJobListVC.h; sourceTree = "<group>"; };
+		F0E9E6271C1A69E400290CEA /* TH_SwipeFindJobListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_SwipeFindJobListVC.m; path = ../../3rd/RKSwipeVC/TH_SwipeFindJobListVC.m; sourceTree = "<group>"; };
 		F0EEABC21BA7CB5D0023A075 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		F0EEABC31BA7CB5D0023A075 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		F0EEABC41BA7CB5D0023A075 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
@@ -1339,8 +1339,8 @@
 				941A9EAF1C1916CA000FFA4D /* TH_HomeVC.h */,
 				941A9EB01C1916CA000FFA4D /* TH_HomeVC.m */,
 				947330391BFF181300688587 /* Vtalent */,
-				F05FC67B1C16AD2200F0A5BE /* RKSwipeViewController.h */,
-				F05FC67C1C16AD2200F0A5BE /* RKSwipeViewController.m */,
+				F0E9E6261C1A69E400290CEA /* TH_SwipeFindJobListVC.h */,
+				F0E9E6271C1A69E400290CEA /* TH_SwipeFindJobListVC.m */,
 				94CB5BA81B763A8100B23B9D /* FindJob */,
 				94E2C9621B870EED001E3FDD /* CompanyDetail */,
 				94313DB01B7CAAED005D0A9A /* InformationDesk */,
@@ -3202,6 +3202,7 @@
 				94CB5B7F1B74CC0600B23B9D /* MJIvar.m in Sources */,
 				940033011B840FC6001EB666 /* MineVeiw.m in Sources */,
 				94E3EA911B8EB520007A699E /* MMNetWorkType.m in Sources */,
+				F0E9E6281C1A69E400290CEA /* TH_SwipeFindJobListVC.m in Sources */,
 				F0C067951C05589800D1B22B /* cpy_ReciveResumeListMode.m in Sources */,
 				94E761C51BA2B0F800B4C544 /* ProjectExpReadView.m in Sources */,
 				F021E94F1C06CEFF00994015 /* TalentPoolCell.m in Sources */,
@@ -3211,7 +3212,6 @@
 				041650ED1B4D7C4E008C78BE /* MJRefreshConst.m in Sources */,
 				F01787A91B9592A0005FF9C4 /* companyInformationModel.m in Sources */,
 				94C3E3501C1015200084C91C /* TH_SocialCircleQrcodeVC.m in Sources */,
-				F05FC67D1C16AD2200F0A5BE /* RKSwipeViewController.m in Sources */,
 				04237D901B66456F00768FAD /* LoginAndRegisterRequest.m in Sources */,
 				F05FC6731C167F7200F0A5BE /* PanGestureRecognizer.m in Sources */,
 				0454ACEC1B945F20004A70ED /* ResumeCell.m in Sources */,
