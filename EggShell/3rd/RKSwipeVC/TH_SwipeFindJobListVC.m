@@ -93,13 +93,18 @@
     
     [super viewDidLoad];
     
+    
+    if ([ SearchModelShare sharedInstance].tip ==1) {
     UIImageView * hideView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     hideView.image = [UIImage imageNamed:@"提示层"];
     hideView.userInteractionEnabled = YES;
     [[UIApplication sharedApplication].keyWindow addSubview:hideView];
     UITapGestureRecognizer * taphide =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(taphide)];
     self.hideView = hideView;
+        [SearchModelShare sharedInstance].tip++;
     [hideView addGestureRecognizer:taphide];
+        
+    }
     //隐藏toolbar
     self.navigationController.toolbarHidden = YES;
 //    self.title = @"找工作";

@@ -22,7 +22,9 @@
 {
     //职位图片
     self.JobLogoImageView  =[[UIImageView alloc] initWithFrame:CGRectMake((self.frame.size.width - 100*MyWideth)/2.0, 30*MyWideth, 100*MyWideth, 90*MyWideth)];
-    self.JobLogoImageView.image = [UIImage imageNamed:@"tu"];
+    self.JobLogoImageView.image = [UIImage imageNamed:@"morenqiyekapian"];
+    self.JobLogoImageView.layer.cornerRadius = 3;
+    self.JobLogoImageView.layer.masksToBounds = YES;
     [self addSubview:self.JobLogoImageView];
     //职位
     self.JobNameLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 30*MyWideth+90*MyWideth+15*MyWideth, self.frame.size.width, 19)];
@@ -52,7 +54,7 @@
         
         if (i==0) {
             
-            UIImageView * firstView =[[UIImageView alloc] initWithFrame:CGRectMake(((self.frame.size.width-15*MyWideth)/4.0 -30*MyWideth)/2.0, 22*MyWideth, 15*MyWideth, 22*MyWideth)];
+            UIImageView * firstView =[[UIImageView alloc] initWithFrame:CGRectMake((detailView.frame.size.width-15*MyWideth)/2.0, 22*MyWideth, 15*MyWideth, 22*MyWideth)];
             firstView.image = [UIImage imageNamed:@"工资"];
             [detailView addSubview:firstView];
             //薪水
@@ -69,7 +71,7 @@
         }
         if (i==1) {
             
-            UIImageView * secondView =[[UIImageView alloc] initWithFrame:CGRectMake(((self.frame.size.width-17*MyWideth)/4.0 -30*MyWideth)/2.0, 22*MyWideth, 17*MyWideth, 22*MyWideth)];
+            UIImageView * secondView =[[UIImageView alloc] initWithFrame:CGRectMake((detailView.frame.size.width-17*MyWideth)/2.0, 22*MyWideth, 17*MyWideth, 22*MyWideth)];
             secondView.image = [UIImage imageNamed:@"经验"];
             [detailView addSubview:secondView];
             //薪水
@@ -86,7 +88,7 @@
         }
         if (i==2) {
             
-            UIImageView * threeView =[[UIImageView alloc] initWithFrame:CGRectMake(((self.frame.size.width-22*MyWideth)/4.0 -30*MyWideth)/2.0, 22*MyWideth,22*MyWideth, 22*MyWideth)];
+            UIImageView * threeView =[[UIImageView alloc] initWithFrame:CGRectMake((detailView.frame.size.width-22*MyWideth)/2.0, 22*MyWideth,22*MyWideth, 22*MyWideth)];
             threeView.image = [UIImage imageNamed:@"学历"];
             [detailView addSubview:threeView];
             //薪水
@@ -97,14 +99,14 @@
             self.educationalLable.textColor = UIColorFromRGB(0x646464);
             [detailView addSubview:self.educationalLable];
             
-            UIView * threeViw =[[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width-30*MyWideth)/4.0-0.5, 20*MyWideth,0.5, detailView.frame.size.height - 40*MyWideth)];
-            threeViw.backgroundColor = UIColorFromRGB(0xE3E3E3);
-            [detailView addSubview:threeViw];
+            UIView * fourthViw =[[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width-30*MyWideth)/4.0-0.5, 20*MyWideth,0.5, detailView.frame.size.height - 40*MyWideth)];
+            fourthViw.backgroundColor = UIColorFromRGB(0xE3E3E3);
+            [detailView addSubview:fourthViw];
         }
         
         if (i==3) {
             
-            UIImageView * fourthView =[[UIImageView alloc] initWithFrame:CGRectMake(((self.frame.size.width-16.5*MyWideth)/4.0 -30*MyWideth)/2.0, 22*MyWideth, 16.5*MyWideth, 22*MyWideth)];
+            UIImageView * fourthView =[[UIImageView alloc] initWithFrame:CGRectMake((detailView.frame.size.width-16.5*MyWideth)/2.0, 22*MyWideth, 16.5*MyWideth, 22*MyWideth)];
             fourthView.image = [UIImage imageNamed:@"地址"];
             [detailView addSubview:fourthView];
             //工作年限
@@ -189,7 +191,7 @@
 -(void)setValueCar:(findJobModel *)model
 {
     //职位图片
-    [self.JobLogoImageView sd_setImageWithURL:[NSURL URLWithString:model.com_logo] placeholderImage:[UIImage  imageNamed:@"tu"]];
+    [self.JobLogoImageView sd_setImageWithURL:[NSURL URLWithString:model.com_logo] placeholderImage:[UIImage  imageNamed:@"morenqiyekapian"]];
     //职位
     self.JobNameLable.text = model.job_name;
     //公司名称

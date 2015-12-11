@@ -853,19 +853,11 @@
             break;
         }
         case THHomeViewButtonTypeResumeWriting:
-        {
-//            TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-//            home.title = @"找工作";
-//            home.job_type = @"0";
-//            [SearchModelShare sharedInstance].type = @"55";
-//            home.rk_pushType = homePushType;
-//            [self.navigationController pushViewController:home animated:YES];
-//            AllowedDirectionDemoViewController *vc = [[AllowedDirectionDemoViewController alloc]init];
-//             RKSwipeViewController *vc = [[RKSwipeViewController alloc]init];
-//            ZLSwipeableViewController *vc = [[ZLSwipeableViewController alloc]init];
+        {   int count =0;
             TH_SwipeFindJobListVC *vc = [[TH_SwipeFindJobListVC alloc]init];
             vc.title = @"找工作";
             [SearchModelShare sharedInstance].type = @"55";
+           
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
@@ -874,7 +866,6 @@
             TH_SwipeFindJobListVC *vc = [[TH_SwipeFindJobListVC alloc]init];
             vc.title = @"找兼职";
             [SearchModelShare sharedInstance].type = @"56";
-            
             [self.navigationController pushViewController:vc animated:YES];
                         break;
             break;

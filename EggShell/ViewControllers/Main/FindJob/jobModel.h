@@ -13,4 +13,5 @@
 @property (nonatomic, copy) NSString *postitionName;
 @property (nonatomic, copy) NSString *selected;
 
+@property(nonatomic)int tip;
 @end

@@ -16,7 +16,7 @@
 #import "APService.h"
 #import "TH_PlayFanVC.h"
 #import "EnterpriseDetailVC.h"
-
+#import "SearchModelShare.h"
 @interface AppDelegate ()<BMKGeneralDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,UIAlertViewDelegate>
 {
     NSString * _trackViewUrl;
@@ -107,7 +107,10 @@
     [_locService startUserLocationService];
     /*键盘处理**/
     [self keyBoard];
-
+//判断控制器进入次数
+    int count1 =1;
+    [SearchModelShare sharedInstance].tip =count1;
+   
     return YES;
     
 }

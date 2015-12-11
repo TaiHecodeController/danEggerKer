@@ -41,6 +41,9 @@
 
 @property(nonatomic,copy) NSString * job1_son;
 
+@property(nonatomic)int tip;
 + (SearchModelShare *)sharedInstance;
+//判断是不是第一次进入控制器
+
 
 @end

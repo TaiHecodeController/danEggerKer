@@ -14,5 +14,5 @@
 @property (nonatomic, strong) ZLSwipeableView *swipeableView;
 
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView;
-
+@property(nonatomic,strong)NSString * TipStr;
 @end
