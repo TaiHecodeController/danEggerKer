@@ -817,7 +817,6 @@
     switch (button) {
         case THHomeViewButtonTypeFindJob:
         {
-
             NSLog(@"社交圈");
             TH_InformationDeskVC * information = [[TH_InformationDeskVC alloc] init];
             information.title = @"社交圈";
