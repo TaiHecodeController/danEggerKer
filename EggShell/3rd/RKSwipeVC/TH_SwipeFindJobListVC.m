@@ -228,9 +228,8 @@
                                views:NSDictionaryOfVariableBindings(
                                                                     swipeableView)]];
     
-    
-    
 }
+
 -(void)taphide
 {
     self.hideView.hidden = YES;
