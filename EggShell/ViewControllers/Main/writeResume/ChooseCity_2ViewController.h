@@ -24,6 +24,6 @@
 @property (nonatomic, assign) NSInteger tableViewTagIndex;
 @property (nonatomic, weak) id<writeJLChooseVCDelegate3>delegete;
 @property(nonatomic,strong)NSArray * DataArray;
-
+@property(nonatomic,strong)NSString * fenlei;
 
 @end

@@ -70,6 +70,8 @@
                                             options:nil] lastObject];
     }
     cell.textLable.text = self.DataArray[indexPath.row][@"name"];
+    
+    
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,7 +100,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.DataArray[indexPath.row][@"name"] isEqualToString:@"综合类"]) {
+    if ([self.fenlei isEqualToString:@"综合类"]) {
         
   
     JobScreenDetailCell *cell = (JobScreenDetailCell *)[tableView cellForRowAtIndexPath:indexPath];

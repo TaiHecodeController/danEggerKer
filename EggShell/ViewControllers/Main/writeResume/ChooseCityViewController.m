@@ -101,6 +101,7 @@
     JobScreenDetailCell *cell = (JobScreenDetailCell *)[tableView cellForRowAtIndexPath:indexPath];
     
     ChooseCity_2ViewController * _writeJLChooseVC = [[ChooseCity_2ViewController alloc] init];
+    _writeJLChooseVC.fenlei =self.DataArray[indexPath.row][@"name"];;
 //    _writeJLChooseVC.delegete = self;
     _writeJLChooseVC.titleText = @"期望职位";
     _writeJLChooseVC.cellIndex = indexPath;
