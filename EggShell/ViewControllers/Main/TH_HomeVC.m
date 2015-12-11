@@ -875,7 +875,7 @@
 //                        home.job_type = @"1";
 //                        home.rk_pushType = homePushType;
 //                        [self.navigationController pushViewController:home animated:YES];
-            ZLSwipeableViewController *vc = [[ZLSwipeableViewController alloc]init];
+            TH_SwipeFindJobListVC *vc = [[TH_SwipeFindJobListVC alloc]init];
             vc.title = @"找兼职";
             [self.navigationController pushViewController:vc animated:YES];
             
@@ -892,7 +892,7 @@
 //                        home.title = @"找实习";
 //                        home.rk_pushType = homePushType;
 //                        [self.navigationController pushViewController:home animated:YES];
-            ZLSwipeableViewController *vc = [[ZLSwipeableViewController alloc]init];
+            TH_SwipeFindJobListVC *vc = [[TH_SwipeFindJobListVC alloc]init];
              vc.title = @"找实习";
             [self.navigationController pushViewController:vc animated:YES];
             
