@@ -175,7 +175,7 @@
 }
 
 /*职位搜索**/
-+(AFRequestState *)searchJobWithSucc:(void(^)(NSArray *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withlongitude:(NSString *)longitude dimensionality:(NSString *)dimensionality keyword:(NSString *)keyword page:(NSString *)page hy:(NSString *)hy job_post:(NSString *)job_post salary:(NSString *)salary edu:(NSString *)edu exp:(NSString *)exp type:(NSString *)type  sdate:(NSString *)sdate  job1:(NSString *)job1 cityid:(NSString *)cityid provinceid:(NSString *)provinceid resp:(Class)resp
++(AFRequestState *)searchJobWithSucc:(void(^)(NSArray *DataArr))succ withfail:(void(^)(int errCode,NSError *err))fail withlongitude:(NSString *)longitude dimensionality:(NSString *)dimensionality keyword:(NSString *)keyword page:(NSString *)page hy:(NSString *)hy job_post:(NSString *)job_post salary:(NSString *)salary edu:(NSString *)edu exp:(NSString *)exp type:(NSString *)type sdate:(NSString *)sdate job1:(NSString *)job1 cityid:(NSString *)cityid provinceid:(NSString *)provinceid job1_post:(NSString *)job1_post resp:(Class)resp
 {
     
     if (longitude.length == 0)
@@ -239,9 +239,11 @@
     if (provinceid.length == 0)
     {
         provinceid = @"";
+    }if (job1_post.length==0) {
+        job1_post = @"";
     }
 
-    NSDictionary *param = @{@"longitude":longitude,@"dimensionality":dimensionality,@"keyword":keyword,@"page":page,@"hy":hy,@"job_post":job_post,@"salary":salary,@"edu":edu,@"exp":exp,@"type":type,@"fbtime":sdate,@"job1":job1,@"three_cityid":cityid,@"provinceid":provinceid};
+    NSDictionary *param = @{@"longitude":longitude,@"dimensionality":dimensionality,@"keyword":keyword,@"page":page,@"hy":hy,@"job_post":job_post,@"salary":salary,@"edu":edu,@"exp":exp,@"type":type,@"fbtime":sdate,@"job1":job1,@"three_cityid":cityid,@"provinceid":provinceid,@"job1_son":job1_post};
     
     NSLog(@"%@",param);
     

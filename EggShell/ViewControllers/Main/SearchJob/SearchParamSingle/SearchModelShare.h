@@ -39,6 +39,8 @@
 //全城ID
 @property (nonatomic, copy) NSString *provinceid;
 
+@property(nonatomic,copy) NSString * job1_son;
+
 + (SearchModelShare *)sharedInstance;
 
 @end

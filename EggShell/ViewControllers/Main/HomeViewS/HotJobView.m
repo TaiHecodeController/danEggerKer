@@ -175,7 +175,7 @@
 
         //网站策划
     UIButton * sitePlanBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDETH/4.0, 125, WIDETH/4.0, 40)];
-    [sitePlanBtn setTitle:@"网站策划" forState:UIControlStateNormal];
+    [sitePlanBtn setTitle:@"互联网" forState:UIControlStateNormal];
     [sitePlanBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
     sitePlanBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [sitePlanBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -190,7 +190,7 @@
     [sitePlanBtn addSubview:sitePlanVertailvie];
     //网站编辑
     UIButton * websiteEditorBtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH/4.0*2), 125, WIDETH/4.0, 40)];
-    [websiteEditorBtn setTitle:@"网站编辑" forState:UIControlStateNormal];
+    [websiteEditorBtn setTitle:@"金融证券" forState:UIControlStateNormal];
     [websiteEditorBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
     websiteEditorBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [websiteEditorBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -205,7 +205,7 @@
     [websiteEditorBtn addSubview:websiteEditVertailvie];
     //运营专员
     UIButton * operationsCommissionerBtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH/4.0)*3, 125, WIDETH/4.0, 40)];
-    [operationsCommissionerBtn setTitle:@"运营专员" forState:UIControlStateNormal];
+    [operationsCommissionerBtn setTitle:@"公关媒介" forState:UIControlStateNormal];
     [operationsCommissionerBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
     operationsCommissionerBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [operationsCommissionerBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -220,7 +220,7 @@
     [operationsCommissionerBtn addSubview:operationsCommisVertailvie];
     //银行柜员
     UIButton * bankTellerBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDETH/4.0, 165, WIDETH/4.0, 40)];
-    [bankTellerBtn setTitle:@"银行柜员" forState:UIControlStateNormal];
+    [bankTellerBtn setTitle:@"市场营销" forState:UIControlStateNormal];
     [bankTellerBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
     bankTellerBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [bankTellerBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -236,7 +236,7 @@
 
     //会计
     UIButton *accountingBtn =[[UIButton alloc] initWithFrame:CGRectMake((WIDETH/4.0)*2, 165, WIDETH/4.0, 40)];
-    [accountingBtn setTitle:@"会计" forState:UIControlStateNormal];
+    [accountingBtn setTitle:@"销售管理" forState:UIControlStateNormal];
     [accountingBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
     accountingBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [accountingBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -251,7 +251,7 @@
     [accountingBtn addSubview:accountingVertailvie];
     //出那员
       UIButton *tellerBtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH/4.0)*3, 165, WIDETH/4.0, 40)];
-    [tellerBtn setTitle:@"出纳员" forState:UIControlStateNormal];
+    [tellerBtn setTitle:@"人事管理" forState:UIControlStateNormal];
     [tellerBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
     tellerBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [tellerBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];

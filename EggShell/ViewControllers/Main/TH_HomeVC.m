@@ -340,7 +340,7 @@
             NSLog(@"1..2");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"市场专员";
-            [SearchModelShare sharedInstance].job_post = @"962";
+            [SearchModelShare sharedInstance].job1_son = @"962";
             home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             
@@ -351,7 +351,7 @@
         {NSLog(@"1..3");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"咨询销售";
-            [SearchModelShare sharedInstance].job_post = @"994";
+            [SearchModelShare sharedInstance].job1_son = @"994";
             home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             
@@ -362,7 +362,7 @@
         {NSLog(@"1..4");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"培训讲师";
-            [SearchModelShare sharedInstance].job_post = @"988";
+            [SearchModelShare sharedInstance].job1_son = @"1050";
             home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             
@@ -373,7 +373,7 @@
         {NSLog(@"1..5");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"教学管理";
-            [SearchModelShare sharedInstance].job_post = @"986";
+            [SearchModelShare sharedInstance].job1_son = @"1029";
             home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             
@@ -384,7 +384,7 @@
         {NSLog(@"1..6");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"教质管理";
-            [SearchModelShare sharedInstance].job_post = @"995";
+            [SearchModelShare sharedInstance].job1_son = @"1032";
             home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             
@@ -395,7 +395,7 @@
         {NSLog(@"1..7");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"就业专员";
-            [SearchModelShare sharedInstance].job_post = @"996";
+            [SearchModelShare sharedInstance].job1_son = @"1027";
             home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             
@@ -406,7 +406,7 @@
         {NSLog(@"2..8");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
             home.title = @"综合类";
-            [SearchModelShare sharedInstance].hy = @"0";
+            [SearchModelShare sharedInstance].job1 = @"1048";
             home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             
@@ -415,8 +415,8 @@
         case HotJobViewButtonTypesitePlanBtn:
         {NSLog(@"2..9");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"网站策划";
-            [SearchModelShare sharedInstance].job_post = @"131";
+            home.title = @"互联网";
+            [SearchModelShare sharedInstance].job1_son = @"48";
             home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             
@@ -426,8 +426,8 @@
         {
             NSLog(@"2..10");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"网站编辑";
-            [SearchModelShare sharedInstance].job_post = @"132";
+            home.title = @"金融证券";
+            [SearchModelShare sharedInstance].job1_son = @"58";
             home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             
@@ -437,8 +437,8 @@
         {
             NSLog(@"2..11");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"运营专员";
-            [SearchModelShare sharedInstance].job_post = @"125";
+            home.title = @"公关媒介";
+            [SearchModelShare sharedInstance].job1_son = @"74";
             home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             
@@ -448,8 +448,8 @@
         {
             NSLog(@"2..12");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"银行柜员";
-            [SearchModelShare sharedInstance].job_post = @"296";
+            home.title = @"市场营销";
+            [SearchModelShare sharedInstance].job1_son = @"75";
             home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             
@@ -459,8 +459,8 @@
         {
             NSLog(@"2..13");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"会计";
-            [SearchModelShare sharedInstance].job_post = @"251";
+            home.title = @"销售管理";
+            [SearchModelShare sharedInstance].job1_son = @"53";
             home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             
@@ -470,8 +470,8 @@
         {
             NSLog(@"2..14");
             TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            home.title = @"出纳员";
-            [SearchModelShare sharedInstance].job_post = @"252";
+            home.title = @"人事管理";
+            [SearchModelShare sharedInstance].job1_son = @"634";
             home.rk_pushType = homePushType;
             [self.navigationController pushViewController:home animated:YES];
             

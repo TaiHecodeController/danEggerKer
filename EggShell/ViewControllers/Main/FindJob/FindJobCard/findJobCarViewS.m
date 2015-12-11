@@ -128,6 +128,9 @@
         UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(15*MyWideth+85*MyWideth*(i%3)+((self.frame.size.width - 30*MyWideth-85*MyWideth*3)/2.0)*(i%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(i/3)+10*MyWideth*(i/3), 85*MyWideth, 27*MyWideth)];
         [self addSubview:bgView];
         bgView.backgroundColor = UIColorFromRGB(0xF0F8FA);
+        bgView.layer.cornerRadius = 2;
+       
+        bgView.layer.masksToBounds = YES;
         UILabel * titleLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 27)];
         titleLable.text = titleArray[i];
         titleLable.font =[UIFont systemFontOfSize:15*MyWideth];
@@ -174,7 +177,14 @@
             [bgView addSubview:self.dutyLable];
         }
     }
-    
+    //发布时间
+    UILabel * releaseLable = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 55, self.frame.size.width, 15)];
+    releaseLable.text = @"发布：2015-10-10";
+    releaseLable.textAlignment = NSTextAlignmentCenter;
+    releaseLable.font =[UIFont systemFontOfSize:15];
+    releaseLable.textColor = UIColorFromRGB(0x646464);
+    self.releaseLable = releaseLable;
+    [self addSubview:releaseLable];
 }
 -(void)setValueCar:(findJobModel *)model
 {
@@ -202,6 +212,9 @@
     self.marriageLable.text = model.marriage;
     //到岗
     self.dutyLable.text = model.report;
+    //发布
+    self.releaseLable.text = [NSString stringWithFormat:@"发布：%@",model.lastupdate];
+    
 }
 
 @end

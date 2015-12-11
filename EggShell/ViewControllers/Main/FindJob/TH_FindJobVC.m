@@ -78,6 +78,7 @@
 
     [SearchModelShare sharedInstance].sdate = @"";
     [SearchModelShare sharedInstance].job1 = @"";
+    [SearchModelShare sharedInstance].job1_son = @"";
     
     [_header free];
     [_footer free];
@@ -288,7 +289,7 @@
         
         if ([[NSString stringWithFormat:@"%d",(int)app.longitude] isEqualToString:[NSString stringWithFormat:@"%d",0]]) {
             
-            UIAlertView * alert =[[UIAlertView alloc] initWithTitle:@"提示" message:@"请到手机设置中开启允许蛋壳儿访问你的位置才能搜索附近职位" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            UIAlertView * alert =[[UIAlertView alloc] initWithTitle:@"提示" message:@"请打开系统设置中”隐私→定位服务“允许”蛋壳儿“使用您的位置,才能搜索附近职位" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
             [alert show];
             return;
             
@@ -325,7 +326,7 @@
         
     } withfail:^(int errCode, NSError *err) {
         
-    } withlongitude:[SearchModelShare sharedInstance].longitude dimensionality:[SearchModelShare sharedInstance].dimensionality keyword:[SearchModelShare sharedInstance].keyword page:numStr hy:[SearchModelShare sharedInstance].hy job_post:[SearchModelShare sharedInstance].job_post salary:[SearchModelShare sharedInstance].salary edu:[SearchModelShare sharedInstance].edu exp:[SearchModelShare sharedInstance].exp type:[SearchModelShare sharedInstance].type sdate:[SearchModelShare sharedInstance].sdate job1:[SearchModelShare sharedInstance].job1 cityid:[SearchModelShare sharedInstance].cityid provinceid:[SearchModelShare sharedInstance].provinceid  resp:[findJobModel class]] addNotifaction:notify];
+    } withlongitude:[SearchModelShare sharedInstance].longitude dimensionality:[SearchModelShare sharedInstance].dimensionality keyword:[SearchModelShare sharedInstance].keyword page:numStr hy:[SearchModelShare sharedInstance].hy job_post:[SearchModelShare sharedInstance].job_post salary:[SearchModelShare sharedInstance].salary edu:[SearchModelShare sharedInstance].edu exp:[SearchModelShare sharedInstance].exp type:[SearchModelShare sharedInstance].type sdate:[SearchModelShare sharedInstance].sdate job1:[SearchModelShare sharedInstance].job1 cityid:[SearchModelShare sharedInstance].cityid provinceid:[SearchModelShare sharedInstance].provinceid job1_post:[SearchModelShare sharedInstance].job1_son resp:[findJobModel class]] addNotifaction:notify];
 
 }
 
