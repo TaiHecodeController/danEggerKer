@@ -871,30 +871,19 @@
         }
         case THHomeViewButtonTypePlayFan:
         {
-//                        TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            //            [SearchModelShare sharedInstance].keyword = @"兼职";
-            
-//                        home.job_type = @"1";
-//                        home.rk_pushType = homePushType;
-//                        [self.navigationController pushViewController:home animated:YES];
             TH_SwipeFindJobListVC *vc = [[TH_SwipeFindJobListVC alloc]init];
             vc.title = @"找兼职";
             [SearchModelShare sharedInstance].type = @"56";
-            [self.navigationController pushViewController:vc animated:YES];
             
+            [self.navigationController pushViewController:vc animated:YES];
+                        break;
             break;
+
         }
         case THHomeViewButtonTypeMicroSocial:
         {
             
             NSLog(@"找实习");
-//                        TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-////                        [SearchModelShare sharedInstance].keyword = @"实习";
-//                        home.job_type = @"2";
-//            
-//                        home.title = @"找实习";
-//                        home.rk_pushType = homePushType;
-//                        [self.navigationController pushViewController:home animated:YES];
             TH_SwipeFindJobListVC *vc = [[TH_SwipeFindJobListVC alloc]init];
              vc.title = @"找实习";
             [SearchModelShare sharedInstance].type = @"129";

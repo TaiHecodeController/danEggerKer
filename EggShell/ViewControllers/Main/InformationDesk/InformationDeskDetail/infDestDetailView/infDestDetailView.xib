@@ -17,7 +17,7 @@
                         <constraint firstAttribute="height" constant="150" id="oM3-Uz-nrc"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="招聘会介绍：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkX-pn-uGb">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动介绍：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkX-pn-uGb">
                     <rect key="frame" x="20" y="328" width="100" height="13"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="PR6-uu-amT"/>
