@@ -387,6 +387,7 @@
         
         if ([keyWord isEqualToString:@"全城"])
         {
+            
         [SearchModelShare sharedInstance].provinceid = Id;
             
         }else
@@ -418,8 +419,6 @@
     {
         [SearchModelShare sharedInstance].sdate = Id;
         
-        
-        
     }
     
     
@@ -448,6 +447,7 @@
 {
     JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
     cell.contentTextFiled.text = keyWord;
+    //从综合类里进行选择，3级分类
     [SearchModelShare sharedInstance].job_post = Id;
 }
 //当没有三级分类的时候，从二级分类返回数据
@@ -455,23 +455,26 @@
 {
     JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
     cell.contentTextFiled.text = keyWord;
-    [SearchModelShare sharedInstance].job_post = Id;
+    
+    [SearchModelShare sharedInstance].job1_son = Id;
+    
+//    [SearchModelShare sharedInstance].job_post = Id;
 }
 
 /*查询**/
 -(void)inqireClick
 {
     [SearchModelShare sharedInstance].keyword = _keywordTextfield.text;
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TJsearch" object:nil];
     /**
      返回上一层时，刷新列表
      [[NSNotificationCenter defaultCenter] postNotificationName:@"TJsearch" object:nil];
      [self.navigationController popViewControllerAnimated:YES];
      */
-   
     TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
     vc.rk_pushType = homePushType;
+    //从筛选列表进入findjob
+    vc.job_type = @"3";
     [self.navigationController pushViewController:vc animated:YES];
     
 }

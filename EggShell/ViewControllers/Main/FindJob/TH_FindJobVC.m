@@ -156,10 +156,15 @@
     {
         [SearchModelShare sharedInstance].type = @"129";
     }
+    else if ([_job_type isEqual:@"3"])
+    {
+        //条件筛选页进来，不对type进行设置
+    }
     //18项进来
     else
     {
         [SearchModelShare sharedInstance].type = @"";
+
     }
 
     self.jobArr = [[NSMutableArray alloc]init];
@@ -228,7 +233,7 @@
         [SearchModelShare sharedInstance].edu = @"";
         [SearchModelShare sharedInstance].exp = @"";
         [SearchModelShare sharedInstance].type = @"";
-       [SearchModelShare sharedInstance].provinceid = @"";
+        [SearchModelShare sharedInstance].provinceid = @"";
     
 //        NSLog(@"_job_type%@",_job_type);
 //        if ([_job_type isEqual:@"0"])
@@ -300,6 +305,7 @@
         
     }
 }
+
 -(void)loadData:(id)notify page:(int)num
 {
     if(_state.running)
@@ -307,7 +313,7 @@
         return;
     }
     //打印出所有字段
-    NSLog(@"~~~~~~~~~~~经度%@ 纬度%@ 关键字%@ 行业类别%@ 职位类别%@ 薪资%@ 教育水平%@ 经验%@ 工作性质%@ 发布时间%@ 城市%@ 首页行业%@",[SearchModelShare sharedInstance].longitude,[SearchModelShare sharedInstance].dimensionality,[SearchModelShare sharedInstance].keyword,[SearchModelShare sharedInstance].hy,[SearchModelShare sharedInstance].job_post,[SearchModelShare sharedInstance].salary,[SearchModelShare sharedInstance].edu,[SearchModelShare sharedInstance].exp,[SearchModelShare sharedInstance].type,[SearchModelShare sharedInstance].sdate,[SearchModelShare sharedInstance].cityid,[SearchModelShare sharedInstance].job1);
+    NSLog(@"~~~~~~~~~~~经度%@ 纬度%@ 关键字%@ 行业类别%@ 职位类别%@ 薪资%@ 教育水平%@ 经验%@ 工作性质%@ 发布时间%@ 城市%@ 首页行业%@ job1_son%@ provinceid%@",[SearchModelShare sharedInstance].longitude,[SearchModelShare sharedInstance].dimensionality,[SearchModelShare sharedInstance].keyword,[SearchModelShare sharedInstance].hy,[SearchModelShare sharedInstance].job_post,[SearchModelShare sharedInstance].salary,[SearchModelShare sharedInstance].edu,[SearchModelShare sharedInstance].exp,[SearchModelShare sharedInstance].type,[SearchModelShare sharedInstance].sdate,[SearchModelShare sharedInstance].cityid,[SearchModelShare sharedInstance].job1,[SearchModelShare sharedInstance].job1_son,[SearchModelShare sharedInstance].provinceid);
     
     NSString *numStr = [NSString stringWithFormat:@"%d",num];
     

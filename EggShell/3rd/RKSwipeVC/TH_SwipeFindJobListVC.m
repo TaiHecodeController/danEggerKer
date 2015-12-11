@@ -271,7 +271,7 @@
                  
                  */
                 //清除卡片，用新数据刷新卡片
-                [self.swipeableView discardAllViews];
+//                [self.swipeableView discardAllViews];
                 self.colorIndex = 1;
                 [self.swipeableView loadViewsIfNeeded];
             }
@@ -280,7 +280,7 @@
         }
         else
         {
-//                        [MBProgressHUD creatembHub:@"暂无数据"];
+                        [MBProgressHUD creatembHub:@"暂无数据"];
         }
         
     } withfail:^(int errCode, NSError *err) {
@@ -398,14 +398,14 @@
     
     if (self.oldx > location.x)
     {
-        NSLog(@"左滑动");
+//        NSLog(@"左滑动");
         self.intestingView.hidden = YES;
         self.cancelView.hidden = NO;
         self.oldx = location.x;
     }
     else if(self.oldx < location.x)
     {
-        NSLog(@"右滑动");
+//        NSLog(@"右滑动");
         self.cancelView.hidden = YES;
         self.intestingView.hidden = NO;
         self.oldx = location.x;
@@ -419,6 +419,8 @@
 //    NSLog(@"did end swiping at location: x %f, y %f", location.x, location.y);
     [self.cancelView removeFromSuperview];
     [self.intestingView removeFromSuperview];
+    
+    THLog(@"count:%lu",(unsigned long)self.jobArr.count);
     //    self.cancelView.hidden = YES;
     //    self.intestingView.hidden = YES;
     //    NSLog(@"didEndSwipingView %ld",self.colorIndex);
@@ -465,32 +467,22 @@
             self.colorIndex = 0;
             [self.jobArr removeAllObjects];
 //            [self.swipeableView discardAllViews];
+
             self.page ++;
             [self loadData:_mbPro page:self.page];
             
-            if (self.colorIndex >self.jobArr.count && self.jobArr.count < 8)
-            {
-                NSLog(@"~~~~~~~~~~~~~~~~没有数据啦~~~~~~~~~~~~~~~~~~~~~~~~");
-            }
+//            if (self.colorIndex >self.jobArr.count && self.jobArr.count < 8)
+//            {
+//                NSLog(@"~~~~~~~~~~~~~~~~没有数据啦~~~~~~~~~~~~~~~~~~~~~~~~");
+//            }
             
         }
         else
         {
             
-//            NSLog(@"~~~~~~~~~~~~~~~~没有数据啦~~~~~~~~~~~~~~~~~~~~~~~~");
         }
         self.colorIndex++;
-//    }
-//    else
-//    {
-//        [self loadData:_mbPro page:self.page];
-//    }
-    
-    
 
-    
-    
-    
     //    if (self.loadCardFromXib) {
     //        UIView *contentView =
     //            [[NSBundle mainBundle] loadNibNamed:@"CardContentView" owner:self options:nil][0];
@@ -528,12 +520,17 @@
 
 - (void)tapClick
 {
-    NSLog(@"职位详情");
-    TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
-    detail.uid = [self.rk_uid intValue];
-    detail.pid = [self.rk_job_id intValue];
-    detail.saveBOOL = 1;
-    [self.navigationController pushViewController:detail animated:YES];
+//    NSLog(@"职位详情");
+//    NSLog(@"%lu",(unsigned long)self.jobArr.count);
+    if (self.jobArr.count != 0)
+    {
+        TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
+        detail.uid = [self.rk_uid intValue];
+        detail.pid = [self.rk_job_id intValue];
+        detail.saveBOOL = 1;
+        [self.navigationController pushViewController:detail animated:YES];
+    }
+    
     
 }
 
