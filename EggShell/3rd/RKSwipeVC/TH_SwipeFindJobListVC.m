@@ -60,6 +60,12 @@
 
 @implementation TH_SwipeFindJobListVC
 
+//-(void)dealloc
+//{
+//    //销毁，清空
+//    [SearchModelShare sharedInstance].type = @"";
+//}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
@@ -96,7 +102,7 @@
     [hideView addGestureRecognizer:taphide];
     //隐藏toolbar
     self.navigationController.toolbarHidden = YES;
-    self.title = @"找工作";
+//    self.title = @"找工作";
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barBtnItemWithNormalImageName:@"liebiao" hightImageName:nil action:@selector(rightClick) target:self];
     //    self.view.clipsToBounds = YES;
@@ -244,7 +250,7 @@
 
 -(void)loadData:(id)notify page:(int)num
 {
-    [SearchModelShare sharedInstance].type = @"55";
+//    [SearchModelShare sharedInstance].type = @"55";
     NSString *numStr = [NSString stringWithFormat:@"%d",num];
     
     self.state = [[TH_AFRequestState searchJobWithSucc:^(NSArray *DataArr) {
@@ -254,16 +260,19 @@
             NSLog(@"DataArr:%@",DataArr);
             [self.jobArr removeAllObjects];
             [self.jobArr addObjectsFromArray:DataArr];
+            
             if (self.page == 1)
             {
                 
             }
             else
             {
-                
-                
+                /**
+                 
+                 */
                 //清除卡片，用新数据刷新卡片
                 [self.swipeableView discardAllViews];
+                self.colorIndex = 1;
                 [self.swipeableView loadViewsIfNeeded];
             }
             
@@ -326,7 +335,7 @@
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
          didSwipeView:(UIView *)view
           inDirection:(ZLSwipeableViewDirection)direction {
-    NSLog(@"did swipe in direction: %zd", direction);
+//    NSLog(@"did swipe in direction: %zd", direction);
     if (direction == 2)
     {
         THLog(@"收藏");
@@ -362,7 +371,7 @@
 }
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView didCancelSwipe:(UIView *)view {
-    NSLog(@"did cancel swipe");
+//    NSLog(@"did cancel swipe");
 }
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
@@ -370,7 +379,7 @@
            atLocation:(CGPoint)location {
     
     
-    NSLog(@"did start swiping at location: x %f, y %f", location.x, location.y);
+//    NSLog(@"did start swiping at location: x %f, y %f", location.x, location.y);
     //开始，记录初始x,是oldx不为空
     self.oldx = location.x;
     [view addSubview:self.cancelView];
@@ -384,8 +393,8 @@
           swipingView:(UIView *)view
            atLocation:(CGPoint)location
           translation:(CGPoint)translation {
-    NSLog(@"swiping at location: x %f, y %f, translation: x %f, y %f", location.x, location.y,
-          translation.x, translation.y);
+//    NSLog(@"swiping at location: x %f, y %f, translation: x %f, y %f", location.x, location.y,
+//          translation.x, translation.y);
     
     if (self.oldx > location.x)
     {
@@ -407,7 +416,7 @@
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
     didEndSwipingView:(UIView *)view
            atLocation:(CGPoint)location {
-    NSLog(@"did end swiping at location: x %f, y %f", location.x, location.y);
+//    NSLog(@"did end swiping at location: x %f, y %f", location.x, location.y);
     [self.cancelView removeFromSuperview];
     [self.intestingView removeFromSuperview];
     //    self.cancelView.hidden = YES;
@@ -422,46 +431,65 @@
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView
 {
     //    NSLog(@"colorIndex%ld",self.colorIndex);
-    //    NSLog(@"jobArr.count%ld",self.jobArr.count);
+//        NSLog(@"jobArr.count%ld",self.jobArr.count);
     
     CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
     
     //取出jobArr对应模型，对子控件进行赋值操作
-    if (self.jobArr.count > 0 && self.colorIndex <= self.jobArr.count)
-    {
-        findJobModel * model = self.jobArr[self.colorIndex - 1];
-        //添加一个标签试试
-        findJobCarViewS *fjcV = [[findJobCarViewS alloc] initWithFrame:CGRectMake(0,0,view.frame.size.width,  view.frame.size.height)];
-        fjcV.backgroundColor = [UIColor whiteColor];
-        [fjcV setValueCar:model];
-        
-        //保存uid job_id
-        self.rk_uid = [NSString stringWithFormat:@"%@",model.uid];
-        self.rk_job_id = [NSString stringWithFormat:@"%@",model.job_id];
-        
-        fjcV.frame = CGRectMake(0,0,view.frame.size.width,  view.frame.size.height);
-        [view addSubview:fjcV];
-        
-    }
     
-    //当colorIndex = 9时，走这个方法。大于8，每页的条数
-    if (self.colorIndex > self.jobArr.count )
-    {
-        self.colorIndex = 0;
-        [self.jobArr removeAllObjects];
+//    if (self.jobArr.count > 0)
+//    {
+        if (self.jobArr.count > 0 && self.colorIndex <= self.jobArr.count)
+        {
+            
+            findJobModel * model = self.jobArr[self.colorIndex - 1];
+            //添加一个标签试试
+            findJobCarViewS *fjcV = [[findJobCarViewS alloc] initWithFrame:CGRectMake(0,0,view.frame.size.width,  view.frame.size.height)];
+            fjcV.backgroundColor = [UIColor whiteColor];
+            [fjcV setValueCar:model];
+            
+            //保存uid job_id
+            self.rk_uid = [NSString stringWithFormat:@"%@",model.uid];
+            self.rk_job_id = [NSString stringWithFormat:@"%@",model.job_id];
+            
+            NSLog(@"job_id:%@",model.job_id);
+            
+            fjcV.frame = CGRectMake(0,0,view.frame.size.width,  view.frame.size.height);
+            [view addSubview:fjcV];
+            
+        }
         
-        self.colorIndex = 0;
-        self.page ++;
-        [self loadData:_mbPro page:self.page];
-    }
-    else
-    {
-        
-    }
+        //当colorIndex = 9时，走这个方法。大于8，每页的条数
+        if (self.colorIndex > self.jobArr.count && self.jobArr.count > 0)
+        {
+            self.colorIndex = 0;
+            [self.jobArr removeAllObjects];
+//            [self.swipeableView discardAllViews];
+            self.page ++;
+            [self loadData:_mbPro page:self.page];
+            
+            if (self.colorIndex >self.jobArr.count && self.jobArr.count < 8)
+            {
+                NSLog(@"~~~~~~~~~~~~~~~~没有数据啦~~~~~~~~~~~~~~~~~~~~~~~~");
+            }
+            
+        }
+        else
+        {
+            
+//            NSLog(@"~~~~~~~~~~~~~~~~没有数据啦~~~~~~~~~~~~~~~~~~~~~~~~");
+        }
+        self.colorIndex++;
+//    }
+//    else
+//    {
+//        [self loadData:_mbPro page:self.page];
+//    }
     
-    //    view.backgroundColor = [self colorForName:self.colors[self.colorIndex]];
-    //    view.backgroundColor = [UIColor grayColor];
-    self.colorIndex++;
+    
+
+    
+    
     
     //    if (self.loadCardFromXib) {
     //        UIView *contentView =

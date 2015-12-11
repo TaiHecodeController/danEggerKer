@@ -864,6 +864,8 @@
 //             RKSwipeViewController *vc = [[RKSwipeViewController alloc]init];
 //            ZLSwipeableViewController *vc = [[ZLSwipeableViewController alloc]init];
             TH_SwipeFindJobListVC *vc = [[TH_SwipeFindJobListVC alloc]init];
+            vc.title = @"找工作";
+            [SearchModelShare sharedInstance].type = @"55";
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
@@ -877,6 +879,7 @@
 //                        [self.navigationController pushViewController:home animated:YES];
             TH_SwipeFindJobListVC *vc = [[TH_SwipeFindJobListVC alloc]init];
             vc.title = @"找兼职";
+            [SearchModelShare sharedInstance].type = @"56";
             [self.navigationController pushViewController:vc animated:YES];
             
             break;
@@ -894,6 +897,7 @@
 //                        [self.navigationController pushViewController:home animated:YES];
             TH_SwipeFindJobListVC *vc = [[TH_SwipeFindJobListVC alloc]init];
              vc.title = @"找实习";
+            [SearchModelShare sharedInstance].type = @"129";
             [self.navigationController pushViewController:vc animated:YES];
             
                         break;
