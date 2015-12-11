@@ -281,7 +281,6 @@
                 [self.swipeableView loadViewsIfNeeded];
             }
             
-            
         }
         else
         {
@@ -290,7 +289,7 @@
         
     } withfail:^(int errCode, NSError *err) {
         
-    } withlongitude:[SearchModelShare sharedInstance].longitude dimensionality:[SearchModelShare sharedInstance].dimensionality keyword:[SearchModelShare sharedInstance].keyword page:numStr hy:[SearchModelShare sharedInstance].hy job_post:[SearchModelShare sharedInstance].job_post salary:[SearchModelShare sharedInstance].salary edu:[SearchModelShare sharedInstance].edu exp:[SearchModelShare sharedInstance].exp type:[SearchModelShare sharedInstance].type sdate:[SearchModelShare sharedInstance].sdate job1:[SearchModelShare sharedInstance].job1 cityid:[SearchModelShare sharedInstance].cityid provinceid:[SearchModelShare sharedInstance].provinceid job1_post:[SearchModelShare sharedInstance].job1_son resp:[findJobModel class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+    } withlongitude:[SearchModelShare sharedInstance].longitude dimensionality:[SearchModelShare sharedInstance].dimensionality keyword:[SearchModelShare sharedInstance].keyword page:numStr hy:[SearchModelShare sharedInstance].hy job_post:[SearchModelShare sharedInstance].job_post salary:[SearchModelShare sharedInstance].salary edu:[SearchModelShare sharedInstance].edu exp:[SearchModelShare sharedInstance].exp type:[SearchModelShare sharedInstance].type sdate:[SearchModelShare sharedInstance].sdate job1:[SearchModelShare sharedInstance].job1 cityid:[SearchModelShare sharedInstance].cityid provinceid:[SearchModelShare sharedInstance].provinceid job1_post:[SearchModelShare sharedInstance].job1_son resp:[findJobModel class]] addNotifaction:[MBProgressHUD mbHubShow]];
     
     
 }
