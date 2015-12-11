@@ -17,6 +17,7 @@
 #import "TH_FindJobVC.h"
 #import "TH_PlayFanVC.h"
 #import "TH_JobDetailVC.h"
+#import "TH_SwipeFindJobListVC.h"
 
 @interface TH_MainTabBarController ()
 @end
@@ -41,11 +42,17 @@
     TH_PlayFanVC * acti_vc = [[TH_PlayFanVC alloc] init];
     THCustomNavigationController * nc2 = [[THCustomNavigationController alloc] initWithRootViewController:acti_vc];
     
-    TH_FindJobVC * find_vc = [[TH_FindJobVC alloc] init];
-     find_vc.title = @"找工作";
-     find_vc.job_type = @"0";
-    [SearchModelShare sharedInstance].type = @"55";
-    THCustomNavigationController * nc3 = [[THCustomNavigationController alloc] initWithRootViewController:find_vc];
+//    TH_FindJobVC * find_vc = [[TH_FindJobVC alloc] init];
+//     find_vc.title = @"找工作";
+//     find_vc.job_type = @"0";
+//    [SearchModelShare sharedInstance].type = @"55";
+//    THCustomNavigationController * nc3 = [[THCustomNavigationController alloc] initWithRootViewController:find_vc];
+        TH_SwipeFindJobListVC * find_vc = [[TH_SwipeFindJobListVC alloc] init];
+//         find_vc.title = @"找工作";
+//         find_vc.job_type = @"0";
+        [SearchModelShare sharedInstance].type = @"55";
+        THCustomNavigationController * nc3 = [[THCustomNavigationController alloc] initWithRootViewController:find_vc];
+
     
     TH_MineVC * mine_vc = [[TH_MineVC alloc] init];
     THCustomNavigationController * nc4 = [[THCustomNavigationController alloc] initWithRootViewController:mine_vc];

@@ -111,7 +111,6 @@
         [self hySegmentedControlSelectAtIndex:0];
     }
 
-    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backRootController:) name:@"findJobBackClick" object:nil];
 }
 -(void)viewDidAppear:(BOOL)animated

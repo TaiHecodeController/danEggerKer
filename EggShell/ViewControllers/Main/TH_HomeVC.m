@@ -31,6 +31,8 @@
 #import "VersionUpdateView.h"
 #import "ManagerResumeVC.h"
 #import "TH_LoginVC.h"
+#import "TH_SwipeFindJobListVC.h"
+
 /*数据请求**/
 #import "AFAppRequest.h"
 #import "SearchModelShare.h"
@@ -40,7 +42,7 @@
 /*V达人**/
 #import "TH_VtalentVC.h"
 #import "AllowedDirectionDemoViewController.h"
-#import "RKSwipeViewController.h"
+//#import "RKSwipeViewController.h"
 
 #import "ZLSwipeableViewController.h"
 
@@ -811,6 +813,8 @@
     NSLog(@"3333");
 }
 
+
+#pragma mark -- 社交圈等跳转
 -(void)findViewFindJob:(FindjobView *)homeView DidClickButton:(THHomeViewButtonType)button
 {
     self.navigationController.navigationBarHidden = NO;
@@ -858,8 +862,8 @@
 //            [self.navigationController pushViewController:home animated:YES];
 //            AllowedDirectionDemoViewController *vc = [[AllowedDirectionDemoViewController alloc]init];
 //             RKSwipeViewController *vc = [[RKSwipeViewController alloc]init];
-            ZLSwipeableViewController *vc = [[ZLSwipeableViewController alloc]init];
-             vc.title = @"找工作";
+//            ZLSwipeableViewController *vc = [[ZLSwipeableViewController alloc]init];
+            TH_SwipeFindJobListVC *vc = [[TH_SwipeFindJobListVC alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
@@ -872,11 +876,14 @@
                         home.rk_pushType = homePushType;
                         [self.navigationController pushViewController:home animated:YES];
                         break;
+            break;
+
         }
         case THHomeViewButtonTypeMicroSocial:
         {
             
             NSLog(@"找实习");
+
                         TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
 //                        [SearchModelShare sharedInstance].keyword = @"实习";
                         home.job_type = @"2";
@@ -884,6 +891,7 @@
                         home.title = @"找实习";
                         home.rk_pushType = homePushType;
                         [self.navigationController pushViewController:home animated:YES];
+
             
                         break;
         }

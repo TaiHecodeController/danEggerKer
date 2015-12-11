@@ -78,9 +78,10 @@
     detail.RouteLable.showsVerticalScrollIndicator = NO;
 
     [self.scro addSubview:detail];
-    if (self.detaildic) {
+    if (self.detaildic)
+    {
         [detail setValues:self.detaildic];
-//        
+        
 //         self.textSize = [self.detaildic.content sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
 //        UILabel * contentLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
 //        contentLable.backgroundColor = [UIColor whiteColor];
