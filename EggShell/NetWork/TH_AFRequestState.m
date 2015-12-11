@@ -243,8 +243,9 @@
         job1_post = @"";
     }
 
+    //job1废弃了，以后删除
     NSDictionary *param = @{@"longitude":longitude,@"dimensionality":dimensionality,@"keyword":keyword,@"page":page,@"hy":hy,@"job_post":job_post,@"salary":salary,@"edu":edu,@"exp":exp,@"type":type,@"fbtime":sdate,@"job1":job1,@"three_cityid":cityid,@"provinceid":provinceid,@"job1_son":job1_post};
-    
+
     NSLog(@"%@",param);
     
     
