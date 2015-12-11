@@ -19,6 +19,7 @@
 #import "UIBarButtonItem+DC.h"
 #import "TH_JobDetailVC.h"
 #import "findJobCarViewS.h"
+#import "TH_LoginVC.h"
 #define tabbarHeight 46
 
 @interface TH_SwipeFindJobListVC ()
@@ -270,12 +271,12 @@
         }
         else
         {
-            //            [MBProgressHUD creatembHub:@"暂无数据"];
+//                        [MBProgressHUD creatembHub:@"暂无数据"];
         }
         
     } withfail:^(int errCode, NSError *err) {
         
-    } withlongitude:[SearchModelShare sharedInstance].longitude dimensionality:[SearchModelShare sharedInstance].dimensionality keyword:[SearchModelShare sharedInstance].keyword page:numStr hy:[SearchModelShare sharedInstance].hy job_post:[SearchModelShare sharedInstance].job_post salary:[SearchModelShare sharedInstance].salary edu:[SearchModelShare sharedInstance].edu exp:[SearchModelShare sharedInstance].exp type:[SearchModelShare sharedInstance].type sdate:[SearchModelShare sharedInstance].sdate job1:[SearchModelShare sharedInstance].job1 cityid:[SearchModelShare sharedInstance].cityid provinceid:[SearchModelShare sharedInstance].provinceid job1_post:[SearchModelShare sharedInstance].job1_son resp:[findJobModel class]] addNotifaction:notify];
+    } withlongitude:[SearchModelShare sharedInstance].longitude dimensionality:[SearchModelShare sharedInstance].dimensionality keyword:[SearchModelShare sharedInstance].keyword page:numStr hy:[SearchModelShare sharedInstance].hy job_post:[SearchModelShare sharedInstance].job_post salary:[SearchModelShare sharedInstance].salary edu:[SearchModelShare sharedInstance].edu exp:[SearchModelShare sharedInstance].exp type:[SearchModelShare sharedInstance].type sdate:[SearchModelShare sharedInstance].sdate job1:[SearchModelShare sharedInstance].job1 cityid:[SearchModelShare sharedInstance].cityid provinceid:[SearchModelShare sharedInstance].provinceid job1_post:[SearchModelShare sharedInstance].job1_son resp:[findJobModel class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
     
     
 }
@@ -329,9 +330,27 @@
     if (direction == 2)
     {
         THLog(@"收藏");
-        [self.rk_uid intValue];
-        [self.rk_job_id intValue];
-        
+        [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+        if([AppDelegate instance].userId)
+        {
+            self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
+                
+                NSLog(@"%@",DataArr);
+                [MBProgressHUD creatembHub:@"收藏成功" ControllerView:self];
+                
+            } withFail:^(int errCode, NSError *err) {
+                
+                NSLog(@"%@",err);
+                
+            } withJob_id:[self.rk_job_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+
+        }
+        else
+        {
+            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
+            alertView.delegate = self;
+            [alertView show];
+        }
         
         
     }
@@ -485,7 +504,7 @@
     TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
     detail.uid = [self.rk_uid intValue];
     detail.pid = [self.rk_job_id intValue];
-    //    detail.saveBOOL = 1;
+    detail.saveBOOL = 1;
     [self.navigationController pushViewController:detail animated:YES];
     
 }
@@ -493,12 +512,28 @@
 
 
 #pragma mark - ()
-- (UIColor *)colorForName:(NSString *)name {
-    NSString *sanitizedName = [name stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSString *selectorString = [NSString stringWithFormat:@"flat%@Color", sanitizedName];
-    Class colorClass = [UIColor class];
-    return [colorClass performSelector:NSSelectorFromString(selectorString)];
+//- (UIColor *)colorForName:(NSString *)name {
+//    NSString *sanitizedName = [name stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    NSString *selectorString = [NSString stringWithFormat:@"flat%@Color", sanitizedName];
+//    Class colorClass = [UIColor class];
+//    return [colorClass performSelector:NSSelectorFromString(selectorString)];
+//}
+
+#pragma mark -- alertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {        TH_LoginVC * lvcs = [[TH_LoginVC alloc] init];
+        lvcs.findJobDetailApplication = @"findJobDetailApplication";
+        lvcs.loginBlock = ^()
+        {
+            [self searchBtnClick];
+        };
+        [self.navigationController pushViewController:lvcs animated:YES];
+        
+    }
 }
+
 
 /*
 #pragma mark - Navigation

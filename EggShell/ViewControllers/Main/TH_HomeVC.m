@@ -864,7 +864,6 @@
 //             RKSwipeViewController *vc = [[RKSwipeViewController alloc]init];
 //            ZLSwipeableViewController *vc = [[ZLSwipeableViewController alloc]init];
             TH_SwipeFindJobListVC *vc = [[TH_SwipeFindJobListVC alloc]init];
-
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
