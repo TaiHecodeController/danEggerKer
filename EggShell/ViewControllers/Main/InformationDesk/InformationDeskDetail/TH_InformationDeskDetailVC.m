@@ -99,12 +99,12 @@
         UITextView * contentLable = [[UITextView alloc] initWithFrame:CGRectMake(15, 340, WIDETH-30, self.textSize.height)];
         contentLable.editable = NO;
         self.contentLable = contentLable;
-        //解密数据
-        NSString *htmlString = [CommonFunc textFromBase64String:self.detaildic.content];
+        
+//        NSString *htmlString = self.detaildic.content;
         //去掉html标签
-        NSString *str =  [self flattenHTML:htmlString trimWhiteSpace:YES];
+        NSString *str =  [self flattenHTML:self.detaildic.content trimWhiteSpace:YES];
        
-        self.textSize = [ [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+        self.textSize = [[str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
 //        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
 //        self.contentLable.attributedText = attributedString;
         self.contentLable.text =  [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
