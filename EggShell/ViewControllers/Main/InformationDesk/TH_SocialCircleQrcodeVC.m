@@ -26,7 +26,7 @@
     [self.view addSubview:qrCodeImageView];
     
     UITextView *detailView = [[UITextView alloc]init];
-    detailView.frame = CGRectMake((WIDETH - 150)/2.0, CGRectGetMaxY(qrCodeImageView.frame) + 10, 150, 200);
+    detailView.frame = CGRectMake((WIDETH - 170)/2.0, CGRectGetMaxY(qrCodeImageView.frame) + 10, 170, 200);
     detailView.text = self.content;
     [self.view addSubview:detailView];
     
