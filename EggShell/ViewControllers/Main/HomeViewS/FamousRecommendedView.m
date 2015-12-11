@@ -123,10 +123,5 @@
     [self.sevenImageView sd_setImageWithURL:[NSURL URLWithString:array[6][@"hot_pic"]] placeholderImage:[UIImage imageNamed:@"qiyemorentu"]];
     [self.eightImageView sd_setImageWithURL:[NSURL URLWithString:array[7][@"hot_pic"]] placeholderImage:[UIImage imageNamed:@"qiyemorentu"]];
     [self.nineImageView sd_setImageWithURL:[NSURL URLWithString:array[8][@"hot_pic"]] placeholderImage:[UIImage imageNamed:@"qiyemorentu"]];
-
-   
-    
-    
-  
 }
 @end

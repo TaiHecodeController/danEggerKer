@@ -865,32 +865,25 @@
         }
         case THHomeViewButtonTypePlayFan:
         {
-//                        TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-            //            [SearchModelShare sharedInstance].keyword = @"兼职";
+                        TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+                        [SearchModelShare sharedInstance].keyword = @"兼职";
             
-//                        home.job_type = @"1";
-//                        home.rk_pushType = homePushType;
-//                        [self.navigationController pushViewController:home animated:YES];
-            ZLSwipeableViewController *vc = [[ZLSwipeableViewController alloc]init];
-            vc.title = @"找兼职";
-            [self.navigationController pushViewController:vc animated:YES];
-            
-            break;
+                        home.job_type = @"1";
+                        home.rk_pushType = homePushType;
+                        [self.navigationController pushViewController:home animated:YES];
+                        break;
         }
         case THHomeViewButtonTypeMicroSocial:
         {
             
             NSLog(@"找实习");
-//                        TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
-////                        [SearchModelShare sharedInstance].keyword = @"实习";
-//                        home.job_type = @"2";
-//            
-//                        home.title = @"找实习";
-//                        home.rk_pushType = homePushType;
-//                        [self.navigationController pushViewController:home animated:YES];
-            ZLSwipeableViewController *vc = [[ZLSwipeableViewController alloc]init];
-             vc.title = @"找实习";
-            [self.navigationController pushViewController:vc animated:YES];
+                        TH_FindJobVC * home =[[TH_FindJobVC alloc] init];
+//                        [SearchModelShare sharedInstance].keyword = @"实习";
+                        home.job_type = @"2";
+            
+                        home.title = @"找实习";
+                        home.rk_pushType = homePushType;
+                        [self.navigationController pushViewController:home animated:YES];
             
                         break;
         }

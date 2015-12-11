@@ -462,7 +462,7 @@
     //    @property (weak, nonatomic) IBOutlet UILabel *dutyLable;
     //    @property (weak, nonatomic) IBOutlet UITextView *jobCroptionTextView;
     //    @property (weak, nonatomic) IBOutlet UILabel *compayAddressLable;
-    [_jobDescription.logoView sd_setImageWithURL:[NSURL URLWithString:@"logo"] placeholderImage:[UIImage imageNamed:@"tu"]];
+    [_jobDescription.logoView sd_setImageWithURL:[NSURL URLWithString:model.logo] placeholderImage:[UIImage imageNamed:@"tu"]];
     _jobDescription.jobNameLable.text = model.cj_name;
     _jobDescription.companyNameLable.text = model.com_name;
     _jobDescription.releaseTimeLable.text = model.sdate;
