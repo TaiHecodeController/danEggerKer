@@ -59,26 +59,35 @@
 //投递成功的数量
 @property (nonatomic, assign) int TDSuccNum;
 
-
 @end
 @implementation TH_FindJobVC
+//类销毁时调用
 -(void)dealloc
 {
-    [SearchModelShare sharedInstance].longitude = @"";
-    [SearchModelShare sharedInstance].dimensionality = @"";
-    [SearchModelShare sharedInstance].keyword = @"";
-
-    [SearchModelShare sharedInstance].hy = @"";
-    [SearchModelShare sharedInstance].job_post = @"";
-    [SearchModelShare sharedInstance].cityid = @"";
-    [SearchModelShare sharedInstance].salary = @"";
-    [SearchModelShare sharedInstance].edu = @"";
-    [SearchModelShare sharedInstance].exp = @"";
-    [SearchModelShare sharedInstance].provinceid = @"";
-
-    [SearchModelShare sharedInstance].sdate = @"";
-    [SearchModelShare sharedInstance].job1 = @"";
-    [SearchModelShare sharedInstance].job1_son = @"";
+    //为3时，说明从条件筛选页pop回来，会销毁栈中除第一个TH_FindJobVC以外的其他TH_FindJobVC，所以进行判断，不是从条件筛选页回来时，才进行单例的清除。
+#warning  将来必须优化
+//        if (![_job_type isEqual:@"3"])
+//    {
+//        [SearchModelShare sharedInstance].longitude = @"";
+//        [SearchModelShare sharedInstance].dimensionality = @"";
+//        [SearchModelShare sharedInstance].keyword = @"";
+//        
+//        [SearchModelShare sharedInstance].hy = @"";
+//        [SearchModelShare sharedInstance].job_post = @"";
+//        [SearchModelShare sharedInstance].cityid = @"";
+//        [SearchModelShare sharedInstance].salary = @"";
+//        [SearchModelShare sharedInstance].edu = @"";
+//        [SearchModelShare sharedInstance].exp = @"";
+//        [SearchModelShare sharedInstance].provinceid = @"";
+//        
+//        [SearchModelShare sharedInstance].sdate = @"";
+//        [SearchModelShare sharedInstance].job1 = @"";
+//
+//        [SearchModelShare sharedInstance].job1_son = @"";
+//    }
+    
+//    THLog(@"%@",_job_type);
+    
     
     [_header free];
     [_footer free];
@@ -130,6 +139,24 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:YES];
+    
+    [SearchModelShare sharedInstance].longitude = @"";
+    [SearchModelShare sharedInstance].dimensionality = @"";
+    [SearchModelShare sharedInstance].keyword = @"";
+    
+    [SearchModelShare sharedInstance].hy = @"";
+    [SearchModelShare sharedInstance].job_post = @"";
+    [SearchModelShare sharedInstance].cityid = @"";
+    [SearchModelShare sharedInstance].salary = @"";
+    [SearchModelShare sharedInstance].edu = @"";
+    [SearchModelShare sharedInstance].exp = @"";
+    [SearchModelShare sharedInstance].provinceid = @"";
+    
+    [SearchModelShare sharedInstance].sdate = @"";
+    [SearchModelShare sharedInstance].job1 = @"";
+    
+    [SearchModelShare sharedInstance].job1_son = @"";
+    
     [_searchBtn removeFromSuperview];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"findJobBackClick" object:nil];
 }

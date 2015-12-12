@@ -554,10 +554,12 @@
     {
         sender.selected = !sender.selected;
         
-        if (sender.selected== YES) {
+        if (sender.selected== YES)
+        {
             self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
                 
                 NSLog(@"%@",DataArr);
+                
             [MBProgressHUD creatembHub:@"收藏成功" ControllerView:self];
                 
             } withFail:^(int errCode, NSError *err) {

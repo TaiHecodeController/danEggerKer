@@ -1335,11 +1335,11 @@
 		04A483B51B74FD4D006FDB9D /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				941A9EB21C191751000FFA4D /* HomeViewS */,
 				941A9EAF1C1916CA000FFA4D /* TH_HomeVC.h */,
 				941A9EB01C1916CA000FFA4D /* TH_HomeVC.m */,
 				F0E9E6261C1A69E400290CEA /* TH_SwipeFindJobListVC.h */,
 				F0E9E6271C1A69E400290CEA /* TH_SwipeFindJobListVC.m */,
+				941A9EB21C191751000FFA4D /* HomeViewS */,
 				947330391BFF181300688587 /* Vtalent */,
 				94CB5BA81B763A8100B23B9D /* FindJob */,
 				94E2C9621B870EED001E3FDD /* CompanyDetail */,
@@ -1582,6 +1582,7 @@
 			isa = PBXGroup;
 			children = (
 				940032E11B840DCC001EB666 /* JobScreenDetail */,
+				940032E21B840DCC001EB666 /* JobScreenDetailCell */,
 				940032E81B840DCC001EB666 /* JobScreeningCell.h */,
 				940032E91B840DCC001EB666 /* JobScreeningCell.m */,
 				940032EA1B840DCC001EB666 /* JobScreeningCell.xib */,
@@ -1594,7 +1595,6 @@
 			children = (
 				940032EB1B840DCC001EB666 /* TH_JobScreeningVC.h */,
 				940032EC1B840DCD001EB666 /* TH_JobScreeningVC.m */,
-				940032E21B840DCC001EB666 /* JobScreenDetailCell */,
 				940032E61B840DCC001EB666 /* TH_JobScreenDetailVC.h */,
 				940032E71B840DCC001EB666 /* TH_JobScreenDetailVC.m */,
 			);
@@ -1608,7 +1608,8 @@
 				940032E41B840DCC001EB666 /* JobScreenDetailCell.m */,
 				940032E51B840DCC001EB666 /* JobScreenDetailCell.xib */,
 			);
-			path = JobScreenDetailCell;
+			name = JobScreenDetailCell;
+			path = JobScreenDetail/JobScreenDetailCell;
 			sourceTree = "<group>";
 		};
 		940032FD1B840FC6001EB666 /* MineView */ = {
@@ -2171,7 +2172,6 @@
 		94CB5BA81B763A8100B23B9D /* FindJob */ = {
 			isa = PBXGroup;
 			children = (
-				94E95EE01C16CF9F009FA049 /* FindJobCard */,
 				94CB5BA91B763AAC00B23B9D /* TH_FindJobVC.h */,
 				94CB5BAA1B763AAC00B23B9D /* TH_FindJobVC.m */,
 				F05440B21B7870B800127A9B /* jobTableViewCell.h */,
@@ -2179,6 +2179,7 @@
 				F05440B81B788DAB00127A9B /* findjobtest.plist */,
 				F05440BA1B788FE000127A9B /* jobModel.h */,
 				F05440BB1B788FE000127A9B /* jobModel.m */,
+				94E95EE01C16CF9F009FA049 /* FindJobCard */,
 				04A0CD3F1B7A0FFE00EBCF01 /* SearchJob */,
 				94E3EAE41B95489A007A699E /* FindJobModel */,
 				940032DA1B840DCC001EB666 /* JobScreening */,

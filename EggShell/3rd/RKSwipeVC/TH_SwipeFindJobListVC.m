@@ -20,6 +20,7 @@
 #import "TH_JobDetailVC.h"
 #import "findJobCarViewS.h"
 #import "TH_LoginVC.h"
+#import "JobDetailModel.h"
 #define tabbarHeight 46
 
 @interface TH_SwipeFindJobListVC ()
@@ -86,8 +87,6 @@
     [_searchBtn removeFromSuperview];
 }
 
-
-
 - (void)viewDidLoad
 {
     
@@ -95,25 +94,20 @@
     
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"])
     {
-//        self.window.rootViewController =（换成你要显示的调查view）
         THLog(@"第一次启动");
         
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
-        
         UIImageView * hideView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
         hideView.image = [UIImage imageNamed:@"提示层"];
         hideView.userInteractionEnabled = YES;
         [[UIApplication sharedApplication].keyWindow addSubview:hideView];
         UITapGestureRecognizer * taphide =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(taphide)];
         self.hideView = hideView;
-//                [SearchModelShare sharedInstance].tip++;
         [hideView addGestureRecognizer:taphide];
     }
     else
     {
-//        self.window.rootViewController = （换成你正常的view）
         THLog(@"不是第一次启动");
-        
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
     }
     
@@ -290,14 +284,14 @@
             
             if (self.page == 1)
             {
-                
+                 [self.swipeableView loadViewsIfNeeded];
             }
             else
             {
                 /**
-                 
+                 清除卡片，用新数据刷新卡片
                  */
-                //清除卡片，用新数据刷新卡片
+              
 //                [self.swipeableView discardAllViews];
                 self.colorIndex = 1;
                 [self.swipeableView loadViewsIfNeeded];
@@ -364,21 +358,42 @@
 //    NSLog(@"did swipe in direction: %zd", direction);
     if (direction == 2)
     {
-        THLog(@"收藏");
+//        THLog(@"收藏");
+        
         [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+        
         if([AppDelegate instance].userId)
         {
-            self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
+            
+                self.state = [[TH_AFRequestState jobDetailsRequestWithSucc:^(NSDictionary *DataArr) {
                 
-                NSLog(@"%@",DataArr);
-                [MBProgressHUD creatembHub:@"收藏成功" ControllerView:self];
-                
-            } withFail:^(int errCode, NSError *err) {
-                
-                NSLog(@"%@",err);
-                
-            } withJob_id:[self.rk_job_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+                         JobDetailModel *model = (JobDetailModel *)DataArr;
+                    
+                    THLog(@"model.iscollect%@",model.cj_id);
+                    
+                if ([model.iscollect integerValue] == 0)
+                {
+                    self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
+                        
+                        NSLog(@"%@",DataArr);
+                        
+                        [MBProgressHUD creatembHub:@"收藏成功" ControllerView:self];
+                        
+                    } withFail:^(int errCode, NSError *err) {
+                        
+                        NSLog(@"%@",err);
+                        
+                    } withJob_id:[model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+                }
+                else
+                {
+                    [MBProgressHUD creatembHub:@"该职位已收藏"];
+                }
 
+            } withfail:^(int errCode, NSError *err) {
+                
+            } withId:[[AppDelegate instance].userId integerValue] pid:[self.rk_job_id intValue] page:1 resp:[JobDetailModel class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+            
         }
         else
         {
@@ -386,7 +401,7 @@
             alertView.delegate = self;
             [alertView show];
         }
-        
+
         
     }
     else

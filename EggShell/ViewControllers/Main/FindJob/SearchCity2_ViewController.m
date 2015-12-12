@@ -148,8 +148,9 @@
                 
                 [self.navigationController popToViewController:vc animated:YES];
                 
-                
+               
             }
+//             break;
         }
 
     }

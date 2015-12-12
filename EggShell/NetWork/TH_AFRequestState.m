@@ -102,6 +102,7 @@
     if ([userId length]==0) {
         userId = @"";
     }
+    
     NSDictionary *param = @{@"uid":userId,@"page":nspage,@"limit":nslimit,@"token":tokenStr};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Position/collectlist",base_Url] param:param succ:succ fail:fail resp:resp];
     

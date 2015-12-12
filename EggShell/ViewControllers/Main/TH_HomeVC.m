@@ -853,7 +853,8 @@
             break;
         }
         case THHomeViewButtonTypeResumeWriting:
-        {   int count =0;
+        {
+            int count =0;
             TH_SwipeFindJobListVC *vc = [[TH_SwipeFindJobListVC alloc]init];
             vc.title = @"找工作";
             [SearchModelShare sharedInstance].type = @"55";
