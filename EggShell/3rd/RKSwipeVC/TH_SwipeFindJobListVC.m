@@ -93,18 +93,41 @@
     
     [super viewDidLoad];
     
-    
-    if ([ SearchModelShare sharedInstance].tip ==1) {
-    UIImageView * hideView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
-    hideView.image = [UIImage imageNamed:@"提示层"];
-    hideView.userInteractionEnabled = YES;
-    [[UIApplication sharedApplication].keyWindow addSubview:hideView];
-    UITapGestureRecognizer * taphide =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(taphide)];
-    self.hideView = hideView;
-        [SearchModelShare sharedInstance].tip++;
-    [hideView addGestureRecognizer:taphide];
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"])
+    {
+//        self.window.rootViewController =（换成你要显示的调查view）
+        THLog(@"第一次启动");
         
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+        
+        UIImageView * hideView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
+        hideView.image = [UIImage imageNamed:@"提示层"];
+        hideView.userInteractionEnabled = YES;
+        [[UIApplication sharedApplication].keyWindow addSubview:hideView];
+        UITapGestureRecognizer * taphide =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(taphide)];
+        self.hideView = hideView;
+//                [SearchModelShare sharedInstance].tip++;
+        [hideView addGestureRecognizer:taphide];
     }
+    else
+    {
+//        self.window.rootViewController = （换成你正常的view）
+        THLog(@"不是第一次启动");
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+    }
+    
+//    if ([ SearchModelShare sharedInstance].tip ==1) {
+//    UIImageView * hideView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
+//    hideView.image = [UIImage imageNamed:@"提示层"];
+//    hideView.userInteractionEnabled = YES;
+//    [[UIApplication sharedApplication].keyWindow addSubview:hideView];
+//    UITapGestureRecognizer * taphide =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(taphide)];
+//    self.hideView = hideView;
+//        [SearchModelShare sharedInstance].tip++;
+//    [hideView addGestureRecognizer:taphide];
+//        
+//    }
     //隐藏toolbar
     self.navigationController.toolbarHidden = YES;
 //    self.title = @"找工作";
