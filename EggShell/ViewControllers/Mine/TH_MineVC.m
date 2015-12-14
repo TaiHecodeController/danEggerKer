@@ -227,7 +227,8 @@
                 alertView.delegate  = self;
                 alertView.tag  = 101;
                 [alertView show];
-            }else
+            }
+            else
             {
                 TH_JobWishlistVC * edit = [[TH_JobWishlistVC alloc] init];
                 edit.title = @"投递职位";
@@ -534,13 +535,17 @@
     [[LoginAndRegisterRequest uploadImage:^(NSDictionary * dic) {
         
         [MBProgressHUD creatembHub:@"上传图片成功" ControllerView:self];
-         [self.mineView setIconImage:editedImage];
+//         [self.mineView setIconImage:editedImage];
+        
         
     } :editedImage withUid:self.uidStr] addNotifaction:[MBProgressHUD  mbHubShowControllerView:self]];
     
     [cropperViewController dismissViewControllerAnimated:YES completion:^{
         
+        [self baseIofomationLogin];
+        
     }];
+    
     
 }
 
