@@ -81,7 +81,6 @@
     self.InformationDeskLable = InformationDeskLable;
     [self addSubview:InformationDeskLable];
 
-
 //    找工作
     UIButton * fesumeWritingBtn = [[UIButton alloc] initWithFrame:CGRectMake(27*MyWideth, 10*MyWideth+46.5*MyWideth+7*MyWideth+15*MyWideth+12, 40.5*MyWideth, 46.5*MyWideth)];
     
@@ -145,6 +144,7 @@
     self.openClassLable = openClassLable;
     [self addSubview:openClassLable];
 }
+
 -(void)btnClick:(UIButton*)sender
 {
     if ([self.homeViewDelegate respondsToSelector:@selector(findViewFindJob:DidClickButton:)]) {

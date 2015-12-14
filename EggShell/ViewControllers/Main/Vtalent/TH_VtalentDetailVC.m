@@ -58,9 +58,10 @@
    addressLabel.text = self.dataDic[@"cityname"];
     [titileBgView addSubview:addressLabel];
     //性质
-    UILabel * natureLable  = [[UILabel alloc] initWithFrame:CGRectMake(10+135*MyWideth+10, 53*MyWideth+15*MyWideth+24*MyWideth, WIDETH - (10+135*MyWideth+10), 12*MyWideth)];
+    UILabel * natureLable  = [[UILabel alloc] initWithFrame:CGRectMake(10+135*MyWideth+10, 53*MyWideth+15*MyWideth+24*MyWideth, WIDETH - (10+135*MyWideth+10),  3 * 12*MyWideth)];
     natureLable.font =[ UIFont systemFontOfSize:12*MyWideth];
     natureLable.textColor = UIColorFromRGB(0x646464);
+    natureLable.numberOfLines = 0;
 //    natureLable.text = @"学习是一种信仰";
     natureLable.text = self.dataDic[@"motto"];
     [titileBgView addSubview:natureLable];

@@ -115,6 +115,7 @@
         ambassadorNameLable.textColor = UIColorFromRGB(0x323232);        [ambassadorView addSubview:ambassadorNameLable];
         //大使类型
         UILabel * ambassadorAutureLable = [[UILabel alloc] initWithFrame:CGRectMake(0, ambassadorImageView.frame.size.height+10*MyWideth+5*MyWideth+14*MyWideth, (WIDETH-35)/2.0, 13*MyWideth)];
+//        ambassadorAutureLable.numberOfLines = 0;
         ambassadorAutureLable.font = [UIFont systemFontOfSize:13*MyWideth];
         ambassadorAutureLable.textColor = UIColorFromRGB(0x646464);
 //        ambassadorAutureLable.text = @"蛋壳明星大使";

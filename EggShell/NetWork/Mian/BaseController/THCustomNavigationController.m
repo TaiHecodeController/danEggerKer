@@ -10,6 +10,8 @@
 
 @interface THCustomNavigationController ()
 
+@property (nonatomic, strong) UISwipeGestureRecognizer *swipe;
+
 @end
 
 @implementation THCustomNavigationController
@@ -43,7 +45,9 @@
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeAction:)];
     swipe.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipe];
+    self.swipe = swipe;
     
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rmG) name:@"rmG" object:nil];
     //导航栏跟着一起滑动
 //    self.hidesBarsOnSwipe = YES;
     
@@ -57,6 +61,10 @@
 //    self.navigationBar.tintColor = [UIColor yellowColor];
 }
 
+- (void)rmG
+{
+    [self.view removeGestureRecognizer:self.swipe];
+}
 - (void)swipeAction:(UISwipeGestureRecognizer *)gesture
 {
     if (self.viewControllers.count > 0)

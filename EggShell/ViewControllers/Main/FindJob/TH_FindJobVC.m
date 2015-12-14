@@ -318,7 +318,8 @@
                 [SearchModelShare sharedInstance].longitude = [NSString stringWithFormat:@"%fd",app.longitude];
                 [SearchModelShare sharedInstance].dimensionality = [NSString stringWithFormat:@"%fd",app.latitude];
         
-        if ([[NSString stringWithFormat:@"%d",(int)app.longitude] isEqualToString:[NSString stringWithFormat:@"%d",0]]) {
+        if ([[NSString stringWithFormat:@"%d",(int)app.longitude] isEqualToString:[NSString stringWithFormat:@"%d",0]])
+        {
             
             UIAlertView * alert =[[UIAlertView alloc] initWithTitle:@"提示" message:@"请打开系统设置中”隐私→定位服务“允许”蛋壳儿“使用您的位置,才能搜索附近职位" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
             [alert show];
@@ -327,6 +328,7 @@
         }
 //        [SearchModelShare sharedInstance].job_post = @"132";
         /*数据请求**/
+        self.page = 1;
         _mbPro = [MBProgressHUD mbHubShowControllerView:self];
         [self loadData:_mbPro page:self.page];
         

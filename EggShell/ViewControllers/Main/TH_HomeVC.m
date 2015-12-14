@@ -49,6 +49,8 @@
 
 #import "HotJobView.h"
 #import "FamousRecommendedView.h"
+//#import "ThFindJobVC.h"
+
 @interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate,HotJobViewDelegate,FamousRecommendedViewDelegate>
 
 {
@@ -75,14 +77,14 @@
 @end
 @implementation TH_HomeVC
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    THLog(@"~~~~~%s %@ %@",__func__,viewController,navigationController);
-}
-- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    THLog(@"~~~~~%s",__func__);
-}
+//- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+//{
+//    THLog(@"~~~~~%s %@ %@",__func__,viewController,navigationController);
+//}
+//- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+//{
+//    THLog(@"~~~~~%s",__func__);
+//}
 
 //- (UIInterfaceOrientationMask)navigationControllerSupportedInterfaceOrientations:(UINavigationController *)navigationController
 //{
@@ -842,6 +844,9 @@
             
             TH_VtalentVC * talent = [[TH_VtalentVC alloc] init];
             [self.navigationController pushViewController:talent animated:YES];
+            
+//            ThFindJobVC *fjvc = [[ThFindJobVC alloc] init];
+//            [self.navigationController pushViewController:fjvc animated:YES];
             break;
         }
         case THHomeViewButtonTypeInformationDesk:

@@ -80,6 +80,18 @@
     _searchBtn = searchBtn;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:YES];
@@ -91,6 +103,8 @@
 {
     
     [super viewDidLoad];
+    
+//     [[NSNotificationCenter defaultCenter] postNotificationName:@"rmG" object:nil];
     
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"])
     {
@@ -110,6 +124,8 @@
         THLog(@"不是第一次启动");
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
     }
+    
+   
     
 //    if ([ SearchModelShare sharedInstance].tip ==1) {
 //    UIImageView * hideView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
