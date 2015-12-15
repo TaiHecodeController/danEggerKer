@@ -113,7 +113,7 @@
 //    numLab.text = @"15条记录";
     numLab.text = [NSString stringWithFormat:@"%d条记录",_jiluNum];
     numLab.font = [UIFont systemFontOfSize:13];
-    CGSize numSize = [@"15条记录" sizeWithFont:numLab.font];
+    CGSize numSize = [@"15条记录  " sizeWithFont:numLab.font];
     CGFloat numLabX = WIDETH - numSize.width - margin;
     CGFloat numLabY = (headView.frame.size.height - numSize.height) / 2;
     numLab.frame = CGRectMake(numLabX, numLabY, numSize.width, numSize.height);

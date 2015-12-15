@@ -116,7 +116,6 @@
            
            //
                 record_Message = self.CMview.companyMessage.frame;
-                
                 record_SelfView = self.CMview.frame;
                 record_ShowAll = self.CMview.showAllBtn.frame;
                 record_headerView = self.comPanyView.frame;
@@ -131,16 +130,6 @@
                 self.CMview.companyMessage.frame = CGRectMake(self.CMview.companyMessage.origin.x, self.CMview.companyMessage.origin.y , self.CMview.companyMessage.frame.size.width, self.CMview.textSize.height);
                 self.CMview.companyMessage.numberOfLines = 0;
                 _tableView.tableHeaderView = self.comPanyView;
-           /*
-            Printing description of self->record_Message:
-            (CGRect) record_Message = (origin = (x = 15, y = 138), size = (width = 345, height = 80))
-            Printing description of self->record_SelfView:
-            (CGRect) record_SelfView = (origin = (x = 0, y = 80), size = (width = 375, height = 265))
-            Printing description of self->record_ShowAll:
-            (CGRect) record_ShowAll = (origin = (x = 137.5, y = 225), size = (width = 100, height = 30))
-            Printing description of self->record_headerView:
-            (CGRect) record_headerView = (origin = (x = 0, y = 0), size = (width = 375, height = 355))
-            **/
            
             }];
             

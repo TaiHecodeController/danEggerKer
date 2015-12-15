@@ -30,10 +30,6 @@
     CGRect btn_recordFrame;
     CGRect header_recordFrame;
     CGRect company_recordFrame;
-//    CGRect record_Message;
-//    CGRect record_SelfView;
-//    CGRect record_ShowAll;
-//    CGRect record_tabView;
     int _page;
 
 }
@@ -147,6 +143,7 @@
 //    } withId:_id pid:pid resp:[JobDetailModel class]] addNotifaction:notify];
     
     self.state = [[TH_AFRequestState jobDetailsRequestWithSucc:^(NSDictionary *DataArr) {
+        
         _model = (JobDetailModel *)DataArr;
         [self setHeaderModel:_model];
         _listArr = [NSMutableArray arrayWithArray:_model.lists];
@@ -269,29 +266,42 @@
 }
 -(void)CompanyProfilView:(ComPanyProfileView *)companyView
 {
-    if (!companyView.selectBtn.isSelected) {
+    if (!companyView.selectBtn.isSelected)
+    {
         
         NSString * description = companyView.detailLable.text;
-         CGSize textSize = [description sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH-30, 2000)];
+         CGSize textSize = [description sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(WIDETH-30, 2000)];
         self.textSize = textSize;
         [UIView animateWithDuration:0.1 animations:^{
             
             company_recordFrame = companyView.frame;
-            //company的frame
-        companyView.frame = CGRectMake(0, 645, companyView.frame.size.width, companyView.frame.size.height + textSize.height - 50);
-            
-            //改变label的frame
             lab_recordFrame = companyView.detailLable.frame;
-            companyView.detailLable.frame = CGRectMake(companyView.detailLable.frame.origin.x, companyView.detailLable.frame.origin.y, textSize.width, textSize.height);
-            companyView.detailLable.numberOfLines = 0;
+            btn_recordFrame = companyView.selectBtn.frame;
+            header_recordFrame = self.headerView.frame;
+            
+            self.headerView.frame = CGRectMake(0, self.headerView.origin.y, WIDETH, self.headerView.frame.size.height + textSize.height - companyView.detailLable.frame.size.height);
+//            self.headerView.backgroundColor = [UIColor orangeColor];
+
+            //company的frame
+        companyView.frame = CGRectMake(0, companyView.frame.origin.y, companyView.frame.size.width, companyView.frame.size.height + textSize.height - companyView.detailLable.frame.size.height);
+//        companyView.backgroundColor = [UIColor redColor];
             
             
-                        //按钮的frame
-                btn_recordFrame = companyView.selectBtn.frame;
-                companyView.selectBtn.frame = CGRectMake(companyView.selectBtn.frame.origin.x, companyView.detailLable.frame.origin.y + companyView.detailLable.frame.size.height+20 , companyView.selectBtn.frame.size.width, companyView.selectBtn.frame.size.height);
-                header_recordFrame = self.headerView.frame;
-                self.headerView.frame = CGRectMake(0, self.headerView.origin.y, WIDETH, self.headerView.origin.y + self.headerView.frame.size.height + textSize.height - 50);
-            self.tableView.tableHeaderView = self.headerView;
+            //按钮的frame
+            
+            companyView.selectBtn.frame = CGRectMake(companyView.selectBtn.frame.origin.x, companyView.selectBtn.frame.origin.y + textSize.height - companyView.detailLable.frame.size.height , companyView.selectBtn.frame.size.width, companyView.selectBtn.frame.size.height);
+//            companyView.selectBtn.backgroundColor = [UIColor grayColor];
+
+            //改变label的frame
+        
+        companyView.detailLable.frame = CGRectMake(companyView.detailLable.frame.origin.x, companyView.detailLable.frame.origin.y, companyView.detailLable.frame.size.width, textSize.height);
+        companyView.detailLable.numberOfLines = 0;
+//        companyView.detailLable.backgroundColor = [UIColor yellowColor];
+            
+            
+       
+        self.tableView.tableHeaderView = self.headerView;
+            
             }];
         
     }else
@@ -326,9 +336,9 @@
     _header.delegate = self;
     _header.scrollView = self.tableView;
     
-    _footer = [MJRefreshFooterView footer];
-    _footer.delegate = self;
-    _footer.scrollView = self.tableView;
+//    _footer = [MJRefreshFooterView footer];
+//    _footer.delegate = self;
+//    _footer.scrollView = self.tableView;
 }
 
 -(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
@@ -337,11 +347,12 @@
     {
         _page = 1;
         [self loadData:_mbPro page:_page];
-    }else
-    {
-        _page ++;
-        [self loadData:refreshView page:_page];
     }
+//    else
+//    {
+//        _page ++;
+//        [self loadData:refreshView page:_page];
+//    }
 }
 
 -(void)dealloc

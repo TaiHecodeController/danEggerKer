@@ -471,7 +471,8 @@
     NSString * uisStr = [user objectForKey:@"uid"];
     NSString  * token  =  [user objectForKey:@"md5_token"];
     
-    if (!self.isEdit) {
+    if (!self.isEdit)
+    {
         if(self.tableView1.tag == 1222)
         {
             
@@ -512,8 +513,10 @@
             }
             
         }
-        if (self.tableView2.tag == 1223) {
-            for (int i = 0; i < self.birthdayCellArray.count; i ++) {
+        if (self.tableView2.tag == 1223)
+        {
+            for (int i = 0; i < self.birthdayCellArray.count; i ++)
+            {
                 self.birthday = ((MineEditInfoCell*)self.birthdayCellArray[0]).contentTextField.text;
                 if (![self isValidateEmail:((MineEditInfoCell*)self.birthdayCellArray[1]).contentTextField.text]) {
                     [MBProgressHUD creatembHub:@"请输入正确的邮箱" ControllerView:self];
@@ -529,12 +532,14 @@
             [LoginAndRegisterRequest EditInformationWithSucc:^(NSDictionary * dic) {
                 
                 [MBProgressHUD creatembHub:@"编辑资料成功" ControllerView:self];
-                [self.navigationController popToRootViewControllerAnimated:YES];
+//                [self.navigationController popToRootViewControllerAnimated:YES];
                 
             } withParam:param];
             
         }
     }
+    [self.navigationController popToRootViewControllerAnimated:YES];
+
 }
 
 -(BOOL)isValidateEmail:(NSString *)email {

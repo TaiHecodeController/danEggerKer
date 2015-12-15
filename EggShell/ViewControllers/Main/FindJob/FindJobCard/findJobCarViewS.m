@@ -148,7 +148,7 @@
         }
         if (i==1) {
             //招聘
-            self.recruitmentLable =[[UILabel alloc] initWithFrame:CGRectMake(40*MyWideth, 0, 45*MyWideth, 27*MyWideth)];
+            self.recruitmentLable =[[UILabel alloc] initWithFrame:CGRectMake(40*MyWideth, 0, 48*MyWideth, 27*MyWideth)];
             self.recruitmentLable.text = @"若干";
             self.recruitmentLable.font =[UIFont systemFontOfSize:15*MyWideth];
             self.recruitmentLable.textColor = UIColorFromRGB(0x646464);
