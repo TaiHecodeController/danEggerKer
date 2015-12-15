@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ManagerResumeVC">
@@ -22,7 +22,6 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="我的简历" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fae-Lt-rQY">
                     <rect key="frame" x="20" y="15" width="71" height="18"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="71" id="LFl-ug-TmH"/>
                         <constraint firstAttribute="height" constant="18" id="ZD1-QF-oyB"/>
@@ -33,7 +32,6 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbh-yI-5TU">
                     <rect key="frame" x="20" y="332" width="80" height="30"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="编辑" backgroundImage="lanniu2">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,7 +43,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xer-fW-hGf">
                     <rect key="frame" x="120" y="332" width="80" height="30"/>
-                    <animations/>
                     <state key="normal" title="使用简历" backgroundImage="lanniu2">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,8 +52,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8y-zf-rFu">
-                    <rect key="frame" x="239" y="12" width="67" height="23"/>
-                    <animations/>
+                    <rect key="frame" x="245" y="12" width="67" height="23"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="67" id="Bvz-uX-KBc"/>
                         <constraint firstAttribute="height" constant="23" id="h9s-fG-IsD"/>
@@ -72,7 +68,6 @@
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vcq-0j-cl0">
                     <rect key="frame" x="0.0" y="49" width="320" height="245"/>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="separatorColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="sectionIndexBackgroundColor" red="0.52761691433566438" green="0.95294117647058818" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,7 +78,6 @@
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3e-Ra-Jyk">
                     <rect key="frame" x="226" y="332" width="80" height="30"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="删除" backgroundImage="hongniu2">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -95,13 +89,11 @@
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wj5-9G-Usv">
                     <rect key="frame" x="94" y="13" width="53" height="21"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <animations/>
             <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vcq-0j-cl0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1br-l8-l58"/>
@@ -116,7 +108,7 @@
                 <constraint firstAttribute="trailing" secondItem="s3e-Ra-Jyk" secondAttribute="trailing" constant="18" id="eiH-Ur-dln"/>
                 <constraint firstItem="xer-fW-hGf" firstAttribute="leading" secondItem="Nbh-yI-5TU" secondAttribute="trailing" constant="18" id="fXS-re-fMH"/>
                 <constraint firstItem="Nbh-yI-5TU" firstAttribute="top" secondItem="vcq-0j-cl0" secondAttribute="bottom" constant="25" id="lZt-xp-QQT"/>
-                <constraint firstAttribute="trailing" secondItem="Z8y-zf-rFu" secondAttribute="trailing" constant="14" id="nWv-rG-t0T"/>
+                <constraint firstAttribute="trailing" secondItem="Z8y-zf-rFu" secondAttribute="trailing" constant="8" id="nWv-rG-t0T"/>
                 <constraint firstItem="vcq-0j-cl0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="45" id="qBh-oQ-T98"/>
                 <constraint firstAttribute="trailing" secondItem="vcq-0j-cl0" secondAttribute="trailing" id="x3P-TX-TJw"/>
                 <constraint firstItem="xer-fW-hGf" firstAttribute="centerY" secondItem="Nbh-yI-5TU" secondAttribute="centerY" id="xJi-Vf-yig"/>
