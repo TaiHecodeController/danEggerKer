@@ -104,6 +104,11 @@
     
     [super viewDidLoad];
     
+//    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)])
+//    {
+//        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+//    }
+    
 //     [[NSNotificationCenter defaultCenter] postNotificationName:@"rmG" object:nil];
     
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"])

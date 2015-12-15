@@ -44,8 +44,8 @@
     // 滑动手势
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeAction:)];
     swipe.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:swipe];
-    self.swipe = swipe;
+//    [self.view addGestureRecognizer:swipe];
+//    self.swipe = swipe;
     
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rmG) name:@"rmG" object:nil];
     //导航栏跟着一起滑动

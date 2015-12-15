@@ -475,7 +475,7 @@
     _jobDescription.recruitLable.text = model.number;
     _jobDescription.genderLable.text = model.sex;
     _jobDescription.marraigeLable.text = model.marriage;
-    _jobDescription.dutyLable.text = model.edu;
+    _jobDescription.dutyLable.text = model.report;
     _jobDescription.compayAddressLable.text = model.address;
     
     if ([model.iscollect isEqual:@"0"])
