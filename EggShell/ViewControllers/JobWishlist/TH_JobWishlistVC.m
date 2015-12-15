@@ -143,7 +143,6 @@
     _footer.scrollView = self.tableView;
     _footer.delegate = self;
 
-    
     _bottomView = [[UIView alloc]init];
     _bottomView.frame = CGRectMake(0, HEIGHT - bottomH - 33, WIDETH, bottomH);
     _bottomView.backgroundColor = [UIColor whiteColor];
@@ -155,7 +154,7 @@
     [_bottomView addSubview:bottomLine];
     
     _apllyBtn = [[UIButton alloc]init];
-    CGFloat applyX = 80;
+    CGFloat applyX = 88;
     CGFloat applyBtnH = 30;
     CGFloat applyBtnW = ((WIDETH - applyX * 2) - 15) / 2;
     _apllyBtn.frame = CGRectMake(applyX, 50-33, applyBtnW, applyBtnH);
@@ -169,7 +168,7 @@
     [_bottomView addSubview:_apllyBtn];
     
     _removeBtn = [[UIButton alloc]init];
-    CGFloat removeX = applyX + applyBtnW + 15;
+    CGFloat removeX = applyX + applyBtnW + 15 + 8;
     CGFloat removeBtnH = 30;
     CGFloat removeBtnW = ((WIDETH - applyX * 2) - 15) / 2;
     _removeBtn.frame = CGRectMake(removeX, 50-33, removeBtnW, removeBtnH);
@@ -182,11 +181,10 @@
     _removeBtn.layer.cornerRadius = 5;
     [_bottomView addSubview:_removeBtn];
     
-    
     _allSelected = [[UIButton alloc]init];
     CGFloat allSelectedW =  90;
     CGFloat allSelectedH =  20;
-    _allSelected.frame = CGRectMake(0, 57-33, allSelectedW, allSelectedH);
+    _allSelected.frame = CGRectMake(8, 57-33, allSelectedW, allSelectedH);
     [_allSelected setTitle:@"全选" forState:UIControlStateNormal];
     [_allSelected setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _allSelected.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
