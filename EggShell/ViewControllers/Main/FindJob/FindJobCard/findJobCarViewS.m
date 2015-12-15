@@ -127,12 +127,12 @@
     
     NSArray * titleArray = @[@"性质:",@"招聘:",@"性别:",@"婚姻:",@"到岗:"];
     for (int i =0; i < 5; i++) {
-        UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(15*MyWideth+85*MyWideth*(i%3)+((self.frame.size.width - 30*MyWideth-85*MyWideth*3)/2.0)*(i%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(i/3)+10*MyWideth*(i/3), 85*MyWideth, 27*MyWideth)];
+        UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(15*MyWideth+85*MyWideth*(i%3)+((self.frame.size.width - 30*MyWideth-85*MyWideth*3)/2.0)*(i%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(i/3)+10*MyWideth*(i/3), 90*MyWideth, 27*MyWideth)];
         [self addSubview:bgView];
         bgView.backgroundColor = UIColorFromRGB(0xF0F8FA);
         bgView.layer.cornerRadius = 2;
        
-        bgView.layer.masksToBounds = YES;
+//        bgView.layer.masksToBounds = YES;
         UILabel * titleLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 27)];
         titleLable.text = titleArray[i];
         titleLable.font =[UIFont systemFontOfSize:15*MyWideth];
@@ -172,11 +172,13 @@
         }
         if (i==4) {
             //到岗
-            self.dutyLable =[[UILabel alloc] initWithFrame:CGRectMake(40*MyWideth, 0, 45*MyWideth, 27*MyWideth)];
+            self.dutyLable =[[UILabel alloc] initWithFrame:CGRectMake(40*MyWideth, 0, 80*MyWideth, 27*MyWideth)];
+//            self.dutyLable.backgroundColor = [UIColor redColor];
             self.dutyLable.text = @"立即";
             self.dutyLable.font =[UIFont systemFontOfSize:15*MyWideth];
             self.dutyLable.textColor = UIColorFromRGB(0x646464);
             [bgView addSubview:self.dutyLable];
+            bgView.frame = CGRectMake(15*MyWideth+85*MyWideth*(i%3)+((self.frame.size.width - 30*MyWideth-85*MyWideth*3)/2.0)*(i%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(i/3)+10*MyWideth*(i/3), 115*MyWideth, 27*MyWideth);
         }
     }
     
