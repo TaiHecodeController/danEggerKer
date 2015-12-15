@@ -100,7 +100,7 @@
     
     y += _companyLab.frame.size.height + 5;
     CGSize cityLabSize = [_cityLab.text sizeWithFont:_cityLab.font];
-    _cityLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + 10 + 5,  y, cityLabSize.width, cityLabSize.height);
+    _cityLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + 10 ,  y, cityLabSize.width, cityLabSize.height);
     
     _lineView.frame = CGRectMake(CGRectGetMaxX(_cityLab.frame) + 7, y, 1, cityLabSize.height);
     
