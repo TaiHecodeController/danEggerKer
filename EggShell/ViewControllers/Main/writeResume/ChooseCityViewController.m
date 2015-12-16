@@ -102,11 +102,11 @@
     
     ChooseCity_2ViewController * _writeJLChooseVC = [[ChooseCity_2ViewController alloc] init];
     _writeJLChooseVC.fenlei =self.DataArray[indexPath.row][@"name"];;
-//    _writeJLChooseVC.delegete = self;
+    //    _writeJLChooseVC.delegete = self;
     _writeJLChooseVC.titleText = @"期望职位";
     _writeJLChooseVC.cellIndex = indexPath;
     _writeJLChooseVC.tableViewTagIndex = 1555;
-//    NSLog(@"%@",self.DataArray[indexPath.row][@"id"]);
+    //    NSLog(@"%@",self.DataArray[indexPath.row][@"id"]);
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSMutableArray *arr1 = [[NSMutableArray alloc]init];
     
@@ -127,38 +127,37 @@
     }
     _writeJLChooseVC.DataArray = arr1;
     [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
-//
-//    NSNumber *zuihouTag = [df objectForKey:@"citytag"];
-//    int zuihouI = [zuihouTag intValue];
-//    if (zuihouI == 3)
-//    {
-//        
-//        
-//        for (UIViewController *vc in self.navigationController.viewControllers)
-//        {
-//            if ([vc isKindOfClass:[WriteResumeViewController class]])
-//            {
-//                if ([self.delegete respondsToSelector:@selector(chooseWord:cellIndex:tableViewTagIndex:withId:)])
-//                {
-//                    [self.delegete chooseWord:cell.textLable.text cellIndex:self.cellIndex tableViewTagIndex:self.tableViewTagIndex withId:self.DataArray[indexPath.row][@"id"]];
-//                }
-//                
-//                [self.navigationController popToViewController:vc animated:YES];
-//                
-//                NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-//                NSNumber *num = [NSNumber numberWithInt:0];
-//                [df setObject:num forKey:@"citytag"];
-//                [df synchronize];
-//            }
-//        }
-//    }
-//    
+    //
+    //    NSNumber *zuihouTag = [df objectForKey:@"citytag"];
+    //    int zuihouI = [zuihouTag intValue];
+    //    if (zuihouI == 3)
+    //    {
+    //
+    //
+    //        for (UIViewController *vc in self.navigationController.viewControllers)
+    //        {
+    //            if ([vc isKindOfClass:[WriteResumeViewController class]])
+    //            {
+    //                if ([self.delegete respondsToSelector:@selector(chooseWord:cellIndex:tableViewTagIndex:withId:)])
+    //                {
+    //                    [self.delegete chooseWord:cell.textLable.text cellIndex:self.cellIndex tableViewTagIndex:self.tableViewTagIndex withId:self.DataArray[indexPath.row][@"id"]];
+    //                }
+    //
+    //                [self.navigationController popToViewController:vc animated:YES];
+    //
+    //                NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    //                NSNumber *num = [NSNumber numberWithInt:0];
+    //                [df setObject:num forKey:@"citytag"];
+    //                [df synchronize];
+    //            }
+    //        }
+    //    }
+    //    
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

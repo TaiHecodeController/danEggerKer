@@ -100,9 +100,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if ([self.fenlei isEqualToString:@"综合类"]) {
-        
-  
     JobScreenDetailCell *cell = (JobScreenDetailCell *)[tableView cellForRowAtIndexPath:indexPath];
     
     ChooseCity_3ViewController * _writeJLChooseVC = [[ChooseCity_3ViewController alloc] init];
@@ -164,7 +163,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+   
 }
 
 @end

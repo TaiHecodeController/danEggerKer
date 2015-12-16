@@ -30,8 +30,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-     [super viewWillAppear:NO];
-
+    [super viewWillAppear:NO];
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backClick) name:@"writeStep2BackClick" object:nil];
     
     [MobClick beginLogPageView:@"writeresumevc2"];
@@ -57,22 +57,22 @@
     
     [self createUI];
     [self createData];
- 
-//    // Do any additional setup after loading the view.
+    
+    //    // Do any additional setup after loading the view.
 }
 -(void)backClick
 {
     for(UIViewController *controller in self.navigationController.viewControllers)
     {
-       [self.navigationController popViewControllerAnimated:NO];
+        [self.navigationController popViewControllerAnimated:NO];
         if([controller isKindOfClass:[ManagerResumeVC class]]){
             ManagerResumeVC*owr = (ManagerResumeVC *)controller;
             [self.navigationController popToViewController:owr animated:YES];
         }}
-//    self.navigationItem.leftBarButtonItem = nil;
-//    [self.navigationController popViewControllerAnimated:NO];
-//    ManagerResumeVC * manager = [[ManagerResumeVC alloc] init];
-//    [self.navigationController popToViewController:manager animated:YES];
+    //    self.navigationItem.leftBarButtonItem = nil;
+    //    [self.navigationController popViewControllerAnimated:NO];
+    //    ManagerResumeVC * manager = [[ManagerResumeVC alloc] init];
+    //    [self.navigationController popToViewController:manager animated:YES];
     
 }
 
@@ -183,9 +183,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
-
-
-
 @end
