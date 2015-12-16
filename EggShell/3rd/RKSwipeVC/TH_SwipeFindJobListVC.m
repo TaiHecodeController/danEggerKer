@@ -516,9 +516,9 @@
             self.rk_uid = [NSString stringWithFormat:@"%@",model.uid];
             self.rk_job_id = [NSString stringWithFormat:@"%@",model.job_id];
             
-            NSLog(@"job_id:%@",model.job_id);
+//            NSLog(@"job_id:%@",model.job_id);
             
-            fjcV.frame = CGRectMake(0,0,view.frame.size.width,  view.frame.size.height);
+//            fjcV.frame = CGRectMake(0,0,view.frame.size.width,  view.frame.size.height);
             [view addSubview:fjcV];
             
         }
