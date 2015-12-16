@@ -23,6 +23,7 @@
 @property (strong, nonatomic)  UILabel *marriageLable;
 @property (strong, nonatomic)  UILabel *dutyLable;
 @property(nonatomic,strong)UILabel * releaseLable;
+@property(nonatomic,strong)UIView * bgView;
 -(void)setValueCar:(findJobModel *)model;
 
 @end

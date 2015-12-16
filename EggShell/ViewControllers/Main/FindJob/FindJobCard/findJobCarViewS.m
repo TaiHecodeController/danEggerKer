@@ -109,7 +109,7 @@
             UIImageView * fourthView =[[UIImageView alloc] initWithFrame:CGRectMake((detailView.frame.size.width-16.5*MyWideth)/2.0, 22*MyWideth, 16.5*MyWideth, 22*MyWideth)];
             fourthView.image = [UIImage imageNamed:@"地址"];
             [detailView addSubview:fourthView];
-            //工作年限
+            //北京
             self.addressLable= [[UILabel alloc] initWithFrame:CGRectMake(0, 22*MyWideth+22*MyWideth+14*MyWideth, (self.frame.size.width-30*MyWideth)/4.0, 15*MyWideth)];
             self.addressLable.text = @"北京";
             self.addressLable.textAlignment = NSTextAlignmentCenter;
@@ -117,9 +117,7 @@
             self.addressLable.textColor = UIColorFromRGB(0x646464);
             [detailView addSubview:self.addressLable];
             
-            UIView * fourthViw =[[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width-30*MyWideth)/4.0-0.5, 20*MyWideth,0.5, detailView.frame.size.height - 40*MyWideth)];
-            fourthViw.backgroundColor = UIColorFromRGB(0xE3E3E3);
-            [detailView addSubview:fourthViw];
+            
         }
         
         
@@ -172,18 +170,20 @@
         }
         if (i==4) {
             //到岗
-            self.dutyLable =[[UILabel alloc] initWithFrame:CGRectMake(40*MyWideth, 0, 80*MyWideth, 27*MyWideth)];
+            self.dutyLable =[[UILabel alloc] initWithFrame:CGRectMake(40*MyWideth, 0, 45*MyWideth, 27*MyWideth)];
 //            self.dutyLable.backgroundColor = [UIColor redColor];
             self.dutyLable.text = @"立即";
             self.dutyLable.font =[UIFont systemFontOfSize:15*MyWideth];
             self.dutyLable.textColor = UIColorFromRGB(0x646464);
             [bgView addSubview:self.dutyLable];
-            bgView.frame = CGRectMake(15*MyWideth+85*MyWideth*(i%3)+((self.frame.size.width - 30*MyWideth-85*MyWideth*3)/2.0)*(i%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(i/3)+10*MyWideth*(i/3), 115*MyWideth, 27*MyWideth);
+            
+            bgView.frame = CGRectMake(15*MyWideth+85*MyWideth*(i%3)+((self.frame.size.width - 30*MyWideth-85*MyWideth*3)/2.0)*(i%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(i/3)+10*MyWideth*(i/3), 90*MyWideth, 27*MyWideth);
+            
         }
     }
     
     //发布时间
-    UILabel * releaseLable = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 55, self.frame.size.width, 15)];
+    UILabel * releaseLable = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 30, self.frame.size.width, 15)];
     releaseLable.text = @"发布：2015-10-10";
     releaseLable.textAlignment = NSTextAlignmentCenter;
     releaseLable.font =[UIFont systemFontOfSize:15];
@@ -193,6 +193,7 @@
     if (HEIGHT == 480) {
         self.releaseLable.hidden = YES;
     }
+       
 }
 -(void)setValueCar:(findJobModel *)model
 {
@@ -220,6 +221,11 @@
     self.marriageLable.text = model.marriage;
     //到岗
     self.dutyLable.text = model.report;
+    if (self.dutyLable.text.length == 4) {
+        self.dutyLable.frame =CGRectMake(40*MyWideth, 0, 65*MyWideth, 27*MyWideth);
+                  self.dutyLable.backgroundColor = UIColorFromRGB(0xF0F8FA);
+        
+    }
     //发布
     self.releaseLable.text = [NSString stringWithFormat:@"发布：%@",model.sdate];
     

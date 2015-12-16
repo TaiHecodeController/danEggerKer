@@ -51,8 +51,7 @@
 //         find_vc.title = @"找工作";
 //         find_vc.job_type = @"0";
         [SearchModelShare sharedInstance].type = @"55";
-    
-        THCustomNavigationController * nc3 = [[THCustomNavigationController alloc] initWithRootViewController:find_vc];
+            THCustomNavigationController * nc3 = [[THCustomNavigationController alloc] initWithRootViewController:find_vc];
 
     
     TH_MineVC * mine_vc = [[TH_MineVC alloc] init];
