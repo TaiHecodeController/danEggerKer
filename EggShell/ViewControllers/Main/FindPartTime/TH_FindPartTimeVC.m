@@ -14,9 +14,11 @@
 
 @implementation TH_FindPartTimeVC
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-        self.title = @"找兼职";
+    
+    self.title = @"找兼职";
     // Do any additional setup after loading the view.
 }
 

@@ -75,9 +75,14 @@
     _state = [[TH_AFRequestState famousEnterprisesDetailWithSucc:^(NSDictionary *arr) {
         
         [self.CMview configValue:arr[@"data"][@"details"]];
-        if ([arr[@"data"][@"list"] count] >0) {
+        if ([arr[@"data"][@"list"] count] >0)
+        {
             [self.listArray addObjectsFromArray:arr[@"data"][@"list"]];
             
+        }
+        else
+        {
+            [MBProgressHUD creatembHub:@"暂无更多" ControllerView:self];
         }
         [self.logoView sd_setImageWithURL:[NSURL URLWithString:arr[@"data"][@"details"][@"logo"]] placeholderImage:[UIImage imageNamed:@""]];
         [_tableView reloadData];
