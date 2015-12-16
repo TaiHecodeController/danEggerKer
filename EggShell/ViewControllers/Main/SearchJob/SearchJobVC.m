@@ -14,6 +14,9 @@
 #import "TH_AFRequestState.h"
 #import "SearchModelShare.h"
 
+#define headViewHeight 58
+#define hotSearchHeight 149
+
 @interface SearchJobVC ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView * _tableView;
@@ -52,7 +55,7 @@
 {
     
     headView = [[[NSBundle mainBundle] loadNibNamed:@"HeadView" owner:self options:nil] firstObject];
-    headView.frame = CGRectMake(0, 64, WIDETH, 58);
+    headView.frame = CGRectMake(0, 64, WIDETH, headViewHeight);
     
     __weak typeof(self) weakSelf = self;
     headView.searchClick = ^(NSString * text)
@@ -85,7 +88,7 @@
     [self.view addSubview:headView];
     
     hotSearch = [[[NSBundle mainBundle] loadNibNamed:@"HotSearch" owner:self options:nil] firstObject];
-    hotSearch.frame = CGRectMake(0,  headView.height + 64, WIDETH, 149);
+    hotSearch.frame = CGRectMake(0,  headView.height + 64, WIDETH, hotSearchHeight);
     [self.view addSubview:hotSearch];
     
     for (UIButton *btn in hotSearch.subviews)
@@ -135,11 +138,9 @@
 
 }
 
-
-
 -(void)createTableView
 {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, hotSearch.frame.origin.y + hotSearch.frame.size.height , WIDETH, HEIGHT / 3)];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, hotSearch.frame.origin.y + hotSearch.frame.size.height , WIDETH, HEIGHT - hotSearchHeight - headViewHeight - 40 - 22)];
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -166,17 +167,21 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ID"];
+    NSString *identifier = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+    
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if(!cell)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ID"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     if(indexPath.row == 0)
-    {cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = @"搜索历史";
         cell.textLabel.textColor = [UIColor colorWithRed:122 / 255.0 green:122 / 255.0 blue:122 / 255.0 alpha:1];
         cell.textLabel.font = [UIFont systemFontOfSize:13];
-    }else if(self.dataArray.count != 0)
+    }
+    else if(self.dataArray.count != 0)
     {
         
         cell.textLabel.text = self.dataArray[indexPath.row - 1];
