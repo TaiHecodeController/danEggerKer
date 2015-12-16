@@ -248,6 +248,7 @@
 //       jobDescription.frame = CGRectMake(0, 0, WIDETH, 410);
     
     findJobDetialScriptionViewS * jobDescription = [findJobDetialScriptionViewS setFindJobDetialScriptionView];
+    [jobDescription restLayer];
     jobDescription.frame = CGRectMake(0, 0, WIDETH, 645);
 //   jobDescription.recruitLable.font =[UIFont systemFontOfSize:14*MyWideth];
     jobDescription.dutyLable.hidden = YES;
@@ -255,20 +256,19 @@
     jobDescription.dutyBgview.hidden = YES;
    [self.headerView addSubview:jobDescription];
     UIView * bgview = [[UIView alloc] initWithFrame:CGRectMake((WIDETH - 90)/3.0+45, 365, (WIDETH - 90)/3.0, 27)];
+    bgview.layer.cornerRadius = 3;
+    bgview.layer.masksToBounds = YES;
     bgview.backgroundColor = UIColorFromRGB(0xF0F8FA);
-    [jobDescription addSubview:bgview];
-    //到岗
-    UILabel * dutyLable =[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 27)];
-    dutyLable.text = @"到岗:";
-    dutyLable.textColor = UIColorFromRGB(0x646464);
-    dutyLable.font =[UIFont systemFontOfSize:15];
-    [bgview addSubview:dutyLable];
-    //到岗时间
-    jobDescription.dutyLableTime = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 40, 27)];
+    jobDescription.bgview = bgview;
+    [jobDescription addSubview:jobDescription.bgview];
+        //到岗时间
+    jobDescription.dutyLableTime = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, bgview.frame.size.width, 27)];
     jobDescription.dutyLableTime.textColor = UIColorFromRGB(0x646464);
     jobDescription.dutyLableTime.backgroundColor = UIColorFromRGB(0xF0F8FA);
+    jobDescription.dutyLableTime.textAlignment = NSTextAlignmentCenter;
     jobDescription.dutyLableTime.font =[UIFont systemFontOfSize:15];
-    [bgview addSubview:jobDescription.dutyLableTime];
+    jobDescription.dutyLableTime.text = @"到岗:立即";
+    [jobDescription.bgview addSubview:jobDescription.dutyLableTime];
     
     _jobDescription = jobDescription;
     [jobDescription.jobCroptionTextView setEditable:NO];
@@ -501,20 +501,22 @@
     _jobDescription.workYearLable.text = model.exp;
     _jobDescription.studyLable.text = model.edu;
     _jobDescription.addressLable.text = model.address;
-    _jobDescription.natureLable.text = model.type;
-    _jobDescription.recruitLable.text = model.number;
+//    _jobDescription.natureLable.text = [NSString stringWithFormat:@"性质：%@",model.type];
+    _jobDescription.recruitLable.text = [NSString stringWithFormat:@"招聘:%@",model.number];
     
-    _jobDescription.genderLable.text = model.sex;
-    _jobDescription.marraigeLable.text = model.marriage;
+    _jobDescription.genderLable.text = [NSString stringWithFormat:@"性别：%@",model.sex];
+    _jobDescription.marraigeLable.text = [NSString stringWithFormat:@"婚姻：%@",model.marriage];
 //    _jobDescription.dutyLable.text = model.report;
-    _jobDescription.dutyLableTime.text = model.report;
-    if (_jobDescription.dutyLableTime.text.length == 4) {
-        _jobDescription.dutyLableTime.frame =CGRectMake(40, 0, 65, 27);
+    _jobDescription.dutyLableTime.text = [NSString stringWithFormat:@"到岗:%@",model.report];
+    if (model.report.length == 4) {
+        _jobDescription.bgview.frame  =CGRectMake((WIDETH - 90)/3.0+45, 365, 105, 27);
+        _jobDescription.dutyLableTime.frame =CGRectMake(0, 0, _jobDescription.bgview.frame.size.width, 27);
        _jobDescription.dutyLableTime.backgroundColor = UIColorFromRGB(0xF0F8FA);
         
     }
-    if (_jobDescription.dutyLableTime.text.length == 5) {
-        _jobDescription.dutyLableTime.frame =CGRectMake(40, 0, 80, 27);
+    if (model.report.length == 5) {
+        _jobDescription.bgview.frame  =CGRectMake((WIDETH - 90)/3.0+45, 365, 120, 27);
+ _jobDescription.dutyLableTime.frame =CGRectMake(0, 0, _jobDescription.bgview.frame.size.width, 27);
         _jobDescription.dutyLableTime.backgroundColor = UIColorFromRGB(0xF0F8FA);
         
     }
@@ -539,19 +541,23 @@
     
     if ([model.type isEqualToString:@"54"])
     {
-        _jobDescription.natureLable.text = @"不限";
+//        _jobDescription.natureLable.text = @"不限";
+            _jobDescription.natureLable.text = [NSString stringWithFormat:@"性质：不限"];
     }
     else if ([model.type isEqualToString:@"55"])
     {
-        _jobDescription.natureLable.text = @"全职";
+//        _jobDescription.natureLable.text = @"全职";
+          _jobDescription.natureLable.text = [NSString stringWithFormat:@"性质：全职"];
     }
     else if ([model.type isEqualToString:@"56"])
     {
-        _jobDescription.natureLable.text = @"兼职";
+//        _jobDescription.natureLable.text = @"兼职";
+            _jobDescription.natureLable.text = [NSString stringWithFormat:@"性质：兼职"];
     }
     else
     {
-        _jobDescription.natureLable.text = @"实习";
+//        _jobDescription.natureLable.text = @"实习";
+        _jobDescription.natureLable.text = [NSString stringWithFormat:@"性质：实习"];
     }
 
     

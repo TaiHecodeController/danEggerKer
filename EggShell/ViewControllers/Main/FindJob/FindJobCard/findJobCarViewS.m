@@ -41,7 +41,7 @@
     UIView * bgView =[[UIView alloc] initWithFrame:CGRectMake(0, 45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth, self.frame.size.width, 90*MyWideth)];
     [self addSubview:bgView];
     
-    UIView * topView =[[UIView alloc] initWithFrame:CGRectMake(15, 0, self.frame.size.width-30, 1.5)];
+    UIView * topView =[[UIView alloc] initWithFrame:CGRectMake(15, 0, self.frame.size.width-30, 1.2)];
     topView.backgroundColor = UIColorFromRGB(0xE3E3E3);
     [bgView addSubview:topView];
     UIView * bottomView = [[UIView alloc] initWithFrame:CGRectMake(15, bgView.frame.size.height-1.5, self.frame.size.width - 30, 1.5)];
@@ -124,64 +124,84 @@
     }
     
     NSArray * titleArray = @[@"性质:",@"招聘:",@"性别:",@"婚姻:",@"到岗:"];
-    for (int i =0; i < 5; i++) {
-        UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(15*MyWideth+85*MyWideth*(i%3)+((self.frame.size.width - 30*MyWideth-85*MyWideth*3)/2.0)*(i%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(i/3)+10*MyWideth*(i/3), 90*MyWideth, 27*MyWideth)];
-        [self addSubview:bgView];
+    for (int i =0; i < 4; i++) {
+        UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(15*MyWideth+90*MyWideth*(i%3)+((self.frame.size.width - 30*MyWideth-90*MyWideth*3)/2.0)*(i%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(i/3)+10*MyWideth*(i/3), 90*MyWideth, 27*MyWideth)];
+        bgView.layer.cornerRadius = 3;
+        bgView.layer.masksToBounds = YES;
         bgView.backgroundColor = UIColorFromRGB(0xF0F8FA);
-        bgView.layer.cornerRadius = 2;
-       
-//        bgView.layer.masksToBounds = YES;
-        UILabel * titleLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 27*MyWideth)];
-        titleLable.text = titleArray[i];
-        titleLable.font =[UIFont systemFontOfSize:15*MyWideth];
-        titleLable.textColor = UIColorFromRGB(0x646464);
-        [bgView addSubview:titleLable];
+        self.bgView = bgView;
+        [self addSubview:bgView];
+        //           UILabel * titleLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, bgView.frame.size.width, 27*MyWideth)];
+//        titleLable.text = titleArray[i];
+//        titleLable.font =[UIFont systemFontOfSize:15*MyWideth];
+//        titleLable.textAlignment = NSTextAlignmentCenter;
+//        titleLable.textColor = UIColorFromRGB(0x646464);
+//        [bgView addSubview:titleLable];
         if (i==0) {
             //性质
-            self.natureLable =[[UILabel alloc] initWithFrame:CGRectMake(40*MyWideth, 0, 45*MyWideth, 27*MyWideth)];
-            self.natureLable.text = @"全职";
+            self.natureLable =[[UILabel alloc] initWithFrame:CGRectMake(0, 0, bgView.frame.size.width, 27*MyWideth)];
+            self.natureLable.text = [NSString stringWithFormat:@"性质：全职"];
             self.natureLable.font =[UIFont systemFontOfSize:15*MyWideth];
+            self.natureLable.textAlignment = NSTextAlignmentCenter;
             self.natureLable.textColor = UIColorFromRGB(0x646464);
             [bgView addSubview:self.natureLable];
         }
         if (i==1) {
             //招聘
-            self.recruitmentLable =[[UILabel alloc] initWithFrame:CGRectMake(40*MyWideth, 0, 48*MyWideth, 27*MyWideth)];
-            self.recruitmentLable.text = @"若干";
+            self.recruitmentLable =[[UILabel alloc] initWithFrame:CGRectMake(0, 0, bgView.frame.size.width, 27*MyWideth)];
+            self.recruitmentLable.text = [NSString stringWithFormat:@"招聘:若干"];
+            self.recruitmentLable.textAlignment = NSTextAlignmentCenter;
             self.recruitmentLable.font =[UIFont systemFontOfSize:15*MyWideth];
             self.recruitmentLable.textColor = UIColorFromRGB(0x646464);
             [bgView addSubview:self.recruitmentLable];
         }
         if (i==2) {
             //性别
-            self.genderLable =[[UILabel alloc] initWithFrame:CGRectMake(40*MyWideth, 0, 45*MyWideth, 27*MyWideth)];
-            self.genderLable.text = @"男";
+            self.genderLable =[[UILabel alloc] initWithFrame:CGRectMake(0, 0, bgView.frame.size.width, 27*MyWideth)];
+            self.genderLable.text = [NSString stringWithFormat:@"性别：男"];
             self.genderLable.font =[UIFont systemFontOfSize:15*MyWideth];
+            self.genderLable.textAlignment = NSTextAlignmentCenter;
             self.genderLable.textColor = UIColorFromRGB(0x646464);
             [bgView addSubview:self.genderLable];
         }
         if (i==3) {
             //婚姻
-            self.marriageLable =[[UILabel alloc] initWithFrame:CGRectMake(40*MyWideth, 0, 45*MyWideth, 27*MyWideth)];
-            self.marriageLable.text = @"已婚";
+            self.marriageLable =[[UILabel alloc] initWithFrame:CGRectMake(0, 0, bgView.frame.size.width, 27*MyWideth)];
+            self.marriageLable.text = [NSString stringWithFormat:@"婚姻：未婚"];
+            self.marriageLable.textAlignment = NSTextAlignmentCenter;
             self.marriageLable.font =[UIFont systemFontOfSize:15*MyWideth];
             self.marriageLable.textColor = UIColorFromRGB(0x646464);
             [bgView addSubview:self.marriageLable];
         }
-        if (i==4) {
-            //到岗
-            self.dutyLable =[[UILabel alloc] initWithFrame:CGRectMake(40*MyWideth, 0, 45*MyWideth, 27*MyWideth)];
-//            self.dutyLable.backgroundColor = [UIColor redColor];
-            self.dutyLable.text = @"立即";
-            self.dutyLable.font =[UIFont systemFontOfSize:15*MyWideth];
-            self.dutyLable.textColor = UIColorFromRGB(0x646464);
-            [bgView addSubview:self.dutyLable];
-            
-            bgView.frame = CGRectMake(15*MyWideth+85*MyWideth*(i%3)+((self.frame.size.width - 30*MyWideth-85*MyWideth*3)/2.0)*(i%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(i/3)+10*MyWideth*(i/3), 90*MyWideth, 27*MyWideth);
-            
-        }
+//        if (i==4) {
+//            //到岗
+//            self.dutyLable =[[UILabel alloc] initWithFrame:CGRectMake(0, 0, bgView.frame.size.width, 27*MyWideth)];
+////            self.dutyLable.backgroundColor = [UIColor redColor];
+//            self.dutyLable.text = [NSString stringWithFormat:@"到岗：立即"];
+//            self.dutyLable.font =[UIFont systemFontOfSize:15*MyWideth];
+//            self.dutyLable.textAlignment = NSTextAlignmentCenter;
+//            self.dutyLable.textColor = UIColorFromRGB(0x646464);
+//            [bgView addSubview:self.dutyLable];
+//            
+//           bgView.frame = CGRectMake(15*MyWideth+85*MyWideth*(i%3)+((self.frame.size.width - 30*MyWideth-85*MyWideth*3)/2.0)*(i%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(i/3)+10*MyWideth*(i/3), 90*MyWideth, 27*MyWideth);
+//            
+//        }
     }
-    
+    //到岗
+   
+            UILabel * dutyLable =[[UILabel alloc] initWithFrame:CGRectMake(15*MyWideth+90*MyWideth*(1%3)+((self.frame.size.width - 30*MyWideth-90*MyWideth*3)/2.0)*(1%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(4/3)+10*MyWideth*(4/3), 90*MyWideth, 27*MyWideth)];
+    self.dutyLable = dutyLable;
+    self.dutyLable.layer.cornerRadius = 3;
+    self.dutyLable.layer.masksToBounds = YES;
+    self.dutyLable.layer.borderWidth = 2;
+    self.dutyLable.layer.borderColor =UIColorFromRGB(0xF0F8FA).CGColor;
+    self.dutyLable.text = [NSString stringWithFormat:@"到岗：立即"];
+                self.dutyLable.font =[UIFont systemFontOfSize:15*MyWideth];
+                self.dutyLable.textAlignment = NSTextAlignmentCenter;
+                self.dutyLable.textColor = UIColorFromRGB(0x646464);
+    self.dutyLable.backgroundColor = UIColorFromRGB(0xF0F8FA);
+                [self addSubview:self.dutyLable];
+
     //发布时间
     UILabel * releaseLable = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 30, self.frame.size.width, 15)];
     releaseLable.text = @"发布：2015-10-10";
@@ -212,23 +232,30 @@
     //地点
     self.addressLable.text = model.provinceid;
     //性质
-    self.natureLable.text = model.type;
+    self.natureLable.text = [NSString stringWithFormat:@"性质：%@",model.type];
     //招聘
-    self.recruitmentLable.text = model.number;
+    self.recruitmentLable.text = [NSString stringWithFormat:@"招聘:%@",model.number];
     //性别
-    self.genderLable.text = model.sex;
+    self.genderLable.text = [NSString stringWithFormat:@"性别：%@",model.sex];
     //婚姻
-    self.marriageLable.text = model.marriage;
+    self.marriageLable.text = [NSString stringWithFormat:@"婚姻：%@",model.marriage];
+     self.dutyLable.text = [NSString stringWithFormat:@"到岗：%@",model.report];
     //到岗
-    self.dutyLable.text = model.report;
-    if (self.dutyLable.text.length == 4) {
-        self.dutyLable.frame =CGRectMake(40*MyWideth, 0, 65*MyWideth, 27*MyWideth);
-                  self.dutyLable.backgroundColor = UIColorFromRGB(0xF0F8FA);
+    if (model.report.length == 2) {
+//        self.dutyLable.frame =CGRectMake(0, 0, self.bgView.frame.size.width, 27*MyWideth);
+//        self.dutyLable.font =[UIFont systemFontOfSize:15*MyWideth];
+//        self.dutyLable.textAlignment = NSTextAlignmentCenter;
+//        self.dutyLable.textColor = UIColorFromRGB(0x646464);
+//        self.dutyLable.backgroundColor = UIColorFromRGB(0xF0F8FA);
+//        self.dutyLable.text = [NSString stringWithFormat:@"到岗：%@",model.report];
+        self.dutyLable.frame =CGRectMake(15*MyWideth+90*MyWideth*(1%3)+((self.frame.size.width - 30*MyWideth-90*MyWideth*3)/2.0)*(1%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(4/3)+10*MyWideth*(4/3), 90*MyWideth, 27*MyWideth);
+    }
+    if (model.report.length == 4) {
+self.dutyLable.frame =CGRectMake(15*MyWideth+90*MyWideth*(1%3)+((self.frame.size.width - 30*MyWideth-90*MyWideth*3)/2.0)*(1%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(4/3)+10*MyWideth*(4/3), 90*MyWideth+25, 27*MyWideth);
         
     }
-    if (self.dutyLable.text.length == 5) {
-        self.dutyLable.frame =CGRectMake(40*MyWideth, 0, 80*MyWideth, 27*MyWideth);
-        self.dutyLable.backgroundColor = UIColorFromRGB(0xF0F8FA);
+    if (model.report.length == 5) {
+       self.dutyLable.frame =CGRectMake(15*MyWideth+90*MyWideth*(1%3)+((self.frame.size.width - 30*MyWideth-90*MyWideth*3)/2.0)*(1%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(4/3)+10*MyWideth*(4/3), 90*MyWideth+40, 27*MyWideth);
         
     }
 

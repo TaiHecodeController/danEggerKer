@@ -24,7 +24,7 @@
     //社交圈
     UIButton * findjobBtn = [[UIButton alloc] initWithFrame:CGRectMake(27*MyWideth, 10*MyWideth,40.5*MyWideth ,46.5*MyWideth)];
     findjobBtn.tag = THHomeViewButtonTypeFindJob;
-    [findjobBtn setImage:[UIImage imageNamed:@"shejiaoquan2.0"] forState:UIControlStateNormal];
+    [findjobBtn setImage:[UIImage imageNamed:@"shejiaoquansecond"] forState:UIControlStateNormal];
     self.findjobBtn = findjobBtn;
     [findjobBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:findjobBtn];
@@ -38,7 +38,7 @@
     //玩出范
     UIButton * FindPartTimeBtn = [[UIButton alloc] initWithFrame:CGRectMake(27*MyWideth+40.5*MyWideth+53*MyWideth, 10*MyWideth, 40.5*MyWideth, 46.5*MyWideth)];
     FindPartTimeBtn.tag = THHomeViewButtonTypeFindPartTime;
-    [FindPartTimeBtn setImage:[UIImage imageNamed:@"wanchufan2.0"] forState:UIControlStateNormal];
+    [FindPartTimeBtn setImage:[UIImage imageNamed:@"wanchufansecond"] forState:UIControlStateNormal];
     self.FindPartTimeBtn = FindPartTimeBtn;
     [FindPartTimeBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:FindPartTimeBtn];
@@ -51,7 +51,7 @@
     [self addSubview:FindPartTimeLable];
 //    V达人
     UIButton * InternshipSearchBtn =[[UIButton alloc] initWithFrame:CGRectMake(27*MyWideth+(40.5*MyWideth)*2+(53*MyWideth)*2, 10*MyWideth, 40.5*MyWideth, 46.5*MyWideth)];
-    [InternshipSearchBtn setImage:[UIImage imageNamed:@"vdaren2.0"] forState:UIControlStateNormal];
+    [InternshipSearchBtn setImage:[UIImage imageNamed:@"vdarensecond"] forState:UIControlStateNormal];
     InternshipSearchBtn.tag = THHomeViewButtonTypeInternshipSearch;
     self.InternshipSearchBtn = InternshipSearchBtn;
     [InternshipSearchBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -67,7 +67,7 @@
     [self addSubview:InternshipSearchLable];
     // 去学习
     UIButton * InformationDeskBtn = [[UIButton alloc] initWithFrame:CGRectMake(27*MyWideth+(40.5*MyWideth)*3+(53*MyWideth)*3, 10*MyWideth, 40.5*MyWideth, 46.5*MyWideth)];
-    [InformationDeskBtn setImage:[UIImage imageNamed:@"qvxuexi2.0"] forState:UIControlStateNormal];
+    [InformationDeskBtn setImage:[UIImage imageNamed:@"qvxuexisecond"] forState:UIControlStateNormal];
     self.InformationDeskBtn = InformationDeskBtn;
     InformationDeskBtn.tag = THHomeViewButtonTypeInformationDesk;
     [InformationDeskBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -84,7 +84,7 @@
 //    找工作
     UIButton * fesumeWritingBtn = [[UIButton alloc] initWithFrame:CGRectMake(27*MyWideth, 10*MyWideth+46.5*MyWideth+7*MyWideth+15*MyWideth+12, 40.5*MyWideth, 46.5*MyWideth)];
     
-    [fesumeWritingBtn setImage:[UIImage imageNamed:@"zhaogongzuo2.0"] forState:UIControlStateNormal];
+    [fesumeWritingBtn setImage:[UIImage imageNamed:@"zhaogongzuosecond"] forState:UIControlStateNormal];
     self.fesumeWritingBtn  = fesumeWritingBtn;
     fesumeWritingBtn.tag = THHomeViewButtonTypeResumeWriting;
     [fesumeWritingBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -100,7 +100,7 @@
     
     //找兼职
     UIButton * PlayFanBtn = [[UIButton alloc] initWithFrame:CGRectMake(27*MyWideth+40.5*MyWideth+53*MyWideth, 10*MyWideth+46.5*MyWideth+7*MyWideth+15*MyWideth+12, 40.5*MyWideth ,46.5*MyWideth)];
-    [PlayFanBtn setImage:[UIImage imageNamed:@"zhaojianzhi2.0"] forState:UIControlStateNormal];
+    [PlayFanBtn setImage:[UIImage imageNamed:@"zhaojianzhisecond"] forState:UIControlStateNormal];
     self.PlayFanBtn = PlayFanBtn;
     PlayFanBtn.tag = THHomeViewButtonTypePlayFan;
     [PlayFanBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -117,7 +117,7 @@
     
    //找实习
     UIButton * MicroSocialBtn = [[UIButton alloc] initWithFrame:CGRectMake(27*MyWideth+(40.5*MyWideth)*2+(53*MyWideth)*2, 10*MyWideth+46.5*MyWideth+7*MyWideth+15*MyWideth+12, 40.5*MyWideth, 46.5*MyWideth)];
-    [MicroSocialBtn setImage:[UIImage imageNamed:@"zhaoshixi2.0"] forState:UIControlStateNormal];
+    [MicroSocialBtn setImage:[UIImage imageNamed:@"zhaoshixisecond"] forState:UIControlStateNormal];
     self.MicroSocialBtn = MicroSocialBtn;
     MicroSocialBtn.tag = THHomeViewButtonTypeMicroSocial;
     [MicroSocialBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -131,7 +131,7 @@
     [self addSubview:MicroSocialLable];
     //写简历
     UIButton * openClassBtn = [[UIButton alloc] initWithFrame:CGRectMake(27*MyWideth+(40.5*MyWideth)*3+(53*MyWideth)*3, 10*MyWideth+46.5*MyWideth+7*MyWideth+15*MyWideth+12, 40.5*MyWideth, 46.5*MyWideth)];
-    [openClassBtn setImage:[UIImage imageNamed:@"xiejianli2.0"] forState:UIControlStateNormal];
+    [openClassBtn setImage:[UIImage imageNamed:@"xiejianlisecond"] forState:UIControlStateNormal];
     self.openClassBtn = openClassBtn;
     openClassBtn.tag = THHomeViewButtonTypeOpenClass;
     [openClassBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];

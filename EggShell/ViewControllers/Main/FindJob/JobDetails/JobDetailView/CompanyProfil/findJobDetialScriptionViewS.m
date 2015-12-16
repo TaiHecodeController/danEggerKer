@@ -14,6 +14,17 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"findJobDetialScriptionView" owner:self options:nil] lastObject];
 }
+-(void)restLayer
+{
+    self.firstBgview.layer.cornerRadius = 3;
+    self.firstBgview.layer.masksToBounds = YES;
+    self.secondBgview.layer.cornerRadius = 3;
+    self.secondBgview.layer.masksToBounds = YES;
+    self.threeBgview.layer.cornerRadius = 3;
+    self.threeBgview.layer.masksToBounds = YES;
+    self.fourthBgview.layer.cornerRadius = 3;
+    self.fourthBgview.layer.masksToBounds = YES;
+}
 -(void)setValues:(NSDictionary*)dic
 {
 //    @property (weak, nonatomic) IBOutlet UIImageView *logoView;

@@ -28,6 +28,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *dutytitleLable;
 @property (weak, nonatomic) IBOutlet UIView *dutyBgview;
 @property(nonatomic,strong)UILabel * dutyLableTime;
+@property (weak, nonatomic) IBOutlet UIView *threeBgview;
+@property (weak, nonatomic) IBOutlet UIView *fourthBgview;
+
+@property (weak, nonatomic) IBOutlet UIView *firstBgview;
+@property (weak, nonatomic) IBOutlet UIView *secondBgview;
+@property(nonatomic,strong)UIView * bgview;
+-(void)restLayer;
 +(findJobDetialScriptionViewS*)setFindJobDetialScriptionView;
 -(void)setValues:(NSDictionary*)dic;
 @end

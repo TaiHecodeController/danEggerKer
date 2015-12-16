@@ -56,7 +56,7 @@
 //保存uid job_id
 @property (nonatomic, copy) NSString *rk_uid;
 @property (nonatomic, copy) NSString *rk_job_id;
-
+@property(nonatomic,strong)UIImageView * noDataImageView;
 @end
 
 @implementation TH_SwipeFindJobListVC
@@ -103,6 +103,8 @@
 {
     
     [super viewDidLoad];
+   
+    
     
 //    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)])
 //    {
@@ -130,7 +132,6 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
     }
     
-   
     
 //    if ([ SearchModelShare sharedInstance].tip ==1) {
 //    UIImageView * hideView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
@@ -164,7 +165,6 @@
     _mbPro = [MBProgressHUD mbHubShowControllerView:self];
     self.page = 1;
     [self loadData:_mbPro page:self.page];
-    
     self.colorIndex = 0;
     //    self.colors = @[
     //        @"Turquoise",
@@ -265,7 +265,12 @@
                                metrics:metrics
                                views:NSDictionaryOfVariableBindings(
                                                                     swipeableView)]];
-    
+    UIImageView * noDataImageView = [[UIImageView alloc] initWithFrame:CGRectMake((WIDETH - 172)/2.0, (HEIGHT - 275)/2.0-64, 172, 275)];
+       noDataImageView.image = [UIImage imageNamed:@"nodata"];
+    [self.view addSubview:noDataImageView];
+    self.noDataImageView = noDataImageView;
+    self.noDataImageView.hidden = YES;
+
 }
 
 -(void)taphide
@@ -321,7 +326,7 @@
         }
         else
         {
-                        [MBProgressHUD creatembHub:@"暂无数据"];
+            self.noDataImageView.hidden = NO;
         }
         
     } withfail:^(int errCode, NSError *err) {
