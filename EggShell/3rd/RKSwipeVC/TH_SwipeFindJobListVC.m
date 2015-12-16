@@ -386,7 +386,7 @@
         if([AppDelegate instance].userId)
         {
             
-                self.state = [[TH_AFRequestState jobDetailsRequestWithSucc:^(NSDictionary *DataArr) {
+                [TH_AFRequestState jobDetailsRequestWithSucc:^(NSDictionary *DataArr) {
                 
                          JobDetailModel *model = (JobDetailModel *)DataArr;
                     
@@ -394,26 +394,26 @@
                     
                 if ([model.iscollect integerValue] == 0)
                 {
-                    self.state = [[TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
+                    [TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
                         
                         NSLog(@"%@",DataArr);
                         
-                        [MBProgressHUD creatembHub:@"收藏成功" ControllerView:self];
+//                        [MBProgressHUD creatembHub:@"收藏成功" ControllerView:self];
                         
                     } withFail:^(int errCode, NSError *err) {
                         
                         NSLog(@"%@",err);
                         
-                    } withJob_id:[model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+                    } withJob_id:[model.cj_id intValue] resp:[NSObject class]];
                 }
                 else
                 {
-                    [MBProgressHUD creatembHub:@"该职位已收藏"];
+//                    [MBProgressHUD creatembHub:@"该职位已收藏"];
                 }
 
             } withfail:^(int errCode, NSError *err) {
                 
-            } withId:[[AppDelegate instance].userId integerValue] pid:[self.rk_job_id intValue] page:1 resp:[JobDetailModel class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+            } withId:[[AppDelegate instance].userId integerValue] pid:[self.rk_job_id intValue] page:1 resp:[JobDetailModel class]];
             
         }
         else
