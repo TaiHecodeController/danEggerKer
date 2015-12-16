@@ -249,7 +249,26 @@
     
     findJobDetialScriptionViewS * jobDescription = [findJobDetialScriptionViewS setFindJobDetialScriptionView];
     jobDescription.frame = CGRectMake(0, 0, WIDETH, 645);
+//   jobDescription.recruitLable.font =[UIFont systemFontOfSize:14*MyWideth];
+    jobDescription.dutyLable.hidden = YES;
+    jobDescription.dutytitleLable.hidden = YES;
+    jobDescription.dutyBgview.hidden = YES;
    [self.headerView addSubview:jobDescription];
+    UIView * bgview = [[UIView alloc] initWithFrame:CGRectMake((WIDETH - 90)/3.0+45, 365, (WIDETH - 90)/3.0, 27)];
+    bgview.backgroundColor = UIColorFromRGB(0xF0F8FA);
+    [jobDescription addSubview:bgview];
+    //到岗
+    UILabel * dutyLable =[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 27)];
+    dutyLable.text = @"到岗:";
+    dutyLable.textColor = UIColorFromRGB(0x646464);
+    dutyLable.font =[UIFont systemFontOfSize:15];
+    [bgview addSubview:dutyLable];
+    //到岗时间
+    jobDescription.dutyLableTime = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 40, 27)];
+    jobDescription.dutyLableTime.textColor = UIColorFromRGB(0x646464);
+    jobDescription.dutyLableTime.backgroundColor = UIColorFromRGB(0xF0F8FA);
+    jobDescription.dutyLableTime.font =[UIFont systemFontOfSize:15];
+    [bgview addSubview:jobDescription.dutyLableTime];
     
     _jobDescription = jobDescription;
     [jobDescription.jobCroptionTextView setEditable:NO];
@@ -484,9 +503,21 @@
     _jobDescription.addressLable.text = model.address;
     _jobDescription.natureLable.text = model.type;
     _jobDescription.recruitLable.text = model.number;
+    
     _jobDescription.genderLable.text = model.sex;
     _jobDescription.marraigeLable.text = model.marriage;
-    _jobDescription.dutyLable.text = model.report;
+//    _jobDescription.dutyLable.text = model.report;
+    _jobDescription.dutyLableTime.text = model.report;
+    if (_jobDescription.dutyLableTime.text.length == 4) {
+        _jobDescription.dutyLableTime.frame =CGRectMake(40, 0, 65, 27);
+       _jobDescription.dutyLableTime.backgroundColor = UIColorFromRGB(0xF0F8FA);
+        
+    }
+    if (_jobDescription.dutyLableTime.text.length == 5) {
+        _jobDescription.dutyLableTime.frame =CGRectMake(40, 0, 80, 27);
+        _jobDescription.dutyLableTime.backgroundColor = UIColorFromRGB(0xF0F8FA);
+        
+    }
     _jobDescription.compayAddressLable.text = model.address;
     
     if ([model.iscollect isEqual:@"0"])

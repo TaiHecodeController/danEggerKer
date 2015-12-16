@@ -25,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *dutyLable;
 @property (weak, nonatomic) IBOutlet UITextView *jobCroptionTextView;
 @property (weak, nonatomic) IBOutlet UILabel *compayAddressLable;
+@property (weak, nonatomic) IBOutlet UILabel *dutytitleLable;
+@property (weak, nonatomic) IBOutlet UIView *dutyBgview;
+@property(nonatomic,strong)UILabel * dutyLableTime;
 +(findJobDetialScriptionViewS*)setFindJobDetialScriptionView;
 -(void)setValues:(NSDictionary*)dic;
 @end

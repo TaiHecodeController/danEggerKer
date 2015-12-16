@@ -468,7 +468,10 @@
         }
         
         NSLog(@"job_idStr%@",job_idStr);
-        
+        if ([job_idStr isEqualToString:@""]) {
+            [MBProgressHUD creatembHub:@"请选择你要申请的职位" ControllerView:self];
+            return;
+        }
         [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
             
             //返回的是投递成功的数量
@@ -519,10 +522,6 @@
         } withUid:6 job_id:job_idStr resp:[NSObject class]];
         
     }
-    else
-    {
-        [MBProgressHUD creatembHub:@"操作频率过高" ControllerView:self];
-    }
     
     sender.selected = !sender.selected;
     
@@ -545,7 +544,11 @@
                 [str appendString:str1];
             }
         }
-        
+       
+        if ([str isEqualToString:@""]) {
+            [MBProgressHUD creatembHub:@"请选择你要申请的职位" ControllerView:self];
+            return;
+        }
         [TH_AFRequestState deleteSQJobWithSucc:^(NSDictionary *DataArr) {
             
             _page = 1;

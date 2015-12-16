@@ -66,27 +66,27 @@
 {
     //为3时，说明从条件筛选页pop回来，会销毁栈中除第一个TH_FindJobVC以外的其他TH_FindJobVC，所以进行判断，不是从条件筛选页回来时，才进行单例的清除。
 #warning  将来必须优化
-//        if (![_job_type isEqual:@"3"])
-//    {
-//        [SearchModelShare sharedInstance].longitude = @"";
-//        [SearchModelShare sharedInstance].dimensionality = @"";
-//        [SearchModelShare sharedInstance].keyword = @"";
-//        
-//        [SearchModelShare sharedInstance].hy = @"";
-//        [SearchModelShare sharedInstance].job_post = @"";
-//        [SearchModelShare sharedInstance].cityid = @"";
-//        [SearchModelShare sharedInstance].salary = @"";
-//        [SearchModelShare sharedInstance].edu = @"";
-//        [SearchModelShare sharedInstance].exp = @"";
-//        [SearchModelShare sharedInstance].provinceid = @"";
-//        
-//        [SearchModelShare sharedInstance].sdate = @"";
-//        [SearchModelShare sharedInstance].job1 = @"";
-//
-//        [SearchModelShare sharedInstance].job1_son = @"";
-//    }
+    //        if (![_job_type isEqual:@"3"])
+    //    {
+    //        [SearchModelShare sharedInstance].longitude = @"";
+    //        [SearchModelShare sharedInstance].dimensionality = @"";
+    //        [SearchModelShare sharedInstance].keyword = @"";
+    //
+    //        [SearchModelShare sharedInstance].hy = @"";
+    //        [SearchModelShare sharedInstance].job_post = @"";
+    //        [SearchModelShare sharedInstance].cityid = @"";
+    //        [SearchModelShare sharedInstance].salary = @"";
+    //        [SearchModelShare sharedInstance].edu = @"";
+    //        [SearchModelShare sharedInstance].exp = @"";
+    //        [SearchModelShare sharedInstance].provinceid = @"";
+    //
+    //        [SearchModelShare sharedInstance].sdate = @"";
+    //        [SearchModelShare sharedInstance].job1 = @"";
+    //
+    //        [SearchModelShare sharedInstance].job1_son = @"";
+    //    }
     
-//    THLog(@"%@",_job_type);
+    //    THLog(@"%@",_job_type);
     
     
     [_header free];
@@ -119,7 +119,7 @@
         //tabbar刷新页面
         [self hySegmentedControlSelectAtIndex:0];
     }
-
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backRootController:) name:@"findJobBackClick" object:nil];
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -191,9 +191,9 @@
     else
     {
         [SearchModelShare sharedInstance].type = @"";
-
+        
     }
-
+    
     self.jobArr = [[NSMutableArray alloc]init];
     _mailingNumBer = 0;
     
@@ -213,7 +213,7 @@
     {
         //tabbar刷新页面
     }
-
+    
     
     //设置定位精确度，默认：kCLLocationAccuracyBest
     [BMKLocationService setLocationDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
@@ -253,32 +253,32 @@
 - (void)keyWordRefresh
 {
     //清空筛选条件
-        [SearchModelShare sharedInstance].hy = @"";
-        [SearchModelShare sharedInstance].job_post = @"";
-        [SearchModelShare sharedInstance].cityid = @"";
-        [SearchModelShare sharedInstance].salary = @"";
-        [SearchModelShare sharedInstance].edu = @"";
-        [SearchModelShare sharedInstance].exp = @"";
-        [SearchModelShare sharedInstance].type = @"";
-        [SearchModelShare sharedInstance].provinceid = @"";
+    [SearchModelShare sharedInstance].hy = @"";
+    [SearchModelShare sharedInstance].job_post = @"";
+    [SearchModelShare sharedInstance].cityid = @"";
+    [SearchModelShare sharedInstance].salary = @"";
+    [SearchModelShare sharedInstance].edu = @"";
+    [SearchModelShare sharedInstance].exp = @"";
+    [SearchModelShare sharedInstance].type = @"";
+    [SearchModelShare sharedInstance].provinceid = @"";
     
-//        NSLog(@"_job_type%@",_job_type);
-//        if ([_job_type isEqual:@"0"])
-//        {
-////            [SearchModelShare sharedInstance].type = @"";
-//        }
-//        if ([_job_type isEqual:@"1"])
-//        {
-////            [SearchModelShare sharedInstance].type = @"56";
-//        }
-//        if ([_job_type isEqual:@"2"])
-//        {
-////            [SearchModelShare sharedInstance].type = @"119";
-//        }
+    //        NSLog(@"_job_type%@",_job_type);
+    //        if ([_job_type isEqual:@"0"])
+    //        {
+    ////            [SearchModelShare sharedInstance].type = @"";
+    //        }
+    //        if ([_job_type isEqual:@"1"])
+    //        {
+    ////            [SearchModelShare sharedInstance].type = @"56";
+    //        }
+    //        if ([_job_type isEqual:@"2"])
+    //        {
+    ////            [SearchModelShare sharedInstance].type = @"119";
+    //        }
     
-        [SearchModelShare sharedInstance].sdate = @"";
-        [SearchModelShare sharedInstance].job1 = @"";
-
+    [SearchModelShare sharedInstance].sdate = @"";
+    [SearchModelShare sharedInstance].job1 = @"";
+    
     //全城回调
     if ([SearchModelShare sharedInstance].longitude.length == 0)
     {
@@ -314,9 +314,9 @@
         [self.tableView reloadData];
         
         AppDelegate *app = [AppDelegate instance];
-
-                [SearchModelShare sharedInstance].longitude = [NSString stringWithFormat:@"%fd",app.longitude];
-                [SearchModelShare sharedInstance].dimensionality = [NSString stringWithFormat:@"%fd",app.latitude];
+        
+        [SearchModelShare sharedInstance].longitude = [NSString stringWithFormat:@"%fd",app.longitude];
+        [SearchModelShare sharedInstance].dimensionality = [NSString stringWithFormat:@"%fd",app.latitude];
         
         if ([[NSString stringWithFormat:@"%d",(int)app.longitude] isEqualToString:[NSString stringWithFormat:@"%d",0]])
         {
@@ -326,7 +326,7 @@
             return;
             
         }
-//        [SearchModelShare sharedInstance].job_post = @"132";
+        //        [SearchModelShare sharedInstance].job_post = @"132";
         /*数据请求**/
         self.page = 1;
         _mbPro = [MBProgressHUD mbHubShowControllerView:self];
@@ -342,7 +342,7 @@
         return;
     }
     //打印出所有字段
-//    NSLog(@"~~~~~~~~~~~经度%@ 纬度%@ 关键字%@ 行业类别%@ 职位类别%@ 薪资%@ 教育水平%@ 经验%@ 工作性质%@ 发布时间%@ 城市%@ 首页行业%@ job1_son%@ provinceid%@",[SearchModelShare sharedInstance].longitude,[SearchModelShare sharedInstance].dimensionality,[SearchModelShare sharedInstance].keyword,[SearchModelShare sharedInstance].hy,[SearchModelShare sharedInstance].job_post,[SearchModelShare sharedInstance].salary,[SearchModelShare sharedInstance].edu,[SearchModelShare sharedInstance].exp,[SearchModelShare sharedInstance].type,[SearchModelShare sharedInstance].sdate,[SearchModelShare sharedInstance].cityid,[SearchModelShare sharedInstance].job1,[SearchModelShare sharedInstance].job1_son,[SearchModelShare sharedInstance].provinceid);
+    //    NSLog(@"~~~~~~~~~~~经度%@ 纬度%@ 关键字%@ 行业类别%@ 职位类别%@ 薪资%@ 教育水平%@ 经验%@ 工作性质%@ 发布时间%@ 城市%@ 首页行业%@ job1_son%@ provinceid%@",[SearchModelShare sharedInstance].longitude,[SearchModelShare sharedInstance].dimensionality,[SearchModelShare sharedInstance].keyword,[SearchModelShare sharedInstance].hy,[SearchModelShare sharedInstance].job_post,[SearchModelShare sharedInstance].salary,[SearchModelShare sharedInstance].edu,[SearchModelShare sharedInstance].exp,[SearchModelShare sharedInstance].type,[SearchModelShare sharedInstance].sdate,[SearchModelShare sharedInstance].cityid,[SearchModelShare sharedInstance].job1,[SearchModelShare sharedInstance].job1_son,[SearchModelShare sharedInstance].provinceid);
     
     NSString *numStr = [NSString stringWithFormat:@"%d",num];
     
@@ -361,7 +361,7 @@
     } withfail:^(int errCode, NSError *err) {
         
     } withlongitude:[SearchModelShare sharedInstance].longitude dimensionality:[SearchModelShare sharedInstance].dimensionality keyword:[SearchModelShare sharedInstance].keyword page:numStr hy:[SearchModelShare sharedInstance].hy job_post:[SearchModelShare sharedInstance].job_post salary:[SearchModelShare sharedInstance].salary edu:[SearchModelShare sharedInstance].edu exp:[SearchModelShare sharedInstance].exp type:[SearchModelShare sharedInstance].type sdate:[SearchModelShare sharedInstance].sdate job1:[SearchModelShare sharedInstance].job1 cityid:[SearchModelShare sharedInstance].cityid provinceid:[SearchModelShare sharedInstance].provinceid job1_post:[SearchModelShare sharedInstance].job1_son resp:[findJobModel class]] addNotifaction:notify];
-
+    
 }
 
 #pragma mark -
@@ -370,7 +370,7 @@
 //处理方向变更信息
 - (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
 {
-//    NSLog(@"heading is %@",userLocation.heading);
+    //    NSLog(@"heading is %@",userLocation.heading);
     
 }
 //处理位置坐标更新
@@ -439,18 +439,18 @@
     [_bottomView addSubview:_apllyBtn];
     
     _allSelected = [[UIButton alloc]init];
-//    CGFloat allSelectedW =  90;
-//    CGFloat allSelectedH =  27.5;
+    //    CGFloat allSelectedW =  90;
+    //    CGFloat allSelectedH =  27.5;
     _allSelected.frame = CGRectMake( 2 *margin, 50-33, 40, 40);
-//    [_allSelected setTitle:@"全选" forState:UIControlStateNormal];
+    //    [_allSelected setTitle:@"全选" forState:UIControlStateNormal];
     [_allSelected setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _allSelected.titleLabel.font = [UIFont systemFontOfSize:15];
     _allSelected.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
-//    [_allSelected setImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
-//    [_allSelected setImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
+    //    [_allSelected setImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
+    //    [_allSelected setImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
     [_allSelected setBackgroundImage:[UIImage imageNamed:@"duikuang001"] forState:UIControlStateNormal];
     [_allSelected setBackgroundImage:[UIImage imageNamed:@"duikuang123"] forState:UIControlStateSelected];
-
+    
     [_allSelected addTarget:self action:@selector(allClick:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomView addSubview:_allSelected];
     
@@ -503,7 +503,7 @@
     ////    [jianliBtn setImage:[UIImage imageNamed:@"duihaolan"] forState:UIControlStateNormal];
     //    jianliBtn.frame = CGRectMake(margin, 40, 400, 50);
     //    [alertView addSubview:jianliBtn];
-
+    
     UITextView *jianliBtn = [[UITextView alloc]init];
     jianliBtn.text = [NSString stringWithFormat:@"您投递%d个职位，%d个职位已经投递，一周内不能重复投递职位。",_mailingNumBer,(_mailingNumBer - _TDSuccNum)];
     jianliBtn.font = [UIFont systemFontOfSize:13];
@@ -562,18 +562,18 @@
     {
         if(self.jobArr.count >0)
         {
-        findJobModel * model = self.jobArr[indexPath.row];
-        cell.positionLab.text = model.job_name;
-        cell.companyLab.text = model.com_name;
-        cell.cityLab.text =  model.provinceid;
-        cell.knowledgeLab.text = model.edu;
-        NSString * dateStr = model.lastupdate;
-        cell.timeLab.text = [dateStr substringFromIndex:5];
-       
-        cell.salaryLab.text = model.salary;
-        cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
-        [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
-        [cell layoutSubviews];
+            findJobModel * model = self.jobArr[indexPath.row];
+            cell.positionLab.text = model.job_name;
+            cell.companyLab.text = model.com_name;
+            cell.cityLab.text =  model.provinceid;
+            cell.knowledgeLab.text = model.edu;
+            NSString * dateStr = model.lastupdate;
+            cell.timeLab.text = [dateStr substringFromIndex:5];
+            
+            cell.salaryLab.text = model.salary;
+            cell.jobSelected = (model.cellselected.length == 0) ? (@"0") : (model.cellselected);
+            [cell.positionSecBtn addTarget:self action:@selector(singleClick:) forControlEvents:UIControlEventTouchUpInside];
+            [cell layoutSubviews];
         }
     }
     else
@@ -640,8 +640,8 @@
         detail.uid = [fjModel.uid intValue];
         detail.pid = [fjModel.job_id intValue];
         detail.saveBOOL = 1;
-//        NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-//        NSLog(@"uid%@",[df objectForKey:@"uid"]);
+        //        NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+        //        NSLog(@"uid%@",[df objectForKey:@"uid"]);
         [self.navigationController pushViewController:detail animated:YES];
         
     }
@@ -726,11 +726,7 @@
 - (void)apllyBtnClick
 {
     
-    if (self.jobArr.count == 0)
-    {
-        [MBProgressHUD creatembHub:@"请选择你要"];
-        return;
-    }
+   
     
     [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
     
@@ -742,6 +738,11 @@
         NSMutableString *job_idStr = [[NSMutableString alloc]init];
         for (findJobModel *model in self.jobArr)
         {
+            
+            
+            
+            
+            
             if ([model.cellselected isEqualToString: @"1"])
             {
                 _mailingNumBer++;
@@ -750,28 +751,33 @@
             }
             
         }
-        NSLog(@"job_idStr%@",job_idStr);
+         NSLog(@"job_idStr%@",job_idStr);
         
-       self.state = [[TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
+        
+        if ([job_idStr isEqualToString: @""]) {
+            [MBProgressHUD creatembHub:@"请选择你要申请的职位" ControllerView:self];
+            return;
+        }
+        self.state = [[TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
             
             //总投递数-投递成功数
             if (( _mailingNumBer - [DataArr intValue] ) == 0)
             {
-                 [MBProgressHUD creatembHub:@"投递成功"];
+                [MBProgressHUD creatembHub:@"投递成功"];
             }
             else
             {
                 //如果有失败的情况下
-               //返回的是投递成功的数量
-                            NSLog(@"%@",DataArr);
-                            _TDSuccNum = [DataArr intValue];
+                //返回的是投递成功的数量
+                NSLog(@"%@",DataArr);
+                _TDSuccNum = [DataArr intValue];
                 
-                            [self addCoverView];
-                            
-                            [self addAlertView];
+                [self addCoverView];
+                
+                [self addAlertView];
             }
             
-           
+            
         } withfail:^(int errCode, NSError *err) {
             
             NSLog(@"%d",errCode);
@@ -785,17 +791,17 @@
             {
                 [MBProgressHUD creatembHub:@"您已申请过了,一周内不得重复申请"];
             }
-//            //投递成功的职位为0
-//            _TDSuccNum = 0;
-//            [self addCoverView];
-//            [self addAlertView];
+            //            //投递成功的职位为0
+            //            _TDSuccNum = 0;
+            //            [self addCoverView];
+            //            [self addAlertView];
             
         } withUid:nil job_id:job_idStr resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
-    
+        
     }
     else
     {
-       
+        
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
         alertView.delegate = self;
         [alertView show];
@@ -814,7 +820,7 @@
         };
         login.findJobApplications = @"findJobApplications";
         [self.navigationController pushViewController:login animated:YES];
-
+        
     }
 }
 

@@ -131,7 +131,7 @@
         bgView.layer.cornerRadius = 2;
        
 //        bgView.layer.masksToBounds = YES;
-        UILabel * titleLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 27)];
+        UILabel * titleLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 27*MyWideth)];
         titleLable.text = titleArray[i];
         titleLable.font =[UIFont systemFontOfSize:15*MyWideth];
         titleLable.textColor = UIColorFromRGB(0x646464);
@@ -226,6 +226,12 @@
                   self.dutyLable.backgroundColor = UIColorFromRGB(0xF0F8FA);
         
     }
+    if (self.dutyLable.text.length == 5) {
+        self.dutyLable.frame =CGRectMake(40*MyWideth, 0, 80*MyWideth, 27*MyWideth);
+        self.dutyLable.backgroundColor = UIColorFromRGB(0xF0F8FA);
+        
+    }
+
     //发布
     self.releaseLable.text = [NSString stringWithFormat:@"发布：%@",model.sdate];
     
