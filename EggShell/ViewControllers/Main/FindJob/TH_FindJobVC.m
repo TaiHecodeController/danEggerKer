@@ -98,10 +98,10 @@
     self.cellArray = [NSMutableArray arrayWithCapacity:0];
     
 
-        NSInvocationOperation *opretion = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(downloadIcon:) object:URL];
-        NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-        [queue setMaxConcurrentOperationCount:2];
-        [queue addOperation:opretion];
+//        NSInvocationOperation *opretion = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(downloadIcon:) object:URL];
+//        NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+//        [queue setMaxConcurrentOperationCount:2];
+//        [queue addOperation:opretion];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -158,22 +158,22 @@
     btn.backgroundColor = [UIColor blackColor];
     //    [self.view addSubview:btn];
     
-    self.icon = [[UIImageView alloc]init];
-    self.icon.frame = CGRectMake(0, 0, 100, 100);
-    [self.view addSubview:self.icon];
+//    self.icon = [[UIImageView alloc]init];
+//    self.icon.frame = CGRectMake(0, 0, 100, 100);
+//    [self.view addSubview:self.icon];
     
 
     
     
 }
 
-- (void)downloadIcon:(NSString *)url
-{
-    NSURL *iconUrl = [NSURL URLWithString:url];
-    NSData *data = [[NSData alloc]initWithContentsOfURL:iconUrl];
-    UIImage *image = [[UIImage alloc] initWithData:data];
-    self.icon.image = image;
-}
+//- (void)downloadIcon:(NSString *)url
+//{
+//    NSURL *iconUrl = [NSURL URLWithString:url];
+//    NSData *data = [[NSData alloc]initWithContentsOfURL:iconUrl];
+//    UIImage *image = [[UIImage alloc] initWithData:data];
+//    self.icon.image = image;
+//}
 
 
 
