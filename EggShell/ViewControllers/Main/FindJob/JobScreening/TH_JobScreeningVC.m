@@ -28,6 +28,19 @@
 @property(nonatomic,strong)NSDictionary * categaryDic;
 @property (nonatomic, strong)UITextField *keywordTextfield;
 @property(nonatomic,strong)UITextField * contenLable;
+
+@property (nonatomic, copy) NSString *edu;
+@property (nonatomic, copy) NSString *exp;
+@property (nonatomic, copy) NSString *fbtime;
+@property (nonatomic, copy) NSString *hy;
+@property (nonatomic, copy) NSString *job1;
+@property (nonatomic, copy) NSString *job1_son;
+@property (nonatomic, copy) NSString *job_post;
+@property (nonatomic, copy) NSString *keyword;
+@property (nonatomic, copy) NSString *provinceid;
+@property (nonatomic, copy) NSString *salary;
+@property (nonatomic, copy) NSString *three_cityid;
+@property (nonatomic, copy) NSString *type;
 @end
 
 @implementation TH_JobScreeningVC
@@ -56,31 +69,14 @@
     [self InquireBtn];
     
     [self loadData];
+    
+    THLog(@"post%@ son%@",self.job_post,self.job1_son);
+    
 }
 
 - (void)clearParam
 {
-    //进入页面，清空所有筛选条件，防止上一次的筛选条件，影响下一次筛选结果
-    [SearchModelShare sharedInstance].keyword = @"";
     
-    [SearchModelShare sharedInstance].hy = @"";
-    
-    [SearchModelShare sharedInstance].job_post = @"";
-    
-    [SearchModelShare sharedInstance].cityid = @"";
-    
-    [SearchModelShare sharedInstance].salary = @"";
-    
-    [SearchModelShare sharedInstance].edu = @"";
-    
-    [SearchModelShare sharedInstance].exp = @"";
-    [SearchModelShare sharedInstance].provinceid = @"";
-
-    //清空工作性质，防止从首页进来，type有值，但是筛选页面没有选type值，首页的type值就会影响筛选结果
-    [SearchModelShare sharedInstance].type = @"";
-    
-    [SearchModelShare sharedInstance].sdate = @"";
-
 }
 
 -(void)loadData
@@ -93,17 +89,17 @@
 {
     self.nameArray = @[@"行业类别",@"职位类别",@"工作城市",@"薪资待遇",@"学历要求",@"工作经验",@"工作类型",@"发布时间"];
     
-//    self.conrentArray = @[@"计算机/互联网",@"技术人员/助理",@"北京",@"3000-10000",@"本科",@"3年",@"全职",@"一天内"];
+    //    self.conrentArray = @[@"计算机/互联网",@"技术人员/助理",@"北京",@"3000-10000",@"本科",@"3年",@"全职",@"一天内"];
     self.conrentArray = @[@"",@"",@"北京",@"",@"",@"",@"",@""];
     
-//    self.industryArray = @[@"不限",@"计算机/互联网",@"机械/设备/技工",@"贸易/百货",@"化工/能源",@"公务员/翻译/其他",@"服务业",@"咨询/法律/教育/科研",@"人事/行政/高级管理",@"建筑/房地产",@"广告/市场/媒体/艺术",@"生物/制药/医疗/护理",@"生产/营运/采购/物流",@"会计/金融/银行/保险",@"销售/客服/技术支持",@"信息/电子"];
+    //    self.industryArray = @[@"不限",@"计算机/互联网",@"机械/设备/技工",@"贸易/百货",@"化工/能源",@"公务员/翻译/其他",@"服务业",@"咨询/法律/教育/科研",@"人事/行政/高级管理",@"建筑/房地产",@"广告/市场/媒体/艺术",@"生物/制药/医疗/护理",@"生产/营运/采购/物流",@"会计/金融/银行/保险",@"销售/客服/技术支持",@"信息/电子"];
 }
 -(void)createSco
 {
-
+    
     UIScrollView * scro =[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     scro.backgroundColor =  UIColorFromRGB(0xF3F3F1);
-
+    
     [self.view addSubview:scro];
     self.scro = scro;
     self.scro.showsVerticalScrollIndicator = NO;
@@ -111,7 +107,7 @@
 -(void)InquireBtn
 {
     UIButton * inquireBtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH-150)/2, self.tableView.frame.size.height+20, 150, 30)];
-   
+    
     [inquireBtn setBackgroundImage:[UIImage imageNamed:@"hongniu2"] forState:UIControlStateNormal];
     [inquireBtn setTitle:@"查询" forState:UIControlStateNormal];
     [inquireBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -165,16 +161,16 @@
     CategorieLable.font =[UIFont systemFontOfSize:13];
     [bgView addSubview:CategorieLable];
     
-//    UILabel * contenLable =[[UILabel alloc] initWithFrame:CGRectMake(100, 15, WIDETH-165, 13)];
-//    contenLable.text = [SearchModelShare sharedInstance].keyword;
-//    contenLable.font =[UIFont systemFontOfSize:13];
-//    contenLable.textAlignment = NSTextAlignmentRight;
-//    UIView * lineView =[[UIView alloc] initWithFrame:CGRectMake(15, 41.5, WIDETH-15, 0.5)];
-//    lineView.backgroundColor = UIColorFromRGB(0xDDDDDD);
-//    [bgView addSubview:lineView];
-//    [bgView addSubview:contenLable];
+    //    UILabel * contenLable =[[UILabel alloc] initWithFrame:CGRectMake(100, 15, WIDETH-165, 13)];
+    //    contenLable.text = [SearchModelShare sharedInstance].keyword;
+    //    contenLable.font =[UIFont systemFontOfSize:13];
+    //    contenLable.textAlignment = NSTextAlignmentRight;
+    //    UIView * lineView =[[UIView alloc] initWithFrame:CGRectMake(15, 41.5, WIDETH-15, 0.5)];
+    //    lineView.backgroundColor = UIColorFromRGB(0xDDDDDD);
+    //    [bgView addSubview:lineView];
+    //    [bgView addSubview:contenLable];
     UITextField * contenLable =[[UITextField alloc] initWithFrame:CGRectMake(100, 8, WIDETH-165, 26)];
-//    contenLable.text = [SearchModelShare sharedInstance].keyword;
+    //    contenLable.text = [SearchModelShare sharedInstance].keyword;
     contenLable.font =[UIFont systemFontOfSize:13];
     contenLable.placeholder = @"输入关键字，例:工程师";
     contenLable.textColor = [UIColor blackColor];
@@ -187,13 +183,10 @@
     contenLable.delegate = self;
     _keywordTextfield = contenLable;
     
- 
-    
-    
     UIImage *img = [UIImage imageNamed:@"chazi"];
     UIImageView * imageView =[[UIImageView alloc] initWithFrame:CGRectMake(WIDETH-35, 8, img.size.width, img.size.height)];
     imageView.image = img;
-
+    
     [bgView addSubview:imageView];
     bgView.backgroundColor = [UIColor whiteColor];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clearKeyWord)];
@@ -205,12 +198,7 @@
 }
 
 
-//-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
-//{
-//    return 42;
-//}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
 {
     return 42;
 }
@@ -236,17 +224,17 @@
             
         }
             break;
-            case 1:
+        case 1:
         {
-//            asfdasfasfasdfasdf
-//            /**********     *************/
-//            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
-//            _writeJLChooseVC.delegete = self;
-//            _writeJLChooseVC.titleText = @"职位类别";
-//            _writeJLChooseVC.cellIndex = indexPath;
-//            _writeJLChooseVC.tableViewTagIndex = 1555;
-//            _writeJLChooseVC.DataArray = self.categaryDic[@"job_classid"];
-//            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
+            //            asfdasfasfasdfasdf
+            //            /**********     *************/
+            //            WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
+            //            _writeJLChooseVC.delegete = self;
+            //            _writeJLChooseVC.titleText = @"职位类别";
+            //            _writeJLChooseVC.cellIndex = indexPath;
+            //            _writeJLChooseVC.tableViewTagIndex = 1555;
+            //            _writeJLChooseVC.DataArray = self.categaryDic[@"job_classid"];
+            //            [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
             
             THLog(@"期望职位");
             SearchCity1_ViewController * _writeJLChooseVC = [[SearchCity1_ViewController alloc] init];
@@ -267,8 +255,9 @@
                 }
             }
             _writeJLChooseVC.DataArray = arr1;
+            _writeJLChooseVC.jobScreeningVC = self;
             [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
-
+            
             break;
         }
         case 2:
@@ -295,7 +284,7 @@
             [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
             break;
         }
-
+            
         case 3:
         {
             WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
@@ -305,13 +294,13 @@
             _writeJLChooseVC.tableViewTagIndex = 1555;
             _writeJLChooseVC.DataArray = self.categaryDic[@"pay"];
             [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
-
+            
             break;
         }
-
+            
         case 4:
         {
-
+            
             WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
             _writeJLChooseVC.delegete = self;
             _writeJLChooseVC.titleText = @"学历要求";
@@ -321,7 +310,7 @@
             [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
             break;
         }
-
+            
         case 5:
         {
             
@@ -332,7 +321,7 @@
             _writeJLChooseVC.tableViewTagIndex = 1555;
             _writeJLChooseVC.DataArray = self.categaryDic[@"experience"];
             [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
-
+            
             break;
         }
         case 6:
@@ -344,7 +333,7 @@
             _writeJLChooseVC.tableViewTagIndex = 1555;
             _writeJLChooseVC.DataArray = self.categaryDic[@"type"];
             [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
-
+            
             break;
         }
         case 7:
@@ -359,32 +348,32 @@
             
             
             [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
-
+            
             break;
         }
             
         default:
             break;
     }
-
+    
 }
 
 #pragma mark -- writeJLDelegate
 - (void)chooseWord:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
 {
-
-        JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
-        cell.contentTextFiled.text = keyWord;
-    NSLog(@"%ld",(long)cellIndex.row);
+    
+    JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
+    cell.contentTextFiled.text = keyWord;
+    //    NSLog(@"%ld",(long)cellIndex.row);
     
     if (cellIndex.row == 0)
     {
-//        [SearchModelShare sharedInstance].job1 = Id;
-        [SearchModelShare sharedInstance].hy = Id;
+        //        [SearchModelShare sharedInstance].job1 = Id;
+        self.hy = Id;
     }
     else if (cellIndex.row == 1)
     {
-        [SearchModelShare sharedInstance].job_post = Id;
+        self.job_post = Id;
     }
     else if (cellIndex.row == 2)
     {
@@ -393,41 +382,39 @@
         if ([keyWord isEqualToString:@"全城"])
         {
             
-        [SearchModelShare sharedInstance].provinceid = Id;
+            self.provinceid = Id;
             
-        }else
+        }
+        else
         {
-        [SearchModelShare sharedInstance].cityid = Id;
-            
-            
+            self.three_cityid = Id;
         }
     }
     else if (cellIndex.row == 3)
     {
         
-        [SearchModelShare sharedInstance].salary = Id;
+        self.salary = Id;
         
     }
     else if (cellIndex.row == 4)
     {
-        [SearchModelShare sharedInstance].edu = Id;
+        self.edu = Id;
     }
     else if (cellIndex.row == 5)
     {
-        [SearchModelShare sharedInstance].exp = Id;
+        self.exp = Id;
     }
     else if (cellIndex.row == 6)
     {
-        [SearchModelShare sharedInstance].type = Id;
+        self.type = Id;
     }
     else if (cellIndex.row == 7)
     {
-        [SearchModelShare sharedInstance].sdate = Id;
-        
+        self.fbtime = Id;
     }
     
     
-
+    
 }
 
 //- (void)chooseWord3:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
@@ -453,33 +440,52 @@
     JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
     cell.contentTextFiled.text = keyWord;
     //从综合类里进行选择，3级分类
-    [SearchModelShare sharedInstance].job_post = Id;
+    self.job_post = Id;
 }
-//当没有三级分类的时候，从二级分类返回数据
+//从二级分类返回数据
 - (void)chooseWord2_SearchCity:(NSString *)keyWord cellIndex:(NSIndexPath *)cellIndex tableViewTagIndex:(NSInteger)tableViewTagIndex withId:(NSString *)Id
 {
     JobScreeningCell *cell = (JobScreeningCell *)[self.tableView cellForRowAtIndexPath:cellIndex];
     cell.contentTextFiled.text = keyWord;
     
-    [SearchModelShare sharedInstance].job1_son = Id;
+    self.job1_son = Id;
     
-//    [SearchModelShare sharedInstance].job_post = Id;
 }
 
 /*查询**/
 -(void)inqireClick
 {
-    [SearchModelShare sharedInstance].keyword = _keywordTextfield.text;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"TJsearch" object:nil];
+    TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
+    vc.keyword = _keywordTextfield.text;
+    vc.hy = self.hy;
+    
+    THLog(@"post%@ son%@",self.job_post,self.job1_son);
+    
+    if (self.job_post != nil)
+    {
+        vc.job_post = self.job_post;
+    }
+    else
+    {
+        vc.job1_son = self.job1_son;
+    }
+    vc.provinceid = self.provinceid;
+    vc.three_cityid = self.three_cityid;
+    vc.salary = self.salary;
+    vc.edu = self.edu;
+    vc.exp = self.exp;
+    vc.type = self.type;
+    vc.fbtime = self.fbtime;
+    
+    //    [[NSNotificationCenter defaultCenter] postNotificationName:@"TJsearch" object:nil];
     /**
      返回上一层时，刷新列表
      [[NSNotificationCenter defaultCenter] postNotificationName:@"TJsearch" object:nil];
      [self.navigationController popViewControllerAnimated:YES];
      */
-    TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
-    vc.rk_pushType = homePushType;
+    //        vc.rk_pushType = homePushType;
     //从筛选列表进入findjob
-    vc.job_type = @"3";
+    //    vc.job_type = @"3";
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -491,7 +497,7 @@
 #pragma textFieldDelegate
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [SearchModelShare sharedInstance].keyword = textField.text;
+    self.keyword = textField.text;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -499,13 +505,13 @@
     [self.view endEditing:YES];
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

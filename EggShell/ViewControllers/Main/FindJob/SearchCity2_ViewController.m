@@ -129,30 +129,31 @@
     
     if (arr1.count > 0)
     {
+        _writeJLChooseVC.jobScreeningVC = self.jobScreeningVC;
         [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
     }
     else
     {
-//        NSLog(@"返回这层的数据");
-        for (UIViewController *vc in self.navigationController.viewControllers)
+        //        NSLog(@"返回这层的数据");
+        //        for (UIViewController *vc in self.navigationController.viewControllers)
+        //        {
+        //            if ([vc isKindOfClass:[TH_JobScreeningVC class]])
+        //            {
+        self.delegete = self.jobScreeningVC;
+        
+        if ([self.delegete  respondsToSelector:@selector(chooseWord2_SearchCity:cellIndex:tableViewTagIndex:withId:)])
         {
-            if ([vc isKindOfClass:[TH_JobScreeningVC class]])
-            {
-                self.delegete = vc;
-                
-                if ([self.delegete  respondsToSelector:@selector(chooseWord2_SearchCity:cellIndex:tableViewTagIndex:withId:)])
-                {
-                    self.cellIndex = [NSIndexPath indexPathForRow:1 inSection:0];
-                    [self.delegete chooseWord2_SearchCity:cell.textLable.text  cellIndex:self.cellIndex tableViewTagIndex:self.tableViewTagIndex withId:self.DataArray[indexPath.row][@"id"]];
-                }
-                
-                [self.navigationController popToViewController:vc animated:YES];
-                
-               
-            }
-//             break;
+            self.cellIndex = [NSIndexPath indexPathForRow:1 inSection:0];
+            [self.delegete chooseWord2_SearchCity:cell.textLable.text  cellIndex:self.cellIndex tableViewTagIndex:self.tableViewTagIndex withId:self.DataArray[indexPath.row][@"id"]];
         }
-
+        
+        [self.navigationController popToViewController:self.jobScreeningVC animated:YES];
+        
+        //
+        //            }
+        ////             break;
+        //        }
+        
     }
     
     

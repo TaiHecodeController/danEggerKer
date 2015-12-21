@@ -26,7 +26,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-     [MobClick endLogPageView:@"searchcity1_vc"];
+    [MobClick endLogPageView:@"searchcity1_vc"];
 }
 
 - (void)viewDidLoad {
@@ -125,6 +125,7 @@
         }
     }
     _writeJLChooseVC.DataArray = arr1;
+    _writeJLChooseVC.jobScreeningVC = self.jobScreeningVC;
     [self.navigationController pushViewController:_writeJLChooseVC animated:YES];
     //
     //    NSNumber *zuihouTag = [df objectForKey:@"citytag"];
@@ -159,5 +160,4 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 @end

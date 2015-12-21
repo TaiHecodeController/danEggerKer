@@ -50,7 +50,8 @@
         TH_SwipeFindJobListVC * find_vc = [[TH_SwipeFindJobListVC alloc] init];
 //         find_vc.title = @"找工作";
 //         find_vc.job_type = @"0";
-        [SearchModelShare sharedInstance].type = @"55";
+//        [SearchModelShare sharedInstance].type = @"55";
+    find_vc.type = @"55";
             THCustomNavigationController * nc3 = [[THCustomNavigationController alloc] initWithRootViewController:find_vc];
 
     

@@ -30,7 +30,7 @@
 
 @implementation SearchJobVC
 - (void)viewDidLoad {
-
+    
     self.view.backgroundColor =[UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
@@ -67,23 +67,24 @@
             [_tableView reloadData];
         }
         
-        [SearchModelShare sharedInstance].keyword = text;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
+        //        [SearchModelShare sharedInstance].keyword = text;
+        //        [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
         
         if (_pushType == 0)
         {
             //从首页来的，跳到职位列表页
             TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
-            vc.title = @"搜索结果";
-            vc.rk_pushType = homePushType;
+            //            vc.title = @"搜索结果";
+            //            vc.rk_pushType = homePushType;
+            vc.keyword = text;
             [weakSelf.navigationController pushViewController:vc animated:YES];
         }
         else
         {
             //从职位列表来，返回职位列表
-             [weakSelf.navigationController popViewControllerAnimated:YES];
+            [weakSelf.navigationController popViewControllerAnimated:YES];
         }
-       
+        
     };
     [self.view addSubview:headView];
     
@@ -105,37 +106,41 @@
 
 - (void)btnClick:(UIButton *)sender
 {
+    TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
     
-    NSLog(@"%@",sender.titleLabel.text);
+    //    NSLog(@"%@",sender.titleLabel.text);
     
     if ([sender.titleLabel.text isEqual:@"银行柜员"])
     {
-        [SearchModelShare sharedInstance].keyword = @"柜员";
+        //        [SearchModelShare sharedInstance].keyword = @"柜员";
+        vc.keyword = @"柜员";
+        [self.navigationController pushViewController:vc animated:YES];
         [self.db insertDB:@"柜员"];
     }
     else
     {
-        [SearchModelShare sharedInstance].type = @"";
-        [SearchModelShare sharedInstance].keyword = sender.titleLabel.text;
-         [self.db insertDB:sender.titleLabel.text];
+        //        [SearchModelShare sharedInstance].type = @"";
+        //        [SearchModelShare sharedInstance].keyword = sender.titleLabel.text;
+        vc.keyword = sender.titleLabel.text;
+        [self.navigationController pushViewController:vc animated:YES];
+        [self.db insertDB:sender.titleLabel.text];
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
+    //    [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
     
     if (_pushType == 0)
     {
         //从首页来的，跳到职位列表页
-        TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
-        vc.title  = @"搜索结果";
-        vc.rk_pushType = homePushType;
-        [self.navigationController pushViewController:vc animated:YES];
+        
+        //        vc.title  = @"搜索结果";
+        //        vc.rk_pushType = homePushType;
     }
     else
     {
         //从职位列表来，返回职位列表
         [self.navigationController popViewControllerAnimated:YES];
     }
-
+    
 }
 
 -(void)createTableView
@@ -198,30 +203,29 @@
     }
     else
     {
-        UINavigationController *nv;
         
-    [SearchModelShare sharedInstance].keyword = self.dataArray[indexPath.row - 1];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
-   
-    if (_pushType == 0)
-    {
-        //从首页来的，跳到职位列表页
         TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
-        vc.rk_pushType = homePushType;
+        vc.keyword = self.dataArray[indexPath.row - 1];
+        //    [[NSNotificationCenter defaultCenter] postNotificationName:@"keyWord" object:nil];
+        
+        //    if (_pushType == 0)
+        //    {
+        //从首页来的，跳到职位列表页
+        //        vc.rk_pushType = homePushType;
         [self.navigationController pushViewController:vc animated:YES];
-    }
-    else
-    {
-        //从职位列表来，返回职位列表
-        [self.navigationController popViewControllerAnimated:YES];
-    }
+        //    }
+        //    else
+        //    {
+        //        //从职位列表来，返回职位列表
+        //        [self.navigationController popViewControllerAnimated:YES];
+        //    }
     }
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBar.translucent = YES;
-   
+    
     [MobClick beginLogPageView:@"searchjobvc"];
     
 }
@@ -230,14 +234,13 @@
 {
     self.navigationController.navigationBar.translucent = NO;
     [MobClick endLogPageView:@"searchjobvc"];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 
 @end

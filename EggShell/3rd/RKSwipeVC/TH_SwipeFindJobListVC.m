@@ -61,12 +61,6 @@
 
 @implementation TH_SwipeFindJobListVC
 
-//-(void)dealloc
-//{
-//    //销毁，清空
-//    [SearchModelShare sharedInstance].type = @"";
-//}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
@@ -103,15 +97,6 @@
 {
     
     [super viewDidLoad];
-   
-    
-    
-//    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)])
-//    {
-//        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
-//    }
-    
-//     [[NSNotificationCenter defaultCenter] postNotificationName:@"rmG" object:nil];
     
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"])
     {
@@ -132,21 +117,8 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
     }
     
-    
-//    if ([ SearchModelShare sharedInstance].tip ==1) {
-//    UIImageView * hideView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
-//    hideView.image = [UIImage imageNamed:@"提示层"];
-//    hideView.userInteractionEnabled = YES;
-//    [[UIApplication sharedApplication].keyWindow addSubview:hideView];
-//    UITapGestureRecognizer * taphide =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(taphide)];
-//    self.hideView = hideView;
-//        [SearchModelShare sharedInstance].tip++;
-//    [hideView addGestureRecognizer:taphide];
-//        
-//    }
     //隐藏toolbar
     self.navigationController.toolbarHidden = YES;
-//    self.title = @"找工作";
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barBtnItemWithNormalImageName:@"liebiao" hightImageName:nil action:@selector(rightClick) target:self];
     //    self.view.clipsToBounds = YES;
@@ -165,6 +137,7 @@
     _mbPro = [MBProgressHUD mbHubShowControllerView:self];
     self.page = 1;
     [self loadData:_mbPro page:self.page];
+    
     self.colorIndex = 0;
     //    self.colors = @[
     //        @"Turquoise",
@@ -265,12 +238,7 @@
                                metrics:metrics
                                views:NSDictionaryOfVariableBindings(
                                                                     swipeableView)]];
-    UIImageView * noDataImageView = [[UIImageView alloc] initWithFrame:CGRectMake((WIDETH - 172)/2.0, (HEIGHT - 275)/2.0-64, 172, 275)];
-       noDataImageView.image = [UIImage imageNamed:@"nodata"];
-    [self.view addSubview:noDataImageView];
-    self.noDataImageView = noDataImageView;
-    self.noDataImageView.hidden = YES;
-
+    
 }
 
 -(void)taphide
@@ -297,7 +265,6 @@
 
 -(void)loadData:(id)notify page:(int)num
 {
-//    [SearchModelShare sharedInstance].type = @"55";
     NSString *numStr = [NSString stringWithFormat:@"%d",num];
     
     self.state = [[TH_AFRequestState searchJobWithSucc:^(NSArray *DataArr) {
@@ -310,15 +277,15 @@
             
             if (self.page == 1)
             {
-                 [self.swipeableView loadViewsIfNeeded];
+                [self.swipeableView loadViewsIfNeeded];
             }
             else
             {
                 /**
                  清除卡片，用新数据刷新卡片
                  */
-              
-//                [self.swipeableView discardAllViews];
+                
+                //                [self.swipeableView discardAllViews];
                 self.colorIndex = 1;
                 [self.swipeableView loadViewsIfNeeded];
             }
@@ -326,12 +293,12 @@
         }
         else
         {
-            self.noDataImageView.hidden = NO;
+            [MBProgressHUD creatembHub:@"暂无数据"];
         }
         
     } withfail:^(int errCode, NSError *err) {
         
-    } withlongitude:[SearchModelShare sharedInstance].longitude dimensionality:[SearchModelShare sharedInstance].dimensionality keyword:[SearchModelShare sharedInstance].keyword page:numStr hy:[SearchModelShare sharedInstance].hy job_post:[SearchModelShare sharedInstance].job_post salary:[SearchModelShare sharedInstance].salary edu:[SearchModelShare sharedInstance].edu exp:[SearchModelShare sharedInstance].exp type:[SearchModelShare sharedInstance].type sdate:[SearchModelShare sharedInstance].sdate job1:[SearchModelShare sharedInstance].job1 cityid:[SearchModelShare sharedInstance].cityid provinceid:[SearchModelShare sharedInstance].provinceid job1_post:[SearchModelShare sharedInstance].job1_son resp:[findJobModel class]] addNotifaction:[MBProgressHUD mbHubShow]];
+    } withlongitude:self.longtitude dimensionality:self.latitude keyword:self.keyword page:numStr hy:self.hy job_post:self.job_post salary:self.salary edu:self.edu exp:self.exp type:self.type sdate:self.fbtime job1:self.job1 cityid:self.three_cityid provinceid:self.provinceid job1_post:self.job1_son resp:[findJobModel class]] addNotifaction:notify];
     
     
 }
@@ -381,29 +348,29 @@
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
          didSwipeView:(UIView *)view
           inDirection:(ZLSwipeableViewDirection)direction {
-//    NSLog(@"did swipe in direction: %zd", direction);
+    //    NSLog(@"did swipe in direction: %zd", direction);
     if (direction == 2)
     {
-//        THLog(@"收藏");
+        //        THLog(@"收藏");
         
         [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
         
         if([AppDelegate instance].userId)
         {
             
-                [TH_AFRequestState jobDetailsRequestWithSucc:^(NSDictionary *DataArr) {
+            [TH_AFRequestState jobDetailsRequestWithSucc:^(NSDictionary *DataArr) {
                 
-                         JobDetailModel *model = (JobDetailModel *)DataArr;
-                    
-                    THLog(@"model.iscollect%@",model.cj_id);
-                    
+                JobDetailModel *model = (JobDetailModel *)DataArr;
+                
+                THLog(@"model.iscollect%@",model.cj_id);
+                
                 if ([model.iscollect integerValue] == 0)
                 {
                     [TH_AFRequestState saveJobWithSucc:^(NSDictionary *DataArr) {
                         
                         NSLog(@"%@",DataArr);
                         
-//                        [MBProgressHUD creatembHub:@"收藏成功" ControllerView:self];
+                        //                        [MBProgressHUD creatembHub:@"收藏成功" ControllerView:self];
                         
                     } withFail:^(int errCode, NSError *err) {
                         
@@ -413,9 +380,9 @@
                 }
                 else
                 {
-//                    [MBProgressHUD creatembHub:@"该职位已收藏"];
+                    //                    [MBProgressHUD creatembHub:@"该职位已收藏"];
                 }
-
+                
             } withfail:^(int errCode, NSError *err) {
                 
             } withId:[[AppDelegate instance].userId integerValue] pid:[self.rk_job_id intValue] page:1 resp:[JobDetailModel class]];
@@ -427,7 +394,7 @@
             alertView.delegate = self;
             [alertView show];
         }
-
+        
         
     }
     else
@@ -438,7 +405,7 @@
 }
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView didCancelSwipe:(UIView *)view {
-//    NSLog(@"did cancel swipe");
+    //    NSLog(@"did cancel swipe");
 }
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
@@ -446,7 +413,7 @@
            atLocation:(CGPoint)location {
     
     
-//    NSLog(@"did start swiping at location: x %f, y %f", location.x, location.y);
+    //    NSLog(@"did start swiping at location: x %f, y %f", location.x, location.y);
     //开始，记录初始x,是oldx不为空
     self.oldx = location.x;
     [view addSubview:self.cancelView];
@@ -460,19 +427,19 @@
           swipingView:(UIView *)view
            atLocation:(CGPoint)location
           translation:(CGPoint)translation {
-//    NSLog(@"swiping at location: x %f, y %f, translation: x %f, y %f", location.x, location.y,
-//          translation.x, translation.y);
+    //    NSLog(@"swiping at location: x %f, y %f, translation: x %f, y %f", location.x, location.y,
+    //          translation.x, translation.y);
     
     if (self.oldx > location.x)
     {
-//        NSLog(@"左滑动");
+        //        NSLog(@"左滑动");
         self.intestingView.hidden = YES;
         self.cancelView.hidden = NO;
         self.oldx = location.x;
     }
     else if(self.oldx < location.x)
     {
-//        NSLog(@"右滑动");
+        //        NSLog(@"右滑动");
         self.cancelView.hidden = YES;
         self.intestingView.hidden = NO;
         self.oldx = location.x;
@@ -483,7 +450,7 @@
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
     didEndSwipingView:(UIView *)view
            atLocation:(CGPoint)location {
-//    NSLog(@"did end swiping at location: x %f, y %f", location.x, location.y);
+    //    NSLog(@"did end swiping at location: x %f, y %f", location.x, location.y);
     [self.cancelView removeFromSuperview];
     [self.intestingView removeFromSuperview];
     
@@ -500,56 +467,56 @@
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView
 {
     //    NSLog(@"colorIndex%ld",self.colorIndex);
-//        NSLog(@"jobArr.count%ld",self.jobArr.count);
+    //        NSLog(@"jobArr.count%ld",self.jobArr.count);
     
     CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
     
     //取出jobArr对应模型，对子控件进行赋值操作
     
-//    if (self.jobArr.count > 0)
-//    {
-        if (self.jobArr.count > 0 && self.colorIndex <= self.jobArr.count)
-        {
-            
-            findJobModel * model = self.jobArr[self.colorIndex - 1];
-            //添加一个标签试试
-            findJobCarViewS *fjcV = [[findJobCarViewS alloc] initWithFrame:CGRectMake(0,0,view.frame.size.width,  view.frame.size.height)];
-            fjcV.backgroundColor = [UIColor whiteColor];
-            [fjcV setValueCar:model];
-            
-            //保存uid job_id
-            self.rk_uid = [NSString stringWithFormat:@"%@",model.uid];
-            self.rk_job_id = [NSString stringWithFormat:@"%@",model.job_id];
-            
-//            NSLog(@"job_id:%@",model.job_id);
-            
-//            fjcV.frame = CGRectMake(0,0,view.frame.size.width,  view.frame.size.height);
-            [view addSubview:fjcV];
-            
-        }
+    //    if (self.jobArr.count > 0)
+    //    {
+    if (self.jobArr.count > 0 && self.colorIndex <= self.jobArr.count)
+    {
         
-        //当colorIndex = 9时，走这个方法。大于8，每页的条数
-        if (self.colorIndex > self.jobArr.count && self.jobArr.count > 0)
-        {
-            self.colorIndex = 0;
-            [self.jobArr removeAllObjects];
-//            [self.swipeableView discardAllViews];
-
-            self.page ++;
-            [self loadData:_mbPro page:self.page];
-            
-//            if (self.colorIndex >self.jobArr.count && self.jobArr.count < 8)
-//            {
-//                NSLog(@"~~~~~~~~~~~~~~~~没有数据啦~~~~~~~~~~~~~~~~~~~~~~~~");
-//            }
-            
-        }
-        else
-        {
-            
-        }
-        self.colorIndex++;
-
+        findJobModel * model = self.jobArr[self.colorIndex - 1];
+        //添加一个标签试试
+        findJobCarViewS *fjcV = [[findJobCarViewS alloc] initWithFrame:CGRectMake(0,0,view.frame.size.width,  view.frame.size.height)];
+        fjcV.backgroundColor = [UIColor whiteColor];
+        [fjcV setValueCar:model];
+        
+        //保存uid job_id
+        self.rk_uid = [NSString stringWithFormat:@"%@",model.uid];
+        self.rk_job_id = [NSString stringWithFormat:@"%@",model.job_id];
+        
+        //            NSLog(@"job_id:%@",model.job_id);
+        
+        //            fjcV.frame = CGRectMake(0,0,view.frame.size.width,  view.frame.size.height);
+        [view addSubview:fjcV];
+        
+    }
+    
+    //当colorIndex = 9时，走这个方法。大于8，每页的条数
+    if (self.colorIndex > self.jobArr.count && self.jobArr.count > 0)
+    {
+        self.colorIndex = 0;
+        [self.jobArr removeAllObjects];
+        //            [self.swipeableView discardAllViews];
+        
+        self.page ++;
+        [self loadData:_mbPro page:self.page];
+        
+        //            if (self.colorIndex >self.jobArr.count && self.jobArr.count < 8)
+        //            {
+        //                NSLog(@"~~~~~~~~~~~~~~~~没有数据啦~~~~~~~~~~~~~~~~~~~~~~~~");
+        //            }
+        
+    }
+    else
+    {
+        
+    }
+    self.colorIndex++;
+    
     //    if (self.loadCardFromXib) {
     //        UIView *contentView =
     //            [[NSBundle mainBundle] loadNibNamed:@"CardContentView" owner:self options:nil][0];
@@ -587,8 +554,8 @@
 
 - (void)tapClick
 {
-//    NSLog(@"职位详情");
-//    NSLog(@"%lu",(unsigned long)self.jobArr.count);
+    //    NSLog(@"职位详情");
+    //    NSLog(@"%lu",(unsigned long)self.jobArr.count);
     if (self.jobArr.count != 0)
     {
         TH_JobDetailVC * detail = [[TH_JobDetailVC alloc] init];
@@ -597,8 +564,6 @@
         detail.saveBOOL = 1;
         [self.navigationController pushViewController:detail animated:YES];
     }
-    
-    
 }
 
 
@@ -619,7 +584,7 @@
         lvcs.findJobDetailApplication = @"swipeFindJobListVC";
         lvcs.loginBlock = ^()
         {
-//            [self searchBtnClick];
+            //            [self searchBtnClick];
         };
         [self.navigationController pushViewController:lvcs animated:YES];
         
@@ -628,13 +593,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

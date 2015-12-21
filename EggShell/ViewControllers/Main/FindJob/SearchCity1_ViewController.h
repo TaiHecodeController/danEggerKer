@@ -10,10 +10,12 @@
 
 @interface SearchCity1_ViewController : UIViewController
 
+@property (nonatomic, strong) id jobScreeningVC;
 @property(nonatomic,copy)NSString * titleText;
 @property (nonatomic, strong) NSIndexPath *cellIndex;
 @property (nonatomic, assign) NSInteger tableViewTagIndex;
 //@property (nonatomic, weak) id<writeJLChooseVCDelegate1>delegete;
 @property(nonatomic,strong)NSArray * DataArray;
+
 
 @end

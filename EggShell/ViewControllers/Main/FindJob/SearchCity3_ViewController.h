@@ -15,6 +15,7 @@
 @end
 @interface SearchCity3_ViewController : UIViewController
 
+@property (nonatomic, strong) id jobScreeningVC;
 @property(nonatomic,copy)NSString * titleText;
 @property (nonatomic, strong) NSIndexPath *cellIndex;
 @property (nonatomic, assign) NSInteger tableViewTagIndex;

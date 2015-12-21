@@ -104,23 +104,24 @@
     //        [self.delegete chooseWord3:cell.textLable.text cellIndex:self.cellIndex tableViewTagIndex:self.tableViewTagIndex withId:self.DataArray[indexPath.row][@"id"]];
     //    }
     
-    for (UIViewController *vc in self.navigationController.viewControllers)
+    //    for (UIViewController *vc in self.navigationController.viewControllers)
+    //    {
+    //        if ([vc isKindOfClass:[TH_JobScreeningVC class]])
+    //        {
+    self.delegete = self.jobScreeningVC;
+    
+    if ([self.delegete  respondsToSelector:@selector(chooseWord3_SearchCity:cellIndex:tableViewTagIndex:withId:)])
     {
-        if ([vc isKindOfClass:[TH_JobScreeningVC class]])
-        {
-            self.delegete = vc;
-            
-            if ([self.delegete  respondsToSelector:@selector(chooseWord3_SearchCity:cellIndex:tableViewTagIndex:withId:)])
-            {
-                self.cellIndex = [NSIndexPath indexPathForRow:1 inSection:0];
-                [self.delegete chooseWord3_SearchCity:cell.textLable.text  cellIndex:self.cellIndex tableViewTagIndex:self.tableViewTagIndex withId:self.DataArray[indexPath.row][@"id"]];
-            }
-            
-            [self.navigationController popToViewController:vc animated:YES];
-            
-            
-        }
+        self.cellIndex = [NSIndexPath indexPathForRow:1 inSection:0];
+        [self.delegete chooseWord3_SearchCity:cell.textLable.text  cellIndex:self.cellIndex tableViewTagIndex:self.tableViewTagIndex withId:self.DataArray[indexPath.row][@"id"]];
     }
+    
+    [self.navigationController popToViewController:self.jobScreeningVC animated:YES];
+    //    [self.navigationController popViewControllerAnimated:YES];
+    
+    
+    //        }
+    //    }
     
     
     
@@ -130,5 +131,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end
