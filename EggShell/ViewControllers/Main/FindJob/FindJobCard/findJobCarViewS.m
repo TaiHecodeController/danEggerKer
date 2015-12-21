@@ -203,16 +203,56 @@
                 [self addSubview:self.dutyLable];
 
     //发布时间
-    UILabel * releaseLable = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 30, self.frame.size.width, 15)];
-    releaseLable.text = @"发布：2015-10-10";
+    UILabel * releaseLable = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 40, self.frame.size.width, 15)];
+    releaseLable.text = @"发布时间：2015-10-10";
     releaseLable.textAlignment = NSTextAlignmentCenter;
     releaseLable.font =[UIFont systemFontOfSize:15];
     releaseLable.textColor = UIColorFromRGB(0x646464);
     self.releaseLable = releaseLable;
     [self addSubview:releaseLable];
+    //原点
+    
+    UIView * originFirstView  =[[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width/2.0-15-5, self.frame.size.height-25, 5, 5)];
+    originFirstView.backgroundColor = UIColorFromRGB(0xE3E3E3);
+    originFirstView.layer.cornerRadius = 2.5;
+    originFirstView.layer.masksToBounds = YES;
+    [self addSubview:originFirstView];
+    UIView * originSecondView  =[[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width/2.0, self.frame.size.height-25, 5, 5)];
+    originSecondView.backgroundColor = UIColorFromRGB(0xE3E3E3);
+    originSecondView.layer.cornerRadius = 2.5;
+    originSecondView.layer.masksToBounds = YES;
+    [self addSubview:originSecondView];
+    UIView * originthreeView  =[[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width/2.0+15+5, self.frame.size.height-25, 5, 5)];
+    originthreeView.backgroundColor = UIColorFromRGB(0xE3E3E3);
+    originthreeView.layer.cornerRadius = 2.5;
+    originthreeView.layer.masksToBounds = YES;
+    [self addSubview:originthreeView];
+    
     if (HEIGHT == 480) {
         self.releaseLable.hidden = YES;
+        originFirstView.hidden = YES;
+        originSecondView.hidden = YES;
+        originthreeView.hidden = YES;
+    }if (HEIGHT == 568) {
+        
+        self.releaseLable.frame = CGRectMake(0, self.frame.size.height - 50, self.frame.size.width, 15);
+        originFirstView.frame = CGRectMake(self.frame.size.width/2.0-15-5, self.frame.size.height-25, 5, 5);
+        originSecondView.frame = CGRectMake(self.frame.size.width/2.0, self.frame.size.height-25, 5, 5);
+        originthreeView.frame = CGRectMake(self.frame.size.width/2.0+15+5, self.frame.size.height-25, 5, 5);
+    }if (HEIGHT==667.0) {
+        self.releaseLable.frame = CGRectMake(0, self.frame.size.height - 65, self.frame.size.width, 15);
+        originFirstView.frame = CGRectMake(self.frame.size.width/2.0-15-5, self.frame.size.height-35, 5, 5);
+        originSecondView.frame = CGRectMake(self.frame.size.width/2.0, self.frame.size.height-35, 5, 5);
+        originthreeView.frame = CGRectMake(self.frame.size.width/2.0+15+5, self.frame.size.height-35, 5, 5);
+        
+    }if (HEIGHT == 736.0) {
+        self.releaseLable.frame = CGRectMake(0, self.frame.size.height - 70, self.frame.size.width, 15);
+        originFirstView.frame = CGRectMake(self.frame.size.width/2.0-15-5, self.frame.size.height-40, 5, 5);
+        originSecondView.frame = CGRectMake(self.frame.size.width/2.0, self.frame.size.height-40, 5, 5);
+        originthreeView.frame = CGRectMake(self.frame.size.width/2.0+15+5, self.frame.size.height-40, 5, 5);
+        
     }
+    
        
 }
 -(void)setValueCar:(findJobModel *)model
@@ -251,16 +291,16 @@
         self.dutyLable.frame =CGRectMake(15*MyWideth+90*MyWideth*(1%3)+((self.frame.size.width - 30*MyWideth-90*MyWideth*3)/2.0)*(1%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(4/3)+10*MyWideth*(4/3), 90*MyWideth, 27*MyWideth);
     }
     if (model.report.length == 4) {
-self.dutyLable.frame =CGRectMake(15*MyWideth+90*MyWideth*(1%3)+((self.frame.size.width - 30*MyWideth-90*MyWideth*3)/2.0)*(1%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(4/3)+10*MyWideth*(4/3), 90*MyWideth+25, 27*MyWideth);
+self.dutyLable.frame =CGRectMake(15*MyWideth+90*MyWideth*(1%3)+((self.frame.size.width - 30*MyWideth-90*MyWideth*3)/2.0)*(1%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(4/3)+10*MyWideth*(4/3), 90*MyWideth+30, 27*MyWideth);
         
     }
     if (model.report.length == 5) {
-       self.dutyLable.frame =CGRectMake(15*MyWideth+90*MyWideth*(1%3)+((self.frame.size.width - 30*MyWideth-90*MyWideth*3)/2.0)*(1%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(4/3)+10*MyWideth*(4/3), 90*MyWideth+40, 27*MyWideth);
+       self.dutyLable.frame =CGRectMake(15*MyWideth+90*MyWideth*(1%3)+((self.frame.size.width - 30*MyWideth-90*MyWideth*3)/2.0)*(1%3), (45*MyWideth+90*MyWideth+15*MyWideth+10*MyWideth+19+20*MyWideth+90*MyWideth+15*MyWideth)+27*MyWideth*(4/3)+10*MyWideth*(4/3), 90*MyWideth+45, 27*MyWideth);
         
     }
 
     //发布
-    self.releaseLable.text = [NSString stringWithFormat:@"发布：%@",model.sdate];
+    self.releaseLable.text = [NSString stringWithFormat:@"发布时间：%@",model.sdate];
     
 }
 

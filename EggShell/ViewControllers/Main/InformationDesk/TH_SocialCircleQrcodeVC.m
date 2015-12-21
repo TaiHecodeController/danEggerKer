@@ -26,6 +26,7 @@
     UITextView *detailView = [[UITextView alloc]init];
     detailView.frame = CGRectMake((WIDETH - 250)/2.0, CGRectGetMaxY(qrCodeImageView.frame)+10, 250, 200);
     detailView.text = self.content;
+    detailView.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:detailView];
     
     

@@ -853,6 +853,7 @@
         {
             NSLog(@"去学习");
             TH_ClassVC * class =  [[TH_ClassVC alloc] init];
+            class.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:class animated:YES];
 
             break;

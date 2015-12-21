@@ -321,8 +321,6 @@
 		F0C0678F1C03FDF000D1B22B /* TableViewCell_4.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C0678E1C03FDF000D1B22B /* TableViewCell_4.m */; };
 		F0C067921C0545D200D1B22B /* enterPriseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C067911C0545D200D1B22B /* enterPriseRequest.m */; };
 		F0C067951C05589800D1B22B /* cpy_ReciveResumeListMode.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C067941C05589800D1B22B /* cpy_ReciveResumeListMode.m */; };
-		F0D554891BF5B16300213311 /* test.pages in Resources */ = {isa = PBXBuildFile; fileRef = F0D554881BF5B16300213311 /* test.pages */; };
-		F0D5548B1BF5B1BE00213311 /* 工作总结.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F0D5548A1BF5B1BE00213311 /* 工作总结.pdf */; };
 		F0D7C02B1B7994DB00836DD2 /* OpenClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */; };
 		F0D7C0551B79C7B400836DD2 /* libpolyvSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C04C1B79C7B400836DD2 /* libpolyvSDK.a */; };
 		F0D7C0571B79CC4800836DD2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D7C0561B79CC4800836DD2 /* MobileCoreServices.framework */; };
@@ -942,8 +940,6 @@
 		F0C067911C0545D200D1B22B /* enterPriseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = enterPriseRequest.m; sourceTree = "<group>"; };
 		F0C067931C05589800D1B22B /* cpy_ReciveResumeListMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpy_ReciveResumeListMode.h; sourceTree = "<group>"; };
 		F0C067941C05589800D1B22B /* cpy_ReciveResumeListMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cpy_ReciveResumeListMode.m; sourceTree = "<group>"; };
-		F0D554881BF5B16300213311 /* test.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.pages; sourceTree = "<group>"; };
-		F0D5548A1BF5B1BE00213311 /* 工作总结.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "工作总结.pdf"; sourceTree = "<group>"; };
 		F0D7C0291B7994DB00836DD2 /* OpenClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenClassCell.h; sourceTree = "<group>"; };
 		F0D7C02A1B7994DB00836DD2 /* OpenClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenClassCell.m; sourceTree = "<group>"; };
 		F0D7C04B1B79C7B400836DD2 /* DownloadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadDelegate.h; sourceTree = "<group>"; };
@@ -1644,9 +1640,7 @@
 		9400330B1B8415B4001EB666 /* AboutEggshell */ = {
 			isa = PBXGroup;
 			children = (
-				F0D5548A1BF5B1BE00213311 /* 工作总结.pdf */,
 				94E2C95C1B86C112001E3FDD /* 蛋壳儿.doc */,
-				F0D554881BF5B16300213311 /* test.pages */,
 				9400330C1B8415B4001EB666 /* TH_AboutEggshellVC.h */,
 				9400330D1B8415B4001EB666 /* TH_AboutEggshellVC.m */,
 			);
@@ -2959,7 +2953,6 @@
 				94E7DCFB1B841D510093C39B /* Course PlayCell.xib in Resources */,
 				941F10171B7B3BCC00719F5B /* JobWishlistCell.xib in Resources */,
 				94E761B81BA27E0400B4C544 /* trainRead.xib in Resources */,
-				F0D5548B1BF5B1BE00213311 /* 工作总结.pdf in Resources */,
 				F0E970D61C0D439100FC21BC /* zuo1.png in Resources */,
 				94CB5B891B74CC0600B23B9D /* LICENSE in Resources */,
 				94E7DCF91B841D510093C39B /* CourePlaytitle.xib in Resources */,
@@ -2998,7 +2991,6 @@
 				94E95EEC1C17C1C7009FA049 /* findJobDetialScriptionView.xib in Resources */,
 				94313D351B7B46C2005D0A9A /* LoginView.xib in Resources */,
 				F0E970D21C0D439100FC21BC /* you3@3x.png in Resources */,
-				F0D554891BF5B16300213311 /* test.pages in Resources */,
 				F0E970E01C0D439100FC21BC /* 视频推荐默认图@2x.png in Resources */,
 				940032CE1B840CC3001EB666 /* ProfessionalCell.xib in Resources */,
 				F0E970DC1C0D439100FC21BC /* 组-4-拷贝.png in Resources */,

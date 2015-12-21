@@ -509,13 +509,13 @@
 //    _jobDescription.dutyLable.text = model.report;
     _jobDescription.dutyLableTime.text = [NSString stringWithFormat:@"到岗:%@",model.report];
     if (model.report.length == 4) {
-        _jobDescription.bgview.frame  =CGRectMake((WIDETH - 90)/3.0+45, 365, 105, 27);
+        _jobDescription.bgview.frame  =CGRectMake((WIDETH - 90)/3.0+45, 365, 110, 27);
         _jobDescription.dutyLableTime.frame =CGRectMake(0, 0, _jobDescription.bgview.frame.size.width, 27);
        _jobDescription.dutyLableTime.backgroundColor = UIColorFromRGB(0xF0F8FA);
         
     }
     if (model.report.length == 5) {
-        _jobDescription.bgview.frame  =CGRectMake((WIDETH - 90)/3.0+45, 365, 120, 27);
+        _jobDescription.bgview.frame  =CGRectMake((WIDETH - 90)/3.0+45, 365, 125, 27);
  _jobDescription.dutyLableTime.frame =CGRectMake(0, 0, _jobDescription.bgview.frame.size.width, 27);
         _jobDescription.dutyLableTime.backgroundColor = UIColorFromRGB(0xF0F8FA);
         

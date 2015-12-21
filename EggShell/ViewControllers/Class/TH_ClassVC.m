@@ -322,7 +322,7 @@
     headView.frame = CGRectMake(0, y, WIDETH, _headViewMaxY + 15 + marginView.frame.size.height + hotView.frame.size.height + 15);
     
     gap = 5;
-    self._gridView = [[MTGridView alloc]initWithFrame:CGRectMake(0, 44 - segHeight, WIDETH, HEIGHT - 44  - 90)];
+    self._gridView = [[MTGridView alloc]initWithFrame:CGRectMake(0, 44 - segHeight, WIDETH, HEIGHT  - 80)];
     self._gridView.delegate = self;
     self._gridView.dataSource = self;
     self._gridView.columnSpace = 20;

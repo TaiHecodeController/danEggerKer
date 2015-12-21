@@ -63,20 +63,32 @@
                                         <constraint firstAttribute="width" constant="0.5" id="ApY-Ca-1Pn"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10-15k" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLn-gR-zjx">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10-15k" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLn-gR-zjx">
                                     <rect key="frame" x="0.0" y="59" width="79" height="15"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="jZq-q2-2O4"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="工资" translatesAutoresizingMaskIntoConstraints="NO" id="Vi9-s0-g68">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="工资" translatesAutoresizingMaskIntoConstraints="NO" id="Vi9-s0-g68">
                                     <rect key="frame" x="32" y="22" width="15" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="15" id="Qh5-D8-Dhy"/>
+                                        <constraint firstAttribute="height" constant="22" id="UBX-Hc-xQ7"/>
+                                    </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="gxC-9l-efo" secondAttribute="trailing" id="4Oe-BB-TSo"/>
+                                <constraint firstItem="Vi9-s0-g68" firstAttribute="top" secondItem="zD8-60-0Kf" secondAttribute="top" constant="22" id="Crl-9v-qiP"/>
+                                <constraint firstAttribute="trailing" secondItem="aLn-gR-zjx" secondAttribute="trailing" id="Htg-Pg-42a"/>
                                 <constraint firstAttribute="bottom" secondItem="gxC-9l-efo" secondAttribute="bottom" constant="10" id="Ic6-xe-EoI"/>
+                                <constraint firstItem="Vi9-s0-g68" firstAttribute="centerX" secondItem="zD8-60-0Kf" secondAttribute="centerX" id="KNz-C8-lvt"/>
+                                <constraint firstItem="aLn-gR-zjx" firstAttribute="top" secondItem="Vi9-s0-g68" secondAttribute="bottom" constant="15" id="WnC-mA-KBb"/>
+                                <constraint firstItem="aLn-gR-zjx" firstAttribute="leading" secondItem="zD8-60-0Kf" secondAttribute="leading" id="XYL-mj-Kx0"/>
                                 <constraint firstAttribute="height" constant="90" id="aoj-6g-DiO"/>
                                 <constraint firstItem="gxC-9l-efo" firstAttribute="top" secondItem="zD8-60-0Kf" secondAttribute="top" constant="10" id="dTB-w6-jHD"/>
                             </constraints>
@@ -91,19 +103,31 @@
                                         <constraint firstAttribute="width" constant="0.5" id="up1-bS-3lI"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10年以上" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fod-O8-rkt">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10年以上" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fod-O8-rkt">
                                     <rect key="frame" x="0.0" y="59" width="79" height="15"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="vYU-Xb-Iio"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="经验" translatesAutoresizingMaskIntoConstraints="NO" id="iFs-nG-UnA">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="经验" translatesAutoresizingMaskIntoConstraints="NO" id="iFs-nG-UnA">
                                     <rect key="frame" x="31" y="22" width="17" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="22" id="lzO-VR-pe3"/>
+                                        <constraint firstAttribute="width" constant="17" id="tW9-8t-0ND"/>
+                                    </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="iFs-nG-UnA" firstAttribute="centerX" secondItem="CYE-wB-GEk" secondAttribute="centerX" id="43L-yR-IiU"/>
+                                <constraint firstItem="iFs-nG-UnA" firstAttribute="top" secondItem="CYE-wB-GEk" secondAttribute="top" constant="22" id="4hN-P3-23d"/>
+                                <constraint firstItem="fod-O8-rkt" firstAttribute="top" secondItem="iFs-nG-UnA" secondAttribute="bottom" constant="15" id="BfF-P2-pSk"/>
+                                <constraint firstItem="fod-O8-rkt" firstAttribute="leading" secondItem="CYE-wB-GEk" secondAttribute="leading" id="IWT-f0-tGf"/>
                                 <constraint firstAttribute="trailing" secondItem="YEc-a0-VYt" secondAttribute="trailing" id="Moo-Mw-cug"/>
+                                <constraint firstAttribute="trailing" secondItem="fod-O8-rkt" secondAttribute="trailing" id="WtE-O2-FNw"/>
                                 <constraint firstItem="YEc-a0-VYt" firstAttribute="top" secondItem="CYE-wB-GEk" secondAttribute="top" constant="10" id="YkI-4M-i99"/>
                                 <constraint firstAttribute="bottom" secondItem="YEc-a0-VYt" secondAttribute="bottom" constant="10" id="hrw-Fc-IGm"/>
                                 <constraint firstAttribute="height" constant="90" id="vs1-kw-336"/>
@@ -112,8 +136,11 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyC-rr-1aw" userLabel="threeView">
                             <rect key="frame" x="172" y="1.5" width="79" height="90"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="硕士" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AB-hK-gtG">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="硕士" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AB-hK-gtG">
                                     <rect key="frame" x="0.0" y="59" width="79" height="15"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="zPH-A4-GMf"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -125,34 +152,55 @@
                                         <constraint firstAttribute="width" constant="0.5" id="Nkd-1o-6NS"/>
                                     </constraints>
                                 </view>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="学历" translatesAutoresizingMaskIntoConstraints="NO" id="GYp-As-2yA">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="学历" translatesAutoresizingMaskIntoConstraints="NO" id="GYp-As-2yA">
                                     <rect key="frame" x="28" y="22" width="22" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="22" id="BbA-4i-4I9"/>
+                                        <constraint firstAttribute="height" constant="22" id="IyC-Gk-Dku"/>
+                                    </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="MBL-c9-6AO" secondAttribute="bottom" constant="10" id="FB1-hH-mfV"/>
+                                <constraint firstItem="GYp-As-2yA" firstAttribute="centerX" secondItem="jyC-rr-1aw" secondAttribute="centerX" id="IaA-HR-uHz"/>
                                 <constraint firstItem="MBL-c9-6AO" firstAttribute="top" secondItem="jyC-rr-1aw" secondAttribute="top" constant="10" id="Iwx-Df-v46"/>
+                                <constraint firstItem="GYp-As-2yA" firstAttribute="top" secondItem="jyC-rr-1aw" secondAttribute="top" constant="22" id="L64-eS-qi3"/>
                                 <constraint firstAttribute="trailing" secondItem="MBL-c9-6AO" secondAttribute="trailing" id="aoq-Cy-mfO"/>
+                                <constraint firstAttribute="trailing" secondItem="3AB-hK-gtG" secondAttribute="trailing" id="caf-b9-rkO"/>
+                                <constraint firstItem="3AB-hK-gtG" firstAttribute="leading" secondItem="jyC-rr-1aw" secondAttribute="leading" id="dgU-0k-BeQ"/>
+                                <constraint firstItem="3AB-hK-gtG" firstAttribute="top" secondItem="GYp-As-2yA" secondAttribute="bottom" constant="15" id="lzQ-Z9-fcC"/>
                                 <constraint firstAttribute="height" constant="90" id="zv8-Dv-cog"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxR-BH-Ect" userLabel="fourthView">
                             <rect key="frame" x="251" y="1.5" width="79" height="90"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="北京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBM-3n-Cot">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBM-3n-Cot">
                                     <rect key="frame" x="0.0" y="59" width="79" height="15"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="xJI-c9-WxC"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="地址" translatesAutoresizingMaskIntoConstraints="NO" id="Nx8-Hc-gs8">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="地址" translatesAutoresizingMaskIntoConstraints="NO" id="Nx8-Hc-gs8">
                                     <rect key="frame" x="31" y="22" width="16" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="22" id="Fea-Nf-x9y"/>
+                                        <constraint firstAttribute="width" constant="16" id="zbt-Cd-hXx"/>
+                                    </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="yBM-3n-Cot" firstAttribute="top" secondItem="Nx8-Hc-gs8" secondAttribute="bottom" constant="15" id="85z-sY-pGe"/>
+                                <constraint firstItem="yBM-3n-Cot" firstAttribute="leading" secondItem="jxR-BH-Ect" secondAttribute="leading" id="AFC-nI-wWS"/>
                                 <constraint firstAttribute="height" constant="90" id="P9f-RJ-WiS"/>
+                                <constraint firstAttribute="trailing" secondItem="yBM-3n-Cot" secondAttribute="trailing" id="bBQ-Jp-f1l"/>
+                                <constraint firstItem="Nx8-Hc-gs8" firstAttribute="centerX" secondItem="jxR-BH-Ect" secondAttribute="centerX" id="fYk-A9-nPn"/>
+                                <constraint firstItem="Nx8-Hc-gs8" firstAttribute="top" secondItem="jxR-BH-Ect" secondAttribute="top" constant="22" id="qDP-Ve-zEv"/>
                             </constraints>
                         </view>
                     </subviews>
