@@ -111,10 +111,12 @@
 
     __weak typeof (self) weakSelf = self;
     
-    _state = [[OpenClassVideoListRequest requestWithSucc:^(NSDictionary *DataDic) {
+    _state = [[OpenClassVideoListRequest requestWithSucc:^(NSDictionary *DataDic)
+    {
         
                 [weakSelf.dataArray addObjectsFromArray:[weakSelf getArray:DataDic[@"list"] length:2]];
-        if (![DataDic[@"list"] count]>0) {
+        if (![DataDic[@"list"] count]>0)
+        {
             [MBProgressHUD creatembHub:@"暂无更多数据" ControllerView:self];
         }
                 [weakSelf._gridView reloadData];
@@ -322,10 +324,12 @@
     headView.frame = CGRectMake(0, y, WIDETH, _headViewMaxY + 15 + marginView.frame.size.height + hotView.frame.size.height + 15);
     
     gap = 5;
+
     self._gridView = [[MTGridView alloc]initWithFrame:CGRectMake(0, 44 - segHeight, WIDETH, HEIGHT  - 80)];
+
     self._gridView.delegate = self;
     self._gridView.dataSource = self;
-    self._gridView.columnSpace = 20;
+    self._gridView.columnSpace = 25;
     self._gridView.rowSpace = 15;
     self._gridView.paddingEdge = UIEdgeInsetsMake(0, 20, 0, 20);
     [self.view addSubview:self._gridView];
