@@ -205,6 +205,7 @@
     //2.需要version,trackViewUrl,trackName三个数据
     NSString * latestVersion = [infoDic objectForKey:@"version"];
     _trackViewUrl = [infoDic objectForKey:@"trackViewUrl"];//地址trackViewUrl
+    
     NSString * trackName = [infoDic objectForKey:@"trackName"];
     
     //3.获取此应用的版本号

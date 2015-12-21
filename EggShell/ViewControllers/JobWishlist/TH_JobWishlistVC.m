@@ -545,8 +545,11 @@
             }
         }
        
+        
         if ([str isEqualToString:@""]) {
-            [MBProgressHUD creatembHub:@"请选择你要申请的职位" ControllerView:self];
+            [MBProgressHUD creatembHub:@"请选择你要删除的职位" ControllerView:self];
+            
+            
             return;
         }
         [TH_AFRequestState deleteSQJobWithSucc:^(NSDictionary *DataArr) {
@@ -574,7 +577,10 @@
                 [str appendString:str1];
             }
         }
-        
+        if ([str isEqualToString:@""]) {
+            [MBProgressHUD creatembHub:@"请选择你要删除的职位" ControllerView:self];
+            return;
+        }
         [TH_AFRequestState deleteJobWithSucc:^(NSDictionary *DataArr) {
             
             _page = 1;

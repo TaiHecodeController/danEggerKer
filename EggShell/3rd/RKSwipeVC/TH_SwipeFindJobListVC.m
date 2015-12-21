@@ -72,6 +72,8 @@
     [searchBtn addTarget:self action:@selector(searchBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.navigationBar addSubview:searchBtn];
     _searchBtn = searchBtn;
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -122,7 +124,7 @@
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barBtnItemWithNormalImageName:@"liebiao" hightImageName:nil action:@selector(rightClick) target:self];
     //    self.view.clipsToBounds = YES;
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);
     
     //不感兴趣图片
     self.cancelView = [[UIImageView alloc]init];
@@ -238,7 +240,13 @@
                                metrics:metrics
                                views:NSDictionaryOfVariableBindings(
                                                                     swipeableView)]];
-    
+    //指示器
+    UIImageView * noDataImageView = [[UIImageView alloc] initWithFrame:CGRectMake((WIDETH - 172)/2.0, (HEIGHT - 275)/2.0-64, 172, 275)];
+       noDataImageView.image = [UIImage imageNamed:@"nodata"];
+    [self.view addSubview:noDataImageView];
+    self.noDataImageView = noDataImageView;
+    self.noDataImageView.hidden = YES;
+
 }
 
 -(void)taphide
@@ -473,27 +481,33 @@
     
     //取出jobArr对应模型，对子控件进行赋值操作
     
-    //    if (self.jobArr.count > 0)
-    //    {
-    if (self.jobArr.count > 0 && self.colorIndex <= self.jobArr.count)
-    {
+
+//    if (self.jobArr.count > 0)
+//    {
+        if (self.jobArr.count > 0 && self.colorIndex <= self.jobArr.count)
+        {
+            
+            findJobModel * model = self.jobArr[self.colorIndex - 1];
+            //添加一个标签试试
+            findJobCarViewS *fjcV = [[findJobCarViewS alloc] initWithFrame:CGRectMake(0,0,view.frame.size.width,  view.frame.size.height)];
+            fjcV.layer.borderWidth = 0.6;
+            fjcV.layer.borderColor = UIColorFromRGB(0xE3E3E3).CGColor;
+         
+            fjcV.backgroundColor = [UIColor whiteColor];
+            [fjcV setValueCar:model];
+            
+            //保存uid job_id
+            self.rk_uid = [NSString stringWithFormat:@"%@",model.uid];
+            self.rk_job_id = [NSString stringWithFormat:@"%@",model.job_id];
+            
+//            NSLog(@"job_id:%@",model.job_id);
+            
+//            fjcV.frame = CGRectMake(0,0,view.frame.size.width,  view.frame.size.height);
+            [view addSubview:fjcV];
+            
+        }
+
         
-        findJobModel * model = self.jobArr[self.colorIndex - 1];
-        //添加一个标签试试
-        findJobCarViewS *fjcV = [[findJobCarViewS alloc] initWithFrame:CGRectMake(0,0,view.frame.size.width,  view.frame.size.height)];
-        fjcV.backgroundColor = [UIColor whiteColor];
-        [fjcV setValueCar:model];
-        
-        //保存uid job_id
-        self.rk_uid = [NSString stringWithFormat:@"%@",model.uid];
-        self.rk_job_id = [NSString stringWithFormat:@"%@",model.job_id];
-        
-        //            NSLog(@"job_id:%@",model.job_id);
-        
-        //            fjcV.frame = CGRectMake(0,0,view.frame.size.width,  view.frame.size.height);
-        [view addSubview:fjcV];
-        
-    }
     
     //当colorIndex = 9时，走这个方法。大于8，每页的条数
     if (self.colorIndex > self.jobArr.count && self.jobArr.count > 0)
