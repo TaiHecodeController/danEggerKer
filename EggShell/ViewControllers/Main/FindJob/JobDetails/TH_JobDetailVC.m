@@ -355,23 +355,24 @@
     _header.delegate = self;
     _header.scrollView = self.tableView;
     
-//    _footer = [MJRefreshFooterView footer];
-//    _footer.delegate = self;
-//    _footer.scrollView = self.tableView;
+    _footer = [MJRefreshFooterView footer];
+    _footer.delegate = self;
+    _footer.scrollView = self.tableView;
 }
 
 -(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
-    if(refreshView == _header)
-    {
-        _page = 1;
-        [self loadData:_mbPro page:_page];
-    }
-//    else
+    [refreshView endRefreshing];
+//    if(refreshView == _header)
 //    {
-//        _page ++;
-//        [self loadData:refreshView page:_page];
+//        _page = 1;
+//        [self loadData:_mbPro page:_page];
 //    }
+////    else
+////    {
+////        _page ++;
+////        [self loadData:refreshView page:_page];
+////    }
 }
 
 -(void)dealloc
