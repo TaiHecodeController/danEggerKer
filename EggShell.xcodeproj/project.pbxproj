@@ -1410,16 +1410,8 @@
 			isa = PBXGroup;
 			children = (
 				94E5E5E81C085A6800CF60A0 /* Mine */,
-				04A483D91B78AE19006FDB9D /* Home */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		04A483D91B78AE19006FDB9D /* Home */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		940032961B840736001EB666 /* VersionUpdate */ = {
