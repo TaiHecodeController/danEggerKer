@@ -57,6 +57,8 @@
 @property (nonatomic, copy) NSString *rk_uid;
 @property (nonatomic, copy) NSString *rk_job_id;
 @property(nonatomic,strong)UIImageView * noDataImageView;
+//叠层
+@property (nonatomic, strong) UIImageView *superPositionIcon;
 @end
 
 @implementation TH_SwipeFindJobListVC
@@ -84,6 +86,8 @@
     superPositionIcon.image = [UIImage imageNamed:@"背景"];
     superPositionIcon.frame = CGRectMake(15+4, CGRectGetMaxY(self.swipeableView.frame), self.swipeableView.frame.size.width - 8, 10);
     [self.view insertSubview:superPositionIcon atIndex:0];
+    self.superPositionIcon = superPositionIcon;
+//    self.superPositionIcon.hidden = YES;
     
 }
 
@@ -218,8 +222,7 @@
     self.swipeableView.backgroundColor =[UIColor  whiteColor];
     self.swipeableView.allowedDirection = ZLSwipeableViewDirectionHorizontal;
     [self.view addSubview:self.swipeableView];
-    
-    
+    self.swipeableView.hidden = YES;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick)];
     [self.swipeableView addGestureRecognizer:tap];
@@ -232,7 +235,7 @@
     self.swipeableView.translatesAutoresizingMaskIntoConstraints = NO;
     
     //autolayout自动布局,布局swipeableView
-    NSDictionary *metrics = @{};
+    NSDictionary *metrics = @{@"superPositionIconHeight":@10,@"padding":@19,@"y":@100};
     [self.view addConstraints:[NSLayoutConstraint
                                constraintsWithVisualFormat:@"|-15-[swipeableView]-15-|"
                                options:0
@@ -247,6 +250,7 @@
                                metrics:metrics
                                views:NSDictionaryOfVariableBindings(
                                                                     swipeableView)]];
+    
     //指示器
     UIImageView * noDataImageView = [[UIImageView alloc] initWithFrame:CGRectMake((WIDETH - 172)/2.0, (HEIGHT - 275)/2.0-64, 172, 275)];
        noDataImageView.image = [UIImage imageNamed:@"nodata"];
@@ -254,8 +258,6 @@
     self.noDataImageView = noDataImageView;
     self.noDataImageView.hidden = YES;
     
-    
-
 }
 
 -(void)taphide
@@ -288,6 +290,9 @@
         
         if (DataArr.count > 0)
         {
+            self.swipeableView.hidden = NO;
+//            self.superPositionIcon.hidden = NO;
+            
             NSLog(@"DataArr:%@",DataArr);
             [self.jobArr removeAllObjects];
             [self.jobArr addObjectsFromArray:DataArr];
@@ -515,23 +520,18 @@
             [view addSubview:fjcV];
             
         }
-
-        
     
     //当colorIndex = 9时，走这个方法。大于8，每页的条数
     if (self.colorIndex > self.jobArr.count && self.jobArr.count > 0)
     {
+        self.swipeableView.hidden = YES;
+//        self.superPositionIcon.hidden = YES;
+        
         self.colorIndex = 0;
         [self.jobArr removeAllObjects];
-        //            [self.swipeableView discardAllViews];
         
         self.page ++;
         [self loadData:_mbPro page:self.page];
-        
-        //            if (self.colorIndex >self.jobArr.count && self.jobArr.count < 8)
-        //            {
-        //                NSLog(@"~~~~~~~~~~~~~~~~没有数据啦~~~~~~~~~~~~~~~~~~~~~~~~");
-        //            }
         
     }
     else
