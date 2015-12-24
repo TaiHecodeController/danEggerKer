@@ -144,12 +144,13 @@
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     manager.requestSerializer.timeoutInterval = 8.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation * operation, id responseObject)
      {
          
          [self handleResponse:responseObject Succ:succ Fail:fail Resp:resp State:State];
          
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     }failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {
          NSNumber * errcode = [NSNumber numberWithInteger:error.code];
          fail([errcode intValue],error);

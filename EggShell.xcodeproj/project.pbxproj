@@ -269,12 +269,10 @@
 		94EFC1C41B7D8F6900833068 /* TH_AFRequestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EFC1C31B7D8F6900833068 /* TH_AFRequestState.m */; };
 		94EFC1C81B7DC65200833068 /* playFanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EFC1C71B7DC65200833068 /* playFanModel.m */; };
 		CA3D16A93CCBDD012A68A6C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37454D869BE49FA62A71A04C /* libPods.a */; };
-		F013B6951BFC08420032F232 /* libPushSDK-1.8.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F013B6941BFC08420032F232 /* libPushSDK-1.8.8.a */; };
 		F013B6971BFC086A0032F232 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F013B6961BFC086A0032F232 /* CFNetwork.framework */; };
 		F013B6991BFC087D0032F232 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F013B6981BFC087D0032F232 /* CoreFoundation.framework */; };
 		F013B69B1BFC088A0032F232 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F013B69A1BFC088A0032F232 /* CoreTelephony.framework */; };
 		F013B69D1BFC08C90032F232 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F013B69C1BFC08C90032F232 /* libz.tbd */; };
-		F013B69F1BFC098C0032F232 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = F013B69E1BFC098C0032F232 /* PushConfig.plist */; };
 		F01787A61B958C15005FF9C4 /* JobDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F01787A51B958C15005FF9C4 /* JobDetailModel.m */; };
 		F01787A91B9592A0005FF9C4 /* companyInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F01787A81B9592A0005FF9C4 /* companyInformationModel.m */; };
 		F01787AC1B95938A005FF9C4 /* jobDetailModel_Arr3.m in Sources */ = {isa = PBXBuildFile; fileRef = F01787AB1B95938A005FF9C4 /* jobDetailModel_Arr3.m */; };
@@ -842,13 +840,10 @@
 		94EFC1C61B7DC65200833068 /* playFanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playFanModel.h; sourceTree = "<group>"; };
 		94EFC1C71B7DC65200833068 /* playFanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playFanModel.m; sourceTree = "<group>"; };
 		A209E6A9E258BA344FA95EF1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		F013B6931BFC08420032F232 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
-		F013B6941BFC08420032F232 /* libPushSDK-1.8.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.8.a"; sourceTree = "<group>"; };
 		F013B6961BFC086A0032F232 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		F013B6981BFC087D0032F232 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		F013B69A1BFC088A0032F232 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F013B69C1BFC08C90032F232 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		F013B69E1BFC098C0032F232 /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		F01787A41B958C15005FF9C4 /* JobDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobDetailModel.h; sourceTree = "<group>"; };
 		F01787A51B958C15005FF9C4 /* JobDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailModel.m; sourceTree = "<group>"; };
 		F01787A71B9592A0005FF9C4 /* companyInformationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = companyInformationModel.h; path = ../../FindJobModel/companyInformationModel.h; sourceTree = "<group>"; };
@@ -1018,7 +1013,6 @@
 				94E3EA881B8E98CC007A699E /* MessageUI.framework in Frameworks */,
 				94E3EA861B8E98B6007A699E /* UIKit.framework in Frameworks */,
 				F0EEABC51BA7CB5D0023A075 /* libMobClickLibrary.a in Frameworks */,
-				F013B6951BFC08420032F232 /* libPushSDK-1.8.8.a in Frameworks */,
 				94E3EA801B8E97FF007A699E /* OpenGLES.framework in Frameworks */,
 				94E3EA7E1B8E97F3007A699E /* QuartzCore.framework in Frameworks */,
 				94E3EA7C1B8E97E4007A699E /* CoreLocation.framework in Frameworks */,
@@ -1133,7 +1127,6 @@
 			isa = PBXGroup;
 			children = (
 				F05FC64E1C167F7200F0A5BE /* RKSwipeVC */,
-				F013B6921BFC08420032F232 /* lib */,
 				94CB30401BA5169700577FE6 /* IQKeyBoardManager */,
 				F07F38FE1B993B60002531CD /* Base64 */,
 				94E3EA8E1B8EB520007A699E /* internet */,
@@ -2525,16 +2518,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		F013B6921BFC08420032F232 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				F013B6931BFC08420032F232 /* APService.h */,
-				F013B6941BFC08420032F232 /* libPushSDK-1.8.8.a */,
-				F013B69E1BFC098C0032F232 /* PushConfig.plist */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
 		F01787A31B958C01005FF9C4 /* JobDetailModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -2967,7 +2950,6 @@
 				F0E970CF1C0D439100FC21BC /* chazi@3x.png in Resources */,
 				94E2C9E41B8B0BEE001E3FDD /* education.xib in Resources */,
 				94E2C9E81B8B1416001E3FDD /* project.xib in Resources */,
-				F013B69F1BFC098C0032F232 /* PushConfig.plist in Resources */,
 				949CAA141BB2540100284FFF /* EducationWriteCell.xib in Resources */,
 				94313DC21B7CAAED005D0A9A /* InformationDeskCell.xib in Resources */,
 				940EDEE51B96E38B00376D37 /* WorkExReading.xib in Resources */,

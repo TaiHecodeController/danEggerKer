@@ -77,6 +77,12 @@
     self.viewAnimator = [[DefaultViewAnimator alloc] init];
     self.swipingDeterminator = [[DefaultShouldSwipeDeterminator alloc] init];
     self.directionInterpretor = [[DefaultDirectionInterpretor alloc] init];
+    
+//        UIImageView *icon = [[UIImageView alloc]init];
+//        icon.backgroundColor = [UIColor blackColor];
+//        icon.frame = CGRectMake(0, self.frame.size.height, self.frame.size.width, 10);
+//        [self addSubview:icon];
+
 }
 
 - (void)layoutSubviews {

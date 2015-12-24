@@ -36,8 +36,8 @@
 
 - (void)setup {
     // Shadow
-    self.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.layer.shadowOpacity = 0.33;
+//    self.layer.shadowColor = [UIColor blackColor].CGColor;
+//    self.layer.shadowOpacity = 0.33;
     self.layer.shadowOffset = CGSizeMake(0, 1.5);
     self.layer.shadowRadius = 4.0;
     self.layer.shouldRasterize = YES;
@@ -45,6 +45,11 @@
 
     // Corner Radius
     self.layer.cornerRadius = 10.0;
+    
+//    UIImageView *icon = [[UIImageView alloc]init];
+//    icon.backgroundColor = [UIColor blackColor];
+//    icon.frame = CGRectMake(0, self.frame.size.height, self.frame.size.width, 10);
+//    [self addSubview:icon];
 }
 
 @end

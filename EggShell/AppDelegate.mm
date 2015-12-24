@@ -13,7 +13,6 @@
 #import <BaiduMapAPI/BMKMapManager.h>
 #import "IQTitleBarButtonItem.h"
 #import "MobClick.h"
-#import "APService.h"
 #import "TH_PlayFanVC.h"
 #import "EnterpriseDetailVC.h"
 #import "SearchModelShare.h"
@@ -34,25 +33,6 @@
     self.window.rootViewController = [UIViewController new];
     [self.window makeKeyAndVisible];
     
-//    /************************/
-//    // Required
-//    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
-//        //可以添加自定义categories
-//        [APService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
-//                                                       UIUserNotificationTypeSound |
-//                                                       UIUserNotificationTypeAlert)
-//                                           categories:nil];
-//    } else {
-//        //categories 必须为nil
-//        [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-//                                                       UIRemoteNotificationTypeSound |
-//                                                       UIRemoteNotificationTypeAlert)
-//                                           categories:nil];
-//    }
-//    
-//    // Required
-//    [APService setupWithOption:launchOptions];
-    
     //注册友盟统计
     [MobClick startWithAppkey:@"55f24438e0f55aa7af001c3d" reportPolicy:BATCH   channelId:nil];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
@@ -68,7 +48,7 @@
     BOOL ret = [_mapManager start:@"VETGQ5nQXBXtGt0VHhIetQuh" generalDelegate:self];
     if (ret)
     {
-        NSLog(@"配置成功");
+        THLog(@"配置成功");
     }
     
     NSString *key = @"CFBundleVersion";
@@ -114,43 +94,6 @@
     return YES;
     
 }
-
-////远程通知回调
-//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-//    
-//    // Required
-//    [APService registerDeviceToken:deviceToken];
-//}
-
-//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-//    
-//    // Required
-//    [APService handleRemoteNotification:userInfo];
-//}
-
-//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-//    // IOS 7 Support Required
-//    [APService handleRemoteNotification:userInfo];
-//    
-//    self.window.rootViewController = self.mainTabBar;
-//    NSLog(@"userinfo%@",userInfo);
-//    if (application.applicationState == UIApplicationStateActive) {
-//       //app在前台时，展示推送消息
-//        NSString * str = [NSString stringWithFormat:@"收到新消息%@",userInfo[@"aps"][@"alert"]];
-//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:str delegate:self cancelButtonTitle:@"点击查看" otherButtonTitles: nil];
-//    [alert show];
-//        self.pushDic = userInfo;
-//    alert.tag = 1001;
-//    }else
-//    {
-////        self.mainTabBar = [[TH_MainTabBarController alloc] init];
-////        
-////        self.window.rootViewController = self.mainTabBar;
-//    
-//    [[NSNotificationCenter defaultCenter]postNotificationName:@"jgPush" object:self userInfo:userInfo];
-//        
-//    }
-//    }
 
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
@@ -236,32 +179,6 @@
         
         
     }
-//    if (alertView.tag == 1001)
-//    {
-//        if (buttonIndex == 0)
-//        {
-//
-//            [[NSNotificationCenter defaultCenter]postNotificationName:@"jgPush" object:self userInfo:self.pushDic];
-//            
-//            //跳转到需要的控制器
-////            TH_PlayFanVC *vc = [[TH_PlayFanVC alloc]init];
-//////            self.window.rootViewController.navigationController.navigationBarHidden = NO;
-//////            [self.mainTabBar.selectedViewController pushViewController:vc animated:YES];
-////            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
-//            
-//
-//        }
-//    }
-//    else
-//    {
-//        if(buttonIndex == 1)
-//        {
-//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_trackViewUrl]];
-//            
-//            
-//        }
-//    }
-//    
 }
 
 - (void)initPloyVideo
@@ -292,15 +209,12 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    //设置jPush后台badge为0
-    [APService resetBadge];
+   
 }
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
      [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    //设置jPush后台badge为0
-    [APService resetBadge];
+
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

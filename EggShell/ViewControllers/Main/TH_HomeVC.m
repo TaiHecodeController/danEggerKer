@@ -88,9 +88,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    THLog(@"~~~~~%s",__func__);
-    
+        
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(test:) name:@"jgPush" object:nil];
     
     //网络判断
@@ -105,7 +103,6 @@
     }
     else
     {
-        NSLog(@"当前是wifi状态");
         [MBProgressHUD creatembHub:@"您当前处于wifi网络"];
     }
     //状态栏
