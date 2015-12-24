@@ -373,12 +373,12 @@
             NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
             NSDictionary *param = @{@"eid":resumeid,@"uid":[df objectForKey:@"uid"]};
             
-            [WriteResumeRequest user_resumeWithSucc:^(NSDictionary *dataDic) {
+            [[WriteResumeRequest user_resumeWithSucc:^(NSDictionary *dataDic) {
                 
                 NSLog(@"%@",dataDic);
                 [MBProgressHUD creatembHub:@"使用成功"];
                 
-            } withParam:param];
+            } withParam:param] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
         }
         else
         {

@@ -472,7 +472,7 @@
             [MBProgressHUD creatembHub:@"请选择你要申请的职位" ControllerView:self];
             return;
         }
-        [TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
+        [[TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
             
             //返回的是投递成功的数量
 //            NSLog(@"%@",DataArr);
@@ -519,7 +519,7 @@
 //            [self addAlertView];
             
             
-        } withUid:6 job_id:job_idStr resp:[NSObject class]];
+        } withUid:6 job_id:job_idStr resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
         
     }
     
@@ -552,7 +552,7 @@
             
             return;
         }
-        [TH_AFRequestState deleteSQJobWithSucc:^(NSDictionary *DataArr) {
+        [[TH_AFRequestState deleteSQJobWithSucc:^(NSDictionary *DataArr) {
             
             _page = 1;
             [_jobArr removeAllObjects];
@@ -562,7 +562,7 @@
             
         } withfail:^(int errCode, NSError *err) {
             
-        } withUid:nil job_idStr:str resp:[NSObject class]];
+        } withUid:nil job_idStr:str resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 
     }
     else

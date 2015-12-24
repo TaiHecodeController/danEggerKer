@@ -20,7 +20,7 @@
 
 @interface TH_TalentPoolVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
-    MBProgressHUD * _mbPro;
+    THMBProgressHubView * _mbPro;
 }
 
 @property (nonatomic, strong) UITableView *tableview_1;
@@ -77,7 +77,7 @@
     _footer.scrollView = _tableview_1;
 
     _page = 1;
-    _mbPro = [MBProgressHUD mbHubShow];
+    _mbPro = [MBProgressHUD mbHubShowMBProgressHubView:self];
     [self querDataWithcomid:1869 pageIndex:_page page:pageNum noti:_mbPro];
 }
 

@@ -23,7 +23,7 @@
 
 @interface ZLSwipeableViewController ()
 {
-     MBProgressHUD * _mbPro;
+     THMBProgressHubView * _mbPro;
 }
 
 @property (nonatomic, strong) NSArray *colors;
@@ -110,7 +110,7 @@
 
     //初始化职位数组，查询数据库
     self.jobArr = [[NSMutableArray alloc]init];
-    _mbPro = [MBProgressHUD mbHubShow];
+    _mbPro = [MBProgressHUD mbHubShowMBProgressHubView:self];
     self.page = 1;
     [self loadData:_mbPro page:self.page];
     

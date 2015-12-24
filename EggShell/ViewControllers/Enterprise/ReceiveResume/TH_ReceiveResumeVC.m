@@ -25,7 +25,7 @@
 
 @interface TH_ReceiveResumeVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
-    MBProgressHUD * _mbPro;
+    THMBProgressHubView * _mbPro;
 }
 
 //顶部四个按钮
@@ -141,7 +141,7 @@
     _footer = [MJRefreshFooterView footer];
     _footer.delegate = self;
     
-    _mbPro = [MBProgressHUD mbHubShow];
+    _mbPro = [MBProgressHUD mbHubShowMBProgressHubView:self];
     _page = 1;
     [self querDataWithNoti:_mbPro uid:@"72" browse:1 pageIndex:_page page:pageNum];
     
@@ -596,7 +596,7 @@
             }
             
             
-        } eid:[model.eid  intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid  intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 
     }
     else if (_tableViewTag == 1002)
@@ -618,7 +618,7 @@
                 
             }
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue]com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue]com_id:72] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 
     }
     else if (_tableViewTag == 1003)
@@ -641,7 +641,7 @@
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 
     }
     else
@@ -664,7 +664,7 @@
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 
     }
 
@@ -698,7 +698,7 @@
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
         
     }
     else if (_tableViewTag == 1002)
@@ -722,7 +722,7 @@
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
     }
     else if (_tableViewTag == 1003)
     {
@@ -745,7 +745,7 @@
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
     }
     else
     {
@@ -767,7 +767,7 @@
                 
             }
 
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
     }
 
 }
@@ -796,7 +796,7 @@
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
         
     }
     else if (_tableViewTag == 1002)
@@ -819,7 +819,7 @@
             }
 
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 
         
     }
@@ -842,7 +842,7 @@
                 
             }
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 
     }
     else
@@ -864,7 +864,7 @@
                 
             }
             
-        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShow]];
+        } eid:[model.eid intValue] job_id:[model.job_id intValue] com_id:72] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
     
     }
 
