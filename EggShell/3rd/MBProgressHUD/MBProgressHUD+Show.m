@@ -78,4 +78,13 @@
     [controllerView.view addSubview:ProgressHubView];
     return ProgressHubView;
 }
++(THMBProgressHubView *)mbHubShowMBProgressHubViewwindow
+{
+    AppDelegate * app = [AppDelegate instance];
+    UIWindow * window = app.window;
+    THMBProgressHubView*  ProgressHubView = [[THMBProgressHubView alloc]initWithFrame:CGRectMake(WIDETH/2-36, HEIGHT/2-45*MyWideth-64*MyWideth, 79, 90)];
+    //    [ProgressHubView startAnimationWithText:@"正在加载"];
+    [window addSubview:ProgressHubView];
+    return ProgressHubView;
+}
 @end

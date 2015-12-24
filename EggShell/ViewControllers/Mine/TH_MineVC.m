@@ -54,7 +54,7 @@
     self.title = @"我的";
     [self createScro];
     [self createView];
-    [self baseIofomationLogin];
+//    [self baseIofomationLogin];
   
 }
 -(void)baseIofomationLogin
