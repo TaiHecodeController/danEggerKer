@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tu" translatesAutoresizingMaskIntoConstraints="NO" id="h0I-Tw-I5e">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoSencond" translatesAutoresizingMaskIntoConstraints="NO" id="h0I-Tw-I5e">
                         <rect key="frame" x="15" y="15" width="124" height="70"/>
                         <animations/>
                         <constraints>
@@ -117,7 +117,7 @@
     </objects>
     <resources>
         <image name="dizhi" width="10" height="12"/>
-        <image name="tu" width="124" height="71"/>
+        <image name="logoSencond" width="594" height="334"/>
         <image name="zhubanfang" width="8" height="12"/>
     </resources>
 </document>

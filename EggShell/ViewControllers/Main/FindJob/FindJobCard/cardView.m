@@ -23,7 +23,7 @@
 {
     //职位图片
     self.JobLogoImageView  =[[UIImageView alloc] initWithFrame:CGRectMake((WIDETH - 100*MyWideth)/2.0, 45*MyWideth, 100*MyWideth, 90*MyWideth)];
-    self.JobLogoImageView.image = [UIImage imageNamed:@"tu"];
+    self.JobLogoImageView.image = [UIImage imageNamed:@"logoSencond"];
     [self addSubview:self.JobLogoImageView];
     //职位
     self.JobNameLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 45*MyWideth+90*MyWideth+15*MyWideth, WIDETH, 19)];

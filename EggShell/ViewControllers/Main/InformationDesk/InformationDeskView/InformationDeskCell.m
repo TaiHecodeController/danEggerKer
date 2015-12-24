@@ -26,7 +26,7 @@
     
     self.name.text = model.title;
     
-    [self.logoImage sd_setImageWithURL:[NSURL URLWithString:model.logo]placeholderImage:[UIImage imageNamed:@"tu"]];
+    [self.logoImage sd_setImageWithURL:[NSURL URLWithString:model.logo]placeholderImage:[UIImage imageNamed:@"logoSencond"]];
     self.addressLable.text = model.address;
     self.homeLable.text = model.organizers;
 //    self.timeLable.text = model.starttime;
@@ -43,7 +43,7 @@
     self.homeLable.hidden = YES;
     
     self.name.text = model.title;
-    [self.logoImage sd_setImageWithURL:[NSURL URLWithString:model.logo]placeholderImage:[UIImage imageNamed:@"tu"]];
+    [self.logoImage sd_setImageWithURL:[NSURL URLWithString:model.logo]placeholderImage:[UIImage imageNamed:@"logoSencond"]];
 //    self.addressLable.text = [NSString stringWithFormat:@"%@~%@",model.starttime,model.endtime];
    self.detailLable.text = [NSString stringWithFormat:@"%@~%@",model.starttime,model.endtime];
     //    self.timeLable.text = model.starttime;

@@ -31,6 +31,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [UIViewController new];
+    NSLog(@"启动开始");
     [self.window makeKeyAndVisible];
     
     //注册友盟统计

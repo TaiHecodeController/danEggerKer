@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="345" height="510"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tu" translatesAutoresizingMaskIntoConstraints="NO" id="JDf-7h-4mG">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoSencond" translatesAutoresizingMaskIntoConstraints="NO" id="JDf-7h-4mG">
                     <rect key="frame" x="122" y="45" width="100" height="90"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="bR5-Hf-Wge"/>
@@ -375,7 +375,7 @@
         </view>
     </objects>
     <resources>
-        <image name="tu" width="124" height="71"/>
+        <image name="logoSencond" width="594" height="334"/>
         <image name="地址" width="17" height="22"/>
         <image name="学历" width="22" height="22"/>
         <image name="工资" width="15" height="22"/>
