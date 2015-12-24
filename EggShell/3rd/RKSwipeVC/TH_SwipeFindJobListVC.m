@@ -222,6 +222,7 @@
     self.swipeableView.backgroundColor =[UIColor  whiteColor];
     self.swipeableView.allowedDirection = ZLSwipeableViewDirectionHorizontal;
     [self.view addSubview:self.swipeableView];
+    self.swipeableView.numberOfActiveViews = 3;
     self.swipeableView.hidden = YES;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick)];
@@ -494,7 +495,6 @@
     CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
     
     //取出jobArr对应模型，对子控件进行赋值操作
-    
 
 //    if (self.jobArr.count > 0)
 //    {
@@ -518,6 +518,8 @@
             
 //            fjcV.frame = CGRectMake(0,0,view.frame.size.width,  view.frame.size.height);
             [view addSubview:fjcV];
+            self.superPositionIcon.hidden = NO;
+
             
         }
     
@@ -525,7 +527,7 @@
     if (self.colorIndex > self.jobArr.count && self.jobArr.count > 0)
     {
         self.swipeableView.hidden = YES;
-//        self.superPositionIcon.hidden = YES;
+        self.superPositionIcon.hidden = YES;
         
         self.colorIndex = 0;
         [self.jobArr removeAllObjects];

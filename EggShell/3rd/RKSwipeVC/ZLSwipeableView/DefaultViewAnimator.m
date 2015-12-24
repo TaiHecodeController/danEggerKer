@@ -43,7 +43,7 @@ atOffsetFromCenter:(CGPoint)offset
               index:(NSUInteger)index
               views:(NSArray<UIView *> *)views
       swipeableView:(ZLSwipeableView *)swipeableView {
-    CGFloat degree = 1;
+    CGFloat degree = 0;
     NSTimeInterval duration = 0.4;
     CGPoint offset = CGPointMake(0, CGRectGetHeight(swipeableView.bounds) * 0.3);
     switch (index) {
