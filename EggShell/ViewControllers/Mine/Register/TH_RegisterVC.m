@@ -204,7 +204,7 @@
         self.securityCodeBtn.alpha = 0.5;
         self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
         
-    } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCode:@""] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+    } Withphonenumber:self.phoneTextField.text WithPassword:self.passwordTextField.text withSecurityCode:@""] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
    
     
     
@@ -243,7 +243,7 @@
 -(void)loginRequest
 {
     self.registDic =[NSMutableDictionary dictionaryWithCapacity:0];
-     MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
+     MBProgressHUD * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     if ([self.phoneTextField.text length]!=0&&[self.securiedTextField.text length]!=0&&[self.passwordTextField.text length]!=0) {
         [[LoginAndRegisterRequest registerWithSucc:^(NSDictionary *DataDic) {
             [self.registDic setDictionary:DataDic];

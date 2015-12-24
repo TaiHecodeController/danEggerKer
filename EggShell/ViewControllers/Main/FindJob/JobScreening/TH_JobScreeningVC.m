@@ -83,7 +83,7 @@
 {
     [[WriteResumeRequest getSearchJobMessageListWithSucc:^(NSDictionary *DataDic) {
         self.categaryDic = DataDic[@"data"];
-    }] addNotifaction:[MBProgressHUD mbHubShow]];
+    }] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 }
 -(void)setData
 {

@@ -39,7 +39,7 @@
 @property(assign)CGSize textSize;
 @property(strong,nonatomic)UIView * headerView;
 @property(strong,nonatomic)AFRequestState * state;
-@property (nonatomic, strong) MBProgressHUD *mbPro;
+@property (nonatomic, strong) THMBProgressHubView *mbPro;
 @property (nonatomic, strong)findJobDetialScriptionViewS *jobDescription;
 @property (nonatomic, strong)ComPanyProfileView *companyprofileView;
 @property (nonatomic, strong) NSMutableArray *listArr;
@@ -80,7 +80,7 @@
     
     self.page = 1;
     /*数据请求**/
-    _mbPro = [MBProgressHUD mbHubShowControllerView:self];
+    _mbPro = [MBProgressHUD mbHubShowMBProgressHubView:self];
     [self loadData:_mbPro page:1];
     
     UIButton *btn = [UIButton new];
@@ -208,7 +208,7 @@
                 [MBProgressHUD creatembHub:@"您已申请过了,一周内不得重复申请" ControllerView:self];
             }
             
-        } withUid:nil job_id:_model.cj_id resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+        } withUid:nil job_id:_model.cj_id resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
         
     }
     else
@@ -615,7 +615,7 @@
                 
                 NSLog(@"%@",err);
                 
-            } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+            } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
         }
         else if(sender.selected == NO)
         {
@@ -629,7 +629,7 @@
                                
                                NSLog(@"%@",err);
                                
-                           } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+                           } withJob_id:[_model.cj_id intValue] resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
         }
 
                 

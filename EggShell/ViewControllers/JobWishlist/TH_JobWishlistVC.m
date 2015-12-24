@@ -89,7 +89,7 @@
     [self initView];
     _jobArr = [[NSMutableArray alloc]init];
     self.page = 1;
-    MBProgressHUD *mb = [MBProgressHUD mbHubShowControllerView:self];
+    THMBProgressHubView *mb = [MBProgressHUD mbHubShowMBProgressHubView:self];
     [self loadData:mb page:self.page];
     
 }
@@ -556,7 +556,7 @@
             
             _page = 1;
             [_jobArr removeAllObjects];
-            MBProgressHUD *mb = [MBProgressHUD mbHubShowControllerView:self];
+            THMBProgressHubView *mb = [MBProgressHUD mbHubShowMBProgressHubView:self];
             [self loadData:mb page:_page];
             [self.tableView reloadData];
             
@@ -585,7 +585,7 @@
             
             _page = 1;
             [_jobArr removeAllObjects];
-            MBProgressHUD *mb = [MBProgressHUD mbHubShowControllerView:self];
+            THMBProgressHubView *mb = [MBProgressHUD mbHubShowMBProgressHubView:self];
             [self loadData:mb page:_page];
             [self.tableView reloadData];
             

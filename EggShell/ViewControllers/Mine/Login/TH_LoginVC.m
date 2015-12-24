@@ -371,7 +371,7 @@
     if (self.personOrCompany == 0)
     {
         NSLog(@"个人登录");
-        MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
+        THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
         [[LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text usertype:1 withSucc:^(NSDictionary * dic) {
             if ([dic[@"code"] integerValue]==0) {
                 [MBProgressHUD creatembHub:dic[@"message"] ControllerView:self];
@@ -419,7 +419,7 @@
     else
     {
         NSLog(@"企业登录");
-        MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
+        THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
         [[LoginAndRegisterRequest loginRequestWithusername:self.phonetextField.text WithPassword:self.passwordTextFiled.text usertype:2 withSucc:^(NSDictionary * dic) {
             
             NSLog(@"企业登录：%@",dic);

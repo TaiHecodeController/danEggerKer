@@ -159,7 +159,7 @@
         self.securityCodeBtn.alpha = 0.5;
         self.paintingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reduceTime) userInfo:nil repeats:YES];
     [MBProgressHUD creatembHub:@"获取验证码成功" ControllerView:self];
-    }] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+    }] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
     }
 
 - (void)reduceTime
@@ -189,7 +189,7 @@
 //        }
 //
 //    }];
-     MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
+     THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     [[LoginAndRegisterRequest forgitNextRequestWithPhoneNum:self.phoneTextField.text withSecurityCode:self.securiedTextField.text withSucc:^(NSDictionary * dic) {
         if ([dic[@"code"] integerValue]==0) {
             [MBProgressHUD creatembHub:@"点击下一步重置密码" ControllerView:self];

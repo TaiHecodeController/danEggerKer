@@ -268,6 +268,7 @@
 		94EFC1C11B7D046F00833068 /* TH_featureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EFC1C01B7D046F00833068 /* TH_featureVC.m */; };
 		94EFC1C41B7D8F6900833068 /* TH_AFRequestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EFC1C31B7D8F6900833068 /* TH_AFRequestState.m */; };
 		94EFC1C81B7DC65200833068 /* playFanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EFC1C71B7DC65200833068 /* playFanModel.m */; };
+		94FC36EC1C2B90FF00CEF137 /* THMBProgressHubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC36EB1C2B90FF00CEF137 /* THMBProgressHubView.m */; };
 		CA3D16A93CCBDD012A68A6C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37454D869BE49FA62A71A04C /* libPods.a */; };
 		F013B6971BFC086A0032F232 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F013B6961BFC086A0032F232 /* CFNetwork.framework */; };
 		F013B6991BFC087D0032F232 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F013B6981BFC087D0032F232 /* CoreFoundation.framework */; };
@@ -839,6 +840,8 @@
 		94EFC1C31B7D8F6900833068 /* TH_AFRequestState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_AFRequestState.m; sourceTree = "<group>"; };
 		94EFC1C61B7DC65200833068 /* playFanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playFanModel.h; sourceTree = "<group>"; };
 		94EFC1C71B7DC65200833068 /* playFanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playFanModel.m; sourceTree = "<group>"; };
+		94FC36EA1C2B90FF00CEF137 /* THMBProgressHubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THMBProgressHubView.h; sourceTree = "<group>"; };
+		94FC36EB1C2B90FF00CEF137 /* THMBProgressHubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THMBProgressHubView.m; sourceTree = "<group>"; };
 		A209E6A9E258BA344FA95EF1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F013B6961BFC086A0032F232 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		F013B6981BFC087D0032F232 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -1167,6 +1170,8 @@
 		041650A31B4D730F008C78BE /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				94FC36EA1C2B90FF00CEF137 /* THMBProgressHubView.h */,
+				94FC36EB1C2B90FF00CEF137 /* THMBProgressHubView.m */,
 				041650A41B4D730F008C78BE /* MBProgressHUD+Show.h */,
 				041650A51B4D730F008C78BE /* MBProgressHUD+Show.m */,
 				041650A61B4D730F008C78BE /* MBProgressHUD.h */,
@@ -3169,6 +3174,7 @@
 				94E2C9C41B8AF827001E3FDD /* Basicnformation.m in Sources */,
 				9473306B1C02E98000688587 /* TH_EnterpriseResetPasswordVC.m in Sources */,
 				0416503A1B4D7141008C78BE /* AppDelegate.mm in Sources */,
+				94FC36EC1C2B90FF00CEF137 /* THMBProgressHubView.m in Sources */,
 				94CB305C1BA5169700577FE6 /* IQToolbar.m in Sources */,
 				F0E700131B9FED7900788B17 /* ChooseCity_2ViewController.m in Sources */,
 				041650371B4D7141008C78BE /* main.m in Sources */,

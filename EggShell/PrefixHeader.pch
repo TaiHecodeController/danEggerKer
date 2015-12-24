@@ -43,6 +43,7 @@
 #import "IQKeyboardManager.h"
 #import "MobClick.h"
 #import "WriteResumeRequest.h"
+#import "THMBProgressHubView.h"
 #define NUMBERS @"0123456789\n"
 
 //#define base_Url @"http://101.200.186.14/eggker2/interface_ios/index.php/"

@@ -24,7 +24,7 @@
 #define bottomH 107
 #import "AppDelegate.h"
 #import "TH_LoginVC.h"
-
+#import "THMBProgressHubView.h"
 #define URL @"http://pic.nipic.com/2007-12-06/2007126205543511_2.jpg"
 
 @interface TH_FindJobVC ()<UITableViewDataSource,UITableViewDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,MJRefreshBaseViewDelegate>
@@ -35,7 +35,7 @@
     BMKLocationService * _locService;
     NSIndexPath  * record_index;
     
-    MBProgressHUD * _mbPro;
+    THMBProgressHubView * _mbPro;
     
 }
 
@@ -264,7 +264,7 @@
         self.latitude = @"";
         /*数据请求**/
         self.page = 1;
-        _mbPro = [MBProgressHUD mbHubShowControllerView:self];
+        _mbPro = [MBProgressHUD mbHubShowMBProgressHubView:self];
         [self loadData:_mbPro page:self.page];
     }
     else
@@ -286,7 +286,7 @@
         }
         /*数据请求**/
         self.page = 1;
-        _mbPro = [MBProgressHUD mbHubShowControllerView:self];
+        _mbPro = [MBProgressHUD mbHubShowMBProgressHubView:self];
         [self loadData:_mbPro page:self.page];
         
     }
@@ -752,13 +752,6 @@
 #pragma mark  -- 职位申请按钮
 - (void)apllyBtnClick
 {
-    
-    if (self.jobArr.count == 0)
-    {
-        [MBProgressHUD creatembHub:@"请选择你要"];
-        return;
-    }
-    
     [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
     
     if([AppDelegate instance].userId)
@@ -778,7 +771,10 @@
             
         }
         NSLog(@"job_idStr%@",job_idStr);
-        
+        if ([job_idStr isEqualToString: @""]) {
+            [MBProgressHUD creatembHub:@"请选择你要申请的职位" ControllerView:self];
+            return;
+        }
         self.state = [[TH_AFRequestState SQJobWithSucc:^(NSString *DataArr) {
             
             //总投递数-投递成功数
@@ -817,7 +813,7 @@
             //            [self addCoverView];
             //            [self addAlertView];
             
-        } withUid:nil job_id:job_idStr resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+        } withUid:nil job_id:job_idStr resp:[NSObject class]] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
         
     }
     else

@@ -484,7 +484,7 @@
         
         _currentIndex = 0;
         
-        MBProgressHUD * mub = [MBProgressHUD mbHubShowControllerView:self];
+        THMBProgressHubView * mub = [MBProgressHUD mbHubShowMBProgressHubView:self];
         [self loadData:mub page:self.page];
         
 //        [self._gridView reloadData];

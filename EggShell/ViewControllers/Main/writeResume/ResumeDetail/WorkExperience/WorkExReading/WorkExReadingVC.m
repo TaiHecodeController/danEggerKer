@@ -53,7 +53,7 @@
         self.dataArray = [NSArray arrayWithArray:dataDic[@"data"]];
         [self createView];
         
-    } resumeWritingPreviewParam:param] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+    } resumeWritingPreviewParam:param] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 }
 
 -(void)createView

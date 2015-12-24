@@ -46,7 +46,7 @@
 
 -(void)loadData
 {
-    MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
+    THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     
     [[WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
         self.dataDic = DataDic[@"data"];

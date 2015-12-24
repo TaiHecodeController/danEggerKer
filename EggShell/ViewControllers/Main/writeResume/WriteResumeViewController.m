@@ -82,7 +82,7 @@
 //加载之前保存到服务器上的数据
 -(void)loadOriginalData
 {
-    MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
+    THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     [[WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
         self.editDic = DataDic[@"data"];
         

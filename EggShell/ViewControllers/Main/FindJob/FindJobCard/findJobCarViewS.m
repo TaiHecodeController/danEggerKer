@@ -235,10 +235,10 @@
         originthreeView.hidden = YES;
     }if (HEIGHT == 568) {
         
-        self.releaseLable.frame = CGRectMake(0, self.frame.size.height - 50, self.frame.size.width, 15);
-        originFirstView.frame = CGRectMake(self.frame.size.width/2.0-15-5, self.frame.size.height-25, 5, 5);
-        originSecondView.frame = CGRectMake(self.frame.size.width/2.0, self.frame.size.height-25, 5, 5);
-        originthreeView.frame = CGRectMake(self.frame.size.width/2.0+15+5, self.frame.size.height-25, 5, 5);
+        self.releaseLable.frame = CGRectMake(0, self.frame.size.height - 40, self.frame.size.width, 15);
+        originFirstView.frame = CGRectMake(self.frame.size.width/2.0-15-5, self.frame.size.height-20, 5, 5);
+        originSecondView.frame = CGRectMake(self.frame.size.width/2.0, self.frame.size.height-20, 5, 5);
+        originthreeView.frame = CGRectMake(self.frame.size.width/2.0+15+5, self.frame.size.height-20, 5, 5);
     }if (HEIGHT==667.0) {
         self.releaseLable.frame = CGRectMake(0, self.frame.size.height - 65, self.frame.size.width, 15);
         originFirstView.frame = CGRectMake(self.frame.size.width/2.0-15-5, self.frame.size.height-35, 5, 5);

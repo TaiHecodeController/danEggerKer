@@ -143,7 +143,7 @@
                 //                [self presentViewController:login animated:YES completion:nil];
                 [self.navigationController pushViewController:login animated:YES];
             }
-        }] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+        }] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
         
         //    [AccountRequest resetPasswordRequestWithPhoneNum:self.phoneNum withNewCode:self.newsPasswordTextFied.text  withSucc:^(NSDictionary * dic) {
         //        if ([dic[@"code"] integerValue]==0) {

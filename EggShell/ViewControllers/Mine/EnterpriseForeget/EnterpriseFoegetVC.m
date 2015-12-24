@@ -174,7 +174,7 @@
             getEnterpriseResetPasswordNext.forgetPhoneMailBox = self.phoneTextField.text;
             [self.navigationController pushViewController:getEnterpriseResetPasswordNext animated:YES];
         }
-    }] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+    }] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
     
 }
 

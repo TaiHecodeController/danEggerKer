@@ -143,7 +143,7 @@
             [MBProgressHUD creatembHub:@"用户不存在" ControllerView:self];
             
         }
-           }] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+           }] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 }
 -(void)createScro
 {
@@ -538,7 +538,7 @@
 //         [self.mineView setIconImage:editedImage];
         
         
-    } :editedImage withUid:self.uidStr] addNotifaction:[MBProgressHUD  mbHubShowControllerView:self]];
+    } :editedImage withUid:self.uidStr] addNotifaction:[MBProgressHUD  mbHubShowMBProgressHubView:self]];
     
     [cropperViewController dismissViewControllerAnimated:YES completion:^{
         

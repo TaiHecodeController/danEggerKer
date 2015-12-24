@@ -180,7 +180,7 @@
       [MBProgressHUD creatembHub:@"意见反馈成功"];
        
        [self.navigationController popToRootViewControllerAnimated:YES];
-   } withSource:2 withOpinion:textView withqq:qqtext withEmail:emailText ] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+   } withSource:2 withOpinion:textView withqq:qqtext withEmail:emailText ] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 
 }
 -(BOOL)isValidateEmail:(NSString *)email {

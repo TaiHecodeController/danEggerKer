@@ -37,7 +37,7 @@
     imageView.image = [UIImage  imageNamed:@"hezuoqudao11"];
     [scro addSubview:imageView];
     UILabel * lable = [[UILabel alloc] initWithFrame:CGRectMake((WIDETH-250)/2.0,620, 250, 11)];
-    lable.text = @"北京太和百富管理咨询有限公司  版权所有" ;
+    lable.text = @"北京蛋壳无限科技有限公司  版权所有" ;
     lable.textColor = UIColorFromRGB(0x646464);
     lable.textAlignment = NSTextAlignmentCenter;
     lable.font =[UIFont systemFontOfSize:11];

@@ -137,7 +137,7 @@
         NSDictionary * param = @{@"mailbox":self.forgetPhoneMailBox,@"newpwd":self.newsPasswordTextFied.text};
         [[LoginAndRegisterRequest enterpriseResetPasswordRequestWithResumeParam:param withSucc:^(NSDictionary * dic ) {
             
-        }] addNotifaction:[MBProgressHUD mbHubShowControllerView:self]];
+        }] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
         
     }
     

@@ -7,13 +7,17 @@
 //
 
 #import "MBProgressHUD.h"
-
+#import "THMBProgressHubView.h"
 @interface MBProgressHUD (Show)
 @property (strong,nonatomic)MBProgressHUD * mbHud2;
 +(void)creatembHub:(NSString *)message;
 +(void)creatembHub:(NSString *)message ControllerView:(UIViewController*)controllerView;
+//自定义网络加载封装类
++(void)createmMBProgressbHub:(NSString *)message ControllerView:(UIViewController*)controllerView;
 
 +(MBProgressHUD *)mbHubShow;
 +(MBProgressHUD *)mbHubShowControllerView:(UIViewController*)controllerView;
+//自定义网络加载封装
++(THMBProgressHubView *)mbHubShowMBProgressHubView:(UIViewController*)controllerView;
 
 @end

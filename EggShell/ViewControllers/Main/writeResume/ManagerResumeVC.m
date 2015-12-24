@@ -55,7 +55,7 @@
 
 -(void)loadData
 {
-    MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
+    THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     [[WriteResumeRequest getResumeListWithSucc:^(NSArray * DataArray) {
         self.dataArray = [NSMutableArray arrayWithArray:DataArray];
         if(self.dataArray.count == 0)
@@ -418,7 +418,7 @@
         }
         
         NSLog(@"%@",self.deleteStr);
-         MBProgressHUD * hub = [MBProgressHUD mbHubShowControllerView:self];
+         THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
         
         [[WriteResumeRequest deleteResumeWithSucc:^(NSDictionary *dataDic) {
             [MBProgressHUD creatembHub:@"删除成功"];

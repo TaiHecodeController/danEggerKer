@@ -42,8 +42,14 @@
     } completionBlock:^{
         [mbHud removeFromSuperview];
     }];
+   
 }
++(void)createmMBProgressbHub:(NSString *)message ControllerView:(UIViewController*)controllerView
+{
+    
 
+}
+//////////////////////////////////////////////////////////////////////////////////////
 +(MBProgressHUD *)mbHubShow
 {
     AppDelegate * app = [AppDelegate instance];
@@ -63,5 +69,13 @@
     mbHud.dimBackground = NO;
     [mbHud show:YES];
     return mbHud;
+}
++(THMBProgressHubView *)mbHubShowMBProgressHubView:(UIViewController*)controllerView;
+
+{
+    THMBProgressHubView*  ProgressHubView = [[THMBProgressHubView alloc]initWithFrame:CGRectMake(controllerView.view.frame.size.width/2-36, controllerView.view.frame.size.height/2-45*MyWideth-64*MyWideth, 79, 90)];
+//    [ProgressHubView startAnimationWithText:@"正在加载"];
+    [controllerView.view addSubview:ProgressHubView];
+    return ProgressHubView;
 }
 @end

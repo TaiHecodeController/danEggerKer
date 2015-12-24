@@ -9,7 +9,7 @@
 #import "AFAppRequest.h"
 #import "MJRefresh.h"
 #import "Gson.h"
-
+#import "THMBProgressHubView.h"
 #define EGURL @"http://195.198.1.195/index.php?m=api"
 
 @interface UploadImgResp : NSObject<Expose>
@@ -57,12 +57,13 @@
             [(MJRefreshBaseView *)notify endRefreshing];
         }
     }
-    if( [notify isKindOfClass:[MBProgressHUD class]]){
+    if( [notify isKindOfClass:[THMBProgressHubView class]]){
         if( _running ){
-            [(MBProgressHUD *)notify show:YES];
+            [(THMBProgressHubView *)notify startAnimationWithText:@"正在加载" ];
         }
         else{
-            [(MBProgressHUD *)notify removeFromSuperview];
+           [(THMBProgressHubView *)notify stopAnimationWithLoadText:nil withType:YES];
+           
         }
         
     }}

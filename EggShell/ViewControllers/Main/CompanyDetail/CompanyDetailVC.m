@@ -27,7 +27,7 @@
     
 }
 @property(nonatomic,strong)UIView * comPanyView;
-@property (nonatomic, strong) MBProgressHUD *mbPro;
+@property (nonatomic, strong) THMBProgressHubView *mbPro;
 @property (strong,nonatomic)AFRequestState * state;
 @property(strong,nonatomic)UIImageView * logoView;
 @property(nonatomic,strong)NSMutableArray * listArray;
@@ -47,7 +47,7 @@
 
     //    [_header beginRefreshing];
     /*数据请求**/
-    _mbPro = [MBProgressHUD mbHubShowControllerView:self];
+    _mbPro = [MBProgressHUD mbHubShowMBProgressHubView:self];
     _page = 1;
     [self loadData:_mbPro Page:_page];
     
