@@ -52,10 +52,9 @@
     self.cellArray = [NSMutableArray arrayWithCapacity:0];
     
 }
-
 -(void)loadData
 {
-    THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
+    THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubViewwindow];
     [[WriteResumeRequest getResumeListWithSucc:^(NSArray * DataArray) {
         self.dataArray = [NSMutableArray arrayWithArray:DataArray];
         if(self.dataArray.count == 0)
