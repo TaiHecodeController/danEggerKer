@@ -141,6 +141,7 @@
     [self.navigationController pushViewController:enter animated:YES];
     
 }
+
 -(void)loadData
 {
     self.enterArray =[NSArray array];
@@ -402,6 +403,7 @@
             
             break;
         }
+            
         case HotJobViewButtonTypesitePlanBtn:
         {
             //            NSLog(@"2..9");
@@ -846,13 +848,11 @@
         }
         case THHomeViewButtonTypeInternshipSearch:
         {
-            NSLog(@"V达人");
+//            NSLog(@"V达人");
             
             TH_VtalentVC * talent = [[TH_VtalentVC alloc] init];
             [self.navigationController pushViewController:talent animated:YES];
             
-            //            ThFindJobVC *fjvc = [[ThFindJobVC alloc] init];
-            //            [self.navigationController pushViewController:fjvc animated:YES];
             break;
         }
         case THHomeViewButtonTypeInformationDesk:

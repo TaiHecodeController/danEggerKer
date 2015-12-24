@@ -35,6 +35,7 @@
 }
 -(void)loadData
 {
+    
  [[TH_AFRequestState eggshellAmbassadorWithSucc:^(NSDictionary *arr) {
     
      self.dataDic = arr[@"data"];
