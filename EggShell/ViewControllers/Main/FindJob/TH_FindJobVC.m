@@ -420,6 +420,7 @@
     
     y += _segmentedControl.frame.size.height;
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, y, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -  66 - 40 - bottomH +33)];
+    
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.backgroundColor = [UIColor clearColor];
@@ -435,6 +436,7 @@
     _footer = [MJRefreshFooterView footer];
     _footer.scrollView = self.tableView;
     _footer.delegate = self;
+    
     
     _bottomView = [[UIView alloc]init];
     //    if (_rk_pushType == homePushType)
@@ -636,6 +638,8 @@
     }
     else{
         self.page++;
+        
+        
         THLog(@"上拉加载更多");
         [self loadData:refreshView page:_page];
         
@@ -739,7 +743,7 @@
     THLog(@"条件选择按钮被点击");
     
     TH_JobScreeningVC * job = [[TH_JobScreeningVC alloc] init];
-    job.title = @"职位搜索";
+    job.title = @"职位筛选";
     [self.navigationController pushViewController:job animated:YES];
 }
 

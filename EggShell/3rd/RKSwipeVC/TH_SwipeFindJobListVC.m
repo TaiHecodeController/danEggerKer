@@ -306,7 +306,7 @@
         }
         else
         {
-            [MBProgressHUD creatembHub:@"暂无数据"];
+            self.noDataImageView.hidden = NO;
         }
         
     } withfail:^(int errCode, NSError *err) {
