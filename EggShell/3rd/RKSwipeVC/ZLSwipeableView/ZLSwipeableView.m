@@ -29,6 +29,8 @@
 
 @property (strong, nonatomic) Scheduler *scheduler;
 
+@property (nonatomic, strong) UIImageView *superPositionIcon;
+
 @end
 
 @implementation ZLSwipeableView
@@ -59,13 +61,21 @@
     self.allowedDirection = ZLSwipeableViewDirectionAll;
     self.minTranslationInPercent = 0.25;
     self.minVelocityInPointPerSecond = 750;
+    
+    //叠层
+    UIImageView *superPositionIcon = [[UIImageView alloc]init];
+    superPositionIcon.image = [UIImage imageNamed:@"swipeBg"];
+    superPositionIcon.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height + 10);
+    [self addSubview:superPositionIcon];
+    self.superPositionIcon = superPositionIcon;
 
     self.containerView = [[UIView alloc] initWithFrame:self.bounds];
     self.containerView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.containerView];
-
+//
     self.miscContainerView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.miscContainerView.backgroundColor = [UIColor whiteColor];
+//    self.miscContainerView.backgroundColor = [UIColor whiteColor];
+    self.miscContainerView.backgroundColor = [UIColor redColor];
     [self addSubview:self.miscContainerView];
 
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self];
@@ -77,17 +87,14 @@
     self.viewAnimator = [[DefaultViewAnimator alloc] init];
     self.swipingDeterminator = [[DefaultShouldSwipeDeterminator alloc] init];
     self.directionInterpretor = [[DefaultDirectionInterpretor alloc] init];
-    
-//        UIImageView *icon = [[UIImageView alloc]init];
-//        icon.backgroundColor = [UIColor blackColor];
-//        icon.frame = CGRectMake(0, self.frame.size.height, self.frame.size.width, 10);
-//        [self addSubview:icon];
 
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    self.superPositionIcon.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height + 10);
     self.containerView.frame = self.bounds;
+    
 }
 
 #pragma mark - Properties

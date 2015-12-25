@@ -80,21 +80,11 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-    
-    //叠层
-    UIImageView *superPositionIcon = [[UIImageView alloc]init];
-    superPositionIcon.image = [UIImage imageNamed:@"背景"];
-    superPositionIcon.frame = CGRectMake(15+4, CGRectGetMaxY(self.swipeableView.frame), self.swipeableView.frame.size.width - 8, 10);
-    [self.view insertSubview:superPositionIcon atIndex:0];
-    self.superPositionIcon = superPositionIcon;
-//    self.superPositionIcon.hidden = YES;
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:YES];
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -495,7 +485,6 @@
     CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
     
     //取出jobArr对应模型，对子控件进行赋值操作
-
 //    if (self.jobArr.count > 0)
 //    {
         if (self.jobArr.count > 0 && self.colorIndex <= self.jobArr.count)
@@ -504,8 +493,8 @@
             findJobModel * model = self.jobArr[self.colorIndex - 1];
             //添加一个标签试试
             findJobCarViewS *fjcV = [[findJobCarViewS alloc] initWithFrame:CGRectMake(0,0,view.frame.size.width,  view.frame.size.height)];
-            fjcV.layer.borderWidth = 0.5;
-            fjcV.layer.borderColor = UIColorFromRGB(0xE3E3E3).CGColor;
+//            fjcV.layer.borderWidth = 0.5;
+//            fjcV.layer.borderColor = UIColorFromRGB(0xE3E3E3).CGColor;
          
             fjcV.backgroundColor = [UIColor whiteColor];
             [fjcV setValueCar:model];
@@ -518,7 +507,7 @@
             
 //            fjcV.frame = CGRectMake(0,0,view.frame.size.width,  view.frame.size.height);
             [view addSubview:fjcV];
-            self.superPositionIcon.hidden = NO;
+//            self.superPositionIcon.hidden = NO;
 
             
         }
@@ -527,7 +516,7 @@
     if (self.colorIndex > self.jobArr.count && self.jobArr.count > 0)
     {
         self.swipeableView.hidden = YES;
-        self.superPositionIcon.hidden = YES;
+//        self.superPositionIcon.hidden = YES;
         
         self.colorIndex = 0;
         [self.jobArr removeAllObjects];
