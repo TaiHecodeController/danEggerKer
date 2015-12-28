@@ -62,9 +62,6 @@
             cell.StartTime.selected = NO;
             cell.endTime.selected = NO;
             cell.todaySelect.selected = NO;
-
-            
-        
         }else
         {
              WriteResumeCell * cell = self.jobArray[i];
@@ -164,7 +161,6 @@
     [self.scro addSubview:saveBtn];
     
     UIButton * replaceBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 + 10, 368, 90, 29) ImageName:@"lanniu2" Target:self Action:@selector(replaceClick) Title:@"重置"];
-    
     [replaceBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
     [self.scro addSubview:replaceBtn];

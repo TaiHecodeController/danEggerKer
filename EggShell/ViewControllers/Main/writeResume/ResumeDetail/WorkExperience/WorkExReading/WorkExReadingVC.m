@@ -76,7 +76,8 @@
         
         [workingView config:self.dataArray[i]];
         [self.scro addSubview:workingView];
-        if (i>0) {
+        if (i>0)
+        {
             workingView.workBtn.hidden = YES;
         }
         UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH - 150)/2.0, 215*self.dataArray.count+35, 150, 30)];
@@ -88,7 +89,6 @@
         [addButtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
         [self.scro addSubview:addButtn];
        
-        
         self.scro.contentSize = CGSizeMake(WIDETH, self.dataArray.count*215+150);
     }
 }
