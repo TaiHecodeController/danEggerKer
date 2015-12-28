@@ -156,12 +156,10 @@
 
 -(void)searchBtn
 {
-    UIView * bgView =[[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT-119, WIDETH, 106)];
-    bgView.backgroundColor = UIColorFromRGB(0xF3F3F1);
-    [self.view addSubview:bgView];
-    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH-150)/2.0, HEIGHT - 106, 150, 30)];
+    
+    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, HEIGHT - 44-64, WIDETH, 44)];
     [self.view addSubview:button];
-    [button setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
+    button.backgroundColor = UIColorFromRGB(0x3ebb2b);
     [button setTitle:@"申请职位" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:13];
@@ -343,7 +341,7 @@
 }
 -(void)createTableView
 {
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT - 119) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT - 44-64) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     

@@ -109,7 +109,7 @@
     UIButton * securityCodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, (WIDETH - 40)/4.0*1+10, 45)];
     [securityCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
     
-    [securityCodeBtn setBackgroundImage:[UIImage imageNamed:@"hongniu"] forState:UIControlStateNormal];
+    [securityCodeBtn setBackgroundImage:[UIImage imageNamed:@"hongniu2"] forState:UIControlStateNormal];
     
     securityCodeBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     securityCodeBtn.titleLabel.textColor = color(255, 255, 255);
@@ -121,7 +121,7 @@
     //下一步
     UIButton * nextButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 130, WIDETH -30, 45)];
     [nextButton setTitle:@"下一步" forState:UIControlStateNormal];
-     [nextButton setBackgroundImage:[UIImage imageNamed:@"lane"] forState:UIControlStateNormal];
+     [nextButton setBackgroundImage:[UIImage imageNamed:@"lanniu2"] forState:UIControlStateNormal];
     nextButton.titleLabel.textColor = color(255, 255, 255);
     nextButton.titleLabel.font = [UIFont systemFontOfSize:19];
     nextButton.layer.cornerRadius = 3;

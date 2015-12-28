@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beijing" translatesAutoresizingMaskIntoConstraints="NO" id="Wyt-eJ-KOw">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueBackColo" translatesAutoresizingMaskIntoConstraints="NO" id="Wyt-eJ-KOw">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="bcn-An-iDC"/>
@@ -667,7 +667,7 @@
         </view>
     </objects>
     <resources>
-        <image name="beijing" width="375" height="70"/>
+        <image name="blueBackColo" width="375" height="71"/>
         <image name="chakanquanbu" width="6" height="11"/>
         <image name="touxiang1" width="50" height="50"/>
     </resources>

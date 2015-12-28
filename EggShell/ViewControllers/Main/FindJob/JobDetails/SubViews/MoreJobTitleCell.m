@@ -25,7 +25,7 @@
     UIView  * heatView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 53)];
     
     UIView * lineVew = [[UIView alloc] initWithFrame:CGRectMake(15, 25, 2, 15)];
-    lineVew.backgroundColor = color(244, 67, 54);
+    lineVew.backgroundColor = UIColorFromRGB(0x3ebb2b);
     [heatView addSubview:lineVew];
     
     UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 10)];

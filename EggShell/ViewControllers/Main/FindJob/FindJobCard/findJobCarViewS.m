@@ -62,11 +62,11 @@
             self.salaryLable.text = @"10-15k";
             self.salaryLable.textAlignment = NSTextAlignmentCenter;
             self.salaryLable.font =[UIFont systemFontOfSize:15*MyWideth];
-            self.salaryLable.textColor = UIColorFromRGB(0xF44336);
+            self.salaryLable.textColor = UIColorFromRGB(0xeb7a23);
             [detailView addSubview:self.salaryLable];
             
             UIView * lineViw =[[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width-30*MyWideth)/4.0-0.5, 20*MyWideth,0.5, detailView.frame.size.height - 40*MyWideth)];
-            lineViw.backgroundColor = UIColorFromRGB(0xeb7a23);
+            lineViw.backgroundColor = UIColorFromRGB(0xE3E3E3);
             [detailView addSubview:lineViw];
         }
         if (i==1) {

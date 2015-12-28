@@ -162,7 +162,7 @@
     UIButton * securityCodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, (WIDETH - 40)/4.0*1+10, 45)];
      [securityCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
    
-    [securityCodeBtn setBackgroundImage:[UIImage imageNamed:@"hongniu"] forState:UIControlStateNormal];
+    [securityCodeBtn setBackgroundImage:[UIImage imageNamed:@"hongniu2"] forState:UIControlStateNormal];
 
     securityCodeBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     securityCodeBtn.titleLabel.textColor = color(255, 255, 255);
@@ -174,7 +174,7 @@
     
     UIButton * registerBtn =[[UIButton alloc] initWithFrame:CGRectMake(15,290, WIDETH - 30, 45)];
     [registerBtn setTitle:@"立即注册" forState:UIControlStateNormal];
-    [registerBtn setBackgroundImage:[UIImage imageNamed:@"lane"] forState:UIControlStateNormal];
+    [registerBtn setBackgroundImage:[UIImage imageNamed:@"lanniu2"] forState:UIControlStateNormal];
     registerBtn.titleLabel.textColor = color(255, 255, 255);
     registerBtn.titleLabel.font = [UIFont systemFontOfSize:19];
     registerBtn.layer.cornerRadius = 3;

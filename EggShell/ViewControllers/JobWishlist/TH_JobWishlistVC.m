@@ -14,7 +14,7 @@
 #import "TH_JobDetailVC.h"
 #import "jobListCell.h"
 #import "saveListModel.h"
-#define bottomH 107
+#define bottomH 44
 
 #import "MJRefresh.h"
 
@@ -126,7 +126,7 @@
     [headView addSubview:lineView];
     
     y += headView.frame.size.height;
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, y, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - y - 66 - bottomH+33 )];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, y, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - y - 64 - bottomH )];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.tableFooterView = [[UIView alloc] init];
@@ -144,55 +144,48 @@
     _footer.delegate = self;
 
     _bottomView = [[UIView alloc]init];
-    _bottomView.frame = CGRectMake(0, HEIGHT - bottomH - 33, WIDETH, bottomH);
+    _bottomView.frame = CGRectMake(0, HEIGHT - bottomH -64, WIDETH, bottomH);
     _bottomView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_bottomView];
     
     UIView *bottomLine = [[UIView alloc]init];
-    bottomLine.frame = CGRectMake(10, 0, WIDETH, 1);
+    bottomLine.frame = CGRectMake(10, 0, WIDETH, .5);
     bottomLine.backgroundColor = color(221, 221, 221);
     [_bottomView addSubview:bottomLine];
     
     _apllyBtn = [[UIButton alloc]init];
-    CGFloat applyX = 88;
-    CGFloat applyBtnH = 30;
+    CGFloat applyX = 95;
     CGFloat applyBtnW = ((WIDETH - applyX * 2) - 15) / 2;
-    _apllyBtn.frame = CGRectMake(applyX, 50-33, applyBtnW, applyBtnH);
+    _apllyBtn.frame = CGRectMake(applyX, 0,(WIDETH-applyX)/2.0, 44);
     [_apllyBtn setTitle:@"申请职位" forState:UIControlStateNormal];
     [_apllyBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_apllyBtn addTarget:self action:@selector(apllyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     _apllyBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-    _apllyBtn.backgroundColor = color(63, 172, 241);
-    _apllyBtn.clipsToBounds = YES;
-    _apllyBtn.layer.cornerRadius = 5;
+    _apllyBtn.backgroundColor = UIColorFromRGB(0x3ebb2b);
     [_bottomView addSubview:_apllyBtn];
     
     _removeBtn = [[UIButton alloc]init];
-    CGFloat removeX = applyX + applyBtnW + 15 + 8;
-    CGFloat removeBtnH = 30;
-    CGFloat removeBtnW = ((WIDETH - applyX * 2) - 15) / 2;
-    _removeBtn.frame = CGRectMake(removeX, 50-33, removeBtnW, removeBtnH);
+    _removeBtn.frame = CGRectMake(applyX+(WIDETH-applyX)/2.0, 0, (WIDETH-applyX)/2.0, 44);
     [_removeBtn setTitle:@"删除职位" forState:UIControlStateNormal];
     [_removeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_removeBtn addTarget:self action:@selector(removeBtnClick) forControlEvents:UIControlEventTouchUpInside];
     _removeBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-    _removeBtn.backgroundColor = color(242, 69, 62);
-    _removeBtn.clipsToBounds = YES;
-    _removeBtn.layer.cornerRadius = 5;
+    _removeBtn.backgroundColor = UIColorFromRGB(0xeb7a23);
+    
     [_bottomView addSubview:_removeBtn];
     
     _allSelected = [[UIButton alloc]init];
-    CGFloat allSelectedW =  90;
-    CGFloat allSelectedH =  20;
-    _allSelected.frame = CGRectMake(8, 57-33, allSelectedW, allSelectedH);
-    [_allSelected setTitle:@"全选" forState:UIControlStateNormal];
-    [_allSelected setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _allSelected.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
-    _allSelected.titleLabel.font = [UIFont systemFontOfSize:13];
+   
+    _allSelected.frame = CGRectMake(15, 2, 40, 40);
     [_allSelected setImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
-    [_allSelected setImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
+    [_allSelected setImage:[UIImage imageNamed:@"duihaolan"] forState:UIControlStateSelected];
     [_allSelected addTarget:self action:@selector(allClick:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomView addSubview:_allSelected];
+    //全选
+    UILabel * lable = [[UILabel alloc] initWithFrame:CGRectMake(15+40, 14, 32, 16)];
+    lable.text = @"全选";
+    lable.font = [UIFont systemFontOfSize:16];
+    [_bottomView addSubview:lable];
     
 }
 

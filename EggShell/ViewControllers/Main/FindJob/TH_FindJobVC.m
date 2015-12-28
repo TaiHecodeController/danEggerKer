@@ -22,7 +22,7 @@
 /*数据请求**/
 #import "AFAppRequest.h"
 #import "findJobModel.h"
-#define bottomH 107
+#define bottomH 44
 #import "AppDelegate.h"
 #import "TH_LoginVC.h"
 #import "THMBProgressHubView.h"
@@ -420,7 +420,7 @@
     [self.view addSubview:_segmentedControl];
     
     y += _segmentedControl.frame.size.height;
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, y, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -  66 - 40 - bottomH +33)];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, y, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -  64 - 40 - bottomH )];
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -442,7 +442,7 @@
     _bottomView = [[UIView alloc]init];
     //    if (_rk_pushType == homePushType)
     //    {
-    _bottomView.frame = CGRectMake(0, HEIGHT - bottomH -33 , WIDETH, bottomH);
+    _bottomView.frame = CGRectMake(0, HEIGHT - bottomH -64 , WIDETH, bottomH);
     //    }
     //    else
     //    {
@@ -450,28 +450,27 @@
     //    }
     _bottomView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_bottomView];
+    
     UIView *bottomLine = [[UIView alloc]init];
     bottomLine.frame = CGRectMake(0, 0, WIDETH, 1);
     bottomLine.backgroundColor = color(221, 221, 221);
     [_bottomView addSubview:bottomLine];
     
     _apllyBtn = [[UIButton alloc]init];
-    CGFloat applyBtnH = 30;
-    CGFloat applyBtnW = 150;
-    _apllyBtn.frame = CGRectMake(0.3 * WIDETH, 50-30, applyBtnW, applyBtnH);
+    CGFloat applyBtnH = 44;
+  
+    _apllyBtn.frame = CGRectMake(0.3 * WIDETH, 0, WIDETH-0.3*WIDETH, applyBtnH);
     [_apllyBtn setTitle:@"申请职位" forState:UIControlStateNormal];
     [_apllyBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_apllyBtn addTarget:self action:@selector(apllyBtnClick) forControlEvents:UIControlEventTouchUpInside];
     _apllyBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-    _apllyBtn.backgroundColor = color(63, 172, 241);
-    _apllyBtn.clipsToBounds = YES;
-    _apllyBtn.layer.cornerRadius = 5;
+    _apllyBtn.backgroundColor = UIColorFromRGB(0x3ebb2b);
     [_bottomView addSubview:_apllyBtn];
     
     _allSelected = [[UIButton alloc]init];
     //    CGFloat allSelectedW =  90;
     //    CGFloat allSelectedH =  27.5;
-    _allSelected.frame = CGRectMake( 2 *margin, 50-33, 40, 40);
+    _allSelected.frame = CGRectMake( 2 *margin, 2, 40, 40);
     //    [_allSelected setTitle:@"全选" forState:UIControlStateNormal];
     [_allSelected setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _allSelected.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -479,7 +478,7 @@
     //    [_allSelected setImage:[UIImage imageNamed:@"xuankuang"] forState:UIControlStateNormal];
     //    [_allSelected setImage:[UIImage imageNamed:@"douyou1"] forState:UIControlStateSelected];
     [_allSelected setBackgroundImage:[UIImage imageNamed:@"duikuang001"] forState:UIControlStateNormal];
-    [_allSelected setBackgroundImage:[UIImage imageNamed:@"duikuang123"] forState:UIControlStateSelected];
+    [_allSelected setBackgroundImage:[UIImage imageNamed:@"duihaolan"] forState:UIControlStateSelected];
     
     [_allSelected addTarget:self action:@selector(allClick:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomView addSubview:_allSelected];
@@ -487,7 +486,7 @@
     UILabel *quanxuanLab = [[UILabel alloc]init];
     quanxuanLab.text = @"全选";
     quanxuanLab.font = [UIFont systemFontOfSize:13];
-    quanxuanLab.frame = CGRectMake(CGRectGetMaxX(_allSelected.frame)+3, 57-33, 40, 22.5);
+    quanxuanLab.frame = CGRectMake(CGRectGetMaxX(_allSelected.frame)+3, (44-22.5)/2.0, 40, 22.5);
     [_bottomView addSubview:quanxuanLab];
     
 }

@@ -76,7 +76,7 @@
             btn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
             //设置标题颜色
             [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+            [btn setTitleColor:UIColorFromRGB(0x3ebb2b) forState:UIControlStateSelected];
 
             //设置图片颜色
             [btn setImage:[UIImage imageNamed:[[iconNames objectAtIndex:i] objectAtIndex:0]] forState:UIControlStateNormal];
@@ -141,7 +141,7 @@
 {
     btn.selected = YES;
 //    btn.backgroundColor = [UIColor redColor];
-    [btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+    [btn setTitleColor:UIColorFromRGB(0x3ebb2b) forState:UIControlStateSelected];
     
     for (UIButton *subBtn in self.array4Btn) {
         if (subBtn != btn) {

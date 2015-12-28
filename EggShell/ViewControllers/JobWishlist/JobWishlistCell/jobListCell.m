@@ -25,7 +25,7 @@
         
         _positionSecBtn = [[UIButton alloc]init];
         [_positionSecBtn setImage:[UIImage imageNamed:@"duikuang001"] forState:UIControlStateNormal];
-        [_positionSecBtn setImage:[UIImage imageNamed:@"duikuang123"] forState:UIControlStateSelected];
+        [_positionSecBtn setImage:[UIImage imageNamed:@"duihaolan"] forState:UIControlStateSelected];
         //        [_positionSecBtn addTarget:self action:@selector(positionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_positionSecBtn];
         
@@ -55,7 +55,7 @@
         [self addSubview:_timeLab];
         
         _salaryLab = [[UILabel alloc]init];
-        _salaryLab.textColor = UIColorFromRGB(0xf44336);
+        _salaryLab.textColor = UIColorFromRGB(0x3ebb2b);
         _salaryLab.font = [UIFont systemFontOfSize:16];
         [self addSubview:_salaryLab];
         

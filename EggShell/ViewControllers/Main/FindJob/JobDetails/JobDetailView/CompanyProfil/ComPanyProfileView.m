@@ -24,7 +24,7 @@
 
 
     UIView * lineView = [[UIView alloc] initWithFrame:CGRectMake(15, 15, 2, 13)];
-    lineView.backgroundColor = UIColorFromRGB(0xF44336);
+    lineView.backgroundColor = UIColorFromRGB(0x3ebb2b);
     self.lineView = lineView;
     [self addSubview:lineView];
     UILabel * compayFile = [[UILabel alloc] initWithFrame:CGRectMake(22, 16, 52, 13)];
@@ -43,15 +43,15 @@
     [self addSubview:detailLalbe];
     
     UIButton * selectBtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH-100)/2.0, self.height-45, 100, 30)];
-    [selectBtn setBackgroundImage:[UIImage imageNamed:@"anniukuang"] forState:UIControlStateNormal];
+    [selectBtn setBackgroundImage:[UIImage imageNamed:@"showallBtnBlue"] forState:UIControlStateNormal];
 
     [selectBtn setTitle:@"查看全部" forState:UIControlStateNormal];
     [selectBtn setTitle:@"点击收起" forState:UIControlStateSelected];
-    [selectBtn setImage:[UIImage imageNamed:@"chakan"] forState:UIControlStateNormal ];
-    [selectBtn setImage:[UIImage imageNamed:@"shouqi"] forState:UIControlStateSelected];
+    [selectBtn setImage:[UIImage imageNamed:@"chakanBlue"] forState:UIControlStateNormal ];
+    [selectBtn setImage:[UIImage imageNamed:@"shouqiBlue"] forState:UIControlStateSelected];
      selectBtn.imageEdgeInsets = UIEdgeInsetsMake(0,0,0,-108);
     selectBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -33, 0, 0);
-    [selectBtn setTitleColor:UIColorFromRGB(0xF44336) forState:UIControlStateNormal];
+    [selectBtn setTitleColor:UIColorFromRGB(0x3ebb2b) forState:UIControlStateNormal];
     selectBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [selectBtn addTarget:self action:@selector(btncompanyClick) forControlEvents:UIControlEventTouchUpInside];
     

@@ -69,7 +69,7 @@
                                         <constraint firstAttribute="height" constant="15" id="jZq-q2-2O4"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <color key="textColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" red="0.92156862745098034" green="0.47843137254901957" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="工资" translatesAutoresizingMaskIntoConstraints="NO" id="Vi9-s0-g68">
@@ -431,7 +431,7 @@
                                 </label>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Myn-sp-P26">
                                     <rect key="frame" x="0.0" y="0.0" width="2" height="15"/>
-                                    <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.21176470589999999" green="0.69803921570000005" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -482,7 +482,7 @@
                                 </label>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SOh-Uo-9Su">
                                     <rect key="frame" x="0.0" y="0.0" width="2" height="15"/>
-                                    <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.21176470589999999" green="0.69803921570000005" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -571,8 +571,8 @@
     </objects>
     <resources>
         <image name="morenqiyekapian" width="100" height="90"/>
-        <image name="地址" width="17" height="22"/>
-        <image name="学历" width="22" height="22"/>
+        <image name="地址" width="17" height="23"/>
+        <image name="学历" width="23" height="22"/>
         <image name="工资" width="15" height="22"/>
         <image name="经验" width="17" height="22"/>
     </resources>
