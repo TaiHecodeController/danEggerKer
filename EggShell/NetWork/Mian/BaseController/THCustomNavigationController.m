@@ -106,7 +106,7 @@
 - (void)pop
 {
 
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"writeresum" object:nil];
+//    [[NSNotificationCenter defaultCenter]postNotificationName:@"writeresum" object:nil];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"company" object:nil];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"videoClose" object:nil];

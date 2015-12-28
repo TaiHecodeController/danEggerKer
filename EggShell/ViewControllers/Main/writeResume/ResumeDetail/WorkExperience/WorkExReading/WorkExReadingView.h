@@ -22,6 +22,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *OfficeLable;
 @property (weak, nonatomic) IBOutlet UIButton *workBtn;
 
+@property (nonatomic, copy) NSString *startTime;
+@property (nonatomic, copy) NSString *endTime;
+@property (nonatomic, copy) NSString *detailId;
+
 -(void)config:(NSDictionary *)dic;
 
 @end

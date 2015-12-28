@@ -11,6 +11,7 @@
 #import "WriteResumeVC2.h"
 #import "ResumeModel.h"
 #import "WorkingExperienceVC.h"
+
 @interface WorkExReadingVC ()
 {
     ResumeModel * _resume_model;
@@ -61,11 +62,17 @@
     for (int i = 0; i< self.dataArray.count; i++) {
         _resume_model = [ResumeModel sharedResume];
         WorkExReadingView * workingView =[WorkExReadingView setView];
+        //添加手势
+        UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editClick:)];
+        [workingView addGestureRecognizer:tap];
+        
         workingView.frame = CGRectMake(0, 215*i, WIDETH, 215);
         workingView.resumTitle.text = [NSString stringWithFormat:@"%@-工作经历%d",_resume_model.resumeName,i+1];
         [workingView.descriptionTextView setEditable:NO];
         workingView.descriptionTextView.showsVerticalScrollIndicator  = NO;
         workingView.descriptionTextView.scrollEnabled = YES;
+        
+        THLog(@"self.dataArray:%@",self.dataArray);
         
         [workingView config:self.dataArray[i]];
         [self.scro addSubview:workingView];
@@ -75,7 +82,7 @@
         UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH - 150)/2.0, 215*self.dataArray.count+35, 150, 30)];
         [addButtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
         addButtn.titleLabel.font =[UIFont  systemFontOfSize:13];
-        [addButtn setTitle:@"继续添加" forState:UIControlStateNormal];
+        [addButtn setTitle:@"添加工作经历" forState:UIControlStateNormal];
         addButtn.titleLabel.font = [UIFont systemFontOfSize:13];
         [addButtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [addButtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
@@ -85,28 +92,54 @@
         self.scro.contentSize = CGSizeMake(WIDETH, self.dataArray.count*215+150);
     }
 }
+
+- (void)editClick:(UITapGestureRecognizer *)tap
+{
+    THLog(@"查看详情");
+//    self.companyNameLable.text = [NSString stringWithFormat:@"%@",dic[@"name"]];
+//    self.HoldTimelable.text = [dic[@"sdate"] stringByAppendingFormat:@"-%@",dic[@"edate"]];
+//    self.DepartmentLable.text = dic[@"department"];
+//    self.descriptionTextView.text = dic[@"content"];
+//    self.OfficeLable.text = dic[@"title"];
+//    self.detailId = dic[@"id"];
+   WorkExReadingView *wv = (WorkExReadingView *)tap.view;
+//wv.detailId
+//    THLog(@"%@",wv.detailId);
+    WorkingExperienceVC *vc = [[WorkingExperienceVC alloc]init];
+    vc.company = wv.companyNameLable.text;
+    vc.startTime = wv.startTime;
+    vc.endTime = wv.endTime;
+    vc.deprtment = wv.DepartmentLable.text;
+    vc.position = wv.OfficeLable.text;
+    vc.workContent = wv.descriptionTextView.text;
+    vc.detailId = wv.detailId;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+}
+
 -(void)backToResume
 {
-    [self.navigationController popViewControllerAnimated:NO];
-    for(UIViewController *controller in self.navigationController.viewControllers) {
-        if([controller isKindOfClass:[WriteResumeVC2 class]]){
-            WriteResumeVC2*owr = (WriteResumeVC2 *)controller;
-            [self.navigationController popToViewController:owr animated:YES];
-            
-        }
+    [self.navigationController popViewControllerAnimated:YES];
+//    for(UIViewController *controller in self.navigationController.viewControllers) {
+//        if([controller isKindOfClass:[WriteResumeVC2 class]]){
+//            WriteResumeVC2*owr = (WriteResumeVC2 *)controller;
+//            [self.navigationController popToViewController:owr animated:YES];
+//            
+//        }
         //    [self.navigationController popViewControllerAnimated:NO];
         //    WriteResumeVC2 * write = [[WriteResumeVC2 alloc] init];
         //    [self.navigationController popToViewController:write animated:YES];
         //
         //    [self.navigationController pushViewController:write animated:YES];
-    }
+//    }
 }
 #pragma mark --继续添加
 -(void)addClick
-{   [self.navigationController popViewControllerAnimated:YES];
-    //    WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
-    ////    [self.navigationController popToViewController:working animated:YES];
-    //    [self.navigationController pushViewController:working animated:YES];
+{
+//    [self.navigationController popViewControllerAnimated:YES];
+        WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
+        [self.navigationController pushViewController:working animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -22,5 +22,9 @@
     self.DepartmentLable.text = dic[@"department"];
     self.descriptionTextView.text = dic[@"content"];
     self.OfficeLable.text = dic[@"title"];
+    //页面向控制器传值用
+    self.startTime = dic[@"sdate"];
+    self.endTime = dic[@"edate"];
+    self.detailId = dic[@"id"];
 }
 @end

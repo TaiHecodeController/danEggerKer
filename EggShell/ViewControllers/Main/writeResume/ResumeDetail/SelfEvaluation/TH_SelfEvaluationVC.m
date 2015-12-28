@@ -86,7 +86,6 @@
     self.placeHoderTextLable = placeHoderTextLable;
     [self.contentTextField addSubview:placeHoderTextLable];
     self.placeHoderTextLable.font = [UIFont systemFontOfSize:13];
-    
 
     /*按钮选项**/
     UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 217, (WIDETH-150-18)/2.0, 30) ImageName:@"hongniu2" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
@@ -139,7 +138,8 @@
     [self.contentTextField resignFirstResponder];
 }
 -(void)textViewDidBeginEditing:(UITextView *)textView
-{[self.placeHoderTextLable removeFromSuperview];
+{
+    [self.placeHoderTextLable removeFromSuperview];
 
 }
 - (void)didReceiveMemoryWarning {

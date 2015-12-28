@@ -81,7 +81,7 @@
     UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 215*self.dataArray.count+35, 150, 30)];
     [button addTarget:self action:@selector(addbUttonClick) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
-    [button setTitle:@"继续添加" forState:UIControlStateNormal];
+    [button setTitle:@"添加项目经验" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.scro addSubview:button];
         self.scro.contentSize = CGSizeMake(WIDETH, 215*self.dataArray.count+150);
@@ -100,8 +100,8 @@
 -(void)backToResume
 {
     [self.navigationController popViewControllerAnimated:NO];
-    WriteResumeVC2 * write = [[WriteResumeVC2 alloc] init];
-    [self.navigationController popToViewController:write animated:YES];
+//    WriteResumeVC2 * write = [[WriteResumeVC2 alloc] init];
+//    [self.navigationController popToViewController:write animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

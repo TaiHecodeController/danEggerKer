@@ -12,5 +12,12 @@
 @property (strong,nonatomic)UILabel * nameLab;
 @property (strong,nonatomic)UITextView * contentTextField;
 
+@property (nonatomic, copy) NSString *company;
+@property (nonatomic, copy) NSString *startTime;
+@property (nonatomic, copy) NSString *endTime;
+@property (nonatomic, copy) NSString *deprtment;
+@property (nonatomic, copy) NSString *position;
+@property (nonatomic, copy) NSString *workContent;
+@property (nonatomic, copy) NSString *detailId;
 
 @end

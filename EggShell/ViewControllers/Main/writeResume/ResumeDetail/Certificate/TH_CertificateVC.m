@@ -147,15 +147,14 @@ self.contentTextField.text = @"";
     
     [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [self.scro addSubview:saveBtn];
+//    [self.scro addSubview:saveBtn];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:saveBtn];
     
     UIButton * replaceBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH-((WIDETH-150-18)/2.0+75),323, (WIDETH-150-18)/2.0, 30) ImageName:@"lanniu2" Target:self Action:@selector(replaceBtnClick) Title:@"重置"];
     
     [replaceBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [self.scro addSubview:replaceBtn];
-    
-    
+//    [self.scro addSubview:replaceBtn];
 }
 /*保存**/
 -(void)saveBtnClick

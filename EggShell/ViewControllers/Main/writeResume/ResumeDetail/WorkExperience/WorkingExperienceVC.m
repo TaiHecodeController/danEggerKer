@@ -42,9 +42,12 @@
     self.jobArray = [NSMutableArray arrayWithCapacity:0];
     _model = [[WriteRusumeModel2 alloc] init];
     _resume_model = [ResumeModel sharedResume];
+    
+    
     [self createScro];
     [self createUI];
     [self createData];
+    
     /*隐藏键盘**/
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
     tapGestureRecognizer.cancelsTouchesInView = NO;
@@ -62,33 +65,58 @@
             cell.StartTime.selected = NO;
             cell.endTime.selected = NO;
             cell.todaySelect.selected = NO;
-
-            
-            
         
         }else
         {
              WriteResumeCell * cell = self.jobArray[i];
-            if(i == 0)
+            if (self.detailId)
             {
-                 cell.contentTextField.text = @"";
+                if(i == 0)
+                {
+                    cell.contentTextField.text = self.company;
+                }
+                if(i == 2)
+                {
+                    cell.contentTextField.text = self.deprtment;
+                }
+                if(i == 3)
+                {
+                    cell.contentTextField.text = self.position;
+                }
+
             }
-            if(i == 2)
+            else
             {
-                cell.contentTextField.text = @"";
+                if(i == 0)
+                {
+                    cell.contentTextField.text = @"";
+                }
+                if(i == 2)
+                {
+                    cell.contentTextField.text = @"";
+                }
+                if(i == 3)
+                {
+                    cell.contentTextField.text = @"";
+                }
+
             }
-            if(i == 3)
-            {
-                 cell.contentTextField.text = @"";
-            }
+            
+        }
+        if (self.detailId)
+        {
+            self.contentTextField.text  = self.workContent;
 
         }
-     self.contentTextField.text  = @"";
-        
+        else
+        {
+            self.contentTextField.text  = @"";
 
-        
+        }
+    
     }
-        }
+}
+
 -(void)createScro
 {  self.view.backgroundColor = color(243, 243, 241);
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
@@ -104,7 +132,19 @@
 -(void)createData
 {
     self.nameArray = @[@"单位名称",@"工作时间",@"所在部门",@"担任职位"];
-    self.holderArray = @[@"请填写单位名称",@"",@"请填写所在部门",@"请填写担任职位"];
+    
+    if (self.detailId)
+    {
+        self.holderArray = @[self.company,@"",self.deprtment,self.position];
+//        self.placeHoderTextLable.text = self.workContent;
+        
+    }
+    else
+    {
+        self.holderArray = @[@"请填写单位名称",@"",@"请填写所在部门",@"请填写担任职位"];
+  
+    }
+    
 }
 
 -(void)createUI
@@ -151,24 +191,32 @@
     [backView addSubview:self.contentTextField];
     /*显示隐藏内容**/
     UILabel * placeHoderTextLable =[[UILabel alloc] initWithFrame:CGRectMake(10, 10, WIDETH - 121, 30)];
-    placeHoderTextLable.text = @"请填写工作内容";
     placeHoderTextLable.textColor = color(203, 203, 203);
     self.placeHoderTextLable = placeHoderTextLable;
     [self.contentTextField addSubview:placeHoderTextLable];
+    if (self.detailId)
+    {
+        self.contentTextField.text = self.workContent;
+    }
+    else
+    {
+//        self.contentTextField.text = @"请填写工作内容";
+    }
+
     self.placeHoderTextLable.font = [UIFont systemFontOfSize:13];
     
     //下方按钮
-    UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 - 100, 368, 90, 29) ImageName:@"hongniu2" Target:self Action:@selector(saveClick) Title:@"保存"];
-    
+    UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 - 100, 50, 50, 29) ImageName:@"hongniu2" Target:self Action:@selector(saveClick) Title:@"保存"];
     [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [self.scro addSubview:saveBtn];
+    saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+//    [self.scro addSubview:saveBtn];
+    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView:saveBtn];
     
     UIButton * replaceBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 + 10, 368, 90, 29) ImageName:@"lanniu2" Target:self Action:@selector(replaceClick) Title:@"重置"];
     
     [replaceBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [self.scro addSubview:replaceBtn];
+//    [self.scro addSubview:replaceBtn];
 }
 #pragma mark - 保存简历阅览
 -(void)saveClick
@@ -218,7 +266,6 @@
                 }
             }
         }
-        
     }
     if(self.contentTextField.text.length > 15)
     {
@@ -283,6 +330,13 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"WorkingTimeCell" owner:self options:nil] firstObject];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+        
+        if (self.detailId)
+        {
+            [cell.StartTime setTitle:self.startTime forState:UIControlStateNormal];
+            [cell.endTime setTitle:self.endTime forState:UIControlStateNormal];
+        }
+        
         cell.controller = self;
         [self.jobArray addObject:cell];
         return cell;
@@ -294,7 +348,15 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.resumeName.text = self.nameArray[indexPath.row];
-    cell.contentTextField.placeholder = self.holderArray[indexPath.row];
+    
+    if (self.detailId)
+    {
+        cell.contentTextField.text = self.holderArray[indexPath.row];
+    }
+    else
+    {
+        cell.contentTextField.placeholder = self.holderArray[indexPath.row];
+    }
     [self.jobArray addObject:cell];
     return cell;
 }

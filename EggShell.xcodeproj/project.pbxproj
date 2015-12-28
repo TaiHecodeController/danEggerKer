@@ -116,7 +116,6 @@
 		94313DF11B7CB5C9005D0A9A /* WriteResumeCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DE31B7CB5C9005D0A9A /* WriteResumeCell2.m */; };
 		94313DF21B7CB5C9005D0A9A /* WriteResumeCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94313DE41B7CB5C9005D0A9A /* WriteResumeCell2.xib */; };
 		94313DF31B7CB5C9005D0A9A /* WriteResumeVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */; };
-		94313DF41B7CB5C9005D0A9A /* WriteResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */; };
 		943F41801B9A8766000FC299 /* informantionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 943F417F1B9A8766000FC299 /* informantionModel.m */; };
 		946EBAC51B84659800CD6AC9 /* jobListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946EBAC41B84659800CD6AC9 /* jobListCell.m */; };
 		947006931B85CA6000DEC289 /* EditAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947006851B85CA6000DEC289 /* EditAddressVC.m */; };
@@ -310,6 +309,7 @@
 		F07F39011B993B7C002531CD /* CommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39001B993B7C002531CD /* CommonFunc.m */; };
 		F07F39051B996F65002531CD /* saveListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39041B996F65002531CD /* saveListModel.m */; };
 		F07F39091B998B62002531CD /* TeacherFCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39081B998B62002531CD /* TeacherFCModel.m */; };
+		F0811F711C30FED5005D13D7 /* WriteResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0811F701C30FED5005D13D7 /* WriteResumeViewController.m */; };
 		F083F8211B9C32F700781C08 /* Me_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F083F8201B9C32F700781C08 /* Me_Request.m */; };
 		F0A8C52F1C192BC0002E6971 /* findJobCarViewS.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A8C52E1C192BC0002E6971 /* findJobCarViewS.m */; };
 		F0B85A391BA11F83005799F5 /* SearchCity1_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */; };
@@ -576,8 +576,6 @@
 		94313DE41B7CB5C9005D0A9A /* WriteResumeCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WriteResumeCell2.xib; sourceTree = "<group>"; };
 		94313DE51B7CB5C9005D0A9A /* WriteResumeVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteResumeVC2.h; sourceTree = "<group>"; };
 		94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeVC2.m; sourceTree = "<group>"; };
-		94313DE71B7CB5C9005D0A9A /* WriteResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteResumeViewController.h; sourceTree = "<group>"; };
-		94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeViewController.m; sourceTree = "<group>"; };
 		943A9AA81C06CA4E001CC76D /* TalentPoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalentPoolCell.h; sourceTree = "<group>"; };
 		943A9AA91C06CA4E001CC76D /* TalentPoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalentPoolCell.m; sourceTree = "<group>"; };
 		943F417E1B9A8766000FC299 /* informantionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = informantionModel.h; sourceTree = "<group>"; };
@@ -920,6 +918,8 @@
 		F07F39041B996F65002531CD /* saveListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = saveListModel.m; sourceTree = "<group>"; };
 		F07F39071B998B62002531CD /* TeacherFCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherFCModel.h; sourceTree = "<group>"; };
 		F07F39081B998B62002531CD /* TeacherFCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherFCModel.m; sourceTree = "<group>"; };
+		F0811F6F1C30FED5005D13D7 /* WriteResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteResumeViewController.h; sourceTree = "<group>"; };
+		F0811F701C30FED5005D13D7 /* WriteResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeViewController.m; sourceTree = "<group>"; };
 		F083F81F1B9C32F700781C08 /* Me_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Me_Request.h; sourceTree = "<group>"; };
 		F083F8201B9C32F700781C08 /* Me_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Me_Request.m; sourceTree = "<group>"; };
 		F0A8C52D1C192BBA002E6971 /* findJobCarViewS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findJobCarViewS.h; sourceTree = "<group>"; };
@@ -1348,10 +1348,11 @@
 				94E2C9621B870EED001E3FDD /* CompanyDetail */,
 				94313DB01B7CAAED005D0A9A /* InformationDesk */,
 				940032961B840736001EB666 /* VersionUpdate */,
-				94313DD31B7CB5C9005D0A9A /* writeResume */,
 				947564A51B9D7B550087BA56 /* homeModel */,
 				94EAEAC01B784347003C19DD /* FindPractice */,
 				94EDD4F51B783F7800A00A78 /* FindPartTime */,
+				94313DD31B7CB5C9005D0A9A /* writeResume */,
+				940032A01B840CC3001EB666 /* ResumeDetail */,
 			);
 			name = Home;
 			path = Main;
@@ -1443,16 +1444,18 @@
 		940032A01B840CC3001EB666 /* ResumeDetail */ = {
 			isa = PBXGroup;
 			children = (
-				940032A11B840CC3001EB666 /* Certificate */,
+				F0811F6E1C30FE9E005D13D7 /* PersonInformation */,
+				940032C61B840CC3001EB666 /* WorkExperience */,
 				940032A41B840CC3001EB666 /* EducationExperience */,
+				940032C31B840CC3001EB666 /* TrainExperience */,
 				940032AB1B840CC3001EB666 /* ProfessionalSkill */,
 				940032B21B840CC3001EB666 /* ProjectExperience */,
-				940032BC1B840CC3001EB666 /* SubViews */,
-				940032C31B840CC3001EB666 /* TrainExperience */,
-				940032C61B840CC3001EB666 /* WorkExperience */,
+				940032A11B840CC3001EB666 /* Certificate */,
 				940032B91B840CC3001EB666 /* SelfEvaluation */,
+				940032BC1B840CC3001EB666 /* SubViews */,
 			);
-			path = ResumeDetail;
+			name = ResumeDetail;
+			path = writeResume/ResumeDetail;
 			sourceTree = "<group>";
 		};
 		940032A11B840CC3001EB666 /* Certificate */ = {
@@ -1661,8 +1664,8 @@
 				940EDEDE1B96E35800376D37 /* WorkExReadingVC.h */,
 				940EDEDF1B96E35800376D37 /* WorkExReadingVC.m */,
 				940EDEE11B96E37400376D37 /* WorkExReadingView.h */,
-				940EDEE41B96E38B00376D37 /* WorkExReading.xib */,
 				940EDEE21B96E37400376D37 /* WorkExReadingView.m */,
+				940EDEE41B96E38B00376D37 /* WorkExReading.xib */,
 			);
 			path = WorkExReading;
 			sourceTree = "<group>";
@@ -1670,11 +1673,11 @@
 		940EDEE61B97016200376D37 /* EducationReading */ = {
 			isa = PBXGroup;
 			children = (
+				94EED7F81B99286300049934 /* EducationReadVC.h */,
+				94EED7F91B99286300049934 /* EducationReadVC.m */,
 				940EDEEA1B9701B100376D37 /* EducationReadingView.h */,
 				940EDEEB1B9701B100376D37 /* EducationReadingView.m */,
 				940EDEED1B9701BF00376D37 /* EducationReading.xib */,
-				94EED7F81B99286300049934 /* EducationReadVC.h */,
-				94EED7F91B99286300049934 /* EducationReadVC.m */,
 			);
 			path = EducationReading;
 			sourceTree = "<group>";
@@ -1848,10 +1851,6 @@
 			children = (
 				F05B7FFC1B8AACA600DC0A1D /* WriteJLChooseVC.h */,
 				F05B7FFD1B8AACA600DC0A1D /* WriteJLChooseVC.m */,
-				94313DE71B7CB5C9005D0A9A /* WriteResumeViewController.h */,
-				94313DE81B7CB5C9005D0A9A /* WriteResumeViewController.m */,
-				94313DE51B7CB5C9005D0A9A /* WriteResumeVC2.h */,
-				94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */,
 				F0E700141B9FEDE200788B17 /* ChooseCity_3ViewController.h */,
 				F0E700151B9FEDE200788B17 /* ChooseCity_3ViewController.m */,
 				F0E700111B9FED7900788B17 /* ChooseCity_2ViewController.h */,
@@ -1861,11 +1860,12 @@
 				94313DD41B7CB5C9005D0A9A /* ManagerResumeVC.h */,
 				94313DD51B7CB5C9005D0A9A /* ManagerResumeVC.m */,
 				94313DD61B7CB5C9005D0A9A /* ManagerResumeVC.xib */,
+				94313DE51B7CB5C9005D0A9A /* WriteResumeVC2.h */,
+				94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */,
 				9400329C1B840B47001EB666 /* ResumePreview */,
 				0454ACEE1B94A20E004A70ED /* ResumeModel */,
 				94E8F4E61B85797900088658 /* SubViews */,
 				94313DE11B7CB5C9005D0A9A /* SubViews2 */,
-				940032A01B840CC3001EB666 /* ResumeDetail */,
 			);
 			path = writeResume;
 			sourceTree = "<group>";
@@ -2677,6 +2677,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F0811F6E1C30FE9E005D13D7 /* PersonInformation */ = {
+			isa = PBXGroup;
+			children = (
+				F0811F6F1C30FED5005D13D7 /* WriteResumeViewController.h */,
+				F0811F701C30FED5005D13D7 /* WriteResumeViewController.m */,
+			);
+			path = PersonInformation;
+			sourceTree = "<group>";
+		};
 		F083F81E1B9C324300781C08 /* TDjob */ = {
 			isa = PBXGroup;
 			children = (
@@ -3165,6 +3174,7 @@
 				94CB5B7D1B74CC0600B23B9D /* MJConst.m in Sources */,
 				9470069A1B85CA6000DEC289 /* MineEditInfoCell.m in Sources */,
 				94E3EAE71B954947007A699E /* findJobModel.m in Sources */,
+				F0811F711C30FED5005D13D7 /* WriteResumeViewController.m in Sources */,
 				048F30C11B7A462C004AA9B2 /* DataBase.m in Sources */,
 				F05FC6701C167F7200F0A5BE /* DefaultDirectionInterpretor.m in Sources */,
 				94E2C9D31B8AF98A001E3FDD /* ProjectExperienceView.m in Sources */,
@@ -3252,7 +3262,6 @@
 				047454F11B9C638600CE880A /* InfoModel.m in Sources */,
 				F0E700101B9FE69900788B17 /* ChooseCityViewController.m in Sources */,
 				048F30BA1B7A4537004AA9B2 /* FMDatabaseQueue.m in Sources */,
-				94313DF41B7CB5C9005D0A9A /* WriteResumeViewController.m in Sources */,
 				041650EC1B4D7C4E008C78BE /* MJRefreshBaseView.m in Sources */,
 				F05440B71B7885F500127A9B /* UIBarButtonItem+DC.m in Sources */,
 				94E2C9CA1B8AF884001E3FDD /* WorkExperienceView.m in Sources */,

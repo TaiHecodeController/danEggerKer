@@ -14,6 +14,8 @@
 #import "AppDelegate.h"
 #import "ManagerResumeModel.h"
 #import "ResumeModel.h"
+#import "WriteResumeVC2.h"
+
 @interface ManagerResumeVC ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     UIView * _alertView;
@@ -304,10 +306,13 @@
     {
         if (index == 1)
         {
-            WriteResumeViewController * vc = [[WriteResumeViewController alloc] init];
-            vc.resumeId = resumeid;
-            vc.isEdit = YES;
-            [AppDelegate instance].resumeId = resumeid;
+//            WriteResumeViewController * vc = [[WriteResumeViewController alloc] init];
+//            vc.resumeId = resumeid;
+//            vc.isEdit = YES;
+//            [AppDelegate instance].resumeId = resumeid;
+//            [self.navigationController pushViewController:vc animated:YES];
+            WriteResumeVC2 *vc = [[WriteResumeVC2 alloc]init];
+            vc.resumeid = resumeid;
             [self.navigationController pushViewController:vc animated:YES];
         }
         else

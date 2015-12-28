@@ -317,11 +317,14 @@
     userTableView.tag = 1999;
     [back_sv addSubview:userTableView];
     
+    
+    
     //保存按钮
-    UIButton * nextBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 - 75, 709, 150, 30) ImageName:@"lanniu2" Target:self Action:@selector(nextClick) Title:@"保存"];
+    UIButton * nextBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 - 75, 709, 50, 30) ImageName:@"lanniu2" Target:self Action:@selector(nextClick) Title:@"保存"];
     [nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    nextBtn.titleLabel.font = [UIFont systemFontOfSize:12];
-    [back_sv addSubview:nextBtn];
+    nextBtn.titleLabel.font = [UIFont systemFontOfSize:17];
+//    [back_sv addSubview:nextBtn];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:nextBtn];
     
 }
 
@@ -464,20 +467,23 @@
             }
         } WithResumeParam:param] addNotifaction:hub];
 
-    }else
+    }
+    else
     {
-        //从新编辑简历的时候，需要传简历id
+        //重新编辑简历的时候，需要传简历id
         NSDictionary * param = @{@"token":tokenStr, @"uid":[AppDelegate instance].userId,@"name":_model.resumeName,@"hy":_model.industry,@"job_classid":_model.exceptJob,@"salary":_model.exceptSalary,@"type":_model.jobNature,@"report":_model.arriveTime,@"jobstatus":_model.findState,@"uname":_model.userName,@"birthday":_model.userBirthday,@"edu":_model.academic,@"exp":_model.workExperience,@"telphone":_model.phoneNum,@"email":_model.email,@"address":_model.address,@"provinceid":[NSString stringWithFormat:@"%d",proviceId],@"cityid":[NSString stringWithFormat:@"%d",cityId],@"three_cityid":[NSString stringWithFormat:@"%d",threecityId],@"eid":self.resumeId,@"sex":_model.sex};
         
         THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
-        [[WriteResumeRequest uploadResumeMessageAboutUserMessageWithSucc:^(NSDictionary *DataDic) {
+        [[WriteResumeRequest uploadResumeMessageAboutUserMessageWithSucc:^(NSDictionary *DataDic)
+        {
             if([DataDic[@"code"] intValue] == 0)
             {
                 [MBProgressHUD creatembHub:@"编辑简历成功"];
-                WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
-                wrvc2.dataDic = self.dataDic;
-                [self.navigationController pushViewController:wrvc2 animated:YES];
-                [AppDelegate instance].resumeId = DataDic[@"data"];
+                [self.navigationController popViewControllerAnimated:YES];
+//                WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
+//                wrvc2.dataDic = self.dataDic;
+//                [self.navigationController pushViewController:wrvc2 animated:YES];
+//                [AppDelegate instance].resumeId = DataDic[@"data"];
             }
             
         } WithResumeParam:param] addNotifaction:hub];
