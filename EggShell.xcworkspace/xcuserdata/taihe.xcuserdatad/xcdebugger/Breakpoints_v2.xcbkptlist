@@ -105,7 +105,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
             endingLineNumber = "134"
-            landmarkName = "-createData"
+            landmarkName = "-createUI"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -121,7 +121,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
             endingLineNumber = "122"
-            landmarkName = "-createScro"
+            landmarkName = "-createUI"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -169,7 +169,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "293"
             endingLineNumber = "293"
-            landmarkName = "-replaceClick"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -185,7 +185,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "325"
             endingLineNumber = "325"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkName = "-textViewDidBeginEditing:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -200,9 +200,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "366"
-            endingLineNumber = "366"
-            landmarkName = "-touchesBegan:withEvent:"
-            landmarkType = "5">
+            endingLineNumber = "366">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -216,9 +214,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "380"
-            endingLineNumber = "380"
-            landmarkName = "-textViewDidBeginEditing:"
-            landmarkType = "5">
+            endingLineNumber = "380">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
