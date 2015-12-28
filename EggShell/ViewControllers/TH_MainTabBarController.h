@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TH_SelectTabBar.h"
+@interface TH_MainTabBarController : UITabBarController<SelectTabBarDelegate>
 
-@interface TH_MainTabBarController : UITabBarController
-
-- (void)messagePush;
 
 @end

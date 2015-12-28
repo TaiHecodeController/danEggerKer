@@ -51,7 +51,6 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.navigationController.navigationBar.translucent = NO;
     self.view.backgroundColor = color(243, 243, 241);
-    self.title = @"我的";
     [self createScro];
     [self createView];
 //    [self baseIofomationLogin];

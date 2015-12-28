@@ -19,6 +19,7 @@
 #import "TH_ClassVC.h"
 
 #import "SearchJobVC.h"
+#import "TH_SearchJobVC.h"
 #import "DataBase.h"
 #import "CompanyDetailVC.h"
 
@@ -182,7 +183,8 @@
     _searchView.searchClick = ^
     {
         weakSelf.navigationController.navigationBarHidden = NO;
-        [weakSelf.navigationController pushViewController:[[SearchJobVC alloc] init] animated:YES];
+//        [weakSelf.navigationController pushViewController:[[SearchJobVC alloc] init] animated:YES];
+        [weakSelf.navigationController pushViewController:[[TH_SearchJobVC alloc] init] animated:YES];
     };
     _searChBgView = [[UIView alloc] initWithFrame:_searchView.bounds];
     _searChBgView.backgroundColor = [UIColor colorWithRed:40 / 255.0 green:42 / 255.0 blue:48 / 255.0 alpha:1];
@@ -205,7 +207,8 @@
 -(void)tap
 {
     self.navigationController.navigationBarHidden = NO;
-    SearchJobVC *vc = [[SearchJobVC alloc]init];
+//    SearchJobVC *vc = [[SearchJobVC alloc]init];
+    TH_SearchJobVC * vc = [[TH_SearchJobVC alloc] init];
     vc.pushType = 0;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -273,7 +276,7 @@
     [self.scro addSubview:Famous];
     
     //    self.scro.contentSize = CGSizeMake(WIDETH, MyHeight * 326+416+25);
-    self.scro.contentSize = CGSizeMake(WIDETH, MyWideth * 300+205+215+25+26);
+    self.scro.contentSize = CGSizeMake(WIDETH, MyWideth * 300+205+215+25+26-64);
 }
 #pragma mark -- 名企推荐
 -(void)FamousRecommendedViewJob:(FamousRecommendedView*)HotJobView DidClickButton:(int)tag

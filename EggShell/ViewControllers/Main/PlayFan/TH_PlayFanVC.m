@@ -75,7 +75,6 @@
     
 //    self.page = 0;
     self.limitNum = 10;
-    self.title = @"玩出范";
     [self createView];
     [self createTbleView];
     [self hySegmentedControlSelectAtIndex:0];

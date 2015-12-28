@@ -15,6 +15,7 @@
 #import "findJobModel.h"
 #import "FindJobcardView.h"
 #import "SearchJobVC.h"
+#import "TH_SearchJobVC.h"
 #import "TH_JobScreeningVC.h"
 #import "UIBarButtonItem+DC.h"
 #import "TH_JobDetailVC.h"
@@ -235,7 +236,8 @@
 - (void)searchBtnClick
 {
     THLog(@"搜索被点击");
-    SearchJobVC * search = [[SearchJobVC alloc] init];
+//    SearchJobVC * search = [[SearchJobVC alloc] init];
+    TH_SearchJobVC  * search = [[TH_SearchJobVC alloc] init];
     [self.navigationController pushViewController:search animated:YES];
     
 }

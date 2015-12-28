@@ -14,6 +14,7 @@
 #import "TH_JobDetailVC.h"
 #import "TH_JobScreeningVC.h"
 #import "SearchJobVC.h"
+#import "TH_SearchJobVC.h"
 #import "MJRefresh.h"
 #import "SearchModelShare.h"
 #import "FMDatabase.h"
@@ -428,7 +429,7 @@
     _tableView.showsVerticalScrollIndicator = NO;
     _tableView.tableFooterView =[[UIView alloc] init];
     [self.view addSubview:_tableView];
-    //下拉刷新
+        //下拉刷新
     _header = [MJRefreshHeaderView header];
     _header.scrollView = self.tableView;
     _header.delegate = self;
@@ -869,7 +870,8 @@
 - (void)searchBtnClick
 {
     THLog(@"搜索被点击");
-    SearchJobVC * search = [[SearchJobVC alloc] init];
+//    SearchJobVC * search = [[SearchJobVC alloc] init];
+    TH_SearchJobVC * search =  [[TH_SearchJobVC alloc] init];
     [self.navigationController pushViewController:search animated:YES];
     
 }

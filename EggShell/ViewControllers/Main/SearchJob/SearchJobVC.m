@@ -29,10 +29,10 @@
 @end
 
 @implementation SearchJobVC
+
 - (void)viewDidLoad {
     
-    self.view.backgroundColor =[UIColor whiteColor];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
     self.title = @"职位搜索";
     self.view.backgroundColor = [UIColor whiteColor];
@@ -224,8 +224,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.navigationController.navigationBar.translucent = YES;
     
+    self.navigationController.navigationBar.translucent = YES;
     [MobClick beginLogPageView:@"searchjobvc"];
     
 }

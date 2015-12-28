@@ -18,23 +18,32 @@
 
 + (void)initialize
 {
-    UINavigationBar *navigationBar = [UINavigationBar appearance];
-    [navigationBar setBarTintColor:color(253, 253, 253)];
-    navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor blackColor]};
-    navigationBar.titleTextAttributes = @{NSFontAttributeName :[UIFont systemFontOfSize:18]};
-    UIImage *icon = [UIImage imageNamed:@"shipinchuangkou"];
-//     [navigationBar setBackgroundImage:icon forBarMetrics:UIBarMetricsDefault];
-        [navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-//    [navigationBar setBackgroundImage:icon forBarPosition:UIBarPositionBottom barMetrics:UIBarMetricsDefault];
-//    navigationBar.clipsToBounds=YES;
-    navigationBar.shadowImage = [UIImage imageNamed:@"矩形-4"];
-//    navigationBar.shadowImage = icon;
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-//    navigationBar.titleTextAttributes = @{@"NSForegroundColorAttributeName":[UIColor yellowColor]};
-    
-    //设置返回按钮
+//    UINavigationBar *navigationBar = [UINavigationBar appearance];
+//    [navigationBar setBarTintColor:UIColorFromRGB(0x3ebb2b)];
+//    navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor ]};
+////    navigationBar.titleTextAttributes = @{NSFontAttributeName :[UIFont systemFontOfSize:18]};
+//    UIImage *icon = [UIImage imageNamed:@"shipinchuangkou"];
+////     [navigationBar setBackgroundImage:icon forBarMetrics:UIBarMetricsDefault];
+//        [navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+////    [navigationBar setBackgroundImage:icon forBarPosition:UIBarPositionBottom barMetrics:UIBarMetricsDefault];
+////    navigationBar.clipsToBounds=YES;
+//    navigationBar.shadowImage = [UIImage imageNamed:@"矩形-4"];
+////    navigationBar.shadowImage = icon;
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+////   navigationBar.titleTextAttributes = @{@"NSForegroundColorAttributeName":[UIColor yellowColor]};
+//    
+////    设置返回按钮
 //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
 //                                                          forBarMetrics:UIBarMetricsDefault];
+    UINavigationBar *navigationBar = [UINavigationBar appearance];
+    [navigationBar setBarTintColor:UIColorFromRGB(0x3ebb2b)];
+    [navigationBar setTitleTextAttributes:
+     
+  @{NSFontAttributeName:[UIFont systemFontOfSize:18],
+    
+    NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    navigationBar.shadowImage = [[UIImage alloc] init];
 
 }
 
@@ -85,7 +94,7 @@
     //push之前设置返回按钮
     if (self.viewControllers.count > 0)
     {
-        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itermWithTarget:self Action:@selector(pop) Image:@"fanhui" HighImage:@"fanhui"];
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itermWithTarget:self Action:@selector(pop) Image:@"backSecond" HighImage:@"backSecond"];
         
         viewController.hidesBottomBarWhenPushed = YES;
     }
@@ -107,10 +116,10 @@
     [self popViewControllerAnimated:YES];
 
 }
-//- (UIStatusBarStyle)preferredStatusBarStyle
-//{
-//    return UIStatusBarStyleBlackOpaque;
-//}
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleBlackOpaque;
+}
 
 
 
