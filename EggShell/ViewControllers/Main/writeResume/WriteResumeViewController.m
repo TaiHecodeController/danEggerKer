@@ -407,7 +407,8 @@
 //                [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text]];
                 [MBProgressHUD creatembHub:[NSString stringWithFormat:@"请填写您的%@",cell.resumeName.text] ControllerView:self];
                 return;
-            }else
+            }
+            else
             {
                 if(i == 4)
                 {
