@@ -93,7 +93,7 @@
     [self.scro addSubview:ContactTextLable];
     /*可选项**/
     UIButton * optionalBtn = [[UIButton alloc] initWithFrame:CGRectMake(263, 211, 40, 20)];
-    [optionalBtn setBackgroundImage:[UIImage imageNamed:@"lanniu2"] forState:UIControlStateNormal];
+    [optionalBtn setBackgroundImage:[UIImage imageNamed:@"hongniu2"] forState:UIControlStateNormal];
     [optionalBtn setTitle:@"可选项" forState:UIControlStateNormal];
     [optionalBtn setTitleColor:[UIColor whiteColor
                                 ] forState:UIControlStateNormal];

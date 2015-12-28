@@ -268,7 +268,7 @@
     UIButton *registBtn = [[UIButton alloc] initWithFrame:CGRectMake(80, CGRectGetMaxY(loginBtn.frame) + 15, 60, 12)];
     [registBtn addTarget:self action:@selector(registClick) forControlEvents:UIControlEventTouchUpInside];
     [registBtn setTitle:@"立即注册!" forState:UIControlStateNormal];
-    [registBtn setTitleColor:color(244, 67, 54) forState:UIControlStateNormal];
+    [registBtn setTitleColor:UIColorFromRGB(0xeb7a23) forState:UIControlStateNormal];
     registBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [self.scro addSubview:registBtn];
     _registBtn = registBtn;
@@ -276,7 +276,7 @@
     //忘记密码
     UIButton * forgetBtn =[[UIButton alloc] initWithFrame:CGRectMake(WIDETH-70, CGRectGetMaxY(loginBtn.frame) + 15, 55, 12)];
     [forgetBtn setTitle:@"忘记密码?" forState:UIControlStateNormal];
-    [forgetBtn setTitleColor:color(244, 67, 54) forState:UIControlStateNormal];
+    [forgetBtn setTitleColor:UIColorFromRGB(0xeb7a23) forState:UIControlStateNormal];
     forgetBtn.titleLabel.font =[UIFont systemFontOfSize:12];
     [forgetBtn addTarget:self action:@selector(ForgotPasswordClick) forControlEvents:UIControlEventTouchUpInside];
     [self.scro addSubview:forgetBtn];
