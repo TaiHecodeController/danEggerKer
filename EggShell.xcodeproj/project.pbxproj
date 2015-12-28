@@ -143,6 +143,10 @@
 		9473306B1C02E98000688587 /* TH_EnterpriseResetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9473306A1C02E98000688587 /* TH_EnterpriseResetPasswordVC.m */; };
 		947564A81B9D7B710087BA56 /* homedel.m in Sources */ = {isa = PBXBuildFile; fileRef = 947564A71B9D7B710087BA56 /* homedel.m */; };
 		948CBFBD1C2E771100084294 /* TH_SearchJobVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFBC1C2E771100084294 /* TH_SearchJobVC.m */; };
+		948CBFCB1C31212E00084294 /* PersonalInformationBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFC91C31212E00084294 /* PersonalInformationBaseCell.m */; };
+		948CBFCC1C31212E00084294 /* PersonalInformationBaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 948CBFCA1C31212E00084294 /* PersonalInformationBaseCell.xib */; };
+		948CBFCF1C312C5400084294 /* personalInformationTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFCE1C312C5400084294 /* personalInformationTitleView.m */; };
+		948CBFD11C312C7700084294 /* personalInformationTitleViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 948CBFD01C312C7700084294 /* personalInformationTitleViews.xib */; };
 		949CAA0F1BB253AA00284FFF /* WorkingTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CAA0D1BB253AA00284FFF /* WorkingTimeCell.m */; };
 		949CAA101BB253AA00284FFF /* WorkingTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949CAA0E1BB253AA00284FFF /* WorkingTimeCell.xib */; };
 		949CAA141BB2540100284FFF /* EducationWriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949CAA111BB2540100284FFF /* EducationWriteCell.xib */; };
@@ -628,6 +632,12 @@
 		947564A71B9D7B710087BA56 /* homedel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homedel.m; sourceTree = "<group>"; };
 		948CBFBB1C2E771100084294 /* TH_SearchJobVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_SearchJobVC.h; sourceTree = "<group>"; };
 		948CBFBC1C2E771100084294 /* TH_SearchJobVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_SearchJobVC.m; sourceTree = "<group>"; };
+		948CBFC81C31212E00084294 /* PersonalInformationBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInformationBaseCell.h; sourceTree = "<group>"; };
+		948CBFC91C31212E00084294 /* PersonalInformationBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInformationBaseCell.m; sourceTree = "<group>"; };
+		948CBFCA1C31212E00084294 /* PersonalInformationBaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalInformationBaseCell.xib; sourceTree = "<group>"; };
+		948CBFCD1C312C5400084294 /* personalInformationTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = personalInformationTitleView.h; sourceTree = "<group>"; };
+		948CBFCE1C312C5400084294 /* personalInformationTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = personalInformationTitleView.m; sourceTree = "<group>"; };
+		948CBFD01C312C7700084294 /* personalInformationTitleViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = personalInformationTitleViews.xib; sourceTree = "<group>"; };
 		949CAA011BB2515A00284FFF /* EducationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationTimeCell.h; sourceTree = "<group>"; };
 		949CAA0C1BB253AA00284FFF /* WorkingTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingTimeCell.h; sourceTree = "<group>"; };
 		949CAA0D1BB253AA00284FFF /* WorkingTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingTimeCell.m; sourceTree = "<group>"; };
@@ -1666,6 +1676,12 @@
 				940EDEE11B96E37400376D37 /* WorkExReadingView.h */,
 				940EDEE21B96E37400376D37 /* WorkExReadingView.m */,
 				940EDEE41B96E38B00376D37 /* WorkExReading.xib */,
+				948CBFC81C31212E00084294 /* PersonalInformationBaseCell.h */,
+				948CBFC91C31212E00084294 /* PersonalInformationBaseCell.m */,
+				948CBFCA1C31212E00084294 /* PersonalInformationBaseCell.xib */,
+				948CBFCD1C312C5400084294 /* personalInformationTitleView.h */,
+				948CBFCE1C312C5400084294 /* personalInformationTitleView.m */,
+				948CBFD01C312C7700084294 /* personalInformationTitleViews.xib */,
 			);
 			path = WorkExReading;
 			sourceTree = "<group>";
@@ -2987,6 +3003,7 @@
 				F0E970D11C0D439100FC21BC /* you3@2x.png in Resources */,
 				94E5E5ED1C085A6800CF60A0 /* SearchView.xib in Resources */,
 				94E95EEC1C17C1C7009FA049 /* findJobDetialScriptionView.xib in Resources */,
+				948CBFCC1C31212E00084294 /* PersonalInformationBaseCell.xib in Resources */,
 				94313D351B7B46C2005D0A9A /* LoginView.xib in Resources */,
 				F0E970D21C0D439100FC21BC /* you3@3x.png in Resources */,
 				F0E970E01C0D439100FC21BC /* 视频推荐默认图@2x.png in Resources */,
@@ -3000,6 +3017,7 @@
 				94E3EA8D1B8E9AAD007A699E /* mapapi.bundle in Resources */,
 				F0E970E21C0D439100FC21BC /* 视频默认图.png in Resources */,
 				94313DEA1B7CB5C9005D0A9A /* ManagerResumeVC.xib in Resources */,
+				948CBFD11C312C7700084294 /* personalInformationTitleViews.xib in Resources */,
 				947006941B85CA6000DEC289 /* EditAddressVC.xib in Resources */,
 				94E761D61BA2C23200B4C544 /* ProfessonSkillRead.xib in Resources */,
 				F0E970DF1C0D439100FC21BC /* 视频推荐默认图.png in Resources */,
@@ -3075,6 +3093,7 @@
 				F0C0678F1C03FDF000D1B22B /* TableViewCell_4.m in Sources */,
 				94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */,
 				94E761BD1BA2AC5800B4C544 /* ProjectExperienceVC.m in Sources */,
+				948CBFCB1C31212E00084294 /* PersonalInformationBaseCell.m in Sources */,
 				943F41801B9A8766000FC299 /* informantionModel.m in Sources */,
 				94CB5B8B1B74CC0600B23B9D /* SMPageControl.m in Sources */,
 				94EFC1C11B7D046F00833068 /* TH_featureVC.m in Sources */,
@@ -3126,6 +3145,7 @@
 				F0C067871C03FDA900D1B22B /* TableViewCell_2.m in Sources */,
 				F0B85A431BA16124005799F5 /* polyNewViewController.m in Sources */,
 				940EDEE01B96E35800376D37 /* WorkExReadingVC.m in Sources */,
+				948CBFCF1C312C5400084294 /* personalInformationTitleView.m in Sources */,
 				946EBAC51B84659800CD6AC9 /* jobListCell.m in Sources */,
 				F05FC66F1C167F7200F0A5BE /* UIColor+FlatColors.m in Sources */,
 				94CB5B831B74CC0600B23B9D /* MJTypeEncoding.m in Sources */,
