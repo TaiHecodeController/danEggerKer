@@ -12,8 +12,8 @@
 
 -(void)configValeus:(NSDictionary *)dic
 {
-self.companyNameLable.text = [NSString stringWithFormat:@"%@",dic[@"name"]];
-self.limitedTimeLable.text = [dic[@"sdate"] stringByAppendingFormat:@"-%@",dic[@"edate"]];
+    self.companyNameLable.text = [NSString stringWithFormat:@"%@",dic[@"name"]];
+    self.limitedTimeLable.text = [dic[@"sdate"] stringByAppendingFormat:@"-%@",dic[@"edate"]];
     self.jobNameLable.text = dic[@"title"];
 }
 

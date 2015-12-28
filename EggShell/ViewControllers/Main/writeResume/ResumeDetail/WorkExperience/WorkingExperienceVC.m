@@ -259,9 +259,10 @@
     
     
     [[WriteResumeRequest uploadWorkExperienceWithSucc:^(NSDictionary * dataDic) {
-        WorkExReadingVC *workreading = [[WorkExReadingVC alloc] init];
-//        workreading.model = _model;
-        [self.navigationController pushViewController:workreading animated:YES];
+//        WorkExReadingVC *workreading = [[WorkExReadingVC alloc] init];
+////        workreading.model = _model;
+//        [self.navigationController pushViewController:workreading animated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
     } WithResumeParam:param] addNotifaction:hub];
 }
 
@@ -313,6 +314,10 @@
         {
             [cell.StartTime setTitle:self.startTime forState:UIControlStateNormal];
             [cell.endTime setTitle:self.endTime forState:UIControlStateNormal];
+            cell.StartTime.titleLabel.textColor = [UIColor blackColor];
+            cell.endTime.titleLabel.textColor = [UIColor blackColor];
+            cell.StartTime.selected = YES;
+            cell.endTime.selected = YES;
         }
         cell.controller = self;
         [self.jobArray addObject:cell];
@@ -371,6 +376,7 @@
 {
     [self.contentTextField  resignFirstResponder];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

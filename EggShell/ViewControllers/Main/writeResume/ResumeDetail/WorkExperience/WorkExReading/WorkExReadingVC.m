@@ -26,27 +26,23 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     /***/
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+    
+    //填写或修改完简历，刷新页面
+    [self loadData];
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewWillDisappear:NO];
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
-    
+//    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataArray = [NSArray array];
-//    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
-//    scro.showsVerticalScrollIndicator = NO;
-//    self.scro = scro;
-//    [self.view addSubview:scro];
-    
     [self createTableView];
-    [self loadData];
     
-    }
+}
 -(void)createTableView
 {
     //个人简历标题
@@ -87,8 +83,6 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    
     return self.dataArray.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,11 +103,17 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WorkingExperienceVC *vc = [[WorkingExperienceVC alloc]init];
-    
-        [self.navigationController pushViewController:vc animated:YES];
-        
 
+    NSDictionary * dic =self.dataArray[indexPath.row];
+    WorkingExperienceVC *vc = [[WorkingExperienceVC alloc]init];
+    vc.company = dic[@"name"];
+    vc.startTime = dic[@"sdate"];
+    vc.endTime = dic[@"edate"];
+    vc.deprtment = dic[@"department"];
+    vc.position =  dic[@"title"];
+    vc.workContent = dic[@"content"];
+    vc.detailId = dic[@"id"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 -(void)loadData
 {
