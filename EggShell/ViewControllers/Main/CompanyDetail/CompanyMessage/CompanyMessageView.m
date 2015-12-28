@@ -87,7 +87,7 @@
     [self addSubview:addressLab];
 
     UIView * companyView = [[UIView alloc] initWithFrame:CGRectMake(15, 121, 2, 13)];
-    companyView.backgroundColor = UIColorFromRGB(0XF44336);
+    companyView.backgroundColor = UIColorFromRGB(0x3ebb2b);
     [self addSubview:companyView];
     companyIntroduce = [[UILabel alloc] initWithFrame:CGRectMake(20, 120, WIDETH - 15, 15)];
     companyIntroduce.text = @"公司介绍";
@@ -104,14 +104,14 @@
     
     self.showAllBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.showAllBtn.frame = CGRectMake((WIDETH -100)/2, 225, 100, 30);
-    [self.showAllBtn setBackgroundImage:[UIImage imageNamed:@"showallBtn"] forState:UIControlStateNormal];
+    [self.showAllBtn setBackgroundImage:[UIImage imageNamed:@"showallBtnBlue"] forState:UIControlStateNormal];
     [self.showAllBtn setTitle:@"查看全部" forState:UIControlStateNormal];
     [self.showAllBtn setTitleColor:UIColorFromRGB(0XEb7A23) forState:UIControlStateNormal];
     self.showAllBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     
     [self.showAllBtn setTitle:@"点击收起" forState:UIControlStateSelected];
-    [self.showAllBtn setImage:[UIImage imageNamed:@"chakan"] forState:UIControlStateNormal ];
-    [self.showAllBtn setImage:[UIImage imageNamed:@"shouqi"] forState:UIControlStateSelected];
+    [self.showAllBtn setImage:[UIImage imageNamed:@"chakanBlue"] forState:UIControlStateNormal ];
+    [self.showAllBtn setImage:[UIImage imageNamed:@"shouqiBlue"] forState:UIControlStateSelected];
     self.showAllBtn.imageEdgeInsets = UIEdgeInsetsMake(0,0,0,-115);
     self.showAllBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -33, 0, 0);
     [self.showAllBtn setTitleColor:UIColorFromRGB(0XEb7A23) forState:UIControlStateSelected];
