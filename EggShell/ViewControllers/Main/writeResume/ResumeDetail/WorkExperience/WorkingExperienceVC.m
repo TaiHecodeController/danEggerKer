@@ -42,6 +42,7 @@
     self.jobArray = [NSMutableArray arrayWithCapacity:0];
     _model = [[WriteRusumeModel2 alloc] init];
     _resume_model = [ResumeModel sharedResume];
+    
     [self createScro];
     [self createUI];
     [self createData];
@@ -100,7 +101,15 @@
 -(void)createData
 {
     self.nameArray = @[@"单位名称",@"工作时间",@"所在部门",@"担任职位"];
-    self.holderArray = @[@"请填写单位名称",@"",@"请填写所在部门",@"请填写担任职位"];
+    if (self.detailId)
+    {
+        self.holderArray = @[self.company,@"",self.deprtment,self.position];
+    }
+    else
+    {
+        self.holderArray = @[@"请填写单位名称",@"",@"请填写所在部门",@"请填写担任职位"];
+    }
+    
 }
 
 -(void)createUI
@@ -147,24 +156,44 @@
     [backView addSubview:self.contentTextField];
     /*显示隐藏内容**/
     UILabel * placeHoderTextLable =[[UILabel alloc] initWithFrame:CGRectMake(10, 10, WIDETH - 121, 30)];
-    placeHoderTextLable.text = @"请填写工作内容";
+    
     placeHoderTextLable.textColor = color(203, 203, 203);
     self.placeHoderTextLable = placeHoderTextLable;
     [self.contentTextField addSubview:placeHoderTextLable];
     self.placeHoderTextLable.font = [UIFont systemFontOfSize:13];
+    if (self.detailId)
+    {
+        self.contentTextField.text = self.workContent;
+    }
+    else
+    {
+       placeHoderTextLable.text = @"请填写工作内容";
+    }
     
     //下方按钮
-    UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 - 100, 368, 90, 29) ImageName:@"hongniu2" Target:self Action:@selector(saveClick) Title:@"保存"];
-    
+    UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 - 100, 368, 50, 29) ImageName:@"" Target:self Action:@selector(saveClick) Title:@"保存"];
     [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [self.scro addSubview:saveBtn];
+    saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+//    [self.scro addSubview:saveBtn];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:saveBtn];
     
-    UIButton * replaceBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 + 10, 368, 90, 29) ImageName:@"lanniu2" Target:self Action:@selector(replaceClick) Title:@"重置"];
-    [replaceBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [self.scro addSubview:replaceBtn];
+//    UIButton * deleteBtn = [ZCControl createButtonWithFrame:CGRectMake(75, CGRectGetMaxY(self.contentTextField.frame) + 20, WIDETH - 75 * 2, 30) ImageName:@"" Target:self Action:@selector(deleteClick:) Title:@"删除此工作经历"];
+    UIButton *deleteBtn = [[UIButton alloc]init];
+    deleteBtn.frame = CGRectMake(75, CGRectGetMaxY(backView.frame) + 20, WIDETH - 75 * 2, 30);
+    [deleteBtn addTarget:self action:@selector(deleteClick:) forControlEvents:UIControlEventTouchUpInside];
+    [deleteBtn setBackgroundColor:[UIColor orangeColor]];
+    [deleteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [deleteBtn setTitle:@"删除此工作经历" forState:UIControlStateNormal];
+    deleteBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
+    deleteBtn.layer.cornerRadius = 5;
+    [self.scro addSubview:deleteBtn];
 }
+
+- (void)deleteClick:(UIButton *)btn
+{
+    THLog(@"删除");
+}
+
 #pragma mark - 保存简历阅览
 -(void)saveClick
 {
@@ -236,27 +265,29 @@
     } WithResumeParam:param] addNotifaction:hub];
 }
 
--(void)replaceClick
-{
-    for(int i = 0;i < self.jobArray.count;i++)
-    {
-        if(i == 1)
-        {
-            WorkingTimeCell * cell = self.jobArray[i];
-            cell.StartTime.selected = NO;
-            cell.endTime.selected = NO;
-            cell.todaySelect.selected = NO;
-            continue;
-        }
-        WriteResumeCell * cell = self.jobArray[i];
-        cell.contentTextField.text = @"";
-    }
-    [self.jobArray removeAllObjects];
-    self.contentTextField.text = @"";
-    self.placeHoderTextLable.hidden = NO;
-    [_tableView reloadData];
 
-}
+
+//-(void)replaceClick
+//{
+//    for(int i = 0;i < self.jobArray.count;i++)
+//    {
+//        if(i == 1)
+//        {
+//            WorkingTimeCell * cell = self.jobArray[i];
+//            cell.StartTime.selected = NO;
+//            cell.endTime.selected = NO;
+//            cell.todaySelect.selected = NO;
+//            continue;
+//        }
+//        WriteResumeCell * cell = self.jobArray[i];
+//        cell.contentTextField.text = @"";
+//    }
+//    [self.jobArray removeAllObjects];
+//    self.contentTextField.text = @"";
+//    self.placeHoderTextLable.hidden = NO;
+//    [_tableView reloadData];
+//
+//}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -278,6 +309,11 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"WorkingTimeCell" owner:self options:nil] firstObject];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+        if (self.detailId)
+        {
+            [cell.StartTime setTitle:self.startTime forState:UIControlStateNormal];
+            [cell.endTime setTitle:self.endTime forState:UIControlStateNormal];
+        }
         cell.controller = self;
         [self.jobArray addObject:cell];
         return cell;
@@ -289,7 +325,15 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.resumeName.text = self.nameArray[indexPath.row];
-    cell.contentTextField.placeholder = self.holderArray[indexPath.row];
+    if (self.detailId)
+    {
+        cell.contentTextField.text = self.holderArray[indexPath.row];
+    }
+    else
+    {
+        cell.contentTextField.placeholder = self.holderArray[indexPath.row];
+    }
+    
     [self.jobArray addObject:cell];
     return cell;
 }

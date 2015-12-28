@@ -80,6 +80,7 @@
         {
             workingView.workBtn.hidden = YES;
         }
+        
         UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH - 150)/2.0, 215*self.dataArray.count+35, 150, 30)];
         [addButtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
         addButtn.titleLabel.font =[UIFont  systemFontOfSize:13];
