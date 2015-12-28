@@ -80,6 +80,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+
     
     return self.dataArray.count;
 }
@@ -89,6 +90,7 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"PersonalInformationBaseCell" owner:self options:nil] lastObject];
         
+
     }
     NSDictionary * dic =self.dataArray[indexPath.row];
     [cell configValeus:dic];
