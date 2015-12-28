@@ -132,7 +132,22 @@
     [replaceBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
 //    [self.scro addSubview:replaceBtn];
+    UIButton *deleteBtn = [[UIButton alloc]init];
+    deleteBtn.frame = CGRectMake(75, CGRectGetMaxY(tableview.frame) + 20, WIDETH - 75 * 2, 30);
+    [deleteBtn addTarget:self action:@selector(deleteClick:) forControlEvents:UIControlEventTouchUpInside];
+    [deleteBtn setBackgroundColor:[UIColor orangeColor]];
+    [deleteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [deleteBtn setTitle:@"删除此工作经历" forState:UIControlStateNormal];
+    deleteBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
+    deleteBtn.layer.cornerRadius = 5;
+    [self.scro addSubview:deleteBtn];
 }
+
+- (void)deleteClick:(UIButton *)btn
+{
+    THLog(@"删除");
+}
+
 /*保存**/
 -(void)saveBtnClick
 {
