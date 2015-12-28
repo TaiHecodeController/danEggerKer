@@ -53,21 +53,28 @@
     personalInformationTitleView * personTitle = [personalInformationTitleView setpersonalInformationTitleView];
     personTitle.frame = CGRectMake(0, 0, WIDETH, 40);
     [self.view addSubview:personTitle];
+    _resume_model = [ResumeModel sharedResume];
+    personTitle.personTitleLable.text = [NSString stringWithFormat:@"%@-工作经历%d",_resume_model.resumeName,1];
     UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT-40-64)];
     tableView.dataSource = self;
     tableView.delegate = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
     self.tableView = tableView;
+    
+    
     //添加工作经历
-    UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, (WIDETH-150)/2.0, 30)];
+    UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake(80, 15, WIDETH-160, 30)];
     [addButtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
     addButtn.titleLabel.font =[UIFont  systemFontOfSize:13];
-    [addButtn setTitle:@"添加工作经历" forState:UIControlStateNormal];
+    [addButtn setTitle:@"+添加工作经历" forState:UIControlStateNormal];
     addButtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [addButtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [addButtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
-    self.tableView.tableFooterView = addButtn;
+    
+    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 50)];
+    self.tableView.tableFooterView = footerView;
+    [footerView addSubview:addButtn];
 
 }
 #pragma mark --继续添加

@@ -10,4 +10,8 @@
 
 @interface personalInformationTitleView : UIView
 +(personalInformationTitleView*)setpersonalInformationTitleView;
+
+@property (weak, nonatomic) IBOutlet UILabel *personTitleLable;
+@property (weak, nonatomic) IBOutlet UIButton *personBackBtn;
+
 @end

@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "ResumeModel.h"
 #import "TrainReadVC.h"
+
 @interface TH_TrainExperienceVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UITextViewDelegate>
 {
     WriteRusumeModel2 * _model;
