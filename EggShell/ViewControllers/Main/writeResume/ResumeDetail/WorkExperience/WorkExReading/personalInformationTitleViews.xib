@@ -20,9 +20,11 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rs-DT-kwJ">
                     <rect key="frame" x="170" y="8" width="53" height="23"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="必填项" backgroundImage="hongniu2">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <state key="selected" title="可选项" backgroundImage="lanniu2"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -36,5 +38,6 @@
     </objects>
     <resources>
         <image name="hongniu2" width="100" height="30"/>
+        <image name="lanniu2" width="100" height="30"/>
     </resources>
 </document>

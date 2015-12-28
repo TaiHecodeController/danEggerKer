@@ -51,6 +51,7 @@
     personalInformationTitleView * personTitle = [personalInformationTitleView setpersonalInformationTitleView];
     personTitle.frame = CGRectMake(0, 0, WIDETH, 40);
     [self.view addSubview:personTitle];
+    personTitle.personBackBtn.selected = YES;
     personTitle.personTitleLable.text = [NSString stringWithFormat:@"%@-教育经历%d",_resume_model.resumeName,1];
     UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT-40-64)];
     tableView.dataSource = self;
