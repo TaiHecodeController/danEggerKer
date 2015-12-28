@@ -58,7 +58,7 @@
         [self addSubview:_timeLab];
         
         _salaryLab = [[UILabel alloc]init];
-        _salaryLab.textColor = UIColorFromRGB(0x3ebb2b);
+        _salaryLab.textColor = UIColorFromRGB(0xeb7a23);
         _salaryLab.font = [UIFont systemFontOfSize:16];
         [self addSubview:_salaryLab];
         
