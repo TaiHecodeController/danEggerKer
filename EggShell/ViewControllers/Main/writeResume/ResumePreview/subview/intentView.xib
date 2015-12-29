@@ -1,112 +1,150 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="intentView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="求职意向" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHX-eE-nec">
-                    <rect key="frame" x="15" y="0.0" width="60" height="12"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGO-78-YWh">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="编辑" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksv-MB-Yfc">
+                            <rect key="frame" x="280" y="9" width="24" height="12"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="12" id="8ao-GL-gGc"/>
+                                <constraint firstAttribute="width" constant="24" id="OCp-RT-hZz"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resumeEdit" translatesAutoresizingMaskIntoConstraints="NO" id="eL8-2r-obp">
+                            <rect key="frame" x="260" y="7.5" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="ZfV-c6-dOf"/>
+                                <constraint firstAttribute="width" constant="15" id="w2b-rh-wdq"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="求职意向" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHX-eE-nec">
+                            <rect key="frame" x="15" y="9" width="60" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjj-9O-1R3">
+                            <rect key="frame" x="171" y="0.0" width="141" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="MGm-yj-zbW"/>
+                                <constraint firstAttribute="width" constant="141" id="gRd-jK-Y1T"/>
+                            </constraints>
+                            <connections>
+                                <action selector="editBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="VYp-pI-AE4"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.47843137254901957" green="0.85882352941176465" blue="0.41568627450980389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="12" id="lUS-MP-DBe"/>
-                        <constraint firstAttribute="width" constant="60" id="vuh-rl-Vtv"/>
+                        <constraint firstAttribute="trailing" secondItem="sjj-9O-1R3" secondAttribute="trailing" constant="8" id="H4G-Jd-Y0x"/>
+                        <constraint firstItem="ksv-MB-Yfc" firstAttribute="top" secondItem="FGO-78-YWh" secondAttribute="top" constant="9" id="MaD-4R-f3K"/>
+                        <constraint firstItem="sjj-9O-1R3" firstAttribute="top" secondItem="FGO-78-YWh" secondAttribute="top" id="VvY-uc-Ani"/>
+                        <constraint firstAttribute="height" constant="30" id="jLw-dd-QT2"/>
+                        <constraint firstItem="ksv-MB-Yfc" firstAttribute="leading" secondItem="eL8-2r-obp" secondAttribute="trailing" constant="5" id="lRF-qd-Dmz"/>
+                        <constraint firstItem="eL8-2r-obp" firstAttribute="top" secondItem="FGO-78-YWh" secondAttribute="top" constant="7.5" id="uzf-dM-KuJ"/>
+                        <constraint firstAttribute="trailing" secondItem="ksv-MB-Yfc" secondAttribute="trailing" constant="16" id="v78-At-ewq"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ap8-oK-0I3">
-                    <rect key="frame" x="0.0" y="22" width="320" height="0.5"/>
+                    <rect key="frame" x="0.0" y="30" width="320" height="0.5"/>
                     <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="0.5" id="8rj-Jb-umd"/>
+                        <constraint firstAttribute="height" constant="0.5" id="Lds-4j-H07"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="期望职位：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZx-Jb-dd5">
-                    <rect key="frame" x="15" y="32" width="60" height="12"/>
+                    <rect key="frame" x="15" y="40" width="60" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHC-P3-wvI">
-                    <rect key="frame" x="75" y="32" width="180" height="12"/>
+                    <rect key="frame" x="75" y="40" width="180" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="期望行业：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v71-rP-kop">
-                    <rect key="frame" x="15" y="54" width="60" height="12"/>
+                    <rect key="frame" x="15" y="62" width="60" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20u-YX-mGj">
-                    <rect key="frame" x="75" y="54" width="190" height="12"/>
+                    <rect key="frame" x="75" y="62" width="190" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="待遇要求:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6U6-lb-Ssm">
-                    <rect key="frame" x="15" y="76" width="60" height="12"/>
+                    <rect key="frame" x="15" y="84" width="60" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCZ-Qb-tay">
-                    <rect key="frame" x="75" y="76" width="200" height="12"/>
+                    <rect key="frame" x="75" y="84" width="200" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="工作地区：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZv-er-bST">
-                    <rect key="frame" x="15" y="98" width="60" height="12"/>
+                    <rect key="frame" x="15" y="106" width="60" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcA-32-dgu">
-                    <rect key="frame" x="75" y="98" width="200" height="12"/>
+                    <rect key="frame" x="75" y="106" width="200" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="到职时间：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNb-Xw-GWE">
-                    <rect key="frame" x="15" y="120" width="60" height="12"/>
+                    <rect key="frame" x="15" y="128" width="60" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wh-p5-oaF">
-                    <rect key="frame" x="75" y="120" width="200" height="12"/>
+                    <rect key="frame" x="75" y="128" width="200" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="求职状态：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5s-sg-fHp">
-                    <rect key="frame" x="15" y="142" width="60" height="12"/>
+                    <rect key="frame" x="15" y="150" width="60" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQy-qd-Vv4">
-                    <rect key="frame" x="75" y="142" width="200" height="12"/>
+                    <rect key="frame" x="75" y="150" width="200" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="职位性质：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6t-FD-2XY">
-                    <rect key="frame" x="15" y="164" width="60" height="12"/>
+                    <rect key="frame" x="15" y="172" width="60" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUG-pu-erM">
-                    <rect key="frame" x="75" y="164" width="200" height="12"/>
+                    <rect key="frame" x="75" y="172" width="200" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -114,15 +152,17 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Ap8-oK-0I3" secondAttribute="trailing" id="QdZ-NA-RER"/>
-                <constraint firstItem="DHX-eE-nec" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="hUQ-ui-mRk"/>
-                <constraint firstItem="Ap8-oK-0I3" firstAttribute="top" secondItem="DHX-eE-nec" secondAttribute="bottom" constant="10" id="kxc-4c-toA"/>
-                <constraint firstItem="DHX-eE-nec" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="w5O-9K-4JG"/>
-                <constraint firstItem="Ap8-oK-0I3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yig-W2-6Fb"/>
+                <constraint firstAttribute="trailing" secondItem="FGO-78-YWh" secondAttribute="trailing" id="Ee9-8A-VIF"/>
+                <constraint firstItem="FGO-78-YWh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ksn-pH-p2K"/>
+                <constraint firstItem="FGO-78-YWh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Lls-z9-DOn"/>
+                <constraint firstItem="Ap8-oK-0I3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PGw-c6-gEd"/>
+                <constraint firstAttribute="trailing" secondItem="Ap8-oK-0I3" secondAttribute="trailing" id="Qcu-yL-GhP"/>
+                <constraint firstItem="Ap8-oK-0I3" firstAttribute="top" secondItem="FGO-78-YWh" secondAttribute="bottom" id="ogt-6e-5lx"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="arriveTime" destination="1Wh-p5-oaF" id="yx4-eU-Xci"/>
+                <outlet property="editBtnClick" destination="sjj-9O-1R3" id="2uA-dr-ziH"/>
                 <outlet property="exceptIndustry" destination="20u-YX-mGj" id="2Ah-9k-i9T"/>
                 <outlet property="exceptJob" destination="aHC-P3-wvI" id="J89-Nq-6zQ"/>
                 <outlet property="exceptSalary" destination="hCZ-Qb-tay" id="4BK-5X-Rnj"/>
@@ -130,12 +170,10 @@
                 <outlet property="workNature" destination="xUG-pu-erM" id="qVq-Ge-Pyf"/>
                 <outlet property="workState" destination="tQy-qd-Vv4" id="bwV-Vw-uCy"/>
             </connections>
-            <point key="canvasLocation" x="242" y="-39.5"/>
+            <point key="canvasLocation" x="242" y="-40"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
+    <resources>
+        <image name="resumeEdit" width="15" height="15"/>
+    </resources>
 </document>

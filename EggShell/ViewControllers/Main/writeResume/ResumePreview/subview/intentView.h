@@ -16,7 +16,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *arriveTime;
 @property (weak, nonatomic) IBOutlet UILabel *workState;
 @property (weak, nonatomic) IBOutlet UILabel *workNature;
-
+//编辑点击事件
+@property (weak, nonatomic) IBOutlet UIButton *editBtnClick;
+/*按钮点击事件**/
+@property(nonatomic,strong)void(^EditClikBlock)();
 +(intentView*)setIntentView;
 -(void)configValue:(NSString*)model;
 @end

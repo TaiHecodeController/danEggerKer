@@ -147,6 +147,16 @@
 		948CBFCC1C31212E00084294 /* PersonalInformationBaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 948CBFCA1C31212E00084294 /* PersonalInformationBaseCell.xib */; };
 		948CBFCF1C312C5400084294 /* personalInformationTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFCE1C312C5400084294 /* personalInformationTitleView.m */; };
 		948CBFD11C312C7700084294 /* personalInformationTitleViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 948CBFD01C312C7700084294 /* personalInformationTitleViews.xib */; };
+		948CBFD51C323B4900084294 /* personResumeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFD41C323B4900084294 /* personResumeCell.m */; };
+		948CBFD81C323B9300084294 /* JobIntentionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFD71C323B9300084294 /* JobIntentionCell.m */; };
+		948CBFDB1C323BD100084294 /* JobExperienceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFDA1C323BD100084294 /* JobExperienceCell.m */; };
+		948CBFDE1C323C0300084294 /* EducationExperienceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFDD1C323C0300084294 /* EducationExperienceCell.m */; };
+		948CBFE11C323C3A00084294 /* ProfessionalSkillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFE01C323C3A00084294 /* ProfessionalSkillCell.m */; };
+		948CBFE41C3240AF00084294 /* ProjecctExperenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFE31C3240AF00084294 /* ProjecctExperenceCell.m */; };
+		948CBFE71C32411C00084294 /* CertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFE61C32411C00084294 /* CertificateCell.m */; };
+		948CBFEA1C32417300084294 /* TrainExperienceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFE91C32417300084294 /* TrainExperienceCell.m */; };
+		948CBFED1C324B7600084294 /* SelfEvaluationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFEC1C324B7600084294 /* SelfEvaluationCell.m */; };
+		948CBFF01C324F2200084294 /* ResumeTiltlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 948CBFEF1C324F2200084294 /* ResumeTiltlView.m */; };
 		949CAA0F1BB253AA00284FFF /* WorkingTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CAA0D1BB253AA00284FFF /* WorkingTimeCell.m */; };
 		949CAA101BB253AA00284FFF /* WorkingTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949CAA0E1BB253AA00284FFF /* WorkingTimeCell.xib */; };
 		949CAA141BB2540100284FFF /* EducationWriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949CAA111BB2540100284FFF /* EducationWriteCell.xib */; };
@@ -638,6 +648,26 @@
 		948CBFCD1C312C5400084294 /* personalInformationTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = personalInformationTitleView.h; sourceTree = "<group>"; };
 		948CBFCE1C312C5400084294 /* personalInformationTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = personalInformationTitleView.m; sourceTree = "<group>"; };
 		948CBFD01C312C7700084294 /* personalInformationTitleViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = personalInformationTitleViews.xib; sourceTree = "<group>"; };
+		948CBFD31C323B4900084294 /* personResumeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = personResumeCell.h; sourceTree = "<group>"; };
+		948CBFD41C323B4900084294 /* personResumeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = personResumeCell.m; sourceTree = "<group>"; };
+		948CBFD61C323B9300084294 /* JobIntentionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobIntentionCell.h; sourceTree = "<group>"; };
+		948CBFD71C323B9300084294 /* JobIntentionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobIntentionCell.m; sourceTree = "<group>"; };
+		948CBFD91C323BD100084294 /* JobExperienceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobExperienceCell.h; sourceTree = "<group>"; };
+		948CBFDA1C323BD100084294 /* JobExperienceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobExperienceCell.m; sourceTree = "<group>"; };
+		948CBFDC1C323C0300084294 /* EducationExperienceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationExperienceCell.h; sourceTree = "<group>"; };
+		948CBFDD1C323C0300084294 /* EducationExperienceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationExperienceCell.m; sourceTree = "<group>"; };
+		948CBFDF1C323C3A00084294 /* ProfessionalSkillCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfessionalSkillCell.h; sourceTree = "<group>"; };
+		948CBFE01C323C3A00084294 /* ProfessionalSkillCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfessionalSkillCell.m; sourceTree = "<group>"; };
+		948CBFE21C3240AF00084294 /* ProjecctExperenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjecctExperenceCell.h; sourceTree = "<group>"; };
+		948CBFE31C3240AF00084294 /* ProjecctExperenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjecctExperenceCell.m; sourceTree = "<group>"; };
+		948CBFE51C32411C00084294 /* CertificateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertificateCell.h; sourceTree = "<group>"; };
+		948CBFE61C32411C00084294 /* CertificateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertificateCell.m; sourceTree = "<group>"; };
+		948CBFE81C32417300084294 /* TrainExperienceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainExperienceCell.h; sourceTree = "<group>"; };
+		948CBFE91C32417300084294 /* TrainExperienceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainExperienceCell.m; sourceTree = "<group>"; };
+		948CBFEB1C324B7600084294 /* SelfEvaluationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfEvaluationCell.h; sourceTree = "<group>"; };
+		948CBFEC1C324B7600084294 /* SelfEvaluationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfEvaluationCell.m; sourceTree = "<group>"; };
+		948CBFEE1C324F2200084294 /* ResumeTiltlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeTiltlView.h; sourceTree = "<group>"; };
+		948CBFEF1C324F2200084294 /* ResumeTiltlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeTiltlView.m; sourceTree = "<group>"; };
 		949CAA011BB2515A00284FFF /* EducationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationTimeCell.h; sourceTree = "<group>"; };
 		949CAA0C1BB253AA00284FFF /* WorkingTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingTimeCell.h; sourceTree = "<group>"; };
 		949CAA0D1BB253AA00284FFF /* WorkingTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingTimeCell.m; sourceTree = "<group>"; };
@@ -1444,6 +1474,7 @@
 		9400329C1B840B47001EB666 /* ResumePreview */ = {
 			isa = PBXGroup;
 			children = (
+				948CBFD21C32375700084294 /* ResumePreViewCell */,
 				94E2C9C11B8AF7D9001E3FDD /* subview */,
 				9400329D1B840B47001EB666 /* TH_ResumePreviewVC.h */,
 				9400329E1B840B47001EB666 /* TH_ResumePreviewVC.m */,
@@ -2052,6 +2083,33 @@
 				947564A71B9D7B710087BA56 /* homedel.m */,
 			);
 			path = homeModel;
+			sourceTree = "<group>";
+		};
+		948CBFD21C32375700084294 /* ResumePreViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				948CBFD31C323B4900084294 /* personResumeCell.h */,
+				948CBFD41C323B4900084294 /* personResumeCell.m */,
+				948CBFD61C323B9300084294 /* JobIntentionCell.h */,
+				948CBFD71C323B9300084294 /* JobIntentionCell.m */,
+				948CBFD91C323BD100084294 /* JobExperienceCell.h */,
+				948CBFDA1C323BD100084294 /* JobExperienceCell.m */,
+				948CBFDC1C323C0300084294 /* EducationExperienceCell.h */,
+				948CBFDD1C323C0300084294 /* EducationExperienceCell.m */,
+				948CBFDF1C323C3A00084294 /* ProfessionalSkillCell.h */,
+				948CBFE01C323C3A00084294 /* ProfessionalSkillCell.m */,
+				948CBFE21C3240AF00084294 /* ProjecctExperenceCell.h */,
+				948CBFE31C3240AF00084294 /* ProjecctExperenceCell.m */,
+				948CBFE51C32411C00084294 /* CertificateCell.h */,
+				948CBFE61C32411C00084294 /* CertificateCell.m */,
+				948CBFE81C32417300084294 /* TrainExperienceCell.h */,
+				948CBFE91C32417300084294 /* TrainExperienceCell.m */,
+				948CBFEB1C324B7600084294 /* SelfEvaluationCell.h */,
+				948CBFEC1C324B7600084294 /* SelfEvaluationCell.m */,
+				948CBFEE1C324F2200084294 /* ResumeTiltlView.h */,
+				948CBFEF1C324F2200084294 /* ResumeTiltlView.m */,
+			);
+			path = ResumePreViewCell;
 			sourceTree = "<group>";
 		};
 		94CB30401BA5169700577FE6 /* IQKeyBoardManager */ = {
@@ -3079,8 +3137,10 @@
 				F05FC66E1C167F7200F0A5BE /* CardView.m in Sources */,
 				94CB5B821B74CC0600B23B9D /* MJType.m in Sources */,
 				9473304F1C02BCB200688587 /* TH_OutDatePosionVC.m in Sources */,
+				948CBFDE1C323C0300084294 /* EducationExperienceCell.m in Sources */,
 				94E2C9DC1B8AFA0D001E3FDD /* SelfEvaluationView.m in Sources */,
 				94E761CC1BA2B82B00B4C544 /* CertificateReadView.m in Sources */,
+				948CBFE41C3240AF00084294 /* ProjecctExperenceCell.m in Sources */,
 				94EFC1C41B7D8F6900833068 /* TH_AFRequestState.m in Sources */,
 				94CB30591BA5169700577FE6 /* IQSegmentedNextPrevious.m in Sources */,
 				94CB30581BA5169700577FE6 /* IQNSArray+Sort.m in Sources */,
@@ -3095,6 +3155,7 @@
 				94E761BD1BA2AC5800B4C544 /* ProjectExperienceVC.m in Sources */,
 				948CBFCB1C31212E00084294 /* PersonalInformationBaseCell.m in Sources */,
 				943F41801B9A8766000FC299 /* informantionModel.m in Sources */,
+				948CBFEA1C32417300084294 /* TrainExperienceCell.m in Sources */,
 				94CB5B8B1B74CC0600B23B9D /* SMPageControl.m in Sources */,
 				94EFC1C11B7D046F00833068 /* TH_featureVC.m in Sources */,
 				940032CC1B840CC3001EB666 /* TH_EducationExperienceVC.m in Sources */,
@@ -3109,6 +3170,7 @@
 				F083F8211B9C32F700781C08 /* Me_Request.m in Sources */,
 				94E216301BA951DD00D96B67 /* MTSpecailtyListPointItem.m in Sources */,
 				94E2C9681B870EED001E3FDD /* CompanyDetailVC.m in Sources */,
+				948CBFF01C324F2200084294 /* ResumeTiltlView.m in Sources */,
 				F05FC6721C167F7200F0A5BE /* DefaultViewAnimator.m in Sources */,
 				949CAA0F1BB253AA00284FFF /* WorkingTimeCell.m in Sources */,
 				94E2C9D61B8AF9B8001E3FDD /* CertificateView.m in Sources */,
@@ -3121,6 +3183,7 @@
 				045DEC511B8E14EB00E37C4D /* MyMD5.m in Sources */,
 				041650DF1B4D795B008C78BE /* AFAppRequest.m in Sources */,
 				94E95EE31C16CFBC009FA049 /* FindJobcardView.m in Sources */,
+				948CBFD51C323B4900084294 /* personResumeCell.m in Sources */,
 				F05440B11B7848B000127A9B /* HYSegmentedControl.m in Sources */,
 				94313DC31B7CAAED005D0A9A /* TH_InformationDeskVC.m in Sources */,
 				9406D6011BB394A600DAC1EC /* CertifiCateTime.m in Sources */,
@@ -3189,6 +3252,7 @@
 				047454F41B9C640500CE880A /* ExceptModel.m in Sources */,
 				941A9EB11C1916CA000FFA4D /* TH_HomeVC.m in Sources */,
 				F05FC6711C167F7200F0A5BE /* DefaultShouldSwipeDeterminator.m in Sources */,
+				948CBFE71C32411C00084294 /* CertificateCell.m in Sources */,
 				940032D81B840CC3001EB666 /* TH_TrainExperienceVC.m in Sources */,
 				94E7DCF81B841D510093C39B /* CourePlayTitle.m in Sources */,
 				94CB5B7D1B74CC0600B23B9D /* MJConst.m in Sources */,
@@ -3271,6 +3335,7 @@
 				94313DF31B7CB5C9005D0A9A /* WriteResumeVC2.m in Sources */,
 				94E2C9D91B8AF9E8001E3FDD /* trainingExperienceView.m in Sources */,
 				940032D31B840CC3001EB666 /* TH_SelfEvaluationVC.m in Sources */,
+				948CBFED1C324B7600084294 /* SelfEvaluationCell.m in Sources */,
 				947564A81B9D7B710087BA56 /* homedel.m in Sources */,
 				94CB5BA11B76342300B23B9D /* TH_SociallyVC.m in Sources */,
 				94E761D11BA2C1FB00B4C544 /* ProfessonSkillVC.m in Sources */,
@@ -3298,6 +3363,7 @@
 				04A483B41B74FD1B006FDB9D /* TH_MainTabBarController.m in Sources */,
 				F0D7C0611B79EB3300836DD2 /* OpenClassVideoListRequest.m in Sources */,
 				941A9EBC1C191751000FFA4D /* FamousRecommendedView.m in Sources */,
+				948CBFD81C323B9300084294 /* JobIntentionCell.m in Sources */,
 				94CE81771C2E47A00015FB98 /* TH_SelectTabBar.m in Sources */,
 				94CB305B1BA5169700577FE6 /* IQTitleBarButtonItem.m in Sources */,
 				048426F51B8B1E6D009C597A /* VPImageCropperViewController.m in Sources */,
@@ -3314,11 +3380,13 @@
 				941F10161B7B3BCC00719F5B /* JobWishlistCell.m in Sources */,
 				F07F39091B998B62002531CD /* TeacherFCModel.m in Sources */,
 				F0B85A3C1BA11F97005799F5 /* SearchCity2_ViewController.m in Sources */,
+				948CBFDB1C323BD100084294 /* JobExperienceCell.m in Sources */,
 				94E2C98B1B870F29001E3FDD /* TH_JobDetailVC.m in Sources */,
 				041650681B4D7240008C78BE /* GArrayAdapter.m in Sources */,
 				941F10181B7B3BCC00719F5B /* JobWishlistHeadView.m in Sources */,
 				F07F39051B996F65002531CD /* saveListModel.m in Sources */,
 				947269B21C05A8A000A79A7A /* AllPosionModel.m in Sources */,
+				948CBFE11C323C3A00084294 /* ProfessionalSkillCell.m in Sources */,
 				F05B80071B8ABE2200DC0A1D /* MTGridView.m in Sources */,
 				94E761C91BA2B7F300B4C544 /* CertificateReadVC.m in Sources */,
 			);

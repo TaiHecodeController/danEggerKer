@@ -18,40 +18,193 @@
 #import "SelfEvaluationView.h"
 #import "WriteResumeRequest.h"
 #import "AppDelegate.h"
-@interface TH_ResumePreviewVC ()
+#import "WriteResumeViewController.h"
+
+
+#import "ResumeTiltlView.h"
+//基本资料
+#import "personResumeCell.h"
+//求职意向
+#import "JobIntentionCell.h"
+//教育经历
+#import "EducationExperienceCell.h"
+//工作经历
+#import "JobExperienceCell.h"
+//专业技能
+#import "ProfessionalSkillCell.h"
+//项目经验
+#import "ProjecctExperenceCell.h"
+//证书
+#import "CertificateCell.h"
+//培训经历
+#import "TrainExperienceCell.h"
+//自我评价
+#import "SelfEvaluationCell.h"
+@interface TH_ResumePreviewVC ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UIScrollView *scro;
 @property(nonatomic,strong)NSDictionary * dataDic;
+@property(nonatomic,strong)UITableView * tableView ;
+@property(nonatomic,strong)NSArray * titleArray;
 @end
 
 @implementation TH_ResumePreviewVC
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [MobClick beginLogPageView:@"resumepreview"];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [MobClick endLogPageView:@"resumepreview"];
-}
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [MobClick beginLogPageView:@"resumepreview"];
+//}
+//
+//- (void)viewWillDisappear:(BOOL)animated
+//{
+//    [MobClick endLogPageView:@"resumepreview"];
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-64)];
-    self.scro = scro;
-    [self.view addSubview:scro];
-   
-    [self loadData];
+    self.titleArray = @[@"个人简历",@"求职意向",@"工作经历",@"教育经历",@"专业技能",@"项目经验",@"证书",@"培训经历",@"自我评价"];
+//    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-64)];
+//    self.scro = scro;
+//    [self.view addSubview:scro];
+//   
+    
+    [self createTableView];
+     [self loadData];
+
+}
+-(void)createTableView
+{
+    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-64)];
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    self.tableView = tableView;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:tableView];
 }
 
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 9;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+   
+    return 1;
+}
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    ResumeTiltlView * titleView = [[ResumeTiltlView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 32)];
+     titleView.backgroundColor = UIColorFromRGB(0x7adb6b);
+    titleView.personTileLable.text = self.titleArray[section];
+    return titleView;
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{UITableViewCell * cell;
+    if (indexPath.section ==0) {
+        //基本资料
+    personResumeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"personResumeCell"];
+    if (!cell) {
+        cell = [[personResumeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"personResumeCell"];
+    }
+        [cell configVulue:self.dataDic[@"info"]];
+    return cell;
+    }
+    if (indexPath.section==1) {
+        //求职意向
+        JobIntentionCell * cell = [tableView dequeueReusableCellWithIdentifier:@"JobIntentionCell"];
+        if (!cell) {
+            cell = [[JobIntentionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"JobIntentionCell"];
+        }
+        [cell configValue:self.dataDic[@"expect"]];
+        return cell;
+    }
+    if (indexPath.section ==2) {
+        //工作经历
+        JobExperienceCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EducationExperienceCell"];
+        if (!cell) {
+            cell = [[JobExperienceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EducationExperienceCell"];
+        }
+        [cell configVulue:self.dataDic[@"work"] withArrIndex:0];
+        return cell;
+    }if (indexPath.section==3) {
+        //教育经历
+        EducationExperienceCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EducationExperienceCell"];
+        if (!cell) {
+            cell = [[EducationExperienceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EducationExperienceCell"];
+        }
+        [cell configVulue:self.dataDic[@"jy"] withArrIndex:0];
+        return cell;
+    }if (indexPath.section==4) {
+        //专业技能
+        ProfessionalSkillCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProfessionalSkillCell"];
+        if (!cell) {
+            cell = [[ProfessionalSkillCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfessionalSkillCell"];
+        }
+         [cell conFigValue:self.dataDic[@"skill"] withArrIndex:0];
+        return cell;
+    }if (indexPath.section==5) {
+        //项目经验
+        ProjecctExperenceCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProjecctExperenceCell"];
+        if (!cell) {
+            cell = [[ProjecctExperenceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProjecctExperenceCell"];
+        }
+        [cell configValue:self.dataDic[@"project"] withArrIndex:0];
+        return cell;
+    }if (indexPath.section==6) {
+        //证书
+        CertificateCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CertificateCell"];
+        if (!cell) {
+            cell = [[CertificateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CertificateCell"];
+        }
+         [cell configValue:self.dataDic[@"cert"] withArrIndex:0];
+        return cell;
+    }if (indexPath.section==7) {
+        //培训经历
+        TrainExperienceCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TrainExperienceCell"];
+        if (!cell) {
+            cell = [[TrainExperienceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TrainExperienceCell"];
+        }
+        [cell configValue:self.dataDic[@"training"] withArrIndex:0];
+        return cell;
+    }if (indexPath.section==8) {
+        //自我评价
+        SelfEvaluationCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SelfEvaluationCell"];
+        if (!cell) {
+            cell = [[SelfEvaluationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SelfEvaluationCell"];
+        }
+         [cell configValue:self.dataDic[@"other"]];
+        return cell;
+    }
+    return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 42;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0) {
+         return 158;
+    }
+    if (indexPath.section==0) {
+        return 190;
+    }
+    if (indexPath.section==0) {
+        return 200;
+    }else
+    {
+      return 200;
+    }
+
+}
 -(void)loadData
 {
     THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     
     [[WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
         self.dataDic = DataDic[@"data"];
-         [self createTilteView];
-        [self createView];
+//         [self createTilteView];
+        [self.tableView reloadData];
     } WithResumeParam:@{@"eid":self.resumeId} withfail:nil] addNotifaction:hub];
  
 }
@@ -82,11 +235,19 @@
     baseInformation.frame = CGRectMake(0, 42, WIDETH, 158);
     [baseInformation configVulue:self.dataDic[@"info"]];
     [self.scro addSubview:baseInformation];
+
     /*求职意向**/
     intentView * intent = [intentView setIntentView];
-    intent.frame = CGRectMake(0, 200, WIDETH, 190);
+    intent.frame = CGRectMake(0, 200, WIDETH, 198);
     [intent configValue:self.dataDic[@"expect"]];
     [self.scro addSubview:intent];
+    __weak typeof(self) weekSelf = self;
+    //编辑点击事件
+    intent.EditClikBlock = ^()
+    {
+    
+        [weekSelf.navigationController pushViewController:[[WriteResumeViewController alloc]init] animated:YES];
+    };
     
     /*工作经历**/
     CGFloat y = 390;

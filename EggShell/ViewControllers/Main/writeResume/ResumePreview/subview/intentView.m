@@ -14,6 +14,11 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"intentView" owner:self options:nil] lastObject];
 }
+
+- (IBAction)editBtnClick:(UIButton *)sender {
+    self.EditClikBlock();
+}
+
 -(void)configValue:(NSDictionary*)dataDic
 {
     self.exceptJob.text = dataDic[@"job"][@"name"];
