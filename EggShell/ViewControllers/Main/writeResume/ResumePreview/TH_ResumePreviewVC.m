@@ -81,7 +81,6 @@
     [self.view addSubview:tableView];
 }
 
-
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 9;
@@ -93,7 +92,7 @@
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    ResumeTiltlView * titleView = [[ResumeTiltlView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 32)];
+    ResumeTiltlView * titleView = [[ResumeTiltlView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 30)];
      titleView.backgroundColor = UIColorFromRGB(0x7adb6b);
     titleView.personTileLable.text = self.titleArray[section];
     return titleView;

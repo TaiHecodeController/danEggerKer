@@ -48,12 +48,12 @@
     self.skilledDegree.text = @"暂无";
     [self.contentView addSubview:self.skilledDegree];
     //技能名称
-    UILabel * skillNameHeadlablable =[[UILabel alloc] initWithFrame:CGRectMake(15, 54, 60, 12)];
+    UILabel * skillNameHeadlablable =[[UILabel alloc] initWithFrame:CGRectMake(15, 76, 60, 12)];
     skillNameHeadlablable.text = @"熟练程度:";
     skillNameHeadlablable.font = [UIFont systemFontOfSize:12];
     skillNameHeadlablable.textColor = UIColorFromRGB(0x646464);
     [self.contentView addSubview:skillNameHeadlablable];
-    self.skillName = [[UILabel alloc] initWithFrame:CGRectMake(75, 54, WIDETH-90, 12)];
+    self.skillName = [[UILabel alloc] initWithFrame:CGRectMake(75, 76, WIDETH-90, 12)];
     self.skillName.font = [UIFont systemFontOfSize:12];
     self.skillName.textColor = UIColorFromRGB(0x000000);
     self.skillName.text = @"暂无";
