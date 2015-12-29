@@ -6,7 +6,15 @@
 //  Copyright (c) 2015年 wsd. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
+
+typedef enum
+{
+    addPush,
+    editPush,
+    
+}pushType;
 
 @interface WorkingExperienceVC : UIViewController
 @property (strong,nonatomic)UILabel * nameLab;
@@ -19,5 +27,6 @@
 @property (nonatomic, copy) NSString *position;
 @property (nonatomic, copy) NSString *workContent;
 @property (nonatomic, copy) NSString *detailId;
+@property (nonatomic, assign) pushType pushtype;
 
 @end

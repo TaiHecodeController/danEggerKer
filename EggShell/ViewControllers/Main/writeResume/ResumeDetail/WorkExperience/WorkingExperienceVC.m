@@ -186,7 +186,14 @@
     [deleteBtn setTitle:@"删除此工作经历" forState:UIControlStateNormal];
     deleteBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
     deleteBtn.layer.cornerRadius = 5;
-    [self.scro addSubview:deleteBtn];
+    if (_pushtype == addPush)
+    {
+        
+    }
+    else
+    {
+        [self.scro addSubview:deleteBtn];
+    }
 }
 
 - (void)deleteClick:(UIButton *)btn

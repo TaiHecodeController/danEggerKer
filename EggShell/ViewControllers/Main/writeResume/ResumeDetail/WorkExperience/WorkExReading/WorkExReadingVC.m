@@ -80,6 +80,7 @@
 {
     //    [self.navigationController popViewControllerAnimated:YES];
     WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
+    working.pushtype = addPush;
     [self.navigationController pushViewController:working animated:YES];
 }
 
@@ -115,6 +116,7 @@
     vc.position =  dic[@"title"];
     vc.workContent = dic[@"content"];
     vc.detailId = dic[@"id"];
+    vc.pushtype = editPush;
     [self.navigationController pushViewController:vc animated:YES];
 }
 -(void)loadData
