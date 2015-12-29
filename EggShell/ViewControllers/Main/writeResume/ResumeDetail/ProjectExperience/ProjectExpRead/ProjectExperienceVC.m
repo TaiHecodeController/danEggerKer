@@ -42,6 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);
     _resume_model = [ResumeModel sharedResume];
    
     [self createTableView];
@@ -58,6 +59,7 @@
     UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT-40-64)];
     tableView.dataSource = self;
     tableView.delegate = self;
+    tableView.backgroundColor = UIColorFromRGB(0xF3F3F1);
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
     self.tableView = tableView;
