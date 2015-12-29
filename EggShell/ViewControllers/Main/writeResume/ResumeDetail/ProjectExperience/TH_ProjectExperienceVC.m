@@ -85,8 +85,15 @@
 -(void)setData
 {
     self.nameArray = @[@"项目名称",@"项目时间",@"项目环境",@"担任职位"];
-    self.holderArray = @[@"请填项目名称",@"请填写项目时间",@"请填写项目环境",@"请填写担任职位"];
+    if (self.detailId)
+    {
+        self.holderArray = @[self.Projectexperience,self.Projectexperience,self.projectEnvironmental,self.postion];
     }
+    else
+    {
+        self.holderArray = @[@"请填项目名称",@"请填写项目时间",@"请填写项目环境",@"请填写担任职位"];
+    }
+}
 -(void)createScro
 {self.view.backgroundColor = color(243, 243, 241);
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
@@ -138,17 +145,23 @@
     [bgView addSubview:self.contentTextField];
     /*显示隐藏内容**/
     UILabel * placeHoderTextLable =[[UILabel alloc] initWithFrame:CGRectMake(10, 10, WIDETH - 121, 30)];
-    placeHoderTextLable.text = @"请填写项目内容";
     placeHoderTextLable.textColor = color(203, 203, 203);
     self.placeHoderTextLable = placeHoderTextLable;
     [self.contentTextField addSubview:placeHoderTextLable];
     self.placeHoderTextLable.font = [UIFont systemFontOfSize:13];
+    if (self.detailId)
+    {
+        self.contentTextField.text = self.content;
+    }
+    else
+    {
+        placeHoderTextLable.text = @"请填写项目内容";
+    }
     
     /*按钮选项**/
-    UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 365, (WIDETH-150-18)/2.0, 30) ImageName:@"hongniu2" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
-    
+    UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 365, 50, 30) ImageName:@"" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
     [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
+    saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17];
 //    [self.scro addSubview:saveBtn];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:saveBtn];
     
@@ -158,19 +171,32 @@
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
 //    [self.scro addSubview:replaceBtn];
     UIButton *deleteBtn = [[UIButton alloc]init];
-    deleteBtn.frame = CGRectMake(75, CGRectGetMaxY(tableview.frame) + 20, WIDETH - 75 * 2, 30);
+    deleteBtn.frame = CGRectMake(75, CGRectGetMaxY(bgView.frame) + 20, WIDETH - 75 * 2, 30);
     [deleteBtn addTarget:self action:@selector(deleteClick:) forControlEvents:UIControlEventTouchUpInside];
     [deleteBtn setBackgroundColor:[UIColor orangeColor]];
     [deleteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [deleteBtn setTitle:@"删除此工作经历" forState:UIControlStateNormal];
     deleteBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
     deleteBtn.layer.cornerRadius = 5;
-    [self.scro addSubview:deleteBtn];
+    if (_pushtype == 0)
+    {
+        
+    }
+    else
+    {
+        [self.scro addSubview:deleteBtn];
+    }
 }
 
 - (void)deleteClick:(UIButton *)btn
 {
-    THLog(@"删除");
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
+    [WriteResumeRequest deleteResumeItemWithSucc:^(NSDictionary *dataDic) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId id:self.detailId type:5];
 }
 
 /*保存**/
@@ -237,13 +263,17 @@
     THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * tokenStr = [df objectForKey:@"md5_token"];
+    if (self.detailId)
+    {
+        
+    }
+    else
+    {
+        self.detailId = @"";
+    }
     [[WriteResumeRequest uploadProjectExperienceWithSucc:^(NSDictionary *dataDic) {
-        [MBProgressHUD creatembHub:@"创建成功"];
-//        [self.navigationController popViewControllerAnimated:YES];
-        ProjectExperienceVC * projects = [[ProjectExperienceVC alloc] init];
-            projects.model = _model;
-        [self.navigationController pushViewController:projects animated:YES];
-    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"sys":_model.projectPath,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
+        [self.navigationController popViewControllerAnimated:YES];
+    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"sys":_model.projectPath,@"title":_model.position,@"content":_model.content,@"id":self.detailId}] addNotifaction:hub];
     
 
 }
@@ -290,6 +320,15 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"EducationTimeCell" owner:self options:nil] firstObject];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+        if (self.detailId)
+        {
+            [cell.startTime setTitle:self.sdate forState:UIControlStateNormal];
+            [cell.endTime setTitle:self.edate forState:UIControlStateNormal];
+            cell.startTime.titleLabel.textColor = [UIColor blackColor];
+            cell.endTime.titleLabel.textColor = [UIColor blackColor];
+            cell.startTime.selected = YES;
+            cell.endTime.selected = YES;
+        }
         [self.jobCellArr addObject:cell];
         return cell;
     }
@@ -299,7 +338,14 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"projectTableViewCell" owner:self options:nil] lastObject];
     }
     cell.nameLable.text = self.nameArray[indexPath.row];
-    cell.placehoderTextfield.placeholder= self.holderArray[indexPath.row];
+    if (self.detailId)
+    {
+        cell.placehoderTextfield.text = self.holderArray[indexPath.row];
+    }
+    else
+    {
+        cell.placehoderTextfield.placeholder = self.holderArray[indexPath.row];
+    }
     [self.jobCellArr addObject:cell];
     return cell;
 }

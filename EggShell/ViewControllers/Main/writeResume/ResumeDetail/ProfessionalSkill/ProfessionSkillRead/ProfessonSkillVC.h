@@ -9,6 +9,9 @@
 #import "TH_BaseVC.h"
 #import "WriteRusumeModel2.h"
 @interface ProfessonSkillVC : TH_BaseVC
+
+@property (strong,nonatomic)NSDictionary * dataDic;
+
 @property(nonatomic,strong)WriteRusumeModel2 * model;
 
 @end

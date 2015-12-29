@@ -34,7 +34,28 @@
     _resume_model = [ResumeModel sharedResume];
     [self createScro];
     [self createView];
+    [self loadData];
 
+}
+
+- (void)loadData
+{
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
+    [WriteResumeRequest getSelfEvaluateWithSucc:^(NSDictionary *dataDic) {
+        
+        THLog(@"%@",dataDic);
+        if ([dataDic[@"data"][@"description"] isKindOfClass:[NSNull class]])
+        {
+            
+        }
+        else
+        {
+            self.contentTextField.text = dataDic[@"data"][@"description"];
+            self.placeHoderTextLable.hidden = YES;
+        }
+        
+    } uid:[AppDelegate instance].userId token:tokenStr];
 }
 -(void)keyboardHide:(UITapGestureRecognizer*)tap
 {
@@ -88,17 +109,16 @@
     self.placeHoderTextLable.font = [UIFont systemFontOfSize:13];
 
     /*按钮选项**/
-    UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 217, (WIDETH-150-18)/2.0, 30) ImageName:@"hongniu2" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
-    
+    UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 217, 50, 30) ImageName:@"" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
     [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [self.scro addSubview:saveBtn];
+    saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+//    [self.scro addSubview:saveBtn];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:saveBtn];
     
     UIButton * replaceBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH-((WIDETH-150-18)/2.0+75),217, (WIDETH-150-18)/2.0, 30) ImageName:@"lanniu2" Target:self Action:@selector(replaceBtnClick) Title:@"重置"];
-    
     [replaceBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [self.scro addSubview:replaceBtn];
+//    [self.scro addSubview:replaceBtn];
 }
 /*保存**/
 -(void)saveBtnClick
@@ -137,11 +157,13 @@
 {
     [self.contentTextField resignFirstResponder];
 }
+
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
     [self.placeHoderTextLable removeFromSuperview];
 
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

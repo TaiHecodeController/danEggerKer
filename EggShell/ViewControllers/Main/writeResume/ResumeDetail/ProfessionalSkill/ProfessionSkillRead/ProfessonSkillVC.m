@@ -13,6 +13,7 @@
 #import "WorkingExperienceVC.h"
 #import "PersonalInformationBaseCell.h"
 #import "personalInformationTitleView.h"
+#import "TH_ProfessionalSkillVC.h"
 @interface ProfessonSkillVC ()<UITableViewDataSource,UITableViewDelegate>
 {
     ResumeModel * _resume_model;
@@ -31,20 +32,22 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     /***/
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"removeMessage" object:self];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+//    [[NSNotificationCenter defaultCenter]postNotificationName:@"removeMessage" object:self];
+    [self loadData];
+
 }
 -(void)viewDidDisappear:(BOOL)animated
-{ [super viewWillDisappear:NO];
+{
+    [super viewWillDisappear:YES];
     
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);
      _resume_model = [ResumeModel sharedResume];
     [self createTableView];
-    [self loadData];
     
 }
 -(void)createTableView
@@ -81,16 +84,15 @@
 #pragma mark --继续添加
 -(void)addClick
 {
-    //    [self.navigationController popViewControllerAnimated:YES];
-//    WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
-//    [self.navigationController pushViewController:working animated:YES];
+    TH_ProfessionalSkillVC *vc = [[TH_ProfessionalSkillVC alloc]init];
+    vc.dataDic = self.dataDic;
+    vc.pushtype = 0;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    
-    return self.dataArray.count;
+        return self.dataArray.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -105,14 +107,21 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     return 80;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
-    
-    
+    NSDictionary * dic =self.dataArray[indexPath.row];
+    TH_ProfessionalSkillVC *vc = [[TH_ProfessionalSkillVC alloc]init];
+    vc.skillName = dic[@"name"];
+    vc.skillType = dic[@"skill"];
+    vc.skillDegree = dic[@"ing"];
+    vc.time = dic[@"longtime"];
+    vc.detailId = dic[@"id"];
+    //技能熟练度，技能类型的选项数据
+    vc.dataDic = self.dataDic;
+    vc.pushtype = 1;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)loadData

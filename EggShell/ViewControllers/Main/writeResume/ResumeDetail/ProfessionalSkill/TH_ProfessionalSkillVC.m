@@ -89,11 +89,23 @@
 -(void)setData
 {
     self.nameArray = @[@"技能名称",@"技能类别",@"熟练程度",@"掌握时间"];
-    self.holderArray = @[@"请填技能名称",@"请填写技能类别",@"请选择熟练程度",@"请填写掌握时间"];
+    if (self.detailId)
+    {
+        self.holderArray = @[self.skillName,self.skillType,self.skillDegree,self.time];
+    }
+    else
+    {
+        
+   self.holderArray = @[@"请填技能名称",@"请填写技能类别",@"请选择熟练程度",@"请填写掌握时间"];
+        
+    }
+
     self.imageArray  = @[@"",@"xiala-拷贝",@"xiala-拷贝",@""];
 }
+
 -(void)createScro
-{self.view.backgroundColor = color(243, 243, 241);
+{
+    self.view.backgroundColor = color(243, 243, 241);
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     self.scro = scro;
     self.scro.backgroundColor = color(243, 243, 243);
@@ -140,18 +152,31 @@
     [deleteBtn setTitle:@"删除此工作经历" forState:UIControlStateNormal];
     deleteBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
     deleteBtn.layer.cornerRadius = 5;
-    [self.scro addSubview:deleteBtn];
+    if (_pushtype == 0)
+    {
+        
+    }
+    else
+    {
+        [self.scro addSubview:deleteBtn];
+    }
 }
 
 - (void)deleteClick:(UIButton *)btn
 {
-    THLog(@"删除");
+    
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
+    [WriteResumeRequest deleteResumeItemWithSucc:^(NSDictionary *dataDic) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId id:self.detailId type:4];
 }
 
 /*保存**/
 -(void)saveBtnClick
 {
-   
    
     for(int i = 0;i < self.jobCellArr.count;i++)
     {
@@ -200,16 +225,18 @@
     THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * tokenStr = [df objectForKey:@"md5_token"];
+    if (self.detailId)
+    {
+        
+    }
+    else
+    {
+        self.detailId = @"";
+    }
+    THLog(@"%@ %@ %@ %@ %@",_model.name,_model.skillType,_model.skillDegree,_model.skillTime,self.detailId);
     [[WriteResumeRequest uploadProfessionalSkillWithSucc:^(NSDictionary *dataDic) {
-        [MBProgressHUD creatembHub:@"保存成功"];
-//        [self.navigationController popViewControllerAnimated:YES];
-        
-        ProfessonSkillVC * professon = [[ProfessonSkillVC alloc] init];
-        professon.model = _model;
-        
-        
-        [self.navigationController pushViewController:professon animated:YES];
-    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"skill":_model.skillType,@"ing":_model.skillDegree,@"longtime":_model.skillTime}] addNotifaction:hub];
+        [self.navigationController popViewControllerAnimated:YES];
+    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"skill":_model.skillType,@"ing":_model.skillDegree,@"longtime":_model.skillTime,@"id":self.detailId}] addNotifaction:hub];
     
 }
 /*重置**/
@@ -245,6 +272,17 @@
     if(indexPath.row == 1 || indexPath.row == 2)
     {
         cell.profisionTextField.enabled = NO;
+        if (self.detailId)
+        {
+            if (indexPath.row == 1)
+            {
+                cell.cellId = self.skillType;
+            }
+            if (indexPath.row == 2)
+            {
+                cell.cellId = self.skillDegree;
+            }
+        }
         
     }
     if (indexPath.row== 3) {
@@ -252,7 +290,14 @@
     }
     
     cell.profesionNameLable.text = self.nameArray[indexPath.row];
-    cell.profisionTextField.placeholder= self.holderArray[indexPath.row];
+    if (self.detailId)
+    {
+        cell.profisionTextField.text = self.holderArray[indexPath.row];
+    }
+    else
+    {
+        cell.profisionTextField.placeholder = self.holderArray[indexPath.row];
+    }
     cell.logoImage.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
     [self.jobCellArr addObject:cell];
     
@@ -261,6 +306,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+//    THLog(@"%@",self.dataDic);
     if(indexPath.row == 1)
     {
         WriteJLChooseVC * _writeJLChooseVC = [[WriteJLChooseVC alloc] init];
@@ -290,7 +336,6 @@
         ProfessionalCell *cell = self.jobCellArr[cellIndex.row];
         cell.profisionTextField.text = keyWord;
         cell.cellId = Id;
-    
 }
 
 

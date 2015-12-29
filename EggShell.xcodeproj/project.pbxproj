@@ -481,27 +481,27 @@
 		940032991B840736001EB666 /* VersionUpdateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionUpdateView.m; sourceTree = "<group>"; };
 		9400329D1B840B47001EB666 /* TH_ResumePreviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_ResumePreviewVC.h; sourceTree = "<group>"; };
 		9400329E1B840B47001EB666 /* TH_ResumePreviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_ResumePreviewVC.m; sourceTree = "<group>"; };
-		940032A21B840CC3001EB666 /* TH_CertificateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_CertificateVC.h; sourceTree = "<group>"; };
-		940032A31B840CC3001EB666 /* TH_CertificateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_CertificateVC.m; sourceTree = "<group>"; };
+		940032A21B840CC3001EB666 /* TH_CertificateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TH_CertificateVC.h; path = ../TH_CertificateVC.h; sourceTree = "<group>"; };
+		940032A31B840CC3001EB666 /* TH_CertificateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_CertificateVC.m; path = ../TH_CertificateVC.m; sourceTree = "<group>"; };
 		940032A61B840CC3001EB666 /* EducationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationTimeCell.h; sourceTree = "<group>"; };
 		940032A71B840CC3001EB666 /* EducationTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationTimeCell.m; sourceTree = "<group>"; };
 		940032A81B840CC3001EB666 /* EducationTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EducationTimeCell.xib; sourceTree = "<group>"; };
-		940032A91B840CC3001EB666 /* TH_EducationExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_EducationExperienceVC.h; sourceTree = "<group>"; };
-		940032AA1B840CC3001EB666 /* TH_EducationExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_EducationExperienceVC.m; sourceTree = "<group>"; };
+		940032A91B840CC3001EB666 /* TH_EducationExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TH_EducationExperienceVC.h; path = ../TH_EducationExperienceVC.h; sourceTree = "<group>"; };
+		940032AA1B840CC3001EB666 /* TH_EducationExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_EducationExperienceVC.m; path = ../TH_EducationExperienceVC.m; sourceTree = "<group>"; };
 		940032AD1B840CC3001EB666 /* ProfessionalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfessionalCell.h; sourceTree = "<group>"; };
 		940032AE1B840CC3001EB666 /* ProfessionalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfessionalCell.m; sourceTree = "<group>"; };
 		940032AF1B840CC3001EB666 /* ProfessionalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfessionalCell.xib; sourceTree = "<group>"; };
-		940032B01B840CC3001EB666 /* TH_ProfessionalSkillVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_ProfessionalSkillVC.h; sourceTree = "<group>"; };
-		940032B11B840CC3001EB666 /* TH_ProfessionalSkillVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_ProfessionalSkillVC.m; sourceTree = "<group>"; };
+		940032B01B840CC3001EB666 /* TH_ProfessionalSkillVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TH_ProfessionalSkillVC.h; path = ../TH_ProfessionalSkillVC.h; sourceTree = "<group>"; };
+		940032B11B840CC3001EB666 /* TH_ProfessionalSkillVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_ProfessionalSkillVC.m; path = ../TH_ProfessionalSkillVC.m; sourceTree = "<group>"; };
 		940032B41B840CC3001EB666 /* projectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = projectTableViewCell.h; sourceTree = "<group>"; };
 		940032B51B840CC3001EB666 /* projectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = projectTableViewCell.m; sourceTree = "<group>"; };
 		940032B61B840CC3001EB666 /* projectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = projectTableViewCell.xib; sourceTree = "<group>"; };
-		940032B71B840CC3001EB666 /* TH_ProjectExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_ProjectExperienceVC.h; sourceTree = "<group>"; };
-		940032B81B840CC3001EB666 /* TH_ProjectExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_ProjectExperienceVC.m; sourceTree = "<group>"; };
+		940032B71B840CC3001EB666 /* TH_ProjectExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TH_ProjectExperienceVC.h; path = ../TH_ProjectExperienceVC.h; sourceTree = "<group>"; };
+		940032B81B840CC3001EB666 /* TH_ProjectExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_ProjectExperienceVC.m; path = ../TH_ProjectExperienceVC.m; sourceTree = "<group>"; };
 		940032BA1B840CC3001EB666 /* TH_SelfEvaluationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_SelfEvaluationVC.h; sourceTree = "<group>"; };
 		940032BB1B840CC3001EB666 /* TH_SelfEvaluationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_SelfEvaluationVC.m; sourceTree = "<group>"; };
-		940032C41B840CC3001EB666 /* TH_TrainExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_TrainExperienceVC.h; sourceTree = "<group>"; };
-		940032C51B840CC3001EB666 /* TH_TrainExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_TrainExperienceVC.m; sourceTree = "<group>"; };
+		940032C41B840CC3001EB666 /* TH_TrainExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TH_TrainExperienceVC.h; path = ../../TrainExperience/TH_TrainExperienceVC.h; sourceTree = "<group>"; };
+		940032C51B840CC3001EB666 /* TH_TrainExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_TrainExperienceVC.m; path = ../../TrainExperience/TH_TrainExperienceVC.m; sourceTree = "<group>"; };
 		940032C71B840CC3001EB666 /* WorkingExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingExperienceVC.h; sourceTree = "<group>"; };
 		940032C81B840CC3001EB666 /* WorkingExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingExperienceVC.m; sourceTree = "<group>"; };
 		940032E31B840DCC001EB666 /* JobScreenDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobScreenDetailCell.h; sourceTree = "<group>"; };
@@ -1504,8 +1504,6 @@
 			children = (
 				9406D5FD1BB3947D00DAC1EC /* SubViews */,
 				94E761C61BA2B7D700B4C544 /* CertificateRead */,
-				940032A21B840CC3001EB666 /* TH_CertificateVC.h */,
-				940032A31B840CC3001EB666 /* TH_CertificateVC.m */,
 			);
 			path = Certificate;
 			sourceTree = "<group>";
@@ -1515,8 +1513,6 @@
 			children = (
 				940EDEE61B97016200376D37 /* EducationReading */,
 				940032A51B840CC3001EB666 /* SubView */,
-				940032A91B840CC3001EB666 /* TH_EducationExperienceVC.h */,
-				940032AA1B840CC3001EB666 /* TH_EducationExperienceVC.m */,
 			);
 			path = EducationExperience;
 			sourceTree = "<group>";
@@ -1537,8 +1533,6 @@
 			children = (
 				94E761B91BA2A7D500B4C544 /* ProfessionSkillRead */,
 				940032AC1B840CC3001EB666 /* SubView */,
-				940032B01B840CC3001EB666 /* TH_ProfessionalSkillVC.h */,
-				940032B11B840CC3001EB666 /* TH_ProfessionalSkillVC.m */,
 			);
 			path = ProfessionalSkill;
 			sourceTree = "<group>";
@@ -1558,8 +1552,6 @@
 			children = (
 				94E761BA1BA2AB5800B4C544 /* ProjectExpRead */,
 				940032B31B840CC3001EB666 /* SubView */,
-				940032B71B840CC3001EB666 /* TH_ProjectExperienceVC.h */,
-				940032B81B840CC3001EB666 /* TH_ProjectExperienceVC.m */,
 			);
 			path = ProjectExperience;
 			sourceTree = "<group>";
@@ -1601,8 +1593,6 @@
 			isa = PBXGroup;
 			children = (
 				94E761B01BA27D8E00B4C544 /* trainReading */,
-				940032C41B840CC3001EB666 /* TH_TrainExperienceVC.h */,
-				940032C51B840CC3001EB666 /* TH_TrainExperienceVC.m */,
 			);
 			path = TrainExperience;
 			sourceTree = "<group>";
@@ -1722,6 +1712,8 @@
 			children = (
 				94EED7F81B99286300049934 /* EducationReadVC.h */,
 				94EED7F91B99286300049934 /* EducationReadVC.m */,
+				940032A91B840CC3001EB666 /* TH_EducationExperienceVC.h */,
+				940032AA1B840CC3001EB666 /* TH_EducationExperienceVC.m */,
 				940EDEEA1B9701B100376D37 /* EducationReadingView.h */,
 				940EDEEB1B9701B100376D37 /* EducationReadingView.m */,
 				940EDEED1B9701BF00376D37 /* EducationReading.xib */,
@@ -2419,6 +2411,8 @@
 			children = (
 				94E761B11BA27DBF00B4C544 /* TrainReadVC.h */,
 				94E761B21BA27DBF00B4C544 /* TrainReadVC.m */,
+				940032C41B840CC3001EB666 /* TH_TrainExperienceVC.h */,
+				940032C51B840CC3001EB666 /* TH_TrainExperienceVC.m */,
 				94E761B41BA27DEB00B4C544 /* TrainReadView.h */,
 				94E761B51BA27DEB00B4C544 /* TrainReadView.m */,
 				94E761B71BA27E0400B4C544 /* trainRead.xib */,
@@ -2432,6 +2426,8 @@
 			children = (
 				94E761CF1BA2C1FB00B4C544 /* ProfessonSkillVC.h */,
 				94E761D01BA2C1FB00B4C544 /* ProfessonSkillVC.m */,
+				940032B01B840CC3001EB666 /* TH_ProfessionalSkillVC.h */,
+				940032B11B840CC3001EB666 /* TH_ProfessionalSkillVC.m */,
 				94E761D21BA2C21E00B4C544 /* ProfessonSkillReadView.h */,
 				94E761D31BA2C21E00B4C544 /* ProfessonSkillReadView.m */,
 				94E761D51BA2C23200B4C544 /* ProfessonSkillRead.xib */,
@@ -2444,6 +2440,8 @@
 			children = (
 				94E761BB1BA2AC5800B4C544 /* ProjectExperienceVC.h */,
 				94E761BC1BA2AC5800B4C544 /* ProjectExperienceVC.m */,
+				940032B71B840CC3001EB666 /* TH_ProjectExperienceVC.h */,
+				940032B81B840CC3001EB666 /* TH_ProjectExperienceVC.m */,
 				94E761C31BA2B0F800B4C544 /* ProjectExpReadView.h */,
 				94E761C41BA2B0F800B4C544 /* ProjectExpReadView.m */,
 				94E761C11BA2AC8A00B4C544 /* ProjectExperience.xib */,
@@ -2456,6 +2454,8 @@
 			children = (
 				94E761C71BA2B7F300B4C544 /* CertificateReadVC.h */,
 				94E761C81BA2B7F300B4C544 /* CertificateReadVC.m */,
+				940032A21B840CC3001EB666 /* TH_CertificateVC.h */,
+				940032A31B840CC3001EB666 /* TH_CertificateVC.m */,
 				94E761CA1BA2B82B00B4C544 /* CertificateReadView.h */,
 				94E761CB1BA2B82B00B4C544 /* CertificateReadView.m */,
 				94E761CD1BA2B83700B4C544 /* CertificateRead.xib */,

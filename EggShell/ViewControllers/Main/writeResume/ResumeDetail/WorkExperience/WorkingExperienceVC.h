@@ -17,6 +17,7 @@ typedef enum
 }pushType;
 
 @interface WorkingExperienceVC : UIViewController
+
 @property (strong,nonatomic)UILabel * nameLab;
 @property (strong,nonatomic)UITextView * contentTextField;
 

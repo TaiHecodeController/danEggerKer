@@ -66,9 +66,19 @@
     
     [self createData];
     [self createUI];
+    [self loadData];
     
     
     //    // Do any additional setup after loading the view.
+}
+
+- (void)loadData
+{
+    [WriteResumeRequest getResumeMessageListWithSucc:^(NSDictionary *DataDic) {
+        
+        self.dataDic = DataDic[@"data"];
+        
+    }];
 }
 -(void)backClick
 {
@@ -186,6 +196,7 @@
 //            skill.dataDic = self.dataDic;
 //            [self.navigationController pushViewController:skill animated:YES];
             ProfessonSkillVC *vc = [[ProfessonSkillVC alloc]init];
+            vc.dataDic = self.dataDic;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;

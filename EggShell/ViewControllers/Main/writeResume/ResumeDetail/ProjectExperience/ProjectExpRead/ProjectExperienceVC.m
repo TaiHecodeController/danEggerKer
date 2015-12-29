@@ -15,6 +15,7 @@
 #import "WorkingExperienceVC.h"
 #import "PersonalInformationBaseCell.h"
 #import "personalInformationTitleView.h"
+#import "TH_ProjectExperienceVC.h"
 @interface ProjectExperienceVC ()<UITableViewDataSource,UITableViewDelegate>
 {
     ResumeModel * _resume_model;
@@ -31,12 +32,13 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     /***/
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+     [self loadData];
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewWillDisappear:NO];
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
     
 }
 
@@ -46,8 +48,8 @@
     _resume_model = [ResumeModel sharedResume];
    
     [self createTableView];
-    [self loadData];
-    }
+   
+}
 -(void)createTableView
 {
     //个人简历标题
@@ -82,15 +84,13 @@
 #pragma mark --继续添加
 -(void)addClick
 {
-    //    [self.navigationController popViewControllerAnimated:YES];
-    WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
-    [self.navigationController pushViewController:working animated:YES];
+    TH_ProjectExperienceVC *vc = [[TH_ProjectExperienceVC alloc]init];
+    vc.pushtype = 0;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    
     return self.dataArray.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -111,6 +111,17 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary * dic =self.dataArray[indexPath.row];
+    TH_ProjectExperienceVC *vc = [[TH_ProjectExperienceVC alloc]init];
+    vc.Projectexperience = dic[@"name"];
+     vc.sdate = dic[@"sdate"];
+     vc.edate = dic[@"edate"];
+     vc.projectEnvironmental = dic[@"sys"];
+     vc.postion = dic[@"title"];
+     vc.content = dic[@"content"];
+     vc.detailId = dic[@"id"];
+    vc.pushtype = 1;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 -(void)loadData
 {

@@ -61,6 +61,7 @@
 //上传专业技能
 +(AFRequestState *)uploadProfessionalSkillWithSucc:(void(^)(NSDictionary * dataDic))succ WithResumeParam:(NSDictionary *)param
 {
+    THLog(@"%@",param);
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_skill",base_Url] param:param succ:succ];
 }
 //上传项目经验
@@ -127,6 +128,20 @@ return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/cert_list"
 +(AFRequestState *)user_resumeWithSucc:(void(^)(NSDictionary *dataDic))succ withParam:(NSDictionary *)param
 {
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_use",base_Url] param:param succ:succ];
+}
+
+
++(AFRequestState *)deleteResumeItemWithSucc:(void(^)(NSDictionary * dataDic))succ withToken:(NSString *)token uid:(NSString *)uid eid:(NSString *)eid id:(NSString *)id type:(int)type
+{
+    NSNumber *typeNum = [NSNumber numberWithInt:type];
+    NSDictionary *param = @{@"token":token,@"uid":uid,@"eid":eid,@"id":id,@"type":typeNum};
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_type_del",base_Url] param:param succ:succ];
+}
+
++ (AFRequestState *)getSelfEvaluateWithSucc:(void(^)(NSDictionary * dataDic))succ uid:(NSString *)uid token:(NSString *)token
+{
+    NSDictionary *param = @{@"uid":uid,@"token":token};
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/other_list",base_Url] param:param succ:succ];
 }
 
 @end

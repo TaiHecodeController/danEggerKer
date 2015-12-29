@@ -13,6 +13,7 @@
 #import "WorkingExperienceVC.h"
 #import "PersonalInformationBaseCell.h"
 #import "personalInformationTitleView.h"
+#import "TH_CertificateVC.h"
 @interface CertificateReadVC ()<UITableViewDataSource,UITableViewDelegate>
 {
     ResumeModel * _resume_model;
@@ -27,12 +28,14 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     /***/
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+    [self loadData];
+
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
 [super viewWillDisappear:NO];
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
     
 }
 - (void)viewDidLoad {
@@ -40,7 +43,6 @@
     self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);
     _resume_model = [ResumeModel sharedResume];
     [self createTableView];
-    [self loadData];
     
     
 }
@@ -51,7 +53,7 @@
     personTitle.frame = CGRectMake(0, 0, WIDETH, 40);
     [self.view addSubview:personTitle];
     personTitle.personBackBtn.selected = YES;
-    personTitle.personTitleLable.text = [NSString stringWithFormat:@"%@-项目经验",_resume_model.resumeName];
+    personTitle.personTitleLable.text = [NSString stringWithFormat:@"%@-证书",_resume_model.resumeName];
     UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT-40-64)];
     tableView.dataSource = self;
     tableView.delegate = self;
@@ -60,27 +62,25 @@
     [self.view addSubview:tableView];
     self.tableView = tableView;
     
-    
     //添加工作经历
     UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake(80, 15, WIDETH-160, 30)];
     [addButtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
     addButtn.titleLabel.font =[UIFont  systemFontOfSize:13];
-    [addButtn setTitle:@"+添加工作经历" forState:UIControlStateNormal];
+    [addButtn setTitle:@"继续添加" forState:UIControlStateNormal];
     addButtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [addButtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [addButtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 50)];
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 50)];
     self.tableView.tableFooterView = footerView;
     [footerView addSubview:addButtn];
-    
 }
+
 #pragma mark --继续添加
 -(void)addClick
 {
-    //    [self.navigationController popViewControllerAnimated:YES];
-    WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
-    [self.navigationController pushViewController:working animated:YES];
+    TH_CertificateVC *vc = [[TH_CertificateVC alloc]init];
+    vc.pushtype = 0;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -107,9 +107,15 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    
-    
+    NSDictionary * dic =self.dataArray[indexPath.row];
+    TH_CertificateVC *vc = [[TH_CertificateVC alloc]init];
+    vc.cerName = dic[@"name"];
+    vc.awardTime = dic[@"sdate"];
+    vc.awardCompany = dic[@"title"];
+    vc.content = dic[@"content"];
+    vc.detailId = dic[@"id"];
+    vc.pushtype = 1;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)loadData
@@ -120,7 +126,8 @@
     NSDictionary * param = @{@"eid":[AppDelegate instance].resumeId, @"uid":userUid ,@"token":tokenStr};
    [[WriteResumeRequest certificatesReadingWithSucc:^(NSDictionary *dataDic) {
        self.dataArray =[NSArray arrayWithArray:dataDic[@"data"]];
-       [self createView];
+//       [self createView];
+       [self.tableView reloadData];
        
    } certificatesReadingParam:param] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 }

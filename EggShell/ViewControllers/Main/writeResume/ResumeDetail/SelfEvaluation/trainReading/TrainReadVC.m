@@ -13,6 +13,8 @@
 #import "WorkingExperienceVC.h"
 #import "PersonalInformationBaseCell.h"
 #import "personalInformationTitleView.h"
+#import "TH_TrainExperienceVC.h"
+
 @interface TrainReadVC ()<UITableViewDataSource,UITableViewDelegate>
 {
     ResumeModel * _resume_model;
@@ -23,19 +25,19 @@
 @property(nonatomic,strong)UIScrollView * scro;
 @property(nonatomic,strong)UITableView * tableView;
 
-
 @end
 
 @implementation TrainReadVC
 -(void)viewWillAppear:(BOOL)animated
 {
     /***/
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
+    [self loadData];
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewWillDisappear:NO];
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
     
 }
 
@@ -44,7 +46,6 @@
     self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);
      _resume_model = [ResumeModel sharedResume];
     [self createTableView];
-    [self loadData];
 }
 -(void)createTableView
 {
@@ -80,8 +81,8 @@
 #pragma mark --继续添加
 -(void)addClick
 {
-    //    [self.navigationController popViewControllerAnimated:YES];
     WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
+    working.pushtype = 0;
     [self.navigationController pushViewController:working animated:YES];
 }
 
@@ -109,9 +110,16 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    WorkingExperienceVC *vc = [[WorkingExperienceVC alloc]init];
-//    
-//    [self.navigationController pushViewController:vc animated:YES];
+    NSDictionary * dic =self.dataArray[indexPath.row];
+    TH_TrainExperienceVC *vc = [[TH_TrainExperienceVC alloc]init];
+    vc.train = dic[@"name"];
+    vc.sdate = dic[@"sdate"];
+    vc.edate = dic[@"edate"];
+    vc.trainDirection = dic[@"title"];
+    vc.content = dic[@"content"];
+    vc.detailId = dic[@"id"];
+    vc.pushtype = 1;
+    [self.navigationController pushViewController:vc animated:YES];
     
     
 }

@@ -198,7 +198,14 @@
 
 - (void)deleteClick:(UIButton *)btn
 {
-    THLog(@"删除");
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
+   [WriteResumeRequest deleteResumeItemWithSucc:^(NSDictionary *dataDic) {
+       
+       [self.navigationController popViewControllerAnimated:YES];
+       
+   } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId id:self.detailId type:1];
+    
 }
 
 #pragma mark - 保存简历阅览
@@ -261,14 +268,19 @@
     }
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * tokenStr = [df objectForKey:@"md5_token"];
-    NSDictionary * param = @{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"department":_model.department,@"title":_model.title,@"content":_model.content};
+    if (self.detailId)
+    {
+        
+    }
+    else
+    {
+        self.detailId = @"";
+    }
+    NSDictionary *param = @{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"department":_model.department,@"title":_model.title,@"content":_model.content,@"id":self.detailId};
+    
     THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     
-    
-    [[WriteResumeRequest uploadWorkExperienceWithSucc:^(NSDictionary * dataDic) {
-//        WorkExReadingVC *workreading = [[WorkExReadingVC alloc] init];
-////        workreading.model = _model;
-//        [self.navigationController pushViewController:workreading animated:YES];
+    [[WriteResumeRequest uploadTrainWithSucc:^(NSDictionary * dataDic) {
         [self.navigationController popViewControllerAnimated:YES];
     } WithResumeParam:param] addNotifaction:hub];
 }

@@ -57,37 +57,47 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     
-    for(int i = 0;i < self.jobCellArr.count;i++)
-    {
-        projectTableViewCell * cell = self.jobCellArr[i];
-        
-        
-        if(i == 0)
-        {
-             cell.placehoderTextfield.text = @"";
-        }
-        
-        if(i == 1)
-        {
-            CertifiCateTime * cell = self.jobCellArr[i];
-            
-            cell.selectTime.selected = NO;
-        }
-        if(i == 2)
-        {
-           cell.placehoderTextfield.text = @"";
-        }
-    }
-self.contentTextField.text = @"";
+//    for(int i = 0;i < self.jobCellArr.count;i++)
+//    {
+//        projectTableViewCell * cell = self.jobCellArr[i];
+//        
+//        
+//        if(i == 0)
+//        {
+//             cell.placehoderTextfield.text = @"";
+//        }
+//        
+//        if(i == 1)
+//        {
+//            CertifiCateTime * cell = self.jobCellArr[i];
+//            
+//            cell.selectTime.selected = NO;
+//        }
+//        if(i == 2)
+//        {
+//           cell.placehoderTextfield.text = @"";
+//        }
+//    }
+//self.contentTextField.text = @"";
    
 }
 -(void)setData
 {
     self.nameArray = @[@"证书全称",@"颁发时间",@"颁发单位"];
-    self.holderArray = @[@"请填写证书全称",@"",@"请填写颁发单位"];
+    
+    if (self.detailId)
+    {
+        self.holderArray = @[self.cerName,@"",self.awardCompany];
+    }
+    else
+    {
+         self.holderArray = @[@"请填写证书全称",@"",@"请填写颁发单位"];
+    }
+
 }
 -(void)createScro
-{self.view.backgroundColor = color(243, 243, 241);
+{
+    self.view.backgroundColor = color(243, 243, 241);
     UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
     self.scro = scro;
     self.scro.backgroundColor = color(243, 243, 243);
@@ -133,20 +143,27 @@ self.contentTextField.text = @"";
     self.contentTextField.delegate = self;
     self.contentTextField.textAlignment = NSTextAlignmentNatural;
     self.contentTextField.textColor = [UIColor blackColor];
-        [bgView addSubview:self.contentTextField];
+    [bgView addSubview:self.contentTextField];
     /*显示隐藏内容**/
     UILabel * placeHoderTextLable =[[UILabel alloc] initWithFrame:CGRectMake(10, 10, WIDETH - 121, 30)];
-    placeHoderTextLable.text = @"请填写证书内容";
-    placeHoderTextLable.textColor = color(203, 203, 203);
+       placeHoderTextLable.textColor = color(203, 203, 203);
     self.placeHoderTextLable = placeHoderTextLable;
     [self.contentTextField addSubview:placeHoderTextLable];
     self.placeHoderTextLable.font = [UIFont systemFontOfSize:13];
-    
+    if (self.detailId)
+    {
+        self.contentTextField.text = self.content;
+        self.placeHoderTextLable.hidden = YES;
+    }
+    else
+    {
+        placeHoderTextLable.text = @"请填写证书内容";
+    }
     /*按钮选项**/
-    UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 323, (WIDETH-150-18)/2.0, 30) ImageName:@"hongniu2" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
+    UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 323, 50, 30) ImageName:@"" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
     
     [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
+    saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17];
 //    [self.scro addSubview:saveBtn];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:saveBtn];
     
@@ -156,19 +173,34 @@ self.contentTextField.text = @"";
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
 //    [self.scro addSubview:replaceBtn];
     UIButton *deleteBtn = [[UIButton alloc]init];
-    deleteBtn.frame = CGRectMake(75, CGRectGetMaxY(tableview.frame) + 20, WIDETH - 75 * 2, 30);
+    deleteBtn.frame = CGRectMake(75, CGRectGetMaxY(bgView.frame) + 20, WIDETH - 75 * 2, 30);
     [deleteBtn addTarget:self action:@selector(deleteClick:) forControlEvents:UIControlEventTouchUpInside];
     [deleteBtn setBackgroundColor:[UIColor orangeColor]];
     [deleteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [deleteBtn setTitle:@"删除此工作经历" forState:UIControlStateNormal];
+    [deleteBtn setTitle:@"删除" forState:UIControlStateNormal];
     deleteBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
     deleteBtn.layer.cornerRadius = 5;
-    [self.scro addSubview:deleteBtn];
+    if (_pushtype == 0)
+    {
+        
+    }
+    else
+    {
+        [self.scro addSubview:deleteBtn];
+    }
 }
 
 - (void)deleteClick:(UIButton *)btn
 {
     THLog(@"删除");
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
+    [WriteResumeRequest deleteResumeItemWithSucc:^(NSDictionary *dataDic) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId id:self.detailId type:6];
+    
 }
 
 /*保存**/
@@ -222,13 +254,17 @@ self.contentTextField.text = @"";
     THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * tokenStr = [df objectForKey:@"md5_token"];
+    if (self.detailId)
+    {
+        
+    }
+    else
+    {
+        self.detailId = @"";
+    }
     [[WriteResumeRequest uploadCertificateWithSucc:^(NSDictionary *dataDic) {
-        [MBProgressHUD creatembHub:@"保存成功"];
-//        [self.navigationController popViewControllerAnimated:YES];
-        CertificateReadVC * read = [[CertificateReadVC alloc] init];
-        read.model = _model;
-        [self.navigationController pushViewController:read animated:YES];
-    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
+        [self.navigationController popViewControllerAnimated:YES];
+    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"title":_model.position,@"content":_model.content,@"id":self.detailId}] addNotifaction:hub];
     
     
 }
@@ -264,6 +300,12 @@ self.contentTextField.text = @"";
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"CertifiCateTime" owner:self options:nil] firstObject];
         }
+        if (self.detailId)
+        {
+            [cell.selectTime setTitle:self.awardTime forState:UIControlStateNormal];
+            cell.selectTime.selected = YES;
+            cell.selectTime.titleLabel.textColor =[UIColor blackColor];
+        }
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.jobCellArr addObject:cell];
@@ -274,7 +316,15 @@ self.contentTextField.text = @"";
         cell = [[[NSBundle mainBundle] loadNibNamed:@"projectTableViewCell" owner:self options:nil] lastObject];
     }
     cell.nameLable.text = self.nameArray[indexPath.row];
-    cell.placehoderTextfield.placeholder= self.holderArray[indexPath.row];
+    if (self.detailId)
+    {
+        cell.placehoderTextfield.text = self.holderArray[indexPath.row];
+    }
+    else
+    {
+        cell.placehoderTextfield.placeholder = self.holderArray[indexPath.row];
+    }
+//    cell.placehoderTextfield.placeholder= self.holderArray[indexPath.row];
     [self.jobCellArr addObject:cell];
     return cell;
 }

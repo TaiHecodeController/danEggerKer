@@ -86,7 +86,17 @@
 -(void)setData
 {
     self.nameArray = @[@"培训中心",@"",@"培训方向"];
-    self.holderArray = @[@"请填培训中心",@"",@"请填写培训方向"];
+    
+    if (self.detailId)
+    {
+        self.holderArray = @[self.train,@"",self.trainDirection];
+    }
+    else
+    {
+        self.holderArray = @[@"请填培训中心",@"",@"请填写培训方向"];
+    }
+
+    
 }
 -(void)createScro
 {  self.view.backgroundColor = color(243, 243, 241);
@@ -137,11 +147,19 @@
     [bgView addSubview:self.contentTextField];
     /*显示隐藏内容**/
     UILabel * placeHoderTextLable =[[UILabel alloc] initWithFrame:CGRectMake(10, 10, WIDETH - 121, 30)];
-    placeHoderTextLable.text = @"请填写培训内容";
-    placeHoderTextLable.textColor = color(203, 203, 203);
+        placeHoderTextLable.textColor = color(203, 203, 203);
     self.placeHoderTextLable = placeHoderTextLable;
     [self.contentTextField addSubview:placeHoderTextLable];
     self.placeHoderTextLable.font = [UIFont systemFontOfSize:13];
+    if (self.detailId)
+    {
+        self.contentTextField.text = self.content;
+    }
+    else
+    {
+        placeHoderTextLable.text = @"请填写培训内容";
+    }
+    
     //下方按钮
     UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 326, 50, 30) ImageName:@"hongniu2" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
     
@@ -163,12 +181,27 @@
     [deleteBtn setTitle:@"删除此工作经历" forState:UIControlStateNormal];
     deleteBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
     deleteBtn.layer.cornerRadius = 5;
-    [self.scro addSubview:deleteBtn];
+    if (_pushtype == 0)
+    {
+        
+    }
+    else
+    {
+        [self.scro addSubview:deleteBtn];
+    }
+
 }
 
 - (void)deleteClick:(UIButton *)btn
 {
-    THLog(@"删除");
+    
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString * tokenStr = [df objectForKey:@"md5_token"];
+    [WriteResumeRequest deleteResumeItemWithSucc:^(NSDictionary *dataDic) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId id:self.detailId type:3];
 }
 
 /*保存**/
@@ -226,14 +259,17 @@
     THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * tokenStr = [df objectForKey:@"md5_token"];
-    [[WriteResumeRequest uploadTrainWithSucc:^(NSDictionary *dataDic) {
-        [MBProgressHUD creatembHub:@"保存成功"];
-//        [self.navigationController popViewControllerAnimated:YES];
-        TrainReadVC * train = [[TrainReadVC alloc] init];
-        train.model = _model;
-        [self.navigationController pushViewController:train animated:YES];
+    if (self.detailId)
+    {
         
-    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"title":_model.position,@"content":_model.content}] addNotifaction:hub];
+    }
+    else
+    {
+        self.detailId = @"";
+    }
+    [[WriteResumeRequest uploadTrainWithSucc:^(NSDictionary *dataDic) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"title":_model.position,@"content":_model.content,@"id":self.detailId}] addNotifaction:hub];
 }
 /*重置**/
 -(void)replaceBtnClick
@@ -276,6 +312,15 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"EducationTimeCell" owner:self options:nil] firstObject];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+        if (self.detailId)
+        {
+            [cell.startTime setTitle:self.sdate forState:UIControlStateNormal];
+            [cell.endTime setTitle:self.edate forState:UIControlStateNormal];
+            cell.startTime.titleLabel.textColor = [UIColor blackColor];
+            cell.endTime.titleLabel.textColor = [UIColor blackColor];
+            cell.startTime.selected = YES;
+            cell.endTime.selected = YES;
+        }
         [self.jobArray addObject:cell];
         cell.timeLable.text= @"培训时间";
    return cell;
@@ -290,7 +335,15 @@
     }
     
     cell.educationTitleLable.text = self.nameArray[indexPath.row];
-    cell.educationContentTextFile.placeholder= self.holderArray[indexPath.row];
+        if (self.detailId)
+        {
+            cell.educationContentTextFile.text = self.holderArray[indexPath.row];
+        }
+        else
+        {
+            cell.educationContentTextFile.placeholder = self.holderArray[indexPath.row];
+        }
+
     
     [self.jobArray addObject:cell];
         return cell;

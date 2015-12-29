@@ -10,4 +10,13 @@
 
 @interface TH_TrainExperienceVC : TH_BaseVC
 
+@property (nonatomic, copy) NSString *train;
+@property (nonatomic, copy) NSString *sdate;
+@property (nonatomic, copy) NSString *edate;
+@property (nonatomic, copy) NSString *trainDirection;
+@property (nonatomic, copy) NSString *content;
+@property (nonatomic, copy) NSString *detailId;
+//pushType 0添加进来 1编辑进来
+@property (nonatomic, assign) int pushtype;
+
 @end
