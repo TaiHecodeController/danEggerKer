@@ -100,6 +100,15 @@
     self.phoneNum.text = dataDic[@"telphone"];
     
 }
+-(void)setIntroductionText:(NSString*)text
+{
+    //获得当前cell高度
+    CGRect frame = [self frame];
+    //计算出自适应的高度
+    frame.size.height = 155;
+    
+    self.frame = frame;
+}
 - (void)awakeFromNib {
     // Initialization code
 }

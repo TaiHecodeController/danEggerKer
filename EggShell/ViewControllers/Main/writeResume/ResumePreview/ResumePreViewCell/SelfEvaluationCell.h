@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "EditdelegateView.h"
 @interface SelfEvaluationCell : UITableViewCell
 @property(nonatomic,strong)UILabel * selfEvalueteContentLable;
 -(void)configValue:(NSDictionary *)dataDic;

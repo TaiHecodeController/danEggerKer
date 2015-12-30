@@ -21,14 +21,14 @@
 }
 -(void)createView
 {
-    UILabel * myLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, 100, 13)];
+    UILabel * myLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 100, 13)];
     myLable.text = @"个人简历";
     myLable.font =[UIFont systemFontOfSize:13];
     myLable.textColor = [UIColor whiteColor];
     [self addSubview:myLable];
     
      self.personTileLable = myLable;
-    UILabel * timeLable = [[UILabel alloc] initWithFrame:CGRectMake(WIDETH - 165, 16, 150, 11)];
+    UILabel * timeLable = [[UILabel alloc] initWithFrame:CGRectMake(WIDETH - 165, 9.5, 150, 11)];
     timeLable.text = @"创建于2015-08-03";
     timeLable.font =[UIFont systemFontOfSize:11];
     timeLable.textColor = UIColorFromRGB(0x646464);

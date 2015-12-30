@@ -117,6 +117,8 @@
 		94313DF21B7CB5C9005D0A9A /* WriteResumeCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94313DE41B7CB5C9005D0A9A /* WriteResumeCell2.xib */; };
 		94313DF31B7CB5C9005D0A9A /* WriteResumeVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 94313DE61B7CB5C9005D0A9A /* WriteResumeVC2.m */; };
 		943F41801B9A8766000FC299 /* informantionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 943F417F1B9A8766000FC299 /* informantionModel.m */; };
+		944831B11C32C03D0049C686 /* editAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944831B01C32C03D0049C686 /* editAddView.m */; };
+		944831B41C32C94D0049C686 /* EditdelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944831B31C32C94D0049C686 /* EditdelegateView.m */; };
 		946EBAC51B84659800CD6AC9 /* jobListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946EBAC41B84659800CD6AC9 /* jobListCell.m */; };
 		947006931B85CA6000DEC289 /* EditAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947006851B85CA6000DEC289 /* EditAddressVC.m */; };
 		947006941B85CA6000DEC289 /* EditAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947006861B85CA6000DEC289 /* EditAddressVC.xib */; };
@@ -594,6 +596,10 @@
 		943A9AA91C06CA4E001CC76D /* TalentPoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalentPoolCell.m; sourceTree = "<group>"; };
 		943F417E1B9A8766000FC299 /* informantionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = informantionModel.h; sourceTree = "<group>"; };
 		943F417F1B9A8766000FC299 /* informantionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = informantionModel.m; sourceTree = "<group>"; };
+		944831AF1C32C03D0049C686 /* editAddView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editAddView.h; sourceTree = "<group>"; };
+		944831B01C32C03D0049C686 /* editAddView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = editAddView.m; sourceTree = "<group>"; };
+		944831B21C32C94D0049C686 /* EditdelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditdelegateView.h; sourceTree = "<group>"; };
+		944831B31C32C94D0049C686 /* EditdelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditdelegateView.m; sourceTree = "<group>"; };
 		946EBAC31B84659800CD6AC9 /* jobListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobListCell.h; sourceTree = "<group>"; };
 		946EBAC41B84659800CD6AC9 /* jobListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobListCell.m; sourceTree = "<group>"; };
 		947006841B85CA6000DEC289 /* EditAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAddressVC.h; sourceTree = "<group>"; };
@@ -2100,6 +2106,10 @@
 				948CBFEC1C324B7600084294 /* SelfEvaluationCell.m */,
 				948CBFEE1C324F2200084294 /* ResumeTiltlView.h */,
 				948CBFEF1C324F2200084294 /* ResumeTiltlView.m */,
+				944831AF1C32C03D0049C686 /* editAddView.h */,
+				944831B01C32C03D0049C686 /* editAddView.m */,
+				944831B21C32C94D0049C686 /* EditdelegateView.h */,
+				944831B31C32C94D0049C686 /* EditdelegateView.m */,
 			);
 			path = ResumePreViewCell;
 			sourceTree = "<group>";
@@ -3222,6 +3232,7 @@
 				941A9EBE1C191751000FFA4D /* HomeView.m in Sources */,
 				041650691B4D7240008C78BE /* GObjAdapter.m in Sources */,
 				94CB305F1BA5169700577FE6 /* IQUIWindow+Hierarchy.m in Sources */,
+				944831B41C32C94D0049C686 /* EditdelegateView.m in Sources */,
 				940032F11B840DCD001EB666 /* JobScreeningCell.m in Sources */,
 				F05FC6751C167F7200F0A5BE /* Utils.m in Sources */,
 				F06F72EF1B9694D200989489 /* playListModel.m in Sources */,
@@ -3258,6 +3269,7 @@
 				94CB5B7D1B74CC0600B23B9D /* MJConst.m in Sources */,
 				9470069A1B85CA6000DEC289 /* MineEditInfoCell.m in Sources */,
 				94E3EAE71B954947007A699E /* findJobModel.m in Sources */,
+				944831B11C32C03D0049C686 /* editAddView.m in Sources */,
 				F0811F711C30FED5005D13D7 /* WriteResumeViewController.m in Sources */,
 				048F30C11B7A462C004AA9B2 /* DataBase.m in Sources */,
 				F05FC6701C167F7200F0A5BE /* DefaultDirectionInterpretor.m in Sources */,

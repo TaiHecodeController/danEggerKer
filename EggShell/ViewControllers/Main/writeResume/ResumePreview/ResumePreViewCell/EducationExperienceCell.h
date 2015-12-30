@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "EditdelegateView.h"
 @interface EducationExperienceCell : UITableViewCell
 @property(nonatomic,strong)UILabel  * educationTime;
 @property(nonatomic,strong)UILabel  * department;
 @property(nonatomic,strong)UILabel  * schoolName;
 @property(nonatomic,strong)UILabel  * position;
+@property(nonatomic,strong)EditdelegateView * editDeleteView;
 @property(nonatomic,strong)UILabel  * departmentIntroduce;
 -(void)configVulue:(NSArray *)dataArray withArrIndex:(int)i;
-
+@property(nonatomic,strong)void(^editDeleteBlock)(int sender);
 @end

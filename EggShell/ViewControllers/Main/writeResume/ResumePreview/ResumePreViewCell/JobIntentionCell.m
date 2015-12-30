@@ -110,6 +110,12 @@
     self.arriveTime.text = dataDic[@"dgtime"][@"name"];
     self.workNature.text = dataDic[@"ctype"][@"name"];
     self.workState.text = dataDic[@"jobst"][@"name"];
+    //获得当前cell高度
+    CGRect frame = [self frame];
+    //计算出自适应的高度
+    frame.size.height = 165;
+    
+    self.frame = frame;
 }
 
 - (void)awakeFromNib {

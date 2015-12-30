@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "EditdelegateView.h"
 @interface JobExperienceCell : UITableViewCell
 @property(nonatomic,strong)UILabel *  workTime;
 @property(nonatomic,strong)UILabel *  position;
 @property(nonatomic,strong)UILabel *  titleLab;
 @property(nonatomic,strong)UILabel *   workContent;
+@property(nonatomic,strong)EditdelegateView * editDeleteView;
 -(void)configVulue:(NSArray *)dataArray withArrIndex:(int)i;
+@property(nonatomic,strong)void(^editDeleteBlock)(int sender);
 @end

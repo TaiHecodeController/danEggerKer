@@ -7,7 +7,7 @@
 //
 
 #import "ProfessionalSkillCell.h"
-
+#import "EditdelegateView.h"
 @implementation ProfessionalSkillCell
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -48,37 +48,54 @@
     self.skilledDegree.text = @"暂无";
     [self.contentView addSubview:self.skilledDegree];
     //技能名称
-    UILabel * skillNameHeadlablable =[[UILabel alloc] initWithFrame:CGRectMake(15, 54, 60, 12)];
+    UILabel * skillNameHeadlablable =[[UILabel alloc] initWithFrame:CGRectMake(15, 76, 60, 12)];
     skillNameHeadlablable.text = @"熟练程度:";
     skillNameHeadlablable.font = [UIFont systemFontOfSize:12];
     skillNameHeadlablable.textColor = UIColorFromRGB(0x646464);
     [self.contentView addSubview:skillNameHeadlablable];
-    self.skillName = [[UILabel alloc] initWithFrame:CGRectMake(75, 54, WIDETH-90, 12)];
+    self.skillName = [[UILabel alloc] initWithFrame:CGRectMake(75, 76, WIDETH-90, 12)];
     self.skillName.font = [UIFont systemFontOfSize:12];
     self.skillName.textColor = UIColorFromRGB(0x000000);
     self.skillName.text = @"暂无";
     [self.contentView addSubview:self.skillName];
     
 
-    
-    
+    EditdelegateView * editDelete = [[EditdelegateView alloc] initWithFrame:CGRectMake(WIDETH - 140, 90, 140, 35)];
+    [self.contentView addSubview:editDelete];
+
+    editDelete.ediBtn.tag = 10;
+    editDelete.delgateBtn.tag = 11;
+    [editDelete.ediBtn addTarget:self action:@selector(editBtbClick:) forControlEvents:UIControlEventTouchUpInside];
+    [editDelete.delgateBtn addTarget:self action:@selector(editBtbClick:) forControlEvents:UIControlEventTouchUpInside];
+     self.editDeleteView = editDelete;
+}
+-(void)editBtbClick:(UIButton*)sender
+{
+    self.editDeleteBlock(sender.tag);
 }
 -(void)conFigValue:(NSArray *)dataArray withArrIndex:(int)i
 {
-    if(dataArray.count == 0)
-    {
-        return;
-    }
-    //    NSDictionary * dataDic = [dataArray firstObject];
-    NSDictionary * dataDic  = dataArray[i];
-    if(dataDic.count == 0)
-    {
-        return;
-    }
-    self.professionalSkill.text = dataDic[@"skill"];
-    self.graspTime.text = dataDic[@"longtime"];
-    self.skilledDegree.text = dataDic[@"ing"];
-    self.skillName.text = dataDic[@"name"];
+//    if(dataArray.count == 0)
+//    {
+//        return;
+//    }
+//    //    NSDictionary * dataDic = [dataArray firstObject];
+//    NSDictionary * dataDic  = dataArray[i];
+//    if(dataDic.count == 0)
+//    {
+//        return;
+//    }
+//    self.professionalSkill.text = dataDic[@"skill"];
+//    self.graspTime.text = dataDic[@"longtime"];
+//    self.skilledDegree.text = dataDic[@"ing"];
+//    self.skillName.text = dataDic[@"name"];
+    //获得当前cell高度
+    CGRect frame = [self frame];
+    //计算出自适应的高度
+    frame.size.height = 125;
+    
+    self.frame = frame;
+
     
     
 }
