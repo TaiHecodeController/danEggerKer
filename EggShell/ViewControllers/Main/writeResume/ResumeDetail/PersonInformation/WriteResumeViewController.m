@@ -635,7 +635,6 @@
 {
     
     //    WriteJLChooseVC *vc = [[WriteJLChooseVC alloc]init];
-    
     if (tableView.tag == 1555)
     {
         THLog(@"工作选项列表");

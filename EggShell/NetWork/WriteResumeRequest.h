@@ -61,5 +61,8 @@
 +(AFRequestState *)deleteResumeItemWithSucc:(void(^)(NSDictionary * dataDic))succ withToken:(NSString *)token uid:(NSString *)uid eid:(NSString *)eid id:(NSString *)id type:(int)type;
 //获取自我评价
 + (AFRequestState *)getSelfEvaluateWithSucc:(void(^)(NSDictionary * dataDic))succ uid:(NSString *)uid token:(NSString *)token;
+//获取简历中每一项经历的个数
++ (AFRequestState *)getResumeItemNumberWithSucc:(void(^)(NSDictionary * dataDic))succ withToken:(NSString *)token uid:(NSString *)uid eid:(NSString *)eid;
+
 
 @end

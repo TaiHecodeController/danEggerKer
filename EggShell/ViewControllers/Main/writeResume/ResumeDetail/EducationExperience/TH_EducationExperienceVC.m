@@ -31,6 +31,8 @@
 @property(strong,nonatomic)NSArray * nameArray;
 @property (strong,nonatomic)NSArray * holderArray;
 @property(strong,nonatomic)NSMutableArray * jobArray;
+@property (nonatomic, strong) UIView *corver;
+
 @end
 
 @implementation TH_EducationExperienceVC
@@ -111,7 +113,8 @@
     [self.view addSubview:scro];
 }
 -(void)createView
-{   UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 135, 20) Font:13 Text:[NSString stringWithFormat:@"%@-教育经历",_resume_model.resumeName]];
+{
+    UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 135, 20) Font:13 Text:[NSString stringWithFormat:@"%@-教育经历",_resume_model.resumeName]];
     [self.scro addSubview:nameLab];
     
     UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(160, 13, 53, 23) ImageName:@"hongniu2" Target:self Action:nil Title:@"必填项"];
@@ -168,14 +171,14 @@
 
     
     //下方按钮
-    UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 368, 50, 30) ImageName:@"hongniu2" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
+    UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(75, 368, 50, 30) ImageName:@"" Target:self Action:@selector(saveBtnClick) Title:@"保存"];
     
     [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17];
 //    [self.scro addSubview:saveBtn];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:saveBtn];
     
-    UIButton * replaceBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH-((WIDETH-150-18)/2.0+75),368, (WIDETH-150-18)/2.0, 30) ImageName:@"lanniu2" Target:self Action:@selector(replaceBtnClick) Title:@"重置"];
+    UIButton * replaceBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH-((WIDETH-150-18)/2.0+75),368,50, 30) ImageName:@"" Target:self Action:@selector(replaceBtnClick) Title:@"重置"];
     
     [replaceBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
@@ -201,6 +204,52 @@
 
 - (void)deleteClick:(UIButton *)btn
 {
+    
+    [self presentDeleteView:nil];
+    
+}
+
+- (void)presentDeleteView:(NSInteger)index
+{
+    UIView *corver = [[UIView alloc]init];
+    corver.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+    corver.frame = [UIScreen mainScreen].bounds;
+    [self.view addSubview:corver];
+    self.corver = corver;
+    
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake((WIDETH - 300) / 2, 100, 300, 85)];
+    bgView.backgroundColor = [UIColor whiteColor];
+    bgView.layer.cornerRadius = 6;
+    [corver addSubview:bgView];
+    
+    UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake((300 - 150) / 2, 15, 150, 15)];
+    titleLab.text = @"你确定要删除吗？";
+    titleLab.textColor = [UIColor orangeColor];
+    [bgView addSubview:titleLab];
+    
+    UIButton *cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(22.5, 40, 112.5, 30)];
+    cancelBtn.backgroundColor = [UIColor orangeColor];
+    [cancelBtn setTitle:@"cancel" forState:UIControlStateNormal];
+    [cancelBtn addTarget:self action:@selector(cancelClick:) forControlEvents:UIControlEventTouchUpInside];
+    cancelBtn.layer.cornerRadius =5;
+    [bgView addSubview:cancelBtn];
+    
+    UIButton *OkBtn = [[UIButton alloc] initWithFrame:CGRectMake(165, 40, 112.5, 30)];
+    [OkBtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
+    [OkBtn setTitle:@"Ok" forState:UIControlStateNormal];
+    OkBtn.layer.cornerRadius = 5;
+    [OkBtn addTarget:self action:@selector(okClick:) forControlEvents:UIControlEventTouchUpInside];
+    OkBtn.tag = index;
+    [bgView addSubview:OkBtn];
+}
+
+- (void)cancelClick:(UIButton *)btn
+{
+    [self.corver removeFromSuperview];
+}
+
+- (void)okClick:(UIButton *)btn
+{
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * tokenStr = [df objectForKey:@"md5_token"];
     [WriteResumeRequest deleteResumeItemWithSucc:^(NSDictionary *dataDic) {
@@ -208,7 +257,10 @@
         [self.navigationController popViewControllerAnimated:YES];
         
     } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId id:self.detailId type:2];
+
+    
 }
+
 /*保存**/
 -(void)saveBtnClick
 {
