@@ -86,6 +86,7 @@
         
     } WithUserId:[AppDelegate instance].userId resp:[ManagerResumeModel class]] addNotifaction:hub];
 }
+
 - (IBAction)createNewResume:(UIButton *)sender {
     if(self.dataArray.count  < 5)
     {
