@@ -20,19 +20,34 @@
 -(void)createUI
 {
     //项目时间
-     self.projectTime = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, WIDETH-30, 12)];
+    UILabel * projectTimeHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 10, 60, 12)];
+    projectTimeHeadLable.text = @"项目时间:";
+    projectTimeHeadLable.font = [UIFont systemFontOfSize:12];
+    projectTimeHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:projectTimeHeadLable];
+     self.projectTime = [[UILabel alloc] initWithFrame:CGRectMake(75, 10, WIDETH-90, 12)];
      self.projectTime.font = [UIFont systemFontOfSize:12];
      self.projectTime.textColor = UIColorFromRGB(0x000000);
      self.projectTime.text = @"暂无";
     [self.contentView addSubview:self.projectTime];
-//职位
-    self.position = [[UILabel alloc] initWithFrame:CGRectMake(15, 32, WIDETH-30, 12)];
+//职位名称
+    UILabel *positionHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 32, 60, 12)];
+    positionHeadLable.text = @"担任职位:";
+    positionHeadLable.font = [UIFont systemFontOfSize:12];
+    positionHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:positionHeadLable];
+    self.position = [[UILabel alloc] initWithFrame:CGRectMake(75, 32, WIDETH-90, 12)];
     self.position.font = [UIFont systemFontOfSize:12];
     self.position.textColor = UIColorFromRGB(0x000000);
     self.position.text = @"暂无";
     [self.contentView addSubview:self.position];
     //项目名称
-    self.proName = [[UILabel alloc] initWithFrame:CGRectMake(15, 54, WIDETH-30, 12)];
+    UILabel * proNameHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 54, 60, 12)];
+    proNameHeadLable.text = @"项目名称:";
+    proNameHeadLable.font = [UIFont systemFontOfSize:12];
+    proNameHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:proNameHeadLable];
+    self.proName = [[UILabel alloc] initWithFrame:CGRectMake(75, 54, WIDETH-90, 12)];
     self.proName.font = [UIFont systemFontOfSize:12];
     self.proName.textColor = UIColorFromRGB(0x000000);
     self.proName.text = @"暂无";
@@ -91,7 +106,7 @@
     self.proIntroduce.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.proIntroduce.text sizeWithFont:self.proIntroduce.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
-    self.proIntroduce.frame = CGRectMake(15, 94, WIDETH-15, labelSize.height);
+    self.proIntroduce.frame = CGRectMake(15, 94, WIDETH-30, labelSize.height);
     self.editDeleteView.frame = CGRectMake(WIDETH-140, 92+labelSize.height, 140, 35);
     //计算出自适应的高度
     frame.size.height = labelSize.height+92+45;

@@ -19,19 +19,34 @@
 }
 -(void)createUI
 {//教育时间
-    self.educationTime =[[UILabel alloc] initWithFrame:CGRectMake(15, 10, WIDETH-30, 12)];
+    UILabel * educationTimeHeadLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 60, 12)];
+    educationTimeHeadLable.text = @"在校时间:";
+    educationTimeHeadLable.font = [UIFont systemFontOfSize:12];
+    educationTimeHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:educationTimeHeadLable];
+    self.educationTime =[[UILabel alloc] initWithFrame:CGRectMake(75, 10, WIDETH-90, 12)];
     self.educationTime.font = [UIFont systemFontOfSize:12];
     self.educationTime.textColor = UIColorFromRGB(0x000000);
     self.educationTime.text = @"暂无";
     [self.contentView addSubview:self.educationTime];
     //所学专业
-    self.department = [[UILabel alloc] initWithFrame:CGRectMake(15, 32, WIDETH-30, 12)];
+    UILabel *departmentHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 32, 60, 12)];
+    departmentHeadLable.text = @"所学专业:";
+    departmentHeadLable.font = [UIFont systemFontOfSize:12];
+    departmentHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:departmentHeadLable];
+    self.department = [[UILabel alloc] initWithFrame:CGRectMake(75, 32, WIDETH-30, 12)];
     self.department.font = [UIFont systemFontOfSize:12];
     self.department.textColor = UIColorFromRGB(0x000000);
     self.department.text = @"暂无";
     [self.contentView addSubview:self.department];
     //所在学校
-    self.schoolName =[[UILabel alloc] initWithFrame:CGRectMake(15, 54, WIDETH-30, 12)];
+    UILabel * schoolNameHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 54, 60, 12)];
+    schoolNameHeadLable.text = @"所学名称:";
+    schoolNameHeadLable.font = [UIFont systemFontOfSize:12];
+    schoolNameHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:schoolNameHeadLable];
+    self.schoolName =[[UILabel alloc] initWithFrame:CGRectMake(75, 54, WIDETH-90, 12)];
     self.schoolName.font = [UIFont systemFontOfSize:12];
     self.schoolName.textColor = UIColorFromRGB(0x000000);
     self.schoolName.text = @"暂无";
@@ -39,7 +54,7 @@
     //担任职位
     UILabel * positionHeadLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 76, 60, 12)];
     positionHeadLable.font = [UIFont systemFontOfSize:12];
-    positionHeadLable.textColor = UIColorFromRGB(0x000000);
+    positionHeadLable.textColor = UIColorFromRGB(0x646464);
     positionHeadLable.text = @"担任职位";
     [self.contentView addSubview:positionHeadLable];
     self.position = [[UILabel alloc] initWithFrame:CGRectMake(75, 76, WIDETH-75, 12)];
@@ -96,7 +111,7 @@
     self.departmentIntroduce.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.departmentIntroduce.text sizeWithFont:self.departmentIntroduce.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
-    self.departmentIntroduce.frame = CGRectMake(15, 94, WIDETH-15, labelSize.height);
+    self.departmentIntroduce.frame = CGRectMake(15, 118, WIDETH-30, labelSize.height);
     self.editDeleteView.frame = CGRectMake(WIDETH-140, 120+labelSize.height, 140, 35);
     //计算出自适应的高度
     frame.size.height = labelSize.height+120+45;

@@ -20,19 +20,34 @@
 -(void)createUI
 {
     //工作时间
-    self.workTime =[[UILabel alloc] initWithFrame:CGRectMake(15, 10, WIDETH-15, 12)];
+    UILabel *workTimeHeadLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 60, 12)];
+    workTimeHeadLable.text = @"工作时间:";
+    workTimeHeadLable.font = [UIFont systemFontOfSize:12];
+    workTimeHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:workTimeHeadLable];
+    self.workTime =[[UILabel alloc] initWithFrame:CGRectMake(75, 10, WIDETH-75, 12)];
     self.workTime.font = [UIFont systemFontOfSize:12];
     self.workTime.textColor = UIColorFromRGB(0x000000);
     self.workTime.text = @"暂无";
     [self.contentView addSubview:self.workTime];
     //工作职位
-    self.position = [[UILabel alloc] initWithFrame:CGRectMake(15, 32, WIDETH-15, 12)];
+    UILabel * positionHeadLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 32, 60, 12)];
+    positionHeadLable.text = @"单位名称:";
+    positionHeadLable.font = [UIFont systemFontOfSize:12];
+    positionHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:positionHeadLable];
+    self.position = [[UILabel alloc] initWithFrame:CGRectMake(75, 32, WIDETH-75, 12)];
     self.position.font = [UIFont systemFontOfSize:12];
     self.position.textColor = UIColorFromRGB(0x000000);
     self.position.text = @"暂无";
     [self.contentView addSubview:self.position];
     //公司标题
-    self.titleLab =[[UILabel alloc] initWithFrame:CGRectMake(15, 54, WIDETH-15, 12)];
+    UILabel * titleLabHeadLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 54, 60, 12)];
+    titleLabHeadLable.text = @"担任职位:";
+    titleLabHeadLable.font = [UIFont systemFontOfSize:12];
+    titleLabHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:titleLabHeadLable];
+    self.titleLab =[[UILabel alloc] initWithFrame:CGRectMake(75, 54, WIDETH-90, 12)];
     self.titleLab.font = [UIFont systemFontOfSize:12];
     self.titleLab.textColor = UIColorFromRGB(0x000000);
     self.titleLab.text = @"暂无";
@@ -86,7 +101,7 @@
     self.workContent.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.workContent.text sizeWithFont:self.workContent.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
-    self.workContent.frame = CGRectMake(15, 94, WIDETH-15, labelSize.height);
+    self.workContent.frame = CGRectMake(15, 94, WIDETH-30, labelSize.height);
   self.editDeleteView.frame = CGRectMake(WIDETH-140, 94+labelSize.height, 140, 35);
     //计算出自适应的高度
     frame.size.height = labelSize.height+94+45;

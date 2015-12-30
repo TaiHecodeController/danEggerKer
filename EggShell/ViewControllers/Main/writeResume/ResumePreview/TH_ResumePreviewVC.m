@@ -72,7 +72,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleArray = @[@"个人简历",@"求职意向",@"工作经历",@"教育经历",@"专业技能",@"项目经验",@"证书",@"培训经历",@"自我评价"];
+    self.titleArray = @[@"个人简历",@"求职意向",@"工作经历",@"教育经历",@"培训经历",@"专业技能",@"项目经验",@"证书",@"自我评价"];
 //    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-64)];
 //    self.scro = scro;
 //    [self.view addSubview:scro];
@@ -281,63 +281,6 @@
         [cell configVulue:self.dataDic[@"jy"] withArrIndex:0];
         return cell;
     }if (indexPath.section==4) {
-        //专业技能
-        ProfessionalSkillCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProfessionalSkillCell"];
-        if (!cell) {
-            cell = [[ProfessionalSkillCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfessionalSkillCell"];
-        }
-        cell.editDeleteBlock = ^(int tag)
-        {
-            //编辑
-            if (tag==10) {
-                
-                //删除
-            }if (tag==11) {
-                
-            }
-            
-        };
-         [cell conFigValue:self.dataDic[@"skill"] withArrIndex:0];
-        return cell;
-    }if (indexPath.section==5) {
-        //项目经验
-        ProjecctExperenceCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProjecctExperenceCell"];
-        if (!cell) {
-            cell = [[ProjecctExperenceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProjecctExperenceCell"];
-        }
-        cell.editDeleteBlock = ^(int tag)
-        {
-            //编辑
-            if (tag==10) {
-                
-                //删除
-            }if (tag==11) {
-                
-            }
-            
-        };
-        [cell configValue:self.dataDic[@"project"] withArrIndex:0];
-        return cell;
-    }if (indexPath.section==6) {
-        //证书
-        CertificateCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CertificateCell"];
-        if (!cell) {
-            cell = [[CertificateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CertificateCell"];
-        }
-        cell.editDeleteBlock = ^(int tag)
-        {
-            //编辑
-            if (tag==10) {
-                
-                //删除
-            }if (tag==11) {
-                
-            }
-            
-        };
-         [cell configValue:self.dataDic[@"cert"] withArrIndex:0];
-        return cell;
-    }if (indexPath.section==7) {
         //培训经历
         TrainExperienceCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TrainExperienceCell"];
         if (!cell) {
@@ -356,6 +299,67 @@
         };
         [cell configValue:self.dataDic[@"training"] withArrIndex:0];
         return cell;
+
+    }if (indexPath.section==5) {
+
+                //专业技能
+                ProfessionalSkillCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProfessionalSkillCell"];
+                if (!cell) {
+                    cell = [[ProfessionalSkillCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfessionalSkillCell"];
+                }
+                cell.editDeleteBlock = ^(int tag)
+                {
+                    //编辑
+                    if (tag==10) {
+        
+                        //删除
+                    }if (tag==11) {
+        
+                    }
+        
+                };
+                 [cell conFigValue:self.dataDic[@"skill"] withArrIndex:0];
+                return cell;
+    }if (indexPath.section==6) {
+                //项目经验
+                ProjecctExperenceCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProjecctExperenceCell"];
+                if (!cell) {
+                    cell = [[ProjecctExperenceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProjecctExperenceCell"];
+                }
+                cell.editDeleteBlock = ^(int tag)
+                {
+                    //编辑
+                    if (tag==10) {
+        
+                        //删除
+                    }if (tag==11) {
+        
+                    }
+        
+                };
+                [cell configValue:self.dataDic[@"project"] withArrIndex:0];
+                return cell;
+    }if (indexPath.section==7) {
+        //证书
+        CertificateCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CertificateCell"];
+        if (!cell) {
+            cell = [[CertificateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CertificateCell"];
+        }
+        cell.editDeleteBlock = ^(int tag)
+        {
+            //编辑
+            if (tag==10) {
+                
+                //删除
+            }if (tag==11) {
+                
+            }
+            
+        };
+        [cell configValue:self.dataDic[@"cert"] withArrIndex:0];
+        return cell;
+
+        
     }if (indexPath.section==8) {
         //自我评价
         SelfEvaluationCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SelfEvaluationCell"];
@@ -390,16 +394,19 @@
         EducationExperienceCell *cell = (EducationExperienceCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
         return cell.frame.size.height;
     }if (indexPath.section==4) {
+        TrainExperienceCell *cell = (TrainExperienceCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+        return cell.frame.size.height;
+
+    }if (indexPath.section==5) {
         ProfessionalSkillCell *cell = (ProfessionalSkillCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
         return cell.frame.size.height;
-    }if (indexPath.section==5) {
+        
+    }if (indexPath.section==6) {
         ProjecctExperenceCell *cell = (ProjecctExperenceCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
         return cell.frame.size.height;
-    }if (indexPath.section==6) {
-        CertificateCell *cell = (CertificateCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-        return cell.frame.size.height;
+        
     }if (indexPath.section==7) {
-        TrainExperienceCell *cell = (TrainExperienceCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+                CertificateCell *cell = (CertificateCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
         return cell.frame.size.height;
     }
     else
