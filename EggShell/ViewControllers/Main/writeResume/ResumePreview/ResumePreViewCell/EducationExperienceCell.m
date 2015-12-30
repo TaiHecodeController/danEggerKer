@@ -7,7 +7,7 @@
 //
 
 #import "EducationExperienceCell.h"
-
+#import "EditdelegateView.h"
 @implementation EducationExperienceCell
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -59,25 +59,49 @@
     self.departmentIntroduce.text = @"暂无";
     [self.contentView addSubview:self.departmentIntroduce];
     
-    
+    EditdelegateView * editDelete = [[EditdelegateView alloc] initWithFrame:CGRectMake(WIDETH - 140, 178, 140, 35)];
+    [self.contentView addSubview:editDelete];
+    editDelete.ediBtn.tag = 10;
+    editDelete.delgateBtn.tag = 11;
+    [editDelete.ediBtn addTarget:self action:@selector(editBtbClick:) forControlEvents:UIControlEventTouchUpInside];
+    [editDelete.delgateBtn addTarget:self action:@selector(editBtbClick:) forControlEvents:UIControlEventTouchUpInside];
+     self.editDeleteView = editDelete;
+}
+-(void)editBtbClick:(UIButton*)sender
+{
+    self.editDeleteBlock(sender.tag);
 }
 -(void)configVulue:(NSArray *)dataArray withArrIndex:(int)i
 {
-    if(dataArray.count == 0)
-    {
-        return;
-    }
-    //    NSDictionary * dataDic = [dataArray firstObject];
-    NSDictionary * dataDic = dataArray[i];
-    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
-    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
-    NSString * startTime = [Utils changeTimeToString:sdate];
-    NSString * endTime = [Utils changeTimeToString:edate];
-    self.educationTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
-    self.department.text = dataDic[@"specialty"];
-    self.schoolName.text = dataDic[@"name"];
-    self.position.text = dataDic[@"title"];
-    self.departmentIntroduce.text = dataDic[@"content"];
+//    if(dataArray.count == 0)
+//    {
+//        return;
+//    }
+//    //    NSDictionary * dataDic = [dataArray firstObject];
+//    NSDictionary * dataDic = dataArray[i];
+//    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
+//    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
+//    NSString * startTime = [Utils changeTimeToString:sdate];
+//    NSString * endTime = [Utils changeTimeToString:edate];
+//    self.educationTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+//    self.department.text = dataDic[@"specialty"];
+//    self.schoolName.text = dataDic[@"name"];
+//    self.position.text = dataDic[@"title"];
+//    self.departmentIntroduce.text = dataDic[@"content"];
+    //获得当前cell高度
+    CGRect frame = [self frame];
+    //文本赋值
+    self.departmentIntroduce.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限";
+    //设置label的最大行数
+    self.departmentIntroduce.numberOfLines = 0;
+    CGSize size = CGSizeMake(300, 1000);
+    CGSize labelSize = [self.departmentIntroduce.text sizeWithFont:self.departmentIntroduce.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
+    self.departmentIntroduce.frame = CGRectMake(15, 94, WIDETH-15, labelSize.height);
+    self.editDeleteView.frame = CGRectMake(WIDETH-140, 120+labelSize.height, 140, 35);
+    //计算出自适应的高度
+    frame.size.height = labelSize.height+120+45;
+    
+    self.frame = frame;
 }
 
 - (void)awakeFromNib {

@@ -7,7 +7,7 @@
 //
 
 #import "ProfessionalSkillCell.h"
-
+#import "EditdelegateView.h"
 @implementation ProfessionalSkillCell
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -60,25 +60,42 @@
     [self.contentView addSubview:self.skillName];
     
 
-    
-    
+    EditdelegateView * editDelete = [[EditdelegateView alloc] initWithFrame:CGRectMake(WIDETH - 140, 90, 140, 35)];
+    [self.contentView addSubview:editDelete];
+
+    editDelete.ediBtn.tag = 10;
+    editDelete.delgateBtn.tag = 11;
+    [editDelete.ediBtn addTarget:self action:@selector(editBtbClick:) forControlEvents:UIControlEventTouchUpInside];
+    [editDelete.delgateBtn addTarget:self action:@selector(editBtbClick:) forControlEvents:UIControlEventTouchUpInside];
+     self.editDeleteView = editDelete;
+}
+-(void)editBtbClick:(UIButton*)sender
+{
+    self.editDeleteBlock(sender.tag);
 }
 -(void)conFigValue:(NSArray *)dataArray withArrIndex:(int)i
 {
-    if(dataArray.count == 0)
-    {
-        return;
-    }
-    //    NSDictionary * dataDic = [dataArray firstObject];
-    NSDictionary * dataDic  = dataArray[i];
-    if(dataDic.count == 0)
-    {
-        return;
-    }
-    self.professionalSkill.text = dataDic[@"skill"];
-    self.graspTime.text = dataDic[@"longtime"];
-    self.skilledDegree.text = dataDic[@"ing"];
-    self.skillName.text = dataDic[@"name"];
+//    if(dataArray.count == 0)
+//    {
+//        return;
+//    }
+//    //    NSDictionary * dataDic = [dataArray firstObject];
+//    NSDictionary * dataDic  = dataArray[i];
+//    if(dataDic.count == 0)
+//    {
+//        return;
+//    }
+//    self.professionalSkill.text = dataDic[@"skill"];
+//    self.graspTime.text = dataDic[@"longtime"];
+//    self.skilledDegree.text = dataDic[@"ing"];
+//    self.skillName.text = dataDic[@"name"];
+    //获得当前cell高度
+    CGRect frame = [self frame];
+    //计算出自适应的高度
+    frame.size.height = 125;
+    
+    self.frame = frame;
+
     
     
 }

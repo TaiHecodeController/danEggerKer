@@ -7,7 +7,7 @@
 //
 
 #import "CertificateCell.h"
-
+#import "EditdelegateView.h"
 @implementation CertificateCell
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -48,27 +48,51 @@
     self.certificateIntroduce.textColor = UIColorFromRGB(0x000000);
     self.certificateIntroduce.text = @"暂无";
     [self.contentView addSubview:self.certificateIntroduce];
-    
-    
+    EditdelegateView * editDelete = [[EditdelegateView alloc] initWithFrame:CGRectMake(WIDETH - 140, 142, 140, 35)];
+    [self.contentView addSubview:editDelete];
+
+    editDelete.ediBtn.tag = 10;
+    editDelete.delgateBtn.tag = 11;
+    [editDelete.ediBtn addTarget:self action:@selector(editBtbClick:) forControlEvents:UIControlEventTouchUpInside];
+    [editDelete.delgateBtn addTarget:self action:@selector(editBtbClick:) forControlEvents:UIControlEventTouchUpInside];
+     self.editDeleteView = editDelete;
+}
+-(void)editBtbClick:(UIButton*)sender
+{
+    self.editDeleteBlock(sender.tag);
 }
 -(void)configValue:(NSArray *)dataArray withArrIndex:(int)i
 {
-    if(dataArray.count == 0)
-    {
-        return;
-    }
-    //    NSDictionary * dataDic = [dataArray firstObject];
-    NSDictionary *dataDic = dataArray[i];
-    if(dataDic.count == 0)
-    {
-        return;
-    }
+//    if(dataArray.count == 0)
+//    {
+//        return;
+//    }
+//    //    NSDictionary * dataDic = [dataArray firstObject];
+//    NSDictionary *dataDic = dataArray[i];
+//    if(dataDic.count == 0)
+//    {
+//        return;
+//    }
+//    
+//    self.awardTime.text = dataDic[@"sdate"];
+//    self.certificateName.text = dataDic[@"name"];
+//    
+//    self.awardCompany.text = dataDic[@"title"];
+//    self.certificateIntroduce.text = dataDic[@"content"];
+    //获得当前cell高度
+    CGRect frame = [self frame];
+    //文本赋值
+    self.certificateIntroduce.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋限北京蛋壳无限北京蛋壳无限";
+    //设置label的最大行数
+    self.certificateIntroduce.numberOfLines = 0;
+    CGSize size = CGSizeMake(300, 1000);
+    CGSize labelSize = [self.certificateIntroduce.text sizeWithFont:self.certificateIntroduce.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
+    self.certificateIntroduce.frame = CGRectMake(15, 94, WIDETH-15, labelSize.height);
+    self.editDeleteView.frame = CGRectMake(WIDETH-140, 92+labelSize.height, 140, 35);
+    //计算出自适应的高度
+    frame.size.height = labelSize.height+92+45;
     
-    self.awardTime.text = dataDic[@"sdate"];
-    self.certificateName.text = dataDic[@"name"];
-    
-    self.awardCompany.text = dataDic[@"title"];
-    self.certificateIntroduce.text = dataDic[@"content"];
+    self.frame = frame;
 }
 - (void)awakeFromNib {
     // Initialization code

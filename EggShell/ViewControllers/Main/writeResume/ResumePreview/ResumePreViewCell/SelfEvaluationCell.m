@@ -25,15 +25,30 @@
     self.selfEvalueteContentLable.font = [UIFont systemFontOfSize:12];
     self.selfEvalueteContentLable.textColor = UIColorFromRGB(0x000000);
     self.selfEvalueteContentLable.text = @"暂无";
+    self.selfEvalueteContentLable.numberOfLines = 0;
     [self.contentView addSubview:self.selfEvalueteContentLable];
 }
 -(void)configValue:(NSDictionary *)dataDic
 {
-    if(dataDic.count == 0)
-    {
-        return;
-    }
-    self.selfEvalueteContentLable.text = dataDic[@"content"];
+//    if(dataDic.count == 0)
+//    {
+//        return;
+//    }
+//    self.selfEvalueteContentLable.text = dataDic[@"content"];
+    //获得当前cell高度
+    CGRect frame = [self frame];
+    //文本赋值
+    self.selfEvalueteContentLable.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限";
+    //设置label的最大行数
+    self.selfEvalueteContentLable.numberOfLines = 0;
+    CGSize size = CGSizeMake(300, 1000);
+    CGSize labelSize = [self.selfEvalueteContentLable.text sizeWithFont:self.selfEvalueteContentLable.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
+    self.selfEvalueteContentLable.frame = CGRectMake(15, 10, WIDETH-15, labelSize.height);
+   
+    //计算出自适应的高度
+    frame.size.height = labelSize.height+20;
+    
+    self.frame = frame;
     
 }
 - (void)awakeFromNib {

@@ -7,7 +7,7 @@
 //
 
 #import "ProjecctExperenceCell.h"
-
+#import "EditdelegateView.h"
 @implementation ProjecctExperenceCell
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -49,30 +49,54 @@
     self.proIntroduce.text = @"暂无";
     [self.contentView addSubview:self.proIntroduce];
 
-    
+    EditdelegateView * editDelete = [[EditdelegateView alloc] initWithFrame:CGRectMake(WIDETH - 140, 142, 140, 35)];
+    [self.contentView addSubview:editDelete];
+    editDelete.ediBtn.tag = 10;
+    editDelete.delgateBtn.tag = 11;
+    [editDelete.ediBtn addTarget:self action:@selector(editBtbClick:) forControlEvents:UIControlEventTouchUpInside];
+    [editDelete.delgateBtn addTarget:self action:@selector(editBtbClick:) forControlEvents:UIControlEventTouchUpInside];
+     self.editDeleteView = editDelete;
+}
+-(void)editBtbClick:(UIButton*)sender
+{
+    self.editDeleteBlock(sender.tag);
 }
 -(void)configValue:(NSArray *)dataArray withArrIndex:(int)i
 {
-    if(dataArray.count == 0)
-    {
-        return;
-    }
+//    if(dataArray.count == 0)
+//    {
+//        return;
+//    }
+//    
+//    //    NSDictionary * dataDic = [dataArray firstObject];
+//    NSDictionary * dataDic = dataArray[i];
+//    if(dataDic.count == 0)
+//    {
+//        return;
+//    }
+//    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
+//    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
+//    NSString * startTime = [Utils changeTimeToString:sdate];
+//    NSString * endTime = [Utils changeTimeToString:edate];
+//    self.projectTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+//    
+//    self.position.text = dataDic[@"title"];
+//    self.proName.text = dataDic[@"name"];
+//    self.proIntroduce.text = dataDic[@"content"];
+    //获得当前cell高度
+    CGRect frame = [self frame];
+    //文本赋值
+    self.proIntroduce.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限";
+    //设置label的最大行数
+    self.proIntroduce.numberOfLines = 0;
+    CGSize size = CGSizeMake(300, 1000);
+    CGSize labelSize = [self.proIntroduce.text sizeWithFont:self.proIntroduce.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
+    self.proIntroduce.frame = CGRectMake(15, 94, WIDETH-15, labelSize.height);
+    self.editDeleteView.frame = CGRectMake(WIDETH-140, 92+labelSize.height, 140, 35);
+    //计算出自适应的高度
+    frame.size.height = labelSize.height+92+45;
     
-    //    NSDictionary * dataDic = [dataArray firstObject];
-    NSDictionary * dataDic = dataArray[i];
-    if(dataDic.count == 0)
-    {
-        return;
-    }
-    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
-    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
-    NSString * startTime = [Utils changeTimeToString:sdate];
-    NSString * endTime = [Utils changeTimeToString:edate];
-    self.projectTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
-    
-    self.position.text = dataDic[@"title"];
-    self.proName.text = dataDic[@"name"];
-    self.proIntroduce.text = dataDic[@"content"];
+    self.frame = frame;
    }
 
 - (void)awakeFromNib {

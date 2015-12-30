@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "EditdelegateView.h"
 @interface TrainExperienceCell : UITableViewCell
 @property(nonatomic,strong)UILabel * trainTime;
 @property(nonatomic,strong)UILabel * trainDirection;
 @property(nonatomic,strong)UILabel * trainCompany;
 @property(nonatomic,strong)UILabel * trainIntroduce;
+@property(nonatomic,strong)EditdelegateView * editDeleteView;
 -(void)configValue:(NSArray *)dataArray withArrIndex:(int)i;
+@property(nonatomic,strong)void(^editDeleteBlock)(int sender);
 @end
