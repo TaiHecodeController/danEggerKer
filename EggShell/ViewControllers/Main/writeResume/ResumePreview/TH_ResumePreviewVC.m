@@ -83,7 +83,6 @@
     [self.view addSubview:tableView];
     
 }
-
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 9;
@@ -129,25 +128,76 @@
         
     }
     if ([titleView.personTileLable.text isEqualToString:@"个人简历"]) {
-         titleView.backgroundColor = UIColorFromRGB(0xF3F3F1);
-    }
-    if ([titleView.personTileLable.text isEqualToString:@"个人简历"]) {
-        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tt)];
-        [titleView addGestureRecognizer:tap];
+        titleView.backgroundColor = UIColorFromRGB(0xF3F3F1);
+    }else if ([titleView.personTileLable.text isEqualToString:@"求职意向"]) {
         
-    }if ([titleView.personTileLable.text isEqualToString:@"工作经历"]) {
-        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ttt)];
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jobIntent)];
+        [titleView addGestureRecognizer:tap];
+    }else if ([titleView.personTileLable.text isEqualToString:@"工作经历"])
+    {
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(workExperice)];
+        [titleView addGestureRecognizer:tap];
+    }else if ([titleView.personTileLable.text isEqualToString:@"教育经历"])
+    {
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(educateExperice)];
+        [titleView addGestureRecognizer:tap];
+    }else if ([titleView.personTileLable.text isEqualToString:@"专业技能"])
+    { UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(professionExperice)];
+        [titleView addGestureRecognizer:tap];
+    }else if ([titleView.personTileLable.text isEqualToString:@"项目经验"])
+    { UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(projectExperice)];
+        [titleView addGestureRecognizer:tap];
+    }else if ([titleView.personTileLable.text isEqualToString:@"证书"])
+    { UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(certific)];
+        [titleView addGestureRecognizer:tap];
+    }else if ([titleView.personTileLable.text isEqualToString:@"培训经历"])
+    { UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(trainperice)];
+        [titleView addGestureRecognizer:tap];
+    }else
+    { UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selfeValue)];
         [titleView addGestureRecognizer:tap];
     }
-        return titleView;
+    
+     return titleView;
 }
--(void)tt
+#pragma mark -- 求职意向
+-(void)jobIntent
 {
-    NSLog(@"1111");
+ NSLog(@"求职意向");
 }
--(void)ttt
+#pragma mark --工作经历
+-(void)workExperice
 {
-    NSLog(@"222");
+ NSLog(@"工作经历");
+}
+#pragma mark -- 教育经历
+-(void)educateExperice
+{
+ NSLog(@"教育经历");
+}
+#pragma mark -- 专业技能
+-(void)professionExperice
+{
+ NSLog(@"专业技能");
+}
+#pragma mark -- 项目经验
+-(void)projectExperice
+{
+ NSLog(@"项目经验");
+}
+#pragma mark-- 证书
+-(void)certific{
+ NSLog(@"证书");
+}
+#pragma mark -- 培训经历
+-(void)trainperice
+{
+ NSLog(@"培训经历");
+}
+#pragma mark-- 自我评价
+-(void)selfeValue
+{
+    NSLog(@"自我评价");
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {UITableViewCell * cell;
