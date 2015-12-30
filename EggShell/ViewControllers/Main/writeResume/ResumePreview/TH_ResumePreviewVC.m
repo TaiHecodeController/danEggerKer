@@ -58,6 +58,8 @@
 @property(nonatomic,strong)UITableView * tableView ;
 @property(nonatomic,strong)NSArray * titleArray;
 @property (nonatomic, strong) UIView *corver;
+@property(nonatomic,strong) NSDictionary *skillDic;
+@property(assign)int cellID;
 
 @end
 
@@ -86,6 +88,17 @@
     //    [self.view addSubview:scro];
     //
     [self createTableView];
+    /*获取专业技能列表**/
+    [self createsKill];
+}
+-(void)createsKill
+{
+    THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubViewwindow];
+    [[WriteResumeRequest getResumeMessageListWithSucc:^(NSDictionary *DataDic) {
+        
+        self.skillDic = DataDic[@"data"];
+        
+    }] addNotifaction:hub];
 }
 -(void)createTableView
 {
@@ -178,8 +191,12 @@
 -(void)workExperice
 {
     // NSLog(@"工作经历");
-    WorkingExperienceVC *vc = [[WorkingExperienceVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+//    WorkingExperienceVC *vc = [[WorkingExperienceVC alloc]init];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
+    working.pushtype = addPush;
+    [self.navigationController pushViewController:working animated:YES];
 }
 #pragma mark -- 教育经历
 -(void)educateExperice
@@ -193,6 +210,7 @@
 {
     // NSLog(@"专业技能");
     TH_ProfessionalSkillVC *vc = [[TH_ProfessionalSkillVC alloc]init];
+    vc.dataDic = self.skillDic;
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark -- 项目经验
@@ -274,12 +292,10 @@
         cell.tag = indexPath.row+10;
         cell.editDeleteBlock = ^(int tag,int row)
         {
-            
+            int rows = row-10;
             //编辑
             if (tag==10)
             {
-                int rows = row-10;
-                
                 WorkingExperienceVC *vc = [[WorkingExperienceVC alloc]init];
                 vc.company =self.dataArray[2][@"datadetail"][rows][@"title"];
                 NSTimeInterval sdate = [self.dataArray[2][@"datadetail"][rows][@"sdate"] doubleValue];
@@ -300,7 +316,7 @@
             if (tag==11)
             {
                 //                THLog(@"删除");
-                [self presentDeleteView:indexPath.section];
+                [self presentDeleteView:indexPath.section withCellId:self.dataArray[2][@"datadetail"][rows][@"id"]];
             }
             
             
@@ -335,12 +351,13 @@
                 vc.Edutitle = self.dataArray[3][@"datadetail"][rows][@"title"];
                 vc.content = self.dataArray[3][@"datadetail"][rows][@"content"];
                 vc.detailId = self.dataArray[3][@"datadetail"][rows][@"id"];
+                vc.pushtype = 1;
                 [self.navigationController pushViewController:vc animated:YES];
                 //删除
             }
             if (tag==11)
             {
-                [self presentDeleteView:indexPath.section];
+                [self presentDeleteView:indexPath.section withCellId:self.dataArray[3][@"datadetail"][rows][@"id"]];
             }
             
         };
@@ -375,13 +392,14 @@
                 vc.edate =endTime;
                 vc.trainDirection =self.dataArray[4][@"datadetail"][rows][@"title"];                vc.content =self.dataArray[4][@"datadetail"][rows][@"content"];
                 vc.detailId =self.dataArray[4][@"datadetail"][rows][@"id"];
+                vc.pushtype = 1;
                 [self.navigationController pushViewController:vc animated:YES];
                 
                 //删除
             }
             if (tag==11)
             {
-                [self presentDeleteView:indexPath.section];
+                [self presentDeleteView:indexPath.section withCellId:self.dataArray[4][@"datadetail"][rows][@"id"]];
             }
             
         };
@@ -414,10 +432,12 @@
                 vc.skillDegree =self.dataArray[5][@"datadetail"][rows][@"ing"];
                 vc.time =self.dataArray[5][@"datadetail"][rows][@"longtime"];
                 vc.detailId =self.dataArray[5][@"datadetail"][rows][@"id"];
+                vc.pushtype = 1;
+                vc.dataDic = self.skillDic;
                 [self.navigationController pushViewController:vc animated:YES];
                 //删除
             }if (tag==11) {
-                
+                  [self presentDeleteView:indexPath.section withCellId:self.dataArray[5][@"datadetail"][rows][@"id"]];
             }
             
         };
@@ -453,10 +473,11 @@
                 vc.postion = self.dataArray[6][@"datadetail"][rows][@"title"];
                 vc.content = self.dataArray[6][@"datadetail"][rows][@"content"];
                 vc.detailId = self.dataArray[6][@"datadetail"][rows][@"id"];
+                vc.pushtype = 1;
                 [self.navigationController pushViewController:vc animated:YES];
                 //删除
             }if (tag==11) {
-                
+                [self presentDeleteView:indexPath.section withCellId:self.dataArray[6][@"datadetail"][rows][@"id"]];
             }
             
         };
@@ -480,19 +501,25 @@
             //编辑
             if (tag==10)
             {
+                NSTimeInterval sdate = [self.dataArray[7][@"datadetail"][rows][@"sdate"] doubleValue];
+                NSString * startTime = [Utils changeTimeToString:sdate];
+    
+
                 TH_CertificateVC *vc = [[TH_CertificateVC alloc]init];
                 vc.cerName =self.dataArray[7][@"datadetail"][rows][@"name"];
-                vc.awardTime =[NSString stringWithFormat:@"%@%@",self.dataArray[7][@"datadetail"][rows][@"sdate"],self.dataArray[7][@"datadetail"][rows][@"edate"]];
+                vc.awardTime =startTime;
                 vc.awardCompany =self.dataArray[7][@"datadetail"][rows][@"title"];
                 vc.content =self.dataArray[7][@"datadetail"][rows][@"content"];
                 vc.detailId =self.dataArray[7][@"datadetail"][rows][@"id"];
+                vc.pushtype = 1;
                 [self.navigationController pushViewController:vc animated:YES];
                 
                 //删除
             }
             if (tag==11)
             {
-                [self presentDeleteView:indexPath.section];
+                [self presentDeleteView:indexPath.section withCellId:self.dataArray[7][@"datadetail"][rows][@"id"]];
+                
             }
             
         };
@@ -846,7 +873,7 @@
 //}
 
 
-- (void)presentDeleteView:(NSInteger)index
+- (void)presentDeleteView:(NSInteger)index withCellId:(NSString*)cellID
 {
     UIView *corver = [[UIView alloc]init];
     corver.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
@@ -877,6 +904,8 @@
     OkBtn.tag = index;
     [bgView addSubview:OkBtn];
     
+    //item的id
+    self.cellID = [cellID intValue];
 }
 
 - (void)cancelClick:(UIButton *)btn
@@ -893,43 +922,77 @@
         NSString * tokenStr = [df objectForKey:@"md5_token"];
         [WriteResumeRequest deleteResumeItemWithSucc:^(NSDictionary *dataDic) {
             
-            [self.navigationController popViewControllerAnimated:YES];
+            [self.corver removeFromSuperview];
+            [self loadData];
             
-        } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId id:nil type:1];
+        } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:1];
+        
+        
     }
     else if (btn.tag == 3)
     {
         //教育培训
+        NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+        NSString * tokenStr = [df objectForKey:@"md5_token"];
+        [WriteResumeRequest deleteResumeItemWithSucc:^(NSDictionary *dataDic) {
+            
+            [self.corver removeFromSuperview];
+            [self loadData];
+            
+        } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:2];
     }
     else if (btn.tag == 4)
     {
-        //专业技能
+        //培训经历
+        NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+        NSString * tokenStr = [df objectForKey:@"md5_token"];
+        [WriteResumeRequest deleteResumeItemWithSucc:^(NSDictionary *dataDic) {
+            
+            [self.corver removeFromSuperview];
+            [self loadData];
+            
+        } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:3];
     }
     else if (btn.tag == 5)
     {
-        //项目经验
+        //专业技能
+        NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+        NSString * tokenStr = [df objectForKey:@"md5_token"];
+        [WriteResumeRequest deleteResumeItemWithSucc:^(NSDictionary *dataDic) {
+            
+            [self.corver removeFromSuperview];
+            [self loadData];
+            
+        } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:4];
     }
     else if (btn.tag == 6)
     {
-        //证书
+        //项目经验
+        NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+        NSString * tokenStr = [df objectForKey:@"md5_token"];
+        [WriteResumeRequest deleteResumeItemWithSucc:^(NSDictionary *dataDic) {
+            
+            [self.corver removeFromSuperview];
+            [self loadData];
+            
+        } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:5];
     }
     else if (btn.tag == 7)
     {
-        //培训经历
+        //证书
+        NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+        NSString * tokenStr = [df objectForKey:@"md5_token"];
+        [WriteResumeRequest deleteResumeItemWithSucc:^(NSDictionary *dataDic) {
+            
+            [self.corver removeFromSuperview];
+            [self loadData];
+            
+        } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:6];
     }
     
     
     
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

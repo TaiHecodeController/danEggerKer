@@ -58,7 +58,8 @@
 +(AFRequestState *)user_resumeWithSucc:(void(^)(NSDictionary *dataDic))succ withParam:(NSDictionary *)param;
 
 //删除简历中得子项目 (type 1工作经历 2教育经历 3培训经历 4专业技能 5项目经验 6证书)
-+(AFRequestState *)deleteResumeItemWithSucc:(void(^)(NSDictionary * dataDic))succ withToken:(NSString *)token uid:(NSString *)uid eid:(NSString *)eid id:(NSString *)id type:(int)type;
++(AFRequestState *)deleteResumeItemWithSucc:(void(^)(NSDictionary * dataDic))succ withToken:(NSString *)token uid:(NSString *)uid eid:(NSString *)eid withId:(NSString *)id type:(int)type;
+
 //获取自我评价
 + (AFRequestState *)getSelfEvaluateWithSucc:(void(^)(NSDictionary * dataDic))succ uid:(NSString *)uid token:(NSString *)token;
 

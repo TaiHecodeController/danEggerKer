@@ -204,7 +204,7 @@
        
        [self.navigationController popViewControllerAnimated:YES];
        
-   } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId id:self.detailId type:1];
+   } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:self.detailId type:1];
     
 }
 

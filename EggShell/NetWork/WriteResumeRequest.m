@@ -131,7 +131,7 @@ return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/cert_list"
 }
 
 
-+(AFRequestState *)deleteResumeItemWithSucc:(void(^)(NSDictionary * dataDic))succ withToken:(NSString *)token uid:(NSString *)uid eid:(NSString *)eid id:(NSString *)id type:(int)type
++(AFRequestState *)deleteResumeItemWithSucc:(void(^)(NSDictionary * dataDic))succ withToken:(NSString *)token uid:(NSString *)uid eid:(NSString *)eid withId:(NSString *)id type:(int)type
 {
     NSNumber *typeNum = [NSNumber numberWithInt:type];
     NSDictionary *param = @{@"token":token,@"uid":uid,@"eid":eid,@"id":id,@"type":typeNum};

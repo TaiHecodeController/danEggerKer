@@ -55,12 +55,12 @@
     self.trainCompany.text = @"暂无";
     [self.contentView addSubview:self.trainCompany];
     //培训内容
-    UILabel * proIntroduceHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 70, WIDETH, 12)];
+    UILabel * proIntroduceHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 75, WIDETH, 12)];
     proIntroduceHeadLable.text = @"培训内容:";
     proIntroduceHeadLable.font = [UIFont systemFontOfSize:12];
     proIntroduceHeadLable.textColor = UIColorFromRGB(0x646464);
     [self.contentView addSubview:proIntroduceHeadLable];
-    self.trainIntroduce = [[UILabel alloc] initWithFrame:CGRectMake(15, 92, WIDETH-30, 50)];
+    self.trainIntroduce = [[UILabel alloc] initWithFrame:CGRectMake(15, 95, WIDETH-30, 50)];
     self.trainIntroduce.font = [UIFont systemFontOfSize:12];
     self.trainIntroduce.textColor = UIColorFromRGB(0x000000);
     self.trainIntroduce.text = @"暂无";

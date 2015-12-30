@@ -45,7 +45,7 @@
     [self.contentView addSubview:self.department];
     //所在学校
     UILabel * schoolNameHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 54, 60, 12)];
-    schoolNameHeadLable.text = @"所学名称:";
+    schoolNameHeadLable.text = @"学校名称:";
     schoolNameHeadLable.font = [UIFont systemFontOfSize:12];
     schoolNameHeadLable.textColor = UIColorFromRGB(0x646464);
     [self.contentView addSubview:schoolNameHeadLable];

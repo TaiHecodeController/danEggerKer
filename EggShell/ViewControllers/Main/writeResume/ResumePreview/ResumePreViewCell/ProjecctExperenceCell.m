@@ -55,12 +55,12 @@
     self.proName.text = @"暂无";
     [self.contentView addSubview:self.proName];
     //项目内容
-    UILabel * proIntroduceHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 70, WIDETH, 12)];
+    UILabel * proIntroduceHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 75, WIDETH, 12)];
     proIntroduceHeadLable.text = @"项目内容:";
     proIntroduceHeadLable.font = [UIFont systemFontOfSize:12];
     proIntroduceHeadLable.textColor = UIColorFromRGB(0x646464);
     [self.contentView addSubview:proIntroduceHeadLable];
-    self.proIntroduce = [[UILabel alloc] initWithFrame:CGRectMake(15, 92, WIDETH-30, 50)];
+    self.proIntroduce = [[UILabel alloc] initWithFrame:CGRectMake(15, 95, WIDETH-30, 50)];
     self.proIntroduce.font = [UIFont systemFontOfSize:12];
     self.proIntroduce.textColor = UIColorFromRGB(0x000000);
     self.proIntroduce.text = @"暂无";
