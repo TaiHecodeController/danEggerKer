@@ -109,11 +109,11 @@
 
     NSDictionary * dic =self.dataArray[indexPath.row];
     WorkingExperienceVC *vc = [[WorkingExperienceVC alloc]init];
-    vc.company = dic[@"name"];
+    vc.company = dic[@"title"];
     vc.startTime = dic[@"sdate"];
     vc.endTime = dic[@"edate"];
     vc.deprtment = dic[@"department"];
-    vc.position =  dic[@"title"];
+    vc.position =  dic[@"name"];
     vc.workContent = dic[@"content"];
     vc.detailId = dic[@"id"];
     vc.pushtype = editPush;

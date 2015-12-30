@@ -543,11 +543,11 @@
             
         };
         
-        if ([self.dataArray[7][@"datadetail"]count] !=0) {
+        if ([self.dataArray[7][@"datadetail"]count] !=0)
+        {
             NSDictionary * dic = self.dataArray[7][@"datadetail"][indexPath.row];
             [cell configValue:dic];
         }
-        
         return cell;
     }
     if (indexPath.section==8)
