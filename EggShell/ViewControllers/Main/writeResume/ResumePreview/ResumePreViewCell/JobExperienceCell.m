@@ -58,16 +58,28 @@
         return;
     }
     //    NSDictionary * dataDic = [dataArray firstObject];
-    NSDictionary *dataDic = dataArray[i];
-    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
-    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
-    NSString * startTime = [Utils changeTimeToString:sdate];
-    NSString * endTime = [Utils changeTimeToString:edate];
-    self.workTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+   
+        NSDictionary *dataDic = dataArray[i];
+        NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
+        NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
+        NSString * startTime = [Utils changeTimeToString:sdate];
+        NSString * endTime = [Utils changeTimeToString:edate];
+        self.workTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
     
-    self.position.text = dataDic[@"title"];
-    self.titleLab.text = dataDic[@"name"];
-    self.workContent.text = dataDic[@"content"];
+        self.position.text = dataDic[@"title"];
+        self.titleLab.text = dataDic[@"name"];
+        self.workContent.text = dataDic[@"content"];
+    
+//    NSDictionary *dataDic = dataArray[i];
+//    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
+//    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
+//    NSString * startTime = [Utils changeTimeToString:sdate];
+//    NSString * endTime = [Utils changeTimeToString:edate];
+//    self.workTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+//    
+//    self.position.text = dataDic[@"title"];
+//    self.titleLab.text = dataDic[@"name"];
+//    self.workContent.text = dataDic[@"content"];
 }
 
 - (void)awakeFromNib {

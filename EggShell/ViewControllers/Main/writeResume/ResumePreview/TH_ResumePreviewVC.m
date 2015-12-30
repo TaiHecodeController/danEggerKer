@@ -88,8 +88,18 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSInteger i;
+    if (section == 2)
+    {
+        NSArray *arr = self.dataDic[@"work"];
+        i = arr.count;
+    }
+    else
+    {
+         i = 1;
+    }
    
-    return 1;
+    return i;
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -100,6 +110,7 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {UITableViewCell * cell;
+    
     if (indexPath.section ==0) {
         //基本资料
     personResumeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"personResumeCell"];
@@ -124,7 +135,7 @@
         if (!cell) {
             cell = [[JobExperienceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EducationExperienceCell"];
         }
-        [cell configVulue:self.dataDic[@"work"] withArrIndex:0];
+        [cell configVulue:self.dataDic[@"work"] withArrIndex:indexPath.row];
         return cell;
     }if (indexPath.section==3) {
         //教育经历
