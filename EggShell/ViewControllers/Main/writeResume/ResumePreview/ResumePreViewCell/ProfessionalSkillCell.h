@@ -16,5 +16,5 @@
 
 @property(nonatomic,strong)EditdelegateView * editDeleteView;
 -(void)conFigValue:(NSDictionary *)dataDic;
-@property(nonatomic,strong)void(^editDeleteBlock)(int sender);
+@property(nonatomic,strong)void(^editDeleteBlock)(int sender,int row);
 @end

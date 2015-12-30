@@ -15,5 +15,5 @@
 @property(nonatomic,strong)EditdelegateView * editDeleteView;
 @property(nonatomic,strong)UILabel * certificateIntroduce;
 -(void)configValue:(NSDictionary *)dataDic;
-@property(nonatomic,strong)void(^editDeleteBlock)(int sender);
+@property(nonatomic,strong)void(^editDeleteBlock)(int sender,int row);
 @end

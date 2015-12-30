@@ -75,7 +75,7 @@
 }
 -(void)editBtbClick:(UIButton*)sender
 {
-    self.editDeleteBlock(sender.tag);
+    self.editDeleteBlock(sender.tag,self.tag);
 }
 -(void)configVulue:(NSDictionary *)dataDic
 {
@@ -90,7 +90,7 @@
     //获得当前cell高度
     CGRect frame = [self frame];
     //文本赋值
-    self.workContent.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限";
+//    self.workContent.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限";
     //设置label的最大行数
     self.workContent.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);

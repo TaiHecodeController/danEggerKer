@@ -79,20 +79,20 @@
 }
 -(void)editBtbClick:(UIButton*)sender
 {
-    self.editDeleteBlock(sender.tag);
+    self.editDeleteBlock(sender.tag,self.tag);
 }
 -(void)conFigValue:(NSDictionary *)dataDic
 {
    
-    self.professionalSkill.text = dataDic[@"skill"];
-    self.graspTime.text = dataDic[@"longtime"];
+  self.professionalSkill.text = dataDic[@"skill"];
+    self.graspTime.text = [NSString stringWithFormat:@"%@",dataDic[@"longtime"]];
     self.skilledDegrees.text = dataDic[@"ing"];
-    self.skillName.text = dataDic[@"name"];
+    self.skillName.text = [NSString stringWithFormat:@"%@",dataDic[@"name"]];
     //获得当前cell高度
     CGRect frame = [self frame];
     //计算出自适应的高度
     frame.size.height = 125;
-    
+
     self.frame = frame;
 
     

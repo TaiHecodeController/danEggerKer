@@ -15,5 +15,5 @@
 @property(nonatomic,strong)UILabel * trainIntroduce;
 @property(nonatomic,strong)EditdelegateView * editDeleteView;
 -(void)configValue:(NSDictionary *)dataDic;
-@property(nonatomic,strong)void(^editDeleteBlock)(int sender);
+@property(nonatomic,strong)void(^editDeleteBlock)(int sender,int row);
 @end

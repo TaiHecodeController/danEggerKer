@@ -14,6 +14,6 @@
 @property(nonatomic,strong)UILabel * proName;
 @property(nonatomic,strong)EditdelegateView * editDeleteView;
 @property(nonatomic,strong)UILabel * proIntroduce;
--(void)conFigValue:(NSDictionary *)dataDic;
-@property(nonatomic,strong)void(^editDeleteBlock)(int sender);
+-(void)conFigValues:(NSDictionary *)dataDic;
+@property(nonatomic,strong)void(^editDeleteBlock)(int sender,int row);
 @end

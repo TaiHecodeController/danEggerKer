@@ -16,5 +16,5 @@
 @property(nonatomic,strong)EditdelegateView * editDeleteView;
 @property(nonatomic,strong)UILabel  * departmentIntroduce;
 -(void)configVulue:(NSDictionary*)dataDic ;
-@property(nonatomic,strong)void(^editDeleteBlock)(int sender);
+@property(nonatomic,strong)void(^editDeleteBlock)(int sender,int row);
 @end

@@ -75,12 +75,14 @@
 }
 -(void)editBtbClick:(UIButton*)sender
 {
-    self.editDeleteBlock(sender.tag);
+    self.editDeleteBlock(sender.tag,self.tag);
 }
 -(void)configValue:(NSDictionary *)dataDic
 {
     
-       self.awardTime.text = dataDic[@"sdate"];
+    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
+    NSString * startTime = [Utils changeTimeToString:sdate];
+       self.awardTime.text = startTime;
     self.certificateName.text = dataDic[@"name"];
     
     self.awardCompany.text = dataDic[@"title"];
@@ -88,7 +90,7 @@
     //获得当前cell高度
     CGRect frame = [self frame];
     //文本赋值
-    self.certificateIntroduce.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋限北京蛋壳无限北京蛋壳无限";
+//    self.certificateIntroduce.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋限北京蛋壳无限北京蛋壳无限";
     //设置label的最大行数
     self.certificateIntroduce.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
