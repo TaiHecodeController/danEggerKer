@@ -281,7 +281,7 @@
                 int rows = row-10;
                 
                 WorkingExperienceVC *vc = [[WorkingExperienceVC alloc]init];
-                vc.company =self.dataArray[2][@"datadetail"][rows][@"name"];
+                vc.company =self.dataArray[2][@"datadetail"][rows][@"title"];
                 NSTimeInterval sdate = [self.dataArray[2][@"datadetail"][rows][@"sdate"] doubleValue];
                 NSTimeInterval edate = [self.dataArray[2][@"datadetail"][rows][@"edate"] doubleValue];
                 NSString * startTime = [Utils changeTimeToString:sdate];
@@ -289,7 +289,7 @@
                 vc.startTime =startTime;
                 vc.endTime =endTime;
                 vc.deprtment =self.dataArray[2][@"datadetail"][rows][@"department"];
-                vc.position =self.dataArray[2][@"datadetail"][rows][@"title"];
+                vc.position =self.dataArray[2][@"datadetail"][rows][@"name"];
                 vc.workContent =self.dataArray[2][@"datadetail"][rows][@"content"];
                 vc.detailId =self.dataArray[2][@"datadetail"][rows][@"id"];
                 vc.pushtype = 1;

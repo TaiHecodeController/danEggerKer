@@ -18,7 +18,10 @@
     return self;
 }
 -(void)createUI
-{//教育时间
+{ UIView * lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, .5)];
+    lineView.backgroundColor = UIColorFromRGB(0xDDDDDD);
+    [self.contentView addSubview:lineView];
+    //教育时间
     UILabel * educationTimeHeadLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 60, 12)];
     educationTimeHeadLable.text = @"在校时间:";
     educationTimeHeadLable.font = [UIFont systemFontOfSize:12];

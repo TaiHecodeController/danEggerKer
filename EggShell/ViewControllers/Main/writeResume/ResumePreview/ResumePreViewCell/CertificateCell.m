@@ -18,7 +18,9 @@
     return self;
 }
 -(void)createUI
-{
+{ UIView * lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, .5)];
+    lineView.backgroundColor = UIColorFromRGB(0xDDDDDD);
+    [self.contentView addSubview:lineView];
     //颁发时间
     UILabel * awardTimeHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 10, 60, 12)];
     awardTimeHeadLable.text = @"颁发时间:";

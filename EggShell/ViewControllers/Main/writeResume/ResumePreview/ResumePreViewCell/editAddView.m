@@ -28,5 +28,5 @@
     self.editLable.font = [UIFont systemFontOfSize:12];
     self.editLable.textColor = [UIColor whiteColor];
     [self addSubview:self.editLable];
-}
+    }
 @end
