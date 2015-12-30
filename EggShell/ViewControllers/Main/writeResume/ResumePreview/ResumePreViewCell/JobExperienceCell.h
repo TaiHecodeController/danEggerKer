@@ -14,6 +14,6 @@
 @property(nonatomic,strong)UILabel *  titleLab;
 @property(nonatomic,strong)UILabel *   workContent;
 @property(nonatomic,strong)EditdelegateView * editDeleteView;
--(void)configVulue:(NSArray *)dataArray withArrIndex:(int)i;
-@property(nonatomic,strong)void(^editDeleteBlock)(int sender);
+-(void)configVulue:(NSDictionary *)dataDic;
+@property(nonatomic,strong)void(^editDeleteBlock)(int sender, int indepath);
 @end

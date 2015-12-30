@@ -75,30 +75,22 @@
 }
 -(void)editBtbClick:(UIButton*)sender
 {
-    self.editDeleteBlock(sender.tag);
+    self.editDeleteBlock(sender.tag,self.tag);
 }
--(void)configValue:(NSArray *)dataArray withArrIndex:(int)i
+-(void)configValue:(NSDictionary *)dataDic
 {
-//    if(dataArray.count == 0)
-//    {
-//        return;
-//    }
-//    //    NSDictionary * dataDic = [dataArray firstObject];
-//    NSDictionary *dataDic = dataArray[i];
-//    if(dataDic.count == 0)
-//    {
-//        return;
-//    }
-//    
-//    self.awardTime.text = dataDic[@"sdate"];
-//    self.certificateName.text = dataDic[@"name"];
-//    
-//    self.awardCompany.text = dataDic[@"title"];
-//    self.certificateIntroduce.text = dataDic[@"content"];
+    
+    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
+    NSString * startTime = [Utils changeTimeToString:sdate];
+       self.awardTime.text = startTime;
+    self.certificateName.text = dataDic[@"name"];
+    
+    self.awardCompany.text = dataDic[@"title"];
+    self.certificateIntroduce.text = dataDic[@"content"];
     //获得当前cell高度
     CGRect frame = [self frame];
     //文本赋值
-    self.certificateIntroduce.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋限北京蛋壳无限北京蛋壳无限";
+//    self.certificateIntroduce.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋限北京蛋壳无限北京蛋壳无限";
     //设置label的最大行数
     self.certificateIntroduce.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);

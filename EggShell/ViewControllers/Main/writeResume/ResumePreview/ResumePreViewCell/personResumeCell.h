@@ -15,6 +15,5 @@
 @property(nonatomic,strong)UILabel *  address;
 @property(nonatomic,strong)UILabel *  phoneNum;
 @property(nonatomic,strong)UILabel *  email;
--(void)configVulue:(NSDictionary *)dataDic;
--(void)setIntroductionText:(NSString*)text;
+-(void)configVulue:(NSArray *)dataDic;
 @end

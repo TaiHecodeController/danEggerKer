@@ -83,25 +83,15 @@
     [self.contentView addSubview:self.email];
     
 }
--(void)configVulue:(NSDictionary *)dataDic
+-(void)configVulue:(NSArray *)dataDic
 {
-    if(dataDic.count == 0)
-    {
-        self.hidden = YES;
-    }else
-    {
-        self.hidden = NO;
-    }
-    self.nameSexAge.text = [NSString stringWithFormat:@"%@ %@ %@岁",dataDic[@"uname"],dataDic[@"sex"][@"name"],dataDic[@"birthday"]];
-    self.adademic.text = dataDic[@"edu"][@"name"];
-    self.experience.text = dataDic[@"exp"][@"name"];
-    self.address.text = dataDic[@"address"];
-    self.email.text= dataDic[@"email"];
-    self.phoneNum.text = dataDic[@"telphone"];
-    
-}
--(void)setIntroductionText:(NSString*)text
-{
+    NSDictionary * dic = dataDic[0];
+    self.nameSexAge.text = [NSString stringWithFormat:@"%@ %@ %@岁",dic[@"uname"],dic[@"sex"][@"name"],dic[@"birthday"]];
+    self.adademic.text = [NSString stringWithFormat:@"%@",dic[@"edu"][@"name"]];
+    self.experience.text =[NSString stringWithFormat:@"%@", dic[@"exp"][@"name"]];
+    self.address.text =[NSString stringWithFormat:@"%@", dic[@"address"]];
+    self.email.text= [NSString stringWithFormat:@"%@",dic[@"email"]];
+    self.phoneNum.text = [NSString stringWithFormat:@"%@",dic[@"telphone"]];
     //获得当前cell高度
     CGRect frame = [self frame];
     //计算出自适应的高度
@@ -109,6 +99,7 @@
     
     self.frame = frame;
 }
+
 - (void)awakeFromNib {
     // Initialization code
 }

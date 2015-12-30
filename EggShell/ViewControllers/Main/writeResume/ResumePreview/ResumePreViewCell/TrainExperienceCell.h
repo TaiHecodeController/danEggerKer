@@ -14,6 +14,6 @@
 @property(nonatomic,strong)UILabel * trainCompany;
 @property(nonatomic,strong)UILabel * trainIntroduce;
 @property(nonatomic,strong)EditdelegateView * editDeleteView;
--(void)configValue:(NSArray *)dataArray withArrIndex:(int)i;
-@property(nonatomic,strong)void(^editDeleteBlock)(int sender);
+-(void)configValue:(NSDictionary *)dataDic;
+@property(nonatomic,strong)void(^editDeleteBlock)(int sender,int row);
 @end

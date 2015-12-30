@@ -75,28 +75,22 @@
 }
 -(void)editBtbClick:(UIButton*)sender
 {
-    self.editDeleteBlock(sender.tag);
+    self.editDeleteBlock(sender.tag,self.tag);
 }
--(void)configVulue:(NSDictionary *)dataDic withArrIndex:(int)i
+-(void)configVulue:(NSDictionary *)dataDic
 {
-//    if(dataArray.count == 0)
-//    {
-//        return;
-//    }
-//        NSDictionary * dataDic = [dataArray firstObject];
-//    NSDictionary *dataDic = dataArray[i];
-//    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
-//    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
-//    NSString * startTime = [Utils changeTimeToString:sdate];
-//    NSString * endTime = [Utils changeTimeToString:edate];
-//    self.workTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
-//    self.position.text = dataDic[@"title"];
-//    self.titleLab.text = dataDic[@"name"];
-//    self.workContent.text = dataDic[@"content"];
+    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
+    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
+    NSString * startTime = [Utils changeTimeToString:sdate];
+    NSString * endTime = [Utils changeTimeToString:edate];
+    self.workTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+    self.position.text = dataDic[@"title"];
+    self.titleLab.text = dataDic[@"name"];
+    self.workContent.text = dataDic[@"content"];
     //获得当前cell高度
     CGRect frame = [self frame];
     //文本赋值
-    self.workContent.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限";
+//    self.workContent.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限";
     //设置label的最大行数
     self.workContent.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);

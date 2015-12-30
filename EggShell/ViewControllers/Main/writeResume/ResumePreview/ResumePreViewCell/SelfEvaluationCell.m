@@ -30,15 +30,11 @@
 }
 -(void)configValue:(NSDictionary *)dataDic
 {
-//    if(dataDic.count == 0)
-//    {
-//        return;
-//    }
-//    self.selfEvalueteContentLable.text = dataDic[@"content"];
+    self.selfEvalueteContentLable.text = dataDic[@"content"];
     //获得当前cell高度
     CGRect frame = [self frame];
     //文本赋值
-    self.selfEvalueteContentLable.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限";
+//    self.selfEvalueteContentLable.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限";
     //设置label的最大行数
     self.selfEvalueteContentLable.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
