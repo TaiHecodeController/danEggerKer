@@ -41,6 +41,16 @@
 //自我评价
 #import "SelfEvaluationCell.h"
 #import "editAddView.h"
+
+#import "WorkingExperienceVC.h"
+#import "TH_EducationExperienceVC.h"
+#import "TH_TrainExperienceVC.h"
+#import "TH_ProfessionalSkillVC.h"
+#import "TH_ProjectExperienceVC.h"
+#import "TH_CertificateVC.h"
+#import "TH_SelfEvaluationVC.h"
+#import "WriteResumeViewController.h"
+
 @interface TH_ResumePreviewVC ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UIScrollView *scro;
 @property(nonatomic,strong)NSDictionary * dataDic;
@@ -90,6 +100,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger i;
+    
     if (section == 2)
     {
         NSArray *arr = self.dataDic[@"work"];
@@ -219,6 +230,7 @@
             cell = [[JobIntentionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"JobIntentionCell"];
         }
         [cell configValue:self.dataDic[@"expect"]];
+        
         return cell;
     }
     if (indexPath.section ==2) {
@@ -229,15 +241,19 @@
         }
 
         [cell configVulue:self.dataDic[@"work"] withArrIndex:indexPath.row];
-
         cell.editDeleteBlock = ^(int tag)
         {
             //编辑
-            if (tag==10) {
+            if (tag==10)
+            {
+                THLog(@"编辑");
               
-                //删除
-            }if (tag==11) {
                 
+            }
+            //删除
+            if (tag==11)
+            {
+                THLog(@"删除");
             }
             
             
@@ -398,7 +414,6 @@
     THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     
     [[WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
-        
         
         self.dataDic = DataDic[@"data"];
 //         [self createTilteView];

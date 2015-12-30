@@ -153,8 +153,6 @@
     switch (indexPath.row) {
         case 0:
         {
-//            WriteResumeViewController *vc = [[WriteResumeViewController alloc]init];
-//            [self.navigationController pushViewController:vc animated:YES];
                         WriteResumeViewController * vc = [[WriteResumeViewController alloc] init];
                         vc.resumeId = self.resumeid;
                         vc.isEdit = YES;
