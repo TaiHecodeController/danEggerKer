@@ -14,6 +14,6 @@
 @property(nonatomic,strong)UILabel * awardCompany;
 @property(nonatomic,strong)EditdelegateView * editDeleteView;
 @property(nonatomic,strong)UILabel * certificateIntroduce;
--(void)configValue:(NSArray *)dataArray withArrIndex:(int)i;
+-(void)configValue:(NSDictionary *)dataDic;
 @property(nonatomic,strong)void(^editDeleteBlock)(int sender);
 @end

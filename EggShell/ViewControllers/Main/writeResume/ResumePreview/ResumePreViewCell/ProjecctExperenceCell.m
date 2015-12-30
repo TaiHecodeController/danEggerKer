@@ -76,28 +76,17 @@
 {
     self.editDeleteBlock(sender.tag);
 }
--(void)configValue:(NSArray *)dataArray withArrIndex:(int)i
+-(void)configValue:(NSDictionary *)dataDic
 {
-//    if(dataArray.count == 0)
-//    {
-//        return;
-//    }
-//    
-//    //    NSDictionary * dataDic = [dataArray firstObject];
-//    NSDictionary * dataDic = dataArray[i];
-//    if(dataDic.count == 0)
-//    {
-//        return;
-//    }
-//    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
-//    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
-//    NSString * startTime = [Utils changeTimeToString:sdate];
-//    NSString * endTime = [Utils changeTimeToString:edate];
-//    self.projectTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
-//    
-//    self.position.text = dataDic[@"title"];
-//    self.proName.text = dataDic[@"name"];
-//    self.proIntroduce.text = dataDic[@"content"];
+        NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
+    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
+    NSString * startTime = [Utils changeTimeToString:sdate];
+    NSString * endTime = [Utils changeTimeToString:edate];
+    self.projectTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+    
+    self.position.text = dataDic[@"title"];
+    self.proName.text = dataDic[@"name"];
+    self.proIntroduce.text = dataDic[@"content"];
     //获得当前cell高度
     CGRect frame = [self frame];
     //文本赋值

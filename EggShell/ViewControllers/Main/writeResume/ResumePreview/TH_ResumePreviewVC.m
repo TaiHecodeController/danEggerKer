@@ -53,7 +53,7 @@
 
 @interface TH_ResumePreviewVC ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UIScrollView *scro;
-@property(nonatomic,strong)NSDictionary * dataDic;
+@property(nonatomic,strong)NSArray * dataArray;
 @property(nonatomic,strong)UITableView * tableView ;
 @property(nonatomic,strong)NSArray * titleArray;
 @end
@@ -72,6 +72,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.dataArray = [NSArray array];
     self.titleArray = @[@"个人简历",@"求职意向",@"工作经历",@"教育经历",@"培训经历",@"专业技能",@"项目经验",@"证书",@"自我评价"];
 //    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-64)];
 //    self.scro = scro;
@@ -95,23 +96,13 @@
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 9;
+    return self.dataArray.count;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger i;
+
     
-    if (section == 2)
-    {
-        NSArray *arr = self.dataDic[@"work"];
-        i = arr.count;
-    }
-    else
-    {
-         i = 1;
-    }
-   
-    return i;
+    return          ((NSArray*)(self.dataArray[section][@"datadetail"])).count;
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -218,10 +209,12 @@
     personResumeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"personResumeCell"];
     if (!cell) {
         cell = [[personResumeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"personResumeCell"];
-    }
-        [cell configVulue:self.dataDic[@"info"]];
+    }if ([self.dataArray[0][@"datadetail"]count]!=0) {
+        [cell configVulue:self.dataArray[0][@"datadetail"]];
         [cell setIntroductionText:nil];
-    return cell;
+
+    }
+            return cell;
     }
     if (indexPath.section==1) {
         //求职意向
@@ -229,8 +222,12 @@
         if (!cell) {
             cell = [[JobIntentionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"JobIntentionCell"];
         }
-        [cell configValue:self.dataDic[@"expect"]];
         
+        if ([self.dataArray[1][@"datadetail"]count]!=0) {
+            
+            
+          [cell configValue:self.dataArray[1][@"datadetail"]];
+        }
         return cell;
     }
     if (indexPath.section ==2) {
@@ -239,8 +236,10 @@
         if (!cell) {
             cell = [[JobExperienceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EducationExperienceCell"];
         }
-
-        [cell configVulue:self.dataDic[@"work"] withArrIndex:indexPath.row];
+        if ([self.dataArray[2][@"datadetail"]count]!=0) {
+            NSDictionary * dic = self.dataArray[2][@"datadetail"][indexPath.row];
+            [cell configVulue:dic] ;
+        }
         cell.editDeleteBlock = ^(int tag)
         {
             //编辑
@@ -278,7 +277,11 @@
             }
             
         };
-        [cell configVulue:self.dataDic[@"jy"] withArrIndex:0];
+        if ([self.dataArray[3][@"datadetail"]count]!=0) {
+            NSDictionary * dic = self.dataArray[3][@"datadetail"][indexPath.row];
+            [cell configVulue:dic] ;
+        }
+       
         return cell;
     }if (indexPath.section==4) {
         //培训经历
@@ -297,7 +300,10 @@
                 
             }
         };
-        [cell configValue:self.dataDic[@"training"] withArrIndex:0];
+        if ([self.dataArray[4][@"datadetail"]count]!=0) {
+            NSDictionary * dic = self.dataArray[4][@"datadetail"][indexPath.row];
+            [cell configValue:dic];
+        }
         return cell;
 
     }if (indexPath.section==5) {
@@ -318,8 +324,12 @@
                     }
         
                 };
-                 [cell conFigValue:self.dataDic[@"skill"] withArrIndex:0];
-                return cell;
+        if ([self.dataArray[5][@"datadetail"]count]!=0) {
+            NSDictionary * dic = self.dataArray[5][@"datadetail"][indexPath.row];
+            [cell conFigValue:dic];
+
+        }
+                       return cell;
     }if (indexPath.section==6) {
                 //项目经验
                 ProjecctExperenceCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProjecctExperenceCell"];
@@ -337,7 +347,11 @@
                     }
         
                 };
-                [cell configValue:self.dataDic[@"project"] withArrIndex:0];
+//        if ([self.dataArray[6][@"datadetail"]count] !=0) {
+//            NSDictionary * dic = self.dataArray[6][@"datadetail"][indexPath.row];
+//            [cell conFigValue:dic];
+//        }
+//       
                 return cell;
     }if (indexPath.section==7) {
         //证书
@@ -356,7 +370,12 @@
             }
             
         };
-        [cell configValue:self.dataDic[@"cert"] withArrIndex:0];
+        
+        if ([self.dataArray[7][@"datadetail"]count] !=0) {
+            NSDictionary * dic = self.dataArray[7][@"datadetail"][indexPath.row];
+            [cell configValue:dic];
+        }
+        
         return cell;
 
         
@@ -366,7 +385,12 @@
         if (!cell) {
             cell = [[SelfEvaluationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SelfEvaluationCell"];
         }
-         [cell configValue:self.dataDic[@"other"]];
+        
+//        if ([self.dataArray[8][@"other"]count ]!=0) {
+//            NSDictionary * dic = self.dataArray[8][@"other"][indexPath.row];
+//            [cell configValue:dic];
+//        }
+       
         return cell;
     }
     return cell;
@@ -418,157 +442,158 @@
 }
 -(void)loadData
 {
+    NSNumber *version = [NSNumber numberWithInt:2];
     THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     
     [[WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
         
-        self.dataDic = DataDic[@"data"];
+        self.dataArray = DataDic[@"data"];
 //         [self createTilteView];
         [self.tableView reloadData];
-    } WithResumeParam:@{@"eid":self.resumeId} withfail:nil] addNotifaction:hub];
+    } WithResumeParam:@{@"eid":self.resumeId,@"version":version} withfail:nil] addNotifaction:hub];
  
 }
 
 -(void)createTilteView
 {
-    UIView * titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 42)];
-    titleView.backgroundColor = UIColorFromRGB(0xf3f3f1);
-    [self.scro addSubview:titleView];
-    
-    UILabel * myLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, 100, 13)];
-    myLable.text = self.resumeName;
-    myLable.font =[UIFont systemFontOfSize:13];
-    [titleView addSubview:myLable];
-    UILabel * timeLable = [[UILabel alloc] initWithFrame:CGRectMake(WIDETH - 165, 16, 150, 11)];
-    timeLable.text = @"创建于2015-08-03";
-    timeLable.text = [NSString stringWithFormat:@"创建于%@", self.dataDic[@"expect"][@"ctime"]];
-    timeLable.font =[UIFont systemFontOfSize:11];
-    timeLable.textColor = UIColorFromRGB(0x646464);
-    timeLable.textAlignment = NSTextAlignmentRight;
-    [titleView addSubview:timeLable];
+//    UIView * titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 42)];
+//    titleView.backgroundColor = UIColorFromRGB(0xf3f3f1);
+//    [self.scro addSubview:titleView];
+//    
+//    UILabel * myLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, 100, 13)];
+//    myLable.text = self.resumeName;
+//    myLable.font =[UIFont systemFontOfSize:13];
+//    [titleView addSubview:myLable];
+//    UILabel * timeLable = [[UILabel alloc] initWithFrame:CGRectMake(WIDETH - 165, 16, 150, 11)];
+//    timeLable.text = @"创建于2015-08-03";
+//    timeLable.text = [NSString stringWithFormat:@"创建于%@", self.dataDic[@"expect"][@"ctime"]];
+//    timeLable.font =[UIFont systemFontOfSize:11];
+//    timeLable.textColor = UIColorFromRGB(0x646464);
+//    timeLable.textAlignment = NSTextAlignmentRight;
+//    [titleView addSubview:timeLable];
 }
 
--(void)createView
-{
-    /*基本信息**/
-    Basicnformation * baseInformation =[Basicnformation setBaseView];
-    baseInformation.frame = CGRectMake(0, 42, WIDETH, 158);
-    [baseInformation configVulue:self.dataDic[@"info"]];
-    [self.scro addSubview:baseInformation];
-
-    /*求职意向**/
-    intentView * intent = [intentView setIntentView];
-    intent.frame = CGRectMake(0, 200, WIDETH, 198);
-    [intent configValue:self.dataDic[@"expect"]];
-    [self.scro addSubview:intent];
-    __weak typeof(self) weekSelf = self;
-    //编辑点击事件
-    intent.EditClikBlock = ^()
-    {
-    
-        [weekSelf.navigationController pushViewController:[[WriteResumeViewController alloc]init] animated:YES];
-    };
-    
-    /*工作经历**/
-    CGFloat y = 390;
-    CGFloat gH = 160;
-    for (int i = 0; i < ((NSArray *)self.dataDic[@"work"]).count; i++)
-    {
-        CGFloat workingY = y + i * gH;
-        WorkExperienceView * working = [WorkExperienceView setWorkExperienceView];
-        [working configVulue:self.dataDic[@"work"] withArrIndex:i];
-        working.workContent.editable = NO;
-        working.workContent.showsVerticalScrollIndicator = NO;
-        working.frame = CGRectMake(0, workingY, WIDETH, gH);
-        [self.scro  addSubview: working];
-    }
-    y = y + gH *  ((NSArray *)self.dataDic[@"work"]).count;
-    
-    /*教育经历**/
-    CGFloat jH = 175;
-    for (int i = 0; i < ((NSArray *)self.dataDic[@"jy"]).count; i++)
-    {
-        CGFloat educationY = y + i * jH;
-        EducationExperienceView * education  = [EducationExperienceView setEducationExperienceView];
-        education.frame = CGRectMake(0, educationY, WIDETH, jH);
-        education.departmentIntroduce.editable = NO;
-        education.departmentIntroduce.showsVerticalScrollIndicator = NO;
-        [education configVulue:self.dataDic[@"jy"] withArrIndex:i];
-        [self.scro addSubview:education];
-        
-    }
-    y = y + jH *  ((NSArray *)self.dataDic[@"jy"]).count;
-    
-    /*专业技能**/
-    CGFloat zH = 120 ;
-    for (int i = 0; i < ((NSArray *)self.dataDic[@"skill"]).count; i++)
-    {
-        
-        CGFloat professionalSkillViewY = y + i*zH;
-        professionalSkillView * skill = [professionalSkillView setprofessionalSkillView];
-        
-        [skill conFigValue:self.dataDic[@"skill"] withArrIndex:i];
-        skill.frame = CGRectMake(0, professionalSkillViewY, WIDETH, zH);
-        [self.scro addSubview:skill];
-    }
-    
-    y = y + zH *  ((NSArray *)self.dataDic[@"skill"]).count;
-    /*项目经验**/
-    CGFloat xH = 140;
-    for (int i = 0; i < ((NSArray *)self.dataDic[@"project"]).count; i++)
-    {
-        CGFloat projectY = y + i * xH;
-        ProjectExperienceView * project =[ProjectExperienceView setProjectExperienceView];
-        project.frame = CGRectMake(0, projectY, WIDETH, xH);
-        project.proIntroduce.editable = NO;
-        project.proIntroduce.showsVerticalScrollIndicator = NO;
-        [project configValue:self.dataDic[@"project"] withArrIndex:i];
-        [self.scro addSubview:project];
-    }
-    y  = y + xH * ((NSArray *)self.dataDic[@"project"]).count;
-    
-    /*证书**/
-    CGFloat ZSh = 155;
-    for (int i = 0; i < ((NSArray *)self.dataDic[@"cert"]).count; i++)
-    {
-        CGFloat certificY = y + i * ZSh;
-        CertificateView * certific = [CertificateView setCertificateView];
-        certific.certificateIntroduce.editable = NO;
-        certific.certificateIntroduce.showsVerticalScrollIndicator = NO;
-        [certific configValue:self.dataDic[@"cert"] withArrIndex:i];
-        certific.frame = CGRectMake(0, certificY, WIDETH, ZSh);
-        [self.scro addSubview:certific];
-    }
-    y = y + ZSh * ((NSArray *)self.dataDic[@"cert"]).count;
-    
-    /*培训内容**/
-    CGFloat Ph = 155;
-    for (int i = 0; i < ((NSArray *)self.dataDic[@"training"]).count; i ++)
-    {
-        CGFloat trainY = y + i * Ph;
-        trainingExperienceView * train = [trainingExperienceView settrainingExperienceView];
-        train.frame = CGRectMake(0,trainY, WIDETH, Ph);
-        train.trainIntroduce.editable = NO;
-        train.trainIntroduce.showsVerticalScrollIndicator = NO;
-        [train configValue:self.dataDic[@"training"] withArrIndex:i];
-        [self.scro addSubview:train];
-    }
-    y = y + ((NSArray *)self.dataDic[@"training"]).count * Ph;
-    
-    /*自我评价**/
-    CGFloat ZWH= 70;
-    SelfEvaluationView * selfevaluat =[SelfEvaluationView setSelfEvaluationView];
-//    selfevaluat.frame = CGRectMake(0, 810+135+205+200+200, WIDETH, 100);
-    selfevaluat.frame = CGRectMake(0, y, WIDETH, ZWH);
-    selfevaluat.selfEvaluation.editable = NO;
-    selfevaluat.selfEvaluation.showsVerticalScrollIndicator = NO;
-    [selfevaluat configValue:self.dataDic[@"other"]];
-    [self.scro addSubview:selfevaluat];
-    
-//    self.scro.contentSize   = CGSizeMake(WIDETH, 810+135+205+200+200+100);
-    self.scro.contentSize   = CGSizeMake(WIDETH, y + ZWH);
-    
-}
+//-(void)createView
+//{
+//    /*基本信息**/
+//    Basicnformation * baseInformation =[Basicnformation setBaseView];
+//    baseInformation.frame = CGRectMake(0, 42, WIDETH, 158);
+//    [baseInformation configVulue:self.dataDic[@"info"]];
+//    [self.scro addSubview:baseInformation];
+//
+//    /*求职意向**/
+//    intentView * intent = [intentView setIntentView];
+//    intent.frame = CGRectMake(0, 200, WIDETH, 198);
+//    [intent configValue:self.dataDic[@"expect"]];
+//    [self.scro addSubview:intent];
+//    __weak typeof(self) weekSelf = self;
+//    //编辑点击事件
+//    intent.EditClikBlock = ^()
+//    {
+//    
+//        [weekSelf.navigationController pushViewController:[[WriteResumeViewController alloc]init] animated:YES];
+//    };
+//    
+//    /*工作经历**/
+//    CGFloat y = 390;
+//    CGFloat gH = 160;
+//    for (int i = 0; i < ((NSArray *)self.dataDic[@"work"]).count; i++)
+//    {
+//        CGFloat workingY = y + i * gH;
+//        WorkExperienceView * working = [WorkExperienceView setWorkExperienceView];
+//        [working configVulue:self.dataDic[@"work"] withArrIndex:i];
+//        working.workContent.editable = NO;
+//        working.workContent.showsVerticalScrollIndicator = NO;
+//        working.frame = CGRectMake(0, workingY, WIDETH, gH);
+//        [self.scro  addSubview: working];
+//    }
+//    y = y + gH *  ((NSArray *)self.dataDic[@"work"]).count;
+//    
+//    /*教育经历**/
+//    CGFloat jH = 175;
+//    for (int i = 0; i < ((NSArray *)self.dataDic[@"jy"]).count; i++)
+//    {
+//        CGFloat educationY = y + i * jH;
+//        EducationExperienceView * education  = [EducationExperienceView setEducationExperienceView];
+//        education.frame = CGRectMake(0, educationY, WIDETH, jH);
+//        education.departmentIntroduce.editable = NO;
+//        education.departmentIntroduce.showsVerticalScrollIndicator = NO;
+//        [education configVulue:self.dataDic[@"jy"] withArrIndex:i];
+//        [self.scro addSubview:education];
+//        
+//    }
+//    y = y + jH *  ((NSArray *)self.dataDic[@"jy"]).count;
+//    
+//    /*专业技能**/
+//    CGFloat zH = 120 ;
+//    for (int i = 0; i < ((NSArray *)self.dataDic[@"skill"]).count; i++)
+//    {
+//        
+//        CGFloat professionalSkillViewY = y + i*zH;
+//        professionalSkillView * skill = [professionalSkillView setprofessionalSkillView];
+//        
+//        [skill conFigValue:self.dataDic[@"skill"] withArrIndex:i];
+//        skill.frame = CGRectMake(0, professionalSkillViewY, WIDETH, zH);
+//        [self.scro addSubview:skill];
+//    }
+//    
+//    y = y + zH *  ((NSArray *)self.dataDic[@"skill"]).count;
+//    /*项目经验**/
+//    CGFloat xH = 140;
+//    for (int i = 0; i < ((NSArray *)self.dataDic[@"project"]).count; i++)
+//    {
+//        CGFloat projectY = y + i * xH;
+//        ProjectExperienceView * project =[ProjectExperienceView setProjectExperienceView];
+//        project.frame = CGRectMake(0, projectY, WIDETH, xH);
+//        project.proIntroduce.editable = NO;
+//        project.proIntroduce.showsVerticalScrollIndicator = NO;
+//        [project configValue:self.dataDic[@"project"] withArrIndex:i];
+//        [self.scro addSubview:project];
+//    }
+//    y  = y + xH * ((NSArray *)self.dataDic[@"project"]).count;
+//    
+//    /*证书**/
+//    CGFloat ZSh = 155;
+//    for (int i = 0; i < ((NSArray *)self.dataDic[@"cert"]).count; i++)
+//    {
+//        CGFloat certificY = y + i * ZSh;
+//        CertificateView * certific = [CertificateView setCertificateView];
+//        certific.certificateIntroduce.editable = NO;
+//        certific.certificateIntroduce.showsVerticalScrollIndicator = NO;
+//        [certific configValue:self.dataDic[@"cert"] withArrIndex:i];
+//        certific.frame = CGRectMake(0, certificY, WIDETH, ZSh);
+//        [self.scro addSubview:certific];
+//    }
+//    y = y + ZSh * ((NSArray *)self.dataDic[@"cert"]).count;
+//    
+//    /*培训内容**/
+//    CGFloat Ph = 155;
+//    for (int i = 0; i < ((NSArray *)self.dataDic[@"training"]).count; i ++)
+//    {
+//        CGFloat trainY = y + i * Ph;
+//        trainingExperienceView * train = [trainingExperienceView settrainingExperienceView];
+//        train.frame = CGRectMake(0,trainY, WIDETH, Ph);
+//        train.trainIntroduce.editable = NO;
+//        train.trainIntroduce.showsVerticalScrollIndicator = NO;
+//        [train configValue:self.dataDic[@"training"] withArrIndex:i];
+//        [self.scro addSubview:train];
+//    }
+//    y = y + ((NSArray *)self.dataDic[@"training"]).count * Ph;
+//    
+//    /*自我评价**/
+//    CGFloat ZWH= 70;
+//    SelfEvaluationView * selfevaluat =[SelfEvaluationView setSelfEvaluationView];
+////    selfevaluat.frame = CGRectMake(0, 810+135+205+200+200, WIDETH, 100);
+//    selfevaluat.frame = CGRectMake(0, y, WIDETH, ZWH);
+//    selfevaluat.selfEvaluation.editable = NO;
+//    selfevaluat.selfEvaluation.showsVerticalScrollIndicator = NO;
+//    [selfevaluat configValue:self.dataDic[@"other"]];
+//    [self.scro addSubview:selfevaluat];
+//    
+////    self.scro.contentSize   = CGSizeMake(WIDETH, 810+135+205+200+200+100);
+//    self.scro.contentSize   = CGSizeMake(WIDETH, y + ZWH);
+//    
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

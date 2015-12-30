@@ -77,24 +77,14 @@
 {
     self.editDeleteBlock(sender.tag);
 }
--(void)configValue:(NSArray *)dataArray withArrIndex:(int)i
+-(void)configValue:(NSDictionary *)dataDic
 {
-//    if(dataArray.count == 0)
-//    {
-//        return;
-//    }
-//    //    NSDictionary * dataDic = [dataArray firstObject];
-//    NSDictionary *dataDic = dataArray[i];
-//    if(dataDic.count == 0)
-//    {
-//        return;
-//    }
-//    
-//    self.awardTime.text = dataDic[@"sdate"];
-//    self.certificateName.text = dataDic[@"name"];
-//    
-//    self.awardCompany.text = dataDic[@"title"];
-//    self.certificateIntroduce.text = dataDic[@"content"];
+    
+       self.awardTime.text = dataDic[@"sdate"];
+    self.certificateName.text = dataDic[@"name"];
+    
+    self.awardCompany.text = dataDic[@"title"];
+    self.certificateIntroduce.text = dataDic[@"content"];
     //获得当前cell高度
     CGRect frame = [self frame];
     //文本赋值

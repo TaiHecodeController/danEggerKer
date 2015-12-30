@@ -15,6 +15,6 @@
 @property(nonatomic,strong)UILabel * skillName;
 
 @property(nonatomic,strong)EditdelegateView * editDeleteView;
--(void)conFigValue:(NSArray *)dataArray withArrIndex:(int)i;
+-(void)conFigValue:(NSDictionary *)dataDic;
 @property(nonatomic,strong)void(^editDeleteBlock)(int sender);
 @end

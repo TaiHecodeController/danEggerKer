@@ -30,11 +30,7 @@
 }
 -(void)configValue:(NSDictionary *)dataDic
 {
-//    if(dataDic.count == 0)
-//    {
-//        return;
-//    }
-//    self.selfEvalueteContentLable.text = dataDic[@"content"];
+    self.selfEvalueteContentLable.text = dataDic[@"content"];
     //获得当前cell高度
     CGRect frame = [self frame];
     //文本赋值

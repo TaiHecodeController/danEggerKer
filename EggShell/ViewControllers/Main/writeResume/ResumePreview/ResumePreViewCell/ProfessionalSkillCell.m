@@ -81,22 +81,13 @@
 {
     self.editDeleteBlock(sender.tag);
 }
--(void)conFigValue:(NSArray *)dataArray withArrIndex:(int)i
+-(void)conFigValue:(NSDictionary *)dataDic
 {
-//    if(dataArray.count == 0)
-//    {
-//        return;
-//    }
-//    //    NSDictionary * dataDic = [dataArray firstObject];
-//    NSDictionary * dataDic  = dataArray[i];
-//    if(dataDic.count == 0)
-//    {
-//        return;
-//    }
-//    self.professionalSkill.text = dataDic[@"skill"];
-//    self.graspTime.text = dataDic[@"longtime"];
-//    self.skilledDegree.text = dataDic[@"ing"];
-//    self.skillName.text = dataDic[@"name"];
+   
+    self.professionalSkill.text = dataDic[@"skill"];
+    self.graspTime.text = dataDic[@"longtime"];
+    self.skilledDegrees.text = dataDic[@"ing"];
+    self.skillName.text = dataDic[@"name"];
     //获得当前cell高度
     CGRect frame = [self frame];
     //计算出自适应的高度

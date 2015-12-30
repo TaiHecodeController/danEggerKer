@@ -86,23 +86,19 @@
 {
     self.editDeleteBlock(sender.tag);
 }
--(void)configVulue:(NSArray *)dataArray withArrIndex:(int)i
+-(void)configVulue:(NSDictionary *)dataDic
 {
-//    if(dataArray.count == 0)
-//    {
-//        return;
-//    }
-//    //    NSDictionary * dataDic = [dataArray firstObject];
-//    NSDictionary * dataDic = dataArray[i];
-//    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
-//    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
-//    NSString * startTime = [Utils changeTimeToString:sdate];
-//    NSString * endTime = [Utils changeTimeToString:edate];
-//    self.educationTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
-//    self.department.text = dataDic[@"specialty"];
-//    self.schoolName.text = dataDic[@"name"];
-//    self.position.text = dataDic[@"title"];
-//    self.departmentIntroduce.text = dataDic[@"content"];
+   
+    
+    NSTimeInterval sdate = [dataDic[@"sdate"] doubleValue];
+    NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
+    NSString * startTime = [Utils changeTimeToString:sdate];
+    NSString * endTime = [Utils changeTimeToString:edate];
+    self.educationTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+    self.department.text = dataDic[@"specialty"];
+    self.schoolName.text = dataDic[@"name"];
+    self.position.text = dataDic[@"title"];
+    self.departmentIntroduce.text = dataDic[@"content"];
     //获得当前cell高度
     CGRect frame = [self frame];
     //文本赋值
