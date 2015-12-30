@@ -57,7 +57,7 @@
     personTitle.frame = CGRectMake(0, 0, WIDETH, 40);
     [self.view addSubview:personTitle];
     personTitle.personBackBtn.selected = YES;
-    personTitle.personTitleLable.text  = [NSString stringWithFormat:@"%@-转技能",_resume_model.resumeName];
+    personTitle.personTitleLable.text  = [NSString stringWithFormat:@"%@-专业技能",_resume_model.resumeName];
     UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT-40-64)];
     tableView.dataSource = self;
     tableView.delegate = self;
@@ -71,7 +71,7 @@
     UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake(80, 15, WIDETH-160, 30)];
     [addButtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
     addButtn.titleLabel.font =[UIFont  systemFontOfSize:13];
-    [addButtn setTitle:@"+添加工作经历" forState:UIControlStateNormal];
+    [addButtn setTitle:@"添加" forState:UIControlStateNormal];
     addButtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [addButtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [addButtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];

@@ -144,4 +144,10 @@ return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/cert_list"
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/other_list",base_Url] param:param succ:succ];
 }
 
++ (AFRequestState *)getResumeItemNumberWithSucc:(void(^)(NSDictionary * dataDic))succ withToken:(NSString *)token uid:(NSString *)uid eid:(NSString *)eid
+{
+     NSDictionary *param = @{@"token":token,@"uid":uid,@"eid":eid};
+     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_type_list",base_Url] param:param succ:succ];
+}
+
 @end

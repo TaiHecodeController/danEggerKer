@@ -65,7 +65,6 @@
 		940032D21B840CC3001EB666 /* TH_ProjectExperienceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032B81B840CC3001EB666 /* TH_ProjectExperienceVC.m */; };
 		940032D31B840CC3001EB666 /* TH_SelfEvaluationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032BB1B840CC3001EB666 /* TH_SelfEvaluationVC.m */; };
 		940032D81B840CC3001EB666 /* TH_TrainExperienceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032C51B840CC3001EB666 /* TH_TrainExperienceVC.m */; };
-		940032D91B840CC3001EB666 /* WorkingExperienceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032C81B840CC3001EB666 /* WorkingExperienceVC.m */; };
 		940032EE1B840DCD001EB666 /* JobScreenDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032E41B840DCC001EB666 /* JobScreenDetailCell.m */; };
 		940032EF1B840DCD001EB666 /* JobScreenDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940032E51B840DCC001EB666 /* JobScreenDetailCell.xib */; };
 		940032F01B840DCD001EB666 /* TH_JobScreenDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 940032E71B840DCC001EB666 /* TH_JobScreenDetailVC.m */; };
@@ -326,6 +325,7 @@
 		F07F39051B996F65002531CD /* saveListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39041B996F65002531CD /* saveListModel.m */; };
 		F07F39091B998B62002531CD /* TeacherFCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39081B998B62002531CD /* TeacherFCModel.m */; };
 		F0811F711C30FED5005D13D7 /* WriteResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0811F701C30FED5005D13D7 /* WriteResumeViewController.m */; };
+		F0811F741C33C1FB005D13D7 /* WorkingExperienceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F0811F731C33C1FB005D13D7 /* WorkingExperienceVC.m */; };
 		F083F8211B9C32F700781C08 /* Me_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F083F8201B9C32F700781C08 /* Me_Request.m */; };
 		F0A8C52F1C192BC0002E6971 /* findJobCarViewS.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A8C52E1C192BC0002E6971 /* findJobCarViewS.m */; };
 		F0B85A391BA11F83005799F5 /* SearchCity1_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */; };
@@ -504,8 +504,6 @@
 		940032BB1B840CC3001EB666 /* TH_SelfEvaluationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_SelfEvaluationVC.m; sourceTree = "<group>"; };
 		940032C41B840CC3001EB666 /* TH_TrainExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TH_TrainExperienceVC.h; path = ../../TrainExperience/TH_TrainExperienceVC.h; sourceTree = "<group>"; };
 		940032C51B840CC3001EB666 /* TH_TrainExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TH_TrainExperienceVC.m; path = ../../TrainExperience/TH_TrainExperienceVC.m; sourceTree = "<group>"; };
-		940032C71B840CC3001EB666 /* WorkingExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingExperienceVC.h; sourceTree = "<group>"; };
-		940032C81B840CC3001EB666 /* WorkingExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingExperienceVC.m; sourceTree = "<group>"; };
 		940032E31B840DCC001EB666 /* JobScreenDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobScreenDetailCell.h; sourceTree = "<group>"; };
 		940032E41B840DCC001EB666 /* JobScreenDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobScreenDetailCell.m; sourceTree = "<group>"; };
 		940032E51B840DCC001EB666 /* JobScreenDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobScreenDetailCell.xib; sourceTree = "<group>"; };
@@ -966,6 +964,8 @@
 		F07F39081B998B62002531CD /* TeacherFCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherFCModel.m; sourceTree = "<group>"; };
 		F0811F6F1C30FED5005D13D7 /* WriteResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteResumeViewController.h; sourceTree = "<group>"; };
 		F0811F701C30FED5005D13D7 /* WriteResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeViewController.m; sourceTree = "<group>"; };
+		F0811F721C33C1FB005D13D7 /* WorkingExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingExperienceVC.h; sourceTree = "<group>"; };
+		F0811F731C33C1FB005D13D7 /* WorkingExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingExperienceVC.m; sourceTree = "<group>"; };
 		F083F81F1B9C32F700781C08 /* Me_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Me_Request.h; sourceTree = "<group>"; };
 		F083F8201B9C32F700781C08 /* Me_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Me_Request.m; sourceTree = "<group>"; };
 		F0A8C52D1C192BBA002E6971 /* findJobCarViewS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findJobCarViewS.h; sourceTree = "<group>"; };
@@ -1607,8 +1607,6 @@
 			isa = PBXGroup;
 			children = (
 				940EDEDD1B96E32200376D37 /* WorkExReading */,
-				940032C71B840CC3001EB666 /* WorkingExperienceVC.h */,
-				940032C81B840CC3001EB666 /* WorkingExperienceVC.m */,
 			);
 			path = WorkExperience;
 			sourceTree = "<group>";
@@ -1700,6 +1698,8 @@
 			children = (
 				940EDEDE1B96E35800376D37 /* WorkExReadingVC.h */,
 				940EDEDF1B96E35800376D37 /* WorkExReadingVC.m */,
+				F0811F721C33C1FB005D13D7 /* WorkingExperienceVC.h */,
+				F0811F731C33C1FB005D13D7 /* WorkingExperienceVC.m */,
 				940EDEE11B96E37400376D37 /* WorkExReadingView.h */,
 				940EDEE21B96E37400376D37 /* WorkExReadingView.m */,
 				940EDEE41B96E38B00376D37 /* WorkExReading.xib */,
@@ -3161,6 +3161,7 @@
 				94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */,
 				94E95EEA1C17C0D8009FA049 /* findJobDetialScriptionViewS.m in Sources */,
 				F0C0678F1C03FDF000D1B22B /* TableViewCell_4.m in Sources */,
+				F0811F741C33C1FB005D13D7 /* WorkingExperienceVC.m in Sources */,
 				94E3EA9A1B8EB758007A699E /* Reachability.m in Sources */,
 				94E761BD1BA2AC5800B4C544 /* ProjectExperienceVC.m in Sources */,
 				948CBFCB1C31212E00084294 /* PersonalInformationBaseCell.m in Sources */,
@@ -3199,7 +3200,6 @@
 				9406D6011BB394A600DAC1EC /* CertifiCateTime.m in Sources */,
 				940032CF1B840CC3001EB666 /* TH_ProfessionalSkillVC.m in Sources */,
 				94E2C9851B870F29001E3FDD /* ComPanyProfileView.m in Sources */,
-				940032D91B840CC3001EB666 /* WorkingExperienceVC.m in Sources */,
 				0416506B1B4D7240008C78BE /* GVarAdapter.m in Sources */,
 				94CB305A1BA5169700577FE6 /* IQTextView.m in Sources */,
 				941F102C1B7B400D00719F5B /* TH_LoginVC.m in Sources */,

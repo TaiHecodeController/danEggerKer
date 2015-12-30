@@ -68,7 +68,7 @@
     UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake(80, 15, WIDETH-160, 30)];
     [addButtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
     addButtn.titleLabel.font =[UIFont  systemFontOfSize:13];
-    [addButtn setTitle:@"+添加工作经历" forState:UIControlStateNormal];
+    [addButtn setTitle:@"添加" forState:UIControlStateNormal];
     addButtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [addButtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [addButtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
@@ -81,9 +81,9 @@
 #pragma mark --继续添加
 -(void)addClick
 {
-    WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
-    working.pushtype = 0;
-    [self.navigationController pushViewController:working animated:YES];
+    TH_TrainExperienceVC *vc = [[TH_TrainExperienceVC alloc]init];
+        vc.pushtype = 0;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

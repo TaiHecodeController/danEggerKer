@@ -372,7 +372,8 @@
     {
         //培训经历
         TrainExperienceCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TrainExperienceCell"];
-        if (!cell) {
+        if (!cell)
+        {
             cell = [[TrainExperienceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TrainExperienceCell"];
         }
         cell.tag = indexPath.row+10;
@@ -394,8 +395,6 @@
                 vc.detailId =self.dataArray[4][@"datadetail"][rows][@"id"];
                 vc.pushtype = 1;
                 [self.navigationController pushViewController:vc animated:YES];
-                
-                //删除
             }
             if (tag==11)
             {
@@ -414,10 +413,10 @@
     
     if (indexPath.section==5)
     {
-        
         //专业技能
         ProfessionalSkillCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProfessionalSkillCell"];
-        if (!cell) {
+        if (!cell)
+        {
             cell = [[ProfessionalSkillCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfessionalSkillCell"];
         }
         cell.tag = indexPath.row+10;
@@ -425,7 +424,8 @@
         {
             int rows = row - 10;
             //编辑
-            if (tag==10) {
+            if (tag==10)
+            {
                 TH_ProfessionalSkillVC * vc = [[TH_ProfessionalSkillVC alloc] init];
                 vc.skillName =self.dataArray[5][@"datadetail"][rows][@"name"];
                 vc.skillType =self.dataArray[5][@"datadetail"][rows][@"skill"];
@@ -436,11 +436,15 @@
                 vc.dataDic = self.skillDic;
                 [self.navigationController pushViewController:vc animated:YES];
                 //删除
+
             }if (tag==11) {
                   [self presentDeleteView:indexPath.section withCellId:self.dataArray[5][@"datadetail"][rows][@"id"]];
+
             }
+        
             
         };
+        
         if ([self.dataArray[5][@"datadetail"]count]!=0) {
             NSDictionary * dic = self.dataArray[5][@"datadetail"][indexPath.row];
             [cell conFigValue:dic];
@@ -456,9 +460,12 @@
         }
         cell.tag = indexPath.row+10;
         cell.editDeleteBlock = ^(int tag,int row)
-        {    int rows = row - 10;
+        {
+            int rows = row - 10;
             //编辑
-            if (tag==10) {
+
+            if (tag==10)
+            {
                 
                 NSTimeInterval sdate = [self.dataArray[6][@"datadetail"][rows][@"sdate"] doubleValue];
                 NSTimeInterval edate = [self.dataArray[6][@"datadetail"][rows][@"edate"] doubleValue];
@@ -476,22 +483,34 @@
                 vc.pushtype = 1;
                 [self.navigationController pushViewController:vc animated:YES];
                 //删除
-            }if (tag==11) {
+
+            }
+            if (tag==11)
+            {
                 [self presentDeleteView:indexPath.section withCellId:self.dataArray[6][@"datadetail"][rows][@"id"]];
+
             }
             
         };
-        if ([self.dataArray[6][@"datadetail"]count]!=0) {
+        if ([self.dataArray[6][@"datadetail"]count]!=0)
+        {
             NSDictionary * dic = self.dataArray[6][@"datadetail"][indexPath.row];
             [cell conFigValues:dic];
         }
         
         return cell;
+
+    }
+
         
-    }if (indexPath.section==7) {
+   
+      if (indexPath.section==7)
+       {
+
         //证书
         CertificateCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CertificateCell"];
-        if (!cell) {
+        if (!cell)
+        {
             cell = [[CertificateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CertificateCell"];
         }
         cell.tag = indexPath.row+10;
@@ -530,8 +549,6 @@
         }
         
         return cell;
-        
-        
     }
     if (indexPath.section==8)
     {
@@ -541,7 +558,8 @@
         {
             cell = [[SelfEvaluationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SelfEvaluationCell"];
         }
-        if ([self.dataArray[8][@"datadetail"]count]!=0) {
+        if ([self.dataArray[8][@"datadetail"]count]!=0)
+        {
             NSDictionary * dic = self.dataArray[8][@"datadetail"][indexPath.row];
             [cell configValue:dic];
         }
@@ -888,24 +906,29 @@
     
     UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake((300 - 150) / 2, 15, 150, 15)];
     titleLab.text = @"你确定要删除吗？";
+    titleLab.textAlignment = NSTextAlignmentCenter;
     titleLab.textColor = [UIColor orangeColor];
     [bgView addSubview:titleLab];
     
-    UIButton *cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake((bgView.frame.size.width - 150 - 60) / 2, 40, 75, 30)];
+    UIButton *cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(22.5, 40, 112.5, 30)];
     cancelBtn.backgroundColor = [UIColor orangeColor];
-    [cancelBtn setTitle:@"cancel" forState:UIControlStateNormal];
+    [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
     [cancelBtn addTarget:self action:@selector(cancelClick:) forControlEvents:UIControlEventTouchUpInside];
+    cancelBtn.layer.cornerRadius =5;
     [bgView addSubview:cancelBtn];
     
-    UIButton *OkBtn = [[UIButton alloc] initWithFrame:CGRectMake(bgView.frame.size.width - ((bgView.frame.size.width - 150 - 60) / 2 + 75), 40, 75, 30)];
-    OkBtn.backgroundColor = [UIColor orangeColor];
-    [OkBtn setTitle:@"Ok" forState:UIControlStateNormal];
+    UIButton *OkBtn = [[UIButton alloc] initWithFrame:CGRectMake(165, 40, 112.5, 30)];
+    [OkBtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
+    [OkBtn setTitle:@"确定" forState:UIControlStateNormal];
+    OkBtn.layer.cornerRadius = 5;
     [OkBtn addTarget:self action:@selector(okClick:) forControlEvents:UIControlEventTouchUpInside];
     OkBtn.tag = index;
     [bgView addSubview:OkBtn];
+
     
     //item的id
     self.cellID = [cellID intValue];
+
 }
 
 - (void)cancelClick:(UIButton *)btn

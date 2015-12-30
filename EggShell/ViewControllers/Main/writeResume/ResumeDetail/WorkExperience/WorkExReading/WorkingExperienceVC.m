@@ -31,6 +31,7 @@
 @property(nonatomic,strong)UILabel * placeHoderTextLable;
 @property (strong,nonatomic)NSArray * holderArray;
 @property(strong,nonatomic)NSMutableArray * jobArray;
+@property (nonatomic, strong) UIView *corver;
 
 @end
 
@@ -198,6 +199,54 @@
 
 - (void)deleteClick:(UIButton *)btn
 {
+    
+    [self presentDeleteView:nil];
+    
+}
+
+- (void)presentDeleteView:(NSInteger)index
+{
+    UIView *corver = [[UIView alloc]init];
+    corver.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+    corver.frame = [UIScreen mainScreen].bounds;
+    [self.view addSubview:corver];
+    self.corver = corver;
+    
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake((WIDETH - 300) / 2, 100, 300, 85)];
+    bgView.backgroundColor = [UIColor whiteColor];
+    bgView.layer.cornerRadius = 6;
+    [corver addSubview:bgView];
+    
+    UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake((300 - 150) / 2, 15, 150, 15)];
+    titleLab.text = @"你确定要删除吗？";
+    titleLab.textAlignment = NSTextAlignmentCenter;
+    titleLab.textColor = [UIColor orangeColor];
+    [bgView addSubview:titleLab];
+    
+    UIButton *cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(22.5, 40, 112.5, 30)];
+    cancelBtn.backgroundColor = [UIColor orangeColor];
+    [cancelBtn setTitle:@"cancel" forState:UIControlStateNormal];
+    [cancelBtn addTarget:self action:@selector(cancelClick:) forControlEvents:UIControlEventTouchUpInside];
+    cancelBtn.layer.cornerRadius =5;
+    [bgView addSubview:cancelBtn];
+    
+    UIButton *OkBtn = [[UIButton alloc] initWithFrame:CGRectMake(165, 40, 112.5, 30)];
+    [OkBtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
+    [OkBtn setTitle:@"Ok" forState:UIControlStateNormal];
+    OkBtn.layer.cornerRadius = 5;
+    [OkBtn addTarget:self action:@selector(okClick:) forControlEvents:UIControlEventTouchUpInside];
+    OkBtn.tag = index;
+    [bgView addSubview:OkBtn];
+    
+}
+
+- (void)cancelClick:(UIButton *)btn
+{
+    [self.corver removeFromSuperview];
+}
+
+- (void)okClick:(UIButton *)btn
+{
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString * tokenStr = [df objectForKey:@"md5_token"];
    [WriteResumeRequest deleteResumeItemWithSucc:^(NSDictionary *dataDic) {
@@ -207,6 +256,8 @@
    } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:self.detailId type:1];
     
 }
+
+
 
 #pragma mark - 保存简历阅览
 -(void)saveClick
@@ -280,7 +331,7 @@
     
     THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     
-    [[WriteResumeRequest uploadTrainWithSucc:^(NSDictionary * dataDic) {
+    [[WriteResumeRequest uploadWorkExperienceWithSucc:^(NSDictionary * dataDic) {
         [self.navigationController popViewControllerAnimated:YES];
     } WithResumeParam:param] addNotifaction:hub];
 }
