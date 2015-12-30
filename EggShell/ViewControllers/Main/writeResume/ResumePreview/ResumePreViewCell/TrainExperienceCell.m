@@ -20,19 +20,34 @@
 -(void)createUI
 {
     //培训时间
-    self.trainTime = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, WIDETH-30, 12)];
+    UILabel *trainTimeHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 10, 60, 12)];
+    trainTimeHeadLable.text = @"培训时间:";
+    trainTimeHeadLable.font = [UIFont systemFontOfSize:12];
+    trainTimeHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:trainTimeHeadLable];
+    self.trainTime = [[UILabel alloc] initWithFrame:CGRectMake(75, 10, WIDETH-90, 12)];
     self.trainTime.font = [UIFont systemFontOfSize:12];
     self.trainTime.textColor = UIColorFromRGB(0x000000);
     self.trainTime.text = @"暂无";
     [self.contentView addSubview:self.trainTime];
     //培训方向
-    self.trainDirection = [[UILabel alloc] initWithFrame:CGRectMake(15, 32, WIDETH-30, 12)];
+    UILabel * trainDirectionHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 32, 60, 12)];
+    trainDirectionHeadLable.text = @"培训方向:";
+    trainDirectionHeadLable.font = [UIFont systemFontOfSize:12];
+    trainDirectionHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:trainDirectionHeadLable];
+    self.trainDirection = [[UILabel alloc] initWithFrame:CGRectMake(75, 32, WIDETH-90, 12)];
     self.trainDirection.font = [UIFont systemFontOfSize:12];
     self.trainDirection.textColor = UIColorFromRGB(0x000000);
     self.trainDirection.text = @"暂无";
     [self.contentView addSubview:self.trainDirection];
     //培训中心
-    self.trainCompany = [[UILabel alloc] initWithFrame:CGRectMake(15, 54, WIDETH-30, 12)];
+    UILabel *trainCompanyHeadLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 54, 60, 12)];
+    trainCompanyHeadLable.text = @"培训中心:";
+    trainCompanyHeadLable.font = [UIFont systemFontOfSize:12];
+    trainCompanyHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:trainCompanyHeadLable];
+    self.trainCompany = [[UILabel alloc] initWithFrame:CGRectMake(75, 54, WIDETH-90, 12)];
     self.trainCompany.font = [UIFont systemFontOfSize:12];
     self.trainCompany.textColor = UIColorFromRGB(0x000000);
     self.trainCompany.text = @"暂无";
@@ -91,7 +106,7 @@
     self.trainIntroduce.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.trainIntroduce.text sizeWithFont:self.trainIntroduce.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
-    self.trainIntroduce.frame = CGRectMake(15, 94, WIDETH-15, labelSize.height);
+    self.trainIntroduce.frame = CGRectMake(15, 94, WIDETH-30, labelSize.height);
     self.editDeleteView.frame = CGRectMake(WIDETH-140, 92+labelSize.height, 140, 35);
     //计算出自适应的高度
     frame.size.height = labelSize.height+92+45;

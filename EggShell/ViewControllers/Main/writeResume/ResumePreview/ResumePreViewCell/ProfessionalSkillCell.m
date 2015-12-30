@@ -20,7 +20,13 @@
 -(void)createUI
 {
 //标题
-    self.professionalSkill = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, WIDETH-30, 12)];
+    UILabel * professionalSkillHeadLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 60, 12)];
+    professionalSkillHeadLable.text = @"技能名称:";
+    professionalSkillHeadLable.font = [UIFont systemFontOfSize:12];
+    professionalSkillHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:professionalSkillHeadLable];
+
+    self.professionalSkill = [[UILabel alloc] initWithFrame:CGRectMake(75, 10, WIDETH-90, 12)];
     self.professionalSkill.font = [UIFont systemFontOfSize:12];
     self.professionalSkill.textColor = UIColorFromRGB(0x000000);
     self.professionalSkill.text = @"暂无";
@@ -38,18 +44,20 @@
     [self.contentView addSubview:self.graspTime];
     //熟练程度
     UILabel * skilledDegreeHeadLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 54, 60, 12)];
-    skilledDegreeHeadLable.text = @"掌握时间:";
+    skilledDegreeHeadLable.text = @"熟练程度:";
     skilledDegreeHeadLable.font = [UIFont systemFontOfSize:12];
     skilledDegreeHeadLable.textColor = UIColorFromRGB(0x646464);
     [self.contentView addSubview:skilledDegreeHeadLable];
-    self.skilledDegree =[[UILabel alloc] initWithFrame:CGRectMake(75, WIDETH-90, 54, 12)];
-    self.skilledDegree.font = [UIFont systemFontOfSize:12];
-    self.skilledDegree.textColor = UIColorFromRGB(0x000000);
-    self.skilledDegree.text = @"暂无";
-    [self.contentView addSubview:self.skilledDegree];
+    
+    
+    self.skilledDegrees =[[UILabel alloc] initWithFrame:CGRectMake(75, 54, WIDETH-90, 12)];
+    self.skilledDegrees.text = @"暂无";
+    self.skilledDegrees.font = [UIFont systemFontOfSize:12];
+    self.skilledDegrees.textColor = UIColorFromRGB(0x000000);
+    [self.contentView addSubview:self.skilledDegrees];
     //技能名称
     UILabel * skillNameHeadlablable =[[UILabel alloc] initWithFrame:CGRectMake(15, 76, 60, 12)];
-    skillNameHeadlablable.text = @"熟练程度:";
+    skillNameHeadlablable.text = @"技能名称:";
     skillNameHeadlablable.font = [UIFont systemFontOfSize:12];
     skillNameHeadlablable.textColor = UIColorFromRGB(0x646464);
     [self.contentView addSubview:skillNameHeadlablable];

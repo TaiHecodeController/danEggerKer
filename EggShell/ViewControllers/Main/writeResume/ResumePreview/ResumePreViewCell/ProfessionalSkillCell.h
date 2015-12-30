@@ -11,8 +11,9 @@
 @interface ProfessionalSkillCell : UITableViewCell
 @property(nonatomic,strong)UILabel * professionalSkill;
 @property(nonatomic,strong)UILabel * graspTime;
-@property(nonatomic,strong)UILabel * skilledDegree;
+@property(nonatomic,strong)UILabel * skilledDegrees;
 @property(nonatomic,strong)UILabel * skillName;
+
 @property(nonatomic,strong)EditdelegateView * editDeleteView;
 -(void)conFigValue:(NSArray *)dataArray withArrIndex:(int)i;
 @property(nonatomic,strong)void(^editDeleteBlock)(int sender);

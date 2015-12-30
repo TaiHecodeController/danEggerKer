@@ -20,19 +20,35 @@
 -(void)createUI
 {
     //颁发时间
-    self.awardTime = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, WIDETH-30, 12)];
+    UILabel * awardTimeHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 10, 60, 12)];
+    awardTimeHeadLable.text = @"颁发时间:";
+    awardTimeHeadLable.font = [UIFont systemFontOfSize:12];
+    awardTimeHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:awardTimeHeadLable];
+
+    self.awardTime = [[UILabel alloc] initWithFrame:CGRectMake(75, 10, WIDETH-90, 12)];
     self.awardTime.font = [UIFont systemFontOfSize:12];
     self.awardTime.textColor = UIColorFromRGB(0x000000);
     self.awardTime.text = @"暂无";
     [self.contentView addSubview:self.awardTime];
     //职位全称
-    self.certificateName = [[UILabel alloc] initWithFrame:CGRectMake(15, 32, WIDETH-30, 12)];
+    UILabel * certificateNameHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 32, 60, 12)];
+    certificateNameHeadLable.text = @"证书全称:";
+    certificateNameHeadLable.font = [UIFont systemFontOfSize:12];
+    certificateNameHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:certificateNameHeadLable];
+    self.certificateName = [[UILabel alloc] initWithFrame:CGRectMake(75, 32, WIDETH-90, 12)];
     self.certificateName.font = [UIFont systemFontOfSize:12];
     self.certificateName.textColor = UIColorFromRGB(0x000000);
     self.certificateName.text = @"暂无";
     [self.contentView addSubview:self.certificateName];
     //颁发单位
-    self.awardCompany = [[UILabel alloc] initWithFrame:CGRectMake(15, 54, WIDETH-30, 12)];
+    UILabel * awardCompanyHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 54, 60, 12)];
+    awardCompanyHeadLable.text = @"颁发单位:";
+    awardCompanyHeadLable.font = [UIFont systemFontOfSize:12];
+    awardCompanyHeadLable.textColor = UIColorFromRGB(0x646464);
+    [self.contentView addSubview:awardCompanyHeadLable];
+    self.awardCompany = [[UILabel alloc] initWithFrame:CGRectMake(75, 54, WIDETH-90, 12)];
     self.awardCompany.font = [UIFont systemFontOfSize:12];
     self.awardCompany.textColor = UIColorFromRGB(0x000000);
     self.awardCompany.text = @"暂无";
@@ -87,7 +103,7 @@
     self.certificateIntroduce.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.certificateIntroduce.text sizeWithFont:self.certificateIntroduce.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
-    self.certificateIntroduce.frame = CGRectMake(15, 94, WIDETH-15, labelSize.height);
+    self.certificateIntroduce.frame = CGRectMake(15, 94, WIDETH-30, labelSize.height);
     self.editDeleteView.frame = CGRectMake(WIDETH-140, 92+labelSize.height, 140, 35);
     //计算出自适应的高度
     frame.size.height = labelSize.height+92+45;

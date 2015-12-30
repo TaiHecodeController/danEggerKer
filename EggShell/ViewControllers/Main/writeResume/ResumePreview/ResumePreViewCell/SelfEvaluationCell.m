@@ -43,7 +43,7 @@
     self.selfEvalueteContentLable.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.selfEvalueteContentLable.text sizeWithFont:self.selfEvalueteContentLable.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
-    self.selfEvalueteContentLable.frame = CGRectMake(15, 10, WIDETH-15, labelSize.height);
+    self.selfEvalueteContentLable.frame = CGRectMake(15, 10, WIDETH-30, labelSize.height);
    
     //计算出自适应的高度
     frame.size.height = labelSize.height+20;
