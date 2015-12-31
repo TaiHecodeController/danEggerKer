@@ -16,6 +16,7 @@
 @property (nonatomic, copy) NSString *trainDirection;
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *detailId;
+@property (nonatomic, copy) NSString *resumeId;
 //pushType 0添加进来 1编辑进来
 @property (nonatomic, assign) int pushtype;
 

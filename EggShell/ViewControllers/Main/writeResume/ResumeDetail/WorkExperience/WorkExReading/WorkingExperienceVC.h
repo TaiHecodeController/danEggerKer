@@ -29,5 +29,6 @@ typedef enum
 @property (nonatomic, copy) NSString *workContent;
 @property (nonatomic, copy) NSString *detailId;
 @property (nonatomic, assign) pushType pushtype;
+@property (nonatomic, copy) NSString *resumeId;
 
 @end

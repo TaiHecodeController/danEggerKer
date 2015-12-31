@@ -319,7 +319,7 @@
     }
     [[WriteResumeRequest uploadProjectExperienceWithSucc:^(NSDictionary *dataDic) {
         [self.navigationController popViewControllerAnimated:YES];
-    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"sys":_model.projectPath,@"title":_model.position,@"content":_model.content,@"id":self.detailId}] addNotifaction:hub];
+    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":self.resumeId,@"name":_model.name,@"sdate":_model.sdate,@"edate":_model.edate,@"sys":_model.projectPath,@"title":_model.position,@"content":_model.content,@"id":self.detailId}] addNotifaction:hub];
     
 
 }

@@ -285,7 +285,7 @@
     THLog(@"%@ %@ %@ %@ %@",_model.name,_model.skillType,_model.skillDegree,_model.skillTime,self.detailId);
     [[WriteResumeRequest uploadProfessionalSkillWithSucc:^(NSDictionary *dataDic) {
         [self.navigationController popViewControllerAnimated:YES];
-    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"name":_model.name,@"skill":_model.skillType,@"ing":_model.skillDegree,@"longtime":_model.skillTime,@"id":self.detailId}] addNotifaction:hub];
+    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":self.resumId,@"name":_model.name,@"skill":_model.skillType,@"ing":_model.skillDegree,@"longtime":_model.skillTime,@"id":self.detailId}] addNotifaction:hub];
     
 }
 /*重置**/

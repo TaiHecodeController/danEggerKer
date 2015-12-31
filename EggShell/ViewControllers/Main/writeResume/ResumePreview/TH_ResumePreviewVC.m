@@ -208,13 +208,10 @@
 }
 #pragma mark --工作经历
 -(void)workExperice
-{
-    // NSLog(@"工作经历");
-//    WorkingExperienceVC *vc = [[WorkingExperienceVC alloc]init];
-//    [self.navigationController pushViewController:vc animated:YES];
-    
+{    
     WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
     working.pushtype = addPush;
+    working.resumeId = self.resumeId;
     [self.navigationController pushViewController:working animated:YES];
 }
 #pragma mark -- 教育经历
@@ -222,6 +219,7 @@
 {
     // NSLog(@"教育经历");
     TH_EducationExperienceVC *vc = [[TH_EducationExperienceVC alloc]init];
+    vc.resumeId = self.resumeId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark -- 专业技能
@@ -230,6 +228,7 @@
     // NSLog(@"专业技能");
     TH_ProfessionalSkillVC *vc = [[TH_ProfessionalSkillVC alloc]init];
     vc.dataDic = self.skillDic;
+    vc.resumId = self.resumeId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark -- 项目经验
@@ -237,6 +236,7 @@
 {
     // NSLog(@"项目经验");
     TH_ProjectExperienceVC *vc = [[TH_ProjectExperienceVC alloc]init];
+    vc.resumeId = self.resumeId;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -245,6 +245,7 @@
 {
     // NSLog(@"证书");
     TH_CertificateVC *vc = [[TH_CertificateVC alloc]init];
+    vc.resumeId = self.resumeId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark -- 培训经历
@@ -252,6 +253,7 @@
 {
     // NSLog(@"培训经历");
     TH_TrainExperienceVC *vc = [[TH_TrainExperienceVC alloc]init];
+    vc.resumeId = self.resumeId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark-- 自我评价
@@ -259,6 +261,7 @@
 {
     //    NSLog(@"自我评价");
     TH_SelfEvaluationVC *vc = [[TH_SelfEvaluationVC alloc]init];
+    vc.resumId = self.resumeId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -981,8 +984,7 @@
             [self.corver removeFromSuperview];
             [self loadData];
             
-        } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:1];
-        
+        } withToken:tokenStr uid:[AppDelegate instance].userId eid:self.resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:1];
         
     }
     else if (btn.tag == 3)
@@ -995,7 +997,7 @@
             [self.corver removeFromSuperview];
             [self loadData];
             
-        } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:2];
+        } withToken:tokenStr uid:[AppDelegate instance].userId eid:self.resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:2];
     }
     else if (btn.tag == 4)
     {
@@ -1007,7 +1009,7 @@
             [self.corver removeFromSuperview];
             [self loadData];
             
-        } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:3];
+        } withToken:tokenStr uid:[AppDelegate instance].userId eid:self.resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:3];
     }
     else if (btn.tag == 5)
     {
@@ -1019,7 +1021,7 @@
             [self.corver removeFromSuperview];
             [self loadData];
             
-        } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:4];
+        } withToken:tokenStr uid:[AppDelegate instance].userId eid:self.resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:4];
     }
     else if (btn.tag == 6)
     {
@@ -1031,7 +1033,7 @@
             [self.corver removeFromSuperview];
             [self loadData];
             
-        } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:5];
+        } withToken:tokenStr uid:[AppDelegate instance].userId eid:self.resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:5];
     }
     else if (btn.tag == 7)
     {
@@ -1043,7 +1045,7 @@
             [self.corver removeFromSuperview];
             [self loadData];
             
-        } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:6];
+        } withToken:tokenStr uid:[AppDelegate instance].userId eid:self.resumeId withId:[NSString stringWithFormat:@"%d",self.cellID] type:6];
     }
     
     

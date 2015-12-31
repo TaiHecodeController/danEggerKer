@@ -137,7 +137,7 @@
     [[WriteResumeRequest uploadSelfEvaluationWithSucc:^(NSDictionary *dataDic) {
         [MBProgressHUD creatembHub:@"保存成功"];
         [self.navigationController popViewControllerAnimated:YES];
-    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":[AppDelegate instance].resumeId,@"content":_model.content}] addNotifaction:hub];
+    } WithResumeParam:@{@"token":tokenStr,@"uid":[AppDelegate instance].userId,@"eid":self.resumId,@"content":_model.content}] addNotifaction:hub];
     
 }
 /*重置**/

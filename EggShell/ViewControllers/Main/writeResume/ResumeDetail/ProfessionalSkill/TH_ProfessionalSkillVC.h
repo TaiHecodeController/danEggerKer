@@ -18,6 +18,7 @@
 @property (nonatomic, copy) NSString *skillDegree;
 @property (nonatomic, copy) NSString *time;
 @property (nonatomic, copy) NSString *detailId;
+@property (nonatomic, copy) NSString *resumId;
 //pushType 0添加进来 1编辑进来
 @property (nonatomic, assign) int pushtype;
 

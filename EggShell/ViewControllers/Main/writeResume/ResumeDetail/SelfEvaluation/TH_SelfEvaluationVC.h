@@ -10,4 +10,6 @@
 
 @interface TH_SelfEvaluationVC : TH_BaseVC
 
+@property (nonatomic, copy) NSString *resumId;
+
 @end
