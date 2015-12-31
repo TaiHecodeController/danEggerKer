@@ -134,7 +134,7 @@
          titleView.personTileLable.text = self.resumeName;
        titleView.createTimeLable.hidden = NO;
         
-        titleView.createTimeLable.text = [NSString stringWithFormat:@"创建于%@",self.dataArray[1][0][@"ctime"]];
+        titleView.createTimeLable.text = [NSString stringWithFormat:@"创建于%@",self.dataArray[1][@"datadetail"][0][@"ctime"]];
     }else
     {
         if (section == 1||section==8 ) {
