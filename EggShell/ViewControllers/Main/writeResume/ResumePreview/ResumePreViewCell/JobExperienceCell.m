@@ -97,10 +97,10 @@
     self.workContent.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.workContent.text sizeWithFont:self.workContent.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
-    self.workContent.frame = CGRectMake(15, 90, WIDETH-30, labelSize.height);
-  self.editDeleteView.frame = CGRectMake(WIDETH-140, 90+labelSize.height, 140, 35);
+    self.workContent.frame = CGRectMake(15, 93, WIDETH-30, labelSize.height);
+  self.editDeleteView.frame = CGRectMake(WIDETH-140, 95+labelSize.height, 140, 35);
     //计算出自适应的高度
-    frame.size.height = labelSize.height+90+40;
+    frame.size.height = labelSize.height+90+50;
     
     self.frame = frame;
 
