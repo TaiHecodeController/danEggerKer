@@ -80,13 +80,13 @@
 {
     THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubViewwindow];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-    NSString * tokenStr = [df objectForKey:@"md5_token"];
+    NSString *tokenStr = [df objectForKey:@"md5_token"];
     [[WriteResumeRequest getResumeItemNumberWithSucc:^(NSDictionary *dataDic) {
         
         THLog(@"%@",dataDic);
         self.itemDic = [NSDictionary dictionaryWithDictionary:dataDic[@"data"]];
         
-    } withToken:tokenStr uid:[AppDelegate instance].userId eid:[AppDelegate instance].resumeId] addNotifaction:hub];
+    } withToken:tokenStr uid:[AppDelegate instance].userId eid:self.resumeid] addNotifaction:hub];
 }
 
 - (void)loadData

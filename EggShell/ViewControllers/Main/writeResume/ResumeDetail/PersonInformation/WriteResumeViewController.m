@@ -310,7 +310,7 @@
     
     
     //保存按钮
-    UIButton * nextBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 - 75, 709, 50, 30) ImageName:@"lanniu2" Target:self Action:@selector(nextClick) Title:@"保存"];
+    UIButton * nextBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 - 75, 709, 50, 30) ImageName:@"lanniu2" Target:self Action:@selector(saveClick) Title:@"保存"];
     [nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     nextBtn.titleLabel.font = [UIFont systemFontOfSize:17];
 //    [back_sv addSubview:nextBtn];
@@ -318,7 +318,7 @@
     
 }
 
--(void)nextClick
+-(void)saveClick
 {
     NSMutableArray * modelNameArr = [self propertyKeys];
     for(int i = 0;i < self.jobCellArray.count;i++)
@@ -452,6 +452,7 @@
                 [MBProgressHUD creatembHub:@"创建简历成功"];
                 WriteResumeVC2 * wrvc2 = [[WriteResumeVC2 alloc] init];
                 wrvc2.dataDic = self.dataDic;
+                wrvc2.resumeid = DataDic[@"data"];
                 [self.navigationController pushViewController:wrvc2 animated:YES];
                 [AppDelegate instance].resumeId = DataDic[@"data"];
             }

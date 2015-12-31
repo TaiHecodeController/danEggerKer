@@ -87,6 +87,7 @@
     } WithUserId:[AppDelegate instance].userId resp:[ManagerResumeModel class]] addNotifaction:hub];
 }
 
+#pragma mark 创建新简历
 - (IBAction)createNewResume:(UIButton *)sender {
     if(self.dataArray.count  < 5)
     {
