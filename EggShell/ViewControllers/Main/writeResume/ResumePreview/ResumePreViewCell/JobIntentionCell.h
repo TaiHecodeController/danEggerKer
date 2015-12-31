@@ -16,5 +16,5 @@
 @property(nonatomic,strong)UILabel * arriveTime;
 @property(nonatomic,strong)UILabel * workState;
 @property(nonatomic,strong)UILabel *  workNature;
--(void)configValue:(NSArray*)dataDic;
+-(void)configValue:(NSDictionary*)dataDic;
 @end

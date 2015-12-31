@@ -219,7 +219,7 @@
 #pragma mark -- configConllectionView
 - (void)initTableView
 {
-    CGFloat segHeight = 40;
+    CGFloat segHeight = 44;
     CGFloat margin = 20;
     CGFloat minimargin = 10;
     CGFloat y = 0 ;

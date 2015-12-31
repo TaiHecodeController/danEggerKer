@@ -101,15 +101,15 @@
 
 
 }
--(void)configValue:(NSArray*)dataDic
+-(void)configValue:(NSDictionary*)dataDic
 {
-    self.exceptJob.text = dataDic[0][@"job"][@"name"];
-    self.exceptIndustry.text = dataDic[0][@"hy"][@"name"];
-    self.exceptSalary.text = dataDic[0][@"salary"][@"name"];
-    self.workAddress.text = dataDic[0][@"area"][@"name"];
-    self.arriveTime.text = dataDic[0][@"dgtime"][@"name"];
-    self.workNature.text = dataDic[0][@"ctype"][@"name"];
-    self.workState.text = dataDic[0][@"jobst"][@"name"];
+    self.exceptJob.text = dataDic[@"job"][@"name"];
+    self.exceptIndustry.text = dataDic[@"hy"][@"name"];
+    self.exceptSalary.text = dataDic[@"salary"][@"name"];
+    self.workAddress.text = dataDic[@"area"][@"name"];
+    self.arriveTime.text = dataDic[@"dgtime"][@"name"];
+    self.workNature.text = dataDic[@"ctype"][@"name"];
+    self.workState.text = dataDic[@"jobst"][@"name"];
     //获得当前cell高度
     CGRect frame = [self frame];
     //计算出自适应的高度

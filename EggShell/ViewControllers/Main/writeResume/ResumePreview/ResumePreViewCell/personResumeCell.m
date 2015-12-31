@@ -83,9 +83,9 @@
     [self.contentView addSubview:self.email];
     
 }
--(void)configVulue:(NSArray *)dataDic
+-(void)configVulue:(NSDictionary *)dataDic
 {
-    NSDictionary * dic = dataDic[0];
+    NSDictionary * dic = dataDic;
     self.nameSexAge.text = [NSString stringWithFormat:@"%@ %@ %@岁",dic[@"uname"],dic[@"sex"][@"name"],dic[@"birthday"]];
     self.adademic.text = [NSString stringWithFormat:@"%@",dic[@"edu"][@"name"]];
     self.experience.text =[NSString stringWithFormat:@"%@", dic[@"exp"][@"name"]];

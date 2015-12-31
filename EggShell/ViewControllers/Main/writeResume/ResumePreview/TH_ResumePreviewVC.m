@@ -133,7 +133,8 @@
         titleView.personTileLable.textColor = UIColorFromRGB(0x646464);
          titleView.personTileLable.text = self.resumeName;
        titleView.createTimeLable.hidden = NO;
-        titleView.createTimeLable.text = @"2015-12-29";
+        
+        titleView.createTimeLable.text = [NSString stringWithFormat:@"创建于%@",self.dataArray[1][0][@"ctime"]];
     }else
     {
         if (section == 1||section==8 ) {
@@ -272,7 +273,7 @@
         if (!cell) {
             cell = [[personResumeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"personResumeCell"];
         }if ([self.dataArray[0][@"datadetail"]count]!=0) {
-            [cell configVulue:self.dataArray[0][@"datadetail"]];
+            [cell configVulue:self.dataArray[0][@"datadetail"][indexPath.row]];
             
             
         }
@@ -291,7 +292,7 @@
         if ([self.dataArray[1][@"datadetail"]count]!=0) {
             
             
-            [cell configValue:self.dataArray[1][@"datadetail"]];
+            [cell configValue:self.dataArray[1][@"datadetail"][indexPath.row]];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
