@@ -325,11 +325,42 @@
         {
             if (indexPath.row == 1)
             {
-                cell.cellId = self.skillType;
+//                if ([self.skillType isEqualToString:@"外语"])
+//                {
+//                    cell.cellId = @"26";
+//                }
+//                else if ([self.skillType isEqualToString:@"计算机"])
+//                {
+//                    cell.cellId = @"27";
+//                }
+//                else if ([self.skillType isEqualToString:@"其他"])
+//                {
+//                     cell.cellId = @"28";
+//                }
+                cell.cellId = self.skillId;
+                THLog(@"skillId%@",self.skillId);
+                
             }
             if (indexPath.row == 2)
             {
-                cell.cellId = self.skillDegree;
+//                if ([self.skillType isEqualToString:@"一般"])
+//                {
+//                    cell.cellId = @"40";
+//                }
+//                else if ([self.skillType isEqualToString:@"良好"])
+//                {
+//                    cell.cellId = @"41";
+//                }
+//                else if ([self.skillType isEqualToString:@"熟练"])
+//                {
+//                    cell.cellId = @"42";
+//                }
+//                else if ([self.skillType isEqualToString:@"精通"])
+//                {
+//                    cell.cellId = @"43";
+//                }
+                cell.cellId = self.ingId;
+                THLog(@"ingId%@",self.ingId);
             }
         }
         

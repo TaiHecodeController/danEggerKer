@@ -273,12 +273,13 @@
         //基本资料
         
         personResumeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"personResumeCell"];
-        if (!cell) {
+        if (!cell)
+        {
             cell = [[personResumeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"personResumeCell"];
-        }if ([self.dataArray[0][@"datadetail"]count]!=0) {
+        }
+        if ([self.dataArray[0][@"datadetail"]count]!=0)
+        {
             [cell configVulue:self.dataArray[0][@"datadetail"][indexPath.row]];
-            
-            
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -288,13 +289,13 @@
     {
         //求职意向
         JobIntentionCell * cell = [tableView dequeueReusableCellWithIdentifier:@"JobIntentionCell"];
-        if (!cell) {
+        if (!cell)
+        {
             cell = [[JobIntentionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"JobIntentionCell"];
         }
         
-        if ([self.dataArray[1][@"datadetail"]count]!=0) {
-            
-            
+        if ([self.dataArray[1][@"datadetail"]count]!=0)
+        {
             [cell configValue:self.dataArray[1][@"datadetail"][indexPath.row]];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -310,9 +311,10 @@
             cell = [[JobExperienceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EducationExperienceCell"];
         }
         
-        if ([self.dataArray[2][@"datadetail"]count]!=0) {
+        if ([self.dataArray[2][@"datadetail"]count]!=0)
+        {
             NSDictionary * dic = self.dataArray[2][@"datadetail"][indexPath.row];
-            [cell configVulue:dic] ;
+            [cell configVulue:dic];
         }
         cell.tag = indexPath.row+10;
         cell.editDeleteBlock = ^(int tag,int row)
@@ -387,7 +389,8 @@
             }
             
         };
-        if ([self.dataArray[3][@"datadetail"]count]!=0) {
+        if ([self.dataArray[3][@"datadetail"]count]!=0)
+        {
             NSDictionary * dic = self.dataArray[3][@"datadetail"][indexPath.row];
             [cell configVulue:dic] ;
         }
@@ -409,7 +412,8 @@
             int rows = row-10;
             //编辑
             if (tag==10)
-            {NSTimeInterval sdate = [self.dataArray[4][@"datadetail"][rows][@"sdate"] doubleValue];
+            {
+                NSTimeInterval sdate = [self.dataArray[4][@"datadetail"][rows][@"sdate"] doubleValue];
                 NSTimeInterval edate = [self.dataArray[4][@"datadetail"][rows][@"edate"] doubleValue];
                 NSString * startTime = [Utils changeTimeToString:sdate];
                 NSString * endTime = [Utils changeTimeToString:edate];
@@ -461,6 +465,8 @@
                 vc.skillDegree =self.dataArray[5][@"datadetail"][rows][@"ing"];
                 vc.time =self.dataArray[5][@"datadetail"][rows][@"longtime"];
                 vc.detailId =self.dataArray[5][@"datadetail"][rows][@"id"];
+                vc.skillId =self.dataArray[5][@"datadetail"][rows][@"skillid"];
+                vc.ingId =self.dataArray[5][@"datadetail"][rows][@"ingid"];
                 vc.pushtype = 1;
                 vc.dataDic = self.skillDic;
                 [self.navigationController pushViewController:vc animated:YES];
@@ -620,9 +626,11 @@
         JobIntentionCell *cell = (JobIntentionCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
         return cell.frame.size.height;
     }
-    if (indexPath.section==2) {
+    if (indexPath.section==2)
+    {
         JobExperienceCell *cell = (JobExperienceCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
         return cell.frame.size.height;
+        
     }if (indexPath.section==3) {
         EducationExperienceCell *cell = (EducationExperienceCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
         return cell.frame.size.height;

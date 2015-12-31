@@ -125,6 +125,8 @@
     vc.dataDic = self.dataDic;
     vc.pushtype = 1;
     vc.resumId = self.resumeId;
+    vc.skillId = dic[@"skillid"];
+    vc.ingId = dic[@"ingid"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

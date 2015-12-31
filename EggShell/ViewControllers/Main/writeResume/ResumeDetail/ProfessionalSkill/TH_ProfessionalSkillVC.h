@@ -19,6 +19,8 @@
 @property (nonatomic, copy) NSString *time;
 @property (nonatomic, copy) NSString *detailId;
 @property (nonatomic, copy) NSString *resumId;
+@property (nonatomic, copy) NSString *skillId;
+@property (nonatomic, copy) NSString *ingId;
 //pushType 0添加进来 1编辑进来
 @property (nonatomic, assign) int pushtype;
 
