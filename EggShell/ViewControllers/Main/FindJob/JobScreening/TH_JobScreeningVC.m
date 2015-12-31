@@ -456,6 +456,7 @@
 -(void)inqireClick
 {
     TH_FindJobVC *vc = [[TH_FindJobVC alloc]init];
+    vc.title = @"搜索结果";
     vc.keyword = _keywordTextfield.text;
     vc.hy = self.hy;
     

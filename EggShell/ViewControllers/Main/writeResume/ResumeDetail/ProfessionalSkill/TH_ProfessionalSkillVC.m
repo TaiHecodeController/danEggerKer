@@ -41,6 +41,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"专业技能";
     /*隐藏键盘**/
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
     tapGestureRecognizer.cancelsTouchesInView = NO;

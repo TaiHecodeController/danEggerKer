@@ -43,6 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"培训经历";
     self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);
      _resume_model = [ResumeModel sharedResume];
     [self createTableView];
