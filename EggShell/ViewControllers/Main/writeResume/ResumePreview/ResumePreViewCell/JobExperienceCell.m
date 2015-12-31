@@ -34,7 +34,7 @@
     self.workTime.textColor = UIColorFromRGB(0x000000);
     self.workTime.text = @"暂无";
     [self.contentView addSubview:self.workTime];
-    //工作职位
+    //单位名称
     UILabel * positionHeadLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 32, 60, 12)];
     positionHeadLable.text = @"单位名称:";
     positionHeadLable.font = [UIFont systemFontOfSize:12];
@@ -45,7 +45,7 @@
     self.position.textColor = UIColorFromRGB(0x000000);
     self.position.text = @"暂无";
     [self.contentView addSubview:self.position];
-    //公司标题
+    //担任职位
     UILabel * titleLabHeadLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 54, 60, 12)];
     titleLabHeadLable.text = @"担任职位:";
     titleLabHeadLable.font = [UIFont systemFontOfSize:12];
@@ -88,8 +88,8 @@
     NSString * startTime = [Utils changeTimeToString:sdate];
     NSString * endTime = [Utils changeTimeToString:edate];
     self.workTime.text = [NSString stringWithFormat:@"%@ 到 %@",startTime,endTime];
-    self.position.text = dataDic[@"title"];
-    self.titleLab.text = dataDic[@"name"];
+    self.position.text = dataDic[@"name"];
+    self.titleLab.text = dataDic[@"title"];
     self.workContent.text = dataDic[@"content"];
     //获得当前cell高度
     CGRect frame = [self frame];
