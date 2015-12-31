@@ -23,7 +23,7 @@
     [self.contentView addSubview:lineView];
 //标题
     UILabel * professionalSkillHeadLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 60, 12)];
-    professionalSkillHeadLable.text = @"技能名称:";
+    professionalSkillHeadLable.text = @"技能类别:";
     professionalSkillHeadLable.font = [UIFont systemFontOfSize:12];
     professionalSkillHeadLable.textColor = UIColorFromRGB(0x646464);
     [self.contentView addSubview:professionalSkillHeadLable];

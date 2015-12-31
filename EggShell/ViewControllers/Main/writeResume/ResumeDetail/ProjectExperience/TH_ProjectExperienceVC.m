@@ -175,8 +175,8 @@
     [deleteBtn addTarget:self action:@selector(deleteClick:) forControlEvents:UIControlEventTouchUpInside];
     [deleteBtn setBackgroundColor:[UIColor orangeColor]];
     [deleteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [deleteBtn setTitle:@"删除" forState:UIControlStateNormal];
-    deleteBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
+    [deleteBtn setTitle:@"删除此项目经验" forState:UIControlStateNormal];
+    deleteBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     deleteBtn.layer.cornerRadius = 5;
     if (_pushtype == 0)
     {

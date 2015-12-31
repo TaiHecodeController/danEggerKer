@@ -66,7 +66,7 @@
     UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake(80, 15, WIDETH-160, 30)];
     [addButtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
     addButtn.titleLabel.font =[UIFont  systemFontOfSize:13];
-    [addButtn setTitle:@"继续添加" forState:UIControlStateNormal];
+    [addButtn setTitle:@"+添加证书" forState:UIControlStateNormal];
     addButtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [addButtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [addButtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
@@ -97,7 +97,9 @@
         
     }
     NSDictionary * dic =self.dataArray[indexPath.row];
-    [cell configValeus:dic];
+    cell.companyNameLable.text = dic[@"name"];
+    cell.jobNameLable.text = dic[@"title"];
+    cell.limitedTimeLable.text = [NSString stringWithFormat:@"颁发时间:%@", dic[@"sdate"]];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

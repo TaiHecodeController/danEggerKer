@@ -71,7 +71,7 @@
     UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake(80, 15, WIDETH-160, 30)];
     [addButtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
     addButtn.titleLabel.font =[UIFont  systemFontOfSize:13];
-    [addButtn setTitle:@"添加" forState:UIControlStateNormal];
+    [addButtn setTitle:@"+添加专业技能" forState:UIControlStateNormal];
     addButtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [addButtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [addButtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
@@ -102,7 +102,9 @@
         
     }
     NSDictionary * dic =self.dataArray[indexPath.row];
-    [cell configValeus:dic];
+    cell.companyNameLable.text = dic[@"name"];
+    cell.jobNameLable.text = dic[@"skill"];
+    cell.limitedTimeLable.text = [NSString stringWithFormat:@"%@年",dic[@"longtime"]];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -170,15 +172,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

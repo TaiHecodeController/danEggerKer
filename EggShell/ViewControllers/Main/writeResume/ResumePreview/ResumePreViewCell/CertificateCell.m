@@ -57,7 +57,7 @@
     [self.contentView addSubview:self.awardCompany];
     //证书描述
     UILabel * proIntroduceHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 74, WIDETH, 12)];
-    proIntroduceHeadLable.text = @"内容:";
+    proIntroduceHeadLable.text = @"证书描述:";
     proIntroduceHeadLable.font = [UIFont systemFontOfSize:12];
     proIntroduceHeadLable.textColor = UIColorFromRGB(0x646464);
     [self.contentView addSubview:proIntroduceHeadLable];

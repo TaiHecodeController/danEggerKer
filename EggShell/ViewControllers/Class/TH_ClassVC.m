@@ -275,7 +275,7 @@
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(qsBtnClick:)];
             [qsBtn addGestureRecognizer:tap];
             qsBtn.userInteractionEnabled = YES;
-            [qsBtn sd_setImageWithURL:[NSURL URLWithString:_teacherArr[i][@"vimage"]] placeholderImage:nil];
+            [qsBtn sd_setImageWithURL:[NSURL URLWithString:_teacherArr[i][@"vimage"]] placeholderImage:[UIImage imageNamed:@"视频推荐默认图"]];
             
             [headView addSubview:qsBtn];
             

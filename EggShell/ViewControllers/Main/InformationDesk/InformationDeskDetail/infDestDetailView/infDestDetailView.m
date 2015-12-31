@@ -24,7 +24,7 @@
 //    self.contentLable.attributedText = comAttributedString;
 //
     
-[self.logoImage sd_setImageWithURL:[NSURL URLWithString:model.logo] placeholderImage:[UIImage imageNamed:@"tu001"]];
+[self.logoImage sd_setImageWithURL:[NSURL URLWithString:model.logo] placeholderImage:[UIImage imageNamed:@"logoSencond"]];
 //    self.logoImage.contentMode = UIViewContentModeScaleAspectFill;
 }
 -(void)setValuess:(informantionModel*)model

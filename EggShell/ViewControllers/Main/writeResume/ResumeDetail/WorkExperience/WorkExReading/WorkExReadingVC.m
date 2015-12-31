@@ -65,7 +65,7 @@
     UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake(80, 15, WIDETH-160, 30)];
     [addButtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
     addButtn.titleLabel.font =[UIFont  systemFontOfSize:13];
-    [addButtn setTitle:@"添加" forState:UIControlStateNormal];
+    [addButtn setTitle:@"+添加工作经历" forState:UIControlStateNormal];
     addButtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [addButtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [addButtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
@@ -96,7 +96,10 @@
         
     }
     NSDictionary * dic =self.dataArray[indexPath.row];
-    [cell configValeus:dic];
+    
+    cell.companyNameLable.text = dic[@"title"];
+    cell.jobNameLable.text = dic[@"name"];
+    cell.limitedTimeLable.text = [dic[@"sdate"] stringByAppendingFormat:@"到%@",dic[@"edate"]];
         return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -132,99 +135,15 @@
     } resumeWritingPreviewParam:param] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 }
 
-//-(void)createView
-//{
-//    for (int i = 0; i< self.dataArray.count; i++) {
-//        _resume_model = [ResumeModel sharedResume];
-//        WorkExReadingView * workingView =[WorkExReadingView setView];
-//        //添加手势
-//        UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editClick:)];
-//        [workingView addGestureRecognizer:tap];
-//        
-//        workingView.frame = CGRectMake(0, 215*i, WIDETH, 215);
-//        workingView.resumTitle.text = [NSString stringWithFormat:@"%@-工作经历%d",_resume_model.resumeName,i+1];
-//        [workingView.descriptionTextView setEditable:NO];
-//        workingView.descriptionTextView.showsVerticalScrollIndicator  = NO;
-//        workingView.descriptionTextView.scrollEnabled = YES;
-//        
-//        THLog(@"self.dataArray:%@",self.dataArray);
-//        
-//        [workingView config:self.dataArray[i]];
-//        [self.scro addSubview:workingView];
-//        if (i>0) {
-//            workingView.workBtn.hidden = YES;
-//        }
-//        UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH - 150)/2.0, 215*self.dataArray.count+35, 150, 30)];
-//        [addButtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
-//        addButtn.titleLabel.font =[UIFont  systemFontOfSize:13];
-//        [addButtn setTitle:@"添加工作经历" forState:UIControlStateNormal];
-//        addButtn.titleLabel.font = [UIFont systemFontOfSize:13];
-//        [addButtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//        [addButtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
-//        [self.scro addSubview:addButtn];
-//       
-//        
-//        self.scro.contentSize = CGSizeMake(WIDETH, self.dataArray.count*215+150);
-//    }
-//}
-//
-//- (void)editClick:(UITapGestureRecognizer *)tap
-//{
-//    THLog(@"查看详情");
-////    self.companyNameLable.text = [NSString stringWithFormat:@"%@",dic[@"name"]];
-////    self.HoldTimelable.text = [dic[@"sdate"] stringByAppendingFormat:@"-%@",dic[@"edate"]];
-////    self.DepartmentLable.text = dic[@"department"];
-////    self.descriptionTextView.text = dic[@"content"];
-////    self.OfficeLable.text = dic[@"title"];
-////    self.detailId = dic[@"id"];
-//   WorkExReadingView *wv = (WorkExReadingView *)tap.view;
-////wv.detailId
-////    THLog(@"%@",wv.detailId);
-//    WorkingExperienceVC *vc = [[WorkingExperienceVC alloc]init];
-//    vc.company = wv.companyNameLable.text;
-//    vc.startTime = wv.startTime;
-//    vc.endTime = wv.endTime;
-//    vc.deprtment = wv.DepartmentLable.text;
-//    vc.position = wv.OfficeLable.text;
-//    vc.workContent = wv.descriptionTextView.text;
-//    vc.detailId = wv.detailId;
-//    [self.navigationController pushViewController:vc animated:YES];
-//    
-//    
-//}
-//
 -(void)backToResume
 {
     [self.navigationController popViewControllerAnimated:YES];
-//    for(UIViewController *controller in self.navigationController.viewControllers) {
-//        if([controller isKindOfClass:[WriteResumeVC2 class]]){
-//            WriteResumeVC2*owr = (WriteResumeVC2 *)controller;
-//            [self.navigationController popToViewController:owr animated:YES];
-//            
-//        }
-        //    [self.navigationController popViewControllerAnimated:NO];
-        //    WriteResumeVC2 * write = [[WriteResumeVC2 alloc] init];
-        //    [self.navigationController popToViewController:write animated:YES];
-        //
-        //    [self.navigationController pushViewController:write animated:YES];
-//    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
-
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

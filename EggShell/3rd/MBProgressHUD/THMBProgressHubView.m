@@ -64,7 +64,7 @@
    self.Infolabel.text = text;
     if(type){
         
-        [UIView animateWithDuration:0.3f animations:^{
+        [UIView animateWithDuration:0.1f animations:^{
             self.alpha = 0;
         } completion:^(BOOL finished) {
             [imageView stopAnimating];

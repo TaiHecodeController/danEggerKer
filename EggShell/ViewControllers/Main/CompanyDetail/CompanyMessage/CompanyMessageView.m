@@ -106,7 +106,7 @@
     self.showAllBtn.frame = CGRectMake((WIDETH -100)/2, 225, 100, 30);
     [self.showAllBtn setBackgroundImage:[UIImage imageNamed:@"showallBtnBlue"] forState:UIControlStateNormal];
     [self.showAllBtn setTitle:@"查看全部" forState:UIControlStateNormal];
-    [self.showAllBtn setTitleColor:UIColorFromRGB(0XEb7A23) forState:UIControlStateNormal];
+    [self.showAllBtn setTitleColor:UIColorFromRGB(0X3ebb2b) forState:UIControlStateNormal];
     self.showAllBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     
     [self.showAllBtn setTitle:@"点击收起" forState:UIControlStateSelected];
@@ -114,7 +114,7 @@
     [self.showAllBtn setImage:[UIImage imageNamed:@"shouqiBlue"] forState:UIControlStateSelected];
     self.showAllBtn.imageEdgeInsets = UIEdgeInsetsMake(0,0,0,-115);
     self.showAllBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -33, 0, 0);
-    [self.showAllBtn setTitleColor:UIColorFromRGB(0XEb7A23) forState:UIControlStateSelected];
+    [self.showAllBtn setTitleColor:UIColorFromRGB(0X3ebb2b) forState:UIControlStateSelected];
     
     [self.showAllBtn addTarget:self action:@selector(showAllClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.showAllBtn];
