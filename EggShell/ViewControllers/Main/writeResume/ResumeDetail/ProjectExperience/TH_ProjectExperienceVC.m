@@ -215,14 +215,14 @@
     
     UIButton *cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(22.5, 40, 112.5, 30)];
     cancelBtn.backgroundColor = [UIColor orangeColor];
-    [cancelBtn setTitle:@"cancel" forState:UIControlStateNormal];
+    [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
     [cancelBtn addTarget:self action:@selector(cancelClick:) forControlEvents:UIControlEventTouchUpInside];
     cancelBtn.layer.cornerRadius =5;
     [bgView addSubview:cancelBtn];
     
     UIButton *OkBtn = [[UIButton alloc] initWithFrame:CGRectMake(165, 40, 112.5, 30)];
     [OkBtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
-    [OkBtn setTitle:@"Ok" forState:UIControlStateNormal];
+    [OkBtn setTitle:@"确认" forState:UIControlStateNormal];
     OkBtn.layer.cornerRadius = 5;
     [OkBtn addTarget:self action:@selector(okClick:) forControlEvents:UIControlEventTouchUpInside];
     OkBtn.tag = index;

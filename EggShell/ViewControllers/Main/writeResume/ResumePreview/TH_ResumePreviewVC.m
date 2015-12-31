@@ -336,6 +336,7 @@
                 vc.workContent =self.dataArray[2][@"datadetail"][rows][@"content"];
                 vc.detailId =self.dataArray[2][@"datadetail"][rows][@"id"];
                 vc.pushtype = 1;
+                vc.resumeId = self.resumeId;
                 [self.navigationController pushViewController:vc animated:YES];
                 
             }
@@ -380,6 +381,7 @@
                 vc.content = self.dataArray[3][@"datadetail"][rows][@"content"];
                 vc.detailId = self.dataArray[3][@"datadetail"][rows][@"id"];
                 vc.pushtype = 1;
+                vc.resumeId = self.resumeId;
                 [self.navigationController pushViewController:vc animated:YES];
                 //删除
             }
@@ -425,6 +427,7 @@
                 vc.trainDirection =self.dataArray[4][@"datadetail"][rows][@"title"];                vc.content =self.dataArray[4][@"datadetail"][rows][@"content"];
                 vc.detailId =self.dataArray[4][@"datadetail"][rows][@"id"];
                 vc.pushtype = 1;
+                vc.resumeId = self.resumeId;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             if (tag==11)
@@ -521,6 +524,7 @@
                 vc.content = self.dataArray[6][@"datadetail"][rows][@"content"];
                 vc.detailId = self.dataArray[6][@"datadetail"][rows][@"id"];
                 vc.pushtype = 1;
+                vc.resumeId = self.resumeId;
                 [self.navigationController pushViewController:vc animated:YES];
                 //删除
 
@@ -572,6 +576,7 @@
                 vc.content =self.dataArray[7][@"datadetail"][rows][@"content"];
                 vc.detailId =self.dataArray[7][@"datadetail"][rows][@"id"];
                 vc.pushtype = 1;
+                vc.resumeId = self.resumeId;
                 [self.navigationController pushViewController:vc animated:YES];
                 
                 //删除
