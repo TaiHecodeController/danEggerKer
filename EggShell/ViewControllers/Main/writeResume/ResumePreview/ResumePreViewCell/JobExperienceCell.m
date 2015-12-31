@@ -63,7 +63,7 @@
     contentLable.textColor = UIColorFromRGB(0x646464);
     [self.contentView addSubview:contentLable];
     
-    self.workContent = [[UILabel alloc] initWithFrame:CGRectMake(15, 94, WIDETH-30, 60)];
+    self.workContent = [[UILabel alloc] initWithFrame:CGRectMake(15, 90, WIDETH-30, 60)];
     self.workContent.font = [UIFont systemFontOfSize:12];
     self.workContent.textColor = UIColorFromRGB(0x000000);
     self.workContent.text = @"暂无";
@@ -99,10 +99,10 @@
     self.workContent.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.workContent.text sizeWithFont:self.workContent.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
-    self.workContent.frame = CGRectMake(15, 94, WIDETH-30, labelSize.height);
-  self.editDeleteView.frame = CGRectMake(WIDETH-140, 94+labelSize.height, 140, 35);
+    self.workContent.frame = CGRectMake(15, 90, WIDETH-30, labelSize.height);
+  self.editDeleteView.frame = CGRectMake(WIDETH-140, 90+labelSize.height, 140, 35);
     //计算出自适应的高度
-    frame.size.height = labelSize.height+94+45;
+    frame.size.height = labelSize.height+90+40;
     
     self.frame = frame;
 

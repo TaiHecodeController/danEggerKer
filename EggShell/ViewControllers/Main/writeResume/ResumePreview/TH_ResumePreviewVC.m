@@ -93,12 +93,12 @@
 }
 -(void)createsKill
 {
-    THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubViewwindow];
-    [[WriteResumeRequest getResumeMessageListWithSucc:^(NSDictionary *DataDic) {
+
+    [WriteResumeRequest getResumeMessageListWithSucc:^(NSDictionary *DataDic) {
         
         self.skillDic = DataDic[@"data"];
         
-    }] addNotifaction:hub];
+    }];
 }
 -(void)createTableView
 {
@@ -118,7 +118,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return     ((NSArray*)(self.dataArray[section][@"datadetail"])).count;
+    return  ((NSArray*)(self.dataArray[section][@"datadetail"])).count;
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -126,25 +126,43 @@
     titleView.backgroundColor = UIColorFromRGB(0x7adb6b);
     editAddView * editView = [[editAddView alloc] initWithFrame:CGRectMake(WIDETH - 73, 0, 73, 32)];
     [titleView addSubview:editView];
-    titleView.personTileLable.text = self.titleArray[section];
-    if ([titleView.personTileLable.text isEqualToString:@"求职意向"]||[titleView.personTileLable.text isEqualToString:@"自我评价"]) {
-        
-        editView.imageView.image = [UIImage imageNamed:@"resumeEdit"];
-        editView.editLable.text = @"编辑";
-        titleView.createTimeLable.hidden = YES;
-        
-    }else if ([titleView.personTileLable.text isEqualToString:@"个人简历"])
-    {
-        titleView.createTimeLable.hidden = NO;
+   
+    if (section == 0) {
+        titleView.backgroundColor = UIColorFromRGB(0xF3F3F1);
         editView.hidden = YES;
-        titleView.personTileLable.textColor = [UIColor blackColor];
+        titleView.personTileLable.textColor = UIColorFromRGB(0x646464);
+         titleView.personTileLable.text = self.resumeName;
+       titleView.createTimeLable.hidden = NO;
+        titleView.createTimeLable.text = @"2015-12-29";
     }else
     {
-        editView.imageView.image = [UIImage imageNamed:@"resumeAdd"];
-        editView.editLable.text = @"新增";
+        if (section == 1||section==8 ) {
+            editView.imageView.image = [UIImage imageNamed:@"resumeEdit"];
+            editView.editLable.text = @"编辑";
+
+        }else
+        {
+            editView.imageView.image = [UIImage imageNamed:@"resumeAdd"];
+            editView.editLable.text = @"新增";
+        }
+     titleView.personTileLable.text = self.titleArray[section];
         titleView.createTimeLable.hidden = YES;
-        
     }
+//    if ([titleView.personTileLable.text isEqualToString:@"求职意向"]||[titleView.personTileLable.text isEqualToString:@"自我评价"]) {
+//        
+//        editView.imageView.image = [UIImage imageNamed:@"resumeEdit"];
+//        editView.editLable.text = @"编辑";
+//        titleView.createTimeLable.hidden = YES;
+//        
+//    }else
+//    {
+//        editView.imageView.image = [UIImage imageNamed:@"resumeAdd"];
+//        editView.editLable.text = @"新增";
+//        titleView.createTimeLable.hidden = YES;
+//        
+//    }
+//    
+   
     if ([titleView.personTileLable.text isEqualToString:@"个人简历"]) {
         titleView.backgroundColor = UIColorFromRGB(0xF3F3F1);
     }else if ([titleView.personTileLable.text isEqualToString:@"求职意向"]) {
@@ -258,6 +276,7 @@
             
             
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
         
     }
@@ -274,6 +293,8 @@
             
             [cell configValue:self.dataArray[1][@"datadetail"]];
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         return cell;
     }
     if (indexPath.section ==2)
@@ -322,7 +343,8 @@
             
             
         };
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         return cell;
     }
     if (indexPath.section==3)
@@ -365,7 +387,8 @@
             NSDictionary * dic = self.dataArray[3][@"datadetail"][indexPath.row];
             [cell configVulue:dic] ;
         }
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         return cell;
     }
     if (indexPath.section==4)
@@ -406,6 +429,8 @@
             NSDictionary * dic = self.dataArray[4][@"datadetail"][indexPath.row];
             [cell configValue:dic];
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         return cell;
         
         
@@ -447,8 +472,10 @@
         
         if ([self.dataArray[5][@"datadetail"]count]!=0) {
             NSDictionary * dic = self.dataArray[5][@"datadetail"][indexPath.row];
-            [cell conFigValue:dic];
+          [cell conFigValue:dic];
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         return cell;
     }
     
@@ -497,7 +524,8 @@
             NSDictionary * dic = self.dataArray[6][@"datadetail"][indexPath.row];
             [cell conFigValues:dic];
         }
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         return cell;
 
     }
@@ -548,6 +576,8 @@
             NSDictionary * dic = self.dataArray[7][@"datadetail"][indexPath.row];
             [cell configValue:dic];
         }
+           cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         return cell;
     }
     if (indexPath.section==8)
@@ -563,6 +593,8 @@
             NSDictionary * dic = self.dataArray[8][@"datadetail"][indexPath.row];
             [cell configValue:dic];
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         return cell;
     }
     return cell;

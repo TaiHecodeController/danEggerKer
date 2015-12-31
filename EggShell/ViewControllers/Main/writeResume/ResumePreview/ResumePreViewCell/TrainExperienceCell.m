@@ -55,12 +55,12 @@
     self.trainCompany.text = @"暂无";
     [self.contentView addSubview:self.trainCompany];
     //培训内容
-    UILabel * proIntroduceHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 75, WIDETH, 12)];
+    UILabel * proIntroduceHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 74, WIDETH, 12)];
     proIntroduceHeadLable.text = @"培训内容:";
     proIntroduceHeadLable.font = [UIFont systemFontOfSize:12];
     proIntroduceHeadLable.textColor = UIColorFromRGB(0x646464);
     [self.contentView addSubview:proIntroduceHeadLable];
-    self.trainIntroduce = [[UILabel alloc] initWithFrame:CGRectMake(15, 95, WIDETH-30, 50)];
+    self.trainIntroduce = [[UILabel alloc] initWithFrame:CGRectMake(15, 94, WIDETH-30, 50)];
     self.trainIntroduce.font = [UIFont systemFontOfSize:12];
     self.trainIntroduce.textColor = UIColorFromRGB(0x000000);
     self.trainIntroduce.text = @"暂无";
@@ -99,9 +99,9 @@
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.trainIntroduce.text sizeWithFont:self.trainIntroduce.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
     self.trainIntroduce.frame = CGRectMake(15, 94, WIDETH-30, labelSize.height);
-    self.editDeleteView.frame = CGRectMake(WIDETH-140, 92+labelSize.height, 140, 35);
+    self.editDeleteView.frame = CGRectMake(WIDETH-140, 94+labelSize.height, 140, 35);
     //计算出自适应的高度
-    frame.size.height = labelSize.height+92+45;
+    frame.size.height = labelSize.height+94+40;
     
     self.frame = frame;
    }

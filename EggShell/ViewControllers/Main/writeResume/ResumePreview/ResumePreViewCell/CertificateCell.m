@@ -56,12 +56,12 @@
     self.awardCompany.text = @"暂无";
     [self.contentView addSubview:self.awardCompany];
     //证书描述
-    UILabel * proIntroduceHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 75, WIDETH, 12)];
+    UILabel * proIntroduceHeadLable =[[UILabel alloc] initWithFrame:CGRectMake(15, 74, WIDETH, 12)];
     proIntroduceHeadLable.text = @"内容:";
     proIntroduceHeadLable.font = [UIFont systemFontOfSize:12];
     proIntroduceHeadLable.textColor = UIColorFromRGB(0x646464);
     [self.contentView addSubview:proIntroduceHeadLable];
-    self.certificateIntroduce = [[UILabel alloc] initWithFrame:CGRectMake(15, 95, WIDETH-30, 50)];
+    self.certificateIntroduce = [[UILabel alloc] initWithFrame:CGRectMake(15, 94, WIDETH-30, 50)];
     self.certificateIntroduce.font = [UIFont systemFontOfSize:12];
     self.certificateIntroduce.textColor = UIColorFromRGB(0x000000);
     self.certificateIntroduce.text = @"暂无";
@@ -98,9 +98,9 @@
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.certificateIntroduce.text sizeWithFont:self.certificateIntroduce.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
     self.certificateIntroduce.frame = CGRectMake(15, 94, WIDETH-30, labelSize.height);
-    self.editDeleteView.frame = CGRectMake(WIDETH-140, 92+labelSize.height, 140, 35);
+    self.editDeleteView.frame = CGRectMake(WIDETH-140, 94+labelSize.height, 140, 35);
     //计算出自适应的高度
-    frame.size.height = labelSize.height+92+45;
+    frame.size.height = labelSize.height+94+40;
     
     self.frame = frame;
 }

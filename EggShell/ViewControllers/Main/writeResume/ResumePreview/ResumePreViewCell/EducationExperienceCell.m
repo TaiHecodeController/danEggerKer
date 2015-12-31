@@ -110,10 +110,10 @@
     self.departmentIntroduce.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.departmentIntroduce.text sizeWithFont:self.departmentIntroduce.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
-    self.departmentIntroduce.frame = CGRectMake(15, 118, WIDETH-30, labelSize.height);
-    self.editDeleteView.frame = CGRectMake(WIDETH-140, 120+labelSize.height, 140, 35);
+    self.departmentIntroduce.frame = CGRectMake(15, 116, WIDETH-30, labelSize.height);
+    self.editDeleteView.frame = CGRectMake(WIDETH-140, 116+labelSize.height, 140, 35);
     //计算出自适应的高度
-    frame.size.height = labelSize.height+120+45;
+    frame.size.height = labelSize.height+116+40;
     
     self.frame = frame;
 }
