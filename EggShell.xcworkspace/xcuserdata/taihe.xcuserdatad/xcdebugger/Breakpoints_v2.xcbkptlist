@@ -64,11 +64,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Main/writeResume/ResumeDetail/Certificate/CertificateRead/CertificateReadVC.m"
-            timestampString = "473075294.65503"
+            timestampString = "473235235.798562"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "-addbUttonClick"
             landmarkType = "5">
          </BreakpointContent>
@@ -99,41 +99,9 @@
             timestampString = "473155586.37086"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
-            landmarkName = "-chooseWord:cellIndex:tableViewTagIndex:withId:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Main/writeResume/ResumeDetail/ProfessionalSkill/TH_ProfessionalSkillVC.m"
-            timestampString = "473155586.37086"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "230"
             endingLineNumber = "230"
             landmarkName = "-saveBtnClick"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Main/writeResume/ResumeDetail/ProfessionalSkill/ProfessionSkillRead/ProfessonSkillVC.m"
-            timestampString = "473071619.586842"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -266,7 +234,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/writeResume/ResumeDetail/PersonInformation/WriteResumeViewController.m"
-                  timestampString = "473233992.234283"
+                  timestampString = "473236819.332206"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "449"
@@ -281,7 +249,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/writeResume/ResumeDetail/PersonInformation/WriteResumeViewController.m"
-                  timestampString = "473233992.234968"
+                  timestampString = "473236819.332353"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "449"
@@ -313,28 +281,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Main/writeResume/ManagerResumeVC.m"
-            timestampString = "473233778.817268"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
-            landmarkName = "-editClick:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Main/writeResume/WriteResumeVC2.m"
-            timestampString = "473233990.93247"
+            timestampString = "473234839.640974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -368,6 +320,54 @@
             startingLineNumber = "335"
             endingLineNumber = "335"
             landmarkName = "-saveClick"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WorkingExperienceVC saveClick]"
+                  moduleName = "EggShell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/writeResume/ResumeDetail/WorkExperience/WorkExReading/WorkingExperienceVC.m"
+                  timestampString = "473236819.336264"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "335"
+                  endingLineNumber = "335"
+                  offsetFromSymbolStart = "3746">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__32-[WorkingExperienceVC saveClick]_block_invoke"
+                  moduleName = "EggShell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/writeResume/ResumeDetail/WorkExperience/WorkExReading/WorkingExperienceVC.m"
+                  timestampString = "473236819.336445"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "335"
+                  endingLineNumber = "335"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Main/writeResume/ResumeDetail/ProfessionalSkill/ProfessionSkillRead/ProfessonSkillVC.m"
+            timestampString = "473236777.174183"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

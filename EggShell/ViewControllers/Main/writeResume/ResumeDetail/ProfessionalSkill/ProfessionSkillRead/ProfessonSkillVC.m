@@ -124,6 +124,7 @@
     //技能熟练度，技能类型的选项数据
     vc.dataDic = self.dataDic;
     vc.pushtype = 1;
+    vc.resumId = self.resumeId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -133,7 +134,8 @@
     NSString * tokenStr = [df objectForKey:@"md5_token"];
     NSString * userUid = [df objectForKey:@"uid"];
     NSDictionary * param = @{@"eid":[AppDelegate instance].resumeId, @"uid":userUid ,@"token":tokenStr};
-    [[WriteResumeRequest readingSkillWithSucc:^(NSDictionary *dataDic) {
+    [[WriteResumeRequest readingSkillWithSucc:^(NSDictionary *dataDic)
+    {
         self.dataArray =[NSArray arrayWithArray:dataDic[@"data"]];
         [self.tableView reloadData];
         

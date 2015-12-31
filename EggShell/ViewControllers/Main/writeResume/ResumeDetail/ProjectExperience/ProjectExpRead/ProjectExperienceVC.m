@@ -124,6 +124,7 @@
      vc.content = dic[@"content"];
      vc.detailId = dic[@"id"];
     vc.pushtype = 1;
+    vc.resumeId = self.resumeId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 -(void)loadData

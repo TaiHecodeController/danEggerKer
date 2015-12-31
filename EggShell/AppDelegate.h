@@ -28,6 +28,5 @@
 @property(nonatomic,strong)NSDictionary * pushDic;
 +(AppDelegate*)instance;
 
-
 @end
 

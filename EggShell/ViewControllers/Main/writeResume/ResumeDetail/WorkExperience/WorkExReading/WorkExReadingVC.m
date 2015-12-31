@@ -98,8 +98,8 @@
     }
     NSDictionary * dic =self.dataArray[indexPath.row];
     
-    cell.companyNameLable.text = dic[@"title"];
-    cell.jobNameLable.text = dic[@"name"];
+    cell.companyNameLable.text = dic[@"name"];
+    cell.jobNameLable.text = dic[@"title"];
     cell.limitedTimeLable.text = [dic[@"sdate"] stringByAppendingFormat:@"到%@",dic[@"edate"]];
         return cell;
 }
@@ -113,14 +113,15 @@
 
     NSDictionary * dic =self.dataArray[indexPath.row];
     WorkingExperienceVC *vc = [[WorkingExperienceVC alloc]init];
-    vc.company = dic[@"title"];
+    vc.company = dic[@"name"];
     vc.startTime = dic[@"sdate"];
     vc.endTime = dic[@"edate"];
     vc.deprtment = dic[@"department"];
-    vc.position =  dic[@"name"];
+    vc.position =  dic[@"title"];
     vc.workContent = dic[@"content"];
     vc.detailId = dic[@"id"];
     vc.pushtype = editPush;
+    vc.resumeId = self.resumeId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 -(void)loadData
