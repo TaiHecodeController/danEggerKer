@@ -87,6 +87,7 @@
     TH_ProfessionalSkillVC *vc = [[TH_ProfessionalSkillVC alloc]init];
     vc.dataDic = self.dataDic;
     vc.pushtype = 0;
+    vc.resumId = self.resumeId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

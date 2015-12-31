@@ -11,7 +11,7 @@
 @interface ProfessonSkillVC : TH_BaseVC
 
 @property (strong,nonatomic)NSDictionary * dataDic;
-
 @property(nonatomic,strong)WriteRusumeModel2 * model;
+@property (nonatomic, copy) NSString *resumeId;
 
 @end

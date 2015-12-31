@@ -10,5 +10,8 @@
 #import "WriteRusumeModel2.h"
 
 @interface ProjectExperienceVC : TH_BaseVC
+
 @property(nonatomic,strong)WriteRusumeModel2 * model;
+@property (nonatomic, copy) NSString *resumeId;
+
 @end

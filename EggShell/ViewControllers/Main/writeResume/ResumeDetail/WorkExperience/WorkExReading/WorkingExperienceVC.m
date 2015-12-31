@@ -312,7 +312,8 @@
     if(self.contentTextField.text.length > 15)
     {
         _model.content = self.contentTextField.text;
-    }else
+    }
+    else
     {
         [MBProgressHUD creatembHub:@"请输入至少15个字符"];
         return;

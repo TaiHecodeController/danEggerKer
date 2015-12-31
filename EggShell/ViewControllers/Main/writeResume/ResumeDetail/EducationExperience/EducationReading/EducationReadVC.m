@@ -84,6 +84,7 @@
 {
     TH_EducationExperienceVC *vc = [[TH_EducationExperienceVC alloc]init];
     vc.pushtype = 0;
+    vc.resumeId = self.resumeId;
     [self.navigationController pushViewController:vc animated:YES];
 
 }

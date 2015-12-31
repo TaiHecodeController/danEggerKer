@@ -81,6 +81,7 @@
     //    [self.navigationController popViewControllerAnimated:YES];
     WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
     working.pushtype = addPush;
+    working.resumeId = self.resumeId;
     [self.navigationController pushViewController:working animated:YES];
 }
 

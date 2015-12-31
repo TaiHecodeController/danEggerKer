@@ -172,11 +172,13 @@
             {
                 WorkingExperienceVC * working = [[WorkingExperienceVC alloc] init];
                 working.pushtype = addPush;
+                working.resumeId = self.resumeid;
                 [self.navigationController pushViewController:working animated:YES];
             }
             else
             {
                 WorkExReadingVC *vc = [[WorkExReadingVC alloc]init];
+                vc.resumeId = self.resumeid;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             
@@ -188,11 +190,13 @@
             {
                 TH_EducationExperienceVC *vc = [[TH_EducationExperienceVC alloc]init];
                 vc.pushtype = 0;
+                vc.resumeId = self.resumeid;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             else
             {
                 EducationReadVC *vc =[[EducationReadVC alloc]init];
+                vc.resumeId = self.resumeid;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             
@@ -204,11 +208,13 @@
             {
                 TH_TrainExperienceVC *vc = [[TH_TrainExperienceVC alloc]init];
                 vc.pushtype = 0;
+                vc.resumeId = self.resumeid;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             else
             {
                 TrainReadVC * vc = [[TrainReadVC alloc]init];
+                vc.resumeId = self.resumeid;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             
@@ -221,12 +227,14 @@
                 TH_ProfessionalSkillVC *vc = [[TH_ProfessionalSkillVC alloc]init];
                 vc.dataDic = self.dataDic;
                 vc.pushtype = 0;
+                vc.resumId = self.resumeid;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             else
             {
                 ProfessonSkillVC *vc = [[ProfessonSkillVC alloc]init];
                 vc.dataDic = self.dataDic;
+                vc.resumeId = self.resumeid;
                 [self.navigationController pushViewController:vc animated:YES];
             }
 
@@ -240,11 +248,13 @@
             {
                 TH_ProjectExperienceVC *vc = [[TH_ProjectExperienceVC alloc]init];
                 vc.pushtype = 0;
+                vc.resumeId = self.resumeid;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             else
             {
                 ProjectExperienceVC *vc = [[ProjectExperienceVC alloc]init];
+                vc.resumeId = self.resumeid;
                 [self.navigationController pushViewController:vc animated:YES];
             }
 
@@ -257,11 +267,13 @@
             {
                 TH_CertificateVC *vc = [[TH_CertificateVC alloc]init];
                 vc.pushtype = 0;
+                vc.resumeId = self.resumeid;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             else
             {
                 CertificateReadVC *vc = [[CertificateReadVC alloc]init];
+                vc.resuemId = self.resumeid;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             
@@ -272,6 +284,7 @@
         {
             TH_SelfEvaluationVC * selfEvaluate = [[TH_SelfEvaluationVC alloc] init];
             selfEvaluate.title = @"自我评价";
+            selfEvaluate.resumId = self.resumeid;
             [self.navigationController pushViewController:selfEvaluate animated:YES];
         }
         default:

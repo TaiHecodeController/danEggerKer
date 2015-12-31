@@ -75,11 +75,12 @@
     [footerView addSubview:addButtn];
 }
 
-#pragma mark --继续添加
+#pragma mark 继续添加
 -(void)addClick
 {
     TH_CertificateVC *vc = [[TH_CertificateVC alloc]init];
     vc.pushtype = 0;
+    vc.resumeId = self.resuemId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

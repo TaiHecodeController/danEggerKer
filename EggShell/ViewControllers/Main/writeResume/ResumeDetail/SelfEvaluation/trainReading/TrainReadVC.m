@@ -83,6 +83,7 @@
 {
     TH_TrainExperienceVC *vc = [[TH_TrainExperienceVC alloc]init];
         vc.pushtype = 0;
+    vc.resumeId = self.resumeId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -12,5 +12,6 @@
 @interface WorkExReadingVC : TH_BaseVC
 
 @property (strong,nonatomic)WriteRusumeModel2 * model;
+@property (nonatomic, copy) NSString *resumeId;
 
 @end

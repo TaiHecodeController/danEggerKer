@@ -9,5 +9,8 @@
 #import "TH_BaseVC.h"
 #import "WriteRusumeModel2.h"
 @interface TrainReadVC : TH_BaseVC
+
 @property(nonatomic,strong)WriteRusumeModel2 * model;
+@property (nonatomic, copy) NSString *resumeId;
+
 @end
