@@ -469,10 +469,13 @@
                 vc.ingId =self.dataArray[5][@"datadetail"][rows][@"ingid"];
                 vc.pushtype = 1;
                 vc.dataDic = self.skillDic;
+                vc.resumId = self.resumeId;
                 [self.navigationController pushViewController:vc animated:YES];
                 //删除
 
-            }if (tag==11) {
+            }
+            if (tag==11)
+            {
                   [self presentDeleteView:indexPath.section withCellId:self.dataArray[5][@"datadetail"][rows][@"id"]];
 
             }
