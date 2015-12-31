@@ -174,7 +174,7 @@
     
     UIButton * registerBtn =[[UIButton alloc] initWithFrame:CGRectMake(15,290, WIDETH - 30, 45)];
     [registerBtn setTitle:@"立即注册" forState:UIControlStateNormal];
-    [registerBtn setBackgroundImage:[UIImage imageNamed:@"lanniu2"] forState:UIControlStateNormal];
+    [registerBtn setBackgroundImage:[UIImage imageNamed:@"hongniu"] forState:UIControlStateNormal];
     registerBtn.titleLabel.textColor = color(255, 255, 255);
     registerBtn.titleLabel.font = [UIFont systemFontOfSize:19];
     registerBtn.layer.cornerRadius = 3;

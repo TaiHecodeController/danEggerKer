@@ -97,10 +97,10 @@
     self.certificateIntroduce.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.certificateIntroduce.text sizeWithFont:self.certificateIntroduce.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
-    self.certificateIntroduce.frame = CGRectMake(15, 94, WIDETH-30, labelSize.height);
-    self.editDeleteView.frame = CGRectMake(WIDETH-140, 94+labelSize.height, 140, 35);
+    self.certificateIntroduce.frame = CGRectMake(15, 90, WIDETH-30, labelSize.height);
+    self.editDeleteView.frame = CGRectMake(WIDETH-140, 90+labelSize.height, 140, 35);
     //计算出自适应的高度
-    frame.size.height = labelSize.height+94+40;
+    frame.size.height = labelSize.height+90+40;
     
     self.frame = frame;
 }

@@ -97,7 +97,7 @@
     NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
     NSString * startTime = [Utils changeTimeToString:sdate];
     NSString * endTime = [Utils changeTimeToString:edate];
-    self.educationTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+    self.educationTime.text = [NSString stringWithFormat:@"%@ 到 %@",startTime,endTime];
     self.department.text = dataDic[@"specialty"];
     self.schoolName.text = dataDic[@"name"];
     self.position.text = dataDic[@"title"];
@@ -110,10 +110,10 @@
     self.departmentIntroduce.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.departmentIntroduce.text sizeWithFont:self.departmentIntroduce.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
-    self.departmentIntroduce.frame = CGRectMake(15, 116, WIDETH-30, labelSize.height);
-    self.editDeleteView.frame = CGRectMake(WIDETH-140, 116+labelSize.height, 140, 35);
+    self.departmentIntroduce.frame = CGRectMake(15, 112, WIDETH-30, labelSize.height);
+    self.editDeleteView.frame = CGRectMake(WIDETH-140, 112+labelSize.height, 140, 35);
     //计算出自适应的高度
-    frame.size.height = labelSize.height+116+40;
+    frame.size.height = labelSize.height+112+40;
     
     self.frame = frame;
 }

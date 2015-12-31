@@ -85,23 +85,21 @@
     NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
     NSString * startTime = [Utils changeTimeToString:sdate];
     NSString * endTime = [Utils changeTimeToString:edate];
-    self.trainTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+    self.trainTime.text = [NSString stringWithFormat:@"%@ -到 %@",startTime,endTime];
     
     self.trainDirection.text = dataDic[@"title"];
     self.trainCompany.text = dataDic[@"name"];
     self.trainIntroduce.text = dataDic[@"content"];
     //获得当前cell高度
     CGRect frame = [self frame];
-    //文本赋值
-//    self.trainIntroduce.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限";
     //设置label的最大行数
     self.trainIntroduce.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
     CGSize labelSize = [self.trainIntroduce.text sizeWithFont:self.trainIntroduce.font constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
-    self.trainIntroduce.frame = CGRectMake(15, 94, WIDETH-30, labelSize.height);
-    self.editDeleteView.frame = CGRectMake(WIDETH-140, 94+labelSize.height, 140, 35);
+    self.trainIntroduce.frame = CGRectMake(15, 90, WIDETH-30, labelSize.height);
+    self.editDeleteView.frame = CGRectMake(WIDETH-140, 90+labelSize.height, 140, 35);
     //计算出自适应的高度
-    frame.size.height = labelSize.height+94+40;
+    frame.size.height = labelSize.height+90+40;
     
     self.frame = frame;
    }

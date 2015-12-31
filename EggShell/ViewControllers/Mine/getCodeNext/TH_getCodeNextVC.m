@@ -91,7 +91,7 @@
     [confirmPassWordBgView addSubview:confirmPasswordTextField];
     
     UIButton *  resetpassword = [[UIButton alloc] initWithFrame:CGRectMake(15, 125, WIDETH - 30, 45)];
-    [resetpassword setBackgroundImage:[UIImage imageNamed:@"lanniu2"] forState:UIControlStateNormal];
+    [resetpassword setBackgroundImage:[UIImage imageNamed:@"hongniu"] forState:UIControlStateNormal];
     [resetpassword setTitle:@"重置密码" forState:UIControlStateNormal];
     resetpassword.titleLabel.textColor = color(255, 255, 255);
     resetpassword.titleLabel.font = [UIFont systemFontOfSize:19];

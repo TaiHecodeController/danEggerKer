@@ -87,14 +87,12 @@
     NSTimeInterval edate = [dataDic[@"edate"] doubleValue];
     NSString * startTime = [Utils changeTimeToString:sdate];
     NSString * endTime = [Utils changeTimeToString:edate];
-    self.workTime.text = [NSString stringWithFormat:@"%@ - %@",startTime,endTime];
+    self.workTime.text = [NSString stringWithFormat:@"%@ 到 %@",startTime,endTime];
     self.position.text = dataDic[@"title"];
     self.titleLab.text = dataDic[@"name"];
     self.workContent.text = dataDic[@"content"];
     //获得当前cell高度
     CGRect frame = [self frame];
-    //文本赋值
-//    self.workContent.text = @"北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限北京蛋壳无限";
     //设置label的最大行数
     self.workContent.numberOfLines = 0;
     CGSize size = CGSizeMake(300, 1000);
