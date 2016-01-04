@@ -41,7 +41,7 @@
     [df setObject:num forKey:@"citytag"];
     [df synchronize];
     //版本检测
-    [self checkVersion];
+//    [self checkVersion];
 //    初始化保利视频
     [self initPloyVideo];
     // 要使用百度地图，请先启动BaiduMapManager

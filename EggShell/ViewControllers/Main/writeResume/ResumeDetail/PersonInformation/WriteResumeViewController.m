@@ -62,7 +62,7 @@
     
     _model = [ResumeModel sharedResume];
     
-    self.title = @"写简历";
+    self.title = @"个人资料";
     self.jobCellArray = [NSMutableArray arrayWithCapacity:0];
     self.jobCellArray2 = [NSMutableArray arrayWithCapacity:0];
     [self createData];

@@ -71,7 +71,7 @@
 {
     [super layoutSubviews];
     
-    CGFloat margin = 20;
+    CGFloat margin = 15;
     CGFloat y = 10;
     CGFloat x = margin;
     
@@ -87,17 +87,17 @@
     }
     
     CGSize pLabSize = [_positionLab.text sizeWithFont:_positionLab.font];
-    _positionLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + margin, y, 235*MyWideth, pLabSize.height);
+    _positionLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + margin + 20, y, 235*MyWideth, pLabSize.height);
     
     y += _positionLab.frame.size.height + 5;
     CGSize compSize = [_companyLab.text sizeWithFont:_companyLab.font];
-    _companyLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + margin, y, compSize.width, compSize.height);
+    _companyLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + margin + 20, y, compSize.width, compSize.height);
     
     _positionSecBtn.frame = CGRectMake(margin, CGRectGetMinY(_companyLab.frame) - 8, 40, 40);
     
     y += _companyLab.frame.size.height + 5;
     CGSize cityLabSize = [_cityLab.text sizeWithFont:_cityLab.font];
-    _cityLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) ,  y, cityLabSize.width, cityLabSize.height);
+    _cityLab.frame = CGRectMake(CGRectGetMaxX(_positionSecBtn.frame) + 13,  y, cityLabSize.width, cityLabSize.height);
     
     _lineView.frame = CGRectMake(CGRectGetMaxX(_cityLab.frame) + 7, y, 1, cityLabSize.height);
     
