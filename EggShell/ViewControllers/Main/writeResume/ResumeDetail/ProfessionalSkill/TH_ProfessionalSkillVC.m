@@ -368,6 +368,13 @@
     }
     if (indexPath.row== 3) {
         cell.profisionTextField.delegate = self;
+        
+        UILabel *lab = [[UILabel alloc] init];
+        lab.text = @"单位:年";
+        lab.font = [UIFont systemFontOfSize:11];
+        lab.textAlignment = NSTextAlignmentRight;
+        lab.frame = CGRectMake(WIDETH - 10, 10, 50, 20);
+        [cell addSubview:lab];
     }
     
     cell.profesionNameLable.text = self.nameArray[indexPath.row];

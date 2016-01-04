@@ -58,6 +58,7 @@
         
     } uid:[AppDelegate instance].userId token:tokenStr];
 }
+
 -(void)keyboardHide:(UITapGestureRecognizer*)tap
 {
     [self.view endEditing:YES];
@@ -121,6 +122,7 @@
     replaceBtn.titleLabel.font = [UIFont boldSystemFontOfSize:13];
 //    [self.scro addSubview:replaceBtn];
 }
+
 /*保存**/
 -(void)saveBtnClick
 {
@@ -162,7 +164,6 @@
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
     [self.placeHoderTextLable removeFromSuperview];
-
 }
 
 - (void)didReceiveMemoryWarning {

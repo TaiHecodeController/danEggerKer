@@ -98,11 +98,6 @@
         
     }] addNotifaction:hub];
 }
--(void)backClick
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 -(void)createData
 {
     self.nameArray = @[@"个人资料",@"工作经历",@"教育经历",@"培训经历",@"专业技能",@"项目经验",@"证书",@"自我评价"];
@@ -122,7 +117,26 @@
     writeTabView.separatorColor = [UIColor colorWithRed:221 / 255.0 green:221 / 255.0 blue:221 / 255.0 alpha:1];
     [self.view addSubview:writeTabView];
     
+    //下方按钮
+    UIButton * saveBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 2 - 100, 368, 10, 20) ImageName:@"backSecond" Target:self Action:@selector(backClick) Title:@""];
+    [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    saveBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:saveBtn];
+    
 }
+
+-(void)backClick
+{
+    for (UIViewController *vc in self.navigationController.viewControllers)
+    {
+        if ([vc isKindOfClass:[ManagerResumeVC class]])
+        {
+            [self.navigationController popToViewController:vc animated:YES];
+        }
+    }
+}
+
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
