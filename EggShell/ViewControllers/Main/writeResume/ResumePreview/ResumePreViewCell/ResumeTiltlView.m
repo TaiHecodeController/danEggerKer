@@ -38,5 +38,7 @@
     self.createTimeLable  = timeLable;
     [self addSubview:timeLable];
     
+    
+    
 }
 @end

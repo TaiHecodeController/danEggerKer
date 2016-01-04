@@ -12,4 +12,5 @@
 /*个人简历**/
 @property(nonatomic,strong)UILabel * personTileLable;
 @property(nonatomic,strong)UILabel * createTimeLable;
+@property(nonatomic,strong)UIView * titleBtn;
 @end
