@@ -487,9 +487,9 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="当前版本2.2.0版本" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJ4-nM-XKN">
-                                    <rect key="frame" x="110" y="12" width="100" height="17"/>
+                                    <rect key="frame" x="100" y="12" width="120" height="17"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="17" id="rOb-Jp-3Dp"/>
+                                        <constraint firstAttribute="height" constant="17" id="VL4-Om-lKi"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -502,11 +502,10 @@
                                 <constraint firstItem="NNf-5m-NRF" firstAttribute="leading" secondItem="bZc-GQ-3Dg" secondAttribute="leading" id="7nX-g2-eQE"/>
                                 <constraint firstAttribute="trailing" secondItem="YID-GA-ViR" secondAttribute="trailing" id="EjJ-5K-MMW"/>
                                 <constraint firstAttribute="height" constant="42" id="HDg-pa-x1W"/>
-                                <constraint firstAttribute="trailing" secondItem="uJ4-nM-XKN" secondAttribute="trailing" constant="110" id="J86-IU-boV"/>
                                 <constraint firstAttribute="trailing" secondItem="NNf-5m-NRF" secondAttribute="trailing" id="KHf-o2-S2j"/>
-                                <constraint firstItem="uJ4-nM-XKN" firstAttribute="leading" secondItem="bZc-GQ-3Dg" secondAttribute="leading" constant="110" id="RS7-nQ-cv2"/>
                                 <constraint firstAttribute="bottom" secondItem="NNf-5m-NRF" secondAttribute="bottom" id="V4c-bf-aCq"/>
-                                <constraint firstItem="uJ4-nM-XKN" firstAttribute="top" secondItem="bZc-GQ-3Dg" secondAttribute="top" constant="13" id="ger-HE-j4a"/>
+                                <constraint firstItem="uJ4-nM-XKN" firstAttribute="top" secondItem="bZc-GQ-3Dg" secondAttribute="top" constant="12" id="qTW-N9-vRw"/>
+                                <constraint firstItem="uJ4-nM-XKN" firstAttribute="centerX" secondItem="bZc-GQ-3Dg" secondAttribute="centerX" id="ueB-dx-fXc"/>
                                 <constraint firstItem="YID-GA-ViR" firstAttribute="top" secondItem="bZc-GQ-3Dg" secondAttribute="top" id="vhR-wE-640"/>
                             </constraints>
                         </view>

@@ -57,8 +57,8 @@
     
     UIPageControl *pageControl = [[UIPageControl alloc] init];
     pageControl.numberOfPages = kPageCount;
-    pageControl.backgroundColor = [UIColor redColor];
-    pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:235/255.0 green:67/255.0 blue:67/255.0 alpha:1];
+    pageControl.backgroundColor = UIColorFromRGB(0xeb7a23);
+    pageControl.currentPageIndicatorTintColor = UIColorFromRGB(0xeb7a23);
     
     pageControl.pageIndicatorTintColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1];
     pageControl.centerX = scrollW * 0.5;

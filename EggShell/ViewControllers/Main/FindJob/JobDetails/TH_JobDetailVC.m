@@ -499,7 +499,7 @@
     _jobDescription.salaryLable.text = model.salary;
     _jobDescription.workYearLable.text = model.exp;
     _jobDescription.studyLable.text = model.edu;
-    _jobDescription.addressLable.text = model.address;
+    _jobDescription.addressLable.text = model.provinceid;
 //    _jobDescription.natureLable.text = [NSString stringWithFormat:@"性质：%@",model.type];
     _jobDescription.recruitLable.text = [NSString stringWithFormat:@"招聘:%@",model.number];
     

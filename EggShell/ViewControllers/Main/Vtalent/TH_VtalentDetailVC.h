@@ -10,4 +10,6 @@
 
 @interface TH_VtalentDetailVC : TH_BaseVC
 @property(nonatomic,strong)NSDictionary * dataDic;
+@property(nonatomic,strong)NSString * titleStr;
+@property(nonatomic,strong)NSString * detailStr;
 @end

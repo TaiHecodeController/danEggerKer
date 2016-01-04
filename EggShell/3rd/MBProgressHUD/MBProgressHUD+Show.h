@@ -20,5 +20,5 @@
 //自定义网络加载封装加载view
 +(THMBProgressHubView *)mbHubShowMBProgressHubView:(UIViewController*)controllerView;
 //自定义网络加载封装加载window
-+(THMBProgressHubView *)mbHubShowMBProgressHubViewwindow;
+//+(THMBProgressHubView *)mbHubShowMBProgressHubViewwindow;
 @end

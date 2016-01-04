@@ -370,10 +370,10 @@
         cell.profisionTextField.delegate = self;
         
         UILabel *lab = [[UILabel alloc] init];
-        lab.text = @"单位:年";
-        lab.font = [UIFont systemFontOfSize:11];
+        lab.text = @"年";
+        lab.font = [UIFont systemFontOfSize:12];
         lab.textAlignment = NSTextAlignmentRight;
-        lab.frame = CGRectMake(WIDETH - 10, 10, 50, 20);
+        lab.frame = CGRectMake(160, 0, 50, cell.frame.size.height);
         [cell addSubview:lab];
     }
     

@@ -78,7 +78,7 @@
 
 - (void)getItemNum
 {
-    THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubViewwindow];
+    THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString *tokenStr = [df objectForKey:@"md5_token"];
     [[WriteResumeRequest getResumeItemNumberWithSucc:^(NSDictionary *dataDic) {
@@ -91,7 +91,7 @@
 
 - (void)loadData
 {
-    THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubViewwindow];
+    THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     [[WriteResumeRequest getResumeMessageListWithSucc:^(NSDictionary *DataDic) {
         
         self.dataDic = DataDic[@"data"];

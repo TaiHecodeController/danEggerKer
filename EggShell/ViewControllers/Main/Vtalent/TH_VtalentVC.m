@@ -147,11 +147,15 @@
 { int i = (int)sender.tag-10;
     TH_VtalentDetailVC * talentDetail = [[TH_VtalentDetailVC alloc] init];
       talentDetail.dataDic =  self.elitearray[i];
+    talentDetail.titleStr = @"蛋壳精英";
+    talentDetail.detailStr = @"精英足迹";
     [self.navigationController pushViewController:talentDetail animated:YES];
 }
 -(void)ambassadorButton:(UIButton*)sender
 { TH_VtalentDetailVC * talentDetail = [[TH_VtalentDetailVC alloc] init];
     talentDetail.dataDic = self.ambassadorArray[sender.tag - 10];
+    talentDetail.titleStr = @"蛋壳大使";
+    talentDetail.detailStr = @"大使足迹";
     [self.navigationController pushViewController:talentDetail animated:YES];
 
 }

@@ -56,7 +56,7 @@
 }
 -(void)loadData
 {
-    THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubViewwindow];
+    THMBProgressHubView * hub = [MBProgressHUD mbHubShowMBProgressHubView:self];
     [[WriteResumeRequest getResumeListWithSucc:^(NSArray * DataArray) {
         self.dataArray = [NSMutableArray arrayWithArray:DataArray];
         if(self.dataArray.count == 0)

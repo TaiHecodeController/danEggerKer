@@ -35,7 +35,7 @@
     [self.scro addSubview:titileBgView];
  //蛋壳儿精英
     UILabel * eliteLable = [[UILabel alloc]initWithFrame:CGRectMake(10, 10*MyWideth, WIDETH - 10, 16*MyWideth)];
-    eliteLable.text = @"蛋壳精英";
+    eliteLable.text = self.titleStr;
     eliteLable.font = [UIFont systemFontOfSize:15*MyWideth];
     eliteLable.textColor = UIColorFromRGB(0x323232);
     [titileBgView addSubview:eliteLable];
@@ -74,7 +74,7 @@
 //    [self.view addSubview:rememberBgView];
     //精英足记
     UILabel * rememberLable = [[UILabel alloc]initWithFrame:CGRectMake(10, 131*MyWideth+10*MyWideth+10*MyWideth, WIDETH-10, 15*MyWideth)];
-    rememberLable.text = @"精英足迹";
+    rememberLable.text = self.detailStr;
 //    rememberLable.backgroundColor = [UIColor whiteColor ];
     rememberLable.font = [UIFont systemFontOfSize:15*MyWideth];
     rememberLable.textColor = UIColorFromRGB(0x323232);
