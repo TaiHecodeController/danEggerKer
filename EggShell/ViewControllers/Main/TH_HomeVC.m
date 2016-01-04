@@ -91,6 +91,7 @@
     [super viewDidLoad];
         
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(test:) name:@"jgPush" object:nil];
+    //版本检测
     [self checkVersion];
     //网络判断
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink)

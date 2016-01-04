@@ -241,7 +241,7 @@
     UIButton *okBtn = [[UIButton alloc]init];
     [okBtn setTitle:@"确定" forState:UIControlStateNormal];
     [okBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    okBtn.backgroundColor = color(63, 172, 241);
+    okBtn.backgroundColor = UIColorFromRGB(0xeb7a23);
     CGFloat okBtnW =( 1- 0.34 * 2) * alertView.frame.size.width;
     okBtn.frame = CGRectMake(0.34 * alertView.frame.size.width, 100 , okBtnW, 30);
     okBtn.clipsToBounds = YES;

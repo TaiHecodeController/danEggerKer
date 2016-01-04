@@ -123,7 +123,7 @@
         self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%@)",succ[@"data"][@"expect"]];
         }
         if ([succ[@"data"][@"description"]length]==0) {
-            self.mineView.userLable.text = @"学习是一种信仰";
+            self.mineView.userLable.text = @"个性签名";
         }else
         {
         self.mineView.userLable.text = succ[@"data"][@"description"];
@@ -138,7 +138,7 @@
             self.mineView.DeliveryJobNum.text = [NSString stringWithFormat:@"(%d)",0];
              self.mineView.FavoriteJobNum.text = [NSString stringWithFormat:@"(%d)",0];
              self.mineView.ResumeNum.text = [NSString stringWithFormat:@"(%d)",0];
-            self.mineView.userLable.text = @"学习是一种信仰";
+            self.mineView.userLable.text = @"个性签名";
             [MBProgressHUD creatembHub:@"用户不存在" ControllerView:self];
             
         }
@@ -624,14 +624,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
