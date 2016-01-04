@@ -214,7 +214,7 @@
     self.swipeableView.backgroundColor =[UIColor  whiteColor];
     self.swipeableView.allowedDirection = ZLSwipeableViewDirectionHorizontal;
     [self.view addSubview:self.swipeableView];
-    self.swipeableView.numberOfActiveViews = 3;
+//    self.swipeableView.numberOfActiveViews = 3;
     self.swipeableView.hidden = YES;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick)];
