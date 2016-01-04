@@ -14,5 +14,6 @@
 
 @property (strong,nonatomic)MJRefreshFooterView * footer;
 @property (strong,nonatomic)MJRefreshHeaderView * header;
-
+@property(nonatomic,assign)  double doubleCurrentVersion;
+@property(nonatomic,assign)   double doubleUpdateVersion;
 @end

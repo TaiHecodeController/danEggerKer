@@ -54,7 +54,7 @@
 
 @interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate,HotJobViewDelegate,FamousRecommendedViewDelegate>
 
-{
+{NSString * _trackViewUrl;
     UIView * _navBackView;
     SearchView * _searchView;
     
@@ -91,7 +91,7 @@
     [super viewDidLoad];
         
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(test:) name:@"jgPush" object:nil];
-    
+    [self checkVersion];
     //网络判断
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink)
     {
@@ -123,6 +123,70 @@
     //    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
 }
+//版本检测
+-(void)checkVersion
+{
+    //1.同步请求json数据
+    NSError * error;
+    NSString * urlStr = [NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",APPID];
+    
+    NSURL * url = [NSURL URLWithString:urlStr];
+    NSData * response = [NSURLConnection sendSynchronousRequest:[[NSURLRequest alloc] initWithURL:url] returningResponse:nil error:nil];
+    
+    if (!response) {
+        return;
+    }
+    
+    NSDictionary * appInfoDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error:&error];
+    
+    if(!appInfoDic) {
+        return;
+    }
+    NSArray * resultsArray = [appInfoDic objectForKeyedSubscript:@"results"];
+    if(!resultsArray.count)
+    {
+        NSLog(@"版本检测数据error,resultsArray==nil");
+        return;
+    }
+    
+    NSDictionary * infoDic = [resultsArray objectAtIndex:0];
+    //2.需要version,trackViewUrl,trackName三个数据
+    NSString * latestVersion = [infoDic objectForKey:@"version"];
+    _trackViewUrl = [infoDic objectForKey:@"trackViewUrl"];//地址trackViewUrl
+    
+    NSString * trackName = [infoDic objectForKey:@"trackName"];
+    
+    //3.获取此应用的版本号
+    //    CFBundleShortVersionString
+    NSDictionary * Local_infoDic = [[NSBundle mainBundle] infoDictionary];
+    NSString * currentVersion = [Local_infoDic objectForKey:@"CFBundleShortVersionString"];
+    
+    self.doubleCurrentVersion = [currentVersion doubleValue];
+    
+    self.doubleUpdateVersion = [latestVersion doubleValue];
+    
+    //两个点的，最后那个是无效的
+    if(self.doubleUpdateVersion > self.doubleCurrentVersion)
+    {
+        NSString * titleStr = [NSString stringWithFormat:@"检查更新:%@",trackName];
+        //        NSString * messageStr = [NSString stringWithFormat:@"发现新版本(%@),是否升级?",latestVersion];
+        NSString * releaseNotes = appInfoDic[@"results"][0][@"releaseNotes"];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:titleStr message:releaseNotes delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"升级", nil];
+        alert.tag = 1001;
+        [alert show];
+    }
+}
+//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    
+//    if(buttonIndex == 1)
+//    {
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_trackViewUrl]];
+//        
+//        
+//    }
+//}
+
 
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -918,6 +982,15 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    if (alertView.tag == 1001) {
+        if(buttonIndex == 1)
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_trackViewUrl]];
+            
+            
+        }
+    }else
+    {
     if(buttonIndex == 1)
     {
         self.navigationController.navigationBarHidden = NO;
@@ -925,6 +998,7 @@
         [self.navigationController pushViewController:lvc animated:YES];
         
     }
+  }
 }
 
 #pragma mark - - 轮播图
