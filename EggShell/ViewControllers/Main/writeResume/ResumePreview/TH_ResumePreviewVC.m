@@ -83,10 +83,7 @@
     [super viewDidLoad];
     self.dataArray = [NSArray array];
     self.titleArray = @[@"个人简历",@"求职意向",@"工作经历",@"教育经历",@"培训经历",@"专业技能",@"项目经验",@"证书",@"自我评价"];
-    //    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT-64)];
-    //    self.scro = scro;
-    //    [self.view addSubview:scro];
-    //
+    
     [self createTableView];
     /*获取专业技能列表**/
     [self createsKill];
@@ -149,21 +146,6 @@
      titleView.personTileLable.text = self.titleArray[section];
         titleView.createTimeLable.hidden = YES;
     }
-//    if ([titleView.personTileLable.text isEqualToString:@"求职意向"]||[titleView.personTileLable.text isEqualToString:@"自我评价"]) {
-//        
-//        editView.imageView.image = [UIImage imageNamed:@"resumeEdit"];
-//        editView.editLable.text = @"编辑";
-//        titleView.createTimeLable.hidden = YES;
-//        
-//    }else
-//    {
-//        editView.imageView.image = [UIImage imageNamed:@"resumeAdd"];
-//        editView.editLable.text = @"新增";
-//        titleView.createTimeLable.hidden = YES;
-//        
-//    }
-//    
-   
     if ([titleView.personTileLable.text isEqualToString:@"个人简历"]) {
         titleView.backgroundColor = UIColorFromRGB(0xF3F3F1);
     }else if ([titleView.personTileLable.text isEqualToString:@"求职意向"]) {
