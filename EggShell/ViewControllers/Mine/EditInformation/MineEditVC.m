@@ -175,7 +175,7 @@
 -(void)createData
 {
     self.nameArray = @[@"登陆账号",@"昵称",@"性别",@"所在地",@"简介"];
-    self.holderArray = @[@"18800006666",@"",@"男",@"北京",@"学习是一种信仰"];
+    self.holderArray = @[@"18800006666",@"",@"男",@"北京",@"个性签名"];
     
     self.nameArray2 = @[@"生日",@"邮箱",];
     self.holderArray2 = @[@"2015-7-10",@""];
