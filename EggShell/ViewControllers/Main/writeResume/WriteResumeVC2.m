@@ -168,6 +168,7 @@
     
     return cell;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [AppDelegate instance].resumeId = self.resumeid;
