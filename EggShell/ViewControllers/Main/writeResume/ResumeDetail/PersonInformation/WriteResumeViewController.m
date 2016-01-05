@@ -279,10 +279,10 @@
     back_sv.backgroundColor = [UIColor colorWithRed:243 / 255.0 green:243 / 255.0 blue:241 / 255.0 alpha:1];
     [self.view addSubview:back_sv];
     
-    UILabel * startLab = [ZCControl createLabelWithFrame:CGRectMake(15, 10, WIDETH / 1.5, 20) Font:12 Text:@"好的简历能帮助你更快的找到好工作!"];
+    UILabel * startLab = [ZCControl createLabelWithFrame:CGRectMake(15, 10, 220, 20) Font:12 Text:@"好的简历能帮助你更快的找到好工作!"];
     [back_sv addSubview:startLab];
     
-    UIButton * mustWrite = [ZCControl createButtonWithFrame:CGRectMake(WIDETH / 1.5 + 5, 9.5, 53, 23) ImageName:@"hongniu2" Target:self Action:@selector(mustClick) Title:@"必填"];
+    UIButton * mustWrite = [ZCControl createButtonWithFrame:CGRectMake(220 + 15, 9.5, 53, 23) ImageName:@"hongniu2" Target:self Action:@selector(mustClick) Title:@"必填项"];
     [mustWrite setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     mustWrite.titleLabel.font = [UIFont boldSystemFontOfSize:12];
     [back_sv addSubview:mustWrite];
