@@ -48,11 +48,28 @@
 -(void)createTableView
 {
     //个人简历标题
-    personalInformationTitleView * personTitle = [personalInformationTitleView setpersonalInformationTitleView];
-    personTitle.frame = CGRectMake(0, 0, WIDETH, 40);
-    [self.view addSubview:personTitle];
+//    personalInformationTitleView * personTitle = [personalInformationTitleView setpersonalInformationTitleView];
+//    personTitle.frame = CGRectMake(0, 0, WIDETH, 40);
+//    [self.view addSubview:personTitle];
     _resume_model = [ResumeModel sharedResume];
-    personTitle.personTitleLable.text = [NSString stringWithFormat:@"%@-工作经历",_resume_model.resumeName];
+//    personTitle.personTitleLable.text = [NSString stringWithFormat:@"%@-工作经历",_resume_model.resumeName];
+    
+    UIView *titleView = [[UIView alloc]init];
+    titleView.frame = CGRectMake(0, 0, WIDETH, 40);
+    [self.view addSubview:titleView];
+    
+    UILabel *titleLab = [[UILabel alloc]init];
+    titleLab.text = [NSString stringWithFormat:@"%@-工作经历",_resume_model.resumeName];
+    titleLab.font = [UIFont systemFontOfSize:13];
+    CGSize titleLabSize = [titleLab.text sizeWithFont:[UIFont systemFontOfSize:13]];
+    titleLab.frame = CGRectMake(10, 0, titleLabSize.width, 40);
+    [titleView addSubview:titleLab];
+    
+    UIImageView *selectedIcon = [[UIImageView alloc]init];
+    selectedIcon.image = [UIImage imageNamed:@"bixuan2"];
+    selectedIcon.frame = CGRectMake(CGRectGetMaxX(titleLab.frame) + 5, 7.5, 82, 25);
+    [titleView addSubview:selectedIcon];
+    
     UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT-40-64)];
     tableView.dataSource = self;
     tableView.delegate = self;

@@ -116,13 +116,30 @@
 -(void)createUI
 {
     self.view.backgroundColor = color(243, 243, 241);
-    UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, WIDETH, 20) Font:14 Text:[NSString stringWithFormat:@"%@-工作经历",_resume_model.resumeName]];
-    [self.scro addSubview:nameLab];
+//    UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, WIDETH, 20) Font:14 Text:[NSString stringWithFormat:@"%@-工作经历",_resume_model.resumeName]];
+//    [self.scro addSubview:nameLab];
     
-    UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 10 - 53, 15, 53, 23) ImageName:@"hongniu2" Target:self Action:nil Title:@"必填项"];
-    [stateBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    stateBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-    [self.scro addSubview:stateBtn];
+    UIView *titleView = [[UIView alloc]init];
+    titleView.frame = CGRectMake(0, 0, WIDETH, 40);
+    [self.scro addSubview:titleView];
+    
+    UILabel *titleLab = [[UILabel alloc]init];
+    titleLab.text = [NSString stringWithFormat:@"%@-工作经历",_resume_model.resumeName];
+    titleLab.font = [UIFont systemFontOfSize:13];
+    CGSize titleLabSize = [titleLab.text sizeWithFont:[UIFont systemFontOfSize:13]];
+    titleLab.frame = CGRectMake(10, 0, titleLabSize.width, 40);
+    [titleView addSubview:titleLab];
+    
+    UIImageView *selectedIcon = [[UIImageView alloc]init];
+    selectedIcon.image = [UIImage imageNamed:@"bixuan2"];
+    selectedIcon.frame = CGRectMake(CGRectGetMaxX(titleLab.frame) + 5, 7.5, 82, 25);
+    [titleView addSubview:selectedIcon];
+
+    
+//    UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 10 - 53, 15, 53, 23) ImageName:@"hongniu2" Target:self Action:nil Title:@"必填项"];
+//    [stateBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    stateBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+//    [self.scro addSubview:stateBtn];
     
     //中间tableView
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(-1, 45, WIDETH + 1, 168)];

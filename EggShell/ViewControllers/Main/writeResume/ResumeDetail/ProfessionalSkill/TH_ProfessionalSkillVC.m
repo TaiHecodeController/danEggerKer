@@ -115,13 +115,31 @@
     [self.view addSubview:scro];
 }
 -(void)createView
-{   UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, WIDETH, 13) Font:13 Text:[NSString stringWithFormat:@"%@-专业技能",_resume_model.resumeName]];
-    [self.scro addSubview:nameLab];
+{
+//    UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, WIDETH, 13) Font:13 Text:[NSString stringWithFormat:@"%@-专业技能",_resume_model.resumeName]];
+//    [self.scro addSubview:nameLab];
+//    
+//    UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 10 - 53, 9.5, 53, 23) ImageName:@"lanniu2" Target:self Action:nil Title:@"可选填"];
+//    [stateBtn setTitleColor:color(255, 255, 255) forState:UIControlStateNormal];
+//    stateBtn.titleLabel.font = [UIFont systemFontOfSize:11];
+//    [self.scro addSubview:stateBtn];
     
-    UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 10 - 53, 9.5, 53, 23) ImageName:@"lanniu2" Target:self Action:nil Title:@"可选填"];
-    [stateBtn setTitleColor:color(255, 255, 255) forState:UIControlStateNormal];
-    stateBtn.titleLabel.font = [UIFont systemFontOfSize:11];
-    [self.scro addSubview:stateBtn];
+    UIView *titleView = [[UIView alloc]init];
+    titleView.frame = CGRectMake(0, 0, WIDETH, 40);
+    [self.scro addSubview:titleView];
+    
+    UILabel *titleLab = [[UILabel alloc]init];
+    titleLab.text = [NSString stringWithFormat:@"%@-专业技能",_resume_model.resumeName];
+    titleLab.font = [UIFont systemFontOfSize:13];
+    CGSize titleLabSize = [titleLab.text sizeWithFont:[UIFont systemFontOfSize:13]];
+    titleLab.frame = CGRectMake(10, 0, titleLabSize.width, 40);
+    [titleView addSubview:titleLab];
+    
+    UIImageView *selectedIcon = [[UIImageView alloc]init];
+    selectedIcon.image = [UIImage imageNamed:@"kexuan2"];
+    selectedIcon.frame = CGRectMake(CGRectGetMaxX(titleLab.frame) + 5, 7.5, 82, 25);
+    [titleView addSubview:selectedIcon];
+
     
     UITableView * tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 42, WIDETH, 168)];
     tableview.delegate = self;
