@@ -20,9 +20,7 @@
     return self;
 }
 -(void)createView
-{   UIView * lieView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 1)];
-    lieView.backgroundColor = [UIColor whiteColor];
-    [self addSubview:lieView];
+{   
     UILabel * myLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 11, 100, 13)];
     myLable.text = @"个人简历";
     myLable.font =[UIFont systemFontOfSize:13];

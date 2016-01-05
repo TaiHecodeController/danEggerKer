@@ -103,6 +103,7 @@
     tableView.dataSource = self;
     tableView.delegate = self;
     self.tableView = tableView;
+    self.tableView.backgroundColor = color(243, 243, 241);
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self.view addSubview:tableView];
@@ -602,7 +603,101 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 32;
+    if (section==0) {
+        if ([self.dataArray[0][@"datadetail"]count]==0)
+        {
+            return 0.000001;
+            
+        }else
+        {
+            return 32;
+        }
+   
+    }else if (section==1)
+    {
+        if ([self.dataArray[1][@"datadetail"]count]==0)
+        {
+            return 0.000001;
+            
+        }else
+        {
+            return 32;
+        }
+ 
+    }
+    else if (section==2)
+    { if ([self.dataArray[2][@"datadetail"]count]==0)
+    {
+        return 0.000001;
+    
+    }else
+    {
+        return 32;
+    }
+    }
+    else if (section==3)
+    {
+        if ([self.dataArray[3][@"datadetail"]count]==0)
+        {
+            return 0.000001;
+            
+        }else
+        {
+            return 32;
+        }
+    }
+    else if (section==4)
+    {
+        if ([self.dataArray[4][@"datadetail"]count]==0)
+        {
+            return 0.000001;
+            
+        }else
+        {
+            return 32;
+        }
+    }
+    else if (section==5)
+    {
+        if ([self.dataArray[5][@"datadetail"]count]==0)
+        {
+            return 0.000001;
+            
+        }else
+        {
+            return 32;
+        }
+    }else if (section==6)
+    {
+        if ([self.dataArray[6][@"datadetail"]count]==0)
+        {
+            return 0.000001;
+            
+        }else
+        {
+            return 32;
+        }
+    }else if (section==7)
+    {
+        if ([self.dataArray[7][@"datadetail"]count]==0)
+        {
+            return 0.000001;
+            
+        }else
+        {
+            if ([self.dataArray[8][@"datadetail"]count]==0)
+            {
+                return 0.000001;
+                
+            }else
+            {
+                return 32;
+            }
+        }
+    }else
+    {
+        return 32;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
