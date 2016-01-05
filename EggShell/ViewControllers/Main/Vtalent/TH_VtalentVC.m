@@ -155,7 +155,7 @@
 { TH_VtalentDetailVC * talentDetail = [[TH_VtalentDetailVC alloc] init];
     talentDetail.dataDic = self.ambassadorArray[sender.tag - 10];
     talentDetail.titleStr = @"蛋壳大使";
-    talentDetail.detailStr = @"大使足迹";
+    talentDetail.detailStr = @"精英足迹";
     [self.navigationController pushViewController:talentDetail animated:YES];
 
 }
