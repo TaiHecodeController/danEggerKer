@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -15,8 +15,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="41.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3R1-SJ-obg">
-                        <rect key="frame" x="95" y="0.0" width="130" height="42"/>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3R1-SJ-obg">
+                        <rect key="frame" x="85" y="0.0" width="130" height="42"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5e-Gs-qEn">
                                 <rect key="frame" x="69" y="10" width="57" height="23"/>
@@ -36,8 +36,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="130" id="4rs-T6-VdM"/>
-                            <constraint firstAttribute="height" constant="42" id="K1s-yq-wnh"/>
+                            <constraint firstAttribute="width" constant="130" id="4XB-Rh-b8P"/>
+                            <constraint firstAttribute="height" constant="42" id="Axl-R9-GDg"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04H-FP-df0">
@@ -50,16 +50,14 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                                   </subviews>
+                </subviews>
                 <constraints>
                     <constraint firstItem="04H-FP-df0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="68P-WH-xT3"/>
-                    <constraint firstItem="3R1-SJ-obg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="6rA-jY-JIN"/>
+                    <constraint firstItem="3R1-SJ-obg" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="KKx-1O-EI5"/>
+                    <constraint firstItem="3R1-SJ-obg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="N3e-Qx-WMP"/>
                     <constraint firstAttribute="bottomMargin" secondItem="04H-FP-df0" secondAttribute="bottom" constant="2.5" id="TPm-7I-HOE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="04H-FP-df0" secondAttribute="trailing" constant="7" id="gg3-3f-ebq"/>
-
-                    <constraint firstItem="m5e-Gs-qEn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="iJ3-Ai-a3a"/>
-                    <constraint firstItem="jdg-4x-tVj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="110" id="kch-gT-3xy"/>
-                                    </constraints>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="nameLab" destination="jdg-4x-tVj" id="LxT-lI-4m2"/>

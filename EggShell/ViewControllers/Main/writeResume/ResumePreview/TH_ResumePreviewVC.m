@@ -167,7 +167,7 @@
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(workExperice)];
         [titleView addGestureRecognizer:tap];
         
-         return nil;
+         return titleView;
     }
     else if ([titleView.personTileLable.text isEqualToString:@"教育经历"])
     {
