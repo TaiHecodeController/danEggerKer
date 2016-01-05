@@ -39,7 +39,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"工作经历";
+    self.title = @"写简历";
     self.jobArray = [NSMutableArray arrayWithCapacity:0];
     _model = [[WriteRusumeModel2 alloc] init];
     _resume_model = [ResumeModel sharedResume];
@@ -116,10 +116,10 @@
 -(void)createUI
 {
     self.view.backgroundColor = color(243, 243, 241);
-    UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 150, 20) Font:14 Text:[NSString stringWithFormat:@"%@-工作经历",_resume_model.resumeName]];
+    UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, WIDETH, 20) Font:14 Text:[NSString stringWithFormat:@"%@-工作经历",_resume_model.resumeName]];
     [self.scro addSubview:nameLab];
     
-    UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(165, 15, 53, 23) ImageName:@"hongniu2" Target:self Action:nil Title:@"必填项"];
+    UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 10 - 53, 15, 53, 23) ImageName:@"hongniu2" Target:self Action:nil Title:@"必填项"];
     [stateBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     stateBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [self.scro addSubview:stateBtn];

@@ -186,7 +186,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/writeResume/ResumeDetail/PersonInformation/WriteResumeViewController.m"
-                  timestampString = "473246031.917357"
+                  timestampString = "473588169.719519"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "449"
@@ -201,7 +201,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/writeResume/ResumeDetail/PersonInformation/WriteResumeViewController.m"
-                  timestampString = "473246031.918001"
+                  timestampString = "473588169.719812"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "449"
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Main/writeResume/ResumePreview/TH_ResumePreviewVC.m"
-            timestampString = "473246030.795148"
+            timestampString = "473591003.44111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "992"
-            endingLineNumber = "992"
+            startingLineNumber = "1018"
+            endingLineNumber = "1018"
             landmarkName = "-okClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -249,22 +249,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Main/writeResume/ResumeDetail/WorkExperience/WorkExReading/WorkExReadingVC.m"
-            timestampString = "473233854.668139"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "-addClick"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Main/writeResume/ResumeDetail/WorkExperience/WorkExReading/WorkingExperienceVC.m"
             timestampString = "473233990.93247"
             startingColumnNumber = "9223372036854775807"
@@ -282,7 +266,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/writeResume/ResumeDetail/WorkExperience/WorkExReading/WorkingExperienceVC.m"
-                  timestampString = "473246031.922332"
+                  timestampString = "473588169.725499"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "335"
@@ -297,7 +281,7 @@
                   moduleName = "EggShell"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/writeResume/ResumeDetail/WorkExperience/WorkExReading/WorkingExperienceVC.m"
-                  timestampString = "473246031.922533"
+                  timestampString = "473588169.725804"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "335"
@@ -426,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Main/writeResume/ResumePreview/TH_ResumePreviewVC.m"
-            timestampString = "473246030.795148"
+            timestampString = "473591003.44111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "476"
-            endingLineNumber = "476"
+            startingLineNumber = "503"
+            endingLineNumber = "503"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -442,12 +426,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Main/writeResume/ResumePreview/TH_ResumePreviewVC.m"
-            timestampString = "473244405.875583"
+            timestampString = "473591003.44111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "699"
+            endingLineNumber = "699"
+            landmarkName = "-createTilteView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -458,60 +442,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EggShell/ViewControllers/Main/writeResume/ResumePreview/TH_ResumePreviewVC.m"
-            timestampString = "473246030.795148"
+            timestampString = "473591003.44111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "673"
-            endingLineNumber = "673"
-            landmarkName = "-loadData"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TH_ResumePreviewVC loadData]"
-                  moduleName = "EggShell"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/writeResume/ResumePreview/TH_ResumePreviewVC.m"
-                  timestampString = "473246031.934365"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "673"
-                  endingLineNumber = "673"
-                  offsetFromSymbolStart = "154">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__30-[TH_ResumePreviewVC loadData]_block_invoke"
-                  moduleName = "EggShell"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taihe/Desktop/danEggerKer/EggShell/ViewControllers/Main/writeResume/ResumePreview/TH_ResumePreviewVC.m"
-                  timestampString = "473246031.934886"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "673"
-                  endingLineNumber = "673"
-                  offsetFromSymbolStart = "43">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EggShell/ViewControllers/Main/writeResume/ResumePreview/TH_ResumePreviewVC.m"
-            timestampString = "473246030.795148"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "676"
-            endingLineNumber = "676"
-            landmarkName = "-loadData"
+            startingLineNumber = "702"
+            endingLineNumber = "702"
+            landmarkName = "-createTilteView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -528,6 +464,22 @@
             startingLineNumber = "65"
             endingLineNumber = "65"
             landmarkName = "+uploadProfessionalSkillWithSucc:WithResumeParam:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EggShell/ViewControllers/Main/writeResume/ResumePreview/TH_ResumePreviewVC.m"
+            timestampString = "473591003.44111"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

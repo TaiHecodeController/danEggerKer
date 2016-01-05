@@ -39,7 +39,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"教育经历";
+    self.title = @"写简历";
     /*隐藏键盘**/
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
     tapGestureRecognizer.cancelsTouchesInView = NO;
@@ -113,12 +113,13 @@
     self.scro.backgroundColor = color(243, 243, 243);
     [self.view addSubview:scro];
 }
+
 -(void)createView
 {
-    UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, 135, 20) Font:13 Text:[NSString stringWithFormat:@"%@-教育经历",_resume_model.resumeName]];
+    UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, WIDETH, 20) Font:13 Text:[NSString stringWithFormat:@"%@-教育经历",_resume_model.resumeName]];
     [self.scro addSubview:nameLab];
     
-    UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(160, 13, 53, 23) ImageName:@"hongniu2" Target:self Action:nil Title:@"必填项"];
+    UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 10 - 53, 13, 53, 23) ImageName:@"hongniu2" Target:self Action:nil Title:@"必填项"];
     [stateBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     stateBtn.titleLabel.font = [UIFont systemFontOfSize:11];
     [self.scro addSubview:stateBtn];

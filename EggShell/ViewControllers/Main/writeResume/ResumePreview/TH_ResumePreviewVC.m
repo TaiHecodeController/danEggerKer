@@ -115,17 +115,17 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     return  ((NSArray*)(self.dataArray[section][@"datadetail"])).count;
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     ResumeTiltlView * titleView = [[ResumeTiltlView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, 30)];
     titleView.backgroundColor = UIColorFromRGB(0x7adb6b);
-    editAddView * editView = [[editAddView alloc] initWithFrame:CGRectMake(WIDETH - 73, 0, 73, 32)];
+    editAddView *editView = [[editAddView alloc] initWithFrame:CGRectMake(WIDETH - 73, 0, 73, 32)];
     [titleView addSubview:editView];
    
-    if (section == 0) {
+    if (section == 0)
+    {
         titleView.backgroundColor = UIColorFromRGB(0xF3F3F1);
         editView.hidden = YES;
         titleView.personTileLable.textColor = UIColorFromRGB(0x646464);
@@ -133,52 +133,79 @@
        titleView.createTimeLable.hidden = NO;
         
         titleView.createTimeLable.text = [NSString stringWithFormat:@"创建于%@",self.dataArray[1][@"datadetail"][0][@"ctime"]];
-    }else
+    }
+    else
     {
-        if (section == 1||section==8 ) {
+        if (section == 1||section==8 )
+        {
             editView.imageView.image = [UIImage imageNamed:@"resumeEdit"];
             editView.editLable.text = @"编辑";
 
-        }else
+        }
+        else
         {
             editView.imageView.image = [UIImage imageNamed:@"resumeAdd"];
             editView.editLable.text = @"新增";
         }
-     titleView.personTileLable.text = self.titleArray[section];
+        titleView.personTileLable.text = self.titleArray[section];
         titleView.createTimeLable.hidden = YES;
-    }
-    if ([titleView.personTileLable.text isEqualToString:@"个人简历"]) {
-        titleView.backgroundColor = UIColorFromRGB(0xF3F3F1);
-    }else if ([titleView.personTileLable.text isEqualToString:@"求职意向"]) {
         
+    }
+    if ([titleView.personTileLable.text isEqualToString:@"个人简历"])
+    {
+        titleView.backgroundColor = UIColorFromRGB(0xF3F3F1);
+         return titleView;
+    }
+    else if ([titleView.personTileLable.text isEqualToString:@"求职意向"])
+    {
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jobIntent)];
         [titleView addGestureRecognizer:tap];
-    }else if ([titleView.personTileLable.text isEqualToString:@"工作经历"])
+         return titleView;
+    }
+    else if ([titleView.personTileLable.text isEqualToString:@"工作经历"])
     {
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(workExperice)];
         [titleView addGestureRecognizer:tap];
-    }else if ([titleView.personTileLable.text isEqualToString:@"教育经历"])
+        
+         return nil;
+    }
+    else if ([titleView.personTileLable.text isEqualToString:@"教育经历"])
     {
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(educateExperice)];
         [titleView addGestureRecognizer:tap];
-    }else if ([titleView.personTileLable.text isEqualToString:@"专业技能"])
-    { UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(professionExperice)];
+         return titleView;
+    }
+    else if ([titleView.personTileLable.text isEqualToString:@"专业技能"])
+    {
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(professionExperice)];
         [titleView addGestureRecognizer:tap];
-    }else if ([titleView.personTileLable.text isEqualToString:@"项目经验"])
-    { UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(projectExperice)];
+         return titleView;
+    }
+    else if ([titleView.personTileLable.text isEqualToString:@"项目经验"])
+    {
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(projectExperice)];
         [titleView addGestureRecognizer:tap];
-    }else if ([titleView.personTileLable.text isEqualToString:@"证书"])
-    { UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(certific)];
+         return titleView;
+    }
+    else if ([titleView.personTileLable.text isEqualToString:@"证书"])
+    {
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(certific)];
         [titleView addGestureRecognizer:tap];
-    }else if ([titleView.personTileLable.text isEqualToString:@"培训经历"])
-    { UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(trainperice)];
+         return titleView;
+    }
+    else if ([titleView.personTileLable.text isEqualToString:@"培训经历"])
+    {
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(trainperice)];
         [titleView addGestureRecognizer:tap];
-    }else
-    { UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selfeValue)];
+         return titleView;
+    }
+    else
+    {
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selfeValue)];
         [titleView addGestureRecognizer:tap];
+         return titleView;
     }
     
-    return titleView;
 }
 #pragma mark -- 求职意向
 -(void)jobIntent
@@ -247,6 +274,7 @@
     vc.resumId = self.resumeId;
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell * cell;
@@ -254,7 +282,6 @@
     if (indexPath.section ==0)
     {
         //基本资料
-        
         personResumeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"personResumeCell"];
         if (!cell)
         {
@@ -530,8 +557,6 @@
 
     }
 
-        
-   
       if (indexPath.section==7)
        {
 
@@ -551,7 +576,6 @@
                 NSTimeInterval sdate = [self.dataArray[7][@"datadetail"][rows][@"sdate"] doubleValue];
                 NSString * startTime = [Utils changeTimeToString:sdate];
     
-
                 TH_CertificateVC *vc = [[TH_CertificateVC alloc]init];
                 vc.cerName =self.dataArray[7][@"datadetail"][rows][@"name"];
                 vc.awardTime =startTime;
@@ -702,7 +726,8 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==0) {
+    if (indexPath.section==0)
+    {
         personResumeCell *cell = (personResumeCell*)[self tableView:tableView cellForRowAtIndexPath:indexPath];
         return cell.frame.size.height;
         
@@ -742,6 +767,7 @@
     }
     
 }
+
 - (void)loadData
 {
     NSNumber *version = [NSNumber numberWithInt:2];
@@ -749,9 +775,9 @@
     
     [[WriteResumeRequest biographyPreviewWithSucc:^(NSDictionary *DataDic) {
         
-        
         self.dataArray = DataDic[@"data"];
         [self.tableView reloadData];
+        
     } WithResumeParam:@{@"eid":self.resumeId,@"version":version} withfail:nil] addNotifaction:hub];
     
 }

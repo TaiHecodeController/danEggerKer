@@ -160,7 +160,8 @@
     if(indexPath.row >2)
     {
         cell.stateBtn.selected = YES;
-    }else
+    }
+    else
     {
         cell.stateBtn.selected = NO;
     }
