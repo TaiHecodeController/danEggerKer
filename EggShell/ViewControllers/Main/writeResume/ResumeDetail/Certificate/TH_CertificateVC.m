@@ -109,14 +109,6 @@
 
 -(void)createView
 {
-//    UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, WIDETH, 13) Font:13 Text:[NSString stringWithFormat:@"%@-证书",_resume_model.resumeName]];
-//    [self.scro addSubview:nameLab];
-//    
-//    UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 10 - 53, 9.5, 53, 23) ImageName:@"lanniu2" Target:self Action:nil Title:@"可选填"];
-//    [stateBtn setTitleColor:color(255, 255, 255) forState:UIControlStateNormal];
-//    stateBtn.titleLabel.font = [UIFont systemFontOfSize:11];
-//    [self.scro addSubview:stateBtn];
-    
     UIView *titleView = [[UIView alloc]init];
     titleView.frame = CGRectMake(0, 0, WIDETH, 40);
     [self.scro addSubview:titleView];
@@ -130,7 +122,7 @@
     
     UIImageView *selectedIcon = [[UIImageView alloc]init];
     selectedIcon.image = [UIImage imageNamed:@"kexuan2"];
-    selectedIcon.frame = CGRectMake(CGRectGetMaxX(titleLab.frame) + 5, 7.5, 82, 25);
+    selectedIcon.frame = CGRectMake(CGRectGetMaxX(titleLab.frame) + 5, 7.5, 54, 25);
     [titleView addSubview:selectedIcon];
 
     
@@ -223,7 +215,9 @@
     [self.view addSubview:corver];
     self.corver = corver;
     
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake((WIDETH - 300) / 2, 100, 300, 85)];
+    UIView *bgView = [[UIView alloc]init];
+    bgView.size = CGSizeMake(300, 85);
+    bgView.center = corver.center;
     bgView.backgroundColor = [UIColor whiteColor];
     bgView.layer.cornerRadius = 6;
     [corver addSubview:bgView];

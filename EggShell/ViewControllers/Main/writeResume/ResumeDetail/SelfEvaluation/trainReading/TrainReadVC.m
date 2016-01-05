@@ -64,7 +64,7 @@
     
     UIImageView *selectedIcon = [[UIImageView alloc]init];
     selectedIcon.image = [UIImage imageNamed:@"kexuan2"];
-    selectedIcon.frame = CGRectMake(CGRectGetMaxX(titleLab.frame) + 5, 7.5, 82, 25);
+    selectedIcon.frame = CGRectMake(CGRectGetMaxX(titleLab.frame) + 5, 7.5, 54, 25);
     [titleView addSubview:selectedIcon];
     
     UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT-40-64)];

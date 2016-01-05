@@ -126,7 +126,7 @@
     
     UIImageView *selectedIcon = [[UIImageView alloc]init];
     selectedIcon.image = [UIImage imageNamed:@"kexuan2"];
-    selectedIcon.frame = CGRectMake(CGRectGetMaxX(titleLab.frame) + 5, 7.5, 82, 25);
+    selectedIcon.frame = CGRectMake(CGRectGetMaxX(titleLab.frame) + 5, 7.5, 54, 25);
     [titleView addSubview:selectedIcon];
     
     UITableView * tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 42, WIDETH, 168)];
@@ -220,7 +220,9 @@
     [self.view addSubview:corver];
     self.corver = corver;
     
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake((WIDETH - 300) / 2, 100, 300, 85)];
+    UIView *bgView = [[UIView alloc]init];
+    bgView.size = CGSizeMake(300, 85);
+    bgView.center = corver.center;
     bgView.backgroundColor = [UIColor whiteColor];
     bgView.layer.cornerRadius = 6;
     [corver addSubview:bgView];
