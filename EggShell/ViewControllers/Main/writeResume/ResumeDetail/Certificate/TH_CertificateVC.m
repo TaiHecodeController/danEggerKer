@@ -217,7 +217,7 @@
     
     UIView *bgView = [[UIView alloc]init];
     bgView.size = CGSizeMake(300, 85);
-    bgView.center = corver.center;
+    bgView.center = CGPointMake(corver.center.x, corver.center.y - 40);
     bgView.backgroundColor = [UIColor whiteColor];
     bgView.layer.cornerRadius = 6;
     [corver addSubview:bgView];

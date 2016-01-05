@@ -89,7 +89,7 @@
     
     UIImageView *selectedIcon = [[UIImageView alloc]init];
     selectedIcon.image = [UIImage imageNamed:@"kexuan2"];
-    selectedIcon.frame = CGRectMake(CGRectGetMaxX(titleLab.frame) + 5, 7.5, 82, 25);
+    selectedIcon.frame = CGRectMake(CGRectGetMaxX(titleLab.frame) + 5, 7.5, 54, 25);
     [titleView addSubview:selectedIcon];
 
     /*请输入相关内容**/
