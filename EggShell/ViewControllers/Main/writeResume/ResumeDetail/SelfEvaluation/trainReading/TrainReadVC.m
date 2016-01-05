@@ -75,7 +75,6 @@
     [self.view addSubview:tableView];
     self.tableView = tableView;
     
-    
     //添加工作经历
     UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake(80, 15, WIDETH-160, 30)];
     [addButtn setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];

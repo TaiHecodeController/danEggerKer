@@ -51,12 +51,6 @@
 }
 -(void)createTableView
 {
-//    //个人简历标题
-//    personalInformationTitleView * personTitle = [personalInformationTitleView setpersonalInformationTitleView];
-//    personTitle.frame = CGRectMake(0, 0, WIDETH, 40);
-//    [self.view addSubview:personTitle];
-////    personTitle.personBackBtn.selected = YES;
-//    personTitle.personTitleLable.text = [NSString stringWithFormat:@"%@-教育经历",_resume_model.resumeName];
     UIView *titleView = [[UIView alloc]init];
     titleView.frame = CGRectMake(0, 0, WIDETH, 40);
     [self.view addSubview:titleView];
@@ -72,7 +66,6 @@
     selectedIcon.image = [UIImage imageNamed:@"bixuan2"];
     selectedIcon.frame = CGRectMake(CGRectGetMaxX(titleLab.frame) + 5, 7.5, 82, 25);
     [titleView addSubview:selectedIcon];
-
     
     UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT-40-64)];
     tableView.dataSource = self;
@@ -81,7 +74,6 @@
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
     self.tableView = tableView;
-    
     
     //添加工作经历
     UIButton * addButtn = [[UIButton alloc] initWithFrame:CGRectMake(80, 15, WIDETH-160, 30)];
