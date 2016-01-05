@@ -39,7 +39,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"工作经历";
+    self.title = @"写简历";
     self.view.backgroundColor = UIColorFromRGB(0xF3F3F1);
     self.dataArray = [NSArray array];
     [self createTableView];

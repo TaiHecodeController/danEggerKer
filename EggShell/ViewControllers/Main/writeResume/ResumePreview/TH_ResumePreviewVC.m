@@ -151,6 +151,8 @@
         titleView.createTimeLable.hidden = YES;
         
     }
+    
+    
     if ([titleView.personTileLable.text isEqualToString:@"个人简历"])
     {
         titleView.backgroundColor = UIColorFromRGB(0xF3F3F1);
