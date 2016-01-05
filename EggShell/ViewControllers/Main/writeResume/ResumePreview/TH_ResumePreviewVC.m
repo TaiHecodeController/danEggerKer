@@ -1056,7 +1056,7 @@
     [self.view addSubview:corver];
     self.corver = corver;
     
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake((WIDETH - 300) / 2, 100, 300, 85)];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake((WIDETH - 300) / 2, (HEIGHT-64-85)/2.0, 300, 85)];
     bgView.backgroundColor = [UIColor whiteColor];
     bgView.layer.cornerRadius = 6;
     [corver addSubview:bgView];

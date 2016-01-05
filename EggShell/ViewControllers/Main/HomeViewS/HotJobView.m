@@ -27,7 +27,7 @@
     //白标题
     UILabel * titleLable  =[[UILabel alloc] initWithFrame:CGRectMake(15, 20, 100, 15)];
     titleLable.text = @"热门职位";
-    titleLable.font = [UIFont systemFontOfSize:15];
+    titleLable.font = [UIFont systemFontOfSize:16];
     titleLable.textColor = UIColorFromRGB(0x323232);
     [self addSubview:titleLable];
     //第一lingeView
@@ -51,17 +51,17 @@
     UIImageView * bgsImageView  = [[UIImageView alloc] initWithFrame:CGRectMake((educationTraiBGView.frame.size.width-23)/2.0, 16, 23, 23)];
     bgsImageView.image = [UIImage imageNamed:@"jiaoyupeixun1"];
     [educationTraiBGView addSubview:bgsImageView];
-    UILabel *educationTrainLable =[[UILabel alloc] initWithFrame:CGRectMake(0, 48,educationTraiBGView.frame.size.width, 12)];
+    UILabel *educationTrainLable =[[UILabel alloc] initWithFrame:CGRectMake(0, 48,educationTraiBGView.frame.size.width, 13)];
     educationTrainLable.text = @"教育培训";
     educationTrainLable.textColor = UIColorFromRGB(0x646464);
     educationTrainLable.textAlignment = NSTextAlignmentCenter;
-    educationTrainLable.font = [UIFont systemFontOfSize:12];
+    educationTrainLable.font = [UIFont systemFontOfSize:13];
     [educationTraiBGView addSubview:educationTrainLable];
     //市场专员
     UIButton * marketingSpecialistBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDETH/4.0, 45, WIDETH/4.0, 40)];
     [marketingSpecialistBtn setTitle:@"市场专员" forState:UIControlStateNormal];
     [marketingSpecialistBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
-    marketingSpecialistBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    marketingSpecialistBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [marketingSpecialistBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.marketingSpecialistBtn = marketingSpecialistBtn;
     [self addSubview:marketingSpecialistBtn];
@@ -76,7 +76,7 @@
     UIButton * onsultingSaleBtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH/4.0)*2, 45, WIDETH/4.0, 40)];
     [onsultingSaleBtn setTitle:@"咨询销售" forState:UIControlStateNormal];
     [onsultingSaleBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
-    onsultingSaleBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    onsultingSaleBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [onsultingSaleBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.onsultingSaleBtn = onsultingSaleBtn;
     [self addSubview:onsultingSaleBtn];
@@ -92,7 +92,7 @@
     UIButton * trainTeacherBtn =[[UIButton alloc] initWithFrame:CGRectMake((WIDETH/4.0)*3, 45, WIDETH/4.0, 40)];
     [trainTeacherBtn setTitle:@"培训讲师" forState:UIControlStateNormal];
     [trainTeacherBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
-    trainTeacherBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    trainTeacherBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [trainTeacherBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.trainTeacherBtn = trainTeacherBtn;
     [self addSubview:trainTeacherBtn];
@@ -107,7 +107,7 @@
     UIButton * teachManagerBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDETH/4.0, 85, WIDETH/4.0, 40)];
     [teachManagerBtn setTitle:@"教学管理" forState:UIControlStateNormal];
     [teachManagerBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
-    teachManagerBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    teachManagerBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [teachManagerBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.teachManagerBtn = teachManagerBtn;
     [self addSubview:teachManagerBtn];
@@ -122,7 +122,7 @@
     UIButton  *  teachqualitBtn =[[UIButton alloc] initWithFrame:CGRectMake((WIDETH/4.0)*2, 85, WIDETH/4.0, 40)];
     [teachqualitBtn setTitle:@"教质管理" forState:UIControlStateNormal];
     [teachqualitBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
-    teachqualitBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    teachqualitBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [teachqualitBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.teachqualitBtn = teachqualitBtn;
     [self addSubview:teachqualitBtn];
@@ -138,7 +138,7 @@
     UIButton * employmentCommissionerBtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH/4.0)*3, 85, WIDETH/4.0, 40)];
     [employmentCommissionerBtn setTitle:@"就业专员" forState:UIControlStateNormal];
     [employmentCommissionerBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
-    employmentCommissionerBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    employmentCommissionerBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [employmentCommissionerBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.employmentCommissionerBtn = employmentCommissionerBtn;
     [self addSubview:employmentCommissionerBtn];
@@ -166,9 +166,9 @@
     UIImageView * ComplexImageView  = [[UIImageView alloc] initWithFrame:CGRectMake((ComplexTraiBGView.frame.size.width - 26)/2.0, 16, 26, 24)];
     ComplexImageView.image = [UIImage imageNamed:@"wallet"];
     [ComplexTraiBGView addSubview:ComplexImageView];
-    UILabel *ComplexTrainLable =[[UILabel alloc] initWithFrame:CGRectMake(0, 48, ComplexTraiBGView.frame.size.width, 12)];
+    UILabel *ComplexTrainLable =[[UILabel alloc] initWithFrame:CGRectMake(0, 48, ComplexTraiBGView.frame.size.width, 13)];
     ComplexTrainLable.text = @"综合类";
-    ComplexTrainLable.font =[UIFont systemFontOfSize:12];
+    ComplexTrainLable.font =[UIFont systemFontOfSize:13];
     ComplexTrainLable.textColor = UIColorFromRGB(0x646464);
     ComplexTrainLable.textAlignment  = NSTextAlignmentCenter;
     [ComplexTraiBGView addSubview:ComplexTrainLable];
@@ -177,7 +177,7 @@
     UIButton * sitePlanBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDETH/4.0, 125, WIDETH/4.0, 40)];
     [sitePlanBtn setTitle:@"互联网" forState:UIControlStateNormal];
     [sitePlanBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
-    sitePlanBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    sitePlanBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [sitePlanBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.sitePlanBtn = sitePlanBtn;
     [self addSubview:sitePlanBtn];
@@ -192,7 +192,7 @@
     UIButton * websiteEditorBtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH/4.0*2), 125, WIDETH/4.0, 40)];
     [websiteEditorBtn setTitle:@"金融证券" forState:UIControlStateNormal];
     [websiteEditorBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
-    websiteEditorBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    websiteEditorBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [websiteEditorBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.websiteEditorBtn = websiteEditorBtn;
     [self addSubview:websiteEditorBtn];
@@ -207,7 +207,7 @@
     UIButton * operationsCommissionerBtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH/4.0)*3, 125, WIDETH/4.0, 40)];
     [operationsCommissionerBtn setTitle:@"公关媒介" forState:UIControlStateNormal];
     [operationsCommissionerBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
-    operationsCommissionerBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    operationsCommissionerBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [operationsCommissionerBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.operationsCommissionerBtn= operationsCommissionerBtn;
     [self addSubview:operationsCommissionerBtn];
@@ -222,7 +222,7 @@
     UIButton * bankTellerBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDETH/4.0, 165, WIDETH/4.0, 40)];
     [bankTellerBtn setTitle:@"市场营销" forState:UIControlStateNormal];
     [bankTellerBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
-    bankTellerBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    bankTellerBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [bankTellerBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.bankTellerBtn = bankTellerBtn;
     [self addSubview:bankTellerBtn];
@@ -238,7 +238,7 @@
     UIButton *accountingBtn =[[UIButton alloc] initWithFrame:CGRectMake((WIDETH/4.0)*2, 165, WIDETH/4.0, 40)];
     [accountingBtn setTitle:@"销售管理" forState:UIControlStateNormal];
     [accountingBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
-    accountingBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    accountingBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [accountingBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.accountingBtn = accountingBtn;
     [self addSubview:accountingBtn];
@@ -253,7 +253,7 @@
       UIButton *tellerBtn = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH/4.0)*3, 165, WIDETH/4.0, 40)];
     [tellerBtn setTitle:@"人事管理" forState:UIControlStateNormal];
     [tellerBtn setTitleColor:UIColorFromRGB(0x646464) forState:UIControlStateNormal];
-    tellerBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    tellerBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [tellerBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.tellerBtn = tellerBtn;
     [self addSubview:tellerBtn];
