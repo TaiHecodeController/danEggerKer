@@ -93,7 +93,6 @@
         
     }];
 }
-
 -(void)okClick
 {
     [backView removeFromSuperview];
@@ -109,7 +108,7 @@
         [dateFormatt setDateFormat:@"yyyy-MM-dd"];
         dateStr = [dateFormatt stringFromDate:localDate];
     }
-    [record_btn setTitle:dateStr forState:UIControlStateNormal];
+    [record_btn setTitle:dateStr forState:UIControlStateSelected];
     record_btn.selected = YES;
     dateStr = nil;
 }

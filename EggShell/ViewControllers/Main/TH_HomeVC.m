@@ -54,7 +54,7 @@
 
 @interface TH_HomeVC ()<UIScrollViewDelegate,SGFocusImageFrameDelegate,THHomeVieWDelegate,THFaousVieWDelegate,MJRefreshBaseViewDelegate,UIAlertViewDelegate,HotJobViewDelegate,FamousRecommendedViewDelegate>
 
-{NSString * _trackViewUrl;
+{   NSString * _trackViewUrl;
     UIView * _navBackView;
     SearchView * _searchView;
     
@@ -92,7 +92,7 @@
         
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(test:) name:@"jgPush" object:nil];
     //版本检测
-    [self checkVersion];
+//[self checkVersion];
     //网络判断
     if ([MMNetWorkType getNetWorkType] ==BadNetWorkLink)
     {
@@ -120,9 +120,38 @@
     [self loadData];
     
     self.navigationController.delegate = self;
+    //版本更新
+   [self loadUpdata];
     
     //    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
+}
+-(void)loadUpdata
+{
+    //3.获取此应用的版本号
+//        CFBundleShortVersionString
+        NSDictionary * Local_infoDic = [[NSBundle mainBundle] infoDictionary];
+        NSString * currentVersion = [Local_infoDic objectForKey:@"CFBundleShortVersionString"];
+    
+
+    
+    
+    NSDictionary * param = @{@"version":currentVersion};
+[TH_AFRequestState versionUpdataWithSucc:^(NSDictionary *dic) {
+ 
+        NSLog(@"%@",dic);
+       NSDictionary * dicDetail= dic[@"data"];
+    NSString *releaseNotes = [CommonFunc textFromBase64String:dicDetail[@"detailInformation"]];
+
+        NSString * titleStr = [NSString stringWithFormat:@"检查更新:蛋壳儿"];
+                //        NSString * messageStr = [NSString stringWithFormat:@"发现新版本(%@),是否升级?",latestVersion];
+//                NSString * releaseNotes = appInfoDic[@"results"][0][@"releaseNotes"];
+                UIAlertView * alert = [[UIAlertView alloc] initWithTitle:titleStr message:releaseNotes delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"升级", nil];
+
+                alert.tag = 1001;
+                [alert show];
+_trackViewUrl = @"https://itunes.apple.com/us/app/dan-ke-er/id1037707953?mt=8&uo=4";
+} withd:param];
 }
 //版本检测
 -(void)checkVersion
@@ -151,14 +180,16 @@
     }
     
     NSDictionary * infoDic = [resultsArray objectAtIndex:0];
+    
+    
     //2.需要version,trackViewUrl,trackName三个数据
     NSString * latestVersion = [infoDic objectForKey:@"version"];
     _trackViewUrl = [infoDic objectForKey:@"trackViewUrl"];//地址trackViewUrl
     
     NSString * trackName = [infoDic objectForKey:@"trackName"];
     
-    //3.获取此应用的版本号
-    //    CFBundleShortVersionString
+//    3.获取此应用的版本号
+//        CFBundleShortVersionString
     NSDictionary * Local_infoDic = [[NSBundle mainBundle] infoDictionary];
     NSString * currentVersion = [Local_infoDic objectForKey:@"CFBundleShortVersionString"];
     
@@ -210,7 +241,7 @@
     self.enterArray =[NSArray array];
     [TH_AFRequestState PrivateRecommendationWithSucc:^(NSDictionary *arr) {
         
-        self.enterArray  = arr[@"data"];
+         self.enterArray  = arr[@"data"];
         [self.Famous configValue:self.enterArray];
         
     } ];

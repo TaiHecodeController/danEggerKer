@@ -59,4 +59,6 @@
 
 //企业全部职位列表
 +(AFRequestState*)EnterpriseFullPositionWithSucc:(void(^)(NSArray * dic))succ withd:(NSDictionary*)dic resp:(Class)resp;
+/*版本更新**/
++(AFRequestState*)versionUpdataWithSucc:(void(^)(NSDictionary * dic))succ withd:(NSDictionary*)dic ;
 @end
