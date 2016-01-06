@@ -30,15 +30,11 @@
 @implementation EducationReadVC
 -(void)viewWillAppear:(BOOL)animated
 {
-//    /***/
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backToResume) name:@"writeresum" object:nil];
      [self loadData];
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewWillDisappear:NO];
-//    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"writeresum" object:nil];
-    
 }
 
 - (void)viewDidLoad {
@@ -148,33 +144,6 @@
         
     } educationExperienceReadingParam:param] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
 }
--(void)createView
-{
-    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, HEIGHT)];
-    scro.showsVerticalScrollIndicator = NO;
-    self.scro = scro;
-    [self.view addSubview:scro];
-    for (int i = 0; i < self.dataArray.count; i++) {
-    EducationReadingView   * education = [EducationReadingView setView];
-    education.frame = CGRectMake(0, 215*i, WIDETH,215);
-    education.contentTextView.editable = NO;
-        education.contentTextView.showsVerticalScrollIndicator= NO;
-    [education config:self.dataArray[i]];
-    education.ResumeTitle.text = [NSString stringWithFormat:@"%@-教育经历%d",_resume_model.resumeName,i+1];
-    [self.scro addSubview:education];
-        if (i>0) {
-            education.logoBtn.hidden = YES;
-        }
-    /*继续添加**/
-    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake((WIDETH  - 150)/2.0, 215*self.dataArray.count+35, 150, 30)];
-    [button addTarget:self action:@selector(addbUttonClick) forControlEvents:UIControlEventTouchUpInside];
-    [button setBackgroundImage:[UIImage imageNamed:@"lanniu"] forState:UIControlStateNormal];
-    [button setTitle:@"添加教育经历" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.scro addSubview:button];
-        self.scro.contentSize = CGSizeMake(WIDETH, 215*self.dataArray.count+150);
-        }
-}
 #pragma mark --继续添加
 -(void)addbUttonClick
 {
@@ -182,8 +151,6 @@
 -(void)backToResume
 {
     [self.navigationController popViewControllerAnimated:NO];
-//    WriteResumeVC2 * write = [[WriteResumeVC2 alloc] init];
-//    [self.navigationController popToViewController:write animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

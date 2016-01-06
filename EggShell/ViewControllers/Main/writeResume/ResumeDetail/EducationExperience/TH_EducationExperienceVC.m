@@ -116,14 +116,6 @@
 
 -(void)createView
 {
-//    UILabel * nameLab = [ZCControl createLabelWithFrame:CGRectMake(15, 15, WIDETH, 20) Font:13 Text:[NSString stringWithFormat:@"%@-教育经历",_resume_model.resumeName]];
-//    [self.scro addSubview:nameLab];
-//    
-//    UIButton * stateBtn = [ZCControl createButtonWithFrame:CGRectMake(WIDETH - 10 - 53, 13, 53, 23) ImageName:@"hongniu2" Target:self Action:nil Title:@"必填项"];
-//    [stateBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    stateBtn.titleLabel.font = [UIFont systemFontOfSize:11];
-//    [self.scro addSubview:stateBtn];
-    
     UIView *titleView = [[UIView alloc]init];
     titleView.frame = CGRectMake(0, 0, WIDETH, 40);
     [self.scro addSubview:titleView];
@@ -139,7 +131,6 @@
     selectedIcon.image = [UIImage imageNamed:@"bixuan2"];
     selectedIcon.frame = CGRectMake(CGRectGetMaxX(titleLab.frame) + 5, 7.5, 54, 25);
     [titleView addSubview:selectedIcon];
-
 
     UITableView * tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 45, WIDETH, 168)];
     tableview.delegate = self;
