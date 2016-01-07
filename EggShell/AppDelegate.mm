@@ -178,7 +178,6 @@
     {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_trackViewUrl]];
         
-        
     }
 }
 

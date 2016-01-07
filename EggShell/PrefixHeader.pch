@@ -46,9 +46,9 @@
 #import "THMBProgressHubView.h"
 #define NUMBERS @"0123456789\n"
 
-#define base_Url @"http://101.200.186.14/eggker2/interface_ios/index.php/"
+//#define base_Url @"http://101.200.186.14/eggker2/interface_ios/index.php/"
 //#define base_Url @"http://195.198.1.121/interface_ios/index.php/"
-//#define base_Url @"http://www.eggker.cn/interface_ios/index.php/"
+#define base_Url @"http://www.eggker.cn/interface_ios/index.php/"
 #define WIDETH  [UIScreen mainScreen].bounds.size.width
 #define HEIGHT   [UIScreen mainScreen].bounds.size.height
 //iOS7版本的适配

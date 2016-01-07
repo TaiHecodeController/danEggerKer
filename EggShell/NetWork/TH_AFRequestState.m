@@ -273,6 +273,6 @@ return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Vtalent",base_Url
 /*版本更新**/
 +(AFRequestState*)versionUpdataWithSucc:(void(^)(NSDictionary * dic))succ withd:(NSDictionary*)dic
 {
- return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Update/index",@"http://195.198.1.86/BBB/eggker2/interface_ios/index.php/"] param:dic succ:succ ];
+ return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Update/index",base_Url] param:dic succ:succ ];
 }
 @end
