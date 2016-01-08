@@ -200,6 +200,11 @@
 		94CFD1DC1C3E553E006EC310 /* TH_CollectActivityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1DB1C3E553E006EC310 /* TH_CollectActivityVC.m */; };
 		94CFD1DF1C3E5760006EC310 /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1DE1C3E5760006EC310 /* ActivityCell.m */; };
 		94CFD1E21C3F5413006EC310 /* ItemTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1E11C3F5413006EC310 /* ItemTimeView.m */; };
+		94CFD1E51C3F5D72006EC310 /* TH_PlayFanDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1E41C3F5D72006EC310 /* TH_PlayFanDetailVC.m */; };
+		94CFD1E81C3F7DD5006EC310 /* playDetailTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1E71C3F7DD5006EC310 /* playDetailTitleView.m */; };
+		94CFD1EC1C3F8BB6006EC310 /* playfanDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1EB1C3F8BB6006EC310 /* playfanDetailView.m */; };
+		94CFD1EF1C3F936D006EC310 /* shareButtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1EE1C3F936D006EC310 /* shareButtn.m */; };
+		94CFD1F21C3F9393006EC310 /* shareCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1F11C3F9393006EC310 /* shareCustomView.m */; };
 		94E216301BA951DD00D96B67 /* MTSpecailtyListPointItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2162F1BA951DD00D96B67 /* MTSpecailtyListPointItem.m */; };
 		94E2C95D1B86C112001E3FDD /* 蛋壳儿.doc in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C95C1B86C112001E3FDD /* 蛋壳儿.doc */; };
 		94E2C9681B870EED001E3FDD /* CompanyDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2C9641B870EED001E3FDD /* CompanyDetailVC.m */; };
@@ -758,6 +763,16 @@
 		94CFD1DE1C3E5760006EC310 /* ActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCell.m; sourceTree = "<group>"; };
 		94CFD1E01C3F5413006EC310 /* ItemTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTimeView.h; sourceTree = "<group>"; };
 		94CFD1E11C3F5413006EC310 /* ItemTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTimeView.m; sourceTree = "<group>"; };
+		94CFD1E31C3F5D72006EC310 /* TH_PlayFanDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_PlayFanDetailVC.h; sourceTree = "<group>"; };
+		94CFD1E41C3F5D72006EC310 /* TH_PlayFanDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_PlayFanDetailVC.m; sourceTree = "<group>"; };
+		94CFD1E61C3F7DD5006EC310 /* playDetailTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = playDetailTitleView.h; path = ../playDetailTitleView.h; sourceTree = "<group>"; };
+		94CFD1E71C3F7DD5006EC310 /* playDetailTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = playDetailTitleView.m; path = ../playDetailTitleView.m; sourceTree = "<group>"; };
+		94CFD1EA1C3F8BB6006EC310 /* playfanDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playfanDetailView.h; sourceTree = "<group>"; };
+		94CFD1EB1C3F8BB6006EC310 /* playfanDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playfanDetailView.m; sourceTree = "<group>"; };
+		94CFD1ED1C3F936D006EC310 /* shareButtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shareButtn.h; sourceTree = "<group>"; };
+		94CFD1EE1C3F936D006EC310 /* shareButtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shareButtn.m; sourceTree = "<group>"; };
+		94CFD1F01C3F9393006EC310 /* shareCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shareCustomView.h; sourceTree = "<group>"; };
+		94CFD1F11C3F9393006EC310 /* shareCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shareCustomView.m; sourceTree = "<group>"; };
 		94E2162C1BA951CE00D96B67 /* MTSpecailtyListPointItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTSpecailtyListPointItem.h; path = EggShell/ViewControllers/Class/MTSpecailtyListPointItem.h; sourceTree = SOURCE_ROOT; };
 		94E2162F1BA951DD00D96B67 /* MTSpecailtyListPointItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTSpecailtyListPointItem.m; path = EggShell/ViewControllers/Class/MTSpecailtyListPointItem.m; sourceTree = SOURCE_ROOT; };
 		94E2C95C1B86C112001E3FDD /* 蛋壳儿.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "蛋壳儿.doc"; sourceTree = "<group>"; };
@@ -1847,9 +1862,12 @@
 		94313DAC1B7CAAB5005D0A9A /* PlayFan */ = {
 			isa = PBXGroup;
 			children = (
+				94CFD1E91C3F8219006EC310 /* View */,
 				94EFC1C51B7DC40000833068 /* PlayModel */,
 				94313DAD1B7CAAB5005D0A9A /* TH_PlayFanVC.h */,
 				94313DAE1B7CAAB5005D0A9A /* TH_PlayFanVC.m */,
+				94CFD1E31C3F5D72006EC310 /* TH_PlayFanDetailVC.h */,
+				94CFD1E41C3F5D72006EC310 /* TH_PlayFanDetailVC.m */,
 			);
 			name = PlayFan;
 			path = Main/PlayFan;
@@ -2280,6 +2298,21 @@
 				94CFD1E11C3F5413006EC310 /* ItemTimeView.m */,
 			);
 			path = CollectActivity;
+			sourceTree = "<group>";
+		};
+		94CFD1E91C3F8219006EC310 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94CFD1E61C3F7DD5006EC310 /* playDetailTitleView.h */,
+				94CFD1E71C3F7DD5006EC310 /* playDetailTitleView.m */,
+				94CFD1EA1C3F8BB6006EC310 /* playfanDetailView.h */,
+				94CFD1EB1C3F8BB6006EC310 /* playfanDetailView.m */,
+				94CFD1ED1C3F936D006EC310 /* shareButtn.h */,
+				94CFD1EE1C3F936D006EC310 /* shareButtn.m */,
+				94CFD1F01C3F9393006EC310 /* shareCustomView.h */,
+				94CFD1F11C3F9393006EC310 /* shareCustomView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		94E2C9621B870EED001E3FDD /* CompanyDetail */ = {
@@ -3179,6 +3212,7 @@
 				94CB30581BA5169700577FE6 /* IQNSArray+Sort.m in Sources */,
 				94E761D41BA2C21E00B4C544 /* ProfessonSkillReadView.m in Sources */,
 				F0C067921C0545D200D1B22B /* enterPriseRequest.m in Sources */,
+				94CFD1E81C3F7DD5006EC310 /* playDetailTitleView.m in Sources */,
 				9473303C1BFF186000688587 /* TH_VtalentVC.m in Sources */,
 				041650EE1B4D7C4E008C78BE /* MJRefreshFooterView.m in Sources */,
 				94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */,
@@ -3254,6 +3288,7 @@
 				940033221B841C2D001EB666 /* TH_ClassVC.m in Sources */,
 				941A9EBE1C191751000FFA4D /* HomeView.m in Sources */,
 				041650691B4D7240008C78BE /* GObjAdapter.m in Sources */,
+				94CFD1F21C3F9393006EC310 /* shareCustomView.m in Sources */,
 				94CB305F1BA5169700577FE6 /* IQUIWindow+Hierarchy.m in Sources */,
 				944831B41C32C94D0049C686 /* EditdelegateView.m in Sources */,
 				940032F11B840DCD001EB666 /* JobScreeningCell.m in Sources */,
@@ -3262,6 +3297,7 @@
 				94E7DCFC1B841D510093C39B /* THCoursePlayVC.m in Sources */,
 				F05FC6741C167F7200F0A5BE /* Scheduler.m in Sources */,
 				947330451C02ACD800688587 /* EnterpriseView.m in Sources */,
+				94CFD1EF1C3F936D006EC310 /* shareButtn.m in Sources */,
 				041650CB1B4D730F008C78BE /* MBProgressHUD.m in Sources */,
 				947269AC1C04015900A79A7A /* TH_VtalentDetailVC.m in Sources */,
 				941A9EBD1C191751000FFA4D /* FindjobView.m in Sources */,
@@ -3283,6 +3319,7 @@
 				94CB5BA71B76345D00B23B9D /* TH_MineVC.m in Sources */,
 				94E3EAE01B918CBE007A699E /* AccountRequest.m in Sources */,
 				94EDD4F01B7831BB00A00A78 /* ZXButton.m in Sources */,
+				94CFD1E51C3F5D72006EC310 /* TH_PlayFanDetailVC.m in Sources */,
 				947330551C02BD1B00688587 /* TH_AllPositionVC.m in Sources */,
 				047454F41B9C640500CE880A /* ExceptModel.m in Sources */,
 				941A9EB11C1916CA000FFA4D /* TH_HomeVC.m in Sources */,
@@ -3399,6 +3436,7 @@
 				94313DBE1B7CAAED005D0A9A /* infDestDetailView.m in Sources */,
 				04A483B41B74FD1B006FDB9D /* TH_MainTabBarController.m in Sources */,
 				F0D7C0611B79EB3300836DD2 /* OpenClassVideoListRequest.m in Sources */,
+				94CFD1EC1C3F8BB6006EC310 /* playfanDetailView.m in Sources */,
 				941A9EBC1C191751000FFA4D /* FamousRecommendedView.m in Sources */,
 				948CBFD81C323B9300084294 /* JobIntentionCell.m in Sources */,
 				94CE81771C2E47A00015FB98 /* TH_SelectTabBar.m in Sources */,
@@ -3477,8 +3515,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3500,7 +3538,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "9bd92231-b167-41ff-9868-871e61e81728";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3522,8 +3560,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3538,7 +3576,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "9bd92231-b167-41ff-9868-871e61e81728";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3550,8 +3588,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3584,8 +3622,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3629,7 +3667,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9bd92231-b167-41ff-9868-871e61e81728";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Debug;
@@ -3647,7 +3685,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9bd92231-b167-41ff-9868-871e61e81728";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Release;

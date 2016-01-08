@@ -9,6 +9,7 @@
 #import "TH_CollectActivityVC.h"
 #import "ActivityCell.h"
 #import "HYSegmentedControl.h"
+#import "TH_PlayFanDetailVC.h"
 @interface TH_CollectActivityVC ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView * talbleView  ;
 @property (nonatomic, strong) HYSegmentedControl *segmentedControl;
@@ -32,6 +33,7 @@
     UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, WIDETH, HEIGHT-64-40)];
     tableView.dataSource = self;
     tableView.delegate = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.talbleView = tableView;
     [self.view addSubview:tableView];
 }
@@ -51,7 +53,13 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 115;
+    return 125;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TH_PlayFanDetailVC * playDetail =[[TH_PlayFanDetailVC alloc]init];
+    playDetail.title = @"详情";
+    [self.navigationController pushViewController:playDetail animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
