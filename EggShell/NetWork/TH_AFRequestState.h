@@ -67,4 +67,6 @@
 +(AFRequestState*)EnterpriseFullPositionWithSucc:(void(^)(NSArray * dic))succ withd:(NSDictionary*)dic resp:(Class)resp;
 /*版本更新**/
 +(AFRequestState*)versionUpdataWithSucc:(void(^)(NSDictionary * dic))succ withd:(NSDictionary*)dic ;
+/*版本更新**/
++(AFRequestState*)activityWithSucc:(void(^)(NSDictionary * dic))succ withd:(NSDictionary*)dic;
 @end

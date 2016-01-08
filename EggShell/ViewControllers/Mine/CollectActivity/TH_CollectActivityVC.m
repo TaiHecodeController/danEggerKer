@@ -57,9 +57,9 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TH_PlayFanDetailVC * playDetail =[[TH_PlayFanDetailVC alloc]init];
-    playDetail.title = @"详情";
-    [self.navigationController pushViewController:playDetail animated:YES];
+//    TH_PlayFanDetailVC * playDetail =[[TH_PlayFanDetailVC alloc]init];
+//    playDetail.title = @"详情";
+//    [self.navigationController pushViewController:playDetail animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -11,7 +11,7 @@
 #import "playfanDetailView.h"
 #import "shareCustomView.h"
 @interface TH_PlayFanDetailVC ()<shareCustomViewDelegate>
-
+@property(nonatomic,strong)NSDictionary *  dataDic;
 @end
 
 @implementation TH_PlayFanDetailVC
@@ -20,6 +20,59 @@
     [super viewDidLoad];
     [self createView];
     [self createRightView];
+    [self loadData];
+    
+}
+-(void)createDetail
+{
+    //详情
+    playDetailTitleView * titileView = [[playDetailTitleView alloc]init];
+    CGSize size = CGSizeMake(300, 1000);
+    CGSize labelSize = [self.dataDic[@"traffic_route"] sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
+    titileView.frame = CGRectMake(0, 0, WIDETH, WIDETH/16.0*9.0+5+10+15+10*5+13*5+20+15+labelSize.height);
+    [titileView configValue:self.dataDic];
+    [self.view addSubview:titileView];
+    playfanDetailView * playDetailView = [[playfanDetailView alloc] init];
+    
+    //去掉html标签
+    NSString *str =  [self flattenHTML:self.dataDic[@"content"] trimWhiteSpace:YES];
+    
+    CGSize labelSizeDeatil = [[str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+//    CGSize labelSizeDeatil = [self.dataDic[@"content"] sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
+    playDetailView.frame = CGRectMake(0, WIDETH/16.0*9.0+5+10+15+10*5+13*5+20+15+labelSize.height, WIDETH, labelSizeDeatil.height);
+    [playDetailView conFingValue:self.dataDic];
+    [self.view addSubview:playDetailView];
+    
+}
+-(NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim
+{
+    NSScanner *theScanner = [NSScanner scannerWithString:html];
+    NSString *text = nil;
+    
+    while ([theScanner isAtEnd] == NO) {
+        // find start of tag
+        [theScanner scanUpToString:@"<" intoString:NULL] ;
+        // find end of tag
+        [theScanner scanUpToString:@">" intoString:&text] ;
+        // replace the found tag with a space
+        //(you can filter multi-spaces out later if you wish)
+        html = [html stringByReplacingOccurrencesOfString:
+                [ NSString stringWithFormat:@"%@>", text]
+                                               withString:@""];
+    }
+    
+    return trim ? [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : html;
+}
+
+-(void)loadData
+{
+    NSDictionary * param = @{@"id":self.activityId};
+    [[TH_AFRequestState activityWithSucc:^(NSDictionary *dic) {
+        self.dataDic = dic[@"data"];
+        [self createDetail];
+        
+    } withd:param] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
+
 }
 -(void)createRightView
 {
@@ -44,16 +97,12 @@
     NSLog(@"点击tag%ld",btnTag);
 }
 -(void)createView
-{//详情
-    playDetailTitleView * titileView = [[playDetailTitleView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, WIDETH/16.0*9.0+5+10+15+10*5+13*6+20+15)];
-    [self.view addSubview:titileView];
-    playfanDetailView * playDetailView = [[playfanDetailView alloc] initWithFrame:CGRectMake(0, WIDETH/16.0*9.0+5+10+15+10*5+13*6+20+25, WIDETH, 243)];
-    [self.view addSubview:playDetailView];
-    
+{
     UIView * bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT-64-44, WIDETH, 44)];
     bottomView.backgroundColor =UIColorFromRGB(0xB9FFAE);
     [self.view addSubview:bottomView];
-//底部view
+
+    //底部view
     NSArray * titileArray = @[@"收藏",@"评论",@"我要报名"];
     
     for (int i=0; i < titileArray.count ; i++) {

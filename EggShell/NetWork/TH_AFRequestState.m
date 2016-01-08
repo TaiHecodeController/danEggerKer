@@ -299,4 +299,9 @@ return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Vtalent",base_Url
 {
  return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Update/index",base_Url] param:dic succ:succ ];
 }
+/*版本更新**/
++(AFRequestState*)activityWithSucc:(void(^)(NSDictionary * dic))succ withd:(NSDictionary*)dic
+{
+return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/actdetail",base_Url] param:dic succ:succ ];
+}
 @end

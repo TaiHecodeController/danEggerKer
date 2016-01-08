@@ -11,4 +11,5 @@
 @interface playfanDetailView : UIView
 //招聘会介绍
 @property(nonatomic,strong)UILabel *   recruitmentIntroducedLable;
+-(void)conFingValue:(NSDictionary*)dic;
 @end

@@ -20,10 +20,10 @@
 -(void)createView
 {
     
-    
 //    //活动logo
     UIImageView * logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDETH, WIDETH/16.0*9.0)];
     logoImageView.image = [UIImage imageNamed:@"logoSencond"];
+    self.logoImageView = logoImageView;
     [self addSubview:logoImageView];
        //活动标题
     UILabel * eventTitleLable = [[UILabel alloc] initWithFrame:CGRectMake(10, WIDETH/16.0*9.0+5, WIDETH-20, 15)];
@@ -38,7 +38,6 @@
     organizersHeadLable.textColor = UIColorFromRGB(0x000000);
     organizersHeadLable.font = [UIFont systemFontOfSize:13];
     [self addSubview:organizersHeadLable];
-    
     UILabel *  organizersLable =[[UILabel alloc] initWithFrame:CGRectMake(72, WIDETH/16.0*9.0+5+10+15, WIDETH-72, 13)];
     organizersLable.text = @"北京蛋壳无限科技有限公司";
     organizersLable.textColor = UIColorFromRGB(0x646464);
@@ -105,10 +104,26 @@
     trafficRoutesLable.text = @"203公交，203公交，203公交，203公交，203公交";
     trafficRoutesLable.textColor = UIColorFromRGB(0x646464);
     trafficRoutesLable.font = [UIFont systemFontOfSize:13];
+    trafficRoutesLable.numberOfLines = 0;
     self.trafficRoutesLable = trafficRoutesLable;
     [self addSubview:trafficRoutesLable];
   
     ItemTimeView * itemView = [[ItemTimeView alloc] initWithFrame:CGRectMake(WIDETH-82, WIDETH/16.0*9.0+5+10+15+10*5+13*6+20, 72,12)];
+    self.itemView = itemView;
     [self addSubview:itemView];
+}
+-(void)configValue:(NSDictionary*)dic
+{
+    [self.logoImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"logo"]] placeholderImage:[UIImage imageNamed:@"logoSencond"]];
+    self.eventTitleLalbel.text = dic[@"title"];
+    self.organizersLable.text = dic[@"organizers"];
+    self.holdTimeLable.text = [NSString stringWithFormat:@"%@至%@",dic[@"starttime"],dic[@"endtime"]];
+    self.holdAddressLable.text = dic[@"address"];
+    self.supporthotlineLable.text = dic[@"telphone"];
+    self.connectPersonLable.text = dic[@"user"];
+    self.trafficRoutesLable.text = dic[@"trafficRoutesLable"];
+    self.itemView.collectionNumberTitleLable.text = dic[@"collect_count"];
+    self.itemView.commendNumberTitleLable.text = dic[@"apply_count"];
+    
 }
 @end

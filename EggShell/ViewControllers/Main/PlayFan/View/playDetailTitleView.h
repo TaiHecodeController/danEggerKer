@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ItemTimeView.h"
 @interface playDetailTitleView : UIView
 //活动logo
 @property(nonatomic,strong)UIImageView * logoImageView;
@@ -27,4 +27,6 @@
 @property(nonatomic,strong)UILabel *   trafficRoutesLable;
 //招聘会介绍
 @property(nonatomic,strong)UILabel *   recruitmentIntroducedLable;
+@property(nonatomic,strong)ItemTimeView * itemView ;
+-(void)configValue:(NSDictionary*)dic;
 @end

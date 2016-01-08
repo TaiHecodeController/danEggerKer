@@ -36,7 +36,35 @@
     recruitmentIntroducedLable.font = [UIFont systemFontOfSize:13];
     self.recruitmentIntroducedLable = recruitmentIntroducedLable;
     [self addSubview:recruitmentIntroducedLable];
-
-    
 }
+-(void)conFingValue:(NSDictionary*)dic
+{
+    self.recruitmentIntroducedLable.text = dic[@"content"];
+    //去掉html标签
+    NSString *str =  [self flattenHTML:dic[@"content"] trimWhiteSpace:YES];
+    
+    CGSize labelSizeDeatil = [[str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+self.recruitmentIntroducedLable.text =  [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
+}
+
+-(NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim
+{
+    NSScanner *theScanner = [NSScanner scannerWithString:html];
+    NSString *text = nil;
+    
+    while ([theScanner isAtEnd] == NO) {
+        // find start of tag
+        [theScanner scanUpToString:@"<" intoString:NULL] ;
+        // find end of tag
+        [theScanner scanUpToString:@">" intoString:&text] ;
+        // replace the found tag with a space
+        //(you can filter multi-spaces out later if you wish)
+        html = [html stringByReplacingOccurrencesOfString:
+                [ NSString stringWithFormat:@"%@>", text]
+                                               withString:@""];
+    }
+    
+    return trim ? [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : html;
+}
+
 @end
