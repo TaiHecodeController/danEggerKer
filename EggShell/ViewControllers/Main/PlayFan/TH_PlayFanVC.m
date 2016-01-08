@@ -162,13 +162,17 @@
         InforCell = [[[NSBundle mainBundle] loadNibNamed:@"InformationDeskCell" owner:self options:nil] lastObject];
     }
     
+    
+    
     if(self.dataArray.count >0)
     {
         if (_currentIndex == 0)
         {
             informantionModel * model = self.dataArray[indexPath.row];
             [InforCell setValue:model];
-        }if (_currentIndex==1) {
+        }
+        if (_currentIndex==1)
+        {
             informantionModel * model = self.dataArray[indexPath.row];
             [InforCell setValues:model];
         }

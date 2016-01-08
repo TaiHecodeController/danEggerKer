@@ -200,11 +200,12 @@
 		94CFD1DC1C3E553E006EC310 /* TH_CollectActivityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1DB1C3E553E006EC310 /* TH_CollectActivityVC.m */; };
 		94CFD1DF1C3E5760006EC310 /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1DE1C3E5760006EC310 /* ActivityCell.m */; };
 		94CFD1E21C3F5413006EC310 /* ItemTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1E11C3F5413006EC310 /* ItemTimeView.m */; };
-		94CFD1E51C3F5D72006EC310 /* TH_PlayFanDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1E41C3F5D72006EC310 /* TH_PlayFanDetailVC.m */; };
-		94CFD1E81C3F7DD5006EC310 /* playDetailTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1E71C3F7DD5006EC310 /* playDetailTitleView.m */; };
 		94CFD1EC1C3F8BB6006EC310 /* playfanDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1EB1C3F8BB6006EC310 /* playfanDetailView.m */; };
 		94CFD1EF1C3F936D006EC310 /* shareButtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1EE1C3F936D006EC310 /* shareButtn.m */; };
 		94CFD1F21C3F9393006EC310 /* shareCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1F11C3F9393006EC310 /* shareCustomView.m */; };
+		94CFD1F51C3FA9A7006EC310 /* playDetailTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1F41C3FA9A7006EC310 /* playDetailTitleView.m */; };
+		94CFD1FB1C3FAAB3006EC310 /* TH_PlayFanDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1FA1C3FAAB3006EC310 /* TH_PlayFanDetailVC.m */; };
+		94CFD1FC1C3FAB4F006EC310 /* TH_PlayFanDetailVC.h in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1F91C3FAAB3006EC310 /* TH_PlayFanDetailVC.h */; };
 		94E216301BA951DD00D96B67 /* MTSpecailtyListPointItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2162F1BA951DD00D96B67 /* MTSpecailtyListPointItem.m */; };
 		94E2C95D1B86C112001E3FDD /* 蛋壳儿.doc in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C95C1B86C112001E3FDD /* 蛋壳儿.doc */; };
 		94E2C9681B870EED001E3FDD /* CompanyDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2C9641B870EED001E3FDD /* CompanyDetailVC.m */; };
@@ -334,6 +335,7 @@
 		F07F39091B998B62002531CD /* TeacherFCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39081B998B62002531CD /* TeacherFCModel.m */; };
 		F0811F711C30FED5005D13D7 /* WriteResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0811F701C30FED5005D13D7 /* WriteResumeViewController.m */; };
 		F0811F741C33C1FB005D13D7 /* WorkingExperienceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F0811F731C33C1FB005D13D7 /* WorkingExperienceVC.m */; };
+		F0811F9C1C3F58A0005D13D7 /* recommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0811F9B1C3F58A0005D13D7 /* recommendCell.m */; };
 		F083F8211B9C32F700781C08 /* Me_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F083F8201B9C32F700781C08 /* Me_Request.m */; };
 		F0A8C52F1C192BC0002E6971 /* findJobCarViewS.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A8C52E1C192BC0002E6971 /* findJobCarViewS.m */; };
 		F0B85A391BA11F83005799F5 /* SearchCity1_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */; };
@@ -763,16 +765,16 @@
 		94CFD1DE1C3E5760006EC310 /* ActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCell.m; sourceTree = "<group>"; };
 		94CFD1E01C3F5413006EC310 /* ItemTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTimeView.h; sourceTree = "<group>"; };
 		94CFD1E11C3F5413006EC310 /* ItemTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTimeView.m; sourceTree = "<group>"; };
-		94CFD1E31C3F5D72006EC310 /* TH_PlayFanDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_PlayFanDetailVC.h; sourceTree = "<group>"; };
-		94CFD1E41C3F5D72006EC310 /* TH_PlayFanDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_PlayFanDetailVC.m; sourceTree = "<group>"; };
-		94CFD1E61C3F7DD5006EC310 /* playDetailTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = playDetailTitleView.h; path = ../playDetailTitleView.h; sourceTree = "<group>"; };
-		94CFD1E71C3F7DD5006EC310 /* playDetailTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = playDetailTitleView.m; path = ../playDetailTitleView.m; sourceTree = "<group>"; };
 		94CFD1EA1C3F8BB6006EC310 /* playfanDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playfanDetailView.h; sourceTree = "<group>"; };
 		94CFD1EB1C3F8BB6006EC310 /* playfanDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playfanDetailView.m; sourceTree = "<group>"; };
 		94CFD1ED1C3F936D006EC310 /* shareButtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shareButtn.h; sourceTree = "<group>"; };
 		94CFD1EE1C3F936D006EC310 /* shareButtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shareButtn.m; sourceTree = "<group>"; };
 		94CFD1F01C3F9393006EC310 /* shareCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shareCustomView.h; sourceTree = "<group>"; };
 		94CFD1F11C3F9393006EC310 /* shareCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shareCustomView.m; sourceTree = "<group>"; };
+		94CFD1F31C3FA9A7006EC310 /* playDetailTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playDetailTitleView.h; sourceTree = "<group>"; };
+		94CFD1F41C3FA9A7006EC310 /* playDetailTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playDetailTitleView.m; sourceTree = "<group>"; };
+		94CFD1F91C3FAAB3006EC310 /* TH_PlayFanDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_PlayFanDetailVC.h; sourceTree = "<group>"; };
+		94CFD1FA1C3FAAB3006EC310 /* TH_PlayFanDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_PlayFanDetailVC.m; sourceTree = "<group>"; };
 		94E2162C1BA951CE00D96B67 /* MTSpecailtyListPointItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTSpecailtyListPointItem.h; path = EggShell/ViewControllers/Class/MTSpecailtyListPointItem.h; sourceTree = SOURCE_ROOT; };
 		94E2162F1BA951DD00D96B67 /* MTSpecailtyListPointItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTSpecailtyListPointItem.m; path = EggShell/ViewControllers/Class/MTSpecailtyListPointItem.m; sourceTree = SOURCE_ROOT; };
 		94E2C95C1B86C112001E3FDD /* 蛋壳儿.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "蛋壳儿.doc"; sourceTree = "<group>"; };
@@ -990,6 +992,8 @@
 		F0811F701C30FED5005D13D7 /* WriteResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeViewController.m; sourceTree = "<group>"; };
 		F0811F721C33C1FB005D13D7 /* WorkingExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingExperienceVC.h; sourceTree = "<group>"; };
 		F0811F731C33C1FB005D13D7 /* WorkingExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingExperienceVC.m; sourceTree = "<group>"; };
+		F0811F9A1C3F58A0005D13D7 /* recommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recommendCell.h; sourceTree = "<group>"; };
+		F0811F9B1C3F58A0005D13D7 /* recommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = recommendCell.m; sourceTree = "<group>"; };
 		F083F81F1B9C32F700781C08 /* Me_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Me_Request.h; sourceTree = "<group>"; };
 		F083F8201B9C32F700781C08 /* Me_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Me_Request.m; sourceTree = "<group>"; };
 		F0A8C52D1C192BBA002E6971 /* findJobCarViewS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findJobCarViewS.h; sourceTree = "<group>"; };
@@ -1862,12 +1866,14 @@
 		94313DAC1B7CAAB5005D0A9A /* PlayFan */ = {
 			isa = PBXGroup;
 			children = (
+				94CFD1F91C3FAAB3006EC310 /* TH_PlayFanDetailVC.h */,
+				94CFD1FA1C3FAAB3006EC310 /* TH_PlayFanDetailVC.m */,
 				94CFD1E91C3F8219006EC310 /* View */,
 				94EFC1C51B7DC40000833068 /* PlayModel */,
 				94313DAD1B7CAAB5005D0A9A /* TH_PlayFanVC.h */,
 				94313DAE1B7CAAB5005D0A9A /* TH_PlayFanVC.m */,
-				94CFD1E31C3F5D72006EC310 /* TH_PlayFanDetailVC.h */,
-				94CFD1E41C3F5D72006EC310 /* TH_PlayFanDetailVC.m */,
+				F0811F9A1C3F58A0005D13D7 /* recommendCell.h */,
+				F0811F9B1C3F58A0005D13D7 /* recommendCell.m */,
 			);
 			name = PlayFan;
 			path = Main/PlayFan;
@@ -2303,8 +2309,8 @@
 		94CFD1E91C3F8219006EC310 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				94CFD1E61C3F7DD5006EC310 /* playDetailTitleView.h */,
-				94CFD1E71C3F7DD5006EC310 /* playDetailTitleView.m */,
+				94CFD1F31C3FA9A7006EC310 /* playDetailTitleView.h */,
+				94CFD1F41C3FA9A7006EC310 /* playDetailTitleView.m */,
 				94CFD1EA1C3F8BB6006EC310 /* playfanDetailView.h */,
 				94CFD1EB1C3F8BB6006EC310 /* playfanDetailView.m */,
 				94CFD1ED1C3F936D006EC310 /* shareButtn.h */,
@@ -3195,6 +3201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94CFD1FC1C3FAB4F006EC310 /* TH_PlayFanDetailVC.h in Sources */,
 				94EDD4EA1B78319A00A00A78 /* UIView+Extension.m in Sources */,
 				940032D21B840CC3001EB666 /* TH_ProjectExperienceVC.m in Sources */,
 				941A9EC31C191CE3000FFA4D /* cardView.m in Sources */,
@@ -3212,7 +3219,6 @@
 				94CB30581BA5169700577FE6 /* IQNSArray+Sort.m in Sources */,
 				94E761D41BA2C21E00B4C544 /* ProfessonSkillReadView.m in Sources */,
 				F0C067921C0545D200D1B22B /* enterPriseRequest.m in Sources */,
-				94CFD1E81C3F7DD5006EC310 /* playDetailTitleView.m in Sources */,
 				9473303C1BFF186000688587 /* TH_VtalentVC.m in Sources */,
 				041650EE1B4D7C4E008C78BE /* MJRefreshFooterView.m in Sources */,
 				94CB5B7B1B74CC0600B23B9D /* HomePageModel.m in Sources */,
@@ -3265,6 +3271,7 @@
 				94313D7B1B7C1F2A005D0A9A /* TH_ForgotPasswordVC.m in Sources */,
 				048F30B71B7A4537004AA9B2 /* FMDatabase.m in Sources */,
 				F0C067831C03FD7B00D1B22B /* TableViewCell_1.m in Sources */,
+				94CFD1F51C3FA9A7006EC310 /* playDetailTitleView.m in Sources */,
 				947008C81B85FF0100DEC289 /* TH_ImagePickerVC.m in Sources */,
 				940032C91B840CC3001EB666 /* TH_CertificateVC.m in Sources */,
 				F07F39011B993B7C002531CD /* CommonFunc.m in Sources */,
@@ -3292,6 +3299,7 @@
 				94CB305F1BA5169700577FE6 /* IQUIWindow+Hierarchy.m in Sources */,
 				944831B41C32C94D0049C686 /* EditdelegateView.m in Sources */,
 				940032F11B840DCD001EB666 /* JobScreeningCell.m in Sources */,
+				94CFD1FB1C3FAAB3006EC310 /* TH_PlayFanDetailVC.m in Sources */,
 				F05FC6751C167F7200F0A5BE /* Utils.m in Sources */,
 				F06F72EF1B9694D200989489 /* playListModel.m in Sources */,
 				94E7DCFC1B841D510093C39B /* THCoursePlayVC.m in Sources */,
@@ -3319,7 +3327,6 @@
 				94CB5BA71B76345D00B23B9D /* TH_MineVC.m in Sources */,
 				94E3EAE01B918CBE007A699E /* AccountRequest.m in Sources */,
 				94EDD4F01B7831BB00A00A78 /* ZXButton.m in Sources */,
-				94CFD1E51C3F5D72006EC310 /* TH_PlayFanDetailVC.m in Sources */,
 				947330551C02BD1B00688587 /* TH_AllPositionVC.m in Sources */,
 				047454F41B9C640500CE880A /* ExceptModel.m in Sources */,
 				941A9EB11C1916CA000FFA4D /* TH_HomeVC.m in Sources */,
@@ -3380,6 +3387,7 @@
 				94CB305E1BA5169700577FE6 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				0416506A1B4D7240008C78BE /* Gson.m in Sources */,
 				9400329B1B840736001EB666 /* VersionUpdateView.m in Sources */,
+				F0811F9C1C3F58A0005D13D7 /* recommendCell.m in Sources */,
 				F05FC6761C167F7200F0A5BE /* ViewManager.m in Sources */,
 				94CB5B851B74CC0600B23B9D /* NSObject+MJKeyValue.m in Sources */,
 				94CFD1DF1C3E5760006EC310 /* ActivityCell.m in Sources */,
