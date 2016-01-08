@@ -35,6 +35,7 @@
 @property (nonatomic,strong)AFRequestState * state;
 @property (nonatomic, strong) playFanModel *firstModel;
 @property (nonatomic, strong) recommendCell *headView;
+@property (nonatomic, strong) NSDictionary *recommendDic;
 
 @end
 
@@ -69,6 +70,7 @@
     [super viewDidLoad];
     
     self.dataArray =[NSMutableArray arrayWithCapacity:0];
+    self.recommendDic = [[NSDictionary alloc]init];
     self.view.backgroundColor =[UIColor whiteColor];
     self.limitNum = 10;
     [self createView];
@@ -135,6 +137,9 @@
     _headView = [[recommendCell alloc]init];
     _headView.frame = CGRectMake(0, 0, WIDETH, 305);
     self.tableView.tableHeaderView = _headView;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headClick:)];
+    [_headView addGestureRecognizer:tap];
 }
 
 -(void)loadData:(id)notify page:(int)num pageTye:(int)type
@@ -147,6 +152,7 @@
         
         if (_currentIndex == 0)
         {
+            self.recommendDic = DataDic[@"recommend"];
             [self setHeadData:DataDic[@"recommend"]];
              [self.dataArray addObjectsFromArray:DataDic[@"result"]];
 
@@ -198,7 +204,6 @@
                 cell.collectionNumberTitleLable.text = dic[@"collect_count"];
                 cell.commendNumberTitleLable.text = dic[@"apply_count"];
                 [cell.holdLogoImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"logo"]] placeholderImage:[UIImage imageNamed:@"logoSencond"]];
-                
 
         }
         if (_currentIndex == 1)
@@ -212,8 +217,6 @@
             cell.collectionNumberTitleLable.text = dic[@"collect_count"];
             cell.commendNumberTitleLable.text = dic[@"apply_count"];
             [cell.holdLogoImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"logo"]] placeholderImage:[UIImage imageNamed:@"logoSencond"]];
-            
-          
         }
         
     }
@@ -224,13 +227,21 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 125;
-
 }
+
+- (void)headClick:(UITapGestureRecognizer *)tap
+{
+    TH_PlayFanDetailVC * detail = [[TH_PlayFanDetailVC alloc] init];
+    detail.activityId = self.recommendDic[@"id"];
+    [self.navigationController pushViewController:detail animated:YES];
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    if (_currentIndex == 0) {
+    if (_currentIndex == 0)
+    {
         NSDictionary *dic = self.dataArray[indexPath.row];
         TH_PlayFanDetailVC * detail = [[TH_PlayFanDetailVC alloc] init];
         detail.activityId = dic[@"id"];
@@ -274,7 +285,6 @@
         {
             [self loadData:refreshView page:_page pageTye:1];
         }
-        
         
     }
 }

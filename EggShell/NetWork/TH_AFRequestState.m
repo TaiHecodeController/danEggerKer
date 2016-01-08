@@ -30,6 +30,20 @@
     NSDictionary * param = @{@"page":pagenumber,@"limit":limitNum,@"type":typeNum};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/act",base_Url] param:param succ:succ resp:resp];
 }
+
+
++(AFRequestState *)collectRequestWithSucc:(void(^)(NSDictionary *DataDic))succ resp:(Class)resp activeId:(NSString *)activeId uid:(NSString *)uid
+{
+    NSDictionary * param = @{@"id":activeId,@"uid":uid};
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/act_collect",base_Url] param:param succ:succ resp:resp];
+}
+
++(AFRequestState *)signUpRequestWithSucc:(void(^)(NSDictionary *DataDic))succ resp:(Class)resp activeId:(NSString *)activeId uid:(NSString *)uid
+{
+    NSDictionary * param = @{@"id":activeId,@"uid":uid};
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/act_apply",base_Url] param:param succ:succ resp:resp];
+
+}
 /*玩出范详情**/
 +(AFRequestState *)playClassDetailRequestWithSucc:(void(^)(NSArray * dataDic))succ withType:(int)type withId:(int) classId
 {
