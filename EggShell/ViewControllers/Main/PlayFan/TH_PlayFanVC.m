@@ -229,12 +229,14 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (_currentIndex == 0) {
+    if (_currentIndex == 0)
+    {
         TH_InformationDeskDetailVC * detail = [[TH_InformationDeskDetailVC alloc] init];
        
         [self.navigationController pushViewController:detail animated:YES];
         
-    }else if (_currentIndex==1)
+    }
+    else if (_currentIndex==1)
     {
         TH_InformationDeskDetailVC * detail = [[TH_InformationDeskDetailVC alloc] init];
 
@@ -242,8 +244,8 @@
     
     }
     
-    
 }
+
 #pragma mark -- MJRefresh
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {

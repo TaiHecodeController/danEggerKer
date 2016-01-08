@@ -22,8 +22,9 @@
 {
     /*活动logo**/
     UIImageView * holdLogoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WIDETH-168*MyHeight-10, 10, 168*MyHeight, 95)];
-    holdLogoImageView.image = [UIImage imageNamed:@"logoSencond"];
+//    holdLogoImageView.image = [UIImage imageNamed:@"logoSencond"];
     [self.contentView addSubview:holdLogoImageView];
+    self.holdLogoImageView = holdLogoImageView;
     /*活动标题**/
    UILabel * eventTitleLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 9, WIDETH-168*MyHeight-10-15, 36)];
     eventTitleLable.text = @"让爱回家-心里疗愈工作坊2016年北京第八期";
