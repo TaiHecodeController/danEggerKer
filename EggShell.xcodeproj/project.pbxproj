@@ -197,6 +197,9 @@
 		94CB5BA71B76345D00B23B9D /* TH_MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CB5BA61B76345D00B23B9D /* TH_MineVC.m */; };
 		94CB5BAB1B763AAC00B23B9D /* TH_FindJobVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CB5BAA1B763AAC00B23B9D /* TH_FindJobVC.m */; };
 		94CE81771C2E47A00015FB98 /* TH_SelectTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CE81761C2E47A00015FB98 /* TH_SelectTabBar.m */; };
+		94CFD1DC1C3E553E006EC310 /* TH_CollectActivityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1DB1C3E553E006EC310 /* TH_CollectActivityVC.m */; };
+		94CFD1DF1C3E5760006EC310 /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1DE1C3E5760006EC310 /* ActivityCell.m */; };
+		94CFD1E21C3F5413006EC310 /* ItemTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CFD1E11C3F5413006EC310 /* ItemTimeView.m */; };
 		94E216301BA951DD00D96B67 /* MTSpecailtyListPointItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2162F1BA951DD00D96B67 /* MTSpecailtyListPointItem.m */; };
 		94E2C95D1B86C112001E3FDD /* 蛋壳儿.doc in Resources */ = {isa = PBXBuildFile; fileRef = 94E2C95C1B86C112001E3FDD /* 蛋壳儿.doc */; };
 		94E2C9681B870EED001E3FDD /* CompanyDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E2C9641B870EED001E3FDD /* CompanyDetailVC.m */; };
@@ -749,6 +752,12 @@
 		94CB5BAA1B763AAC00B23B9D /* TH_FindJobVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_FindJobVC.m; sourceTree = "<group>"; };
 		94CE81751C2E47A00015FB98 /* TH_SelectTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_SelectTabBar.h; sourceTree = "<group>"; };
 		94CE81761C2E47A00015FB98 /* TH_SelectTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_SelectTabBar.m; sourceTree = "<group>"; };
+		94CFD1DA1C3E553E006EC310 /* TH_CollectActivityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TH_CollectActivityVC.h; sourceTree = "<group>"; };
+		94CFD1DB1C3E553E006EC310 /* TH_CollectActivityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TH_CollectActivityVC.m; sourceTree = "<group>"; };
+		94CFD1DD1C3E5760006EC310 /* ActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCell.h; sourceTree = "<group>"; };
+		94CFD1DE1C3E5760006EC310 /* ActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCell.m; sourceTree = "<group>"; };
+		94CFD1E01C3F5413006EC310 /* ItemTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTimeView.h; sourceTree = "<group>"; };
+		94CFD1E11C3F5413006EC310 /* ItemTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTimeView.m; sourceTree = "<group>"; };
 		94E2162C1BA951CE00D96B67 /* MTSpecailtyListPointItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTSpecailtyListPointItem.h; path = EggShell/ViewControllers/Class/MTSpecailtyListPointItem.h; sourceTree = SOURCE_ROOT; };
 		94E2162F1BA951DD00D96B67 /* MTSpecailtyListPointItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTSpecailtyListPointItem.m; path = EggShell/ViewControllers/Class/MTSpecailtyListPointItem.m; sourceTree = SOURCE_ROOT; };
 		94E2C95C1B86C112001E3FDD /* 蛋壳儿.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "蛋壳儿.doc"; sourceTree = "<group>"; };
@@ -1434,6 +1443,7 @@
 		04A483C71B74FDF5006FDB9D /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				94CFD1D91C3E54FE006EC310 /* CollectActivity */,
 				947330651C02E8FB00688587 /* EnterpriseForeget */,
 				941F100B1B7B3BCC00719F5B /* JobWishlist */,
 				9470069C1B85FEC500DEC289 /* imagePicker */,
@@ -2257,6 +2267,19 @@
 				94E2C96A1B870F29001E3FDD /* JobDetails */,
 			);
 			path = FindJob;
+			sourceTree = "<group>";
+		};
+		94CFD1D91C3E54FE006EC310 /* CollectActivity */ = {
+			isa = PBXGroup;
+			children = (
+				94CFD1DA1C3E553E006EC310 /* TH_CollectActivityVC.h */,
+				94CFD1DB1C3E553E006EC310 /* TH_CollectActivityVC.m */,
+				94CFD1DD1C3E5760006EC310 /* ActivityCell.h */,
+				94CFD1DE1C3E5760006EC310 /* ActivityCell.m */,
+				94CFD1E01C3F5413006EC310 /* ItemTimeView.h */,
+				94CFD1E11C3F5413006EC310 /* ItemTimeView.m */,
+			);
+			path = CollectActivity;
 			sourceTree = "<group>";
 		};
 		94E2C9621B870EED001E3FDD /* CompanyDetail */ = {
@@ -3244,6 +3267,7 @@
 				941A9EBD1C191751000FFA4D /* FindjobView.m in Sources */,
 				0470291E1B974C4300565BC4 /* ManagerResumeModel.m in Sources */,
 				04A0CD481B7A111D00EBCF01 /* HeadView.m in Sources */,
+				94CFD1E21C3F5413006EC310 /* ItemTimeView.m in Sources */,
 				94313DC11B7CAAED005D0A9A /* InformationDeskCell.m in Sources */,
 				041650671B4D7240008C78BE /* GAdapter.m in Sources */,
 				94CB5B7C1B74CC0600B23B9D /* MJArgument.m in Sources */,
@@ -3321,6 +3345,7 @@
 				9400329B1B840736001EB666 /* VersionUpdateView.m in Sources */,
 				F05FC6761C167F7200F0A5BE /* ViewManager.m in Sources */,
 				94CB5B851B74CC0600B23B9D /* NSObject+MJKeyValue.m in Sources */,
+				94CFD1DF1C3E5760006EC310 /* ActivityCell.m in Sources */,
 				941F10191B7B3BCC00719F5B /* TH_JobWishlistVC.m in Sources */,
 				F0B85A391BA11F83005799F5 /* SearchCity1_ViewController.m in Sources */,
 				94E8F4F21B85797900088658 /* NameAndSexCell.m in Sources */,
@@ -3398,6 +3423,7 @@
 				941F10181B7B3BCC00719F5B /* JobWishlistHeadView.m in Sources */,
 				F07F39051B996F65002531CD /* saveListModel.m in Sources */,
 				947269B21C05A8A000A79A7A /* AllPosionModel.m in Sources */,
+				94CFD1DC1C3E553E006EC310 /* TH_CollectActivityVC.m in Sources */,
 				948CBFE11C323C3A00084294 /* ProfessionalSkillCell.m in Sources */,
 				F05B80071B8ABE2200DC0A1D /* MTGridView.m in Sources */,
 				94E761C91BA2B7F300B4C544 /* CertificateReadVC.m in Sources */,
@@ -3451,8 +3477,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3474,7 +3500,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9bd92231-b167-41ff-9868-871e61e81728";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3496,8 +3522,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3512,7 +3538,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9bd92231-b167-41ff-9868-871e61e81728";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3524,8 +3550,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3558,8 +3584,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3590,8 +3616,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -3603,7 +3629,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9bd92231-b167-41ff-9868-871e61e81728";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Debug;
@@ -3612,8 +3638,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Tiahel Baifu Management Consulting Co., Ltd. (B8W5YY9JPL)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -3621,7 +3647,7 @@
 				INFOPLIST_FILE = EggShellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9bd92231-b167-41ff-9868-871e61e81728";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggShell.app/EggShell";
 			};
 			name = Release;

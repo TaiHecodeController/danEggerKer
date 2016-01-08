@@ -19,6 +19,8 @@ typedef enum
     THMineViewButtonTypeLogin,
     THMineViewButtonTypeFeedback,
     THMineViewButtonTypeversion,
+    THMineViewButtonTypecollectionActivity,
+    THMineViewButtonTypecompletionActivity,
         
 }THMineViewButtonType;
 

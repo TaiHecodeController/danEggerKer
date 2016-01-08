@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *Feedback;
 @property (weak, nonatomic) IBOutlet UIButton *chatNewVersion;
 @property (weak, nonatomic) IBOutlet UIButton *signOut;
+@property (weak, nonatomic) IBOutlet UIButton *completionActivity;
+@property (weak, nonatomic) IBOutlet UIButton *collectionActivity;
 
 @end
 @implementation MineVeiw
@@ -42,6 +44,8 @@
     self.loginBtn.tag = THMineViewButtonTypeLogin;
     self.Feedback.tag = THMineViewButtonTypeFeedback;
     self.chatNewVersion.tag = THMineViewButtonTypeversion;
+    self.completionActivity.tag = THMineViewButtonTypecompletionActivity;
+    self.collectionActivity.tag = THMineViewButtonTypecollectionActivity;
    
 }
 
