@@ -82,7 +82,6 @@
 
 -(void)createView
 {
-    
     UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, WIDETH, 0.5)];
     bgView.backgroundColor = color(221, 221, 221);
     [self.view addSubview:bgView];
@@ -255,7 +254,6 @@
         [self.navigationController pushViewController:detail animated:YES];
     
     }
-    
 }
 
 #pragma mark -- MJRefresh
