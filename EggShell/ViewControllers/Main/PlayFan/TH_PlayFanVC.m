@@ -16,7 +16,7 @@
 #import "TH_MainTabBarController.h"
 #import "recommendCell.h"
 #import "ActivityCell.h"
-
+#import "TH_PlayFanDetailVC.h"
 @interface TH_PlayFanVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
     THMBProgressHubView * _mbPro;
@@ -230,14 +230,15 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (_currentIndex == 0) {
-        TH_InformationDeskDetailVC * detail = [[TH_InformationDeskDetailVC alloc] init];
-       
+        NSDictionary *dic = self.dataArray[indexPath.row];
+        TH_PlayFanDetailVC * detail = [[TH_PlayFanDetailVC alloc] init];
+        detail.activityId = dic[@"id"];
         [self.navigationController pushViewController:detail animated:YES];
         
     }else if (_currentIndex==1)
     {
-        TH_InformationDeskDetailVC * detail = [[TH_InformationDeskDetailVC alloc] init];
-
+        TH_PlayFanDetailVC * detail = [[TH_PlayFanDetailVC alloc] init];
+     detail.activityMark  = @"";
         [self.navigationController pushViewController:detail animated:YES];
     
     }

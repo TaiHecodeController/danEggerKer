@@ -9,5 +9,6 @@
 #import "TH_BaseVC.h"
 
 @interface TH_PlayFanDetailVC : TH_BaseVC
-
+@property(nonatomic,strong)NSString * activityId;
+@property(nonatomic,strong)NSString * activityMark;
 @end
