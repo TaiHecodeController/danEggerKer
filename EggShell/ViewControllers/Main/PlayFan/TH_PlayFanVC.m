@@ -14,6 +14,8 @@
 #import "AFAppRequest.h"
 #import "informantionModel.h"
 #import "TH_MainTabBarController.h"
+#import "recommendCell.h"
+#import "ActivityCell.h"
 
 @interface TH_PlayFanVC ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
@@ -31,6 +33,8 @@
 @property(nonatomic,assign)int page;
 @property(nonatomic,assign)int limitNum;
 @property (nonatomic,strong)AFRequestState * state;
+@property (nonatomic, strong) playFanModel *firstModel;
+@property (nonatomic, strong) recommendCell *headView;
 
 @end
 
@@ -66,34 +70,14 @@
     
     self.dataArray =[NSMutableArray arrayWithCapacity:0];
     self.view.backgroundColor =[UIColor whiteColor];
-    
-//        self.navigationController.navigationBar.translucent = YES;
-//    [self.navigationController.navigationBar pushNavigationItem:item animated:YES];
-//    self.navigationController.navigationItem.title = @"sjfla";
-//    self.navigationController.navigationBar.topItem.prompt = @"sagasgsdgfag";
-//    self.navigationController.navigationBar.backItem.prompt = @"sagasgsdgfag";
-    
-//    self.page = 0;
     self.limitNum = 10;
     [self createView];
     [self createTbleView];
+    
     [self hySegmentedControlSelectAtIndex:0];
     
-//    [self loadData:nil page:0 pageTye:1];
 }
 
--(void)loadData:(id)notify page:(int)num pageTye:(int)type
-{
-    if(_state.running)
-    {
-        return;
-    }
-        _state = [[TH_AFRequestState playClassrRequestWithSucc:^(NSArray *DataDic) {
-            
-        [self.dataArray addObjectsFromArray:DataDic];
-        [self.tableView reloadData];
-    } resp:[playFanModel class] withPage:num withLimit:self.limitNum withType:type] addNotifaction:notify];
-}
 -(void)createView
 {
     
@@ -110,8 +94,8 @@
     if (index == 0)
     {
         [self.dataArray removeAllObjects];
+       self.tableView.tableHeaderView = _headView;
         _currentIndex = 0;
-        NSLog(@"蛋粉High翻天");
         _page = 1;
         _mbPro = [MBProgressHUD mbHubShowMBProgressHubView:self];
         [self loadData:_mbPro page:_page pageTye:2];
@@ -119,15 +103,15 @@
         
     }
     else
-  {
-     [self.dataArray removeAllObjects];
-        _currentIndex = 1;
-        NSLog(@"蛋壳儿送福利");
-        _page = 1;
-        _mbPro = [MBProgressHUD mbHubShowMBProgressHubView:self];
-        [self loadData:_mbPro page:_page pageTye:1];
-        [self.tableView reloadData];
-        
+      {
+         [self.dataArray removeAllObjects];
+         self.tableView.tableHeaderView = nil;
+            _currentIndex = 1;
+            _page = 1;
+            _mbPro = [MBProgressHUD mbHubShowMBProgressHubView:self];
+            [self loadData:_mbPro page:_page pageTye:1];
+            [self.tableView reloadData];
+            
     }
 }
 -(void)createTbleView{
@@ -147,68 +131,112 @@
     _footer = [MJRefreshFooterView footer];
     _footer.scrollView = self.tableView;
     _footer.delegate = self;
+    
+    _headView = [[recommendCell alloc]init];
+    _headView.frame = CGRectMake(0, 0, WIDETH, 305);
+    self.tableView.tableHeaderView = _headView;
 }
+
+-(void)loadData:(id)notify page:(int)num pageTye:(int)type
+{
+    if(_state.running)
+    {
+        return;
+    }
+    _state = [[TH_AFRequestState loveActivityRequestListWithSucc:^(NSDictionary *DataDic) {
+        
+        if (_currentIndex == 0)
+        {
+            [self setHeadData:DataDic[@"recommend"]];
+             [self.dataArray addObjectsFromArray:DataDic[@"result"]];
+
+        }
+        else
+        {
+            [self.dataArray addObjectsFromArray:DataDic];
+        }
+        [self.tableView reloadData];
+        
+    } resp:[NSObject class] withPage:num withLimit:self.limitNum withType:type] addNotifaction:notify];
+}
+
+- (void)setHeadData:(NSDictionary *)dic
+{
+    [_headView.banner sd_setImageWithURL:[NSURL URLWithString:dic[@"logo"]] placeholderImage:[UIImage imageNamed:@"logoSencond"]];
+    _headView.titleLab.text = dic[@"title"];
+    _headView.hostLab.text = dic[@"organizers"];
+    _headView.addressLab.text = dic[@"address"];
+    _headView.timeLab.text = dic[@"starttime"];
+    _headView.itemTimeView.collectionNumberTitleLable.text = dic[@"collect_count"];
+    _headView.itemTimeView.commendNumberTitleLable.text = dic[@"apply_count"];
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataArray.count;
 }
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    InformationDeskCell* InforCell = [tableView dequeueReusableCellWithIdentifier:@"ID"];
-    
-    if (!InforCell)
+    ActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:@"aId"];
+    if (!cell)
     {
-        InforCell = [[[NSBundle mainBundle] loadNibNamed:@"InformationDeskCell" owner:self options:nil] lastObject];
+        cell = [[ActivityCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"aId"];
     }
-    
-    
     
     if(self.dataArray.count >0)
     {
         if (_currentIndex == 0)
         {
-            informantionModel * model = self.dataArray[indexPath.row];
-            [InforCell setValue:model];
+            
+                NSDictionary *dic = self.dataArray[indexPath.row];
+                cell.eventTitleLable.text = dic[@"title"];
+                cell.holdLable.text = dic[@"organizers"];
+                cell.organizedAddressLable.text = dic[@"address"];
+                cell.organizedTimeTitleLable.text = dic[@"starttime"];
+                cell.collectionNumberTitleLable.text = dic[@"collect_count"];
+                cell.commendNumberTitleLable.text = dic[@"apply_count"];
+                [cell.holdLogoImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"logo"]] placeholderImage:[UIImage imageNamed:@"logoSencond"]];
+                
+
         }
-        if (_currentIndex==1)
+        if (_currentIndex == 1)
         {
-            informantionModel * model = self.dataArray[indexPath.row];
-            [InforCell setValues:model];
+           
+            NSDictionary *dic = self.dataArray[indexPath.row];
+            cell.eventTitleLable.text = dic[@"title"];
+            cell.holdLable.text = dic[@"organizers"];
+            cell.organizedAddressLable.text = dic[@"address"];
+            cell.organizedTimeTitleLable.text = dic[@"starttime"];
+            cell.collectionNumberTitleLable.text = dic[@"collect_count"];
+            cell.commendNumberTitleLable.text = dic[@"apply_count"];
+            [cell.holdLogoImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"logo"]] placeholderImage:[UIImage imageNamed:@"logoSencond"]];
+            
+          
         }
-    
+        
     }
     
-    //    NSLog(@"%@",model.endtime);
-//    [self.cellArray addObject:InforCell];
-    return InforCell;
+    return cell;
+
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 125;
+
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (_currentIndex == 0) {
         TH_InformationDeskDetailVC * detail = [[TH_InformationDeskDetailVC alloc] init];
-        detail.title = @"详情";
-        playFanModel  * model = self.dataArray[indexPath.row];
-        detail.detaildic = model;
-        record_index = indexPath;
-
+       
         [self.navigationController pushViewController:detail animated:YES];
-//[self.navigationController presentViewController:detail animated:YES completion:^{
-//    
-//}];
         
     }else if (_currentIndex==1)
     {
         TH_InformationDeskDetailVC * detail = [[TH_InformationDeskDetailVC alloc] init];
-        detail.title = @"详情";
-        playFanModel  * model = self.dataArray[indexPath.row];
-        detail.detaildic = model;
-        record_index = indexPath;
 
         [self.navigationController pushViewController:detail animated:YES];
     

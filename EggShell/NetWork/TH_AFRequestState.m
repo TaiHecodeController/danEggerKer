@@ -20,6 +20,16 @@
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/index",base_Url] param:param succ:succ resp:resp];
     
 }
+
++(AFRequestState *)loveActivityRequestListWithSucc:(void(^)(NSDictionary * DataDic))succ resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type
+{
+    NSNumber * pagenumber = [NSNumber numberWithInt:pageNumber];
+    NSNumber * limitNum = [NSNumber numberWithInt:limit];
+    NSNumber * typeNum = [NSNumber numberWithInt:type];
+    
+    NSDictionary * param = @{@"page":pagenumber,@"limit":limitNum,@"type":typeNum};
+    return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/act",base_Url] param:param succ:succ resp:resp];
+}
 /*玩出范详情**/
 +(AFRequestState *)playClassDetailRequestWithSucc:(void(^)(NSArray * dataDic))succ withType:(int)type withId:(int) classId
 {
