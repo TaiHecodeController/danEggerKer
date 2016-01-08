@@ -231,15 +231,15 @@
         
     }
     
-    if (self.listArray.count > 0) {
-        
+    if (self.listArray.count > 0)
+    {
         
       cell.positionName.text = self.listArray[indexPath.row][@"name"];
         NSString * dateStr = self.listArray[indexPath.row][@"sdate"];
                cell.time.text = [dateStr substringFromIndex:5];
         cell.addres.text = self.listArray[indexPath.row][@"provinceid"];
         cell.companyName.text = self.listArray[indexPath.row][@"com_name"];
-    cell.knowdelge.text = self.listArray[indexPath.row][@"edu"];
+      cell.knowdelge.text = self.listArray[indexPath.row][@"edu"];
        cell.salary.text = self.listArray[indexPath.row][@"salary"];
     }
     return cell;

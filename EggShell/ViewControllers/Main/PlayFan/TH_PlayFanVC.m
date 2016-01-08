@@ -157,13 +157,15 @@
     
     InformationDeskCell* InforCell = [tableView dequeueReusableCellWithIdentifier:@"ID"];
     
-    if (!InforCell) {
+    if (!InforCell)
+    {
         InforCell = [[[NSBundle mainBundle] loadNibNamed:@"InformationDeskCell" owner:self options:nil] lastObject];
     }
     
     if(self.dataArray.count >0)
     {
-        if (_currentIndex == 0) {
+        if (_currentIndex == 0)
+        {
             informantionModel * model = self.dataArray[indexPath.row];
             [InforCell setValue:model];
         }if (_currentIndex==1) {
