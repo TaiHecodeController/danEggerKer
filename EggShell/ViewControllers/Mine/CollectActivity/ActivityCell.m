@@ -70,6 +70,10 @@
     ItemTimeView * itemView = [[ItemTimeView alloc] initWithFrame:CGRectMake(WIDETH-168*MyWideth-10-72, 93, 72, 12)];
     self.itemView = itemView;
     [self.contentView addSubview:itemView];
+    UIView * boddomView = [[UIView alloc] initWithFrame:CGRectMake(0, 115, WIDETH, 10)];
+    
+    boddomView.backgroundColor = UIColorFromRGB(0xF3F3F1);
+    [self.contentView addSubview:boddomView];
 }
 - (void)awakeFromNib {
     // Initialization code
