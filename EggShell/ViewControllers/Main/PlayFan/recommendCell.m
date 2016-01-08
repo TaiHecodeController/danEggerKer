@@ -35,12 +35,15 @@
         [self addSubview:_titleLab];
         
         _icon1 = [[UIImageView alloc]init];
+        _icon1.image = [UIImage imageNamed:@"holdmain"];
         [self addSubview:_icon1];
         
         _icon2 = [[UIImageView alloc]init];
+         _icon2.image = [UIImage imageNamed:@"holdAddress"];
         [self addSubview:_icon2];
         
         _icon3 = [[UIImageView alloc]init];
+         _icon3.image = [UIImage imageNamed:@"holdtime"];
         [self addSubview:_icon3];
         
         _hostLab = [[UILabel alloc]init];
@@ -69,6 +72,10 @@
         _joinBtn.titleLabel.textColor = UIColorFromRGB(999999);
         _joinBtn.titleLabel.font = [UIFont systemFontOfSize:12];
         [self addSubview:_joinBtn];
+        
+        _itemTimeView = [[ItemTimeView alloc]init];
+        [self addSubview:_itemTimeView];
+
 
     }
     return self;
@@ -95,6 +102,9 @@
     _icon3.frame = CGRectMake(10, CGRectGetMaxY(_icon2.frame) + 10, 10, 10);
     
     _timeLab.frame = CGRectMake(CGRectGetMaxX(_icon3.frame) + 5, CGRectGetMinY(_icon3.frame), WIDETH, 10);
+    
+    _itemTimeView.frame = CGRectMake(WIDETH - 82, CGRectGetMinY(_icon3.frame), 72, 12);
+
 }
 
 - (void)awakeFromNib {

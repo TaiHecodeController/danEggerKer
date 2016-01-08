@@ -13,6 +13,8 @@
 
 //玩出范
 +(AFRequestState *)playClassrRequestWithSucc:(void(^)(NSArray * DataDic))succ resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type;
+//2.3.0爱活动列表
++(AFRequestState *)loveActivityRequestListWithSucc:(void(^)(NSDictionary * DataDic))succ resp:(Class)resp withPage:( int)pageNumber withLimit:(int)limit withType:(int)type;
 /*玩出范详情**/
 +(AFRequestState *)playClassDetailRequestWithSucc:(void(^)(NSArray * dataDic))succ withType:(int)type withId:(int) classId;
 /*职位列表**/

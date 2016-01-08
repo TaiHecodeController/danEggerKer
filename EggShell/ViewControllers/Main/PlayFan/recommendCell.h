@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ItemTimeView.h"
 
 @interface recommendCell : UITableViewCell
 
@@ -20,5 +21,6 @@
 @property (nonatomic, strong) UILabel *hostLab;
 @property (nonatomic, strong) UILabel *addressLab;
 @property (nonatomic, strong) UILabel *timeLab;
+@property (nonatomic, strong) ItemTimeView *itemTimeView;
 
 @end
