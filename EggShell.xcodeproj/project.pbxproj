@@ -329,6 +329,7 @@
 		F07F39091B998B62002531CD /* TeacherFCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F07F39081B998B62002531CD /* TeacherFCModel.m */; };
 		F0811F711C30FED5005D13D7 /* WriteResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0811F701C30FED5005D13D7 /* WriteResumeViewController.m */; };
 		F0811F741C33C1FB005D13D7 /* WorkingExperienceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F0811F731C33C1FB005D13D7 /* WorkingExperienceVC.m */; };
+		F0811F9C1C3F58A0005D13D7 /* recommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0811F9B1C3F58A0005D13D7 /* recommendCell.m */; };
 		F083F8211B9C32F700781C08 /* Me_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F083F8201B9C32F700781C08 /* Me_Request.m */; };
 		F0A8C52F1C192BC0002E6971 /* findJobCarViewS.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A8C52E1C192BC0002E6971 /* findJobCarViewS.m */; };
 		F0B85A391BA11F83005799F5 /* SearchCity1_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B85A381BA11F83005799F5 /* SearchCity1_ViewController.m */; };
@@ -975,6 +976,8 @@
 		F0811F701C30FED5005D13D7 /* WriteResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteResumeViewController.m; sourceTree = "<group>"; };
 		F0811F721C33C1FB005D13D7 /* WorkingExperienceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingExperienceVC.h; sourceTree = "<group>"; };
 		F0811F731C33C1FB005D13D7 /* WorkingExperienceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingExperienceVC.m; sourceTree = "<group>"; };
+		F0811F9A1C3F58A0005D13D7 /* recommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recommendCell.h; sourceTree = "<group>"; };
+		F0811F9B1C3F58A0005D13D7 /* recommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = recommendCell.m; sourceTree = "<group>"; };
 		F083F81F1B9C32F700781C08 /* Me_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Me_Request.h; sourceTree = "<group>"; };
 		F083F8201B9C32F700781C08 /* Me_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Me_Request.m; sourceTree = "<group>"; };
 		F0A8C52D1C192BBA002E6971 /* findJobCarViewS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findJobCarViewS.h; sourceTree = "<group>"; };
@@ -1850,6 +1853,8 @@
 				94EFC1C51B7DC40000833068 /* PlayModel */,
 				94313DAD1B7CAAB5005D0A9A /* TH_PlayFanVC.h */,
 				94313DAE1B7CAAB5005D0A9A /* TH_PlayFanVC.m */,
+				F0811F9A1C3F58A0005D13D7 /* recommendCell.h */,
+				F0811F9B1C3F58A0005D13D7 /* recommendCell.m */,
 			);
 			name = PlayFan;
 			path = Main/PlayFan;
@@ -3343,6 +3348,7 @@
 				94CB305E1BA5169700577FE6 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				0416506A1B4D7240008C78BE /* Gson.m in Sources */,
 				9400329B1B840736001EB666 /* VersionUpdateView.m in Sources */,
+				F0811F9C1C3F58A0005D13D7 /* recommendCell.m in Sources */,
 				F05FC6761C167F7200F0A5BE /* ViewManager.m in Sources */,
 				94CB5B851B74CC0600B23B9D /* NSObject+MJKeyValue.m in Sources */,
 				94CFD1DF1C3E5760006EC310 /* ActivityCell.m in Sources */,
