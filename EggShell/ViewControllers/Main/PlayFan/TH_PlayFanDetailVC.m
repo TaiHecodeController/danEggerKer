@@ -199,6 +199,7 @@
     {
         self.btn3.backgroundColor = [UIColor grayColor];
         self.lab3.text = @"已过期";
+        self.btn3.enabled = NO;
     }
     else
     {
@@ -256,7 +257,7 @@
                 }
                 else
                 {
-                    self.collectBtn.backgroundColor = UIColorFromRGB(0xB9FFAE);
+                    self.collectBtn.backgroundColor =  UIColorFromRGB(0x3ebb2b);
                     self.collectLab.text = @"收藏";
                     self.collectIcon.image = [UIImage imageNamed:@"collectDetail"];
                 }
