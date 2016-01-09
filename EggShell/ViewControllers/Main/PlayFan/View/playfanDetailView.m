@@ -30,7 +30,7 @@
     recruitmentIntroducedHeadLable.font = [UIFont systemFontOfSize:13];
     [self addSubview:recruitmentIntroducedHeadLable];
     UILabel *   recruitmentIntroducedLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 15+13, WIDETH-30, 120)];
-    recruitmentIntroducedLable.text = @"北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司北京蛋壳无限科技有限公司";
+    recruitmentIntroducedLable.text = @"";
     recruitmentIntroducedLable.numberOfLines = 0;
     recruitmentIntroducedLable.textColor = UIColorFromRGB(0x646464);
     recruitmentIntroducedLable.font = [UIFont systemFontOfSize:13];
@@ -43,8 +43,8 @@
     //去掉html标签
     NSString *str =  [self flattenHTML:dic[@"content"] trimWhiteSpace:YES];
     
-    CGSize labelSizeDeatil = [[str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
-self.recruitmentIntroducedLable.text =  [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
+    CGSize labelSizeDeatil = [[str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""] sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(WIDETH - 30, 2000)];
+    self.recruitmentIntroducedLable.text =  [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
 }
 
 -(NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim

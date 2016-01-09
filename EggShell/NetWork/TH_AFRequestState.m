@@ -32,18 +32,21 @@
 }
 
 
-+(AFRequestState *)collectRequestWithSucc:(void(^)(NSDictionary *DataDic))succ resp:(Class)resp activeId:(NSString *)activeId uid:(NSString *)uid
++(AFRequestState *)collectRequestWithSucc:(void(^)(NSDictionary *DataDic))succ resp:(Class)resp activeId:(NSString *)activeId uid:(NSString *)uid token:(NSString *)token
+
 {
-    NSDictionary * param = @{@"id":activeId,@"uid":uid};
+    NSDictionary * param = @{@"id":activeId,@"uid":uid,@"token":token};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/act_collect",base_Url] param:param succ:succ resp:resp];
 }
 
-+(AFRequestState *)signUpRequestWithSucc:(void(^)(NSDictionary *DataDic))succ resp:(Class)resp activeId:(NSString *)activeId uid:(NSString *)uid
++(AFRequestState *)signUpRequestWithSucc:(void(^)(NSDictionary *DataDic))succ resp:(Class)resp activeId:(NSString *)activeId uid:(NSString *)uid token:(NSString *)token
+
 {
-    NSDictionary * param = @{@"id":activeId,@"uid":uid};
+    NSDictionary * param = @{@"id":activeId,@"uid":uid,@"token":token};
     return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/act_apply",base_Url] param:param succ:succ resp:resp];
 
 }
+
 /*玩出范详情**/
 +(AFRequestState *)playClassDetailRequestWithSucc:(void(^)(NSArray * dataDic))succ withType:(int)type withId:(int) classId
 {
@@ -299,7 +302,7 @@ return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Vtalent",base_Url
 {
  return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Update/index",base_Url] param:dic succ:succ ];
 }
-/*版本更新**/
+
 +(AFRequestState*)activityWithSucc:(void(^)(NSDictionary * dic))succ withd:(NSDictionary*)dic
 {
 return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/actdetail",base_Url] param:dic succ:succ ];
