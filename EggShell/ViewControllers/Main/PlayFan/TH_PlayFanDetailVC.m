@@ -10,7 +10,8 @@
 #import "playDetailTitleView.h"
 #import "playfanDetailView.h"
 #import "shareCustomView.h"
-@interface TH_PlayFanDetailVC ()<shareCustomViewDelegate>
+#import "TH_LoginVC.h"
+@interface TH_PlayFanDetailVC ()<shareCustomViewDelegate,UIAlertViewDelegate>
 @property(nonatomic,strong)NSDictionary *  dataDic;
 //报名按钮
 @property (nonatomic, strong) UIButton *btn3;
@@ -110,14 +111,13 @@
 
 -(void)createRightView
 {
-    /*左边view编辑btn**/
+    /*btn**/
     UIButton *share = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 20)];
     [share addTarget:self action:@selector(editdownShareClick) forControlEvents:UIControlEventTouchUpInside];
     [share setBackgroundImage:[UIImage imageNamed:@"shareImage"] forState:UIControlStateNormal];
        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:share];
 }
-
-#pragma mark  分享
+#pragma mark --- 分享
 -(void)editdownShareClick
 {
     shareCustomView *shareView = [[shareCustomView alloc] init];
@@ -146,7 +146,7 @@
         bottomBtn.tag = 10+i;
         bottomBtn.backgroundColor = UIColorFromRGB(0x3ebb2b);
         [bottomView addSubview:bottomBtn];
-        [bottomBtn addTarget:self action:@selector(bottomClikc:) forControlEvents:UIControlEventTouchUpInside];
+//        [bottomBtn addTarget:self action:@selector(bottomClikc:) forControlEvents:UIControlEventTouchUpInside];
         
         if (bottomBtn.tag == 12)
         {
@@ -160,6 +160,7 @@
         
         if (i==0)
         {
+            [bottomBtn addTarget:self action:@selector(bottomClikcCollect) forControlEvents:UIControlEventTouchUpInside];
             UIImageView * collectImageView = [[UIImageView alloc] initWithFrame:CGRectMake(bottomBtn.frame.size.width/2.0-24, 11, 19, 18)];
             collectImageView.image = [UIImage imageNamed:@"collectDetail"];
             [bottomBtn addSubview:collectImageView];
@@ -174,6 +175,7 @@
         }
         if (i==1)
         {
+            [bottomBtn addTarget:self action:@selector(bottomComment) forControlEvents:UIControlEventTouchUpInside];
             UIImageView * commentImageView = [[UIImageView alloc] initWithFrame:CGRectMake(bottomBtn.frame.size.width/2.0-25, 12, 20, 16.5)];
             commentImageView.image = [UIImage imageNamed:@"comment"];
             [bottomBtn addSubview:commentImageView];
@@ -182,9 +184,11 @@
             commentLable.font = [UIFont systemFontOfSize:15];
             commentLable.textColor = [UIColor whiteColor];
             [bottomBtn addSubview:commentLable];
+            
         }
         if (i==2)
         {
+            [bottomBtn addTarget:self action:@selector(bottomClikcCommit) forControlEvents:UIControlEventTouchUpInside];
             UIImageView * registerImageView = [[UIImageView alloc] initWithFrame:CGRectMake((bottomBtn.frame.size.width-89)/2.0, 11.5, 19, 17)];
             registerImageView.image = [UIImage imageNamed:@"register"];
             [bottomBtn addSubview:registerImageView];
@@ -240,16 +244,17 @@
     }
     
 }
-
-#pragma mark -- 收藏 评论 我要报名
-- (void)bottomClikc:(UIButton*)sender
+#pragma mark -- 收藏
+-(void)bottomClikcCollect
 {
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSString *userToken = [df objectForKey:@"md5_token"];
     NSString * userUid = [df objectForKey:@"uid"];
     
-    if (sender.tag ==10)
+    [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+    if([AppDelegate instance].userId)
     {
+        
         //收藏
         [[TH_AFRequestState collectRequestWithSucc:^(NSDictionary *DataDic) {
             
@@ -260,8 +265,8 @@
                 if ([DataDic[@"data"] isEqualToString:@"收藏成功"])
                 {
                     self.collectLab.text = @"已收藏";
-                     self.collectIcon.image = [UIImage imageNamed:@"collectnum"];
-//                    self.collectBtn.backgroundColor = UIColorFromRGB(0xeb7a23);
+                    self.collectIcon.image = [UIImage imageNamed:@"collectnum"];
+                    self.collectBtn.backgroundColor = UIColorFromRGB(0xeb7a23);
                 }
                 else
                 {
@@ -272,17 +277,39 @@
             }
             else
             {
-                 [MBProgressHUD creatembHub:@"操作失败"];
+                [MBProgressHUD creatembHub:@"操作失败"];
             }
             
         } resp:nil activeId:self.activityId uid:userUid token:userToken] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
-    }
-    if (sender.tag==11)
+    }else
     {
-        NSLog(@"评论");
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请先登录才能收藏" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
+        alertView.delegate = self;
+        alertView.tag = 1000;
+        [alertView show];
     }
-    if (sender.tag==12)
+
+}
+#pragma mark -- 评论 
+-(void)bottomComment
+{
+    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString *userToken = [df objectForKey:@"md5_token"];
+    NSString * userUid = [df objectForKey:@"uid"];
+    
+    [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+    
+}
+#pragma mark -- 我要报名
+-(void)bottomClikcCommit
+{NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+    NSString *userToken = [df objectForKey:@"md5_token"];
+    NSString * userUid = [df objectForKey:@"uid"];
+    
+    [AppDelegate instance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+    if([AppDelegate instance].userId)
     {
+        
         //报名
         [[TH_AFRequestState signUpRequestWithSucc:^(NSDictionary *DataDic) {
             
@@ -308,15 +335,49 @@
                 [MBProgressHUD creatembHub:@"操作失败"];
             }
         } resp:nil activeId:self.activityId uid:userUid token:userToken] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
+    }else
+    {
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请先登录才能报名" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
+        alertView.delegate = self;
+        alertView.tag = 1001;
+        [alertView show];
     }
 
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+#pragma mark -- alertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+    {
+        //收藏
+        if (alertView.tag == 1000) {
+            if(buttonIndex == 1)
+            {        TH_LoginVC * lvcs = [[TH_LoginVC alloc] init];
+                lvcs.findJobDetailApplication = @"findJobDetailApplication";
+                lvcs.loginBlock = ^()
+                {
+                                  [self bottomClikcCollect];
+                };
+                [self.navigationController pushViewController:lvcs animated:YES];
+                
+            }
+        }
+        //报名
+        if (alertView.tag == 1001) {
+            if(buttonIndex == 1)
+            {        TH_LoginVC * lvcs = [[TH_LoginVC alloc] init];
+                lvcs.findJobDetailApplication = @"findJobDetailApplication";
+                lvcs.loginBlock = ^()
+                {
+                                   [self bottomClikcCommit];
+                };
+                [self.navigationController pushViewController:lvcs animated:YES];
+                
+            }
+        }
+        
+    }
+    
 -(NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim
 {
     NSScanner *theScanner = [NSScanner scannerWithString:html];
