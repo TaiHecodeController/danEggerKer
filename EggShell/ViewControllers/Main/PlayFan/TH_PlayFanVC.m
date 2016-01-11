@@ -122,6 +122,7 @@
     tableView.dataSource = self;
     tableView.delegate = self;
     self.tableView = tableView;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:tableView];

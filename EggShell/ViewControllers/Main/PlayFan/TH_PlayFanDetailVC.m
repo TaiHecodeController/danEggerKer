@@ -76,13 +76,13 @@
 }
 -(void)createRightView
 {
-    /*左边view编辑btn**/
+    /*btn**/
     UIButton *share = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 20)];
     [share addTarget:self action:@selector(editdownShareClick) forControlEvents:UIControlEventTouchUpInside];
     [share setBackgroundImage:[UIImage imageNamed:@"shareImage"] forState:UIControlStateNormal];
        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:share];
 }
-#pragma mark  分享
+#pragma mark --- 分享
 -(void)editdownShareClick
 {
 
@@ -165,7 +165,6 @@
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
