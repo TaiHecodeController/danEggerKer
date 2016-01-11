@@ -129,6 +129,11 @@
 -(void)shareButtonActionWithTag:(NSInteger)btnTag
 {
     NSLog(@"点击tag%ld",btnTag);
+    if (btnTag == 0)
+    {
+        //qq分享
+        
+    }
 }
 
 -(void)createView
