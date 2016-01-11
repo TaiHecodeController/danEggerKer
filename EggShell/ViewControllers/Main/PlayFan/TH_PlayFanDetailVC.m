@@ -82,7 +82,11 @@
         //配置报名收藏按钮状态
         [self setSignUpBtn:dic[@"data"]];
         
+        THLog(@"block里");
+        
     } withd:param] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
+    
+    THLog(@"block外");
 
 }
 
@@ -97,7 +101,11 @@
         [self createView];
         [self createRightView];
         
+         THLog(@"block里");
+        
     } withd:param] addNotifaction:[MBProgressHUD mbHubShowMBProgressHubView:self]];
+    
+     THLog(@"block外");
 }
 
 -(void)createRightView
@@ -221,7 +229,7 @@
         //收藏
         self.collectLab.text = @"已收藏";
         self.collectIcon.image = [UIImage imageNamed:@"collectnum"];
-        self.collectBtn.backgroundColor = UIColorFromRGB(0xeb7a23);
+//        self.collectBtn.backgroundColor = UIColorFromRGB(0xeb7a23);
     }
     else if ([dic[@"is_collect_count"] integerValue] == 2)
     {
@@ -253,7 +261,7 @@
                 {
                     self.collectLab.text = @"已收藏";
                      self.collectIcon.image = [UIImage imageNamed:@"collectnum"];
-                    self.collectBtn.backgroundColor = UIColorFromRGB(0xeb7a23);
+//                    self.collectBtn.backgroundColor = UIColorFromRGB(0xeb7a23);
                 }
                 else
                 {
