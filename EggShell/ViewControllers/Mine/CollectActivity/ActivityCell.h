@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ItemTimeView.h"
+#import "playFanModel.h"
 @interface ActivityCell : UITableViewCell
 /*活动标题**/
 @property(nonatomic,strong)UILabel * eventTitleLable;
@@ -25,5 +26,5 @@
 @property(nonatomic,strong)UIImageView * holdLogoImageView;
 @property(nonatomic,strong)ItemTimeView * itemView;
 
-
+-(void)configValues:(playFanModel *)dic;
 @end

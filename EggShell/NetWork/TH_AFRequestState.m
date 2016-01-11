@@ -302,9 +302,14 @@ return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Vtalent",base_Url
 {
  return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Update/index",base_Url] param:dic succ:succ ];
 }
-
+/*活动详情**/
 +(AFRequestState*)activityWithSucc:(void(^)(NSDictionary * dic))succ withd:(NSDictionary*)dic
 {
 return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/actdetail",base_Url] param:dic succ:succ ];
+}
+//活动收藏报名
++(AFRequestState*)activityRegistrationFavoritesWithSucc:(void(^)(NSArray * dic))succ withd:(NSDictionary*)dic resp:(Class)resp
+{
+return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Activity/my_act",base_Url] param:dic succ:succ resp:resp];
 }
 @end

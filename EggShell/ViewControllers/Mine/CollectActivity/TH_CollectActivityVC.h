@@ -9,5 +9,5 @@
 #import "TH_BaseVC.h"
 
 @interface TH_CollectActivityVC : TH_BaseVC
-
+@property(nonatomic,assign) int activityType;
 @end

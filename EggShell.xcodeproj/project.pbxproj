@@ -1231,7 +1231,6 @@
 		041650331B4D7141008C78BE /* EggShell */ = {
 			isa = PBXGroup;
 			children = (
-				04A483D81B78AE00006FDB9D /* Views */,
 				041650DC1B4D7718008C78BE /* NetWork */,
 				04A483B11B74FCE2006FDB9D /* ViewControllers */,
 				041650381B4D7141008C78BE /* AppDelegate.h */,
@@ -1559,7 +1558,8 @@
 			children = (
 				94E5E5E81C085A6800CF60A0 /* Mine */,
 			);
-			path = Views;
+			name = Views;
+			path = ../../../Views;
 			sourceTree = "<group>";
 		};
 		940032961B840736001EB666 /* VersionUpdate */ = {
@@ -1825,6 +1825,7 @@
 		941A9EB21C191751000FFA4D /* HomeViewS */ = {
 			isa = PBXGroup;
 			children = (
+				04A483D81B78AE00006FDB9D /* Views */,
 				941A9EB31C191751000FFA4D /* FamousRecommendedView.h */,
 				941A9EB41C191751000FFA4D /* FamousRecommendedView.m */,
 				941A9EB51C191751000FFA4D /* FindjobView.h */,

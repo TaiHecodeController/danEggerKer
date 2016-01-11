@@ -28,5 +28,4 @@
     NSDictionary * param = @{@"pagesize":pageSie,@"page":page};
     return [self postRequestWithUrl:@"http://195.198.1.211/eggker/interface/api.php/video/getPageList" param:param succ:succ resp:resp];
 }
-
 @end

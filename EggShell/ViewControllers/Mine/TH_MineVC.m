@@ -360,19 +360,32 @@
         }
         case THMineViewButtonTypecompletionActivity:
         {
+            NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+            if(![userDefault objectForKey:@"uid"])
+            {
+                [MBProgressHUD creatembHub:@"请先登录才能查看"];
+            return;
+                }
             NSLog(@"已报名活动");
             
             TH_CollectActivityVC * collectActivity = [[TH_CollectActivityVC alloc] init];
             collectActivity.title = @"已报名的活动";
+            collectActivity.activityType = 2;
             [self.navigationController pushViewController:collectActivity animated:YES];
-
-            
             break;
         }case THMineViewButtonTypecollectionActivity:
         {
+            NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+            if(![userDefault objectForKey:@"uid"])
+            {
+                [MBProgressHUD creatembHub:@"请先登录才能查看"];
+            return;
+        }
+
             NSLog(@"收藏活动");
             TH_CollectActivityVC * collectActivity = [[TH_CollectActivityVC alloc] init];
             collectActivity.title = @"收藏的活动";
+            collectActivity.activityType = 1;
             [self.navigationController pushViewController:collectActivity animated:YES];
             break;
         }

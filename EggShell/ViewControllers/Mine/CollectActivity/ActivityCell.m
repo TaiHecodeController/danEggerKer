@@ -22,7 +22,7 @@
 {
     /*活动logo**/
     UIImageView * holdLogoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WIDETH-168*MyHeight-10, 10, 168*MyHeight, 95)];
-//    holdLogoImageView.image = [UIImage imageNamed:@"logoSencond"];
+    holdLogoImageView.image = [UIImage imageNamed:@"logoSencond"];
     [self.contentView addSubview:holdLogoImageView];
     self.holdLogoImageView = holdLogoImageView;
     /*活动标题**/
@@ -78,7 +78,24 @@
 - (void)awakeFromNib {
     // Initialization code
 }
-
+-(void)configValues:(playFanModel *)model
+{
+    /*活动logo**/
+    [self.holdLogoImageView sd_setImageWithURL:[NSURL URLWithString:model.logo] placeholderImage:[UIImage imageNamed:@"logoSencond"]];
+    /*活动标题**/
+    self.eventTitleLable.text = model.title;
+    /*主办方**/
+    self.holdLable.text = model.organizers;
+    /*活动地址**/
+    self.organizedAddressLable.text = model.address;
+    /*活动时间**/
+    self.organizedTimeTitleLable.text = model.starttime;
+    /*收藏数量**/
+    self.itemView.collectionNumberTitleLable.text = model.collect_count;
+    /*评论人数**/
+    self.itemView.commendNumberTitleLable.text = model.apply_count;
+   
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

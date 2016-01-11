@@ -202,7 +202,6 @@
 
     }
 }
-
 -(void)createView
 {
     UIView * bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT-64-44, WIDETH, 44)];
@@ -417,7 +416,6 @@
 
 
 }
-
 #pragma mark -- alertViewDelegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
     {

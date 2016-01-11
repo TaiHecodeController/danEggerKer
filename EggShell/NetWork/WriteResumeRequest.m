@@ -149,5 +149,4 @@ return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/cert_list"
      NSDictionary *param = @{@"token":token,@"uid":uid,@"eid":eid};
      return [self postRequestWithUrl:[NSString stringWithFormat:@"%@Except/resume_type_list",base_Url] param:param succ:succ];
 }
-
 @end
