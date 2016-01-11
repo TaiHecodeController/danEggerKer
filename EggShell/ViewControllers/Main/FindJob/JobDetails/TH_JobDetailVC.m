@@ -634,7 +634,7 @@
     }
     else
     {
-        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请先登录才能收藏" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录", nil];
         alertView.delegate = self;
         [alertView show];
     }
