@@ -26,8 +26,56 @@
 	<string>2.2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>QQ41d9ca39</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tencent1104792121</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wxdbe3c106ce5c4205</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>2.2</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>mqqOpensdkSSoLogin</string>
+		<string>mqzone</string>
+		<string>sinaweibo</string>
+		<string>alipayauth</string>
+		<string>alipay</string>
+		<string>safepay</string>
+		<string>mqq</string>
+		<string>mqqapi</string>
+		<string>mqqopensdkapiV3</string>
+		<string>mqqopensdkapiV2</string>
+		<string>mqqapiwallet</string>
+		<string>mqqwpa</string>
+		<string>mqqbrowser</string>
+		<string>wtloginmqq2</string>
+		<string>weixin</string>
+		<string>wechat</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

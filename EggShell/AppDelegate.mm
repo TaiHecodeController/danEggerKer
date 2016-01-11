@@ -16,6 +16,10 @@
 #import "TH_PlayFanVC.h"
 #import "EnterpriseDetailVC.h"
 #import "SearchModelShare.h"
+#import "UMSocial.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocialWechatHandler.h"
+
 @interface AppDelegate ()<BMKGeneralDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,UIAlertViewDelegate>
 {
     NSString * _trackViewUrl;
@@ -91,7 +95,11 @@
 //判断控制器进入次数
     int count1 =1;
     [SearchModelShare sharedInstance].tip =count1;
-   
+    
+     [UMSocialData setAppKey:UMengAppKey];
+     [UMSocialQQHandler setQQWithAppId:@"1104792121" appKey:@"fWiSdRHtrOfUg6ZI" url:@"http://www.umeng.com/social"];
+     [UMSocialWechatHandler setWXAppId:@"wxdbe3c106ce5c4205" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:@"http://www.umeng.com/social"];
+    
     return YES;
     
 }
@@ -199,6 +207,15 @@
     else{
         return UIInterfaceOrientationMaskPortrait;
     }
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+    }
+    return result;
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

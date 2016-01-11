@@ -11,6 +11,9 @@
 #import "playfanDetailView.h"
 #import "shareCustomView.h"
 #import "TH_LoginVC.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocial.h"
+
 @interface TH_PlayFanDetailVC ()<shareCustomViewDelegate,UIAlertViewDelegate>
 @property(nonatomic,strong)NSDictionary *  dataDic;
 //报名按钮
@@ -128,11 +131,75 @@
 #pragma mark ---分享点击事件
 -(void)shareButtonActionWithTag:(NSInteger)btnTag
 {
-    NSLog(@"点击tag%ld",btnTag);
+    NSLog(@"点击tag%ld",(long)btnTag);
     if (btnTag == 0)
     {
         //qq分享
+        [UMSocialData defaultData].extConfig.qqData.url = @"http://baidu.com";
+        [UMSocialData defaultData].extConfig.qqData.title = @"QQ分享title";
+        [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
+        [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToQQ] content:@"分享文字" image: [UIImage imageNamed:@"qqshare"] location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
+            if (response.responseCode == UMSResponseCodeSuccess) {
+                NSLog(@"分享成功！");
+            }
+        }];
         
+    }
+    else if(btnTag == 1)
+    {
+        //新浪
+    }
+    else if (btnTag == 2)
+    {
+        //Qzone
+        [UMSocialData defaultData].extConfig.qzoneData.url = @"http://baidu.com";
+        [UMSocialData defaultData].extConfig.qzoneData.title = @"Qzone分享title";
+        [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToQzone] content:@"分享文字" image:[UIImage imageNamed:@"qqshare"] location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
+            if (response.responseCode == UMSResponseCodeSuccess) {
+                NSLog(@"分享成功！");
+            }
+        }];
+    }
+    else if (btnTag == 3)
+    {
+         //使用UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite分别代表微信好友、微信朋友圈、微信收藏
+//        //纯图片分享类型方法为
+//        [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
+
+//        //纯文字分享类型方法为
+//        [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeText;
+//
+//        //应用分享类型方法
+        [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeApp;
+
+        //微信
+        [UMSocialData defaultData].extConfig.wechatSessionData.title = @"微信好友title";
+
+        [UMSocialData defaultData].extConfig.wechatSessionData.url = @"http://baidu.com";
+        [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToWechatSession] content:@"分享内嵌文字" image:[UIImage imageNamed:@"qqshare"] location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
+            if (response.responseCode == UMSResponseCodeSuccess) {
+                NSLog(@"分享成功！");
+            }
+        }];
+    }
+    else if (btnTag == 4)
+    {
+        //朋友圈
+        //纯文字分享类型方法为
+        //        [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeText;
+        //
+        //        //应用分享类型方法
+        //        //纯图片分享类型方法为
+        //        [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
+        [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeApp;
+        [UMSocialData defaultData].extConfig.wechatTimelineData.url = @"http://baidu.com";
+        [UMSocialData defaultData].extConfig.wechatTimelineData.title = @"微信朋友圈title";
+        [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToWechatTimeline] content:@"分享内嵌文字" image:[UIImage imageNamed:@"qqshare"] location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
+            if (response.responseCode == UMSResponseCodeSuccess) {
+                NSLog(@"分享成功！");
+            }
+        }];
+
     }
 }
 
