@@ -82,7 +82,6 @@
 
 -(void)createView
 {
-    
     UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, WIDETH, 0.5)];
     bgView.backgroundColor = color(221, 221, 221);
     [self.view addSubview:bgView];
@@ -240,11 +239,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    NSDictionary *dic = self.dataArray[indexPath.row];
     if (_currentIndex == 0)
     {
-        NSDictionary *dic = self.dataArray[indexPath.row];
-        TH_PlayFanDetailVC * detail = [[TH_PlayFanDetailVC alloc] init];
+                TH_PlayFanDetailVC * detail = [[TH_PlayFanDetailVC alloc] init];
         detail.activityId = dic[@"id"];
         [self.navigationController pushViewController:detail animated:YES];
         
@@ -252,11 +250,11 @@
     else if (_currentIndex==1)
     {
         TH_PlayFanDetailVC * detail = [[TH_PlayFanDetailVC alloc] init];
-         detail.activityMark  = @"";
+        detail.iShistory  = YES;
+        detail.activityId = dic[@"id"];
         [self.navigationController pushViewController:detail animated:YES];
     
     }
-    
 }
 
 #pragma mark -- MJRefresh

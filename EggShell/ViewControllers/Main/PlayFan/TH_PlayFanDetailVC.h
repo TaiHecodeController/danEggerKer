@@ -10,5 +10,7 @@
 
 @interface TH_PlayFanDetailVC : TH_BaseVC
 @property(nonatomic,strong)NSString * activityId;
-@property(nonatomic,strong)NSString * activityMark;
+//是不是往期回顾
+@property (nonatomic, assign) BOOL iShistory;
+
 @end
